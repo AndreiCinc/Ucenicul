@@ -1,0 +1,2371 @@
+{
+  "timestamp": "2026-04-04T11:21:22.305Z",
+  "filter": null,
+  "summary": {
+    "total": 111,
+    "pass": 111,
+    "partial": 0,
+    "fail": 0,
+    "error": 0
+  },
+  "results": [
+    {
+      "id": "A1",
+      "status": "PASS",
+      "checks": [
+        {
+          "field": "intent",
+          "expected": "list_tasks",
+          "actual": "list_tasks",
+          "pass": true
+        },
+        {
+          "field": "filter_scope",
+          "expected": "all",
+          "actual": "all",
+          "pass": true
+        },
+        {
+          "field": "has_task_action",
+          "expected": true,
+          "actual": true,
+          "pass": true
+        },
+        {
+          "field": "no_forbidden_fields",
+          "expected": true,
+          "actual": true,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "A2",
+      "status": "PASS",
+      "checks": [
+        {
+          "field": "intent",
+          "expected": "list_tasks",
+          "actual": "list_tasks",
+          "pass": true
+        },
+        {
+          "field": "filter_scope",
+          "expected": "today",
+          "actual": "today",
+          "pass": true
+        },
+        {
+          "field": "has_task_action",
+          "expected": true,
+          "actual": true,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "A2b",
+      "status": "PASS",
+      "checks": [
+        {
+          "field": "intent",
+          "expected": "list_tasks",
+          "actual": "list_tasks",
+          "pass": true
+        },
+        {
+          "field": "filter_scope",
+          "expected": "today",
+          "actual": "today",
+          "pass": true
+        },
+        {
+          "field": "has_task_action",
+          "expected": true,
+          "actual": true,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "A3",
+      "status": "PASS",
+      "checks": [
+        {
+          "field": "intent",
+          "expected": "list_tasks",
+          "actual": "list_tasks",
+          "pass": true
+        },
+        {
+          "field": "filter_scope",
+          "expected": "tomorrow",
+          "actual": "tomorrow",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "A3b",
+      "status": "PASS",
+      "checks": [
+        {
+          "field": "intent",
+          "expected": "list_tasks",
+          "actual": "list_tasks",
+          "pass": true
+        },
+        {
+          "field": "filter_scope",
+          "expected": "tomorrow",
+          "actual": "tomorrow",
+          "pass": true
+        },
+        {
+          "field": "has_task_action",
+          "expected": true,
+          "actual": true,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "A4",
+      "status": "PASS",
+      "checks": [
+        {
+          "field": "intent",
+          "expected": "list_tasks",
+          "actual": "list_tasks",
+          "pass": true
+        },
+        {
+          "field": "filter_scope",
+          "expected": "day_after_tomorrow",
+          "actual": "day_after_tomorrow",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "A4b",
+      "status": "PASS",
+      "checks": [
+        {
+          "field": "intent",
+          "expected": "list_tasks",
+          "actual": "list_tasks",
+          "pass": true
+        },
+        {
+          "field": "filter_scope",
+          "expected": "day_after_tomorrow",
+          "actual": "day_after_tomorrow",
+          "pass": true
+        },
+        {
+          "field": "has_task_action",
+          "expected": true,
+          "actual": true,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "A5",
+      "status": "PASS",
+      "checks": [
+        {
+          "field": "intent",
+          "expected": "list_tasks",
+          "actual": "list_tasks",
+          "pass": true
+        },
+        {
+          "field": "filter_scope",
+          "expected": "overdue",
+          "actual": "overdue",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "A5b",
+      "status": "PASS",
+      "checks": [
+        {
+          "field": "intent",
+          "expected": "list_tasks",
+          "actual": "list_tasks",
+          "pass": true
+        },
+        {
+          "field": "filter_scope",
+          "expected": "overdue",
+          "actual": "overdue",
+          "pass": true
+        },
+        {
+          "field": "has_task_action",
+          "expected": true,
+          "actual": true,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "A6",
+      "status": "PASS",
+      "checks": [
+        {
+          "field": "intent",
+          "expected": "list_tasks",
+          "actual": "list_tasks",
+          "pass": true
+        },
+        {
+          "field": "filter_scope",
+          "expected": "urgent",
+          "actual": "urgent",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "A7",
+      "status": "PASS",
+      "checks": [
+        {
+          "field": "intent",
+          "expected": "list_tasks",
+          "actual": "list_tasks",
+          "pass": true
+        },
+        {
+          "field": "filter_scope",
+          "expected": "high",
+          "actual": "high",
+          "pass": true
+        },
+        {
+          "field": "has_task_action",
+          "expected": true,
+          "actual": true,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "A8",
+      "status": "PASS",
+      "checks": [
+        {
+          "field": "intent",
+          "expected": "list_tasks",
+          "actual": "list_tasks",
+          "pass": true
+        },
+        {
+          "field": "filter_scope",
+          "expected": "this_week",
+          "actual": "this_week",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "A8b",
+      "status": "PASS",
+      "checks": [
+        {
+          "field": "intent",
+          "expected": "list_tasks",
+          "actual": "list_tasks",
+          "pass": true
+        },
+        {
+          "field": "filter_scope",
+          "expected": "this_week",
+          "actual": "this_week",
+          "pass": true
+        },
+        {
+          "field": "has_task_action",
+          "expected": true,
+          "actual": true,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "A9",
+      "status": "PASS",
+      "checks": [
+        {
+          "field": "intent",
+          "expected": "list_tasks",
+          "actual": "list_tasks",
+          "pass": true
+        },
+        {
+          "field": "filter_scope",
+          "expected": "this_month",
+          "actual": "this_month",
+          "pass": true
+        },
+        {
+          "field": "has_task_action",
+          "expected": true,
+          "actual": true,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "B1",
+      "status": "PASS",
+      "checks": [
+        {
+          "field": "intent",
+          "expected": "list_tasks",
+          "actual": "list_tasks",
+          "pass": true
+        },
+        {
+          "field": "domain",
+          "expected": "airbnb",
+          "actual": "airbnb",
+          "pass": true
+        },
+        {
+          "field": "has_task_action",
+          "expected": true,
+          "actual": true,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "B2",
+      "status": "PASS",
+      "checks": [
+        {
+          "field": "intent",
+          "expected": "list_tasks",
+          "actual": "list_tasks",
+          "pass": true
+        },
+        {
+          "field": "domain",
+          "expected": "cleaning",
+          "actual": "cleaning",
+          "pass": true
+        },
+        {
+          "field": "has_task_action",
+          "expected": true,
+          "actual": true,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "B3",
+      "status": "PASS",
+      "checks": [
+        {
+          "field": "intent",
+          "expected": "list_tasks",
+          "actual": "list_tasks",
+          "pass": true
+        },
+        {
+          "field": "domain",
+          "expected": "green_spaces",
+          "actual": "green_spaces",
+          "pass": true
+        },
+        {
+          "field": "filter_scope",
+          "expected": "today",
+          "actual": "today",
+          "pass": true
+        },
+        {
+          "field": "has_task_action",
+          "expected": true,
+          "actual": true,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "C1",
+      "status": "PASS",
+      "checks": [
+        {
+          "field": "intent",
+          "expected": "complete_task",
+          "actual": "complete_task",
+          "pass": true
+        },
+        {
+          "field": "has_task_action",
+          "expected": true,
+          "actual": true,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "C2",
+      "status": "PASS",
+      "checks": [
+        {
+          "field": "intent",
+          "expected": "cancel_task",
+          "actual": "cancel_task",
+          "pass": true
+        },
+        {
+          "field": "has_task_action",
+          "expected": true,
+          "actual": true,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "D1",
+      "status": "PASS",
+      "checks": [
+        {
+          "field": "intent",
+          "expected": "list_reminders",
+          "actual": "list_reminders",
+          "pass": true
+        },
+        {
+          "field": "filter_scope",
+          "expected": "all",
+          "actual": "all",
+          "pass": true
+        },
+        {
+          "field": "has_reminder_action",
+          "expected": true,
+          "actual": true,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "D2",
+      "status": "PASS",
+      "checks": [
+        {
+          "field": "intent",
+          "expected": "list_reminders",
+          "actual": "list_reminders",
+          "pass": true
+        },
+        {
+          "field": "filter_scope",
+          "expected": "today",
+          "actual": "today",
+          "pass": true
+        },
+        {
+          "field": "has_reminder_action",
+          "expected": true,
+          "actual": true,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "D3",
+      "status": "PASS",
+      "checks": [
+        {
+          "field": "intent",
+          "expected": "list_reminders",
+          "actual": "list_reminders",
+          "pass": true
+        },
+        {
+          "field": "filter_scope",
+          "expected": "tomorrow",
+          "actual": "tomorrow",
+          "pass": true
+        },
+        {
+          "field": "has_reminder_action",
+          "expected": true,
+          "actual": true,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "E1",
+      "status": "PASS",
+      "checks": [
+        {
+          "field": "intent",
+          "expected": "create_task",
+          "actual": "create_task",
+          "pass": true
+        },
+        {
+          "field": "has_task_action",
+          "expected": true,
+          "actual": true,
+          "pass": true
+        },
+        {
+          "field": "task_has_title",
+          "expected": true,
+          "actual": true,
+          "pass": true
+        },
+        {
+          "field": "task_priority",
+          "expected": "normal",
+          "actual": "normal",
+          "pass": true
+        },
+        {
+          "field": "task_due_type",
+          "expected": "flexible",
+          "actual": "flexible",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "E2",
+      "status": "PASS",
+      "checks": [
+        {
+          "field": "intent",
+          "expected": "create_task",
+          "actual": "create_task",
+          "pass": true
+        },
+        {
+          "field": "has_task_action",
+          "expected": true,
+          "actual": true,
+          "pass": true
+        },
+        {
+          "field": "task_has_title",
+          "expected": true,
+          "actual": true,
+          "pass": true
+        },
+        {
+          "field": "task_due_type",
+          "expected": "date",
+          "actual": "date",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "E3",
+      "status": "PASS",
+      "checks": [
+        {
+          "field": "intent",
+          "expected": "create_task",
+          "actual": "create_task",
+          "pass": true
+        },
+        {
+          "field": "has_task_action",
+          "expected": true,
+          "actual": true,
+          "pass": true
+        },
+        {
+          "field": "task_has_title",
+          "expected": true,
+          "actual": true,
+          "pass": true
+        },
+        {
+          "field": "task_due_type",
+          "expected": "datetime",
+          "actual": "datetime",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "E4",
+      "status": "PASS",
+      "checks": [
+        {
+          "field": "intent",
+          "expected": "create_task",
+          "actual": "create_task",
+          "pass": true
+        },
+        {
+          "field": "has_task_action",
+          "expected": true,
+          "actual": true,
+          "pass": true
+        },
+        {
+          "field": "task_priority",
+          "expected": "urgent",
+          "actual": "urgent",
+          "pass": true
+        },
+        {
+          "field": "task_due_type",
+          "expected": "flexible",
+          "actual": "flexible",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "E5",
+      "status": "PASS",
+      "checks": [
+        {
+          "field": "intent",
+          "expected": "clarify",
+          "actual": "clarify",
+          "pass": true
+        },
+        {
+          "field": "debug_contains",
+          "expected": "missing_task_action_title",
+          "actual": "missing_task_action_title_for_create_task",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "E6",
+      "status": "PASS",
+      "checks": [
+        {
+          "field": "intent",
+          "expected": "create_task",
+          "actual": "create_task",
+          "pass": true
+        },
+        {
+          "field": "has_task_action",
+          "expected": true,
+          "actual": true,
+          "pass": true
+        },
+        {
+          "field": "task_due_type",
+          "expected": "datetime",
+          "actual": "datetime",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "E7",
+      "status": "PASS",
+      "checks": [
+        {
+          "field": "intent",
+          "expected": "create_task",
+          "actual": "create_task",
+          "pass": true
+        },
+        {
+          "field": "has_task_action",
+          "expected": true,
+          "actual": true,
+          "pass": true
+        },
+        {
+          "field": "task_due_type",
+          "expected": "date",
+          "actual": "date",
+          "pass": true
+        },
+        {
+          "field": "task_due_at_null",
+          "expected": true,
+          "actual": true,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "EC1",
+      "status": "PASS",
+      "checks": [
+        {
+          "field": "intent",
+          "expected": "create_task",
+          "actual": "create_task",
+          "pass": true
+        },
+        {
+          "field": "has_task_action",
+          "expected": true,
+          "actual": true,
+          "pass": true
+        },
+        {
+          "field": "has_fallback_rules",
+          "expected": true,
+          "actual": true,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "EC2",
+      "status": "PASS",
+      "checks": [
+        {
+          "field": "intent",
+          "expected": "create_task",
+          "actual": "create_task",
+          "pass": true
+        },
+        {
+          "field": "has_task_action",
+          "expected": true,
+          "actual": true,
+          "pass": true
+        },
+        {
+          "field": "fallback_rules_empty",
+          "expected": true,
+          "actual": true,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "EC3",
+      "status": "PASS",
+      "checks": [
+        {
+          "field": "intent",
+          "expected": "clarify",
+          "actual": "clarify",
+          "pass": true
+        },
+        {
+          "field": "debug_contains",
+          "expected": "missing_improvement_request_feature",
+          "actual": "missing_improvement_request_feature",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "EC4",
+      "status": "PASS",
+      "checks": [
+        {
+          "field": "intent",
+          "expected": "clarify",
+          "actual": "clarify",
+          "pass": true
+        },
+        {
+          "field": "debug_contains",
+          "expected": "parse_error",
+          "actual": "parse_error_Unexpected token 'B', \"Bună! Cu c\"... is not valid JSON",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "EC5",
+      "status": "PASS",
+      "checks": [
+        {
+          "field": "intent",
+          "expected": "create_task",
+          "actual": "create_task",
+          "pass": true
+        },
+        {
+          "field": "has_task_action",
+          "expected": true,
+          "actual": true,
+          "pass": true
+        },
+        {
+          "field": "task_priority",
+          "expected": "normal",
+          "actual": "normal",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "EC6",
+      "status": "PASS",
+      "checks": [
+        {
+          "field": "intent",
+          "expected": "general_response",
+          "actual": "general_response",
+          "pass": true
+        },
+        {
+          "field": "domain",
+          "expected": "airbnb",
+          "actual": "airbnb",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "F1",
+      "status": "PASS",
+      "checks": [
+        {
+          "field": "intent",
+          "expected": "create_reminder",
+          "actual": "create_reminder",
+          "pass": true
+        },
+        {
+          "field": "has_reminder_action",
+          "expected": true,
+          "actual": true,
+          "pass": true
+        },
+        {
+          "field": "reminder_has_title",
+          "expected": true,
+          "actual": true,
+          "pass": true
+        },
+        {
+          "field": "reminder_has_remind_at",
+          "expected": true,
+          "actual": true,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "F2",
+      "status": "PASS",
+      "checks": [
+        {
+          "field": "intent",
+          "expected": "clarify",
+          "actual": "clarify",
+          "pass": true
+        },
+        {
+          "field": "debug_contains",
+          "expected": "missing_reminder_action",
+          "actual": "missing_reminder_action_for_create_reminder",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "F3",
+      "status": "PASS",
+      "checks": [
+        {
+          "field": "intent",
+          "expected": "clarify",
+          "actual": "clarify",
+          "pass": true
+        },
+        {
+          "field": "debug_contains",
+          "expected": "create_reminder_should_not_also_create_task",
+          "actual": "create_reminder_should_not_also_create_task",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "F4",
+      "status": "PASS",
+      "checks": [
+        {
+          "field": "intent",
+          "expected": "cancel_reminder",
+          "actual": "cancel_reminder",
+          "pass": true
+        },
+        {
+          "field": "has_reminder_action",
+          "expected": true,
+          "actual": true,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "G1",
+      "status": "PASS",
+      "checks": [
+        {
+          "field": "intent",
+          "expected": "create_reminder",
+          "actual": "create_reminder",
+          "pass": true
+        },
+        {
+          "field": "has_reminder_action",
+          "expected": true,
+          "actual": true,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "G2a",
+      "status": "PASS",
+      "checks": [
+        {
+          "field": "intent",
+          "expected": "create_reminder",
+          "actual": "create_reminder",
+          "pass": true
+        },
+        {
+          "field": "has_reminder_action",
+          "expected": true,
+          "actual": true,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "G2b",
+      "status": "PASS",
+      "checks": [
+        {
+          "field": "intent",
+          "expected": "create_reminder",
+          "actual": "create_reminder",
+          "pass": true
+        },
+        {
+          "field": "has_reminder_action",
+          "expected": true,
+          "actual": true,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "G2c",
+      "status": "PASS",
+      "checks": [
+        {
+          "field": "intent",
+          "expected": "create_reminder",
+          "actual": "create_reminder",
+          "pass": true
+        },
+        {
+          "field": "has_reminder_action",
+          "expected": true,
+          "actual": true,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "G2d",
+      "status": "PASS",
+      "checks": [
+        {
+          "field": "intent",
+          "expected": "create_reminder",
+          "actual": "create_reminder",
+          "pass": true
+        },
+        {
+          "field": "has_reminder_action",
+          "expected": true,
+          "actual": true,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "G2e",
+      "status": "PASS",
+      "checks": [
+        {
+          "field": "intent",
+          "expected": "create_reminder",
+          "actual": "create_reminder",
+          "pass": true
+        },
+        {
+          "field": "has_reminder_action",
+          "expected": true,
+          "actual": true,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "G2f",
+      "status": "PASS",
+      "checks": [
+        {
+          "field": "intent",
+          "expected": "create_reminder",
+          "actual": "create_reminder",
+          "pass": true
+        },
+        {
+          "field": "has_reminder_action",
+          "expected": true,
+          "actual": true,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "G3",
+      "status": "PASS",
+      "checks": [
+        {
+          "field": "intent",
+          "expected": "create_task",
+          "actual": "create_task",
+          "pass": true
+        },
+        {
+          "field": "has_task_action",
+          "expected": true,
+          "actual": true,
+          "pass": true
+        },
+        {
+          "field": "has_reminder_action",
+          "expected": false,
+          "actual": false,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "G4",
+      "status": "PASS",
+      "checks": [
+        {
+          "field": "intent",
+          "expected": "create_task",
+          "actual": "create_task",
+          "pass": true
+        },
+        {
+          "field": "has_task_action",
+          "expected": true,
+          "actual": true,
+          "pass": true
+        },
+        {
+          "field": "has_reminder_action",
+          "expected": false,
+          "actual": false,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "G4b",
+      "status": "PASS",
+      "checks": [
+        {
+          "field": "intent",
+          "expected": "create_task",
+          "actual": "create_task",
+          "pass": true
+        },
+        {
+          "field": "has_task_action",
+          "expected": true,
+          "actual": true,
+          "pass": true
+        },
+        {
+          "field": "has_reminder_action",
+          "expected": false,
+          "actual": false,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "H1",
+      "status": "PASS",
+      "checks": [
+        {
+          "field": "intent",
+          "expected": "clarify",
+          "actual": "clarify",
+          "pass": true
+        },
+        {
+          "field": "debug_contains",
+          "expected": "old_contract",
+          "actual": "old_contract_fields_detected",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "H2",
+      "status": "PASS",
+      "checks": [
+        {
+          "field": "intent",
+          "expected": "clarify",
+          "actual": "clarify",
+          "pass": true
+        },
+        {
+          "field": "debug_contains",
+          "expected": "wrong_version",
+          "actual": "wrong_version_brain-v2",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "H3",
+      "status": "PASS",
+      "checks": [
+        {
+          "field": "intent",
+          "expected": "clarify",
+          "actual": "clarify",
+          "pass": true
+        },
+        {
+          "field": "debug_contains",
+          "expected": "invalid_intent",
+          "actual": "invalid_intent_help_me",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "H4",
+      "status": "PASS",
+      "checks": [
+        {
+          "field": "intent",
+          "expected": "clarify",
+          "actual": "clarify",
+          "pass": true
+        },
+        {
+          "field": "debug_contains",
+          "expected": "parse_error",
+          "actual": "parse_error_Expected property name or '}' in JSON at position 1 (line 1 column 2)",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "I1",
+      "status": "PASS",
+      "checks": [
+        {
+          "field": "intent",
+          "expected": "update_task",
+          "actual": "update_task",
+          "pass": true
+        },
+        {
+          "field": "has_task_action",
+          "expected": true,
+          "actual": true,
+          "pass": true
+        },
+        {
+          "field": "task_priority",
+          "expected": "urgent",
+          "actual": "urgent",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "I2",
+      "status": "PASS",
+      "checks": [
+        {
+          "field": "intent",
+          "expected": "clarify",
+          "actual": "clarify",
+          "pass": true
+        },
+        {
+          "field": "debug_contains",
+          "expected": "missing_task_action",
+          "actual": "missing_task_action_for_complete_task",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "I3",
+      "status": "PASS",
+      "checks": [
+        {
+          "field": "intent",
+          "expected": "update_reminder",
+          "actual": "update_reminder",
+          "pass": true
+        },
+        {
+          "field": "has_reminder_action",
+          "expected": true,
+          "actual": true,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "I4",
+      "status": "PASS",
+      "checks": [
+        {
+          "field": "intent",
+          "expected": "clarify",
+          "actual": "clarify",
+          "pass": true
+        },
+        {
+          "field": "debug_contains",
+          "expected": "missing_reminder_action",
+          "actual": "missing_reminder_action_for_cancel_reminder",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "J1",
+      "status": "PASS",
+      "checks": [
+        {
+          "field": "intent",
+          "expected": "search_memory",
+          "actual": "search_memory",
+          "pass": true
+        },
+        {
+          "field": "has_memory_action",
+          "expected": true,
+          "actual": true,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "J2",
+      "status": "PASS",
+      "checks": [
+        {
+          "field": "intent",
+          "expected": "clarify",
+          "actual": "clarify",
+          "pass": true
+        },
+        {
+          "field": "debug_contains",
+          "expected": "missing_memory_action_query",
+          "actual": "missing_memory_action_query_for_search_memory",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "J3",
+      "status": "PASS",
+      "checks": [
+        {
+          "field": "intent",
+          "expected": "create_task",
+          "actual": "create_task",
+          "pass": true
+        },
+        {
+          "field": "has_task_action",
+          "expected": true,
+          "actual": true,
+          "pass": true
+        },
+        {
+          "field": "has_memory_writes",
+          "expected": true,
+          "actual": true,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "J4",
+      "status": "PASS",
+      "checks": [
+        {
+          "field": "intent",
+          "expected": "general_response",
+          "actual": "general_response",
+          "pass": true
+        },
+        {
+          "field": "memory_writes_empty",
+          "expected": true,
+          "actual": true,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "K1",
+      "status": "PASS",
+      "checks": [
+        {
+          "field": "intent",
+          "expected": "save_improvement_request",
+          "actual": "save_improvement_request",
+          "pass": true
+        },
+        {
+          "field": "has_improvement_request",
+          "expected": true,
+          "actual": true,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "K2",
+      "status": "PASS",
+      "checks": [
+        {
+          "field": "intent",
+          "expected": "save_improvement_request",
+          "actual": "save_improvement_request",
+          "pass": true
+        },
+        {
+          "field": "has_improvement_request",
+          "expected": true,
+          "actual": true,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "K3",
+      "status": "PASS",
+      "checks": [
+        {
+          "field": "intent",
+          "expected": "save_improvement_request",
+          "actual": "save_improvement_request",
+          "pass": true
+        },
+        {
+          "field": "has_improvement_request",
+          "expected": true,
+          "actual": true,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "L1",
+      "status": "PASS",
+      "checks": [
+        {
+          "field": "intent",
+          "expected": "general_response",
+          "actual": "general_response",
+          "pass": true
+        },
+        {
+          "field": "has_task_action",
+          "expected": false,
+          "actual": false,
+          "pass": true
+        },
+        {
+          "field": "has_reminder_action",
+          "expected": false,
+          "actual": false,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "L2",
+      "status": "PASS",
+      "checks": [
+        {
+          "field": "intent",
+          "expected": "none",
+          "actual": "none",
+          "pass": true
+        },
+        {
+          "field": "has_task_action",
+          "expected": false,
+          "actual": false,
+          "pass": true
+        },
+        {
+          "field": "has_reminder_action",
+          "expected": false,
+          "actual": false,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "L3",
+      "status": "PASS",
+      "checks": [
+        {
+          "field": "intent",
+          "expected": "none",
+          "actual": "none",
+          "pass": true
+        },
+        {
+          "field": "has_task_action",
+          "expected": false,
+          "actual": false,
+          "pass": true
+        },
+        {
+          "field": "has_reminder_action",
+          "expected": false,
+          "actual": false,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "L4",
+      "status": "PASS",
+      "checks": [
+        {
+          "field": "intent",
+          "expected": "general_response",
+          "actual": "general_response",
+          "pass": true
+        },
+        {
+          "field": "has_task_action",
+          "expected": false,
+          "actual": false,
+          "pass": true
+        },
+        {
+          "field": "has_reminder_action",
+          "expected": false,
+          "actual": false,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "M1",
+      "status": "PASS",
+      "checks": [
+        {
+          "field": "intent",
+          "expected": "cancel_task",
+          "actual": "cancel_task",
+          "pass": true
+        },
+        {
+          "field": "has_task_action",
+          "expected": true,
+          "actual": true,
+          "pass": true
+        },
+        {
+          "field": "task_has_title",
+          "expected": true,
+          "actual": true,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "M2",
+      "status": "PASS",
+      "checks": [
+        {
+          "field": "intent",
+          "expected": "cancel_task",
+          "actual": "cancel_task",
+          "pass": true
+        },
+        {
+          "field": "has_task_action",
+          "expected": true,
+          "actual": true,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "M3",
+      "status": "PASS",
+      "checks": [
+        {
+          "field": "intent",
+          "expected": "clarify",
+          "actual": "clarify",
+          "pass": true
+        },
+        {
+          "field": "has_task_action",
+          "expected": false,
+          "actual": false,
+          "pass": true
+        },
+        {
+          "field": "debug_contains",
+          "expected": "missing_task_action_for_cancel_task",
+          "actual": "missing_task_action_for_cancel_task",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "M4",
+      "status": "PASS",
+      "checks": [
+        {
+          "field": "intent",
+          "expected": "cancel_task",
+          "actual": "cancel_task",
+          "pass": true
+        },
+        {
+          "field": "has_task_action",
+          "expected": true,
+          "actual": true,
+          "pass": true
+        },
+        {
+          "field": "task_has_title",
+          "expected": true,
+          "actual": true,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "M5",
+      "status": "PASS",
+      "checks": [
+        {
+          "field": "intent",
+          "expected": "cancel_task",
+          "actual": "cancel_task",
+          "pass": true
+        },
+        {
+          "field": "has_task_action",
+          "expected": true,
+          "actual": true,
+          "pass": true
+        },
+        {
+          "field": "task_has_title",
+          "expected": true,
+          "actual": true,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "M6",
+      "status": "PASS",
+      "checks": [
+        {
+          "field": "intent",
+          "expected": "clarify",
+          "actual": "clarify",
+          "pass": true
+        },
+        {
+          "field": "has_task_action",
+          "expected": false,
+          "actual": false,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "M7",
+      "status": "PASS",
+      "checks": [
+        {
+          "field": "intent",
+          "expected": "cancel_task",
+          "actual": "cancel_task",
+          "pass": true
+        },
+        {
+          "field": "filter_scope",
+          "expected": "overdue",
+          "actual": "overdue",
+          "pass": true
+        },
+        {
+          "field": "has_task_action",
+          "expected": true,
+          "actual": true,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "M8",
+      "status": "PASS",
+      "checks": [
+        {
+          "field": "intent",
+          "expected": "cancel_task",
+          "actual": "cancel_task",
+          "pass": true
+        },
+        {
+          "field": "filter_scope",
+          "expected": "all",
+          "actual": "all",
+          "pass": true
+        },
+        {
+          "field": "has_task_action",
+          "expected": true,
+          "actual": true,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "N1",
+      "status": "PASS",
+      "checks": [
+        {
+          "field": "intent",
+          "expected": "cancel_reminder",
+          "actual": "cancel_reminder",
+          "pass": true
+        },
+        {
+          "field": "has_reminder_action",
+          "expected": true,
+          "actual": true,
+          "pass": true
+        },
+        {
+          "field": "reminder_has_title",
+          "expected": true,
+          "actual": true,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "N2",
+      "status": "PASS",
+      "checks": [
+        {
+          "field": "intent",
+          "expected": "cancel_reminder",
+          "actual": "cancel_reminder",
+          "pass": true
+        },
+        {
+          "field": "has_reminder_action",
+          "expected": true,
+          "actual": true,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "N3",
+      "status": "PASS",
+      "checks": [
+        {
+          "field": "intent",
+          "expected": "clarify",
+          "actual": "clarify",
+          "pass": true
+        },
+        {
+          "field": "has_reminder_action",
+          "expected": false,
+          "actual": false,
+          "pass": true
+        },
+        {
+          "field": "debug_contains",
+          "expected": "missing_reminder_action_for_cancel_reminder",
+          "actual": "missing_reminder_action_for_cancel_reminder",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "N4",
+      "status": "PASS",
+      "checks": [
+        {
+          "field": "intent",
+          "expected": "cancel_reminder",
+          "actual": "cancel_reminder",
+          "pass": true
+        },
+        {
+          "field": "has_reminder_action",
+          "expected": true,
+          "actual": true,
+          "pass": true
+        },
+        {
+          "field": "reminder_has_title",
+          "expected": true,
+          "actual": true,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "N5",
+      "status": "PASS",
+      "checks": [
+        {
+          "field": "intent",
+          "expected": "cancel_reminder",
+          "actual": "cancel_reminder",
+          "pass": true
+        },
+        {
+          "field": "filter_scope",
+          "expected": "overdue",
+          "actual": "overdue",
+          "pass": true
+        },
+        {
+          "field": "has_reminder_action",
+          "expected": true,
+          "actual": true,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "N6",
+      "status": "PASS",
+      "checks": [
+        {
+          "field": "intent",
+          "expected": "clarify",
+          "actual": "clarify",
+          "pass": true
+        },
+        {
+          "field": "has_reminder_action",
+          "expected": false,
+          "actual": false,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "N7",
+      "status": "PASS",
+      "checks": [
+        {
+          "field": "intent",
+          "expected": "cancel_reminder",
+          "actual": "cancel_reminder",
+          "pass": true
+        },
+        {
+          "field": "filter_scope",
+          "expected": "all",
+          "actual": "all",
+          "pass": true
+        },
+        {
+          "field": "has_reminder_action",
+          "expected": true,
+          "actual": true,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "N8",
+      "status": "PASS",
+      "checks": [
+        {
+          "field": "intent",
+          "expected": "cancel_reminder",
+          "actual": "cancel_reminder",
+          "pass": true
+        },
+        {
+          "field": "has_reminder_action",
+          "expected": true,
+          "actual": true,
+          "pass": true
+        },
+        {
+          "field": "reminder_has_title",
+          "expected": true,
+          "actual": true,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "O1",
+      "status": "PASS",
+      "checks": [
+        {
+          "field": "intent",
+          "expected": "general_response",
+          "actual": "general_response",
+          "pass": true
+        },
+        {
+          "field": "has_memory_writes",
+          "expected": true,
+          "actual": true,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "O2",
+      "status": "PASS",
+      "checks": [
+        {
+          "field": "intent",
+          "expected": "general_response",
+          "actual": "general_response",
+          "pass": true
+        },
+        {
+          "field": "has_memory_writes",
+          "expected": true,
+          "actual": true,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "O3",
+      "status": "PASS",
+      "checks": [
+        {
+          "field": "intent",
+          "expected": "general_response",
+          "actual": "general_response",
+          "pass": true
+        },
+        {
+          "field": "memory_writes_empty",
+          "expected": true,
+          "actual": true,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "O4",
+      "status": "PASS",
+      "checks": [
+        {
+          "field": "intent",
+          "expected": "general_response",
+          "actual": "general_response",
+          "pass": true
+        },
+        {
+          "field": "memory_writes_empty",
+          "expected": true,
+          "actual": true,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "O5",
+      "status": "PASS",
+      "checks": [
+        {
+          "field": "intent",
+          "expected": "create_task",
+          "actual": "create_task",
+          "pass": true
+        },
+        {
+          "field": "has_task_action",
+          "expected": true,
+          "actual": true,
+          "pass": true
+        },
+        {
+          "field": "has_memory_writes",
+          "expected": true,
+          "actual": true,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "O6",
+      "status": "PASS",
+      "checks": [
+        {
+          "field": "intent",
+          "expected": "general_response",
+          "actual": "general_response",
+          "pass": true
+        },
+        {
+          "field": "has_memory_writes",
+          "expected": true,
+          "actual": true,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "O7",
+      "status": "PASS",
+      "checks": [
+        {
+          "field": "intent",
+          "expected": "list_tasks",
+          "actual": "list_tasks",
+          "pass": true
+        },
+        {
+          "field": "memory_writes_empty",
+          "expected": true,
+          "actual": true,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "O8",
+      "status": "PASS",
+      "checks": [
+        {
+          "field": "intent",
+          "expected": "general_response",
+          "actual": "general_response",
+          "pass": true
+        },
+        {
+          "field": "memory_writes_empty",
+          "expected": true,
+          "actual": true,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "O9",
+      "status": "PASS",
+      "checks": [
+        {
+          "field": "intent",
+          "expected": "general_response",
+          "actual": "general_response",
+          "pass": true
+        },
+        {
+          "field": "has_memory_writes",
+          "expected": true,
+          "actual": true,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "O10",
+      "status": "PASS",
+      "checks": [
+        {
+          "field": "intent",
+          "expected": "general_response",
+          "actual": "general_response",
+          "pass": true
+        },
+        {
+          "field": "has_memory_writes",
+          "expected": true,
+          "actual": true,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "WV1",
+      "status": "PASS",
+      "checks": [
+        {
+          "field": "intent",
+          "expected": "create_reminder",
+          "actual": "create_reminder",
+          "pass": true
+        },
+        {
+          "field": "has_reminder_action",
+          "expected": true,
+          "actual": true,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "WV2",
+      "status": "PASS",
+      "checks": [
+        {
+          "field": "intent",
+          "expected": "create_reminder",
+          "actual": "create_reminder",
+          "pass": true
+        },
+        {
+          "field": "has_reminder_action",
+          "expected": true,
+          "actual": true,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "WV3",
+      "status": "PASS",
+      "checks": [
+        {
+          "field": "intent",
+          "expected": "create_reminder",
+          "actual": "create_reminder",
+          "pass": true
+        },
+        {
+          "field": "has_reminder_action",
+          "expected": true,
+          "actual": true,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "WV4",
+      "status": "PASS",
+      "checks": [
+        {
+          "field": "intent",
+          "expected": "create_reminder",
+          "actual": "create_reminder",
+          "pass": true
+        },
+        {
+          "field": "has_reminder_action",
+          "expected": true,
+          "actual": true,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "WV5",
+      "status": "PASS",
+      "checks": [
+        {
+          "field": "intent",
+          "expected": "create_reminder",
+          "actual": "create_reminder",
+          "pass": true
+        },
+        {
+          "field": "has_reminder_action",
+          "expected": true,
+          "actual": true,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "WV6",
+      "status": "PASS",
+      "checks": [
+        {
+          "field": "intent",
+          "expected": "create_reminder",
+          "actual": "create_reminder",
+          "pass": true
+        },
+        {
+          "field": "has_reminder_action",
+          "expected": true,
+          "actual": true,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "WV7",
+      "status": "PASS",
+      "checks": [
+        {
+          "field": "intent",
+          "expected": "create_reminder",
+          "actual": "create_reminder",
+          "pass": true
+        },
+        {
+          "field": "has_reminder_action",
+          "expected": true,
+          "actual": true,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "WV8",
+      "status": "PASS",
+      "checks": [
+        {
+          "field": "intent",
+          "expected": "create_task",
+          "actual": "create_task",
+          "pass": true
+        },
+        {
+          "field": "has_task_action",
+          "expected": true,
+          "actual": true,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "WV9",
+      "status": "PASS",
+      "checks": [
+        {
+          "field": "intent",
+          "expected": "create_task",
+          "actual": "create_task",
+          "pass": true
+        },
+        {
+          "field": "has_task_action",
+          "expected": true,
+          "actual": true,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "WV10",
+      "status": "PASS",
+      "checks": [
+        {
+          "field": "intent",
+          "expected": "list_tasks",
+          "actual": "list_tasks",
+          "pass": true
+        },
+        {
+          "field": "filter_scope",
+          "expected": "tomorrow",
+          "actual": "tomorrow",
+          "pass": true
+        },
+        {
+          "field": "has_task_action",
+          "expected": true,
+          "actual": true,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "WV11",
+      "status": "PASS",
+      "checks": [
+        {
+          "field": "intent",
+          "expected": "list_tasks",
+          "actual": "list_tasks",
+          "pass": true
+        },
+        {
+          "field": "filter_scope",
+          "expected": "today",
+          "actual": "today",
+          "pass": true
+        },
+        {
+          "field": "has_task_action",
+          "expected": true,
+          "actual": true,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "WV12",
+      "status": "PASS",
+      "checks": [
+        {
+          "field": "intent",
+          "expected": "list_tasks",
+          "actual": "list_tasks",
+          "pass": true
+        },
+        {
+          "field": "filter_scope",
+          "expected": "overdue",
+          "actual": "overdue",
+          "pass": true
+        },
+        {
+          "field": "has_task_action",
+          "expected": true,
+          "actual": true,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "WV13",
+      "status": "PASS",
+      "checks": [
+        {
+          "field": "intent",
+          "expected": "list_tasks",
+          "actual": "list_tasks",
+          "pass": true
+        },
+        {
+          "field": "filter_scope",
+          "expected": "this_week",
+          "actual": "this_week",
+          "pass": true
+        },
+        {
+          "field": "has_task_action",
+          "expected": true,
+          "actual": true,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "WV14",
+      "status": "PASS",
+      "checks": [
+        {
+          "field": "intent",
+          "expected": "create_task",
+          "actual": "create_task",
+          "pass": true
+        },
+        {
+          "field": "has_task_action",
+          "expected": true,
+          "actual": true,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "WV15",
+      "status": "PASS",
+      "checks": [
+        {
+          "field": "intent",
+          "expected": "create_task",
+          "actual": "create_task",
+          "pass": true
+        },
+        {
+          "field": "has_task_action",
+          "expected": true,
+          "actual": true,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "WV16",
+      "status": "PASS",
+      "checks": [
+        {
+          "field": "intent",
+          "expected": "create_task",
+          "actual": "create_task",
+          "pass": true
+        },
+        {
+          "field": "has_task_action",
+          "expected": true,
+          "actual": true,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "WV17",
+      "status": "PASS",
+      "checks": [
+        {
+          "field": "intent",
+          "expected": "create_task",
+          "actual": "create_task",
+          "pass": true
+        },
+        {
+          "field": "has_task_action",
+          "expected": true,
+          "actual": true,
+          "pass": true
+        }
+      ]
+    }
+  ]
+}

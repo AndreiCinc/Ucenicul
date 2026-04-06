@@ -1,0 +1,284 @@
+{
+  "suite": "O",
+  "name": "Memory Write (Embedding + Insert + Dedup)",
+  "phase": 1,
+  "tests": [
+    {
+      "id": "O1",
+      "name": "Single memory write with valid type and category",
+      "input": "Ion preferă check-in la 15:00",
+      "llm_response": {
+        "version": "brain-decision-v1",
+        "intent": "general_response",
+        "domain": "airbnb",
+        "response": "Am notat preferința lui Ion.",
+        "debug_summary": "note check-in preference",
+        "requires_confirmation": false,
+        "requires_clarification": false,
+        "task_action": null,
+        "task_fallback_rules": [],
+        "reminder_action": null,
+        "memory_action": null,
+        "improvement_request": null,
+        "memory_writes": [
+          { "type": "fact", "category": "customer_market", "content": "Chiriașul Ion preferă check-in la 15:00" }
+        ]
+      },
+      "expected": {
+        "intent": "general_response",
+        "has_memory_writes": true,
+        "memory_writes_count": 1
+      }
+    },
+    {
+      "id": "O2",
+      "name": "Multiple memory writes in single message",
+      "input": "Ion vrea check-in la 15 si prefera etajul 3, e alergic la pisici",
+      "llm_response": {
+        "version": "brain-decision-v1",
+        "intent": "general_response",
+        "domain": "airbnb",
+        "response": "Am notat toate preferințele lui Ion.",
+        "debug_summary": "multiple preferences noted",
+        "requires_confirmation": false,
+        "requires_clarification": false,
+        "task_action": null,
+        "task_fallback_rules": [],
+        "reminder_action": null,
+        "memory_action": null,
+        "improvement_request": null,
+        "memory_writes": [
+          { "type": "fact", "category": "customer_market", "content": "Ion preferă check-in la 15:00" },
+          { "type": "fact", "category": "customer_market", "content": "Ion preferă etajul 3" },
+          { "type": "fact", "category": "constraints", "content": "Ion e alergic la pisici" }
+        ]
+      },
+      "expected": {
+        "intent": "general_response",
+        "has_memory_writes": true,
+        "memory_writes_count": 3
+      }
+    },
+    {
+      "id": "O3",
+      "name": "Memory write with invalid type gets filtered",
+      "input": "notează ceva despre proiect",
+      "llm_response": {
+        "version": "brain-decision-v1",
+        "intent": "general_response",
+        "domain": "general",
+        "response": "Am notat.",
+        "debug_summary": "invalid memory type",
+        "requires_confirmation": false,
+        "requires_clarification": false,
+        "task_action": null,
+        "task_fallback_rules": [],
+        "reminder_action": null,
+        "memory_action": null,
+        "improvement_request": null,
+        "memory_writes": [
+          { "type": "note", "category": "general", "content": "ceva despre proiect" }
+        ]
+      },
+      "expected": {
+        "intent": "general_response",
+        "memory_writes_empty": true
+      }
+    },
+    {
+      "id": "O4",
+      "name": "Memory write with invalid category gets filtered",
+      "input": "nota: echipa de curatenie vine la 8",
+      "llm_response": {
+        "version": "brain-decision-v1",
+        "intent": "general_response",
+        "domain": "cleaning",
+        "response": "Am notat.",
+        "debug_summary": "invalid category",
+        "requires_confirmation": false,
+        "requires_clarification": false,
+        "task_action": null,
+        "task_fallback_rules": [],
+        "reminder_action": null,
+        "memory_action": null,
+        "improvement_request": null,
+        "memory_writes": [
+          { "type": "fact", "category": "random_category", "content": "echipa de curățenie vine la 8" }
+        ]
+      },
+      "expected": {
+        "intent": "general_response",
+        "memory_writes_empty": true
+      }
+    },
+    {
+      "id": "O5",
+      "name": "Memory write alongside create_task",
+      "input": "Ion plateste 100 euro pe noapte, pune task sa ii trimit confirmarea",
+      "llm_response": {
+        "version": "brain-decision-v1",
+        "intent": "create_task",
+        "domain": "airbnb",
+        "response": "Am notat prețul și am creat task-ul.",
+        "debug_summary": "memory + task",
+        "requires_confirmation": false,
+        "requires_clarification": false,
+        "task_action": { "title": "Trimite confirmare lui Ion", "priority": "normal", "due_type": "flexible" },
+        "task_fallback_rules": [],
+        "reminder_action": null,
+        "memory_action": null,
+        "improvement_request": null,
+        "memory_writes": [
+          { "type": "fact", "category": "customer_market", "content": "Ion plătește 100 euro pe noapte" }
+        ]
+      },
+      "expected": {
+        "intent": "create_task",
+        "has_task_action": true,
+        "has_memory_writes": true,
+        "memory_writes_count": 1
+      }
+    },
+    {
+      "id": "O6",
+      "name": "Memory write with all 3 valid types",
+      "input": "in sezonul de vara preturile cresc cu 30%, recomand sa crestem cu 20% doar",
+      "llm_response": {
+        "version": "brain-decision-v1",
+        "intent": "general_response",
+        "domain": "airbnb",
+        "response": "Am notat informațiile despre prețuri.",
+        "debug_summary": "seasonal pricing insight",
+        "requires_confirmation": false,
+        "requires_clarification": false,
+        "task_action": null,
+        "task_fallback_rules": [],
+        "reminder_action": null,
+        "memory_action": null,
+        "improvement_request": null,
+        "memory_writes": [
+          { "type": "fact", "category": "business_profile", "content": "În sezon de vară prețurile cresc cu 30%" },
+          { "type": "insight", "category": "growth_context", "content": "Tendința pieței e de creștere 30% vara" },
+          { "type": "advice", "category": "operational_patterns", "content": "Recomandare: creștere de 20% a prețurilor vara" }
+        ]
+      },
+      "expected": {
+        "intent": "general_response",
+        "has_memory_writes": true,
+        "memory_writes_count": 3
+      }
+    },
+    {
+      "id": "O7",
+      "name": "Empty memory_writes array - no writes",
+      "input": "ce task-uri am azi?",
+      "llm_response": {
+        "version": "brain-decision-v1",
+        "intent": "list_tasks",
+        "domain": "general",
+        "response": "Iată task-urile tale.",
+        "debug_summary": "list today tasks",
+        "requires_confirmation": false,
+        "requires_clarification": false,
+        "task_action": { "filter_scope": "today" },
+        "task_fallback_rules": [],
+        "reminder_action": null,
+        "memory_action": null,
+        "improvement_request": null,
+        "memory_writes": []
+      },
+      "expected": {
+        "intent": "list_tasks",
+        "memory_writes_empty": true
+      }
+    },
+    {
+      "id": "O8",
+      "name": "Memory write with empty content gets filtered",
+      "input": "tine minte ceva",
+      "llm_response": {
+        "version": "brain-decision-v1",
+        "intent": "general_response",
+        "domain": "general",
+        "response": "Ce sa notez?",
+        "debug_summary": "empty memory content",
+        "requires_confirmation": false,
+        "requires_clarification": false,
+        "task_action": null,
+        "task_fallback_rules": [],
+        "reminder_action": null,
+        "memory_action": null,
+        "improvement_request": null,
+        "memory_writes": [
+          { "type": "fact", "category": "preferences", "content": "" }
+        ]
+      },
+      "expected": {
+        "intent": "general_response",
+        "memory_writes_empty": true
+      }
+    },
+    {
+      "id": "O9",
+      "name": "Mixed valid and invalid memory writes - only valid kept",
+      "input": "Maria vine lunea, si ceva random",
+      "llm_response": {
+        "version": "brain-decision-v1",
+        "intent": "general_response",
+        "domain": "cleaning",
+        "response": "Am notat.",
+        "debug_summary": "mixed valid and invalid writes",
+        "requires_confirmation": false,
+        "requires_clarification": false,
+        "task_action": null,
+        "task_fallback_rules": [],
+        "reminder_action": null,
+        "memory_action": null,
+        "improvement_request": null,
+        "memory_writes": [
+          { "type": "fact", "category": "operational_patterns", "content": "Maria vine lunea la curățenie" },
+          { "type": "note", "category": "general", "content": "ceva random" }
+        ]
+      },
+      "expected": {
+        "intent": "general_response",
+        "has_memory_writes": true,
+        "memory_writes_count": 1
+      }
+    },
+    {
+      "id": "O10",
+      "name": "All 8 memory categories accepted",
+      "input": "business info complex",
+      "llm_response": {
+        "version": "brain-decision-v1",
+        "intent": "general_response",
+        "domain": "general",
+        "response": "Am notat tot.",
+        "debug_summary": "all 8 categories",
+        "requires_confirmation": false,
+        "requires_clarification": false,
+        "task_action": null,
+        "task_fallback_rules": [],
+        "reminder_action": null,
+        "memory_action": null,
+        "improvement_request": null,
+        "memory_writes": [
+          { "type": "fact", "category": "business_profile", "content": "Firma are 3 apartamente" },
+          { "type": "fact", "category": "customer_market", "content": "Clienți din Germania" },
+          { "type": "insight", "category": "growth_context", "content": "Piața crește 10% pe an" },
+          { "type": "fact", "category": "entrepreneur_profile", "content": "Antreprenor cu 10 ani experiență" },
+          { "type": "fact", "category": "relationship_history", "content": "Client recurent Ion" },
+          { "type": "insight", "category": "operational_patterns", "content": "Curățenia durează 2 ore" },
+          { "type": "advice", "category": "preferences", "content": "Preferă comunicare pe WhatsApp" },
+          { "type": "fact", "category": "constraints", "content": "Budget maxim 500 RON/luna pe curățenie" }
+        ]
+      },
+      "expected": {
+        "intent": "general_response",
+        "has_memory_writes": true,
+        "memory_writes_count": 8
+      }
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "suite": "C",
+  "name": "Bulk / Multi-item Actions",
+  "phase": 1,
+  "tests": [
+    {
+      "id": "C1",
+      "name": "Complete task by semantic name",
+      "input": "am terminat cu curățenia la Ap 5",
+      "llm_response": {
+        "version": "brain-decision-v1",
+        "intent": "complete_task",
+        "domain": "cleaning",
+        "response": "Am marcat task-ul ca finalizat.",
+        "debug_summary": "complete cleaning task ap5",
+        "requires_confirmation": false,
+        "requires_clarification": false,
+        "task_action": { "title": "Curățenie Ap 5" },
+        "task_fallback_rules": [],
+        "reminder_action": null,
+        "memory_action": null,
+        "improvement_request": null,
+        "memory_writes": []
+      },
+      "expected": {
+        "intent": "complete_task",
+        "has_task_action": true
+      }
+    },
+    {
+      "id": "C2",
+      "name": "Cancel task by semantic name",
+      "input": "anulează task-ul cu furnizorul",
+      "llm_response": {
+        "version": "brain-decision-v1",
+        "intent": "cancel_task",
+        "domain": "general",
+        "response": "Am anulat task-ul.",
+        "debug_summary": "cancel supplier task",
+        "requires_confirmation": false,
+        "requires_clarification": false,
+        "task_action": { "title": "Sună furnizorul" },
+        "task_fallback_rules": [],
+        "reminder_action": null,
+        "memory_action": null,
+        "improvement_request": null,
+        "memory_writes": []
+      },
+      "expected": {
+        "intent": "cancel_task",
+        "has_task_action": true
+      }
+    }
+  ]
+}

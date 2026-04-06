@@ -1,0 +1,107 @@
+{
+  "suite": "L",
+  "name": "Conversational / None / General Response",
+  "phase": 1,
+  "tests": [
+    {
+      "id": "L1",
+      "name": "Ping",
+      "input": "ești?",
+      "llm_response": {
+        "version": "brain-decision-v1",
+        "intent": "general_response",
+        "domain": "general",
+        "response": "Da, sunt aici. Cu ce te pot ajuta?",
+        "debug_summary": "ping",
+        "requires_confirmation": false,
+        "requires_clarification": false,
+        "task_action": null,
+        "task_fallback_rules": [],
+        "reminder_action": null,
+        "memory_action": null,
+        "improvement_request": null,
+        "memory_writes": []
+      },
+      "expected": {
+        "intent": "general_response",
+        "has_task_action": false,
+        "has_reminder_action": false
+      }
+    },
+    {
+      "id": "L2",
+      "name": "OK acknowledgment",
+      "input": "ok",
+      "llm_response": {
+        "version": "brain-decision-v1",
+        "intent": "none",
+        "domain": "general",
+        "response": "",
+        "debug_summary": "acknowledgment",
+        "requires_confirmation": false,
+        "requires_clarification": false,
+        "task_action": null,
+        "task_fallback_rules": [],
+        "reminder_action": null,
+        "memory_action": null,
+        "improvement_request": null,
+        "memory_writes": []
+      },
+      "expected": {
+        "intent": "none",
+        "has_task_action": false,
+        "has_reminder_action": false
+      }
+    },
+    {
+      "id": "L3",
+      "name": "Mulțumesc",
+      "input": "mulțumesc",
+      "llm_response": {
+        "version": "brain-decision-v1",
+        "intent": "none",
+        "domain": "general",
+        "response": "Cu plăcere!",
+        "debug_summary": "thanks",
+        "requires_confirmation": false,
+        "requires_clarification": false,
+        "task_action": null,
+        "task_fallback_rules": [],
+        "reminder_action": null,
+        "memory_action": null,
+        "improvement_request": null,
+        "memory_writes": []
+      },
+      "expected": {
+        "intent": "none",
+        "has_task_action": false,
+        "has_reminder_action": false
+      }
+    },
+    {
+      "id": "L4",
+      "name": "Glumă",
+      "input": "mai trăiești?",
+      "llm_response": {
+        "version": "brain-decision-v1",
+        "intent": "general_response",
+        "domain": "general",
+        "response": "Sunt aici, gata de treabă!",
+        "debug_summary": "joke",
+        "requires_confirmation": false,
+        "requires_clarification": false,
+        "task_action": null,
+        "task_fallback_rules": [],
+        "reminder_action": null,
+        "memory_action": null,
+        "improvement_request": null,
+        "memory_writes": []
+      },
+      "expected": {
+        "intent": "general_response",
+        "has_task_action": false,
+        "has_reminder_action": false
+      }
+    }
+  ]
+}

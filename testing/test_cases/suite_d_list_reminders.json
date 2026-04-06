@@ -1,0 +1,82 @@
+{
+  "suite": "D",
+  "name": "List Reminders",
+  "phase": 1,
+  "tests": [
+    {
+      "id": "D1",
+      "name": "Listare simplă remindere",
+      "input": "ce remindere am?",
+      "llm_response": {
+        "version": "brain-decision-v1",
+        "intent": "list_reminders",
+        "domain": "general",
+        "response": "Reminderele tale:",
+        "debug_summary": "list all reminders",
+        "requires_confirmation": false,
+        "requires_clarification": false,
+        "task_action": null,
+        "task_fallback_rules": [],
+        "reminder_action": null,
+        "memory_action": null,
+        "improvement_request": null,
+        "memory_writes": []
+      },
+      "expected": {
+        "intent": "list_reminders",
+        "has_reminder_action": true,
+        "filter_scope": "all"
+      }
+    },
+    {
+      "id": "D2",
+      "name": "Remindere azi",
+      "input": "ce remindere am azi?",
+      "llm_response": {
+        "version": "brain-decision-v1",
+        "intent": "list_reminders",
+        "domain": "general",
+        "response": "Reminderele de azi:",
+        "debug_summary": "today reminders",
+        "requires_confirmation": false,
+        "requires_clarification": false,
+        "task_action": null,
+        "task_fallback_rules": [],
+        "reminder_action": { "filter_scope": "today" },
+        "memory_action": null,
+        "improvement_request": null,
+        "memory_writes": []
+      },
+      "expected": {
+        "intent": "list_reminders",
+        "filter_scope": "today",
+        "has_reminder_action": true
+      }
+    },
+    {
+      "id": "D3",
+      "name": "Remindere mâine - LLM nu pune filter",
+      "input": "ce remindere am maine?",
+      "llm_response": {
+        "version": "brain-decision-v1",
+        "intent": "list_reminders",
+        "domain": "general",
+        "response": "Mâine ai:",
+        "debug_summary": "tomorrow reminders",
+        "requires_confirmation": false,
+        "requires_clarification": false,
+        "task_action": null,
+        "task_fallback_rules": [],
+        "reminder_action": null,
+        "memory_action": null,
+        "improvement_request": null,
+        "memory_writes": []
+      },
+      "expected": {
+        "intent": "list_reminders",
+        "filter_scope": "tomorrow",
+        "has_reminder_action": true
+      }
+    }
+  ]
+}

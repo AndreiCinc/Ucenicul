@@ -1,0 +1,104 @@
+{
+  "suite": "I",
+  "name": "Semantic Actions (update/complete/cancel)",
+  "phase": 1,
+  "tests": [
+    {
+      "id": "I1",
+      "name": "Update task - schimbă prioritate",
+      "input": "pune task-ul cu furnizorul pe urgent",
+      "llm_response": {
+        "version": "brain-decision-v1",
+        "intent": "update_task",
+        "domain": "general",
+        "response": "Am actualizat prioritatea.",
+        "debug_summary": "update supplier task priority",
+        "requires_confirmation": false,
+        "requires_clarification": false,
+        "task_action": { "title": "Sună furnizorul", "priority": "urgent" },
+        "task_fallback_rules": [],
+        "reminder_action": null,
+        "memory_action": null,
+        "improvement_request": null,
+        "memory_writes": []
+      },
+      "expected": {
+        "intent": "update_task",
+        "has_task_action": true,
+        "task_priority": "urgent"
+      }
+    },
+    {
+      "id": "I2",
+      "name": "Complete task fără task_action → clarify",
+      "input": "am terminat cu aia",
+      "llm_response": {
+        "version": "brain-decision-v1",
+        "intent": "complete_task",
+        "domain": "general",
+        "response": "Care task?",
+        "debug_summary": "vague complete",
+        "requires_confirmation": false,
+        "requires_clarification": false,
+        "task_action": null,
+        "task_fallback_rules": [],
+        "reminder_action": null,
+        "memory_action": null,
+        "improvement_request": null,
+        "memory_writes": []
+      },
+      "expected": {
+        "intent": "clarify",
+        "debug_contains": "missing_task_action"
+      }
+    },
+    {
+      "id": "I3",
+      "name": "Update reminder",
+      "input": "mută reminder-ul cu furnizorul pe vineri",
+      "llm_response": {
+        "version": "brain-decision-v1",
+        "intent": "update_reminder",
+        "domain": "general",
+        "response": "Am mutat reminder-ul.",
+        "debug_summary": "move reminder to friday",
+        "requires_confirmation": false,
+        "requires_clarification": false,
+        "task_action": null,
+        "task_fallback_rules": [],
+        "reminder_action": { "title": "Sună furnizorul", "remind_at": "2026-04-03T09:00:00+03:00" },
+        "memory_action": null,
+        "improvement_request": null,
+        "memory_writes": []
+      },
+      "expected": {
+        "intent": "update_reminder",
+        "has_reminder_action": true
+      }
+    },
+    {
+      "id": "I4",
+      "name": "Cancel reminder fără reminder_action → clarify",
+      "input": "anulează reminder-ul",
+      "llm_response": {
+        "version": "brain-decision-v1",
+        "intent": "cancel_reminder",
+        "domain": "general",
+        "response": "Care reminder?",
+        "debug_summary": "vague cancel",
+        "requires_confirmation": false,
+        "requires_clarification": false,
+        "task_action": null,
+        "task_fallback_rules": [],
+        "reminder_action": null,
+        "memory_action": null,
+        "improvement_request": null,
+        "memory_writes": []
+      },
+      "expected": {
+        "intent": "clarify",
+        "debug_contains": "missing_reminder_action"
+      }
+    }
+  ]
+}

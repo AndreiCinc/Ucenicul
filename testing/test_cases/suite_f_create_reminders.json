@@ -1,0 +1,105 @@
+{
+  "suite": "F",
+  "name": "Create Reminders",
+  "phase": 1,
+  "tests": [
+    {
+      "id": "F1",
+      "name": "Reminder simplu",
+      "input": "amintește-mi să sun furnizorul mâine",
+      "llm_response": {
+        "version": "brain-decision-v1",
+        "intent": "create_reminder",
+        "domain": "general",
+        "response": "Te voi aminti mâine.",
+        "debug_summary": "reminder call supplier tomorrow",
+        "requires_confirmation": false,
+        "requires_clarification": false,
+        "task_action": null,
+        "task_fallback_rules": [],
+        "reminder_action": { "title": "Sună furnizorul", "remind_at": "2026-04-03T09:00:00+03:00" },
+        "memory_action": null,
+        "improvement_request": null,
+        "memory_writes": []
+      },
+      "expected": {
+        "intent": "create_reminder",
+        "has_reminder_action": true,
+        "reminder_has_title": true,
+        "reminder_has_remind_at": true
+      }
+    },
+    {
+      "id": "F2",
+      "name": "Reminder fără remind_at — clarify",
+      "input": "amintește-mi de curățenie",
+      "llm_response": {
+        "version": "brain-decision-v1",
+        "intent": "create_reminder",
+        "domain": "cleaning",
+        "response": "Când vrei să te amintesc?",
+        "debug_summary": "reminder no time",
+        "requires_confirmation": false,
+        "requires_clarification": false,
+        "task_action": null,
+        "task_fallback_rules": [],
+        "reminder_action": { "title": "Curățenie" },
+        "memory_action": null,
+        "improvement_request": null,
+        "memory_writes": []
+      },
+      "expected": {
+        "intent": "clarify",
+        "debug_contains": "missing_reminder_action"
+      }
+    },
+    {
+      "id": "F3",
+      "name": "Reminder cu task_action strecurat — clarify (collision)",
+      "input": "aminteste-mi sa fac curățenie",
+      "llm_response": {
+        "version": "brain-decision-v1",
+        "intent": "create_reminder",
+        "domain": "cleaning",
+        "response": "OK.",
+        "debug_summary": "reminder with task leak",
+        "requires_confirmation": false,
+        "requires_clarification": false,
+        "task_action": { "title": "Curățenie" },
+        "task_fallback_rules": [],
+        "reminder_action": { "title": "Curățenie", "remind_at": "2026-04-03T09:00:00+03:00" },
+        "memory_action": null,
+        "improvement_request": null,
+        "memory_writes": []
+      },
+      "expected": {
+        "intent": "clarify",
+        "debug_contains": "create_reminder_should_not_also_create_task"
+      }
+    },
+    {
+      "id": "F4",
+      "name": "Cancel reminder by name",
+      "input": "anulează reminder-ul cu furnizorul",
+      "llm_response": {
+        "version": "brain-decision-v1",
+        "intent": "cancel_reminder",
+        "domain": "general",
+        "response": "Am anulat reminder-ul.",
+        "debug_summary": "cancel supplier reminder",
+        "requires_confirmation": false,
+        "requires_clarification": false,
+        "task_action": null,
+        "task_fallback_rules": [],
+        "reminder_action": { "title": "Sună furnizorul" },
+        "memory_action": null,
+        "improvement_request": null,
+        "memory_writes": []
+      },
+      "expected": {
+        "intent": "cancel_reminder",
+        "has_reminder_action": true
+      }
+    }
+  ]
+}

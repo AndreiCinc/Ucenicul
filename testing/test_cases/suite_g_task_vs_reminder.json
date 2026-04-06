@@ -1,0 +1,255 @@
+{
+  "suite": "G",
+  "name": "Task vs Reminder Disambiguation",
+  "phase": 1,
+  "description": "Tests parser task/reminder disambiguation with writing variations",
+  "tests": [
+    {
+      "id": "G1",
+      "name": "Task-only: să nu uit",
+      "input": "să nu uit să testez brain-ul azi",
+      "llm_response": {
+        "version": "brain-decision-v1",
+        "intent": "create_reminder",
+        "domain": "general",
+        "response": "Am notat!",
+        "debug_summary": "user wants to remember to test brain",
+        "requires_confirmation": false,
+        "requires_clarification": false,
+        "task_action": null,
+        "task_fallback_rules": [],
+        "reminder_action": { "title": "Testează brain-ul", "remind_at": "2026-04-02T22:00:00+03:00" },
+        "memory_action": null,
+        "improvement_request": null,
+        "memory_writes": []
+      },
+      "expected": {
+        "intent": "create_reminder",
+        "has_reminder_action": true
+      },
+      "notes": "Parser-ul NU detectează task language în 'să nu uit' — LLM decide. Asta e un test de comportament produs: ar trebui 'să nu uit' să fie task sau reminder?"
+    },
+    {
+      "id": "G2a",
+      "name": "Reminder-only: amintește-mi (cu diacritice)",
+      "input": "amintește-mi să testez brain-ul azi",
+      "llm_response": {
+        "version": "brain-decision-v1",
+        "intent": "create_reminder",
+        "domain": "general",
+        "response": "Te voi aminti!",
+        "debug_summary": "reminder for today",
+        "requires_confirmation": false,
+        "requires_clarification": false,
+        "task_action": null,
+        "task_fallback_rules": [],
+        "reminder_action": { "title": "Testează brain-ul", "remind_at": "2026-04-02T22:00:00+03:00" },
+        "memory_action": null,
+        "improvement_request": null,
+        "memory_writes": []
+      },
+      "expected": {
+        "intent": "create_reminder",
+        "has_reminder_action": true
+      }
+    },
+    {
+      "id": "G2b",
+      "name": "Reminder-only: aminteste-mi (fără diacritice)",
+      "input": "aminteste-mi sa testez brain-ul azi",
+      "llm_response": {
+        "version": "brain-decision-v1",
+        "intent": "create_reminder",
+        "domain": "general",
+        "response": "Te voi aminti!",
+        "debug_summary": "reminder without diacritics",
+        "requires_confirmation": false,
+        "requires_clarification": false,
+        "task_action": null,
+        "task_fallback_rules": [],
+        "reminder_action": { "title": "Testează brain-ul", "remind_at": "2026-04-02T22:00:00+03:00" },
+        "memory_action": null,
+        "improvement_request": null,
+        "memory_writes": []
+      },
+      "expected": {
+        "intent": "create_reminder",
+        "has_reminder_action": true
+      }
+    },
+    {
+      "id": "G2c",
+      "name": "Reminder-only: amintestemi (lipit, autocorrect fail)",
+      "input": "amintestemi sa testez brain-ul azi",
+      "llm_response": {
+        "version": "brain-decision-v1",
+        "intent": "create_reminder",
+        "domain": "general",
+        "response": "Te voi aminti!",
+        "debug_summary": "reminder typo",
+        "requires_confirmation": false,
+        "requires_clarification": false,
+        "task_action": null,
+        "task_fallback_rules": [],
+        "reminder_action": { "title": "Testează brain-ul", "remind_at": "2026-04-02T22:00:00+03:00" },
+        "memory_action": null,
+        "improvement_request": null,
+        "memory_writes": []
+      },
+      "expected": {
+        "intent": "create_reminder",
+        "has_reminder_action": true
+      },
+      "notes": "Parser messageImpliesReminderPreference NU detectează 'amintestemi' (lipit). Bug potențial."
+    },
+    {
+      "id": "G2d",
+      "name": "Reminder-only: adu-mi aminte (cu cratimă)",
+      "input": "adu-mi aminte să sun furnizorul mâine",
+      "llm_response": {
+        "version": "brain-decision-v1",
+        "intent": "create_reminder",
+        "domain": "general",
+        "response": "Te voi aminti!",
+        "debug_summary": "reminder adu-mi aminte",
+        "requires_confirmation": false,
+        "requires_clarification": false,
+        "task_action": null,
+        "task_fallback_rules": [],
+        "reminder_action": { "title": "Sună furnizorul", "remind_at": "2026-04-03T09:00:00+03:00" },
+        "memory_action": null,
+        "improvement_request": null,
+        "memory_writes": []
+      },
+      "expected": {
+        "intent": "create_reminder",
+        "has_reminder_action": true
+      }
+    },
+    {
+      "id": "G2e",
+      "name": "Reminder-only: adumi aminte (fără cratimă)",
+      "input": "adumi aminte sa sun furnizorul maine",
+      "llm_response": {
+        "version": "brain-decision-v1",
+        "intent": "create_reminder",
+        "domain": "general",
+        "response": "Te voi aminti!",
+        "debug_summary": "reminder no hyphen",
+        "requires_confirmation": false,
+        "requires_clarification": false,
+        "task_action": null,
+        "task_fallback_rules": [],
+        "reminder_action": { "title": "Sună furnizorul", "remind_at": "2026-04-03T09:00:00+03:00" },
+        "memory_action": null,
+        "improvement_request": null,
+        "memory_writes": []
+      },
+      "expected": {
+        "intent": "create_reminder",
+        "has_reminder_action": true
+      },
+      "notes": "Parser NU detectează 'adumi aminte'. Bug."
+    },
+    {
+      "id": "G2f",
+      "name": "Reminder-only: reaminteste-mi",
+      "input": "reaminteste-mi sa verific stocul",
+      "llm_response": {
+        "version": "brain-decision-v1",
+        "intent": "create_reminder",
+        "domain": "general",
+        "response": "Te voi aminti!",
+        "debug_summary": "reaminteste-mi",
+        "requires_confirmation": false,
+        "requires_clarification": false,
+        "task_action": null,
+        "task_fallback_rules": [],
+        "reminder_action": { "title": "Verifică stocul", "remind_at": "2026-04-03T09:00:00+03:00" },
+        "memory_action": null,
+        "improvement_request": null,
+        "memory_writes": []
+      },
+      "expected": {
+        "intent": "create_reminder",
+        "has_reminder_action": true
+      },
+      "notes": "Parser NU detectează 'reaminteste-mi'. Bug."
+    },
+    {
+      "id": "G3",
+      "name": "Task + reminder: prefer task (regula produs)",
+      "input": "pune-mi task și amintește-mi mâine să sun furnizorul",
+      "llm_response": {
+        "version": "brain-decision-v1",
+        "intent": "create_reminder",
+        "domain": "general",
+        "response": "Am creat reminder-ul.",
+        "debug_summary": "task and reminder language detected",
+        "requires_confirmation": false,
+        "requires_clarification": false,
+        "task_action": null,
+        "task_fallback_rules": [],
+        "reminder_action": { "title": "Sună furnizorul", "remind_at": "2026-04-03T09:00:00+03:00" },
+        "memory_action": null,
+        "improvement_request": null,
+        "memory_writes": []
+      },
+      "expected": {
+        "intent": "create_task",
+        "has_task_action": true,
+        "has_reminder_action": false
+      }
+    },
+    {
+      "id": "G4",
+      "name": "Dublu semnal: trebuie + adu-mi aminte",
+      "input": "trebuie să-l sun pe Ion, adu-mi aminte mâine",
+      "llm_response": {
+        "version": "brain-decision-v1",
+        "intent": "create_reminder",
+        "domain": "general",
+        "response": "Reminder creat.",
+        "debug_summary": "dual signal",
+        "requires_confirmation": false,
+        "requires_clarification": false,
+        "task_action": null,
+        "task_fallback_rules": [],
+        "reminder_action": { "title": "Sună-l pe Ion", "remind_at": "2026-04-03T09:00:00+03:00" },
+        "memory_action": null,
+        "improvement_request": null,
+        "memory_writes": []
+      },
+      "expected": {
+        "intent": "create_task",
+        "has_task_action": true,
+        "has_reminder_action": false
+      }
+    },
+    {
+      "id": "G4b",
+      "name": "Dublu semnal fără diacritice: trb sa + aminteste-mi",
+      "input": "trebuie sa-l sun pe Ion, aminteste-mi maine",
+      "llm_response": {
+        "version": "brain-decision-v1",
+        "intent": "create_reminder",
+        "domain": "general",
+        "response": "OK",
+        "debug_summary": "dual no diacritics",
+        "requires_confirmation": false,
+        "requires_clarification": false,
+        "task_action": null,
+        "task_fallback_rules": [],
+        "reminder_action": { "title": "Sună-l pe Ion", "remind_at": "2026-04-03T09:00:00+03:00" },
+        "memory_action": null,
+        "improvement_request": null,
+        "memory_writes": []
+      },
+      "expected": {
+        "intent": "create_task",
+        "has_task_action": true,
+        "has_reminder_action": false
+      }
+    }
+  ]
+}

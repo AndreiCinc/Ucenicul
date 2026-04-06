@@ -1,0 +1,83 @@
+{
+  "suite": "B",
+  "name": "Semantic Listing (domain-specific)",
+  "phase": 1,
+  "tests": [
+    {
+      "id": "B1",
+      "name": "Listare airbnb",
+      "input": "ce task-uri am la airbnb?",
+      "llm_response": {
+        "version": "brain-decision-v1",
+        "intent": "list_tasks",
+        "domain": "airbnb",
+        "response": "Task-urile tale pentru Airbnb:",
+        "debug_summary": "list airbnb tasks",
+        "requires_confirmation": false,
+        "requires_clarification": false,
+        "task_action": { "filter_scope": "all" },
+        "task_fallback_rules": [],
+        "reminder_action": null,
+        "memory_action": null,
+        "improvement_request": null,
+        "memory_writes": []
+      },
+      "expected": {
+        "intent": "list_tasks",
+        "domain": "airbnb",
+        "has_task_action": true
+      }
+    },
+    {
+      "id": "B2",
+      "name": "Listare curățenie",
+      "input": "ce am de făcut la curățenie?",
+      "llm_response": {
+        "version": "brain-decision-v1",
+        "intent": "list_tasks",
+        "domain": "cleaning",
+        "response": "Task-uri curățenie:",
+        "debug_summary": "cleaning tasks",
+        "requires_confirmation": false,
+        "requires_clarification": false,
+        "task_action": { "filter_scope": "all" },
+        "task_fallback_rules": [],
+        "reminder_action": null,
+        "memory_action": null,
+        "improvement_request": null,
+        "memory_writes": []
+      },
+      "expected": {
+        "intent": "list_tasks",
+        "domain": "cleaning",
+        "has_task_action": true
+      }
+    },
+    {
+      "id": "B3",
+      "name": "Listare spații verzi azi",
+      "input": "ce am de făcut azi la spații verzi?",
+      "llm_response": {
+        "version": "brain-decision-v1",
+        "intent": "list_tasks",
+        "domain": "green_spaces",
+        "response": "Azi la spații verzi:",
+        "debug_summary": "green spaces today",
+        "requires_confirmation": false,
+        "requires_clarification": false,
+        "task_action": { "filter_scope": "today" },
+        "task_fallback_rules": [],
+        "reminder_action": null,
+        "memory_action": null,
+        "improvement_request": null,
+        "memory_writes": []
+      },
+      "expected": {
+        "intent": "list_tasks",
+        "domain": "green_spaces",
+        "filter_scope": "today",
+        "has_task_action": true
+      }
+    }
+  ]
+}

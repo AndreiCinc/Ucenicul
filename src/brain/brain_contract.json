@@ -1,0 +1,622 @@
+{
+  "contract_version": "brain-decision-v1",
+  "description": "Single source of truth for the AI operational assistant brain. All other artifacts (LLM prompt, parser JS, DB queries, test cases) are generated or validated from this file.",
+  "last_updated": "2026-04-03T14:00:00",
+  "intents": {
+    "create_task": {
+      "domain": "tasks",
+      "description": "Create a new task",
+      "required_fields": [
+        "task_action.title"
+      ],
+      "optional_fields": [
+        "task_action.description",
+        "task_action.priority",
+        "task_action.due_type",
+        "task_action.due_date",
+        "task_action.due_at"
+      ],
+      "defaults": {
+        "task_action.priority": "normal",
+        "task_action.due_type": "flexible"
+      },
+      "validation_rules": [
+        "IF task_action missing OR task_action.title empty → clarify('missing_task_action_title_for_create_task')",
+        "IF task_action.priority not in VALID_TASK_PRIORITIES → set null → apply default 'normal'",
+        "IF task_action.due_type missing → infer: due_at present → 'datetime', due_date present → 'date', else → 'flexible'",
+        "IF due_type='date' → set due_at=null (mutual exclusion)",
+        "IF due_type='datetime' → set due_date=null (mutual exclusion)",
+        "ALWAYS set reminder_action=null (create_task must not carry reminder data)"
+      ],
+      "db_action": "INSERT INTO tasks",
+      "response_pattern": "Confirmation with task title and due info"
+    },
+    "update_task": {
+      "domain": "tasks",
+      "description": "Update an existing task (priority, title, dates)",
+      "required_fields": [
+        "task_action"
+      ],
+      "optional_fields": [
+        "task_action.id",
+        "task_action.title",
+        "task_action.priority",
+        "task_action.due_type",
+        "task_action.due_date",
+        "task_action.due_at"
+      ],
+      "validation_rules": [
+        "IF task_action missing → clarify('missing_task_action_for_update_task')",
+        "Semantic matching by title is allowed (id not required)"
+      ],
+      "db_action": "UPDATE tasks WHERE id OR title ILIKE",
+      "response_pattern": "Confirmation of what changed"
+    },
+    "complete_task": {
+      "domain": "tasks",
+      "description": "Mark a task as completed",
+      "required_fields": [
+        "task_action"
+      ],
+      "optional_fields": [
+        "task_action.id",
+        "task_action.title"
+      ],
+      "validation_rules": [
+        "IF task_action missing → clarify('missing_task_action_for_complete_task')"
+      ],
+      "db_action": "UPDATE tasks SET status='completed'",
+      "response_pattern": "Confirmation task completed"
+    },
+    "cancel_task": {
+      "domain": "tasks",
+      "description": "Permanently delete a task (physical DELETE FROM). Supports single (by id or title) and batch (by filter_scope).",
+      "required_fields": [
+        "task_action"
+      ],
+      "optional_fields": [
+        "task_action.id",
+        "task_action.title",
+        "task_action.filter_scope"
+      ],
+      "validation_rules": [
+        "IF task_action missing → clarify('missing_task_action_for_cancel_task')",
+        "IF task_action.id AND task_action.title both missing AND filter_scope missing → clarify('need_id_or_title_or_filter_for_delete')",
+        "Semantic matching by title is allowed (id not required)",
+        "IF filter_scope provided AND no id AND no title → batch delete matching tasks",
+        "LIMIT 50 rows per batch delete for safety"
+      ],
+      "db_action": "DELETE FROM tasks WHERE tenant_id AND (id match OR title ILIKE match OR filter_scope match) RETURNING deleted rows",
+      "response_pattern": "Confirmation of deletion with count and titles"
+    },
+    "list_tasks": {
+      "domain": "tasks",
+      "description": "List tasks with optional filter",
+      "required_fields": [],
+      "optional_fields": [
+        "task_action.filter_scope"
+      ],
+      "validation_rules": [
+        "IF task_action missing → create with filter_scope from inferFilterScopeFromMessage()",
+        "IF task_action.filter_scope missing → infer from raw_user_message"
+      ],
+      "db_action": "SELECT FROM tasks WHERE filter_scope conditions",
+      "response_pattern": "Formatted list of matching tasks"
+    },
+    "create_reminder": {
+      "domain": "reminders",
+      "description": "Create a new reminder",
+      "required_fields": [
+        "reminder_action.title",
+        "reminder_action.remind_at"
+      ],
+      "optional_fields": [
+        "reminder_action.description"
+      ],
+      "validation_rules": [
+        "IF reminder_action missing OR title empty OR remind_at empty → clarify('missing_reminder_action_for_create_reminder')",
+        "IF task_action also present AND no task language in message → clarify('create_reminder_should_not_also_create_task')",
+        "IF valid → set task_action=null, task_fallback_rules=[]"
+      ],
+      "db_action": "INSERT INTO reminders",
+      "response_pattern": "Confirmation with reminder time"
+    },
+    "update_reminder": {
+      "domain": "reminders",
+      "description": "Update an existing reminder",
+      "required_fields": [
+        "reminder_action"
+      ],
+      "optional_fields": [
+        "reminder_action.id",
+        "reminder_action.title",
+        "reminder_action.remind_at"
+      ],
+      "validation_rules": [
+        "IF reminder_action missing → clarify('missing_reminder_action_for_update_reminder')"
+      ],
+      "db_action": "UPDATE reminders",
+      "response_pattern": "Confirmation of what changed"
+    },
+    "cancel_reminder": {
+      "domain": "reminders",
+      "description": "Permanently delete a reminder (physical DELETE FROM). Supports single (by id or title) and batch (by filter_scope).",
+      "required_fields": [
+        "reminder_action"
+      ],
+      "optional_fields": [
+        "reminder_action.id",
+        "reminder_action.title",
+        "reminder_action.filter_scope"
+      ],
+      "validation_rules": [
+        "IF reminder_action missing → clarify('missing_reminder_action_for_cancel_reminder')",
+        "IF reminder_action.id AND reminder_action.title both missing AND filter_scope missing → clarify('need_id_or_title_or_filter_for_delete')",
+        "Semantic matching by title is allowed (id not required)",
+        "IF filter_scope provided AND no id AND no title → batch delete matching reminders",
+        "LIMIT 50 rows per batch delete for safety"
+      ],
+      "db_action": "DELETE FROM reminders WHERE tenant_id AND (id match OR title ILIKE match OR filter_scope match) RETURNING deleted rows",
+      "response_pattern": "Confirmation of deletion with count and titles"
+    },
+    "list_reminders": {
+      "domain": "reminders",
+      "description": "List reminders with optional filter",
+      "required_fields": [],
+      "optional_fields": [
+        "reminder_action.filter_scope"
+      ],
+      "validation_rules": [
+        "IF reminder_action missing → create with filter_scope from inferFilterScopeFromMessage()",
+        "IF reminder_action.filter_scope missing → infer from raw_user_message"
+      ],
+      "db_action": "SELECT FROM reminders WHERE filter_scope conditions",
+      "response_pattern": "Formatted list of matching reminders"
+    },
+    "search_memory": {
+      "domain": "memory",
+      "description": "Search semantic memory (RAG)",
+      "required_fields": [
+        "memory_action.query"
+      ],
+      "optional_fields": [
+        "memory_action.category_filter"
+      ],
+      "validation_rules": [
+        "IF memory_action missing OR query empty → clarify('missing_memory_action_query_for_search_memory')"
+      ],
+      "db_action": "SELECT FROM rag_memories ORDER BY embedding <=> query_vector",
+      "response_pattern": "Summary of relevant memories found"
+    },
+    "general_response": {
+      "domain": "general",
+      "description": "Conversational response, no action needed",
+      "required_fields": [],
+      "optional_fields": [],
+      "validation_rules": [
+        "CLEAN all action payloads to null (task_action, reminder_action, memory_action, improvement_request)",
+        "CLEAN task_fallback_rules to []"
+      ],
+      "db_action": "none",
+      "response_pattern": "Natural conversational response"
+    },
+    "clarify": {
+      "domain": "general",
+      "description": "Request clarification from user",
+      "required_fields": [],
+      "optional_fields": [],
+      "validation_rules": [],
+      "db_action": "none",
+      "response_pattern": "Question asking for more details"
+    },
+    "save_improvement_request": {
+      "domain": "system",
+      "description": "User suggests a feature or improvement",
+      "required_fields": [
+        "improvement_request.requested_feature"
+      ],
+      "optional_fields": [
+        "improvement_request.user_message"
+      ],
+      "validation_rules": [
+        "IF improvement_request missing OR requested_feature empty → clarify('missing_improvement_request_feature')"
+      ],
+      "db_action": "INSERT INTO improvement_requests (future table)",
+      "response_pattern": "Acknowledgment of suggestion"
+    },
+    "none": {
+      "domain": "general",
+      "description": "No action, no response needed",
+      "required_fields": [],
+      "optional_fields": [],
+      "validation_rules": [
+        "CLEAN all action payloads to null",
+        "CLEAN task_fallback_rules to []"
+      ],
+      "db_action": "none",
+      "response_pattern": "Silent or minimal acknowledgment"
+    }
+  },
+  "fields": {
+    "task_action": {
+      "id": {
+        "type": "string|null",
+        "description": "Existing task ID for update/complete/cancel"
+      },
+      "title": {
+        "type": "string|null",
+        "description": "Task title, trimmed"
+      },
+      "description": {
+        "type": "string|null",
+        "description": "Optional details"
+      },
+      "priority": {
+        "type": "enum",
+        "values": [
+          "urgent",
+          "high",
+          "normal",
+          "low"
+        ],
+        "default": "normal"
+      },
+      "due_type": {
+        "type": "enum",
+        "values": [
+          "flexible",
+          "date",
+          "datetime"
+        ],
+        "default": "flexible",
+        "inference": "IF due_at → datetime, IF due_date → date, ELSE flexible"
+      },
+      "due_date": {
+        "type": "string|null",
+        "format": "YYYY-MM-DD",
+        "mutual_exclusion": "due_type=date → due_at=null"
+      },
+      "due_at": {
+        "type": "string|null",
+        "format": "ISO 8601",
+        "mutual_exclusion": "due_type=datetime → due_date=null"
+      },
+      "filter_scope": {
+        "type": "enum|null",
+        "values": [
+          "all",
+          "day_after_tomorrow",
+          "high",
+          "overdue",
+          "this_month",
+          "this_week",
+          "today",
+          "tomorrow",
+          "until_today",
+          "urgent"
+        ]
+      }
+    },
+    "reminder_action": {
+      "id": {
+        "type": "string|null"
+      },
+      "title": {
+        "type": "string|null"
+      },
+      "description": {
+        "type": "string|null"
+      },
+      "remind_at": {
+        "type": "string|null",
+        "format": "ISO 8601"
+      },
+      "filter_scope": {
+        "type": "enum|null",
+        "values": "same as task_action.filter_scope"
+      }
+    },
+    "memory_action": {
+      "query": {
+        "type": "string",
+        "description": "Search query for RAG"
+      },
+      "category_filter": {
+        "type": "enum|null",
+        "values": [
+          "business_profile",
+          "customer_market",
+          "growth_context",
+          "entrepreneur_profile",
+          "relationship_history",
+          "operational_patterns",
+          "preferences",
+          "constraints"
+        ],
+        "description": "Optional RAG category to narrow search scope"
+      }
+    },
+    "improvement_request": {
+      "requested_feature": {
+        "type": "string"
+      },
+      "user_message": {
+        "type": "string|null"
+      }
+    },
+    "memory_writes": {
+      "type": "array",
+      "item_schema": {
+        "type": {
+          "type": "enum",
+          "values": [
+            "fact",
+            "insight",
+            "advice"
+          ]
+        },
+        "category": {
+          "type": "enum",
+          "values": [
+            "business_profile",
+            "customer_market",
+            "growth_context",
+            "entrepreneur_profile",
+            "relationship_history",
+            "operational_patterns",
+            "preferences",
+            "constraints"
+          ],
+          "required": true,
+          "descriptions": {
+            "business_profile": "Info about tenant businesses — services, locations, capacity, pricing, team size",
+            "customer_market": "Client segments, seasonal patterns, demand, competition, market behavior",
+            "growth_context": "Revenue, goals, expansion plans, investments, KPIs",
+            "entrepreneur_profile": "Owner's skills, schedule, communication style, decision patterns",
+            "relationship_history": "Interactions with specific contacts — deals, disputes, reliability, notes",
+            "operational_patterns": "Recurring processes, workflows, habits, common issues, solutions that worked",
+            "preferences": "How the entrepreneur prefers things — communication, tools, timing, formats",
+            "constraints": "Limitations — budget caps, time restrictions, legal, regulatory, physical"
+          }
+        },
+        "content": {
+          "type": "string",
+          "required": true
+        }
+      },
+      "validation": "Filter strategy — invalid items removed silently, valid preserved. Items with category not in valid values are dropped."
+    },
+    "task_fallback_rules": {
+      "type": "array",
+      "item_schema": {
+        "condition": {
+          "type": "enum",
+          "values": [
+            "not_completed"
+          ]
+        },
+        "title": {
+          "type": "string",
+          "required": true
+        },
+        "priority": {
+          "type": "enum",
+          "values": [
+            "urgent",
+            "high",
+            "normal",
+            "low"
+          ],
+          "required": true
+        },
+        "due_type": {
+          "type": "enum",
+          "values": [
+            "date",
+            "datetime"
+          ],
+          "required": true
+        },
+        "due_date": {
+          "type": "string|null",
+          "required_if": "due_type=date"
+        },
+        "due_at": {
+          "type": "string|null",
+          "required_if": "due_type=datetime"
+        }
+      }
+    }
+  },
+  "disambiguation": {
+    "description": "When both task and reminder language detected in raw_user_message, prefer TASK. Transfer data from reminder_action to task_action if needed.",
+    "rule": "IF hasTaskLanguage AND hasReminderLanguage → flip create_reminder to create_task, build task_action from reminder_action, clean reminder_action",
+    "task_language_patterns": {
+      "description": "Patterns that indicate task preference in Romanian",
+      "patterns": [
+        "trebuie sa",
+        "trebuie să",
+        "trb sa",
+        "trb să",
+        "am de",
+        "pune-mi task",
+        "pune task",
+        "creeaza task",
+        "creează task",
+        "creeaza-mi task",
+        "creează-mi task",
+        "fa task",
+        "fă task",
+        "fa-mi task",
+        "fă-mi task",
+        "adauga task",
+        "adaugă task"
+      ]
+    },
+    "reminder_language_patterns": {
+      "description": "Patterns that indicate reminder preference in Romanian",
+      "patterns": [
+        "adu-mi aminte",
+        "adumi aminte",
+        "amintește-mi",
+        "aminteste-mi",
+        "amintestemi",
+        "reamintește-mi",
+        "reaminteste-mi",
+        "reamintestemi",
+        "nu uita sa-mi amintesti",
+        "nu uita să-mi amintești",
+        "sa nu uit",
+        "să nu uit",
+        "sanuuit",
+        "reminder"
+      ]
+    }
+  },
+  "filter_scope_inference": {
+    "description": "When LLM does not provide filter_scope for list_tasks/list_reminders, parser infers from raw_user_message. Order matters — first match wins.",
+    "patterns": [
+      {
+        "scope": "day_after_tomorrow",
+        "matches": [
+          "poimaine",
+          "poimâine"
+        ]
+      },
+      {
+        "scope": "tomorrow",
+        "matches": [
+          "maine",
+          "mâine",
+          "miine"
+        ]
+      },
+      {
+        "scope": "until_today",
+        "matches": [
+          "pana azi",
+          "până azi",
+          "pana astazi",
+          "până astăzi",
+          "pina azi",
+          "pînă azi",
+          "pana acum",
+          "până acum"
+        ]
+      },
+      {
+        "scope": "today",
+        "matches": [
+          "azi",
+          "astazi",
+          "astăzi"
+        ]
+      },
+      {
+        "scope": "overdue",
+        "matches": [
+          "restant",
+          "restante",
+          "întârzi",
+          "intarzi",
+          "intarziat"
+        ]
+      },
+      {
+        "scope": "urgent",
+        "matches": [
+          "urgent",
+          "urgente"
+        ]
+      },
+      {
+        "scope": "high",
+        "matches": [
+          "high",
+          "prioritate mare"
+        ]
+      },
+      {
+        "scope": "this_week",
+        "matches": [
+          "saptamana asta",
+          "săptămâna asta",
+          "saptamina asta",
+          "săptămîna asta"
+        ]
+      },
+      {
+        "scope": "this_month",
+        "matches": [
+          "luna asta"
+        ]
+      }
+    ],
+    "default": "all"
+  },
+  "rejection_rules": {
+    "old_contract_fields": {
+      "description": "Reject LLM output that contains fields from old contract versions",
+      "forbidden_fields": [
+        "task",
+        "reminder",
+        "memory_candidate",
+        "response_text",
+        "confidence"
+      ],
+      "action": "clarify('old_contract_fields_detected')"
+    },
+    "wrong_version": {
+      "description": "Reject if version != 'brain-decision-v1'",
+      "action": "clarify('wrong_version_' + version)"
+    },
+    "invalid_intent": {
+      "description": "Reject if intent not in valid intents list",
+      "action": "clarify('invalid_intent_' + intent)"
+    },
+    "parse_error": {
+      "description": "Reject if JSON parsing fails",
+      "action": "clarify('parse_error_' + error_message)"
+    }
+  },
+  "output_envelope": {
+    "description": "Parser wraps decision with tenant context for downstream nodes",
+    "fields": [
+      "organization_id",
+      "organization_name",
+      "tenant_id",
+      "tenant_name",
+      "tenant_slug",
+      "tenant_vertical",
+      "tenant_timezone",
+      "tenant_currency_code",
+      "telegram_chat_id",
+      "telegram_message_id",
+      "raw_user_message",
+      "received_at",
+      "test_mode",
+      "source",
+      "context",
+      "decision"
+    ]
+  },
+  "metadata": {
+    "generated_artifacts": [
+      "parse_contract_final.js — parser JS (n8n Code node)",
+      "LLM system prompt — intent instructions section",
+      "test harness — validation rules for test expectations",
+      "DB query templates — per intent SQL"
+    ],
+    "phase": 1,
+    "supported_languages": [
+      "ro",
+      "en"
+    ],
+    "llm_model": "gpt-4o-mini",
+    "llm_config": {
+      "temperature": 0.3,
+      "max_tokens": 600,
+      "response_format": "json_object"
+    }
+  }
+}

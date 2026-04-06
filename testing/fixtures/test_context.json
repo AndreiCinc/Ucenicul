@@ -1,0 +1,42 @@
+{
+  "organization_id": "org-test-001",
+  "organization_name": "Test Organization",
+  "tenant_id": "tenant-test-001",
+  "tenant_name": "Andrei Test",
+  "tenant_slug": "andrei-test",
+  "tenant_vertical": "entrepreneur",
+  "tenant_timezone": "Europe/Bucharest",
+  "tenant_currency_code": "RON",
+  "telegram_chat_id": "mock_chat_001",
+  "telegram_message_id": 1001,
+  "received_at": "2026-04-02T22:00:00+03:00",
+  "test_mode": true,
+  "source": "manual_test",
+  "context": {
+    "business": {
+      "id": "biz-001",
+      "name": "Andrei Business",
+      "business_type": "multi-service",
+      "stage": "growth"
+    },
+    "tasks": [
+      { "id": "t1", "title": "Finalizează issue-urile cu brain-ul", "priority": "urgent", "status": "open", "due_date": null, "due_at": "2026-04-02T21:00:00+00:00", "due_type": "datetime" },
+      { "id": "t2", "title": "Finalizează brain-ul", "priority": "urgent", "status": "open", "due_date": null, "due_at": "2026-04-02T21:00:00+00:00", "due_type": "datetime" },
+      { "id": "t3", "title": "Finalizează brain-ul", "priority": "normal", "status": "open", "due_date": "2026-04-03", "due_at": null, "due_type": "date" },
+      { "id": "t4", "title": "Sună-l pe Ion", "priority": "normal", "status": "open", "due_date": "2026-04-03", "due_at": null, "due_type": "date" },
+      { "id": "t5", "title": "Cumpără detergenți", "priority": "normal", "status": "open", "due_date": "2026-04-04", "due_at": null, "due_type": "date" }
+    ],
+    "reminders": [
+      { "id": "r1", "title": "Sună-l pe Ion", "remind_at": "2026-04-03T09:00:00+00:00", "status": "pending" },
+      { "id": "r2", "title": "Sună furnizorul", "remind_at": "2026-04-03T10:00:00+00:00", "status": "pending" },
+      { "id": "r3", "title": "Sună-o pe Ana de la detergenți", "remind_at": "2026-04-04T09:00:00+00:00", "status": "pending" },
+      { "id": "r4", "title": "Verifică apartamentul", "remind_at": "2026-04-08T14:00:00+00:00", "status": "pending" }
+    ],
+    "memories": [
+      { "id": "m1", "content": "Mihai vrea oferta finală până săptămâna viitoare", "memory_category": "growth_context", "memory_kind": "fact", "importance_score": 0.8 },
+      { "id": "m2", "content": "Ion a spus să fie sunat peste 1 lună", "memory_category": "customer_market", "memory_kind": "fact", "importance_score": 0.6 },
+      { "id": "m3", "content": "Ana de la detergenți livrează mai greu vinerea", "memory_category": "business_profile", "memory_kind": "insight", "importance_score": 0.5 },
+      { "id": "m4", "content": "Userul preferă reminder-ele dimineața când nu specifică altă oră", "memory_category": "entrepreneur_profile", "memory_kind": "advice", "importance_score": 0.7 }
+    ]
+  }
+}

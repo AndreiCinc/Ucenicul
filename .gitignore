@@ -1,0 +1,58 @@
+# Environment & secrets
+.env
+.env.local
+.env.production
+.env.*.local
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+
+# n8n local data
+.n8n/
+n8n-data/
+*.n8n-credentials.json
+
+# Build outputs
+dist/
+build/
+*.tgz
+
+# Logs
+logs/
+*.log
+
+# OS junk
+.DS_Store
+Thumbs.db
+Desktop.ini
+._*
+
+# IDE / editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Local Claude personal settings (not project-scoped)
+.claude/settings.json
+.claude/projects/
+
+# Plugin files (contain personal skill configs)
+*.plugin
+
+# Draft folder — working copies, internal docs, generated artifacts
+# Clean versions of key files live in src/brain/
+/draft/
+
+# Agent and skill working files
+agents/
+skills/*.skill
+
+# Database dumps
+*.dump
+*.
