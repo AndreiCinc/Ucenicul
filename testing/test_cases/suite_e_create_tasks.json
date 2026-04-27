@@ -1,0 +1,187 @@
+{
+  "suite": "E",
+  "name": "Create Tasks",
+  "phase": 1,
+  "tests": [
+    {
+      "id": "E1",
+      "name": "Task simplu cu titlu",
+      "input": "pune-mi task să sun furnizorul",
+      "llm_response": {
+        "version": "brain-decision-v1",
+        "intent": "create_task",
+        "domain": "general",
+        "response": "Am creat task-ul.",
+        "debug_summary": "create task call supplier",
+        "requires_confirmation": false,
+        "requires_clarification": false,
+        "task_action": { "title": "Sună furnizorul" },
+        "task_fallback_rules": [],
+        "reminder_action": null,
+        "memory_action": null,
+        "improvement_request": null,
+        "memory_writes": []
+      },
+      "expected": {
+        "intent": "create_task",
+        "has_task_action": true,
+        "task_has_title": true,
+        "task_priority": "normal",
+        "task_due_type": "flexible"
+      }
+    },
+    {
+      "id": "E2",
+      "name": "Task cu due_date",
+      "input": "pune task să cumpăr detergenți pe mâine",
+      "llm_response": {
+        "version": "brain-decision-v1",
+        "intent": "create_task",
+        "domain": "cleaning",
+        "response": "Am creat task-ul pe mâine.",
+        "debug_summary": "create task buy detergent tomorrow",
+        "requires_confirmation": false,
+        "requires_clarification": false,
+        "task_action": { "title": "Cumpără detergenți", "due_date": "2026-04-03", "due_type": "date" },
+        "task_fallback_rules": [],
+        "reminder_action": null,
+        "memory_action": null,
+        "improvement_request": null,
+        "memory_writes": []
+      },
+      "expected": {
+        "intent": "create_task",
+        "has_task_action": true,
+        "task_has_title": true,
+        "task_due_type": "date"
+      }
+    },
+    {
+      "id": "E3",
+      "name": "Task cu due_at (datetime)",
+      "input": "pune task să sun chiriașul mâine la 10",
+      "llm_response": {
+        "version": "brain-decision-v1",
+        "intent": "create_task",
+        "domain": "airbnb",
+        "response": "Am creat task-ul.",
+        "debug_summary": "create task call tenant at 10",
+        "requires_confirmation": false,
+        "requires_clarification": false,
+        "task_action": { "title": "Sună chiriașul", "due_at": "2026-04-03T10:00:00+03:00", "due_type": "datetime" },
+        "task_fallback_rules": [],
+        "reminder_action": null,
+        "memory_action": null,
+        "improvement_request": null,
+        "memory_writes": []
+      },
+      "expected": {
+        "intent": "create_task",
+        "has_task_action": true,
+        "task_has_title": true,
+        "task_due_type": "datetime"
+      }
+    },
+    {
+      "id": "E4",
+      "name": "Task urgent",
+      "input": "pune task urgent: scurgere la Ap 3",
+      "llm_response": {
+        "version": "brain-decision-v1",
+        "intent": "create_task",
+        "domain": "airbnb",
+        "response": "Task urgent creat.",
+        "debug_summary": "urgent task leak ap3",
+        "requires_confirmation": false,
+        "requires_clarification": false,
+        "task_action": { "title": "Scurgere la Ap 3", "priority": "urgent" },
+        "task_fallback_rules": [],
+        "reminder_action": null,
+        "memory_action": null,
+        "improvement_request": null,
+        "memory_writes": []
+      },
+      "expected": {
+        "intent": "create_task",
+        "has_task_action": true,
+        "task_priority": "urgent",
+        "task_due_type": "flexible"
+      }
+    },
+    {
+      "id": "E5",
+      "name": "Task fără titlu — clarify",
+      "input": "pune task",
+      "llm_response": {
+        "version": "brain-decision-v1",
+        "intent": "create_task",
+        "domain": "general",
+        "response": "Ce task vrei?",
+        "debug_summary": "no title",
+        "requires_confirmation": false,
+        "requires_clarification": false,
+        "task_action": null,
+        "task_fallback_rules": [],
+        "reminder_action": null,
+        "memory_action": null,
+        "improvement_request": null,
+        "memory_writes": []
+      },
+      "expected": {
+        "intent": "clarify",
+        "debug_contains": "missing_task_action_title"
+      }
+    },
+    {
+      "id": "E6",
+      "name": "Task cu due_type lipsă — LLM dă due_at dar nu due_type",
+      "input": "pune task să plătesc chiria pe 15",
+      "llm_response": {
+        "version": "brain-decision-v1",
+        "intent": "create_task",
+        "domain": "general",
+        "response": "Am creat task-ul.",
+        "debug_summary": "pay rent",
+        "requires_confirmation": false,
+        "requires_clarification": false,
+        "task_action": { "title": "Plătește chiria", "due_at": "2026-04-15T09:00:00+03:00" },
+        "task_fallback_rules": [],
+        "reminder_action": null,
+        "memory_action": null,
+        "improvement_request": null,
+        "memory_writes": []
+      },
+      "expected": {
+        "intent": "create_task",
+        "has_task_action": true,
+        "task_due_type": "datetime"
+      }
+    },
+    {
+      "id": "E7",
+      "name": "Task cu due_date dar LLM pune și due_at — mutual exclusion",
+      "input": "pune task cumpărături mâine",
+      "llm_response": {
+        "version": "brain-decision-v1",
+        "intent": "create_task",
+        "domain": "general",
+        "response": "OK.",
+        "debug_summary": "buy tomorrow",
+        "requires_confirmation": false,
+        "requires_clarification": false,
+        "task_action": { "title": "Cumpărături", "due_date": "2026-04-03", "due_at": "2026-04-03T09:00:00+03:00", "due_type": "date" },
+        "task_fallback_rules": [],
+        "reminder_action": null,
+        "memory_action": null,
+        "improvement_request": null,
+        "memory_writes": []
+      },
+      "expected": {
+        "intent": "create_task",
+        "has_task_action": true,
+        "task_due_type": "date",
+        "task_due_at_null": true
+      }
+    }
+  ]
+}

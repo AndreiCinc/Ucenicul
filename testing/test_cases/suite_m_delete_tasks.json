@@ -1,0 +1,205 @@
+{
+  "suite": "M",
+  "name": "Delete Tasks (Physical DELETE FROM)",
+  "phase": 1,
+  "tests": [
+    {
+      "id": "M1",
+      "name": "Delete single task by semantic title",
+      "input": "sterge task-ul cu furnizorul",
+      "llm_response": {
+        "version": "brain-decision-v1",
+        "intent": "cancel_task",
+        "domain": "general",
+        "response": "Am sters task-ul.",
+        "debug_summary": "delete supplier task by title",
+        "requires_confirmation": false,
+        "requires_clarification": false,
+        "task_action": { "title": "Sună furnizorul" },
+        "task_fallback_rules": [],
+        "reminder_action": null,
+        "memory_action": null,
+        "improvement_request": null,
+        "memory_writes": []
+      },
+      "expected": {
+        "intent": "cancel_task",
+        "has_task_action": true,
+        "task_has_title": true
+      }
+    },
+    {
+      "id": "M2",
+      "name": "Delete single task by explicit ID",
+      "input": "sterge task-ul cu id-ul abc-123",
+      "llm_response": {
+        "version": "brain-decision-v1",
+        "intent": "cancel_task",
+        "domain": "general",
+        "response": "Am sters task-ul.",
+        "debug_summary": "delete task by explicit id",
+        "requires_confirmation": false,
+        "requires_clarification": false,
+        "task_action": { "id": "abc-123", "title": null },
+        "task_fallback_rules": [],
+        "reminder_action": null,
+        "memory_action": null,
+        "improvement_request": null,
+        "memory_writes": []
+      },
+      "expected": {
+        "intent": "cancel_task",
+        "has_task_action": true
+      }
+    },
+    {
+      "id": "M3",
+      "name": "Delete task - missing task_action triggers clarify",
+      "input": "sterge ceva",
+      "llm_response": {
+        "version": "brain-decision-v1",
+        "intent": "cancel_task",
+        "domain": "general",
+        "response": "Ce task vrei sa sterg?",
+        "debug_summary": "cancel_task but no task_action",
+        "requires_confirmation": false,
+        "requires_clarification": true,
+        "task_action": null,
+        "task_fallback_rules": [],
+        "reminder_action": null,
+        "memory_action": null,
+        "improvement_request": null,
+        "memory_writes": []
+      },
+      "expected": {
+        "intent": "clarify",
+        "has_task_action": false,
+        "debug_contains": "missing_task_action_for_cancel_task"
+      }
+    },
+    {
+      "id": "M4",
+      "name": "Delete task - Romanian diacritics variations",
+      "input": "șterge task-ul cu curățenia",
+      "llm_response": {
+        "version": "brain-decision-v1",
+        "intent": "cancel_task",
+        "domain": "cleaning",
+        "response": "Am sters task-ul cu curatenia.",
+        "debug_summary": "delete cleaning task with diacritics",
+        "requires_confirmation": false,
+        "requires_clarification": false,
+        "task_action": { "title": "Curățenie generală" },
+        "task_fallback_rules": [],
+        "reminder_action": null,
+        "memory_action": null,
+        "improvement_request": null,
+        "memory_writes": []
+      },
+      "expected": {
+        "intent": "cancel_task",
+        "has_task_action": true,
+        "task_has_title": true
+      }
+    },
+    {
+      "id": "M5",
+      "name": "Delete task - informal Romanian sterge-mi",
+      "input": "sterge-mi task-ul ala cu detergenții",
+      "llm_response": {
+        "version": "brain-decision-v1",
+        "intent": "cancel_task",
+        "domain": "cleaning",
+        "response": "Am sters task-ul.",
+        "debug_summary": "delete detergent task informal",
+        "requires_confirmation": false,
+        "requires_clarification": false,
+        "task_action": { "title": "Cumpără detergenți" },
+        "task_fallback_rules": [],
+        "reminder_action": null,
+        "memory_action": null,
+        "improvement_request": null,
+        "memory_writes": []
+      },
+      "expected": {
+        "intent": "cancel_task",
+        "has_task_action": true,
+        "task_has_title": true
+      }
+    },
+    {
+      "id": "M6",
+      "name": "Delete task - multiple candidates should clarify (LLM returns clarify)",
+      "input": "sterge task-ul cu curatenia",
+      "llm_response": {
+        "version": "brain-decision-v1",
+        "intent": "clarify",
+        "domain": "general",
+        "response": "Am gasit mai multe task-uri cu curatenia. Care sa il sterg?",
+        "debug_summary": "multiple cleaning tasks found",
+        "requires_confirmation": false,
+        "requires_clarification": true,
+        "task_action": null,
+        "task_fallback_rules": [],
+        "reminder_action": null,
+        "memory_action": null,
+        "improvement_request": null,
+        "memory_writes": []
+      },
+      "expected": {
+        "intent": "clarify",
+        "has_task_action": false
+      }
+    },
+    {
+      "id": "M7",
+      "name": "Delete task batch - all overdue tasks",
+      "input": "sterge toate task-urile restante",
+      "llm_response": {
+        "version": "brain-decision-v1",
+        "intent": "cancel_task",
+        "domain": "general",
+        "response": "Am sters toate task-urile restante.",
+        "debug_summary": "batch delete overdue tasks",
+        "requires_confirmation": false,
+        "requires_clarification": false,
+        "task_action": { "filter_scope": "overdue" },
+        "task_fallback_rules": [],
+        "reminder_action": null,
+        "memory_action": null,
+        "improvement_request": null,
+        "memory_writes": []
+      },
+      "expected": {
+        "intent": "cancel_task",
+        "has_task_action": true,
+        "filter_scope": "overdue"
+      }
+    },
+    {
+      "id": "M8",
+      "name": "Delete task batch - all tasks (filter all)",
+      "input": "sterge toate task-urile anulate",
+      "llm_response": {
+        "version": "brain-decision-v1",
+        "intent": "cancel_task",
+        "domain": "general",
+        "response": "Am sters toate task-urile anulate.",
+        "debug_summary": "batch delete cancelled tasks",
+        "requires_confirmation": false,
+        "requires_clarification": false,
+        "task_action": { "filter_scope": "all" },
+        "task_fallback_rules": [],
+        "reminder_action": null,
+        "memory_action": null,
+        "improvement_request": null,
+        "memory_writes": []
+      },
+      "expected": {
+        "intent": "cancel_task",
+        "has_task_action": true,
+        "filter_scope": "all"
+      }
+    }
+  ]
+}

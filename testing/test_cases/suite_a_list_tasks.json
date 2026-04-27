@@ -1,0 +1,354 @@
+{
+  "suite": "A",
+  "name": "List Tasks",
+  "phase": 1,
+  "description": "Tests parser behavior for list_tasks intent with various filter scopes",
+  "tests": [
+    {
+      "id": "A1",
+      "name": "Listare simplă - toate",
+      "input": "ce task-uri am?",
+      "llm_response": {
+        "version": "brain-decision-v1",
+        "intent": "list_tasks",
+        "domain": "general",
+        "response": "Iată task-urile tale:",
+        "debug_summary": "user asks for all tasks",
+        "requires_confirmation": false,
+        "requires_clarification": false,
+        "task_action": null,
+        "task_fallback_rules": [],
+        "reminder_action": null,
+        "memory_action": null,
+        "improvement_request": null,
+        "memory_writes": []
+      },
+      "expected": {
+        "intent": "list_tasks",
+        "filter_scope": "all",
+        "has_task_action": true,
+        "no_forbidden_fields": true
+      }
+    },
+    {
+      "id": "A2",
+      "name": "Azi",
+      "input": "ce task-uri am pe astăzi?",
+      "llm_response": {
+        "version": "brain-decision-v1",
+        "intent": "list_tasks",
+        "domain": "general",
+        "response": "Task-urile de azi:",
+        "debug_summary": "user asks for today tasks",
+        "requires_confirmation": false,
+        "requires_clarification": false,
+        "task_action": { "filter_scope": "today" },
+        "task_fallback_rules": [],
+        "reminder_action": null,
+        "memory_action": null,
+        "improvement_request": null,
+        "memory_writes": []
+      },
+      "expected": {
+        "intent": "list_tasks",
+        "filter_scope": "today",
+        "has_task_action": true
+      }
+    },
+    {
+      "id": "A2b",
+      "name": "Azi - fără diacritice",
+      "input": "ce taskuri am azi?",
+      "llm_response": {
+        "version": "brain-decision-v1",
+        "intent": "list_tasks",
+        "domain": "general",
+        "response": "Task-urile de azi:",
+        "debug_summary": "today tasks",
+        "requires_confirmation": false,
+        "requires_clarification": false,
+        "task_action": null,
+        "task_fallback_rules": [],
+        "reminder_action": null,
+        "memory_action": null,
+        "improvement_request": null,
+        "memory_writes": []
+      },
+      "expected": {
+        "intent": "list_tasks",
+        "filter_scope": "today",
+        "has_task_action": true
+      }
+    },
+    {
+      "id": "A3",
+      "name": "Mâine",
+      "input": "ce task-uri am pe mâine?",
+      "llm_response": {
+        "version": "brain-decision-v1",
+        "intent": "list_tasks",
+        "domain": "general",
+        "response": "Task-urile de mâine:",
+        "debug_summary": "tomorrow tasks",
+        "requires_confirmation": false,
+        "requires_clarification": false,
+        "task_action": { "filter_scope": "tomorrow" },
+        "task_fallback_rules": [],
+        "reminder_action": null,
+        "memory_action": null,
+        "improvement_request": null,
+        "memory_writes": []
+      },
+      "expected": {
+        "intent": "list_tasks",
+        "filter_scope": "tomorrow"
+      }
+    },
+    {
+      "id": "A3b",
+      "name": "Mâine - fără diacritice, LLM nu pune filter",
+      "input": "ce taskuri am maine?",
+      "llm_response": {
+        "version": "brain-decision-v1",
+        "intent": "list_tasks",
+        "domain": "general",
+        "response": "Task-urile de mâine:",
+        "debug_summary": "tomorrow",
+        "requires_confirmation": false,
+        "requires_clarification": false,
+        "task_action": null,
+        "task_fallback_rules": [],
+        "reminder_action": null,
+        "memory_action": null,
+        "improvement_request": null,
+        "memory_writes": []
+      },
+      "expected": {
+        "intent": "list_tasks",
+        "filter_scope": "tomorrow",
+        "has_task_action": true
+      }
+    },
+    {
+      "id": "A4",
+      "name": "Poimâine",
+      "input": "ce task-uri am pe poimâine?",
+      "llm_response": {
+        "version": "brain-decision-v1",
+        "intent": "list_tasks",
+        "domain": "general",
+        "response": "Task-urile de poimâine:",
+        "debug_summary": "day after tomorrow",
+        "requires_confirmation": false,
+        "requires_clarification": false,
+        "task_action": { "filter_scope": "day_after_tomorrow" },
+        "task_fallback_rules": [],
+        "reminder_action": null,
+        "memory_action": null,
+        "improvement_request": null,
+        "memory_writes": []
+      },
+      "expected": {
+        "intent": "list_tasks",
+        "filter_scope": "day_after_tomorrow"
+      }
+    },
+    {
+      "id": "A4b",
+      "name": "Poimâine - fără diacritice, LLM nu pune filter",
+      "input": "ce taskuri am poimaine?",
+      "llm_response": {
+        "version": "brain-decision-v1",
+        "intent": "list_tasks",
+        "domain": "general",
+        "response": "Poimâine ai:",
+        "debug_summary": "day after tomorrow",
+        "requires_confirmation": false,
+        "requires_clarification": false,
+        "task_action": null,
+        "task_fallback_rules": [],
+        "reminder_action": null,
+        "memory_action": null,
+        "improvement_request": null,
+        "memory_writes": []
+      },
+      "expected": {
+        "intent": "list_tasks",
+        "filter_scope": "day_after_tomorrow",
+        "has_task_action": true
+      }
+    },
+    {
+      "id": "A5",
+      "name": "Restante",
+      "input": "ce task-uri restante am?",
+      "llm_response": {
+        "version": "brain-decision-v1",
+        "intent": "list_tasks",
+        "domain": "general",
+        "response": "Task-uri restante:",
+        "debug_summary": "overdue tasks",
+        "requires_confirmation": false,
+        "requires_clarification": false,
+        "task_action": { "filter_scope": "overdue" },
+        "task_fallback_rules": [],
+        "reminder_action": null,
+        "memory_action": null,
+        "improvement_request": null,
+        "memory_writes": []
+      },
+      "expected": {
+        "intent": "list_tasks",
+        "filter_scope": "overdue"
+      }
+    },
+    {
+      "id": "A5b",
+      "name": "Întârziate - sinonim fără diacritice",
+      "input": "ce taskuri intarziate am?",
+      "llm_response": {
+        "version": "brain-decision-v1",
+        "intent": "list_tasks",
+        "domain": "general",
+        "response": "Task-uri restante:",
+        "debug_summary": "overdue",
+        "requires_confirmation": false,
+        "requires_clarification": false,
+        "task_action": null,
+        "task_fallback_rules": [],
+        "reminder_action": null,
+        "memory_action": null,
+        "improvement_request": null,
+        "memory_writes": []
+      },
+      "expected": {
+        "intent": "list_tasks",
+        "filter_scope": "overdue",
+        "has_task_action": true
+      }
+    },
+    {
+      "id": "A6",
+      "name": "Urgente",
+      "input": "ce task-uri urgente am?",
+      "llm_response": {
+        "version": "brain-decision-v1",
+        "intent": "list_tasks",
+        "domain": "general",
+        "response": "Task-uri urgente:",
+        "debug_summary": "urgent tasks",
+        "requires_confirmation": false,
+        "requires_clarification": false,
+        "task_action": { "filter_scope": "urgent" },
+        "task_fallback_rules": [],
+        "reminder_action": null,
+        "memory_action": null,
+        "improvement_request": null,
+        "memory_writes": []
+      },
+      "expected": {
+        "intent": "list_tasks",
+        "filter_scope": "urgent"
+      }
+    },
+    {
+      "id": "A7",
+      "name": "High priority",
+      "input": "ce task-uri cu prioritate mare am?",
+      "llm_response": {
+        "version": "brain-decision-v1",
+        "intent": "list_tasks",
+        "domain": "general",
+        "response": "Task-uri cu prioritate mare:",
+        "debug_summary": "high priority tasks",
+        "requires_confirmation": false,
+        "requires_clarification": false,
+        "task_action": null,
+        "task_fallback_rules": [],
+        "reminder_action": null,
+        "memory_action": null,
+        "improvement_request": null,
+        "memory_writes": []
+      },
+      "expected": {
+        "intent": "list_tasks",
+        "filter_scope": "high",
+        "has_task_action": true
+      }
+    },
+    {
+      "id": "A8",
+      "name": "Săptămâna asta",
+      "input": "ce task-uri am săptămâna asta?",
+      "llm_response": {
+        "version": "brain-decision-v1",
+        "intent": "list_tasks",
+        "domain": "general",
+        "response": "Task-urile săptămânii:",
+        "debug_summary": "this week tasks",
+        "requires_confirmation": false,
+        "requires_clarification": false,
+        "task_action": { "filter_scope": "this_week" },
+        "task_fallback_rules": [],
+        "reminder_action": null,
+        "memory_action": null,
+        "improvement_request": null,
+        "memory_writes": []
+      },
+      "expected": {
+        "intent": "list_tasks",
+        "filter_scope": "this_week"
+      }
+    },
+    {
+      "id": "A8b",
+      "name": "Săptămâna asta - fără diacritice, LLM nu pune filter",
+      "input": "ce taskuri am saptamana asta?",
+      "llm_response": {
+        "version": "brain-decision-v1",
+        "intent": "list_tasks",
+        "domain": "general",
+        "response": "Săptămâna asta ai:",
+        "debug_summary": "this week",
+        "requires_confirmation": false,
+        "requires_clarification": false,
+        "task_action": null,
+        "task_fallback_rules": [],
+        "reminder_action": null,
+        "memory_action": null,
+        "improvement_request": null,
+        "memory_writes": []
+      },
+      "expected": {
+        "intent": "list_tasks",
+        "filter_scope": "this_week",
+        "has_task_action": true
+      }
+    },
+    {
+      "id": "A9",
+      "name": "Luna asta",
+      "input": "ce trebuie să fac luna asta?",
+      "llm_response": {
+        "version": "brain-decision-v1",
+        "intent": "list_tasks",
+        "domain": "general",
+        "response": "Luna asta:",
+        "debug_summary": "this month tasks",
+        "requires_confirmation": false,
+        "requires_clarification": false,
+        "task_action": null,
+        "task_fallback_rules": [],
+        "reminder_action": null,
+        "memory_action": null,
+        "improvement_request": null,
+        "memory_writes": []
+      },
+      "expected": {
+        "intent": "list_tasks",
+        "filter_scope": "this_month",
+        "has_task_action": true
+      }
+    }
+  ]
+}

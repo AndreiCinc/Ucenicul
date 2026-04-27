@@ -1,0 +1,79 @@
+{
+  "suite": "H",
+  "name": "Duplicate & Collision Detection",
+  "phase": 1,
+  "tests": [
+    {
+      "id": "H1",
+      "name": "Old contract fields → clarify",
+      "input": "pune task ceva",
+      "llm_response": {
+        "task": { "title": "ceva" },
+        "response_text": "OK",
+        "confidence": 0.9
+      },
+      "expected": {
+        "intent": "clarify",
+        "debug_contains": "old_contract"
+      }
+    },
+    {
+      "id": "H2",
+      "name": "Wrong version → clarify",
+      "input": "pune task ceva",
+      "llm_response": {
+        "version": "brain-v2",
+        "intent": "create_task",
+        "domain": "general",
+        "response": "OK",
+        "debug_summary": "test",
+        "requires_confirmation": false,
+        "requires_clarification": false,
+        "task_action": { "title": "ceva" },
+        "task_fallback_rules": [],
+        "reminder_action": null,
+        "memory_action": null,
+        "improvement_request": null,
+        "memory_writes": []
+      },
+      "expected": {
+        "intent": "clarify",
+        "debug_contains": "wrong_version"
+      }
+    },
+    {
+      "id": "H3",
+      "name": "Invalid intent → clarify",
+      "input": "ajutor",
+      "llm_response": {
+        "version": "brain-decision-v1",
+        "intent": "help_me",
+        "domain": "general",
+        "response": "Cu ce te ajut?",
+        "debug_summary": "help",
+        "requires_confirmation": false,
+        "requires_clarification": false,
+        "task_action": null,
+        "task_fallback_rules": [],
+        "reminder_action": null,
+        "memory_action": null,
+        "improvement_request": null,
+        "memory_writes": []
+      },
+      "expected": {
+        "intent": "clarify",
+        "debug_contains": "invalid_intent"
+      }
+    },
+    {
+      "id": "H4",
+      "name": "Garbled JSON → parse error clarify",
+      "input": "orice",
+      "llm_response_raw": "{broken json{{{",
+      "expected": {
+        "intent": "clarify",
+        "debug_contains": "parse_error"
+      }
+    }
+  ]
+}

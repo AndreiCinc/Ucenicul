@@ -1,0 +1,144 @@
+{
+  "suite": "EC",
+  "name": "Edge Cases",
+  "phase": 1,
+  "tests": [
+    {
+      "id": "EC1",
+      "name": "Task fallback rules valid",
+      "input": "pune task să verific AP 3, dacă nu termin azi, pune-mi pe mâine urgent",
+      "llm_response": {
+        "version": "brain-decision-v1",
+        "intent": "create_task",
+        "domain": "airbnb",
+        "response": "Am creat task-ul cu fallback.",
+        "debug_summary": "task with fallback",
+        "requires_confirmation": false,
+        "requires_clarification": false,
+        "task_action": { "title": "Verifică AP 3" },
+        "task_fallback_rules": [
+          { "condition": "not_completed", "title": "Verifică AP 3", "priority": "urgent", "due_type": "date", "due_date": "2026-04-03" }
+        ],
+        "reminder_action": null,
+        "memory_action": null,
+        "improvement_request": null,
+        "memory_writes": []
+      },
+      "expected": {
+        "intent": "create_task",
+        "has_task_action": true,
+        "has_fallback_rules": true
+      }
+    },
+    {
+      "id": "EC2",
+      "name": "Fallback rules invalid — condition greșită",
+      "input": "pune task ceva cu fallback",
+      "llm_response": {
+        "version": "brain-decision-v1",
+        "intent": "create_task",
+        "domain": "general",
+        "response": "OK.",
+        "debug_summary": "bad fallback",
+        "requires_confirmation": false,
+        "requires_clarification": false,
+        "task_action": { "title": "Ceva" },
+        "task_fallback_rules": [
+          { "condition": "expired", "title": "Ceva", "priority": "normal", "due_type": "date", "due_date": "2026-04-03" }
+        ],
+        "reminder_action": null,
+        "memory_action": null,
+        "improvement_request": null,
+        "memory_writes": []
+      },
+      "expected": {
+        "intent": "create_task",
+        "has_task_action": true,
+        "fallback_rules_empty": true
+      }
+    },
+    {
+      "id": "EC3",
+      "name": "Improvement request fără feature → clarify",
+      "input": "vreau să schimbi ceva",
+      "llm_response": {
+        "version": "brain-decision-v1",
+        "intent": "save_improvement_request",
+        "domain": "general",
+        "response": "Ce anume?",
+        "debug_summary": "empty improvement",
+        "requires_confirmation": false,
+        "requires_clarification": false,
+        "task_action": null,
+        "task_fallback_rules": [],
+        "reminder_action": null,
+        "memory_action": null,
+        "improvement_request": { "requested_feature": "", "user_message": "vreau să schimbi ceva" },
+        "memory_writes": []
+      },
+      "expected": {
+        "intent": "clarify",
+        "debug_contains": "missing_improvement_request_feature"
+      }
+    },
+    {
+      "id": "EC4",
+      "name": "String response instead of JSON object",
+      "input": "salut",
+      "llm_response_raw": "Bună! Cu ce te pot ajuta?",
+      "expected": {
+        "intent": "clarify",
+        "debug_contains": "parse_error"
+      }
+    },
+    {
+      "id": "EC5",
+      "name": "Priority invalid → null, apoi default normal",
+      "input": "pune task cu prioritate super-mare",
+      "llm_response": {
+        "version": "brain-decision-v1",
+        "intent": "create_task",
+        "domain": "general",
+        "response": "OK.",
+        "debug_summary": "invalid priority",
+        "requires_confirmation": false,
+        "requires_clarification": false,
+        "task_action": { "title": "Ceva important", "priority": "super-mare" },
+        "task_fallback_rules": [],
+        "reminder_action": null,
+        "memory_action": null,
+        "improvement_request": null,
+        "memory_writes": []
+      },
+      "expected": {
+        "intent": "create_task",
+        "has_task_action": true,
+        "task_priority": "normal"
+      }
+    },
+    {
+      "id": "EC6",
+      "name": "Domain trimming - spații",
+      "input": "ceva",
+      "llm_response": {
+        "version": "brain-decision-v1",
+        "intent": "general_response",
+        "domain": "  airbnb  ",
+        "response": "OK.",
+        "debug_summary": "domain trim",
+        "requires_confirmation": false,
+        "requires_clarification": false,
+        "task_action": null,
+        "task_fallback_rules": [],
+        "reminder_action": null,
+        "memory_action": null,
+        "improvement_request": null,
+        "memory_writes": []
+      },
+      "expected": {
+        "intent": "general_response",
+        "domain": "airbnb"
+      }
+    }
+  ]
+}

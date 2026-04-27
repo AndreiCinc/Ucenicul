@@ -1,0 +1,205 @@
+{
+  "suite": "N",
+  "name": "Delete Reminders (Physical DELETE FROM)",
+  "phase": 1,
+  "tests": [
+    {
+      "id": "N1",
+      "name": "Delete single reminder by semantic title",
+      "input": "sterge reminderul cu furnizorul",
+      "llm_response": {
+        "version": "brain-decision-v1",
+        "intent": "cancel_reminder",
+        "domain": "general",
+        "response": "Am sters reminderul.",
+        "debug_summary": "delete supplier reminder by title",
+        "requires_confirmation": false,
+        "requires_clarification": false,
+        "reminder_action": { "title": "Sună furnizorul" },
+        "task_action": null,
+        "task_fallback_rules": [],
+        "memory_action": null,
+        "improvement_request": null,
+        "memory_writes": []
+      },
+      "expected": {
+        "intent": "cancel_reminder",
+        "has_reminder_action": true,
+        "reminder_has_title": true
+      }
+    },
+    {
+      "id": "N2",
+      "name": "Delete single reminder by explicit ID",
+      "input": "sterge reminderul cu id-ul rem-456",
+      "llm_response": {
+        "version": "brain-decision-v1",
+        "intent": "cancel_reminder",
+        "domain": "general",
+        "response": "Am sters reminderul.",
+        "debug_summary": "delete reminder by explicit id",
+        "requires_confirmation": false,
+        "requires_clarification": false,
+        "reminder_action": { "id": "rem-456", "title": null },
+        "task_action": null,
+        "task_fallback_rules": [],
+        "memory_action": null,
+        "improvement_request": null,
+        "memory_writes": []
+      },
+      "expected": {
+        "intent": "cancel_reminder",
+        "has_reminder_action": true
+      }
+    },
+    {
+      "id": "N3",
+      "name": "Delete reminder - missing reminder_action triggers clarify",
+      "input": "sterge reminderul",
+      "llm_response": {
+        "version": "brain-decision-v1",
+        "intent": "cancel_reminder",
+        "domain": "general",
+        "response": "Care reminder sa il sterg?",
+        "debug_summary": "cancel_reminder but no reminder_action",
+        "requires_confirmation": false,
+        "requires_clarification": true,
+        "reminder_action": null,
+        "task_action": null,
+        "task_fallback_rules": [],
+        "memory_action": null,
+        "improvement_request": null,
+        "memory_writes": []
+      },
+      "expected": {
+        "intent": "clarify",
+        "has_reminder_action": false,
+        "debug_contains": "missing_reminder_action_for_cancel_reminder"
+      }
+    },
+    {
+      "id": "N4",
+      "name": "Delete reminder - Romanian diacritics",
+      "input": "sterge reamintirea cu apartamentul",
+      "llm_response": {
+        "version": "brain-decision-v1",
+        "intent": "cancel_reminder",
+        "domain": "airbnb",
+        "response": "Am sters reminderul.",
+        "debug_summary": "delete apartment reminder",
+        "requires_confirmation": false,
+        "requires_clarification": false,
+        "reminder_action": { "title": "Verifică apartamentul" },
+        "task_action": null,
+        "task_fallback_rules": [],
+        "memory_action": null,
+        "improvement_request": null,
+        "memory_writes": []
+      },
+      "expected": {
+        "intent": "cancel_reminder",
+        "has_reminder_action": true,
+        "reminder_has_title": true
+      }
+    },
+    {
+      "id": "N5",
+      "name": "Delete reminder batch - all expired reminders",
+      "input": "sterge toate reminderele expirate",
+      "llm_response": {
+        "version": "brain-decision-v1",
+        "intent": "cancel_reminder",
+        "domain": "general",
+        "response": "Am sters toate reminderele expirate.",
+        "debug_summary": "batch delete expired reminders",
+        "requires_confirmation": false,
+        "requires_clarification": false,
+        "reminder_action": { "filter_scope": "overdue" },
+        "task_action": null,
+        "task_fallback_rules": [],
+        "memory_action": null,
+        "improvement_request": null,
+        "memory_writes": []
+      },
+      "expected": {
+        "intent": "cancel_reminder",
+        "has_reminder_action": true,
+        "filter_scope": "overdue"
+      }
+    },
+    {
+      "id": "N6",
+      "name": "Delete reminder - ambiguous multiple candidates",
+      "input": "sterge reminderul cu sunat",
+      "llm_response": {
+        "version": "brain-decision-v1",
+        "intent": "clarify",
+        "domain": "general",
+        "response": "Am mai multe remindere legate de sunat. Pe care sa il sterg?",
+        "debug_summary": "multiple call reminders found",
+        "requires_confirmation": false,
+        "requires_clarification": true,
+        "reminder_action": null,
+        "task_action": null,
+        "task_fallback_rules": [],
+        "memory_action": null,
+        "improvement_request": null,
+        "memory_writes": []
+      },
+      "expected": {
+        "intent": "clarify",
+        "has_reminder_action": false
+      }
+    },
+    {
+      "id": "N7",
+      "name": "Delete reminder batch - all (filter all)",
+      "input": "sterge toate reminderele livrate",
+      "llm_response": {
+        "version": "brain-decision-v1",
+        "intent": "cancel_reminder",
+        "domain": "general",
+        "response": "Am sters toate reminderele livrate.",
+        "debug_summary": "batch delete delivered reminders",
+        "requires_confirmation": false,
+        "requires_clarification": false,
+        "reminder_action": { "filter_scope": "all" },
+        "task_action": null,
+        "task_fallback_rules": [],
+        "memory_action": null,
+        "improvement_request": null,
+        "memory_writes": []
+      },
+      "expected": {
+        "intent": "cancel_reminder",
+        "has_reminder_action": true,
+        "filter_scope": "all"
+      }
+    },
+    {
+      "id": "N8",
+      "name": "Delete reminder - informal Romanian",
+      "input": "scapa-ma de reminderul cu platile",
+      "llm_response": {
+        "version": "brain-decision-v1",
+        "intent": "cancel_reminder",
+        "domain": "general",
+        "response": "Am sters reminderul cu platile.",
+        "debug_summary": "delete payment reminder informal",
+        "requires_confirmation": false,
+        "requires_clarification": false,
+        "reminder_action": { "title": "Plată factură" },
+        "task_action": null,
+        "task_fallback_rules": [],
+        "memory_action": null,
+        "improvement_request": null,
+        "memory_writes": []
+      },
+      "expected": {
+        "intent": "cancel_reminder",
+        "has_reminder_action": true,
+        "reminder_has_title": true
+      }
+    }
+  ]
+}

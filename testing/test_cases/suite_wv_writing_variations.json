@@ -1,0 +1,433 @@
+{
+  "suite": "WV",
+  "name": "Writing Variations — Romanian autocorrect, typos, diacritics, lexical families",
+  "phase": 1,
+  "description": "These tests are EXPECTED TO FAIL on the current parser. They test missing patterns.",
+  "tests": [
+    {
+      "id": "WV1",
+      "name": "amintestemi (fără cratimă, lipit)",
+      "input": "amintestemi sa platesc chiria",
+      "llm_response": {
+        "version": "brain-decision-v1",
+        "intent": "create_reminder",
+        "domain": "general",
+        "response": "OK.",
+        "debug_summary": "reminder pay rent",
+        "requires_confirmation": false,
+        "requires_clarification": false,
+        "task_action": null,
+        "task_fallback_rules": [],
+        "reminder_action": { "title": "Plătește chiria", "remind_at": "2026-04-03T09:00:00+03:00" },
+        "memory_action": null,
+        "improvement_request": null,
+        "memory_writes": []
+      },
+      "expected": {
+        "intent": "create_reminder",
+        "has_reminder_action": true
+      },
+      "notes": "messageImpliesReminderPreference nu detectează 'amintestemi'"
+    },
+    {
+      "id": "WV2",
+      "name": "adumi aminte (fără cratimă, typo)",
+      "input": "adumi aminte de curățenie mâine",
+      "llm_response": {
+        "version": "brain-decision-v1",
+        "intent": "create_reminder",
+        "domain": "cleaning",
+        "response": "OK.",
+        "debug_summary": "reminder cleaning",
+        "requires_confirmation": false,
+        "requires_clarification": false,
+        "task_action": null,
+        "task_fallback_rules": [],
+        "reminder_action": { "title": "Curățenie", "remind_at": "2026-04-03T09:00:00+03:00" },
+        "memory_action": null,
+        "improvement_request": null,
+        "memory_writes": []
+      },
+      "expected": {
+        "intent": "create_reminder",
+        "has_reminder_action": true
+      },
+      "notes": "messageImpliesReminderPreference nu detectează 'adumi aminte'"
+    },
+    {
+      "id": "WV3",
+      "name": "reaminteste-mi (sinonim)",
+      "input": "reaminteste-mi sa sun clientul",
+      "llm_response": {
+        "version": "brain-decision-v1",
+        "intent": "create_reminder",
+        "domain": "general",
+        "response": "OK.",
+        "debug_summary": "reminder call client",
+        "requires_confirmation": false,
+        "requires_clarification": false,
+        "task_action": null,
+        "task_fallback_rules": [],
+        "reminder_action": { "title": "Sună clientul", "remind_at": "2026-04-03T10:00:00+03:00" },
+        "memory_action": null,
+        "improvement_request": null,
+        "memory_writes": []
+      },
+      "expected": {
+        "intent": "create_reminder",
+        "has_reminder_action": true
+      },
+      "notes": "messageImpliesReminderPreference nu detectează 'reaminteste-mi'"
+    },
+    {
+      "id": "WV4",
+      "name": "reamintește-mi (cu diacritice)",
+      "input": "reamintește-mi de plată",
+      "llm_response": {
+        "version": "brain-decision-v1",
+        "intent": "create_reminder",
+        "domain": "general",
+        "response": "OK.",
+        "debug_summary": "reminder payment",
+        "requires_confirmation": false,
+        "requires_clarification": false,
+        "task_action": null,
+        "task_fallback_rules": [],
+        "reminder_action": { "title": "Plată", "remind_at": "2026-04-03T09:00:00+03:00" },
+        "memory_action": null,
+        "improvement_request": null,
+        "memory_writes": []
+      },
+      "expected": {
+        "intent": "create_reminder",
+        "has_reminder_action": true
+      }
+    },
+    {
+      "id": "WV5",
+      "name": "sa nu uit (expresie naturală)",
+      "input": "sa nu uit sa platesc chiria",
+      "llm_response": {
+        "version": "brain-decision-v1",
+        "intent": "create_reminder",
+        "domain": "general",
+        "response": "OK.",
+        "debug_summary": "reminder pay rent",
+        "requires_confirmation": false,
+        "requires_clarification": false,
+        "task_action": null,
+        "task_fallback_rules": [],
+        "reminder_action": { "title": "Plătește chiria", "remind_at": "2026-04-03T09:00:00+03:00" },
+        "memory_action": null,
+        "improvement_request": null,
+        "memory_writes": []
+      },
+      "expected": {
+        "intent": "create_reminder",
+        "has_reminder_action": true
+      }
+    },
+    {
+      "id": "WV6",
+      "name": "să nu uit (cu diacritice)",
+      "input": "să nu uit să sun furnizorul",
+      "llm_response": {
+        "version": "brain-decision-v1",
+        "intent": "create_reminder",
+        "domain": "general",
+        "response": "OK.",
+        "debug_summary": "reminder call supplier",
+        "requires_confirmation": false,
+        "requires_clarification": false,
+        "task_action": null,
+        "task_fallback_rules": [],
+        "reminder_action": { "title": "Sună furnizorul", "remind_at": "2026-04-03T09:00:00+03:00" },
+        "memory_action": null,
+        "improvement_request": null,
+        "memory_writes": []
+      },
+      "expected": {
+        "intent": "create_reminder",
+        "has_reminder_action": true
+      }
+    },
+    {
+      "id": "WV7",
+      "name": "sanuuit (lipit, grabă)",
+      "input": "sanuuit de chirie",
+      "llm_response": {
+        "version": "brain-decision-v1",
+        "intent": "create_reminder",
+        "domain": "general",
+        "response": "OK.",
+        "debug_summary": "reminder rent",
+        "requires_confirmation": false,
+        "requires_clarification": false,
+        "task_action": null,
+        "task_fallback_rules": [],
+        "reminder_action": { "title": "Chirie", "remind_at": "2026-04-03T09:00:00+03:00" },
+        "memory_action": null,
+        "improvement_request": null,
+        "memory_writes": []
+      },
+      "expected": {
+        "intent": "create_reminder",
+        "has_reminder_action": true
+      }
+    },
+    {
+      "id": "WV8",
+      "name": "trb sa (prescurtare task)",
+      "input": "trb sa sun la primarie",
+      "llm_response": {
+        "version": "brain-decision-v1",
+        "intent": "create_task",
+        "domain": "general",
+        "response": "OK.",
+        "debug_summary": "task call city hall",
+        "requires_confirmation": false,
+        "requires_clarification": false,
+        "task_action": { "title": "Sună la primărie" },
+        "task_fallback_rules": [],
+        "reminder_action": null,
+        "memory_action": null,
+        "improvement_request": null,
+        "memory_writes": []
+      },
+      "expected": {
+        "intent": "create_task",
+        "has_task_action": true
+      },
+      "notes": "messageImpliesTaskPreference nu detectează 'trb sa'"
+    },
+    {
+      "id": "WV9",
+      "name": "am de facut (fără diacritice)",
+      "input": "am de facut curat la Ap 3",
+      "llm_response": {
+        "version": "brain-decision-v1",
+        "intent": "create_task",
+        "domain": "cleaning",
+        "response": "OK.",
+        "debug_summary": "task clean ap3",
+        "requires_confirmation": false,
+        "requires_clarification": false,
+        "task_action": { "title": "Curat la Ap 3" },
+        "task_fallback_rules": [],
+        "reminder_action": null,
+        "memory_action": null,
+        "improvement_request": null,
+        "memory_writes": []
+      },
+      "expected": {
+        "intent": "create_task",
+        "has_task_action": true
+      },
+      "notes": "Testează 'am de facut' — parser detectează 'am de' deci ar trebui să treacă"
+    },
+    {
+      "id": "WV10",
+      "name": "miine (typo pentru mâine) — filter inference",
+      "input": "ce am de făcut miine?",
+      "llm_response": {
+        "version": "brain-decision-v1",
+        "intent": "list_tasks",
+        "domain": "general",
+        "response": "Task-urile pe mâine:",
+        "debug_summary": "list tomorrow tasks",
+        "requires_confirmation": false,
+        "requires_clarification": false,
+        "task_action": null,
+        "task_fallback_rules": [],
+        "reminder_action": null,
+        "memory_action": null,
+        "improvement_request": null,
+        "memory_writes": []
+      },
+      "expected": {
+        "intent": "list_tasks",
+        "filter_scope": "tomorrow",
+        "has_task_action": true
+      },
+      "notes": "inferFilterScopeFromMessage nu detectează 'miine'"
+    },
+    {
+      "id": "WV11",
+      "name": "astazi (sinonim azi)",
+      "input": "ce task-uri am astazi?",
+      "llm_response": {
+        "version": "brain-decision-v1",
+        "intent": "list_tasks",
+        "domain": "general",
+        "response": "Task-uri:",
+        "debug_summary": "list today",
+        "requires_confirmation": false,
+        "requires_clarification": false,
+        "task_action": null,
+        "task_fallback_rules": [],
+        "reminder_action": null,
+        "memory_action": null,
+        "improvement_request": null,
+        "memory_writes": []
+      },
+      "expected": {
+        "intent": "list_tasks",
+        "filter_scope": "today",
+        "has_task_action": true
+      },
+      "notes": "inferFilterScopeFromMessage nu detectează 'astazi' (dar azi e substring deci s-ar putea să treacă)"
+    },
+    {
+      "id": "WV12",
+      "name": "intarziate (variație)",
+      "input": "ce task-uri am intarziate?",
+      "llm_response": {
+        "version": "brain-decision-v1",
+        "intent": "list_tasks",
+        "domain": "general",
+        "response": "Task-uri întârziate:",
+        "debug_summary": "overdue tasks",
+        "requires_confirmation": false,
+        "requires_clarification": false,
+        "task_action": null,
+        "task_fallback_rules": [],
+        "reminder_action": null,
+        "memory_action": null,
+        "improvement_request": null,
+        "memory_writes": []
+      },
+      "expected": {
+        "intent": "list_tasks",
+        "filter_scope": "overdue",
+        "has_task_action": true
+      },
+      "notes": "Parser are 'intarzi' care e substring de 'intarziate' — ar trebui să treacă"
+    },
+    {
+      "id": "WV13",
+      "name": "saptamina asta (typo)",
+      "input": "ce am saptamina asta?",
+      "llm_response": {
+        "version": "brain-decision-v1",
+        "intent": "list_tasks",
+        "domain": "general",
+        "response": "Task-uri:",
+        "debug_summary": "this week tasks",
+        "requires_confirmation": false,
+        "requires_clarification": false,
+        "task_action": null,
+        "task_fallback_rules": [],
+        "reminder_action": null,
+        "memory_action": null,
+        "improvement_request": null,
+        "memory_writes": []
+      },
+      "expected": {
+        "intent": "list_tasks",
+        "filter_scope": "this_week",
+        "has_task_action": true
+      },
+      "notes": "inferFilterScopeFromMessage nu detectează 'saptamina asta'"
+    },
+    {
+      "id": "WV14",
+      "name": "creeaza-mi task (cu cratimă)",
+      "input": "creeaza-mi task sa comand materiale",
+      "llm_response": {
+        "version": "brain-decision-v1",
+        "intent": "create_task",
+        "domain": "general",
+        "response": "OK.",
+        "debug_summary": "task order materials",
+        "requires_confirmation": false,
+        "requires_clarification": false,
+        "task_action": { "title": "Comandă materiale" },
+        "task_fallback_rules": [],
+        "reminder_action": null,
+        "memory_action": null,
+        "improvement_request": null,
+        "memory_writes": []
+      },
+      "expected": {
+        "intent": "create_task",
+        "has_task_action": true
+      },
+      "notes": "Parser are 'creeaza task' dar nu 'creeaza-mi task'"
+    },
+    {
+      "id": "WV15",
+      "name": "fa-mi task (cu cratimă)",
+      "input": "fa-mi task sa verific AP 2",
+      "llm_response": {
+        "version": "brain-decision-v1",
+        "intent": "create_task",
+        "domain": "airbnb",
+        "response": "OK.",
+        "debug_summary": "task check ap2",
+        "requires_confirmation": false,
+        "requires_clarification": false,
+        "task_action": { "title": "Verifică AP 2" },
+        "task_fallback_rules": [],
+        "reminder_action": null,
+        "memory_action": null,
+        "improvement_request": null,
+        "memory_writes": []
+      },
+      "expected": {
+        "intent": "create_task",
+        "has_task_action": true
+      },
+      "notes": "Parser are 'fa task' dar nu 'fa-mi task'"
+    },
+    {
+      "id": "WV16",
+      "name": "adauga task (sinonim)",
+      "input": "adauga task sa cumpar aspirator",
+      "llm_response": {
+        "version": "brain-decision-v1",
+        "intent": "create_task",
+        "domain": "cleaning",
+        "response": "OK.",
+        "debug_summary": "task buy vacuum",
+        "requires_confirmation": false,
+        "requires_clarification": false,
+        "task_action": { "title": "Cumpără aspirator" },
+        "task_fallback_rules": [],
+        "reminder_action": null,
+        "memory_action": null,
+        "improvement_request": null,
+        "memory_writes": []
+      },
+      "expected": {
+        "intent": "create_task",
+        "has_task_action": true
+      },
+      "notes": "Parser nu are 'adauga task' / 'adaugă task'"
+    },
+    {
+      "id": "WV17",
+      "name": "Disambiguation: trb sa + amintestemi → prefer task",
+      "input": "trb sa fac curat, amintestemi maine",
+      "llm_response": {
+        "version": "brain-decision-v1",
+        "intent": "create_reminder",
+        "domain": "cleaning",
+        "response": "OK.",
+        "debug_summary": "reminder + task language",
+        "requires_confirmation": false,
+        "requires_clarification": false,
+        "task_action": null,
+        "task_fallback_rules": [],
+        "reminder_action": { "title": "Fă curat", "remind_at": "2026-04-03T09:00:00+03:00" },
+        "memory_action": null,
+        "improvement_request": null,
+        "memory_writes": []
+      },
+      "expected": {
+        "intent": "create_task",
+        "has_task_action": true
+      },
+      "notes": "Dacă parser detectează AMBELE (trb sa + amintestemi), flips to create_task"
+    }
+  ]
+}

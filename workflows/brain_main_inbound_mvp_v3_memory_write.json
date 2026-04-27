@@ -1,0 +1,2198 @@
+{
+  "name": "brain_main_inbound_mvp_S",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -4512,
+        1152
+      ],
+      "id": "c0bcfadb-c15f-4c83-8961-acae1843c682",
+      "name": "Manual Trigger"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "a01",
+              "name": "source",
+              "value": "manual_test",
+              "type": "string"
+            },
+            {
+              "id": "a02",
+              "name": "organization_id",
+              "value": "",
+              "type": "string"
+            },
+            {
+              "id": "a03",
+              "name": "tenant_id",
+              "value": "",
+              "type": "string"
+            },
+            {
+              "id": "a04",
+              "name": "telegram_chat_id",
+              "value": "mock_chat_001",
+              "type": "string"
+            },
+            {
+              "id": "a05",
+              "name": "telegram_message_id",
+              "value": "=1001",
+              "type": "number"
+            },
+            {
+              "id": "a06",
+              "name": "raw_user_message",
+              "value": "Adu-mi aminte sa sun furnizorul maine la 10",
+              "type": "string"
+            },
+            {
+              "id": "a07",
+              "name": "received_at",
+              "value": "={{ $now.toISO() }}",
+              "type": "string"
+            },
+            {
+              "id": "a08",
+              "name": "test_mode",
+              "value": true,
+              "type": "boolean"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -4272,
+        1152
+      ],
+      "id": "3a3a20ae-9c1a-45e8-9ede-4b1f5f157879",
+      "name": "Mock Inbound Payload"
+    },
+    {
+      "parameters": {
+        "jsCode": "const item = $input.first().json;\nreturn [{\n  json: {\n    source: item.source || 'unknown',\n    organization_id: item.organization_id || null,\n    tenant_id: item.tenant_id || null,\n    telegram_chat_id: String(item.telegram_chat_id || ''),\n    telegram_message_id: item.telegram_message_id || null,\n    raw_user_message: (item.raw_user_message || '').trim(),\n    received_at: item.received_at || new Date().toISOString(),\n    test_mode: item.test_mode === true\n  }\n}];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -4032,
+        944
+      ],
+      "id": "656bb302-a5bf-4d8b-8944-afd20b16e270",
+      "name": "Normalize Input"
+    },
+    {
+      "parameters": {
+        "jsCode": "// NO-OP MVP: Privacy Gate Inbound\n// Future: detect PII, replace with tokens before LLM call\n// Future: ensure RAG writes use pseudonymized content\n// For MVP: pass-through only\nreturn $input.all();"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -3792,
+        944
+      ],
+      "id": "3d30dd71-1cf1-43cf-9064-5c9305f4c22a",
+      "name": "Privacy Gate Inbound (NO-OP MVP)"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "WITH resolved_org AS (\n  SELECT\n    o.id,\n    o.name,\n    o.active_tenant_id\n  FROM organizations o\n  WHERE\n    (\n      NULLIF($3, '') IS NOT NULL\n      AND o.id = NULLIF($3, '')::uuid\n    )\n    OR\n    (\n      NULLIF($3, '') IS NULL\n      AND o.owner_telegram_chat_id = $1\n    )\n  LIMIT 1\n),\nresolved_tenant AS (\n  SELECT\n    t.id,\n    t.name,\n    COALESCE(t.slug, '') AS tenant_slug,\n    COALESCE(t.vertical, 'entrepreneur') AS tenant_vertical,\n    COALESCE(t.timezone, 'Europe/Bucharest') AS tenant_timezone,\n    COALESCE(t.currency_code, 'RON') AS tenant_currency_code\n  FROM tenants t\n  JOIN resolved_org ro ON ro.id = t.organization_id\n  WHERE\n    t.is_active = true\n    AND t.id = COALESCE(NULLIF($2, '')::uuid, ro.active_tenant_id)\n  LIMIT 1\n)\nSELECT\n  ro.id::text AS organization_id,\n  ro.name AS organization_name,\n  rt.id::text AS tenant_id,\n  rt.name AS tenant_name,\n  rt.tenant_slug,\n  rt.tenant_vertical,\n  rt.tenant_timezone,\n  rt.tenant_currency_code,\n  (ro.id IS NOT NULL) AS found\nFROM (SELECT 1) dummy\nLEFT JOIN resolved_org ro ON true\nLEFT JOIN resolved_tenant rt ON true;",
+        "options": {
+          "queryReplacement": "={{ [$json.telegram_chat_id || '', $json.tenant_id || '', $json.organization_id || ''] }}"
+        }
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [
+        -3536,
+        944
+      ],
+      "id": "1d336da9-1410-4355-aac3-b5bfa4717b14",
+      "name": "Resolve Organization and Tenant",
+      "credentials": {
+        "postgres": {
+          "id": "z9nKgToNWvIW7P8f",
+          "name": "Postgres account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 1
+          },
+          "conditions": [
+            {
+              "id": "cond_org",
+              "leftValue": "={{ $json.found }}",
+              "rightValue": true,
+              "operator": {
+                "type": "boolean",
+                "operation": "true"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        -3280,
+        944
+      ],
+      "id": "ef55d807-9cac-4003-b260-3e833c369db5",
+      "name": "IF Org Found"
+    },
+    {
+      "parameters": {
+        "errorMessage": "={{ 'Organization not found for telegram_chat_id: ' + $('Privacy Gate Inbound (NO-OP MVP)').first().json.telegram_chat_id + '. User may need onboarding.' }}"
+      },
+      "type": "n8n-nodes-base.stopAndError",
+      "typeVersion": 1,
+      "position": [
+        -3072,
+        1200
+      ],
+      "id": "b5550ccf-a273-4c8b-b4f9-815be758e008",
+      "name": "Stop Error No Org"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "WITH primary_business AS (\n  SELECT id, name, business_type, stage\n  FROM businesses\n  WHERE tenant_id = $1::uuid\n  ORDER BY created_at ASC\n  LIMIT 1\n),\nopen_tasks AS (\n  SELECT id, title, priority, status, due_date, due_at, due_type\n  FROM tasks\n  WHERE tenant_id = $1::uuid AND status = 'open'\n  ORDER BY created_at DESC\n  LIMIT 5\n),\npending_reminders AS (\n  SELECT id, title, remind_at, status\n  FROM reminders\n  WHERE tenant_id = $1::uuid AND status = 'pending'\n  ORDER BY remind_at ASC\n  LIMIT 5\n),\nrecent_memories AS (\n  SELECT id, content, memory_category, memory_kind, importance_score\n  FROM rag_memories\n  WHERE tenant_id = $1::uuid\n  ORDER BY importance_score DESC, created_at DESC\n  LIMIT 5\n)\nSELECT json_build_object(\n  'business', (SELECT row_to_json(b) FROM primary_business b),\n  'tasks', COALESCE((SELECT json_agg(t) FROM open_tasks t), '[]'::json),\n  'reminders', COALESCE((SELECT json_agg(r) FROM pending_reminders r), '[]'::json),\n  'memories', COALESCE((SELECT json_agg(m) FROM recent_memories m), '[]'::json)\n) as context",
+        "options": {
+          "queryReplacement": "={{ [$json.tenant_id] }}"
+        }
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [
+        -3008,
+        944
+      ],
+      "id": "94d6e036-273e-4b9b-90a2-71127a72204e",
+      "name": "Load Minimal Context",
+      "credentials": {
+        "postgres": {
+          "id": "z9nKgToNWvIW7P8f",
+          "name": "Postgres account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const original = $('Privacy Gate Inbound (NO-OP MVP)').first().json;\nconst org = $('Resolve Organization and Tenant').first().json;\nconst ctxRow = $input.first().json;\n\nconst context = (typeof ctxRow.context === 'string')\n  ? JSON.parse(ctxRow.context)\n  : (ctxRow.context || {});\n\nconst business = context.business || null;\nconst tasks = Array.isArray(context.tasks) ? context.tasks : [];\nconst reminders = Array.isArray(context.reminders) ? context.reminders : [];\nconst memories = Array.isArray(context.memories) ? context.memories : [];\n\nlet contextStr = '';\n\ncontextStr += 'Use the operational context below for duplicate avoidance, semantic matching, and safer decisions.\\\\n';\n\nif (business) {\n  contextStr += '\\\\nBusiness:\\\\n';\n  contextStr += '- name: ' + (business.name || 'unknown');\n  contextStr += ', type: ' + (business.business_type || 'unknown');\n  contextStr += ', stage: ' + (business.stage || 'unknown') + '\\\\n';\n} else {\n  contextStr += '\\\\nBusiness:\\\\n- none\\\\n';\n}\n\nif (tasks.length > 0) {\n  contextStr += '\\\\nOpen tasks (' + tasks.length + '):\\\\n';\n  tasks.forEach(function(t) {\n    let line = '- [id:' + t.id + '] ' + (t.title || 'untitled');\n    line += ' | priority:' + (t.priority || 'normal');\n    line += ' | status:' + (t.status || 'unknown');\n    if (t.due_date) line += ' | due_date:' + t.due_date;\n    if (t.due_at) line += ' | due_at:' + t.due_at;\n    if (t.due_type) line += ' | due_type:' + t.due_type;\n    contextStr += line + '\\\\n';\n  });\n} else {\n  contextStr += '\\\\nOpen tasks:\\\\n- none\\\\n';\n}\n\nif (reminders.length > 0) {\n  contextStr += '\\\\nPending reminders (' + reminders.length + '):\\\\n';\n  reminders.forEach(function(r) {\n    let line = '- [id:' + r.id + '] ' + (r.title || 'untitled');\n    line += ' | remind_at:' + (r.remind_at || 'unknown');\n    line += ' | status:' + (r.status || 'unknown');\n    contextStr += line + '\\\\n';\n  });\n} else {\n  contextStr += '\\\\nPending reminders:\\\\n- none\\\\n';\n}\n\nif (memories.length > 0) {\n  contextStr += '\\\\nRelevant memories (' + memories.length + '):\\\\n';\n  memories.forEach(function(m) {\n    let line = '- [' + (m.memory_category || 'unknown') + '] ';\n    line += (m.content || '').substring(0, 160);\n    contextStr += line + '\\\\n';\n  });\n} else {\n  contextStr += '\\\\nRelevant memories:\\\\n- none\\\\n';\n}\n\nconst now = new Date().toISOString();\nconst tz = org.tenant_timezone || 'Europe/Bucharest';\n\nconst systemPrompt = `You are the decision core of a business operational brain assistant for a Romanian entrepreneur.\n\nYour job is to read one user message, use the provided operational context, and return exactly one valid JSON object that matches the contract below.\n\nThe entrepreneur may manage multiple businesses such as Airbnb, cleaning, and green spaces.\n\nOUTPUT RULES:\n- Return ONLY valid JSON.\n- Do NOT return markdown.\n- Do NOT return prose outside JSON.\n- Do NOT add fields not defined in the contract.\n- All field names must match the contract exactly.\n- The \"response\" field must always be in Romanian.\n- The \"response\" field must be concise, useful, and at most 150 words.\n- Structured decision quality is more important than natural wording.\n- For action intents, prioritize correct structured fields over elegant wording.\n- If the message is ambiguous, missing essential information, or could map to multiple actions, prefer \"clarify\".\n- Never hallucinate facts, IDs, past actions, or memory contents.\n- Use the current datetime and timezone when resolving relative time phrases.\n\nCURRENT DATETIME:\n${now}\n\nTIMEZONE:\n${tz}\n\nOPERATIONAL CONTEXT:\n${contextStr || 'No context loaded yet.'}\n\nCONTRACT VERSION:\nbrain-decision-v1\n\nRETURN EXACTLY THIS JSON SHAPE:\n{\n  \"version\": \"brain-decision-v1\",\n  \"intent\": \"<one valid intent>\",\n  \"domain\": \"<operations|airbnb|cleaning|green_spaces|general>\",\n  \"response\": \"<Romanian user-facing response>\",\n  \"debug_summary\": \"<short internal summary>\",\n  \"requires_confirmation\": <boolean>,\n  \"requires_clarification\": <boolean>,\n  \"task_action\": <object or null>,\n  \"task_fallback_rules\": <array of objects or []>,\n  \"reminder_action\": <object or null>,\n  \"memory_action\": <object or null>,\n  \"improvement_request\": <object or null>,\n  \"memory_writes\": <array of objects or []>\n}\n\nVALID INTENTS:\n1. create_task\n2. update_task\n3. complete_task\n4. cancel_task\n5. list_tasks\n6. create_reminder\n7. update_reminder\n8. cancel_reminder\n9. list_reminders\n10. search_memory\n11. general_response\n12. clarify\n13. save_improvement_request\n14. none\n\nINTENT DEFINITIONS:\n- create_task: create a new task.\n- update_task: modify an existing task.\n- complete_task: mark an existing task as completed.\n- cancel_task: cancel an existing task.\n- list_tasks: list tasks, optionally using filters.\n- create_reminder: create a reminder.\n- update_reminder: modify an existing reminder.\n- cancel_reminder: cancel an existing reminder.\n- list_reminders: list reminders, optionally using filters.\n- search_memory: explicitly search stored memory/history/context.\n- general_response: answer conversationally when the user expects a reply and no direct operational write is needed.\n- clarify: ask a clarifying question when the correct action is not safe or not uniquely determined.\n- save_improvement_request: capture product feedback, dissatisfaction, feature requests, or behavior corrections for future improvement.\n- none: no operational action is needed; a light conversational response is allowed only when grounded and harmless.\n\nFIELD DEFINITIONS:\n- task_action: {\n    \"id\": \"uuid|null\",\n    \"title\": \"string|null\",\n    \"description\": \"string|null\",\n    \"priority\": \"urgent|high|normal|low|null\",\n    \"due_type\": \"flexible|date|datetime|null\",\n    \"due_date\": \"YYYY-MM-DD|null\",\n    \"due_at\": \"ISO_TIMESTAMP|null\",\n    \"filter_scope\": \"all|today|tomorrow|day_after_tomorrow|overdue|urgent|high|this_week|this_month|null\"\n  }\n\n- task_fallback_rules: array of {\n    \"condition\": \"not_completed\",\n    \"title\": \"string\",\n    \"description\": \"string|null\",\n    \"priority\": \"urgent|high|normal|low\",\n    \"due_type\": \"date|datetime\",\n    \"due_date\": \"YYYY-MM-DD|null\",\n    \"due_at\": \"ISO_TIMESTAMP|null\",\n    \"reason\": \"string\"\n  }\n\n- reminder_action: {\n    \"id\": \"uuid|null\",\n    \"title\": \"string|null\",\n    \"description\": \"string|null\",\n    \"remind_at\": \"ISO_TIMESTAMP|null\",\n    \"filter_scope\": \"all|today|tomorrow|day_after_tomorrow|overdue|urgent|high|this_week|this_month|null\"\n  }\n\n- memory_action: {\n    \"query\": \"string\",\n    \"category_filter\": \"string|null\"\n  }\n\n- improvement_request: {\n    \"requested_feature\": \"string\",\n    \"user_message\": \"string|null\"\n  }\n\n- memory_writes: array of {\n    \"type\": \"fact|insight|advice\",\n    \"category\": \"business_profile|customer_market|growth_context|entrepreneur_profile|relationship_history|operational_patterns|preferences|constraints\",\n    \"content\": \"string\"\n  }\n\nGENERAL FIELD RULES:\n- Set unused action objects to null.\n- Set unused arrays to [].\n- Do not invent IDs.\n- Use \"id\" only if it is explicitly provided or uniquely inferable from context with high confidence.\n- If a field is not known safely, set it to null.\n- Do not use old field names such as: \"task\", \"reminder\", \"memory_candidate\", \"response_text\", \"confidence\".\n\nDOMAIN RULES:\n- Use \"general\" unless the message clearly belongs to one business domain.\n- Use \"operations\" for generic operational business management when no narrower domain is certain.\n\nTASK VS REMINDER POLICY:\n- A task means the user owns an action to be done.\n- A reminder means the system should notify the user at a specific time.\n- If the user explicitly asks to be reminded, prefer create_reminder.\n- If the user expresses an obligation, intention, or future action they must do, prefer create_task.\n- If the message could reasonably mean either a task or a reminder, DEFAULT TO create_task.\n- Only use clarify for task vs reminder ambiguity if the user explicitly mentions being reminded/notified AND also describes an action they must do.\n- If the user seems to ask for both a task and a reminder in the same message, use clarify and ask which one they want.\n- Do not create reminder_action as a substitute for task_fallback_rules.\n- For intent \"create_task\", do not also populate reminder_action unless the user explicitly asked for a reminder.\n- For intent \"create_reminder\", do not also populate task_action unless the user explicitly asked for a task too, in which case use clarify.\n\nTASK CREATION RULES:\n- Use create_task when the action is clear enough to derive a meaningful task title.\n- Infer a concise, actionable Romanian task title.\n- Prefer titles that describe the action directly.\n- Good title style: \"Sună-l pe Ion\", \"Cumpără detergenți\", \"Finalizează issue-urile pentru brain\".\n- If the user expresses urgency, deadline pressure, shortage risk, or dependency, reflect that in priority and timing.\n- Use \"normal\" by default.\n- Use \"high\" when urgency is clearly elevated.\n- Use \"urgent\" when missing the action is likely to create an immediate or near-term operational problem.\n- Do not use any priority value outside: urgent, high, normal, low.\n\nREMINDER CREATION RULES:\n- Use create_reminder only when the user clearly wants to be reminded/notified.\n- reminder_action.remind_at must be concrete and safely inferable.\n- If reminder timing is too vague, use clarify.\n- Good reminder examples:\n  - \"Adu-mi aminte mâine la 10 să sun furnizorul\"\n  - \"Amintește-mi vineri la 14 să verific apartamentul\"\n\nLISTING RULES:\n- list_tasks may use task_action only as a filter container.\n- list_reminders may use reminder_action only as a filter container.\n- Supported filter_scope values are:\n  - all\n  - today\n  - tomorrow\n  - day_after_tomorrow\n  - overdue\n  - until_today (today and before — use for batch delete \"pana azi/astazi\")\n- If the user asks \"ce task-uri am?\", use list_tasks with filter_scope = \"all\".\n- If the user asks \"ce task-uri am azi?\", use list_tasks with filter_scope = \"today\".\n- If the user asks \"ce task-uri am mâine?\", use list_tasks with filter_scope = \"tomorrow\".\n- If the user asks \"ce task-uri am poimâine?\", use list_tasks with filter_scope = \"day_after_tomorrow\".\n\n- If the user asks \"ce task-uri am saptamana asta?\" or \"ce task-uri am săptămâna asta?\", use list_tasks with filter_scope = \"this_week\".\n- If the user asks \"ce task-uri am luna asta?\", use list_tasks with filter_scope = \"this_month\".\n- If the user asks \"ce task-uri urgente am?\", use list_tasks with filter_scope = \"urgent\".\n- If the user asks \"ce task-uri cu prioritate mare am?\", use list_tasks with filter_scope = \"high\".\n- If the user asks \"ce remindere am saptamana asta?\", use list_reminders with reminder_action.filter_scope = \"this_week\".\n- If the user asks \"ce remindere am luna asta?\", use list_reminders with reminder_action.filter_scope = \"this_month\".\n- Apply the same logic to reminders.\n- Do not create or modify tasks/reminders when the user is only listing them.\n- If the user asks \"ce remindere am?\", use list_reminders with reminder_action.filter_scope = \"all\".\n- If the user asks \"ce remindere am azi?\", use list_reminders with reminder_action.filter_scope = \"today\".\n- If the user asks \"ce remindere am mâine?\", use list_reminders with reminder_action.filter_scope = \"tomorrow\".\n- If the user asks \"ce remindere am poimâine?\", use list_reminders with reminder_action.filter_scope = \"day_after_tomorrow\".\n\nSEMANTIC MATCHING RULES FOR UPDATE / COMPLETE / CANCEL:\n- Users will often not provide IDs.\n- You may rely on semantic matching against context if there is exactly one clear candidate.\n- If there is exactly one highly plausible task/reminder candidate in context, you may use update_task, complete_task, cancel_task, update_reminder, or cancel_reminder without an explicit ID.\n- If multiple plausible candidates exist, use clarify.\n- If no plausible candidate exists, use clarify.\n- Never guess when multiple tasks/reminders could match.\n\nDUPLICATE AVOIDANCE RULES:\n- Avoid creating duplicate open tasks or duplicate pending reminders.\n- Before choosing create_task or create_reminder, compare the requested action against the existing context.\n- If there is already a very similar open task or pending reminder, do NOT create a duplicate immediately.\n- In such cases, prefer clarify.\n- When a strong duplicate already exists, prefer clarify instead of create_task or create_reminder.\n- The clarification should tell the user that a similar item already exists and ask whether they want to update it or create a separate one.\n- Duplicate detection should consider title meaning, date/time proximity, and obvious same-purpose repetition.\n\nTIME RESOLUTION RULES:\n- Resolve Romanian temporal phrases carefully using the provided current datetime and timezone.\n- Supported examples include: \"azi\", \"mâine\", \"poimâine\", weekdays, \"în seara asta\", \"dimineață\", \"la prânz\", \"după-amiază\", \"până joi\", \"vineri la 14:00\".\n- If the time reference is sufficiently clear, resolve it.\n- If not sufficiently clear for a safe action, use clarify.\n- If the user gives both an action date and a later consequence/deadline date, the main task should use the first actionable date, not the later consequence date.\n- If the user gives only a deadline and no clear execution date, use the deadline as due date if reasonable.\n- If multiple time expressions conflict and cannot be reconciled safely, use clarify.\n- \"poimâine\" should usually resolve to the day after tomorrow, not to a later implied deadline.\n\nFALLBACK RULES POLICY:\n- A user message may imply a primary task plus one or more fallback tasks.\n- Use task_fallback_rules only when there is a meaningful downstream risk if the main task is not completed.\n- Good triggers for fallback reasoning include dependency language such as:\n  - \"pentru că\"\n  - \"ca să\"\n  - \"altfel\"\n  - \"dacă nu\"\n  - \"până\"\n- Create fallback rules only when the consequence is operationally meaningful, not for ordinary low-stakes tasks.\n- Keep fallback rules minimal and necessary.\n- Use fallback rules when missing the first action would threaten a meeting, deadline, stock availability, coordination, or other important outcome.\n- Prefer \"urgent\" for fallback tasks that protect an upcoming meeting, shortage, or deadline.\n- Prefer \"high\" when the risk is real but not immediate.\n- Do not create reminder_action instead of fallback rules when the real need is an escalation task.\n- Only create multiple fallback rules when the message clearly implies multiple distinct future risk points.\n\nMEMORY POLICY:\n- memory_writes is optional and can accompany any intent.\n- Use memory_writes for durable, relevant history about the business, the entrepreneur, recurring operational facts, recurring preferences, important relationships, constraints, or business context likely to matter later.\n- Do not store trivial, fleeting, or purely conversational filler.\n- Do not store raw duplicates of operational writes unless there is lasting semantic value.\n- Good memory examples:\n  - a client preference\n  - a recurring supply constraint\n  - a business rule\n  - an important relationship\n  - a stable operational pattern\n- If unsure whether the information has lasting value, omit memory_writes.\n- Prefer zero memory_writes over weak or repetitive memory_writes.\n\nSEARCH MEMORY POLICY:\n- Use search_memory when the user explicitly asks what the system knows, remembers, or has stored about a person, business, topic, or prior context.\n- Use memory_action.query to express what should be searched.\n- Do not use search_memory for ordinary conversation unless the user is clearly asking to retrieve stored memory.\n\nGENERAL RESPONSE POLICY:\n- Use general_response when the user expects a reply, but no operational write is needed.\n- Examples:\n  - asking for an explanation\n  - lightweight conversation\n  - asking for guidance without asking to save, create, update, or cancel anything\n- general_response should not fabricate unsupported facts.\n- Use general_response when the assistant should provide meaningful informational or conversational content.\n\nNONE POLICY:\n- Use none when no operational action is needed and no substantive response is required.\n- For short conversational messages like \"ok\", \"bine\", \"mulțumesc\", or similar, none is acceptable.\n- A light harmless reply is allowed only if it is grounded, minimal, and does not invent facts.\n- If the user says something like \"ești?\" or another light ping, a brief natural reply is acceptable.\n- If relevant knowledge is not available, do not hallucinate.\n- Use none when the user message does not require a meaningful answer beyond a lightweight acknowledgment or ping response.\n\nIMPROVEMENT REQUEST POLICY:\n- Use save_improvement_request when the user requests a product improvement, complains that the system is not good enough, says it behaved incorrectly, says it should work differently, or clearly signals dissatisfaction with the system behavior.\n- Use it both for explicit feature requests and for concrete behavioral corrections.\n- improvement_request.requested_feature should summarize the improvement clearly.\n- improvement_request.user_message should preserve the useful original wording when helpful.\n\nCLARIFY POLICY:\n- Use clarify when:\n  - the message is ambiguous\n  - task vs reminder is unclear\n  - multiple matching tasks/reminders exist\n  - the intended time is too unclear\n  - the action target is not uniquely identifiable\n  - the user seems to want both task and reminder and did not choose\n- Clarification questions should be short and practical.\n\nRESPONSE POLICY:\n- The \"response\" field must match the chosen intent.\n- For create/update/complete/cancel/list intents, the response can be brief because downstream formatting may normalize it.\n- For clarify, the response should directly ask the missing question.\n- For save_improvement_request, the response should acknowledge the issue and say it was noted.\n- For none, the response may be brief or empty, but should never hallucinate.\n\nREQUIRED ACTION OBJECT RULES:\n- create_task: requires task_action.title\n- update_task: requires either a safe unique task candidate or task_action.id\n- complete_task: requires either a safe unique task candidate or task_action.id\n- cancel_task: requires either a safe unique task candidate, task_action.id, OR task_action.filter_scope for batch delete\n- list_tasks: task_action may be null or may contain only filter fields\n- create_reminder: requires reminder_action.title and reminder_action.remind_at\n- update_reminder: requires either a safe unique reminder candidate or reminder_action.id\n- cancel_reminder: requires either a safe unique reminder candidate, reminder_action.id, OR reminder_action.filter_scope for batch delete\n- list_reminders: reminder_action may be null or may contain only filter fields\n- search_memory: requires memory_action.query\n- save_improvement_request: requires improvement_request.requested_feature\n\nEXAMPLES:\n- \"Mâine trebuie să îl sun pe Ion ca să ne vedem vineri\"\n  -> create_task\n  -> main task: call Ion tomorrow\n  -> may include a fallback rule before the Friday plan becomes risky\n  -> do not create reminder_action unless explicitly requested\n\n- \"Luni trebuie să cumpăr detergenți pentru că de miercuri nu mai am\"\n  -> create_task\n  -> main task: buy detergents on Monday\n  -> may include one or more fallback rules before shortage risk becomes operationally dangerous\n\n- \"Mâine mă sună Ion pentru apartament\"\n  -> create_task\n  -> title: \"Ion sună pentru apartament\"\n  -> due_date: tomorrow\n  -> When someone else contacts or does something for the user, create a task to track it\n\n- \"Trebuie să mă sune Ion\"\n  -> create_task (NOT clarify — default to task when ambiguous)\n\n- \"Adu-mi aminte mâine la 10 să sun furnizorul\"\n  -> create_reminder\n\n- \"Ce task-uri am mâine?\"\n  -> list_tasks with task_action.filter_scope = \"tomorrow\"\n\n- \"Ce remindere am poimâine?\"\n  -> list_reminders with reminder_action.filter_scope = \"day_after_tomorrow\"\n\n- \"Am terminat taskul cu brain-ul\"\n  -> if exactly one clear candidate exists, complete_task\n  -> otherwise clarify\n\n- \"Nu-mi place cum afișezi data\"\n  -> save_improvement_request\n\n- \"Șterge toate task-urile\"\n  -> cancel_task with task_action.filter_scope = \"all\"\n\n- \"Șterge task-urile de azi\"\n  -> cancel_task with task_action.filter_scope = \"today\"\n\n- \"Șterge toate task-urile până azi\" or \"sterge tot pana astazi\"\n  -> cancel_task with task_action.filter_scope = \"until_today\"\n\n- \"Șterge reminderele restante\"\n  -> cancel_reminder with reminder_action.filter_scope = \"overdue\"\n\nFORBIDDEN BEHAVIOR:\n- Do not output invalid JSON.\n- Do not add undeclared fields.\n- Do not create duplicate tasks/reminders when a strong duplicate already exists.\n- Do not guess among multiple plausible candidates.\n- Do not use reminder_action instead of task_fallback_rules.\n- Do not create both task_action and reminder_action in the same response unless the user explicitly requested both; in that case prefer clarify.\n- Do not hallucinate memory contents.\n- Do not use any forbidden old field names.\n`;\n\n\nreturn [{\n  json: {\n    source: original.source,\n    organization_id: org.organization_id,\n    organization_name: org.organization_name,\n    tenant_id: org.tenant_id,\n    tenant_name: org.tenant_name,\n    tenant_slug: org.tenant_slug,\n    tenant_vertical: org.tenant_vertical,\n    tenant_timezone: tz,\n    tenant_currency_code: org.tenant_currency_code,\n    telegram_chat_id: original.telegram_chat_id,\n    telegram_message_id: original.telegram_message_id,\n    raw_user_message: original.raw_user_message,\n    received_at: original.received_at,\n    test_mode: original.test_mode,\n    context: context,\n    system_prompt: systemPrompt,\n    user_prompt: original.raw_user_message\n  }\n}];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -2752,
+        944
+      ],
+      "id": "02bd56b2-42a7-44cd-a24b-116ba73e56f7",
+      "name": "Build Brain Input"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://api.openai.com/v1/chat/completions",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "openAiApi",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({\n  model: 'gpt-4o',\n  max_tokens: 800,\n  temperature: 0,\n  response_format: { type: 'json_object' },\n  messages: [\n    { role: 'system', content: $json.system_prompt },\n    { role: 'user', content: $json.user_prompt }\n  ]\n}) }}",
+        "options": {
+          "timeout": 30000
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -2496,
+        944
+      ],
+      "id": "ac1ccc70-71a2-44f6-b527-9461ee779c8a",
+      "name": "Brain Decision",
+      "credentials": {
+        "openAiApi": {
+          "id": "svM62oyFwPbaIeX4",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Parse and Validate Brain Contract — final audited version\n// Contract: brain-decision-v1 (14 intents)\n// Fixes applied: B1 (conversion data transfer), B2 (create_reminder cleanup),\n//   N1 (priority default), N2 (due_type inference), date field mutual exclusion,\n//   __intent_hint removed, trim() on all strings\n\nconst httpResponse = $input.first().json;\nconst ctx = $('Build Brain Input').first().json;\n\nconst VALID_INTENTS = [\n  'create_task', 'update_task', 'complete_task', 'cancel_task', 'list_tasks',\n  'create_reminder', 'update_reminder', 'cancel_reminder', 'list_reminders',\n  'search_memory', 'general_response', 'clarify', 'save_improvement_request', 'none'\n];\nconst VALID_TASK_PRIORITIES = ['urgent', 'high', 'normal', 'low'];\nconst VALID_TASK_DUE_TYPES = ['flexible', 'date', 'datetime'];\nconst VALID_FALLBACK_DUE_TYPES = ['date', 'datetime'];\nconst VALID_FILTER_SCOPES = [\n  'all',\n  'today',\n  'tomorrow',\n  'day_after_tomorrow',\n  'overdue',\n  'urgent',\n  'high',\n  'this_week',\n  'this_month'\n, 'until_today'];\nconst VALID_MEMORY_TYPES = ['fact', 'insight', 'advice'];\nconst VALID_MEMORY_CATEGORIES = ['business_profile', 'customer_market', 'growth_context', 'entrepreneur_profile', 'relationship_history', 'operational_patterns', 'preferences', 'constraints'];\n\n// === HELPER FUNCTIONS ===\n\nfunction makeClarify(reason, responseText) {\n  return {\n    version: 'brain-decision-v1',\n    intent: 'clarify',\n    domain: 'general',\n    response: responseText || 'Nu am înțeles exact ce dorești. Poți reformula?',\n    debug_summary: reason,\n    requires_confirmation: false,\n    requires_clarification: true,\n    task_action: null,\n    task_fallback_rules: [],\n    reminder_action: null,\n    memory_action: null,\n    improvement_request: null,\n    memory_writes: []\n  };\n}\n\n// Strict structural normalization only — no business logic, no defaults\nfunction normalizeTaskAction(value) {\n  if (!value || typeof value !== 'object') return null;\n  return {\n    id: value.id || null,\n    title: typeof value.title === 'string' && value.title.trim() !== '' ? value.title.trim() : null,\n    description: typeof value.description === 'string' && value.description.trim() !== '' ? value.description.trim() : null,\n    priority: VALID_TASK_PRIORITIES.includes(value.priority) ? value.priority : null,\n    due_type: VALID_TASK_DUE_TYPES.includes(value.due_type) ? value.due_type : null,\n    due_date: typeof value.due_date === 'string' && value.due_date.trim() !== '' ? value.due_date.trim() : null,\n    due_at: typeof value.due_at === 'string' && value.due_at.trim() !== '' ? value.due_at.trim() : null,\n    filter_scope: VALID_FILTER_SCOPES.includes(value.filter_scope) ? value.filter_scope : null\n  };\n}\n\nfunction normalizeReminderAction(value) {\n  if (!value || typeof value !== 'object') return null;\n  return {\n    id: value.id || null,\n    title: typeof value.title === 'string' && value.title.trim() !== '' ? value.title.trim() : null,\n    description: typeof value.description === 'string' && value.description.trim() !== '' ? value.description.trim() : null,\n    remind_at: typeof value.remind_at === 'string' && value.remind_at.trim() !== '' ? value.remind_at.trim() : null,\n    filter_scope: VALID_FILTER_SCOPES.includes(value.filter_scope) ? value.filter_scope : null\n  };\n}\n\nfunction normalizeMemoryAction(value) {\n  if (!value || typeof value !== 'object') return null;\n  return {\n    query: typeof value.query === 'string' ? value.query.trim() : '',\n    category_filter: typeof value.category_filter === 'string' && value.category_filter.trim() !== '' ? value.category_filter.trim() : null\n  };\n}\n\nfunction normalizeImprovementRequest(value) {\n  if (!value || typeof value !== 'object') return null;\n  return {\n    requested_feature: typeof value.requested_feature === 'string' ? value.requested_feature.trim() : '',\n    user_message: typeof value.user_message === 'string' && value.user_message.trim() !== '' ? value.user_message.trim() : null\n  };\n}\n\nfunction inferFilterScopeFromMessage(msg) {\n  const text = (msg || '').toLowerCase();\n  if (text.includes('poimaine') || text.includes('poimâine')) return 'day_after_tomorrow';\n  if (text.includes('maine') || text.includes('mâine') || text.includes('miine')) return 'tomorrow';\n  if (text.includes('pana azi') || text.includes('până azi') || text.includes('pana astazi') || text.includes('până astăzi') || text.includes('pana acum') || text.includes('până acum')) return 'until_today';\n  if (text.includes('azi') || text.includes('astazi') || text.includes('astăzi')) return 'today';\n  if (text.includes('restant') || text.includes('restante') || text.includes('întârzi') || text.includes('intarzi') || text.includes('intarziat')) return 'overdue';\n  if (text.includes('urgent') || text.includes('urgente')) return 'urgent';\n  if (text.includes('high') || text.includes('prioritate mare')) return 'high';\n  if (text.includes('saptamana asta') || text.includes('săptămâna asta') || text.includes('saptamina asta') || text.includes('săptămîna asta')) return 'this_week';\n  if (text.includes('luna asta')) return 'this_month';\n  return 'all';\n}\n\nfunction messageImpliesTaskPreference(msg) {\n  const text = (msg || '').toLowerCase();\n  return (\n    text.includes('trebuie sa') || text.includes('trebuie să') ||\n    text.includes('trb sa') || text.includes('trb să') ||\n    text.includes('am de') ||\n    text.includes('pune-mi task') || text.includes('pune task') ||\n    text.includes('creeaza task') || text.includes('creează task') ||\n    text.includes('creeaza-mi task') || text.includes('creează-mi task') ||\n    text.includes('fa task') || text.includes('fă task') ||\n    text.includes('fa-mi task') || text.includes('fă-mi task') ||\n    text.includes('adauga task') || text.includes('adaugă task')\n  );\n}\n\nfunction messageImpliesReminderPreference(msg) {\n  const text = (msg || '').toLowerCase();\n  return (\n    text.includes('adu-mi aminte') || text.includes('adumi aminte') ||\n    text.includes('amintește-mi') || text.includes('aminteste-mi') || text.includes('amintestemi') ||\n    text.includes('reamintește-mi') || text.includes('reaminteste-mi') || text.includes('reamintestemi') ||\n    text.includes('nu uita sa-mi amintesti') || text.includes('nu uita să-mi amintești') ||\n    text.includes('sa nu uit') || text.includes('să nu uit') || text.includes('sanuuit') ||\n    text.includes('reminder')\n  );\n}\n\n// Builds a task_action from reminder_action data (for task+reminder disambiguation)\nfunction buildTaskActionFromReminder(reminderAction) {\n  if (!reminderAction || !reminderAction.title) return null;\n  return normalizeTaskAction({\n    title: reminderAction.title,\n    description: reminderAction.description || null,\n    priority: 'normal',\n    due_type: reminderAction.remind_at ? 'datetime' : 'flexible',\n    due_at: reminderAction.remind_at || null\n  });\n}\n\n// === MAIN PARSING ===\n\nlet decision;\n\ntry {\n  let text = '';\n  if (httpResponse.choices && httpResponse.choices[0]) {\n    text = httpResponse.choices[0].message.content || '';\n  } else if (typeof httpResponse === 'string') {\n    text = httpResponse;\n  } else {\n    text = JSON.stringify(httpResponse);\n  }\n  text = text.replace(/```json\\n?|\\n?```/g, '').trim();\n\n  decision = JSON.parse(text);\n\n  // === PHASE 1: Reject old contract / wrong version / invalid intent ===\n\n  if (\n    decision.task !== undefined ||\n    decision.reminder !== undefined ||\n    decision.memory_candidate !== undefined ||\n    decision.response_text !== undefined ||\n    decision.confidence !== undefined\n  ) {\n    decision = makeClarify('old_contract_fields_detected');\n\n  } else if (decision.version !== 'brain-decision-v1') {\n    decision = makeClarify('wrong_version_' + String(decision.version));\n\n  } else if (!VALID_INTENTS.includes(decision.intent)) {\n    decision = makeClarify('invalid_intent_' + String(decision.intent));\n\n  } else {\n\n    // === PHASE 2: Normalize all fields (structural only) ===\n\n    decision.domain = typeof decision.domain === 'string' && decision.domain.trim() !== '' ? decision.domain.trim() : 'general';\n    decision.response = typeof decision.response === 'string' ? decision.response.trim() : '';\n    decision.debug_summary = typeof decision.debug_summary === 'string' ? decision.debug_summary.trim() : '';\n    decision.requires_confirmation = !!decision.requires_confirmation;\n    decision.requires_clarification = !!decision.requires_clarification;\n\n    // Structural normalization — returns null when input is null\n    decision.task_action = normalizeTaskAction(decision.task_action);\n    decision.reminder_action = normalizeReminderAction(decision.reminder_action);\n    decision.memory_action = normalizeMemoryAction(decision.memory_action);\n    decision.improvement_request = normalizeImprovementRequest(decision.improvement_request);\n\n    // task_fallback_rules validation\n    decision.task_fallback_rules = Array.isArray(decision.task_fallback_rules) ? decision.task_fallback_rules : [];\n    decision.task_fallback_rules = decision.task_fallback_rules.filter(function(rule) {\n      if (!rule || typeof rule !== 'object') return false;\n      if (rule.condition !== 'not_completed') return false;\n      if (typeof rule.title !== 'string' || rule.title.trim() === '') return false;\n      if (!VALID_TASK_PRIORITIES.includes(rule.priority)) return false;\n      if (!VALID_FALLBACK_DUE_TYPES.includes(rule.due_type)) return false;\n      if (rule.due_type === 'date' && (typeof rule.due_date !== 'string' || rule.due_date.trim() === '')) return false;\n      if (rule.due_type === 'datetime' && (typeof rule.due_at !== 'string' || rule.due_at.trim() === '')) return false;\n      return true;\n    });\n\n    // memory_writes validation (filter strategy — invalid items removed, valid preserved)\n    decision.memory_writes = Array.isArray(decision.memory_writes) ? decision.memory_writes : [];\n    decision.memory_writes = decision.memory_writes.filter(function(item) {\n      if (!item || typeof item !== 'object') return false;\n      if (!VALID_MEMORY_TYPES.includes(item.type)) return false;\n      if (!VALID_MEMORY_CATEGORIES.includes(item.category)) return false;\n      if (typeof item.content !== 'string' || item.content.trim() === '') return false;\n      return true;\n    });\n\n    // === PHASE 3: List filter inference ===\n\n    if (decision.intent === 'list_tasks') {\n      if (!decision.task_action) {\n        decision.task_action = normalizeTaskAction({\n          filter_scope: inferFilterScopeFromMessage(ctx.raw_user_message)\n        });\n      } else if (!decision.task_action.filter_scope) {\n        decision.task_action.filter_scope = inferFilterScopeFromMessage(ctx.raw_user_message);\n      }\n    }\n\n    if (decision.intent === 'list_reminders') {\n      if (!decision.reminder_action) {\n        decision.reminder_action = normalizeReminderAction({\n          filter_scope: inferFilterScopeFromMessage(ctx.raw_user_message)\n        });\n      } else if (!decision.reminder_action.filter_scope) {\n        decision.reminder_action.filter_scope = inferFilterScopeFromMessage(ctx.raw_user_message);\n      }\n    }\n\n    // === PHASE 3b: Cancel/delete filter inference (same logic as list) ===\n\n    if (decision.intent === 'cancel_task') {\n      const ta = decision.task_action || {};\n      if (!ta.id && !ta.title && !ta.filter_scope) {\n        if (!decision.task_action) decision.task_action = normalizeTaskAction({});\n        decision.task_action.filter_scope = inferFilterScopeFromMessage(ctx.raw_user_message);\n      }\n    }\n\n    if (decision.intent === 'cancel_reminder') {\n      const ra = decision.reminder_action || {};\n      if (!ra.id && !ra.title && !ra.filter_scope) {\n        if (!decision.reminder_action) decision.reminder_action = normalizeReminderAction({});\n        decision.reminder_action.filter_scope = inferFilterScopeFromMessage(ctx.raw_user_message);\n      }\n    }\n\n    // === PHASE 4: Task vs Reminder disambiguation ===\n    // Product rule 4: if both task and reminder language present, prefer TASK.\n    // Do not ask clarify. Transfer data from reminder_action if task_action is missing.\n\n    const hasTaskLanguage = messageImpliesTaskPreference(ctx.raw_user_message);\n    const hasReminderLanguage = messageImpliesReminderPreference(ctx.raw_user_message);\n\n    if (hasTaskLanguage && hasReminderLanguage) {\n      // Step 1: flip intent\n      if (decision.intent === 'create_reminder') {\n        decision.intent = 'create_task';\n      }\n\n      // Step 2: if task_action is missing/empty, build from reminder data\n      if (\n        decision.intent === 'create_task' &&\n        (!decision.task_action || !decision.task_action.title) &&\n        decision.reminder_action &&\n        decision.reminder_action.title\n      ) {\n        decision.task_action = buildTaskActionFromReminder(decision.reminder_action);\n      }\n\n      // Step 3: clean reminder for create_task\n      if (decision.intent === 'create_task') {\n        decision.reminder_action = null;\n      }\n    }\n\n    // === PHASE 5: Intent-specific validation ===\n\n    if (decision.intent === 'create_task') {\n      if (!decision.task_action || !decision.task_action.title) {\n        decision = makeClarify('missing_task_action_title_for_create_task');\n      } else {\n        // Business defaults for create_task only\n        if (!decision.task_action.priority) {\n          decision.task_action.priority = 'normal';\n        }\n\n        // Infer due_type from available date fields\n        if (!decision.task_action.due_type) {\n          if (decision.task_action.due_at) decision.task_action.due_type = 'datetime';\n          else if (decision.task_action.due_date) decision.task_action.due_type = 'date';\n          else decision.task_action.due_type = 'flexible';\n        }\n\n        // Clear contradictory date fields\n        if (decision.task_action.due_type === 'date') {\n          decision.task_action.due_at = null;\n        }\n        if (decision.task_action.due_type === 'datetime') {\n          decision.task_action.due_date = null;\n        }\n\n        // create_task must not carry reminder data\n        decision.reminder_action = null;\n      }\n    }\n\n    if (decision.intent === 'update_task' || decision.intent === 'complete_task' || decision.intent === 'cancel_task') {\n      if (!decision.task_action) {\n        decision = makeClarify('missing_task_action_for_' + decision.intent);\n      }\n      // semantic matching without id is allowed downstream\n    }\n\n    if (decision.intent === 'create_reminder') {\n      if (!decision.reminder_action || !decision.reminder_action.title || !decision.reminder_action.remind_at) {\n        decision = makeClarify('missing_reminder_action_for_create_reminder');\n      } else {\n        if (decision.task_action && !hasTaskLanguage) {\n          decision = makeClarify(\n            'create_reminder_should_not_also_create_task',\n            'Vrei să creez un reminder sau un task pentru asta?'\n          );\n        } else {\n          // create_reminder must not carry task data\n          decision.task_action = null;\n          decision.task_fallback_rules = [];\n        }\n      }\n    }\n\n    if (decision.intent === 'update_reminder' || decision.intent === 'cancel_reminder') {\n      if (!decision.reminder_action) {\n        decision = makeClarify('missing_reminder_action_for_' + decision.intent);\n      }\n      // semantic matching without id is allowed downstream\n    }\n\n    if (decision.intent === 'search_memory') {\n      if (!decision.memory_action || !decision.memory_action.query || decision.memory_action.query.trim() === '') {\n        decision = makeClarify('missing_memory_action_query_for_search_memory');\n      }\n    }\n\n    if (decision.intent === 'save_improvement_request') {\n      if (!decision.improvement_request || !decision.improvement_request.requested_feature || decision.improvement_request.requested_feature.trim() === '') {\n        decision = makeClarify('missing_improvement_request_feature');\n      }\n    }\n\n    // === PHASE 6: Clean operational payloads for non-action intents ===\n\n    if (decision.intent === 'none' || decision.intent === 'general_response') {\n      decision.task_action = null;\n      decision.task_fallback_rules = [];\n      decision.reminder_action = null;\n      decision.memory_action = null;\n      decision.improvement_request = null;\n    }\n  }\n} catch (e) {\n  decision = makeClarify('parse_error_' + e.message.substring(0, 100));\n}\n\nreturn [{\n  json: {\n    organization_id: ctx.organization_id,\n    organization_name: ctx.organization_name,\n    tenant_id: ctx.tenant_id,\n    tenant_name: ctx.tenant_name,\n    tenant_slug: ctx.tenant_slug,\n    tenant_vertical: ctx.tenant_vertical,\n    tenant_timezone: ctx.tenant_timezone,\n    tenant_currency_code: ctx.tenant_currency_code,\n    telegram_chat_id: ctx.telegram_chat_id,\n    telegram_message_id: ctx.telegram_message_id,\n    raw_user_message: ctx.raw_user_message,\n    received_at: ctx.received_at,\n    test_mode: ctx.test_mode,\n    source: ctx.source,\n    context: ctx.context,\n    decision: decision\n  }\n}];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -2256,
+        944
+      ],
+      "id": "54c054d1-5368-45a5-890f-9b9abda60989",
+      "name": "Parse and Validate Brain Contract"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "INSERT INTO messages (\n  organization_id, tenant_id, content, direction, intent,\n  telegram_message_id, telegram_chat_id\n) VALUES (\n  $1::uuid, $2::uuid, $3, 'inbound', $4,\n  $5::bigint, $6\n) RETURNING id",
+        "options": {
+          "queryReplacement": "={{ [$json.organization_id, $json.tenant_id, $json.raw_user_message, $json.decision.intent, $json.telegram_message_id || 0, $json.telegram_chat_id] }}"
+        }
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [
+        -2032,
+        944
+      ],
+      "id": "8a2c7918-21cd-4326-a1ce-1f78bd1f4a81",
+      "name": "Insert Inbound Message",
+      "credentials": {
+        "postgres": {
+          "id": "z9nKgToNWvIW7P8f",
+          "name": "Postgres account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "loose",
+                  "version": 1
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $('Parse and Validate Brain Contract').first().json.decision.intent }}",
+                    "rightValue": "create_task",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "e2f67bc5-33c7-46ac-afd2-8aeee8c3b37f"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "create_task"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 1
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $('Parse and Validate Brain Contract').first().json.decision.intent }}",
+                    "rightValue": "update_task",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "3ceaba72-557e-49cd-9e9a-f2904a96dbf2"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "update_task"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 1
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $('Parse and Validate Brain Contract').first().json.decision.intent }}",
+                    "rightValue": "complete_task",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "552859df-3118-4e95-8956-ce778265b063"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "complete_task"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 1
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $('Parse and Validate Brain Contract').first().json.decision.intent }}",
+                    "rightValue": "cancel_task",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "60564270-6e45-47a0-b789-0a03a181c675"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "cancel_task"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 1
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $('Parse and Validate Brain Contract').first().json.decision.intent }}",
+                    "rightValue": "list_tasks",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "4a61ff91-4c2b-4a89-a53b-7122762619d4"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "list_tasks"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 1
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $('Parse and Validate Brain Contract').first().json.decision.intent }}",
+                    "rightValue": "create_reminder",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "4759281c-9b6f-47fb-9547-ba8c8458a2ef"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "create_reminder"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 1
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $('Parse and Validate Brain Contract').first().json.decision.intent }}",
+                    "rightValue": "update_reminder",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "f614eea7-7b26-4630-95fb-633b8980b032"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "update_reminder"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 1
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $('Parse and Validate Brain Contract').first().json.decision.intent }}",
+                    "rightValue": "cancel_reminder",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "d0227dd3-00b9-4748-be8c-3bbae607812f"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "cancel_reminder"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 1
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $('Parse and Validate Brain Contract').first().json.decision.intent }}",
+                    "rightValue": "list_reminders",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "d4999d01-85f9-4beb-bfae-acf529b7f35f"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "list_reminders"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 1
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $('Parse and Validate Brain Contract').first().json.decision.intent }}",
+                    "rightValue": "search_memory",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "5078876b-b062-4799-8ae5-b838940bec83"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "search_memory"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 1
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $('Parse and Validate Brain Contract').first().json.decision.intent }}",
+                    "rightValue": "general_response",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "604494da-fa41-452b-a9da-965801c94dfa"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "general_response"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 1
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $('Parse and Validate Brain Contract').first().json.decision.intent }}",
+                    "rightValue": "clarify",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "6cb6d329-78bc-4690-87cb-6dcc6949b39b"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "clarify"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 1
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $('Parse and Validate Brain Contract').first().json.decision.intent }}",
+                    "rightValue": "save_improvement_request",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "74867ffe-1087-49c9-a9d3-108152b4cb2f"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "save_improvement_request"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 1
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $('Parse and Validate Brain Contract').first().json.decision.intent }}",
+                    "rightValue": "none",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "525493bc-7f2d-4e3d-8027-e8f56601ceaa"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "none"
+            }
+          ]
+        },
+        "options": {
+          "fallbackOutput": "extra",
+          "looseTypeValidation": true
+        }
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3,
+      "position": [
+        -1584,
+        736
+      ],
+      "id": "450c7d91-de4c-4045-b354-865689e20ccc",
+      "name": "Route by Intent"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "INSERT INTO tasks (\n  tenant_id, title, description,\n  priority, due_type, due_date, due_at, status, source, metadata\n) VALUES (\n  $1::uuid,\n  $2, $3, $4, $5,\n  NULLIF($6, '')::date,\n  NULLIF($7, '')::timestamptz,\n  'open',\n  'brain_main_inbound_mvp',\n  $8::jsonb\n) RETURNING id, title, status",
+        "options": {
+          "queryReplacement": "={{ [$('Parse and Validate Brain Contract').first().json.tenant_id, $('Parse and Validate Brain Contract').first().json.decision.task_action.title, $('Parse and Validate Brain Contract').first().json.decision.task_action.description || '', $('Parse and Validate Brain Contract').first().json.decision.task_action.priority || 'normal', $('Parse and Validate Brain Contract').first().json.decision.task_action.due_type || 'flexible', $('Parse and Validate Brain Contract').first().json.decision.task_action.due_date || '', $('Parse and Validate Brain Contract').first().json.decision.task_action.due_at || '', JSON.stringify({source_message: ($('Parse and Validate Brain Contract').first().json.raw_user_message || '').substring(0,200)})] }}"
+        }
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [
+        0,
+        0
+      ],
+      "id": "57e0af2c-f831-4de8-b01b-7f56d7d6c48b",
+      "name": "Create Task",
+      "credentials": {
+        "postgres": {
+          "id": "z9nKgToNWvIW7P8f",
+          "name": "Postgres account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// PLACEHOLDER: update_task\n// Future: UPDATE tasks SET ... WHERE id = task_action.id AND tenant_id = ...\n// For MVP: pass-through with status note\nconst ctx = $('Parse and Validate Brain Contract').first().json;\nreturn [{ json: { ...ctx, _branch: 'update_task', _status: 'placeholder_not_implemented' } }];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        0,
+        160
+      ],
+      "id": "367135b3-c06a-4b99-a117-a157302a089c",
+      "name": "Update Task (Placeholder)"
+    },
+    {
+      "parameters": {
+        "jsCode": "// PLACEHOLDER: complete_task\n// Future: UPDATE tasks SET status='completed', completed_at=NOW() WHERE id = task_action.id AND tenant_id = ...\nconst ctx = $('Parse and Validate Brain Contract').first().json;\nreturn [{ json: { ...ctx, _branch: 'complete_task', _status: 'placeholder_not_implemented' } }];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        0,
+        320
+      ],
+      "id": "7644b22b-0d6d-4dec-8967-bf4b0e3dd626",
+      "name": "Complete Task (Placeholder)"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "-- Delete Task: single by ID, single by title ILIKE, or batch by filter_scope\n-- Priority: ID match > title match > filter_scope batch\nWITH target AS (\n  SELECT id FROM tasks\n  WHERE tenant_id = $1::uuid\n    AND (\n      -- Single by ID\n      ($2 != '' AND id::text = $2)\n      OR\n      -- Single by title ILIKE (only if no ID provided)\n      ($2 = '' AND $3 != '' AND title ILIKE '%' || $3 || '%')\n      OR\n      -- Batch by filter_scope (only if no ID and no title)\n      ($2 = '' AND $3 = '' AND $4 != '' AND (\n        ($4 = 'all')\n        OR ($4 = 'today' AND due_date = CURRENT_DATE)\n        OR ($4 = 'tomorrow' AND due_date = CURRENT_DATE + INTERVAL '1 day')\n        OR ($4 = 'overdue' AND (\n          (due_date IS NOT NULL AND due_date < CURRENT_DATE)\n          OR (due_at IS NOT NULL AND due_at < NOW())\n        ))\n        OR ($4 = 'until_today' AND due_date IS NOT NULL AND due_date < CURRENT_DATE)\n        OR ($4 = 'urgent' AND priority = 'urgent')\n        OR ($4 = 'this_week' AND due_date BETWEEN CURRENT_DATE AND (date_trunc('week', CURRENT_DATE) + INTERVAL '6 days')::date)\n        OR ($4 = 'this_month' AND due_date BETWEEN CURRENT_DATE AND (date_trunc('month', CURRENT_DATE) + INTERVAL '1 month - 1 day')::date)\n      ))\n    )\n  LIMIT 50\n)\nDELETE FROM tasks\nWHERE id IN (SELECT id FROM target)\nRETURNING id, title, priority, status, due_date, due_at",
+        "options": {
+          "queryReplacement": "={{ [\n  $('Parse and Validate Brain Contract').first().json.tenant_id,\n  $('Parse and Validate Brain Contract').first().json.decision.task_action?.id || '',\n  $('Parse and Validate Brain Contract').first().json.decision.task_action?.title || '',\n  $('Parse and Validate Brain Contract').first().json.decision.task_action?.filter_scope || ''\n] }}"
+        }
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [
+        0,
+        480
+      ],
+      "id": "559953da-2ef8-4cad-8ad7-00082f6640e4",
+      "name": "Delete Task",
+      "credentials": {
+        "postgres": {
+          "id": "z9nKgToNWvIW7P8f",
+          "name": "Postgres account 2"
+        }
+      },
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT id, title, priority, status, due_date, due_at, due_type, created_at\nFROM tasks\nWHERE tenant_id = $1::uuid\n  AND status = 'open'\n  AND (\n    $2 = 'all'\n    OR ($2 = 'today' AND (\n      due_date = CURRENT_DATE\n      OR (due_at IS NOT NULL AND (due_at AT TIME ZONE 'Europe/Bucharest')::date = CURRENT_DATE)\n    ))\n    OR ($2 = 'tomorrow' AND (\n      due_date = CURRENT_DATE + INTERVAL '1 day'\n      OR (due_at IS NOT NULL AND (due_at AT TIME ZONE 'Europe/Bucharest')::date = CURRENT_DATE + INTERVAL '1 day')\n    ))\n    OR ($2 = 'day_after_tomorrow' AND (\n      due_date = CURRENT_DATE + INTERVAL '2 day'\n      OR (due_at IS NOT NULL AND (due_at AT TIME ZONE 'Europe/Bucharest')::date = CURRENT_DATE + INTERVAL '2 day')\n    ))\n    OR ($2 = 'until_today' AND due_date IS NOT NULL AND due_date < CURRENT_DATE)\n    OR ($2 = 'overdue' AND (\n      (due_date IS NOT NULL AND due_date < CURRENT_DATE)\n      OR (due_at IS NOT NULL AND due_at < NOW())\n    ))\n    OR ($2 = 'urgent' AND priority = 'urgent')\n    OR ($2 = 'high' AND priority = 'high')\n    OR ($2 = 'this_week' AND (\n      (due_date IS NOT NULL AND due_date BETWEEN CURRENT_DATE AND (date_trunc('week', CURRENT_DATE) + INTERVAL '6 days')::date)\n      OR (due_at IS NOT NULL AND (due_at AT TIME ZONE 'Europe/Bucharest')::date BETWEEN CURRENT_DATE AND (date_trunc('week', CURRENT_DATE) + INTERVAL '6 days')::date)\n      OR (due_date IS NULL AND due_at IS NULL)\n    ))\n    OR ($2 = 'this_month' AND (\n      (due_date IS NOT NULL AND due_date BETWEEN CURRENT_DATE AND (date_trunc('month', CURRENT_DATE) + INTERVAL '1 month - 1 day')::date)\n      OR (due_at IS NOT NULL AND (due_at AT TIME ZONE 'Europe/Bucharest')::date BETWEEN CURRENT_DATE AND (date_trunc('month', CURRENT_DATE) + INTERVAL '1 month - 1 day')::date)\n      OR (due_date IS NULL AND due_at IS NULL)\n    ))\n  )\nORDER BY\n  CASE priority WHEN 'urgent' THEN 1 WHEN 'high' THEN 2 WHEN 'normal' THEN 3 WHEN 'low' THEN 4 ELSE 5 END,\n  created_at DESC\nLIMIT 20",
+        "options": {
+          "queryReplacement": "={{\n[\n  $('Parse and Validate Brain Contract').first().json.tenant_id,\n  $('Parse and Validate Brain Contract').first().json.decision.task_action?.filter_scope || 'all'\n]\n}}",
+          "alwaysOutputData": true
+        }
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [
+        0,
+        640
+      ],
+      "id": "0d5038ac-40e4-4c23-a91f-77a4036b0695",
+      "name": "List Tasks",
+      "credentials": {
+        "postgres": {
+          "id": "z9nKgToNWvIW7P8f",
+          "name": "Postgres account 2"
+        }
+      },
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "INSERT INTO reminders (\n  tenant_id, title, description,\n  remind_at, status, source, metadata\n) VALUES (\n  $1::uuid,\n  $2, $3,\n  $4::timestamptz,\n  'pending',\n  'brain_main_inbound_mvp',\n  $5::jsonb\n) RETURNING id, title, remind_at, status",
+        "options": {
+          "queryReplacement": "={{ [$('Parse and Validate Brain Contract').first().json.tenant_id, $('Parse and Validate Brain Contract').first().json.decision.reminder_action.title, $('Parse and Validate Brain Contract').first().json.decision.reminder_action.description || '', $('Parse and Validate Brain Contract').first().json.decision.reminder_action.remind_at, JSON.stringify({source_message: ($('Parse and Validate Brain Contract').first().json.raw_user_message || '').substring(0,200)})] }}"
+        }
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [
+        0,
+        800
+      ],
+      "id": "42601a6f-34a6-4d0d-a42b-a66e73eac547",
+      "name": "Create Reminder",
+      "credentials": {
+        "postgres": {
+          "id": "z9nKgToNWvIW7P8f",
+          "name": "Postgres account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// PLACEHOLDER: update_reminder\n// Future: UPDATE reminders SET ... WHERE id = reminder_action.id AND tenant_id = ...\nconst ctx = $('Parse and Validate Brain Contract').first().json;\nreturn [{ json: { ...ctx, _branch: 'update_reminder', _status: 'placeholder_not_implemented' } }];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        0,
+        960
+      ],
+      "id": "4105fbcc-23f9-4512-9fe2-785539747fe5",
+      "name": "Update Reminder (Placeholder)"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "-- Delete Reminder: single by ID, single by title ILIKE, or batch by filter_scope\nWITH target AS (\n  SELECT id FROM reminders\n  WHERE tenant_id = $1::uuid\n    AND (\n      -- Single by ID\n      ($2 != '' AND id::text = $2)\n      OR\n      -- Single by title ILIKE\n      ($2 = '' AND $3 != '' AND title ILIKE '%' || $3 || '%')\n      OR\n      -- Batch by filter_scope\n      ($2 = '' AND $3 = '' AND $4 != '' AND (\n        ($4 = 'all')\n        OR ($4 = 'today' AND (remind_at AT TIME ZONE 'Europe/Bucharest')::date = CURRENT_DATE)\n        OR ($4 = 'tomorrow' AND (remind_at AT TIME ZONE 'Europe/Bucharest')::date = CURRENT_DATE + INTERVAL '1 day')\n        OR ($4 = 'overdue' AND remind_at < NOW())\n        OR ($4 = 'until_today' AND (remind_at AT TIME ZONE 'Europe/Bucharest')::date < CURRENT_DATE)\n        OR ($4 = 'this_week' AND (remind_at AT TIME ZONE 'Europe/Bucharest')::date BETWEEN CURRENT_DATE AND (date_trunc('week', CURRENT_DATE) + INTERVAL '6 days')::date)\n        OR ($4 = 'this_month' AND (remind_at AT TIME ZONE 'Europe/Bucharest')::date BETWEEN CURRENT_DATE AND (date_trunc('month', CURRENT_DATE) + INTERVAL '1 month - 1 day')::date)\n      ))\n    )\n  LIMIT 50\n)\nDELETE FROM reminders\nWHERE id IN (SELECT id FROM target)\nRETURNING id, title, remind_at, status",
+        "options": {
+          "queryReplacement": "={{ [\n  $('Parse and Validate Brain Contract').first().json.tenant_id,\n  $('Parse and Validate Brain Contract').first().json.decision.reminder_action?.id || '',\n  $('Parse and Validate Brain Contract').first().json.decision.reminder_action?.title || '',\n  $('Parse and Validate Brain Contract').first().json.decision.reminder_action?.filter_scope || ''\n] }}"
+        }
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [
+        0,
+        1120
+      ],
+      "id": "1ca7058c-4a0f-4306-8baf-bc89fd2b2276",
+      "name": "Delete Reminder",
+      "credentials": {
+        "postgres": {
+          "id": "z9nKgToNWvIW7P8f",
+          "name": "Postgres account 2"
+        }
+      },
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT id, title, remind_at, status, created_at\nFROM reminders\nWHERE tenant_id = $1::uuid AND status = 'pending'\n  AND (\n    $2 = 'all'\n    OR ($2 = 'today' AND (remind_at AT TIME ZONE 'Europe/Bucharest')::date = CURRENT_DATE)\n    OR ($2 = 'tomorrow' AND (remind_at AT TIME ZONE 'Europe/Bucharest')::date = CURRENT_DATE + INTERVAL '1 day')\n    OR ($2 = 'day_after_tomorrow' AND (remind_at AT TIME ZONE 'Europe/Bucharest')::date = CURRENT_DATE + INTERVAL '2 days')\n    OR ($2 = 'until_today' AND (remind_at AT TIME ZONE 'Europe/Bucharest')::date < CURRENT_DATE)\n    OR ($2 = 'overdue' AND remind_at < NOW())\n    OR ($2 = 'this_week' AND (remind_at AT TIME ZONE 'Europe/Bucharest')::date BETWEEN CURRENT_DATE AND (date_trunc('week', CURRENT_DATE) + INTERVAL '6 days')::date)\n    OR ($2 = 'this_month' AND (remind_at AT TIME ZONE 'Europe/Bucharest')::date BETWEEN CURRENT_DATE AND (date_trunc('month', CURRENT_DATE) + INTERVAL '1 month - 1 day')::date)\n  )\nORDER BY remind_at ASC\nLIMIT 20",
+        "options": {
+          "queryReplacement": "={{ [$('Parse and Validate Brain Contract').first().json.tenant_id, $('Parse and Validate Brain Contract').first().json.decision.reminder_action?.filter_scope || 'all'] }}",
+          "alwaysOutputData": true
+        }
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [
+        0,
+        1280
+      ],
+      "id": "3ec24e6f-3de2-4068-bc25-81192c3d28b3",
+      "name": "List Reminders",
+      "credentials": {
+        "postgres": {
+          "id": "z9nKgToNWvIW7P8f",
+          "name": "Postgres account 2"
+        }
+      },
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "jsCode": "// PLACEHOLDER: search_memory\n// Future: generate embedding for memory_action.query, then cosine similarity search on rag_memories\n// Requires: OpenAI embedding call + pgvector <=> operator\nconst ctx = $('Parse and Validate Brain Contract').first().json;\nconst query = (ctx.decision.memory_action && ctx.decision.memory_action.query) || 'unknown';\nreturn [{ json: { ...ctx, _branch: 'search_memory', _status: 'placeholder_not_implemented', _query: query } }];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        0,
+        1440
+      ],
+      "id": "dc24f715-4655-46b7-b482-de84394a7e91",
+      "name": "Search Memory (Placeholder)"
+    },
+    {
+      "parameters": {
+        "jsCode": "// General Response: no additional DB writes needed\n// Data flows through from Parse and Validate Brain Contract\nreturn $input.all();"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        0,
+        1600
+      ],
+      "id": "3c87eb5e-f160-4358-adf7-26e5e847c9f2",
+      "name": "General Response"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Clarify: user request was ambiguous or contract was invalid\n// This is also the fallback target for parse errors and missing required fields\n// For MVP: pass-through. Future: could log clarification requests for analytics.\nconst ctx = $('Parse and Validate Brain Contract').first().json;\nreturn [{ json: { ...ctx, _branch: 'clarify' } }];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        0,
+        1760
+      ],
+      "id": "eead4d4c-7351-4c41-b239-0ffd61a07f9f",
+      "name": "Clarify"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "INSERT INTO improvement_requests (\n  organization_id, tenant_id, requested_feature, user_message\n) VALUES (\n  $1::uuid, $2::uuid, $3, $4\n) RETURNING id",
+        "options": {
+          "queryReplacement": "={{ [$('Parse and Validate Brain Contract').first().json.organization_id, $('Parse and Validate Brain Contract').first().json.tenant_id, $('Parse and Validate Brain Contract').first().json.decision.improvement_request.requested_feature, $('Parse and Validate Brain Contract').first().json.decision.improvement_request.user_message || ''] }}"
+        }
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [
+        0,
+        1920
+      ],
+      "id": "381a907b-a332-4e04-8a97-609c9788b964",
+      "name": "Save Improvement Request",
+      "credentials": {
+        "postgres": {
+          "id": "z9nKgToNWvIW7P8f",
+          "name": "Postgres account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// None: no action needed, no response needed\n// Preserves semantics of \"acknowledged but nothing to do\"\nconst ctx = $('Parse and Validate Brain Contract').first().json;\nreturn [{ json: { ...ctx, _branch: 'none' } }];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        0,
+        2080
+      ],
+      "id": "28ca15f6-08e6-4c08-8953-95a36ff3ce67",
+      "name": "None (No Action)"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Switch fallback: unknown intent routed here\n// FIX #6: Capture original intent BEFORE overwriting to clarify\nconst ctx = $('Parse and Validate Brain Contract').first().json;\nconst d = ctx.decision || {};\nconst originalIntent = d.intent || 'undefined';\nd.intent = 'clarify';\nd.debug_summary = 'switch_fallback_unknown_intent_' + originalIntent;\nd.response = d.response || 'Nu am inteles exact ce doresti. Poti reformula?';\nd.requires_clarification = true;\nreturn [{ json: { ...ctx, decision: d, _branch: 'fallback_to_clarify', _original_unknown_intent: originalIntent } }];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        0,
+        2240
+      ],
+      "id": "8fb0595f-6348-44ce-95fa-0fdb93416e10",
+      "name": "Fallback to Clarify"
+    },
+    {
+      "parameters": {
+        "jsCode": "// NO-OP MVP: Privacy Gate Outbound\n// Future: detokenize only at final authorized output boundary\n// IMPORTANT: reads from $input (not Parse node) to preserve branch modifications\n// (e.g. Format Task List / Format Reminder List overwrite decision.response)\n// Preserves ALL branch metadata including _original_unknown_intent from Fallback to Clarify\nconst item = $input.first().json;\nreturn [{\n  json: {\n    organization_id: item.organization_id,\n    organization_name: item.organization_name,\n    tenant_id: item.tenant_id,\n    tenant_name: item.tenant_name,\n    tenant_slug: item.tenant_slug || '',\n    tenant_vertical: item.tenant_vertical || '',\n    tenant_timezone: item.tenant_timezone || 'Europe/Bucharest',\n    tenant_currency_code: item.tenant_currency_code || 'RON',\n    telegram_chat_id: item.telegram_chat_id,\n    telegram_message_id: item.telegram_message_id,\n    raw_user_message: item.raw_user_message,\n    received_at: item.received_at,\n    test_mode: item.test_mode,\n    source: item.source,\n    context: item.context,\n    decision: item.decision,\n    _branch: item._branch || null,\n    _listed_task_rows: item._listed_task_rows || null,\n    _listed_reminder_rows: item._listed_reminder_rows || null,\n    _original_unknown_intent: item._original_unknown_intent || null\n  }\n}];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2480,
+        1120
+      ],
+      "id": "687262dd-8442-40da-a45a-49dbc56efd6f",
+      "name": "Privacy Gate Outbound (NO-OP MVP)"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "INSERT INTO messages (\n  organization_id, tenant_id, content, direction, intent, telegram_chat_id\n) VALUES (\n  $1::uuid, $2::uuid, $3, 'outbound', $4, $5\n) RETURNING id",
+        "options": {
+          "queryReplacement": "={{ [$json.organization_id, $json.tenant_id, $json.decision.response, $json.decision.intent, $json.telegram_chat_id] }}"
+        }
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [
+        3104,
+        992
+      ],
+      "id": "bd478954-d077-4330-bc57-2871b90252c7",
+      "name": "Insert Outbound Message",
+      "credentials": {
+        "postgres": {
+          "id": "z9nKgToNWvIW7P8f",
+          "name": "Postgres account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Final Output v7: uses $input as primary source of truth\n// Three paths arrive here:\n//   1. Normal + Telegram sent: Merge Telegram Result → here\n//   2. Normal + test_mode (no Telegram): IF Send Telegram (false) → here\n//   3. None path: IF Skip Outbound (false) → here\n\nconst current = $input.first().json;\nconst decision = current.decision || {};\nconst intent = decision.intent;\nconst branch = current._branch || null;\n\nconst branchMap = {\n  create_task: 'Create Task',\n  update_task: 'Update Task (Placeholder)',\n  complete_task: 'Complete Task (Placeholder)',\n  cancel_task: 'Cancel Task (Placeholder)',\n  list_tasks: 'Format Task List',\n  create_reminder: 'Create Reminder',\n  update_reminder: 'Update Reminder (Placeholder)',\n  cancel_reminder: 'Cancel Reminder (Placeholder)',\n  list_reminders: 'Format Reminder List',\n  search_memory: 'Search Memory (Placeholder)',\n  general_response: 'General Response',\n  clarify: 'Clarify',\n  save_improvement_request: 'Save Improvement Request',\n  none: 'None (No Action)'\n};\n\nconst actualBranch = branch || branchMap[intent] || 'unknown';\nconst isFallback = (branch === 'fallback_to_clarify');\nconst outboundSkipped = (intent === 'none');\n\n// Inbound message ID\nlet inboundId = null;\ntry { inboundId = $('Insert Inbound Message').first().json.id || null; } catch(e) { inboundId = '_error_reading_inbound'; }\n\n// Outbound message ID (from Merge Outbound Result on normal path)\nconst outboundId = current._outbound_message_id || null;\n\n// Response from current item (already normalized by Normalize Client Response)\nconst finalResponse = decision.response || '';\n\n// Normalization metadata\nconst responseNormalized = current._response_normalized === true;\nconst memoryAckAppended = current._memory_ack_appended === true;\n\n// Telegram send result\nconst telegramResult = current._telegram_result || null;\nconst telegramSent = telegramResult ? telegramResult.sent === true : false;\nconst telegramMessageIdSent = (telegramResult && telegramResult.message_id) || null;\n\n// Aligned skip_reason values (short form used everywhere)\nlet telegramSkipReason = null;\nif (outboundSkipped) {\n  telegramSkipReason = 'intent_none';\n} else if (current.test_mode === true) {\n  telegramSkipReason = 'test_mode';\n} else if (telegramResult && !telegramResult.sent) {\n  telegramSkipReason = telegramResult.reason || 'send_failed';\n}\n\n// Branch-specific result data\nlet branchResult = {};\n\nif (intent === 'create_task') {\n  try {\n    const r = $('Create Task').first().json;\n    branchResult = { task_created: !!(r && r.id), task_id: r ? r.id : null };\n  } catch(e) { branchResult = { task_created: false, _error: 'create_task_node_read_failed' }; }\n} else if (intent === 'create_reminder') {\n  try {\n    const r = $('Create Reminder').first().json;\n    branchResult = { reminder_created: !!(r && r.id), reminder_id: r ? r.id : null };\n  } catch(e) { branchResult = { reminder_created: false, _error: 'create_reminder_node_read_failed' }; }\n} else if (intent === 'save_improvement_request') {\n  try {\n    const r = $('Save Improvement Request').first().json;\n    branchResult = { improvement_saved: !!(r && r.id), improvement_id: r ? r.id : null };\n  } catch(e) { branchResult = { improvement_saved: false, _error: 'save_improvement_node_read_failed' }; }\n} else if (branch === 'list_tasks') {\n  branchResult = { tasks_listed: true, task_rows: current._listed_task_rows || [] };\n} else if (branch === 'list_reminders') {\n  branchResult = { reminders_listed: true, reminder_rows: current._listed_reminder_rows || [] };\n} else if (intent === 'none') {\n  branchResult = { action: 'none', outbound_skipped: true };\n}\n\n// Build routing object\nconst routing = {\n  actual_branch: actualBranch,\n  is_fallback: isFallback,\n  outbound_skipped: outboundSkipped,\n  outbound_reason: outboundSkipped ? 'intent_none' : 'normal'\n};\n\nif (isFallback && current._original_unknown_intent) {\n  routing.original_unknown_intent = current._original_unknown_intent;\n}\n\nreturn [{\n  json: {\n    ok: true,\n    workflow: 'brain_main_inbound_mvp',\n    contract_version: decision.version || 'brain-decision-v1',\n    resolved: {\n      organization_id: current.organization_id,\n      tenant_id: current.tenant_id,\n      business_id: (current.context && current.context.business) ? current.context.business.id : null\n    },\n    decision: {\n      intent: intent,\n      domain: decision.domain,\n      debug_summary: decision.debug_summary,\n      requires_confirmation: decision.requires_confirmation,\n      requires_clarification: decision.requires_clarification\n    },\n    routing: routing,\n    writes: {\n      message_inbound_id: inboundId,\n      message_outbound_id: outboundId,\n      ...branchResult\n    },\n    telegram: {\n      sent: telegramSent,\n      chat_id: current.telegram_chat_id || null,\n      message_id_sent: telegramMessageIdSent,\n      skip_reason: telegramSkipReason\n    },\n    response: finalResponse,\n    response_normalized: responseNormalized,\n    memory_ack_appended: memoryAckAppended,\n    memory_writes: decision.memory_writes || []\n  }\n}];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        4496,
+        1120
+      ],
+      "id": "0f654b4d-cf17-455e-a930-93113eae27c6",
+      "name": "Final Output"
+    },
+    {
+      "parameters": {
+        "content": "## brain_main_inbound_mvp (v7 — brain-decision-v1, strict-conform + Telegram)\n**Purpose:** Single monolithic Brain workflow for MVP — Telegram inbound + LLM decision + action + Telegram outbound.\n\n**Flow:** Telegram Trigger (or Manual Trigger) → Normalize → Privacy Gate → Resolve Org/Tenant → Load Context → Brain LLM → Parse Contract → Route by Intent (14 branches) → Execute Action → Memory Placeholder → Privacy Gate Out → IF Skip Outbound → [Insert Outbound → Merge Result → IF Send Telegram → Telegram Send → Merge Telegram] or [skip] → Final Output\n\n**Contract version:** brain-decision-v1 (14 intents)\n**Fallback:** clarify (NOT general_response)\n\n**Key features:**\n- Dual trigger: Telegram Trigger (real) + Manual Trigger (testing)\n- Telegram Send Message for real outbound delivery\n- test_mode skips Telegram send but runs full pipeline\n- intent=none skips both outbound DB insert and Telegram send\n- Final Output reports telegram.sent, telegram.message_id_sent\n\n**Credentials needed after import:**\n- PostgreSQL → Railway PostgreSQL\n- Telegram Bot → Bot token from BotFather\n- Set env vars: BRAIN_LLM_BASE_URL, BRAIN_LLM_API_KEY, BRAIN_LLM_MODEL, TELEGRAM_BOT_TOKEN",
+        "height": 420,
+        "width": 700
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -5424,
+        64
+      ],
+      "id": "7398bf89-bd86-41bb-8dad-130f778c2ae4",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "content": "## Input Contract\nMock payload for manual testing.\nReplace telegram_chat_id with a real value from your organizations table.\n\nFields:\n- source: \"manual_test\"\n- organization_id: \"\" (optional — if set, resolves org directly by ID)\n- tenant_id: \"\" (resolved from org.active_tenant_id if empty)\n- telegram_chat_id: must match organizations.owner_telegram_chat_id\n- raw_user_message: the message to process",
+        "height": 240,
+        "width": 340
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -4608,
+        256
+      ],
+      "id": "c78bb518-518c-44f0-8c11-2460503b0ce0",
+      "name": "Sticky Note sn_input"
+    },
+    {
+      "parameters": {
+        "content": "## Privacy Gate Inbound (NO-OP)\n**AD-018:** Reserved for Phase 2 pseudonymization.\nFuture: detect PII, replace names/phones with CONTACT_XXX tokens.\nEnsure RAG writes only contain pseudonymized content.\nBrain (LLM) must NEVER receive raw PII.",
+        "height": 200,
+        "width": 300
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -3840,
+        704
+      ],
+      "id": "97ef24b3-0bc2-4dfc-8d26-d5812b771766",
+      "name": "Sticky Note sn_privacy_in"
+    },
+    {
+      "parameters": {
+        "content": "## Organization + Tenant Resolution\nResolves by organization_id (if provided) OR by owner_telegram_chat_id.\nTenant falls back to organizations.active_tenant_id if not specified.\nAlways returns one row (found=true/false).\nIf not found → Stop and Error.\nUses $1=chat_id, $2=tenant_id, $3=organization_id.",
+        "height": 220,
+        "width": 360
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -3568,
+        704
+      ],
+      "id": "bf004bdf-3669-478a-8b55-71e26bae225d",
+      "name": "Sticky Note sn_org"
+    },
+    {
+      "parameters": {
+        "content": "## Brain Decision (LLM Call)\nUses generic OpenAI-compatible endpoint.\nEnv vars: BRAIN_LLM_BASE_URL, BRAIN_LLM_API_KEY, BRAIN_LLM_MODEL.\nPrimary: Groq API (llama-3.3-70b-versatile).\nUpgrade path: Claude API (switch env vars only).\nReturns brain-decision-v1 JSON contract (14 intents).",
+        "height": 200,
+        "width": 360
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -2800,
+        704
+      ],
+      "id": "81603d2b-a616-42b5-bdef-927a3bc63ade",
+      "name": "Sticky Note sn_brain"
+    },
+    {
+      "parameters": {
+        "content": "## Brain Decision Contract v1 (brain-decision-v1)\n14 intents: create_task, update_task, complete_task, cancel_task, list_tasks,\ncreate_reminder, update_reminder, cancel_reminder, list_reminders,\nsearch_memory, general_response, clarify, save_improvement_request, none.\n\nField names: task_action, reminder_action, memory_action, improvement_request, memory_writes.\nmemory_writes is an OPTIONAL array side-effect on ANY intent.\nFallback: ALL errors and unknowns → clarify (never general_response).\nAll downstream nodes reference $('Parse and Validate Brain Contract').",
+        "height": 240,
+        "width": 400
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -2272,
+        704
+      ],
+      "id": "c55980f1-eaf9-42c7-8c6b-62c74ba9bf0e",
+      "name": "Sticky Note sn_contract"
+    },
+    {
+      "parameters": {
+        "content": "## Memory Write (v3 — ACTIVE)\nPhase 1 implementation:\n1. IF decision.memory_writes.length > 0\n2. Batch embed via OpenAI text-embedding-3-small\n3. INSERT into rag_memories with cosine dedup (>0.95)\n4. Restore context for downstream\nIf memory_writes empty → pass through to Privacy Gate.\nError handling: continueOnFail on OpenAI + PostgreSQL.",
+        "height": 200,
+        "width": 340
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        2240,
+        880
+      ],
+      "id": "032a43b5-f07e-443b-a22a-ed5b9c9380b0",
+      "name": "Sticky Note sn_memory"
+    },
+    {
+      "parameters": {
+        "content": "## Privacy Gate Outbound (NO-OP)\n**AD-018:** Reserved for Phase 2 de-tokenization.\nFuture: replace CONTACT_XXX tokens with real names ONLY at the last authorized output boundary.\nNever de-tokenize for LLM or RAG — only for user-facing replies.\nAlso normalizes context for downstream Insert Outbound + Final Output.",
+        "height": 200,
+        "width": 340
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        2496,
+        880
+      ],
+      "id": "e2e4a5f1-887e-4fbd-a000-eb40561f6917",
+      "name": "Sticky Note sn_privacy_out"
+    },
+    {
+      "parameters": {
+        "jsCode": "const ctx = $('Parse and Validate Brain Contract').first().json;\nconst tasks = $input.all().map(item => item.json).filter(t => t.id);\n\nconst formatted = tasks.map(task => ({\n  id: task.id,\n  title: task.title,\n  priority: task.priority || 'normal',\n  status: task.status,\n  due_type: task.due_type || 'flexible',\n  due_date: task.due_date || null,\n  due_at: task.due_at || null\n}));\n\nfunction fmtDate(d) {\n  if (!d) return null;\n  const dt = new Date(d);\n  if (isNaN(dt)) return d;\n  return dt.toLocaleDateString('ro-RO', { day: '2-digit', month: '2-digit', year: 'numeric' });\n}\n\nlet responseText = '';\nif (formatted.length === 0) {\n  responseText = 'Nu ai task-uri.';\n} else {\n  responseText = formatted.map((t, i) => {\n    let line = (i + 1) + '. ' + t.title;\n    if (t.priority !== 'normal') line += ' [' + t.priority + ']';\n    const dateStr = fmtDate(t.due_date) || fmtDate(t.due_at);\n    if (dateStr) line += ' — ' + dateStr;\n    return line;\n  }).join('\\n');\n}\n\nconst updatedDecision = Object.assign({}, ctx.decision, { response: responseText });\n\nreturn [{\n  json: {\n    ...ctx,\n    decision: updatedDecision,\n    _branch: 'list_tasks',\n    _listed_task_rows: formatted\n  }\n}];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1824,
+        752
+      ],
+      "id": "f23803a4-fd7b-457f-a97c-e56821bf78cf",
+      "name": "Format Task List"
+    },
+    {
+      "parameters": {
+        "jsCode": "const ctx = $('Parse and Validate Brain Contract').first().json;\nconst reminders = $input.all().map(item => item.json).filter(r => r.id);\n\nconst formatted = reminders.map(reminder => ({\n  id: reminder.id,\n  title: reminder.title,\n  remind_at: reminder.remind_at,\n  status: reminder.status\n}));\n\nfunction fmtDate(d) {\n  if (!d) return null;\n  const dt = new Date(d);\n  if (isNaN(dt)) return d;\n  return dt.toLocaleDateString('ro-RO', { day: '2-digit', month: '2-digit', year: 'numeric' });\n}\n\nlet responseText = '';\nif (formatted.length === 0) {\n  responseText = 'Nu ai remindere.';\n} else {\n  responseText = formatted.map((r, i) => {\n    let line = (i + 1) + '. ' + r.title;\n    const dateStr = fmtDate(r.remind_at);\n    if (dateStr) line += ' — ' + dateStr;\n    return line;\n  }).join('\\n');\n}\n\nconst updatedDecision = Object.assign({}, ctx.decision, { response: responseText });\n\nreturn [{\n  json: {\n    ...ctx,\n    decision: updatedDecision,\n    _branch: 'list_reminders',\n    _listed_reminder_rows: formatted\n  }\n}];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1840,
+        1552
+      ],
+      "id": "f3b86ea8-b5a7-4a7f-9ccb-9dc4aa8a5f17",
+      "name": "Format Reminder List"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "loose",
+            "version": 1
+          },
+          "conditions": [
+            {
+              "id": "cond_skip_outbound",
+              "leftValue": "={{ $json.decision.intent }}",
+              "rightValue": "none",
+              "operator": {
+                "type": "string",
+                "operation": "notEquals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {
+          "looseTypeValidation": true
+        }
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        2832,
+        1120
+      ],
+      "id": "59996b62-73cc-46f8-a7e1-83cdba2d3b87",
+      "name": "IF Skip Outbound"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Merge Outbound Result v7: restore full branch context after outbound insert\n// Insert Outbound Message returns only {id} from RETURNING clause.\n// We merge this with the full context from Normalize Client Response\n// (which has the normalized decision.response and metadata flags).\nconst outboundResult = $input.first().json;\nconst ctx = $('Normalize Client Response').first().json;\nreturn [{\n  json: {\n    ...ctx,\n    _outbound_message_id: outboundResult.id || null\n  }\n}];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        3344,
+        992
+      ],
+      "id": "e019db6f-7e9a-491b-94c1-67eb2c47f996",
+      "name": "Merge Outbound Result"
+    },
+    {
+      "parameters": {
+        "updates": [
+          "message"
+        ],
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegramTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -4512,
+        720
+      ],
+      "id": "f9897e8d-8473-42ec-9da9-ef020509f1db",
+      "name": "Telegram Trigger",
+      "webhookId": "brain-inbound-telegram",
+      "credentials": {
+        "telegramApi": {
+          "id": "Z0ovMbkHwXEC8ZtF",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Normalize Telegram Input: map Telegram webhook payload to internal workflow shape\nconst msg = $input.first().json.message || $input.first().json;\nconst chat = msg.chat || {};\nconst from = msg.from || {};\n\nreturn [{\n  json: {\n    source: 'telegram',\n    organization_id: '',\n    tenant_id: '',\n    telegram_chat_id: String(chat.id || ''),\n    telegram_message_id: msg.message_id || null,\n    raw_user_message: (msg.text || '').trim(),\n    received_at: msg.date ? new Date(msg.date * 1000).toISOString() : new Date().toISOString(),\n    test_mode: false\n  }\n}];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -4272,
+        720
+      ],
+      "id": "51e7b693-aea5-4afb-a266-f443ce0d77a4",
+      "name": "Normalize Telegram Input"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://api.telegram.org/bot8631804832:AAGpHGRmBaNYHloNCW4HJcCDojtBxp5W52A/sendMessage",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ chat_id: $json.telegram_chat_id, text: $json.decision.response, parse_mode: 'HTML' }) }}",
+        "options": {
+          "timeout": 10000
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        3792,
+        768
+      ],
+      "id": "f1d934ef-f307-49a5-a9c7-ff193cc37b27",
+      "name": "Telegram Send Message"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Merge Telegram Result: restore full branch context after Telegram send\n// Telegram Send Message returns the Telegram API response, losing workflow context.\n// We restore context from IF Send Telegram (which had full context from Merge Outbound Result).\nconst telegramResponse = $input.first().json;\nconst ctx = $('IF Send Telegram').first().json;\n\nlet telegramResult = { sent: false, reason: 'unknown' };\nif (telegramResponse.ok === true && telegramResponse.result) {\n  telegramResult = {\n    sent: true,\n    message_id: telegramResponse.result.message_id || null\n  };\n} else {\n  telegramResult = {\n    sent: false,\n    reason: telegramResponse.description || 'telegram_api_error'\n  };\n}\n\nreturn [{\n  json: {\n    ...ctx,\n    _telegram_result: telegramResult\n  }\n}];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        4000,
+        768
+      ],
+      "id": "d840a0cb-5ef7-4866-9932-8841f7401e49",
+      "name": "Merge Telegram Result"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Normalize Client Response (v7): deterministic user-facing messages\n// Placed AFTER Privacy Gate Outbound, BEFORE IF Skip Outbound.\n// Overwrites decision.response with standardized text for key intents.\n// Memory acknowledgment appended deterministically when appropriate.\n\nconst item = $input.first().json;\nconst decision = item.decision || {};\nconst intent = decision.intent;\nconst branch = item._branch || null;\n\nfunction formatDateRO(value) {\n  if (!value) return '';\n\n  const raw = String(value).trim();\n  const dateOnly = /^\\d{4}-\\d{2}-\\d{2}$/;\n\n  if (dateOnly.test(raw)) {\n    const [year, month, day] = raw.split('-');\n    return `${day}/${month}/${year}`;\n  }\n\n  const d = new Date(raw);\n  if (isNaN(d.getTime())) return raw;\n\n  const day = String(d.getDate()).padStart(2, '0');\n  const month = String(d.getMonth() + 1).padStart(2, '0');\n  const year = d.getFullYear();\n  const hasTime = /T\\d{2}:\\d{2}/.test(raw);\n\n  if (!hasTime) {\n    return `${day}/${month}/${year}`;\n  }\n\n  const hours = String(d.getHours()).padStart(2, '0');\n  const minutes = String(d.getMinutes()).padStart(2, '0');\n\n  return `${day}/${month}/${year} ${hours}:${minutes}`;\n}\n\nlet finalResponse = decision.response || '';\nlet responseNormalized = false;\nlet memoryAckAppended = false;\n\n// === RESPONSE NORMALIZATION RULES ===\n\nif (branch === 'list_tasks') {\n  // Keep formatter-generated response (built from real DB rows)\n  // Do NOT overwrite with generic LLM wording\n  finalResponse = decision.response || '';\n\n} else if (branch === 'list_reminders') {\n  // Keep formatter-generated response (built from real DB rows)\n  finalResponse = decision.response || '';\n\n} else if (intent === 'create_task') {\n  // Standardized task creation confirmation\n  const ta = decision.task_action || {};\n  let msg = 'Am creat task-ul: ' + (ta.title || 'fara titlu') + '.';\n  if (ta.due_date) {\n    msg += ' Scadent: ' + formatDateRO(ta.due_date) + '.';\n  } else if (ta.due_at) {\n    msg += ' Scadent: ' + formatDateRO(ta.due_at) + '.';\n  }\n  if (ta.priority && ta.priority !== 'normal') {\n    msg += ' Prioritate: ' + ta.priority + '.';\n  }\n  finalResponse = msg;\n  responseNormalized = true;\n\n} else if (intent === 'create_reminder') {\n  // Standardized reminder creation confirmation\n  const ra = decision.reminder_action || {};\n  let msg = 'Am setat reminderul: ' + (ra.title || 'fara titlu') + '.';\n  if (ra.remind_at) {\n    msg += ' Te voi notifica la: ' + formatDateRO(ra.remind_at) + '.';\n  }\n  finalResponse = msg;\n  responseNormalized = true;\n\n} else if (intent === 'clarify' || branch === 'fallback_to_clarify') {\n  // Standardized clarification message\n  finalResponse = 'Nu am inteles exact ce doresti. Poti reformula?';\n  responseNormalized = true;\n\n} else if (intent === 'save_improvement_request') {\n  // Standardized improvement acknowledgment\n  finalResponse = 'Am notat sugestia ta de imbunatatire.';\n  responseNormalized = true;\n\n} else if (intent === 'none') {\n  // No response — keep empty (outbound skipped entirely)\n  finalResponse = '';\n\n} else if (intent === 'general_response') {\n  // Keep LLM response as-is\n  finalResponse = decision.response || '';\n\n} else {\n  // Placeholder intents and unknown: keep LLM response\n  finalResponse = decision.response || '';\n}\n\n// === MEMORY ACKNOWLEDGMENT (deterministic) ===\n// Append ONLY for user-facing intents where it makes sense\n// NEVER for list_tasks, list_reminders, none, clarify, fallback_to_clarify\n\nconst memoryWrites = decision.memory_writes || [];\nconst memoryAckAllowed = ['general_response', 'create_task', 'create_reminder', 'save_improvement_request'];\nconst isNotClarifyBranch = (branch !== 'fallback_to_clarify');\n\nif (memoryWrites.length > 0 && memoryAckAllowed.includes(intent) && isNotClarifyBranch && intent !== 'none') {\n  finalResponse += '\\n\\nAm retinut si informatia pentru contextul viitor.';\n  memoryAckAppended = true;\n}\n\n// === OUTPUT ===\n// Overwrite decision.response with normalized version\n// Add metadata flags for Final Output to report\n\nconst updatedDecision = Object.assign({}, decision, { response: finalResponse });\n\nreturn [{\n  json: Object.assign({}, item, {\n    decision: updatedDecision,\n    _response_normalized: responseNormalized,\n    _memory_ack_appended: memoryAckAppended\n  })\n}];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2672,
+        1120
+      ],
+      "id": "36d94cf5-0c5f-4998-a9b4-f88e5a7dc951",
+      "name": "Normalize Client Response"
+    },
+    {
+      "parameters": {
+        "jsCode": "const insertResult = $input.first().json;\nconst ctx = $('Parse and Validate Brain Contract').first().json;\n\nreturn [{\n  json: {\n    ...ctx,\n    _inbound_message_id: insertResult.id || null\n  }\n}];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -1824,
+        944
+      ],
+      "id": "78e33ce1-fbb8-4547-b3b2-1896b665d287",
+      "name": "Merge Inbound Result"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.test_mode !== true }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    },
+                    "id": "1fa60528-13a3-4280-8358-dbfa1cbf1ff4"
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "51f78368-58cb-4ca1-8298-22b58f6626b9",
+                    "leftValue": "={{ $json.test_mode === true }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.4,
+      "position": [
+        3552,
+        992
+      ],
+      "id": "7bc0d96d-b1d4-482a-b3c0-ecc2f5c92c59",
+      "name": "IF Send Telegram"
+    },
+    {
+      "parameters": {
+        "jsCode": "const db = $('Create Task').first().json;\nconst ctx = $('Parse and Validate Brain Contract').first().json;\n\nreturn [{\n  json: {\n    ...ctx,\n    _branch: 'create_task',\n    _db_result: db\n  }\n}];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        208,
+        0
+      ],
+      "id": "4c7d899f-f6f0-471f-b173-e7317535d0e2",
+      "name": "Merge Create Task Result"
+    },
+    {
+      "parameters": {
+        "jsCode": "const db = $('Create Reminder').first().json;\nconst ctx = $('Parse and Validate Brain Contract').first().json;\n\nreturn [{\n  json: {\n    ...ctx,\n    _branch: 'create_reminder',\n    _db_result: db\n  }\n}];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        208,
+        800
+      ],
+      "id": "a2503a7d-2683-4274-89c3-b6ecb0e8ecba",
+      "name": "Merge Create Reminder Result"
+    },
+    {
+      "parameters": {
+        "jsCode": "const db = $('Save Improvement Request').first().json;\nconst ctx = $('Parse and Validate Brain Contract').first().json;\n\nreturn [{\n  json: {\n    ...ctx,\n    _branch: 'save_improvement_request',\n    _db_result: db\n  }\n}];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        208,
+        1920
+      ],
+      "id": "b8da8355-e7ab-44f7-84d6-656c53d6027a",
+      "name": "Merge Save Improvement Result"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Merge Delete Task Result: restores full context after PostgreSQL DELETE\nconst dbRows = $input.all().map(item => item.json);\nconst ctx = $('Parse and Validate Brain Contract').first().json;\nconst deletedCount = dbRows.filter(r => r.id).length;\nconst deletedTitles = dbRows.filter(r => r.title).map(r => r.title);\n\n// Build confirmation response\nlet confirmMsg = '';\nif (deletedCount === 0) {\n  confirmMsg = 'Nu am gasit task-ul specificat pentru stergere.';\n} else if (deletedCount === 1) {\n  confirmMsg = 'Am sters task-ul: ' + (deletedTitles[0] || 'fara titlu') + '.';\n} else {\n  confirmMsg = 'Am sters ' + deletedCount + ' task-uri.';\n}\n\n// Override decision.response with deterministic message\nconst updatedDecision = Object.assign({}, ctx.decision, { response: confirmMsg });\n\nreturn [{\n  json: {\n    ...ctx,\n    decision: updatedDecision,\n    _branch: 'cancel_task',\n    _db_result: dbRows,\n    _deleted_count: deletedCount,\n    _deleted_titles: deletedTitles\n  }\n}];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        208,
+        480
+      ],
+      "id": "a1b2c3d4-merge-delete-task-0001",
+      "name": "Merge Delete Task Result"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Merge Delete Reminder Result: restores full context after PostgreSQL DELETE\nconst dbRows = $input.all().map(item => item.json);\nconst ctx = $('Parse and Validate Brain Contract').first().json;\nconst deletedCount = dbRows.filter(r => r.id).length;\nconst deletedTitles = dbRows.filter(r => r.title).map(r => r.title);\n\n// Build confirmation response\nlet confirmMsg = '';\nif (deletedCount === 0) {\n  confirmMsg = 'Nu am gasit reminderul specificat pentru stergere.';\n} else if (deletedCount === 1) {\n  confirmMsg = 'Am sters reminderul: ' + (deletedTitles[0] || 'fara titlu') + '.';\n} else {\n  confirmMsg = 'Am sters ' + deletedCount + ' remindere.';\n}\n\n// Override decision.response with deterministic message\nconst updatedDecision = Object.assign({}, ctx.decision, { response: confirmMsg });\n\nreturn [{\n  json: {\n    ...ctx,\n    decision: updatedDecision,\n    _branch: 'cancel_reminder',\n    _db_result: dbRows,\n    _deleted_count: deletedCount,\n    _deleted_titles: deletedTitles\n  }\n}];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        208,
+        1120
+      ],
+      "id": "e5f6g7h8-merge-delete-reminder-0001",
+      "name": "Merge Delete Reminder Result"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "mw-cond-001",
+              "leftValue": "={{ $json.decision && Array.isArray($json.decision.memory_writes) && $json.decision.memory_writes.length > 0 }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {
+          "looseTypeValidation": true
+        }
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        2272,
+        1120
+      ],
+      "id": "e8a32167-413b-45df-a097-70b8638ae5a7",
+      "name": "IF Has Memory Writes"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Prepare Embedding Batch: extracts memory_writes and builds OpenAI request\nconst item = $input.first().json;\nconst decision = item.decision || {};\nconst memoryWrites = decision.memory_writes || [];\n\nif (memoryWrites.length === 0) {\n  // Safety: should not reach here (IF gate filters), but handle gracefully\n  return [{ json: { ...item, _memory_skipped: true } }];\n}\n\n// Extract content strings for batch embedding\nconst contents = memoryWrites.map(m => m.content);\n\nreturn [{\n  json: {\n    _original_context: item,\n    _memory_writes: memoryWrites,\n    _embedding_input: contents,\n    _tenant_id: item.tenant_id,\n    _raw_user_message: item.raw_user_message\n  }\n}];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2500,
+        880
+      ],
+      "id": "mw-prepare-embedding-batch-001",
+      "name": "Prepare Embedding Batch"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.openai.com/v1/embeddings",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "openAiApi",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ model: 'text-embedding-3-small', input: $json._embedding_input }) }}",
+        "options": {
+          "timeout": 30000
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2720,
+        880
+      ],
+      "id": "mw-openai-embeddings-001",
+      "name": "OpenAI Generate Embeddings",
+      "credentials": {
+        "openAiApi": {
+          "id": "svM62oyFwPbaIeX4",
+          "name": "OpenAi account"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Build Memory Insert Items: maps embeddings to individual insert-ready items\nconst prev = $('Prepare Embedding Batch').first().json;\nconst apiResponse = $input.first().json;\nconst memoryWrites = prev._memory_writes || [];\nconst tenantId = prev._tenant_id;\n\n// Handle OpenAI API errors gracefully\nif (!apiResponse.data || !Array.isArray(apiResponse.data)) {\n  // API failed — restore context and skip memory writes\n  const ctx = prev._original_context;\n  return [{\n    json: {\n      ...ctx,\n      _memory_write_status: 'embedding_api_failed',\n      _memory_write_error: apiResponse.error || 'unknown',\n      _memory_write_count: 0\n    }\n  }];\n}\n\nconst embeddings = apiResponse.data;\n\n// Create one output item per memory_write with its embedding\nconst items = memoryWrites.map((mw, idx) => {\n  const emb = embeddings[idx];\n  if (!emb || !emb.embedding) return null;\n\n  // Format embedding as pgvector string: [0.1,0.2,...]\n  const embStr = '[' + emb.embedding.join(',') + ']';\n\n  return {\n    json: {\n      tenant_id: tenantId,\n      content: mw.content,\n      embedding_str: embStr,\n      memory_category: mw.category,\n      memory_kind: mw.type || 'fact',\n      durability: 'stable',\n      raw_user_message: (prev._raw_user_message || '').substring(0, 200),\n      _original_context: prev._original_context,\n      _total_memories: memoryWrites.length,\n      _memory_index: idx\n    }\n  };\n}).filter(x => x !== null);\n\nif (items.length === 0) {\n  const ctx = prev._original_context;\n  return [{\n    json: {\n      ...ctx,\n      _memory_write_status: 'no_valid_embeddings',\n      _memory_write_count: 0\n    }\n  }];\n}\n\nreturn items;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2940,
+        880
+      ],
+      "id": "mw-build-insert-items-001",
+      "name": "Build Memory Insert Items"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "-- Insert memory with cosine dedup (>0.95 similarity = skip insert, update existing)\nWITH dedup_check AS (\n  SELECT id FROM rag_memories\n  WHERE tenant_id = $1::uuid\n    AND memory_category = $4\n    AND embedding IS NOT NULL\n    AND (embedding <=> $3::vector(1536)) < 0.05\n  LIMIT 1\n),\ndo_update AS (\n  UPDATE rag_memories SET\n    updated_at = NOW(),\n    last_reconfirmed_at = NOW(),\n    content = $2\n  WHERE id IN (SELECT id FROM dedup_check)\n  RETURNING id, memory_category, 'deduplicated'::text AS action\n),\ndo_insert AS (\n  INSERT INTO rag_memories (\n    tenant_id, content, embedding, memory_category, memory_kind,\n    durability, importance_score, source_type, metadata\n  )\n  SELECT $1::uuid, $2, $3::vector(1536), $4, $5,\n    $6, 0.5, 'brain_main_inbound_mvp',\n    jsonb_build_object('source_message', $7)\n  WHERE NOT EXISTS (SELECT 1 FROM dedup_check)\n  RETURNING id, memory_category, 'inserted'::text AS action\n)\nSELECT * FROM do_update\nUNION ALL\nSELECT * FROM do_insert",
+        "options": {
+          "queryReplacement": "={{ [\n  $json.tenant_id,\n  $json.content,\n  $json.embedding_str,\n  $json.memory_category,\n  $json.memory_kind,\n  $json.durability,\n  $json.raw_user_message || ''\n] }}"
+        }
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [
+        3160,
+        880
+      ],
+      "id": "mw-insert-memory-dedup-001",
+      "name": "Insert Memory With Dedup",
+      "credentials": {
+        "postgres": {
+          "id": "z9nKgToNWvIW7P8f",
+          "name": "Postgres account 2"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Restore Context After Memory Write\n// Gets original context and adds memory write metadata\nconst allItems = $input.all();\nconst firstItem = allItems[0].json;\n\n// Check if we have the original context (from Build Memory Insert Items)\nlet ctx;\nif (firstItem._original_context) {\n  ctx = firstItem._original_context;\n} else if (firstItem._memory_write_status) {\n  // Error path — context was already restored in Build node\n  return [{ json: firstItem }];\n} else {\n  // Fallback: try to get from IF node\n  ctx = $('IF Has Memory Writes').first().json;\n}\n\n// Count successful inserts/dedup\nlet insertedCount = 0;\nlet dedupCount = 0;\nfor (const item of allItems) {\n  const action = item.json.action || '';\n  if (action === 'inserted') insertedCount++;\n  else if (action === 'deduplicated') dedupCount++;\n}\n\nreturn [{\n  json: {\n    ...ctx,\n    _memory_write_status: 'completed',\n    _memory_write_count: insertedCount + dedupCount,\n    _memory_inserted: insertedCount,\n    _memory_deduplicated: dedupCount\n  }\n}];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        3380,
+        880
+      ],
+      "id": "mw-restore-context-001",
+      "name": "Restore Context After Memory Write"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Manual Trigger": {
+      "main": [
+        [
+          {
+            "node": "Mock Inbound Payload",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Mock Inbound Payload": {
+      "main": [
+        [
+          {
+            "node": "Normalize Input",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Normalize Input": {
+      "main": [
+        [
+          {
+            "node": "Privacy Gate Inbound (NO-OP MVP)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Privacy Gate Inbound (NO-OP MVP)": {
+      "main": [
+        [
+          {
+            "node": "Resolve Organization and Tenant",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Resolve Organization and Tenant": {
+      "main": [
+        [
+          {
+            "node": "IF Org Found",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "IF Org Found": {
+      "main": [
+        [
+          {
+            "node": "Load Minimal Context",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Stop Error No Org",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Load Minimal Context": {
+      "main": [
+        [
+          {
+            "node": "Build Brain Input",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Build Brain Input": {
+      "main": [
+        [
+          {
+            "node": "Brain Decision",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Brain Decision": {
+      "main": [
+        [
+          {
+            "node": "Parse and Validate Brain Contract",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse and Validate Brain Contract": {
+      "main": [
+        [
+          {
+            "node": "Insert Inbound Message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Insert Inbound Message": {
+      "main": [
+        [
+          {
+            "node": "Merge Inbound Result",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Route by Intent": {
+      "main": [
+        [
+          {
+            "node": "Create Task",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Update Task (Placeholder)",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Complete Task (Placeholder)",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Delete Task",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "List Tasks",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Create Reminder",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Update Reminder (Placeholder)",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Delete Reminder",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "List Reminders",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Search Memory (Placeholder)",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "General Response",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Clarify",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Save Improvement Request",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "None (No Action)",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Fallback to Clarify",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create Task": {
+      "main": [
+        [
+          {
+            "node": "Merge Create Task Result",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update Task (Placeholder)": {
+      "main": [
+        [
+          {
+            "node": "IF Has Memory Writes",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Complete Task (Placeholder)": {
+      "main": [
+        [
+          {
+            "node": "IF Has Memory Writes",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "List Tasks": {
+      "main": [
+        [
+          {
+            "node": "Format Task List",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create Reminder": {
+      "main": [
+        [
+          {
+            "node": "Merge Create Reminder Result",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update Reminder (Placeholder)": {
+      "main": [
+        [
+          {
+            "node": "IF Has Memory Writes",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "List Reminders": {
+      "main": [
+        [
+          {
+            "node": "Format Reminder List",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Search Memory (Placeholder)": {
+      "main": [
+        [
+          {
+            "node": "IF Has Memory Writes",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "General Response": {
+      "main": [
+        [
+          {
+            "node": "IF Has Memory Writes",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Clarify": {
+      "main": [
+        [
+          {
+            "node": "IF Has Memory Writes",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Save Improvement Request": {
+      "main": [
+        [
+          {
+            "node": "Merge Save Improvement Result",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "None (No Action)": {
+      "main": [
+        [
+          {
+            "node": "IF Has Memory Writes",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Fallback to Clarify": {
+      "main": [
+        [
+          {
+            "node": "IF Has Memory Writes",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Privacy Gate Outbound (NO-OP MVP)": {
+      "main": [
+        [
+          {
+            "node": "Normalize Client Response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Insert Outbound Message": {
+      "main": [
+        [
+          {
+            "node": "Merge Outbound Result",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Format Task List": {
+      "main": [
+        [
+          {
+            "node": "IF Has Memory Writes",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Format Reminder List": {
+      "main": [
+        [
+          {
+            "node": "IF Has Memory Writes",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "IF Skip Outbound": {
+      "main": [
+        [
+          {
+            "node": "Insert Outbound Message",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Final Output",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge Outbound Result": {
+      "main": [
+        [
+          {
+            "node": "IF Send Telegram",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Telegram Trigger": {
+      "main": [
+        [
+          {
+            "node": "Normalize Telegram Input",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Normalize Telegram Input": {
+      "main": [
+        [
+          {
+            "node": "Normalize Input",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Telegram Send Message": {
+      "main": [
+        [
+          {
+            "node": "Merge Telegram Result",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge Telegram Result": {
+      "main": [
+        [
+          {
+            "node": "Final Output",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Normalize Client Response": {
+      "main": [
+        [
+          {
+            "node": "IF Skip Outbound",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge Inbound Result": {
+      "main": [
+        [
+          {
+            "node": "Route by Intent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "IF Send Telegram": {
+      "main": [
+        [
+          {
+            "node": "Telegram Send Message",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Final Output",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge Create Task Result": {
+      "main": [
+        [
+          {
+            "node": "IF Has Memory Writes",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge Create Reminder Result": {
+      "main": [
+        [
+          {
+            "node": "IF Has Memory Writes",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge Save Improvement Result": {
+      "main": [
+        [
+          {
+            "node": "IF Has Memory Writes",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Delete Task": {
+      "main": [
+        [
+          {
+            "node": "Merge Delete Task Result",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge Delete Task Result": {
+      "main": [
+        [
+          {
+            "node": "IF Has Memory Writes",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Delete Reminder": {
+      "main": [
+        [
+          {
+            "node": "Merge Delete Reminder Result",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge Delete Reminder Result": {
+      "main": [
+        [
+          {
+            "node": "IF Has Memory Writes",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "IF Has Memory Writes": {
+      "main": [
+        [
+          {
+            "node": "Prepare Embedding Batch",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Privacy Gate Outbound (NO-OP MVP)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare Embedding Batch": {
+      "main": [
+        [
+          {
+            "node": "OpenAI Generate Embeddings",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Generate Embeddings": {
+      "main": [
+        [
+          {
+            "node": "Build Memory Insert Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Build Memory Insert Items": {
+      "main": [
+        [
+          {
+            "node": "Insert Memory With Dedup",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Insert Memory With Dedup": {
+      "main": [
+        [
+          {
+            "node": "Restore Context After Memory Write",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Restore Context After Memory Write": {
+      "main": [
+        [
+          {
+            "node": "Privacy Gate Outbound (NO-OP MVP)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "e0b4f03f-6309-4df6-a0f8-95d276573132",
+  "meta": {
+    "instanceId": "afbe06626f13f52aaa3d5d57097e0221d91e1355e670bbf69867c1f99d0a975a"
+  },
+  "id": "KyMrbeYV3hk0DsBW",
+  "tags": []
+}

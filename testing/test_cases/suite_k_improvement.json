@@ -1,0 +1,79 @@
+{
+  "suite": "K",
+  "name": "Improvement Requests",
+  "phase": 1,
+  "tests": [
+    {
+      "id": "K1",
+      "name": "Feedback explicit",
+      "input": "nu-mi place cum afișezi data",
+      "llm_response": {
+        "version": "brain-decision-v1",
+        "intent": "save_improvement_request",
+        "domain": "general",
+        "response": "Am notat sugestia ta. Mulțumesc!",
+        "debug_summary": "date format feedback",
+        "requires_confirmation": false,
+        "requires_clarification": false,
+        "task_action": null,
+        "task_fallback_rules": [],
+        "reminder_action": null,
+        "memory_action": null,
+        "improvement_request": { "requested_feature": "Îmbunătățire format dată afișare", "user_message": "nu-mi place cum afișezi data" },
+        "memory_writes": []
+      },
+      "expected": {
+        "intent": "save_improvement_request",
+        "has_improvement_request": true
+      }
+    },
+    {
+      "id": "K2",
+      "name": "Bug report",
+      "input": "nu funcționează bine când îi spun pe sâmbătă",
+      "llm_response": {
+        "version": "brain-decision-v1",
+        "intent": "save_improvement_request",
+        "domain": "general",
+        "response": "Am notat problema. O vom rezolva.",
+        "debug_summary": "weekend bug report",
+        "requires_confirmation": false,
+        "requires_clarification": false,
+        "task_action": null,
+        "task_fallback_rules": [],
+        "reminder_action": null,
+        "memory_action": null,
+        "improvement_request": { "requested_feature": "Fix weekday parsing for sâmbătă", "user_message": "nu funcționează bine când îi spun pe sâmbătă" },
+        "memory_writes": []
+      },
+      "expected": {
+        "intent": "save_improvement_request",
+        "has_improvement_request": true
+      }
+    },
+    {
+      "id": "K3",
+      "name": "Comportament dorit",
+      "input": "vreau să tratezi task și reminder diferit",
+      "llm_response": {
+        "version": "brain-decision-v1",
+        "intent": "save_improvement_request",
+        "domain": "general",
+        "response": "Am notat. Mulțumesc de feedback!",
+        "debug_summary": "feature request",
+        "requires_confirmation": false,
+        "requires_clarification": false,
+        "task_action": null,
+        "task_fallback_rules": [],
+        "reminder_action": null,
+        "memory_action": null,
+        "improvement_request": { "requested_feature": "Diferențiere mai clară task vs reminder", "user_message": "vreau să tratezi task și reminder diferit" },
+        "memory_writes": []
+      },
+      "expected": {
+        "intent": "save_improvement_request",
+        "has_improvement_request": true
+      }
+    }
+  ]
+}

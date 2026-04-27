@@ -1,0 +1,108 @@
+{
+  "suite": "J",
+  "name": "Memory Search & Writes",
+  "phase": 1,
+  "tests": [
+    {
+      "id": "J1",
+      "name": "Search memory valid",
+      "input": "ce știi despre furnizorul de detergenți?",
+      "llm_response": {
+        "version": "brain-decision-v1",
+        "intent": "search_memory",
+        "domain": "cleaning",
+        "response": "Caut în memorie...",
+        "debug_summary": "search detergent supplier",
+        "requires_confirmation": false,
+        "requires_clarification": false,
+        "task_action": null,
+        "task_fallback_rules": [],
+        "reminder_action": null,
+        "memory_action": { "query": "furnizor detergenți", "category_filter": "cleaning" },
+        "improvement_request": null,
+        "memory_writes": []
+      },
+      "expected": {
+        "intent": "search_memory",
+        "has_memory_action": true
+      }
+    },
+    {
+      "id": "J2",
+      "name": "Search memory fără query → clarify",
+      "input": "ce știi?",
+      "llm_response": {
+        "version": "brain-decision-v1",
+        "intent": "search_memory",
+        "domain": "general",
+        "response": "Ce cauți?",
+        "debug_summary": "empty search",
+        "requires_confirmation": false,
+        "requires_clarification": false,
+        "task_action": null,
+        "task_fallback_rules": [],
+        "reminder_action": null,
+        "memory_action": { "query": "", "category_filter": null },
+        "improvement_request": null,
+        "memory_writes": []
+      },
+      "expected": {
+        "intent": "clarify",
+        "debug_contains": "missing_memory_action_query"
+      }
+    },
+    {
+      "id": "J3",
+      "name": "Memory writes cu task",
+      "input": "chiriașul Ion preferă check-in la 15:00, pune-mi și task să-i trimit mesaj",
+      "llm_response": {
+        "version": "brain-decision-v1",
+        "intent": "create_task",
+        "domain": "airbnb",
+        "response": "Am notat și am creat task-ul.",
+        "debug_summary": "memory + task",
+        "requires_confirmation": false,
+        "requires_clarification": false,
+        "task_action": { "title": "Trimite mesaj lui Ion" },
+        "task_fallback_rules": [],
+        "reminder_action": null,
+        "memory_action": null,
+        "improvement_request": null,
+        "memory_writes": [
+          { "type": "fact", "category": "business_profile", "content": "Chiriașul Ion preferă check-in la 15:00" }
+        ]
+      },
+      "expected": {
+        "intent": "create_task",
+        "has_task_action": true,
+        "has_memory_writes": true
+      }
+    },
+    {
+      "id": "J4",
+      "name": "Memory writes cu type invalid — filtrat",
+      "input": "notează ceva",
+      "llm_response": {
+        "version": "brain-decision-v1",
+        "intent": "general_response",
+        "domain": "general",
+        "response": "Am notat.",
+        "debug_summary": "note",
+        "requires_confirmation": false,
+        "requires_clarification": false,
+        "task_action": null,
+        "task_fallback_rules": [],
+        "reminder_action": null,
+        "memory_action": null,
+        "improvement_request": null,
+        "memory_writes": [
+          { "type": "note", "category": "general", "content": "ceva" }
+        ]
+      },
+      "expected": {
+        "intent": "general_response",
+        "memory_writes_empty": true
+      }
+    }
+  ]
+}
