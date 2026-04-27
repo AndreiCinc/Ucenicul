@@ -1,0 +1,530 @@
+{
+  "ts": "2026-04-20T14:36:35.773Z",
+  "phase": "phase10",
+  "scope": "TR-originated full primary chain after OR Phase-10 + Phase-10b patch (planner_context.user_message_text + primary_intent)",
+  "cases": 4,
+  "wf_by_id": {
+    "wI8hpSROxQI0zC9f": "TR",
+    "v9jih4jqeXpOJOiH": "EC",
+    "KhGmNpi0ZDmrnz8W": "OR",
+    "RwToPLa1ErHl2tUi": "PL",
+    "abqYINcXr3JAhGGk": "DI",
+    "uq26nh1grIpnHju0": "ME",
+    "5RcNLtxNjAHJsZPE": "RA",
+    "ENiYNfL3ul8AmmCB": "SU",
+    "TClXgmO8H8zsSwMb": "RC",
+    "OooZdC0DgsDR6gm0": "MO"
+  },
+  "per_case": [
+    {
+      "label": "p10-smoke-01",
+      "thread_id": "11111111-0000-0000-0000-000000000001",
+      "thread_title": "Apartament centru Ion",
+      "expected_intent": "update_task",
+      "start_exec_id": "1005",
+      "chain_depth": 5,
+      "chain_path": "TR → EC → OR → PL → DI",
+      "terminal_wf": "DI",
+      "terminal_status_kind": "error",
+      "terminal_module": "module_execution",
+      "terminal_error_code": "UNSUPPORTED_ACTION",
+      "terminal_error_message": "Unsupported task_module action: undefined.",
+      "terminal_missing_fields": []
+    },
+    {
+      "label": "p10-smoke-02",
+      "thread_id": "44444444-0000-0000-0000-000000000004",
+      "thread_title": "Proiect important A",
+      "expected_intent": "create_task",
+      "start_exec_id": "1011",
+      "chain_depth": 5,
+      "chain_path": "TR → EC → OR → PL → DI",
+      "terminal_wf": "DI",
+      "terminal_status_kind": "error",
+      "terminal_module": "module_execution",
+      "terminal_error_code": "UNSUPPORTED_ACTION",
+      "terminal_error_message": "Unsupported task_module action: undefined.",
+      "terminal_missing_fields": []
+    },
+    {
+      "label": "p10-smoke-03",
+      "thread_id": "55555555-0000-0000-0000-000000000005",
+      "thread_title": "Proiect important B",
+      "expected_intent": "create_reminder",
+      "start_exec_id": "1017",
+      "chain_depth": 5,
+      "chain_path": "TR → EC → OR → PL → DI",
+      "terminal_wf": "DI",
+      "terminal_status_kind": "error",
+      "terminal_module": "module_execution",
+      "terminal_error_code": "UNSUPPORTED_MODULE",
+      "terminal_error_message": "WF-ME-01 currently supports task_module only in live-capable mode; got reminder_module.",
+      "terminal_missing_fields": []
+    },
+    {
+      "label": "p10-smoke-04",
+      "thread_id": "66666666-0000-0000-0000-000000000006",
+      "thread_title": "Apartament Test Boundary",
+      "expected_intent": "update_task",
+      "start_exec_id": "1023",
+      "chain_depth": 5,
+      "chain_path": "TR → EC → OR → PL → DI",
+      "terminal_wf": "DI",
+      "terminal_status_kind": "error",
+      "terminal_module": "module_execution",
+      "terminal_error_code": "UNSUPPORTED_ACTION",
+      "terminal_error_message": "Unsupported task_module action: undefined.",
+      "terminal_missing_fields": []
+    }
+  ],
+  "details": [
+    {
+      "label": "p10-smoke-01",
+      "start_exec_id": "1005",
+      "chain": [
+        {
+          "depth": 0,
+          "exec_id": "1005",
+          "wf_id": "wI8hpSROxQI0zC9f",
+          "wf_acronym": "TR",
+          "last_node": "TR_Dispatch_To_EC_01_SUBCALL",
+          "terminal_status_kind": "error",
+          "terminal_result_type": "module_error",
+          "terminal_module": "module_execution",
+          "terminal_error_code": "UNSUPPORTED_ACTION",
+          "terminal_error_message": "Unsupported task_module action: undefined.",
+          "terminal_missing_fields": [],
+          "or_planner_context": null,
+          "sub_execs": [
+            {
+              "node": "TR_Dispatch_To_EC_01_SUBCALL",
+              "exec_id": "1006",
+              "wf_acronym": "EC"
+            }
+          ]
+        },
+        {
+          "depth": 1,
+          "exec_id": "1006",
+          "wf_id": "v9jih4jqeXpOJOiH",
+          "wf_acronym": "EC",
+          "last_node": "EC_Dispatch_To_OR_01_SUBCALL",
+          "terminal_status_kind": "error",
+          "terminal_result_type": "module_error",
+          "terminal_module": "module_execution",
+          "terminal_error_code": "UNSUPPORTED_ACTION",
+          "terminal_error_message": "Unsupported task_module action: undefined.",
+          "terminal_missing_fields": [],
+          "or_planner_context": null,
+          "sub_execs": [
+            {
+              "node": "EC_Dispatch_To_OR_01_SUBCALL",
+              "exec_id": "1007",
+              "wf_acronym": "OR"
+            }
+          ]
+        },
+        {
+          "depth": 2,
+          "exec_id": "1007",
+          "wf_id": "KhGmNpi0ZDmrnz8W",
+          "wf_acronym": "OR",
+          "last_node": "OR_Dispatch_To_PL_01_SUBCALL",
+          "terminal_status_kind": "error",
+          "terminal_result_type": "module_error",
+          "terminal_module": "module_execution",
+          "terminal_error_code": "UNSUPPORTED_ACTION",
+          "terminal_error_message": "Unsupported task_module action: undefined.",
+          "terminal_missing_fields": [],
+          "or_planner_context": {
+            "user_message_text": "actualizeaza pretul apartamentului din centru la 95000 eur",
+            "primary_intent": "update_task"
+          },
+          "sub_execs": [
+            {
+              "node": "OR_Dispatch_To_PL_01_SUBCALL",
+              "exec_id": "1008",
+              "wf_acronym": "PL"
+            }
+          ]
+        },
+        {
+          "depth": 3,
+          "exec_id": "1008",
+          "wf_id": "RwToPLa1ErHl2tUi",
+          "wf_acronym": "PL",
+          "last_node": "PL_Dispatch_To_DI_01_SUBCALL",
+          "terminal_status_kind": "error",
+          "terminal_result_type": "module_error",
+          "terminal_module": "module_execution",
+          "terminal_error_code": "UNSUPPORTED_ACTION",
+          "terminal_error_message": "Unsupported task_module action: undefined.",
+          "terminal_missing_fields": [],
+          "or_planner_context": null,
+          "sub_execs": [
+            {
+              "node": "PL_Dispatch_To_DI_01_SUBCALL",
+              "exec_id": "1009",
+              "wf_acronym": "DI"
+            }
+          ]
+        },
+        {
+          "depth": 4,
+          "exec_id": "1009",
+          "wf_id": "abqYINcXr3JAhGGk",
+          "wf_acronym": "DI",
+          "last_node": "DI_Dispatch_To_ME_01_SUBCALL",
+          "terminal_status_kind": "error",
+          "terminal_result_type": "module_error",
+          "terminal_module": "module_execution",
+          "terminal_error_code": "UNSUPPORTED_ACTION",
+          "terminal_error_message": "Unsupported task_module action: undefined.",
+          "terminal_missing_fields": [],
+          "or_planner_context": null,
+          "sub_execs": []
+        }
+      ],
+      "depth_reached": 5,
+      "thread_id": "11111111-0000-0000-0000-000000000001",
+      "thread_title": "Apartament centru Ion",
+      "expected_intent": "update_task"
+    },
+    {
+      "label": "p10-smoke-02",
+      "start_exec_id": "1011",
+      "chain": [
+        {
+          "depth": 0,
+          "exec_id": "1011",
+          "wf_id": "wI8hpSROxQI0zC9f",
+          "wf_acronym": "TR",
+          "last_node": "TR_Dispatch_To_EC_01_SUBCALL",
+          "terminal_status_kind": "error",
+          "terminal_result_type": "module_error",
+          "terminal_module": "module_execution",
+          "terminal_error_code": "UNSUPPORTED_ACTION",
+          "terminal_error_message": "Unsupported task_module action: undefined.",
+          "terminal_missing_fields": [],
+          "or_planner_context": null,
+          "sub_execs": [
+            {
+              "node": "TR_Dispatch_To_EC_01_SUBCALL",
+              "exec_id": "1012",
+              "wf_acronym": "EC"
+            }
+          ]
+        },
+        {
+          "depth": 1,
+          "exec_id": "1012",
+          "wf_id": "v9jih4jqeXpOJOiH",
+          "wf_acronym": "EC",
+          "last_node": "EC_Dispatch_To_OR_01_SUBCALL",
+          "terminal_status_kind": "error",
+          "terminal_result_type": "module_error",
+          "terminal_module": "module_execution",
+          "terminal_error_code": "UNSUPPORTED_ACTION",
+          "terminal_error_message": "Unsupported task_module action: undefined.",
+          "terminal_missing_fields": [],
+          "or_planner_context": null,
+          "sub_execs": [
+            {
+              "node": "EC_Dispatch_To_OR_01_SUBCALL",
+              "exec_id": "1013",
+              "wf_acronym": "OR"
+            }
+          ]
+        },
+        {
+          "depth": 2,
+          "exec_id": "1013",
+          "wf_id": "KhGmNpi0ZDmrnz8W",
+          "wf_acronym": "OR",
+          "last_node": "OR_Dispatch_To_PL_01_SUBCALL",
+          "terminal_status_kind": "error",
+          "terminal_result_type": "module_error",
+          "terminal_module": "module_execution",
+          "terminal_error_code": "UNSUPPORTED_ACTION",
+          "terminal_error_message": "Unsupported task_module action: undefined.",
+          "terminal_missing_fields": [],
+          "or_planner_context": {
+            "user_message_text": "creeaza un task nou pregateste contractul pentru proiect important a pana vineri",
+            "primary_intent": "create_task"
+          },
+          "sub_execs": [
+            {
+              "node": "OR_Dispatch_To_PL_01_SUBCALL",
+              "exec_id": "1014",
+              "wf_acronym": "PL"
+            }
+          ]
+        },
+        {
+          "depth": 3,
+          "exec_id": "1014",
+          "wf_id": "RwToPLa1ErHl2tUi",
+          "wf_acronym": "PL",
+          "last_node": "PL_Dispatch_To_DI_01_SUBCALL",
+          "terminal_status_kind": "error",
+          "terminal_result_type": "module_error",
+          "terminal_module": "module_execution",
+          "terminal_error_code": "UNSUPPORTED_ACTION",
+          "terminal_error_message": "Unsupported task_module action: undefined.",
+          "terminal_missing_fields": [],
+          "or_planner_context": null,
+          "sub_execs": [
+            {
+              "node": "PL_Dispatch_To_DI_01_SUBCALL",
+              "exec_id": "1015",
+              "wf_acronym": "DI"
+            }
+          ]
+        },
+        {
+          "depth": 4,
+          "exec_id": "1015",
+          "wf_id": "abqYINcXr3JAhGGk",
+          "wf_acronym": "DI",
+          "last_node": "DI_Dispatch_To_ME_01_SUBCALL",
+          "terminal_status_kind": "error",
+          "terminal_result_type": "module_error",
+          "terminal_module": "module_execution",
+          "terminal_error_code": "UNSUPPORTED_ACTION",
+          "terminal_error_message": "Unsupported task_module action: undefined.",
+          "terminal_missing_fields": [],
+          "or_planner_context": null,
+          "sub_execs": []
+        }
+      ],
+      "depth_reached": 5,
+      "thread_id": "44444444-0000-0000-0000-000000000004",
+      "thread_title": "Proiect important A",
+      "expected_intent": "create_task"
+    },
+    {
+      "label": "p10-smoke-03",
+      "start_exec_id": "1017",
+      "chain": [
+        {
+          "depth": 0,
+          "exec_id": "1017",
+          "wf_id": "wI8hpSROxQI0zC9f",
+          "wf_acronym": "TR",
+          "last_node": "TR_Dispatch_To_EC_01_SUBCALL",
+          "terminal_status_kind": "error",
+          "terminal_result_type": "module_error",
+          "terminal_module": "module_execution",
+          "terminal_error_code": "UNSUPPORTED_MODULE",
+          "terminal_error_message": "WF-ME-01 currently supports task_module only in live-capable mode; got reminder_module.",
+          "terminal_missing_fields": [],
+          "or_planner_context": null,
+          "sub_execs": [
+            {
+              "node": "TR_Dispatch_To_EC_01_SUBCALL",
+              "exec_id": "1018",
+              "wf_acronym": "EC"
+            }
+          ]
+        },
+        {
+          "depth": 1,
+          "exec_id": "1018",
+          "wf_id": "v9jih4jqeXpOJOiH",
+          "wf_acronym": "EC",
+          "last_node": "EC_Dispatch_To_OR_01_SUBCALL",
+          "terminal_status_kind": "error",
+          "terminal_result_type": "module_error",
+          "terminal_module": "module_execution",
+          "terminal_error_code": "UNSUPPORTED_MODULE",
+          "terminal_error_message": "WF-ME-01 currently supports task_module only in live-capable mode; got reminder_module.",
+          "terminal_missing_fields": [],
+          "or_planner_context": null,
+          "sub_execs": [
+            {
+              "node": "EC_Dispatch_To_OR_01_SUBCALL",
+              "exec_id": "1019",
+              "wf_acronym": "OR"
+            }
+          ]
+        },
+        {
+          "depth": 2,
+          "exec_id": "1019",
+          "wf_id": "KhGmNpi0ZDmrnz8W",
+          "wf_acronym": "OR",
+          "last_node": "OR_Dispatch_To_PL_01_SUBCALL",
+          "terminal_status_kind": "error",
+          "terminal_result_type": "module_error",
+          "terminal_module": "module_execution",
+          "terminal_error_code": "UNSUPPORTED_MODULE",
+          "terminal_error_message": "WF-ME-01 currently supports task_module only in live-capable mode; got reminder_module.",
+          "terminal_missing_fields": [],
+          "or_planner_context": {
+            "user_message_text": "seteaza o reamintire pentru proiect important b la 09:00 maine",
+            "primary_intent": "create_reminder"
+          },
+          "sub_execs": [
+            {
+              "node": "OR_Dispatch_To_PL_01_SUBCALL",
+              "exec_id": "1020",
+              "wf_acronym": "PL"
+            }
+          ]
+        },
+        {
+          "depth": 3,
+          "exec_id": "1020",
+          "wf_id": "RwToPLa1ErHl2tUi",
+          "wf_acronym": "PL",
+          "last_node": "PL_Dispatch_To_DI_01_SUBCALL",
+          "terminal_status_kind": "error",
+          "terminal_result_type": "module_error",
+          "terminal_module": "module_execution",
+          "terminal_error_code": "UNSUPPORTED_MODULE",
+          "terminal_error_message": "WF-ME-01 currently supports task_module only in live-capable mode; got reminder_module.",
+          "terminal_missing_fields": [],
+          "or_planner_context": null,
+          "sub_execs": [
+            {
+              "node": "PL_Dispatch_To_DI_01_SUBCALL",
+              "exec_id": "1021",
+              "wf_acronym": "DI"
+            }
+          ]
+        },
+        {
+          "depth": 4,
+          "exec_id": "1021",
+          "wf_id": "abqYINcXr3JAhGGk",
+          "wf_acronym": "DI",
+          "last_node": "DI_Dispatch_To_ME_01_SUBCALL",
+          "terminal_status_kind": "error",
+          "terminal_result_type": "module_error",
+          "terminal_module": "module_execution",
+          "terminal_error_code": "UNSUPPORTED_MODULE",
+          "terminal_error_message": "WF-ME-01 currently supports task_module only in live-capable mode; got reminder_module.",
+          "terminal_missing_fields": [],
+          "or_planner_context": null,
+          "sub_execs": []
+        }
+      ],
+      "depth_reached": 5,
+      "thread_id": "55555555-0000-0000-0000-000000000005",
+      "thread_title": "Proiect important B",
+      "expected_intent": "create_reminder"
+    },
+    {
+      "label": "p10-smoke-04",
+      "start_exec_id": "1023",
+      "chain": [
+        {
+          "depth": 0,
+          "exec_id": "1023",
+          "wf_id": "wI8hpSROxQI0zC9f",
+          "wf_acronym": "TR",
+          "last_node": "TR_Dispatch_To_EC_01_SUBCALL",
+          "terminal_status_kind": "error",
+          "terminal_result_type": "module_error",
+          "terminal_module": "module_execution",
+          "terminal_error_code": "UNSUPPORTED_ACTION",
+          "terminal_error_message": "Unsupported task_module action: undefined.",
+          "terminal_missing_fields": [],
+          "or_planner_context": null,
+          "sub_execs": [
+            {
+              "node": "TR_Dispatch_To_EC_01_SUBCALL",
+              "exec_id": "1024",
+              "wf_acronym": "EC"
+            }
+          ]
+        },
+        {
+          "depth": 1,
+          "exec_id": "1024",
+          "wf_id": "v9jih4jqeXpOJOiH",
+          "wf_acronym": "EC",
+          "last_node": "EC_Dispatch_To_OR_01_SUBCALL",
+          "terminal_status_kind": "error",
+          "terminal_result_type": "module_error",
+          "terminal_module": "module_execution",
+          "terminal_error_code": "UNSUPPORTED_ACTION",
+          "terminal_error_message": "Unsupported task_module action: undefined.",
+          "terminal_missing_fields": [],
+          "or_planner_context": null,
+          "sub_execs": [
+            {
+              "node": "EC_Dispatch_To_OR_01_SUBCALL",
+              "exec_id": "1025",
+              "wf_acronym": "OR"
+            }
+          ]
+        },
+        {
+          "depth": 2,
+          "exec_id": "1025",
+          "wf_id": "KhGmNpi0ZDmrnz8W",
+          "wf_acronym": "OR",
+          "last_node": "OR_Dispatch_To_PL_01_SUBCALL",
+          "terminal_status_kind": "error",
+          "terminal_result_type": "module_error",
+          "terminal_module": "module_execution",
+          "terminal_error_code": "UNSUPPORTED_ACTION",
+          "terminal_error_message": "Unsupported task_module action: undefined.",
+          "terminal_missing_fields": [],
+          "or_planner_context": {
+            "user_message_text": "muta data pentru apartament test boundary cu trei zile mai tarziu",
+            "primary_intent": "update_task"
+          },
+          "sub_execs": [
+            {
+              "node": "OR_Dispatch_To_PL_01_SUBCALL",
+              "exec_id": "1026",
+              "wf_acronym": "PL"
+            }
+          ]
+        },
+        {
+          "depth": 3,
+          "exec_id": "1026",
+          "wf_id": "RwToPLa1ErHl2tUi",
+          "wf_acronym": "PL",
+          "last_node": "PL_Dispatch_To_DI_01_SUBCALL",
+          "terminal_status_kind": "error",
+          "terminal_result_type": "module_error",
+          "terminal_module": "module_execution",
+          "terminal_error_code": "UNSUPPORTED_ACTION",
+          "terminal_error_message": "Unsupported task_module action: undefined.",
+          "terminal_missing_fields": [],
+          "or_planner_context": null,
+          "sub_execs": [
+            {
+              "node": "PL_Dispatch_To_DI_01_SUBCALL",
+              "exec_id": "1027",
+              "wf_acronym": "DI"
+            }
+          ]
+        },
+        {
+          "depth": 4,
+          "exec_id": "1027",
+          "wf_id": "abqYINcXr3JAhGGk",
+          "wf_acronym": "DI",
+          "last_node": "DI_Dispatch_To_ME_01_SUBCALL",
+          "terminal_status_kind": "error",
+          "terminal_result_type": "module_error",
+          "terminal_module": "module_execution",
+          "terminal_error_code": "UNSUPPORTED_ACTION",
+          "terminal_error_message": "Unsupported task_module action: undefined.",
+          "terminal_missing_fields": [],
+          "or_planner_context": null,
+          "sub_execs": []
+        }
+      ],
+      "depth_reached": 5,
+      "thread_id": "66666666-0000-0000-0000-000000000006",
+      "thread_title": "Apartament Test Boundary",
+      "expected_intent": "update_task"
+    }
+  ]
+}

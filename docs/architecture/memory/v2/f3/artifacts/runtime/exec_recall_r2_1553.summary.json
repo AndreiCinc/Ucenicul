@@ -1,0 +1,22 @@
+{
+  "exec_id": "1553",
+  "case_id": "F3-recall-r2",
+  "step_id": "mem-batch-v2c-recall-r2",
+  "action": "recall_memory",
+  "inputs": {
+    "source_thread_id": "77777777-0000-0000-0000-000000000007",
+    "limit": 25
+  },
+  "applied_filters": ["source_thread_id"],
+  "result_status_kind": "success",
+  "module_result_status": "success",
+  "row_count": 3,
+  "row_ids_in_order": [
+    "cc0dc5c2-ef0d-41f7-84ec-9b919a2a9671",
+    "6ceb9437-960e-45b4-a1cf-706116723360",
+    "a0909481-a0a8-4682-8689-fbe50a6fa919"
+  ],
+  "oracle": "3 active rows with source_thread_id=77777777 (smoke fixtures). created_at DESC — pass",
+  "domain_writes_performed": false,
+  "ra_dispatch_status": "success"
+}

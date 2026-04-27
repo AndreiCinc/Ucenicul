@@ -1,0 +1,355 @@
+{
+  "family": "recall_intersection",
+  "verdicts": [
+    {
+      "case_id": "f31-recall-001",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "recall oracle all checks pass",
+      "ts": "2026-04-22T05:32:48.909Z"
+    },
+    {
+      "case_id": "f31-recall-002",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "recall oracle all checks pass",
+      "ts": "2026-04-22T05:43:35.606Z"
+    },
+    {
+      "case_id": "f31-recall-003",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "recall oracle all checks pass",
+      "ts": "2026-04-22T05:43:35.701Z"
+    },
+    {
+      "case_id": "f31-recall-004",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "recall oracle all checks pass",
+      "ts": "2026-04-22T05:43:35.795Z"
+    },
+    {
+      "case_id": "f31-recall-005",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "recall oracle all checks pass",
+      "ts": "2026-04-22T05:43:35.908Z"
+    },
+    {
+      "case_id": "f31-recall-006",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "recall oracle all checks pass",
+      "ts": "2026-04-22T05:43:36.001Z"
+    },
+    {
+      "case_id": "f31-recall-007",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "recall oracle all checks pass",
+      "ts": "2026-04-22T05:43:36.088Z"
+    },
+    {
+      "case_id": "f31-recall-008",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "recall oracle all checks pass",
+      "ts": "2026-04-22T05:43:36.173Z"
+    },
+    {
+      "case_id": "f31-recall-009",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "recall oracle all checks pass",
+      "ts": "2026-04-22T05:43:36.260Z"
+    },
+    {
+      "case_id": "f31-recall-010",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "recall oracle all checks pass",
+      "ts": "2026-04-22T05:43:36.348Z"
+    },
+    {
+      "case_id": "f31-recall-011",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "recall oracle all checks pass",
+      "ts": "2026-04-22T05:43:36.434Z"
+    },
+    {
+      "case_id": "f31-recall-012",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "recall oracle all checks pass",
+      "ts": "2026-04-22T05:43:36.521Z"
+    },
+    {
+      "case_id": "f31-recall-013",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "recall oracle all checks pass",
+      "ts": "2026-04-22T05:43:36.610Z"
+    },
+    {
+      "case_id": "f31-recall-014",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "recall oracle all checks pass",
+      "ts": "2026-04-22T05:43:36.701Z"
+    },
+    {
+      "case_id": "f31-recall-015",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "recall oracle all checks pass",
+      "ts": "2026-04-22T05:43:36.787Z"
+    },
+    {
+      "case_id": "f31-recall-016",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "recall oracle all checks pass",
+      "ts": "2026-04-22T05:43:36.874Z"
+    },
+    {
+      "case_id": "f31-recall-017",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "recall oracle all checks pass",
+      "ts": "2026-04-22T05:43:36.969Z"
+    },
+    {
+      "case_id": "f31-recall-018",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "recall oracle all checks pass",
+      "ts": "2026-04-22T05:43:37.061Z"
+    },
+    {
+      "case_id": "f31-recall-019",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "recall oracle all checks pass",
+      "ts": "2026-04-22T05:43:37.150Z"
+    },
+    {
+      "case_id": "f31-recall-020",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "recall oracle all checks pass",
+      "ts": "2026-04-22T05:43:37.237Z"
+    },
+    {
+      "case_id": "f31-recall-021",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "recall oracle all checks pass",
+      "ts": "2026-04-22T05:43:37.325Z"
+    },
+    {
+      "case_id": "f31-recall-022",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "recall oracle all checks pass",
+      "ts": "2026-04-22T05:43:37.412Z"
+    },
+    {
+      "case_id": "f31-recall-023",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "recall oracle all checks pass",
+      "ts": "2026-04-22T05:43:37.500Z"
+    },
+    {
+      "case_id": "f31-recall-024",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "recall oracle all checks pass",
+      "ts": "2026-04-22T05:43:37.588Z"
+    },
+    {
+      "case_id": "f31-recall-025",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "recall oracle all checks pass",
+      "ts": "2026-04-22T05:43:37.686Z"
+    },
+    {
+      "case_id": "f31-recall-026",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "recall oracle all checks pass",
+      "ts": "2026-04-22T05:43:37.777Z"
+    },
+    {
+      "case_id": "f31-recall-027",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "recall oracle all checks pass",
+      "ts": "2026-04-22T05:43:37.862Z"
+    },
+    {
+      "case_id": "f31-recall-028",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "recall oracle all checks pass",
+      "ts": "2026-04-22T05:43:37.951Z"
+    },
+    {
+      "case_id": "f31-recall-029",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "recall oracle all checks pass",
+      "ts": "2026-04-22T05:43:38.042Z"
+    },
+    {
+      "case_id": "f31-recall-030",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "recall oracle all checks pass",
+      "ts": "2026-04-22T05:43:38.133Z"
+    },
+    {
+      "case_id": "f31-recall-031",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "recall oracle all checks pass",
+      "ts": "2026-04-22T05:43:38.220Z"
+    },
+    {
+      "case_id": "f31-recall-032",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "recall oracle all checks pass",
+      "ts": "2026-04-22T05:43:38.310Z"
+    },
+    {
+      "case_id": "f31-recall-033",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "recall oracle all checks pass",
+      "ts": "2026-04-21T19:58:11.074Z"
+    },
+    {
+      "case_id": "f31-recall-034",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "recall oracle all checks pass",
+      "ts": "2026-04-22T05:43:38.400Z"
+    },
+    {
+      "case_id": "f31-recall-035",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "recall oracle all checks pass",
+      "ts": "2026-04-22T05:43:38.491Z"
+    },
+    {
+      "case_id": "f31-recall-036",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "recall oracle all checks pass",
+      "ts": "2026-04-22T05:43:38.583Z"
+    },
+    {
+      "case_id": "f31-recall-037",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "recall oracle all checks pass",
+      "ts": "2026-04-22T05:43:38.674Z"
+    },
+    {
+      "case_id": "f31-recall-038",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "recall oracle all checks pass",
+      "ts": "2026-04-22T05:43:38.762Z"
+    },
+    {
+      "case_id": "f31-recall-039",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "recall oracle all checks pass",
+      "ts": "2026-04-22T05:43:38.853Z"
+    },
+    {
+      "case_id": "f31-recall-040",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "recall oracle all checks pass",
+      "ts": "2026-04-22T05:43:38.942Z"
+    },
+    {
+      "case_id": "f31-recall-041",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "recall oracle all checks pass",
+      "ts": "2026-04-22T05:43:39.030Z"
+    },
+    {
+      "case_id": "f31-recall-042",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "recall oracle all checks pass",
+      "ts": "2026-04-22T05:43:39.118Z"
+    },
+    {
+      "case_id": "f31-recall-043",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "recall oracle all checks pass",
+      "ts": "2026-04-22T05:43:39.209Z"
+    },
+    {
+      "case_id": "f31-recall-044",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "recall oracle all checks pass",
+      "ts": "2026-04-22T05:43:39.296Z"
+    },
+    {
+      "case_id": "f31-recall-045",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "recall oracle all checks pass",
+      "ts": "2026-04-22T05:43:39.385Z"
+    },
+    {
+      "case_id": "f31-recall-046",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "recall oracle all checks pass",
+      "ts": "2026-04-22T05:43:39.475Z"
+    },
+    {
+      "case_id": "f31-recall-047",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "recall oracle all checks pass",
+      "ts": "2026-04-22T05:43:39.563Z"
+    },
+    {
+      "case_id": "f31-recall-048",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "recall oracle all checks pass",
+      "ts": "2026-04-22T05:43:39.652Z"
+    },
+    {
+      "case_id": "f31-recall-049",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "recall oracle all checks pass",
+      "ts": "2026-04-22T05:43:39.740Z"
+    },
+    {
+      "case_id": "f31-recall-050",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "recall oracle all checks pass",
+      "ts": "2026-04-22T05:43:39.826Z"
+    }
+  ]
+}

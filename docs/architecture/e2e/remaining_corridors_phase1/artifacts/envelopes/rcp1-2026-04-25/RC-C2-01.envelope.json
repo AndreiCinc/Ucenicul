@@ -1,0 +1,20 @@
+{
+  "message_id": "1b6c82cc-a93a-45d6-8404-353b7e346a30",
+  "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+  "channel": "rcp1-rich-matrix",
+  "direction": "inbound",
+  "author_type": "user",
+  "normalized_content": "Ține minte că prefer întâlnirile online via Google Meet, nu Zoom.",
+  "timestamp": "2026-04-25T19:17:11.983Z",
+  "source_message_ref": "rcp1:RC-C2-01",
+  "author_entity_id": null,
+  "related_entity_ids": [],
+  "metadata": {
+    "rcp1_case_id": "RC-C2-01",
+    "rcp1_corridor": "C2",
+    "rcp1_run_tag": "rcp1-2026-04-25"
+  },
+  "idempotency_key": "rcp1:rcp1-2026-04-25:RC-C2-01",
+  "thread_id": "2daafc9b-0334-4d9f-8136-a97079b855f8",
+  "reply_to_thread_id": null
+}

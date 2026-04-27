@@ -1,0 +1,49 @@
+{
+  "stage_code": "WF-MO-01",
+  "stage_name": "Message Out / Output Gateway",
+  "status": "candidate_ready",
+  "posture": "pre_live_ready",
+  "score": 8.8,
+  "score_cap": 8.8,
+  "closed": false,
+  "advance_allowed": false,
+  "upstream_stage": "WF-RC-01",
+  "downstream_stage": "terminal_channel_delivery",
+  "evidence_classification": {
+    "source_pack_complete": true,
+    "script_verified": true,
+    "sql_contract_verified": true,
+    "shell_static_verified": true,
+    "db_verified": false,
+    "live_workflow_verified": false,
+    "runtime_execution_verified": false,
+    "post_test_db_drift_verified": false
+  },
+  "upstream_truth": {
+    "wf_rc_closed": true,
+    "allowed_next_stage": "MESSAGE_OUT",
+    "output_gateway_allowed": true,
+    "result_type": "composed_response"
+  },
+  "live_proof": {
+    "workflow_id": null,
+    "version_id": null,
+    "active": null,
+    "node_count": null,
+    "connection_count": null,
+    "executions_recorded": []
+  },
+  "script_test_summary": {
+    "families": 13,
+    "tests_per_family": 50,
+    "total_tests": 650,
+    "passed": 650,
+    "failed": 0,
+    "reproduced_in_pack_run": true
+  },
+  "remaining_closure_blocker": {
+    "description": "WF-MO-01 requires live import or patch, real channel-send proof, replay-block proof, and post-test drift verification.",
+    "unblocks_score_cap": 10
+  },
+  "next_action": "Import or patch workflows/WF-MO-01_Message_Out.json and run V1\u2013V7 per workflows/WF-MO-01_IMPORT_PATCH_PLAN.md."
+}

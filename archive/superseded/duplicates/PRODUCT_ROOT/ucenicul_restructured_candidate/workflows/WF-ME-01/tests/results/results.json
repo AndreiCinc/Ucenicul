@@ -1,0 +1,2714 @@
+{
+  "stage": "WF-ME-01",
+  "total_families": 13,
+  "tests_per_family": 50,
+  "total_tests": 650,
+  "passed": 650,
+  "failed": 0,
+  "families": [
+    {
+      "family": "input_validation",
+      "total": 50,
+      "passed": 50,
+      "failed": 0,
+      "tests": [
+        {
+          "name": "missing_status_kind_0",
+          "passed": true
+        },
+        {
+          "name": "missing_status_kind_1",
+          "passed": true
+        },
+        {
+          "name": "missing_status_kind_2",
+          "passed": true
+        },
+        {
+          "name": "missing_status_kind_3",
+          "passed": true
+        },
+        {
+          "name": "missing_status_kind_4",
+          "passed": true
+        },
+        {
+          "name": "missing_status_kind_5",
+          "passed": true
+        },
+        {
+          "name": "missing_status_kind_6",
+          "passed": true
+        },
+        {
+          "name": "missing_status_kind_7",
+          "passed": true
+        },
+        {
+          "name": "missing_status_kind_8",
+          "passed": true
+        },
+        {
+          "name": "missing_status_kind_9",
+          "passed": true
+        },
+        {
+          "name": "missing_result_type_0",
+          "passed": true
+        },
+        {
+          "name": "missing_result_type_1",
+          "passed": true
+        },
+        {
+          "name": "missing_result_type_2",
+          "passed": true
+        },
+        {
+          "name": "missing_result_type_3",
+          "passed": true
+        },
+        {
+          "name": "missing_result_type_4",
+          "passed": true
+        },
+        {
+          "name": "missing_result_type_5",
+          "passed": true
+        },
+        {
+          "name": "missing_result_type_6",
+          "passed": true
+        },
+        {
+          "name": "missing_result_type_7",
+          "passed": true
+        },
+        {
+          "name": "missing_result_type_8",
+          "passed": true
+        },
+        {
+          "name": "missing_result_type_9",
+          "passed": true
+        },
+        {
+          "name": "missing_dispatcher_input_0",
+          "passed": true
+        },
+        {
+          "name": "missing_dispatcher_input_1",
+          "passed": true
+        },
+        {
+          "name": "missing_dispatcher_input_2",
+          "passed": true
+        },
+        {
+          "name": "missing_dispatcher_input_3",
+          "passed": true
+        },
+        {
+          "name": "missing_dispatcher_input_4",
+          "passed": true
+        },
+        {
+          "name": "missing_dispatcher_input_5",
+          "passed": true
+        },
+        {
+          "name": "missing_dispatcher_input_6",
+          "passed": true
+        },
+        {
+          "name": "missing_dispatcher_input_7",
+          "passed": true
+        },
+        {
+          "name": "missing_dispatcher_input_8",
+          "passed": true
+        },
+        {
+          "name": "missing_dispatcher_input_9",
+          "passed": true
+        },
+        {
+          "name": "wrong_status_kind_0",
+          "passed": true
+        },
+        {
+          "name": "wrong_status_kind_1",
+          "passed": true
+        },
+        {
+          "name": "wrong_status_kind_2",
+          "passed": true
+        },
+        {
+          "name": "wrong_status_kind_3",
+          "passed": true
+        },
+        {
+          "name": "wrong_status_kind_4",
+          "passed": true
+        },
+        {
+          "name": "wrong_status_kind_5",
+          "passed": true
+        },
+        {
+          "name": "wrong_status_kind_6",
+          "passed": true
+        },
+        {
+          "name": "wrong_status_kind_7",
+          "passed": true
+        },
+        {
+          "name": "wrong_status_kind_8",
+          "passed": true
+        },
+        {
+          "name": "wrong_status_kind_9",
+          "passed": true
+        },
+        {
+          "name": "wrong_result_type_0",
+          "passed": true
+        },
+        {
+          "name": "wrong_result_type_1",
+          "passed": true
+        },
+        {
+          "name": "wrong_result_type_2",
+          "passed": true
+        },
+        {
+          "name": "wrong_result_type_3",
+          "passed": true
+        },
+        {
+          "name": "wrong_result_type_4",
+          "passed": true
+        },
+        {
+          "name": "wrong_result_type_5",
+          "passed": true
+        },
+        {
+          "name": "wrong_result_type_6",
+          "passed": true
+        },
+        {
+          "name": "wrong_result_type_7",
+          "passed": true
+        },
+        {
+          "name": "wrong_result_type_8",
+          "passed": true
+        },
+        {
+          "name": "wrong_result_type_9",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "family": "happy_path_task_create",
+      "total": 50,
+      "passed": 50,
+      "failed": 0,
+      "tests": [
+        {
+          "name": "happy_create_0",
+          "passed": true
+        },
+        {
+          "name": "happy_create_1",
+          "passed": true
+        },
+        {
+          "name": "happy_create_2",
+          "passed": true
+        },
+        {
+          "name": "happy_create_3",
+          "passed": true
+        },
+        {
+          "name": "happy_create_4",
+          "passed": true
+        },
+        {
+          "name": "happy_create_5",
+          "passed": true
+        },
+        {
+          "name": "happy_create_6",
+          "passed": true
+        },
+        {
+          "name": "happy_create_7",
+          "passed": true
+        },
+        {
+          "name": "happy_create_8",
+          "passed": true
+        },
+        {
+          "name": "happy_create_9",
+          "passed": true
+        },
+        {
+          "name": "happy_create_10",
+          "passed": true
+        },
+        {
+          "name": "happy_create_11",
+          "passed": true
+        },
+        {
+          "name": "happy_create_12",
+          "passed": true
+        },
+        {
+          "name": "happy_create_13",
+          "passed": true
+        },
+        {
+          "name": "happy_create_14",
+          "passed": true
+        },
+        {
+          "name": "happy_create_15",
+          "passed": true
+        },
+        {
+          "name": "happy_create_16",
+          "passed": true
+        },
+        {
+          "name": "happy_create_17",
+          "passed": true
+        },
+        {
+          "name": "happy_create_18",
+          "passed": true
+        },
+        {
+          "name": "happy_create_19",
+          "passed": true
+        },
+        {
+          "name": "happy_create_20",
+          "passed": true
+        },
+        {
+          "name": "happy_create_21",
+          "passed": true
+        },
+        {
+          "name": "happy_create_22",
+          "passed": true
+        },
+        {
+          "name": "happy_create_23",
+          "passed": true
+        },
+        {
+          "name": "happy_create_24",
+          "passed": true
+        },
+        {
+          "name": "happy_create_25",
+          "passed": true
+        },
+        {
+          "name": "happy_create_26",
+          "passed": true
+        },
+        {
+          "name": "happy_create_27",
+          "passed": true
+        },
+        {
+          "name": "happy_create_28",
+          "passed": true
+        },
+        {
+          "name": "happy_create_29",
+          "passed": true
+        },
+        {
+          "name": "happy_create_30",
+          "passed": true
+        },
+        {
+          "name": "happy_create_31",
+          "passed": true
+        },
+        {
+          "name": "happy_create_32",
+          "passed": true
+        },
+        {
+          "name": "happy_create_33",
+          "passed": true
+        },
+        {
+          "name": "happy_create_34",
+          "passed": true
+        },
+        {
+          "name": "happy_create_35",
+          "passed": true
+        },
+        {
+          "name": "happy_create_36",
+          "passed": true
+        },
+        {
+          "name": "happy_create_37",
+          "passed": true
+        },
+        {
+          "name": "happy_create_38",
+          "passed": true
+        },
+        {
+          "name": "happy_create_39",
+          "passed": true
+        },
+        {
+          "name": "happy_create_40",
+          "passed": true
+        },
+        {
+          "name": "happy_create_41",
+          "passed": true
+        },
+        {
+          "name": "happy_create_42",
+          "passed": true
+        },
+        {
+          "name": "happy_create_43",
+          "passed": true
+        },
+        {
+          "name": "happy_create_44",
+          "passed": true
+        },
+        {
+          "name": "happy_create_45",
+          "passed": true
+        },
+        {
+          "name": "happy_create_46",
+          "passed": true
+        },
+        {
+          "name": "happy_create_47",
+          "passed": true
+        },
+        {
+          "name": "happy_create_48",
+          "passed": true
+        },
+        {
+          "name": "happy_create_49",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "family": "happy_path_task_list",
+      "total": 50,
+      "passed": 50,
+      "failed": 0,
+      "tests": [
+        {
+          "name": "happy_list_0",
+          "passed": true
+        },
+        {
+          "name": "happy_list_1",
+          "passed": true
+        },
+        {
+          "name": "happy_list_2",
+          "passed": true
+        },
+        {
+          "name": "happy_list_3",
+          "passed": true
+        },
+        {
+          "name": "happy_list_4",
+          "passed": true
+        },
+        {
+          "name": "happy_list_5",
+          "passed": true
+        },
+        {
+          "name": "happy_list_6",
+          "passed": true
+        },
+        {
+          "name": "happy_list_7",
+          "passed": true
+        },
+        {
+          "name": "happy_list_8",
+          "passed": true
+        },
+        {
+          "name": "happy_list_9",
+          "passed": true
+        },
+        {
+          "name": "happy_list_10",
+          "passed": true
+        },
+        {
+          "name": "happy_list_11",
+          "passed": true
+        },
+        {
+          "name": "happy_list_12",
+          "passed": true
+        },
+        {
+          "name": "happy_list_13",
+          "passed": true
+        },
+        {
+          "name": "happy_list_14",
+          "passed": true
+        },
+        {
+          "name": "happy_list_15",
+          "passed": true
+        },
+        {
+          "name": "happy_list_16",
+          "passed": true
+        },
+        {
+          "name": "happy_list_17",
+          "passed": true
+        },
+        {
+          "name": "happy_list_18",
+          "passed": true
+        },
+        {
+          "name": "happy_list_19",
+          "passed": true
+        },
+        {
+          "name": "happy_list_20",
+          "passed": true
+        },
+        {
+          "name": "happy_list_21",
+          "passed": true
+        },
+        {
+          "name": "happy_list_22",
+          "passed": true
+        },
+        {
+          "name": "happy_list_23",
+          "passed": true
+        },
+        {
+          "name": "happy_list_24",
+          "passed": true
+        },
+        {
+          "name": "happy_list_25",
+          "passed": true
+        },
+        {
+          "name": "happy_list_26",
+          "passed": true
+        },
+        {
+          "name": "happy_list_27",
+          "passed": true
+        },
+        {
+          "name": "happy_list_28",
+          "passed": true
+        },
+        {
+          "name": "happy_list_29",
+          "passed": true
+        },
+        {
+          "name": "happy_list_30",
+          "passed": true
+        },
+        {
+          "name": "happy_list_31",
+          "passed": true
+        },
+        {
+          "name": "happy_list_32",
+          "passed": true
+        },
+        {
+          "name": "happy_list_33",
+          "passed": true
+        },
+        {
+          "name": "happy_list_34",
+          "passed": true
+        },
+        {
+          "name": "happy_list_35",
+          "passed": true
+        },
+        {
+          "name": "happy_list_36",
+          "passed": true
+        },
+        {
+          "name": "happy_list_37",
+          "passed": true
+        },
+        {
+          "name": "happy_list_38",
+          "passed": true
+        },
+        {
+          "name": "happy_list_39",
+          "passed": true
+        },
+        {
+          "name": "happy_list_40",
+          "passed": true
+        },
+        {
+          "name": "happy_list_41",
+          "passed": true
+        },
+        {
+          "name": "happy_list_42",
+          "passed": true
+        },
+        {
+          "name": "happy_list_43",
+          "passed": true
+        },
+        {
+          "name": "happy_list_44",
+          "passed": true
+        },
+        {
+          "name": "happy_list_45",
+          "passed": true
+        },
+        {
+          "name": "happy_list_46",
+          "passed": true
+        },
+        {
+          "name": "happy_list_47",
+          "passed": true
+        },
+        {
+          "name": "happy_list_48",
+          "passed": true
+        },
+        {
+          "name": "happy_list_49",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "family": "happy_path_task_update",
+      "total": 50,
+      "passed": 50,
+      "failed": 0,
+      "tests": [
+        {
+          "name": "happy_update_task_id_0",
+          "passed": true
+        },
+        {
+          "name": "happy_update_task_id_1",
+          "passed": true
+        },
+        {
+          "name": "happy_update_task_id_2",
+          "passed": true
+        },
+        {
+          "name": "happy_update_task_id_3",
+          "passed": true
+        },
+        {
+          "name": "happy_update_task_id_4",
+          "passed": true
+        },
+        {
+          "name": "happy_update_task_id_5",
+          "passed": true
+        },
+        {
+          "name": "happy_update_task_id_6",
+          "passed": true
+        },
+        {
+          "name": "happy_update_task_id_7",
+          "passed": true
+        },
+        {
+          "name": "happy_update_task_id_8",
+          "passed": true
+        },
+        {
+          "name": "happy_update_task_id_9",
+          "passed": true
+        },
+        {
+          "name": "happy_update_task_id_10",
+          "passed": true
+        },
+        {
+          "name": "happy_update_task_id_11",
+          "passed": true
+        },
+        {
+          "name": "happy_update_task_id_12",
+          "passed": true
+        },
+        {
+          "name": "happy_update_task_id_13",
+          "passed": true
+        },
+        {
+          "name": "happy_update_task_id_14",
+          "passed": true
+        },
+        {
+          "name": "happy_update_task_id_15",
+          "passed": true
+        },
+        {
+          "name": "happy_update_task_id_16",
+          "passed": true
+        },
+        {
+          "name": "happy_update_task_id_17",
+          "passed": true
+        },
+        {
+          "name": "happy_update_task_id_18",
+          "passed": true
+        },
+        {
+          "name": "happy_update_task_id_19",
+          "passed": true
+        },
+        {
+          "name": "happy_update_task_id_20",
+          "passed": true
+        },
+        {
+          "name": "happy_update_task_id_21",
+          "passed": true
+        },
+        {
+          "name": "happy_update_task_id_22",
+          "passed": true
+        },
+        {
+          "name": "happy_update_task_id_23",
+          "passed": true
+        },
+        {
+          "name": "happy_update_task_id_24",
+          "passed": true
+        },
+        {
+          "name": "happy_update_title_match_0",
+          "passed": true
+        },
+        {
+          "name": "happy_update_title_match_1",
+          "passed": true
+        },
+        {
+          "name": "happy_update_title_match_2",
+          "passed": true
+        },
+        {
+          "name": "happy_update_title_match_3",
+          "passed": true
+        },
+        {
+          "name": "happy_update_title_match_4",
+          "passed": true
+        },
+        {
+          "name": "happy_update_title_match_5",
+          "passed": true
+        },
+        {
+          "name": "happy_update_title_match_6",
+          "passed": true
+        },
+        {
+          "name": "happy_update_title_match_7",
+          "passed": true
+        },
+        {
+          "name": "happy_update_title_match_8",
+          "passed": true
+        },
+        {
+          "name": "happy_update_title_match_9",
+          "passed": true
+        },
+        {
+          "name": "happy_update_title_match_10",
+          "passed": true
+        },
+        {
+          "name": "happy_update_title_match_11",
+          "passed": true
+        },
+        {
+          "name": "happy_update_title_match_12",
+          "passed": true
+        },
+        {
+          "name": "happy_update_title_match_13",
+          "passed": true
+        },
+        {
+          "name": "happy_update_title_match_14",
+          "passed": true
+        },
+        {
+          "name": "happy_update_title_match_15",
+          "passed": true
+        },
+        {
+          "name": "happy_update_title_match_16",
+          "passed": true
+        },
+        {
+          "name": "happy_update_title_match_17",
+          "passed": true
+        },
+        {
+          "name": "happy_update_title_match_18",
+          "passed": true
+        },
+        {
+          "name": "happy_update_title_match_19",
+          "passed": true
+        },
+        {
+          "name": "happy_update_title_match_20",
+          "passed": true
+        },
+        {
+          "name": "happy_update_title_match_21",
+          "passed": true
+        },
+        {
+          "name": "happy_update_title_match_22",
+          "passed": true
+        },
+        {
+          "name": "happy_update_title_match_23",
+          "passed": true
+        },
+        {
+          "name": "happy_update_title_match_24",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "family": "happy_path_task_complete",
+      "total": 50,
+      "passed": 50,
+      "failed": 0,
+      "tests": [
+        {
+          "name": "happy_complete_task_id_0",
+          "passed": true
+        },
+        {
+          "name": "happy_complete_task_id_1",
+          "passed": true
+        },
+        {
+          "name": "happy_complete_task_id_2",
+          "passed": true
+        },
+        {
+          "name": "happy_complete_task_id_3",
+          "passed": true
+        },
+        {
+          "name": "happy_complete_task_id_4",
+          "passed": true
+        },
+        {
+          "name": "happy_complete_task_id_5",
+          "passed": true
+        },
+        {
+          "name": "happy_complete_task_id_6",
+          "passed": true
+        },
+        {
+          "name": "happy_complete_task_id_7",
+          "passed": true
+        },
+        {
+          "name": "happy_complete_task_id_8",
+          "passed": true
+        },
+        {
+          "name": "happy_complete_task_id_9",
+          "passed": true
+        },
+        {
+          "name": "happy_complete_task_id_10",
+          "passed": true
+        },
+        {
+          "name": "happy_complete_task_id_11",
+          "passed": true
+        },
+        {
+          "name": "happy_complete_task_id_12",
+          "passed": true
+        },
+        {
+          "name": "happy_complete_task_id_13",
+          "passed": true
+        },
+        {
+          "name": "happy_complete_task_id_14",
+          "passed": true
+        },
+        {
+          "name": "happy_complete_task_id_15",
+          "passed": true
+        },
+        {
+          "name": "happy_complete_task_id_16",
+          "passed": true
+        },
+        {
+          "name": "happy_complete_task_id_17",
+          "passed": true
+        },
+        {
+          "name": "happy_complete_task_id_18",
+          "passed": true
+        },
+        {
+          "name": "happy_complete_task_id_19",
+          "passed": true
+        },
+        {
+          "name": "happy_complete_task_id_20",
+          "passed": true
+        },
+        {
+          "name": "happy_complete_task_id_21",
+          "passed": true
+        },
+        {
+          "name": "happy_complete_task_id_22",
+          "passed": true
+        },
+        {
+          "name": "happy_complete_task_id_23",
+          "passed": true
+        },
+        {
+          "name": "happy_complete_task_id_24",
+          "passed": true
+        },
+        {
+          "name": "happy_complete_title_0",
+          "passed": true
+        },
+        {
+          "name": "happy_complete_title_1",
+          "passed": true
+        },
+        {
+          "name": "happy_complete_title_2",
+          "passed": true
+        },
+        {
+          "name": "happy_complete_title_3",
+          "passed": true
+        },
+        {
+          "name": "happy_complete_title_4",
+          "passed": true
+        },
+        {
+          "name": "happy_complete_title_5",
+          "passed": true
+        },
+        {
+          "name": "happy_complete_title_6",
+          "passed": true
+        },
+        {
+          "name": "happy_complete_title_7",
+          "passed": true
+        },
+        {
+          "name": "happy_complete_title_8",
+          "passed": true
+        },
+        {
+          "name": "happy_complete_title_9",
+          "passed": true
+        },
+        {
+          "name": "happy_complete_title_10",
+          "passed": true
+        },
+        {
+          "name": "happy_complete_title_11",
+          "passed": true
+        },
+        {
+          "name": "happy_complete_title_12",
+          "passed": true
+        },
+        {
+          "name": "happy_complete_title_13",
+          "passed": true
+        },
+        {
+          "name": "happy_complete_title_14",
+          "passed": true
+        },
+        {
+          "name": "happy_complete_title_15",
+          "passed": true
+        },
+        {
+          "name": "happy_complete_title_16",
+          "passed": true
+        },
+        {
+          "name": "happy_complete_title_17",
+          "passed": true
+        },
+        {
+          "name": "happy_complete_title_18",
+          "passed": true
+        },
+        {
+          "name": "happy_complete_title_19",
+          "passed": true
+        },
+        {
+          "name": "happy_complete_title_20",
+          "passed": true
+        },
+        {
+          "name": "happy_complete_title_21",
+          "passed": true
+        },
+        {
+          "name": "happy_complete_title_22",
+          "passed": true
+        },
+        {
+          "name": "happy_complete_title_23",
+          "passed": true
+        },
+        {
+          "name": "happy_complete_title_24",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "family": "happy_path_task_delete",
+      "total": 50,
+      "passed": 50,
+      "failed": 0,
+      "tests": [
+        {
+          "name": "happy_delete_task_id_0",
+          "passed": true
+        },
+        {
+          "name": "happy_delete_task_id_1",
+          "passed": true
+        },
+        {
+          "name": "happy_delete_task_id_2",
+          "passed": true
+        },
+        {
+          "name": "happy_delete_task_id_3",
+          "passed": true
+        },
+        {
+          "name": "happy_delete_task_id_4",
+          "passed": true
+        },
+        {
+          "name": "happy_delete_task_id_5",
+          "passed": true
+        },
+        {
+          "name": "happy_delete_task_id_6",
+          "passed": true
+        },
+        {
+          "name": "happy_delete_task_id_7",
+          "passed": true
+        },
+        {
+          "name": "happy_delete_task_id_8",
+          "passed": true
+        },
+        {
+          "name": "happy_delete_task_id_9",
+          "passed": true
+        },
+        {
+          "name": "happy_delete_task_id_10",
+          "passed": true
+        },
+        {
+          "name": "happy_delete_task_id_11",
+          "passed": true
+        },
+        {
+          "name": "happy_delete_task_id_12",
+          "passed": true
+        },
+        {
+          "name": "happy_delete_task_id_13",
+          "passed": true
+        },
+        {
+          "name": "happy_delete_task_id_14",
+          "passed": true
+        },
+        {
+          "name": "happy_delete_task_id_15",
+          "passed": true
+        },
+        {
+          "name": "happy_delete_task_id_16",
+          "passed": true
+        },
+        {
+          "name": "happy_delete_title_0",
+          "passed": true
+        },
+        {
+          "name": "happy_delete_title_1",
+          "passed": true
+        },
+        {
+          "name": "happy_delete_title_2",
+          "passed": true
+        },
+        {
+          "name": "happy_delete_title_3",
+          "passed": true
+        },
+        {
+          "name": "happy_delete_title_4",
+          "passed": true
+        },
+        {
+          "name": "happy_delete_title_5",
+          "passed": true
+        },
+        {
+          "name": "happy_delete_title_6",
+          "passed": true
+        },
+        {
+          "name": "happy_delete_title_7",
+          "passed": true
+        },
+        {
+          "name": "happy_delete_title_8",
+          "passed": true
+        },
+        {
+          "name": "happy_delete_title_9",
+          "passed": true
+        },
+        {
+          "name": "happy_delete_title_10",
+          "passed": true
+        },
+        {
+          "name": "happy_delete_title_11",
+          "passed": true
+        },
+        {
+          "name": "happy_delete_title_12",
+          "passed": true
+        },
+        {
+          "name": "happy_delete_title_13",
+          "passed": true
+        },
+        {
+          "name": "happy_delete_title_14",
+          "passed": true
+        },
+        {
+          "name": "happy_delete_title_15",
+          "passed": true
+        },
+        {
+          "name": "happy_delete_title_16",
+          "passed": true
+        },
+        {
+          "name": "happy_delete_scope_0",
+          "passed": true
+        },
+        {
+          "name": "happy_delete_scope_1",
+          "passed": true
+        },
+        {
+          "name": "happy_delete_scope_2",
+          "passed": true
+        },
+        {
+          "name": "happy_delete_scope_3",
+          "passed": true
+        },
+        {
+          "name": "happy_delete_scope_4",
+          "passed": true
+        },
+        {
+          "name": "happy_delete_scope_5",
+          "passed": true
+        },
+        {
+          "name": "happy_delete_scope_6",
+          "passed": true
+        },
+        {
+          "name": "happy_delete_scope_7",
+          "passed": true
+        },
+        {
+          "name": "happy_delete_scope_8",
+          "passed": true
+        },
+        {
+          "name": "happy_delete_scope_9",
+          "passed": true
+        },
+        {
+          "name": "happy_delete_scope_10",
+          "passed": true
+        },
+        {
+          "name": "happy_delete_scope_11",
+          "passed": true
+        },
+        {
+          "name": "happy_delete_scope_12",
+          "passed": true
+        },
+        {
+          "name": "happy_delete_scope_13",
+          "passed": true
+        },
+        {
+          "name": "happy_delete_scope_14",
+          "passed": true
+        },
+        {
+          "name": "happy_delete_scope_15",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "family": "invalid_dispatch_envelope",
+      "total": 50,
+      "passed": 50,
+      "failed": 0,
+      "tests": [
+        {
+          "name": "missing_step_id_0",
+          "passed": true
+        },
+        {
+          "name": "missing_step_id_1",
+          "passed": true
+        },
+        {
+          "name": "missing_step_id_2",
+          "passed": true
+        },
+        {
+          "name": "missing_step_id_3",
+          "passed": true
+        },
+        {
+          "name": "missing_step_id_4",
+          "passed": true
+        },
+        {
+          "name": "missing_step_id_5",
+          "passed": true
+        },
+        {
+          "name": "missing_step_id_6",
+          "passed": true
+        },
+        {
+          "name": "missing_step_id_7",
+          "passed": true
+        },
+        {
+          "name": "missing_step_id_8",
+          "passed": true
+        },
+        {
+          "name": "missing_step_id_9",
+          "passed": true
+        },
+        {
+          "name": "missing_module_name_0",
+          "passed": true
+        },
+        {
+          "name": "missing_module_name_1",
+          "passed": true
+        },
+        {
+          "name": "missing_module_name_2",
+          "passed": true
+        },
+        {
+          "name": "missing_module_name_3",
+          "passed": true
+        },
+        {
+          "name": "missing_module_name_4",
+          "passed": true
+        },
+        {
+          "name": "missing_module_name_5",
+          "passed": true
+        },
+        {
+          "name": "missing_module_name_6",
+          "passed": true
+        },
+        {
+          "name": "missing_module_name_7",
+          "passed": true
+        },
+        {
+          "name": "missing_module_name_8",
+          "passed": true
+        },
+        {
+          "name": "missing_module_name_9",
+          "passed": true
+        },
+        {
+          "name": "missing_inputs_0",
+          "passed": true
+        },
+        {
+          "name": "missing_inputs_1",
+          "passed": true
+        },
+        {
+          "name": "missing_inputs_2",
+          "passed": true
+        },
+        {
+          "name": "missing_inputs_3",
+          "passed": true
+        },
+        {
+          "name": "missing_inputs_4",
+          "passed": true
+        },
+        {
+          "name": "missing_inputs_5",
+          "passed": true
+        },
+        {
+          "name": "missing_inputs_6",
+          "passed": true
+        },
+        {
+          "name": "missing_inputs_7",
+          "passed": true
+        },
+        {
+          "name": "missing_inputs_8",
+          "passed": true
+        },
+        {
+          "name": "missing_inputs_9",
+          "passed": true
+        },
+        {
+          "name": "missing_purpose_0",
+          "passed": true
+        },
+        {
+          "name": "missing_purpose_1",
+          "passed": true
+        },
+        {
+          "name": "missing_purpose_2",
+          "passed": true
+        },
+        {
+          "name": "missing_purpose_3",
+          "passed": true
+        },
+        {
+          "name": "missing_purpose_4",
+          "passed": true
+        },
+        {
+          "name": "missing_purpose_5",
+          "passed": true
+        },
+        {
+          "name": "missing_purpose_6",
+          "passed": true
+        },
+        {
+          "name": "missing_purpose_7",
+          "passed": true
+        },
+        {
+          "name": "missing_purpose_8",
+          "passed": true
+        },
+        {
+          "name": "missing_purpose_9",
+          "passed": true
+        },
+        {
+          "name": "missing_execution_mode_0",
+          "passed": true
+        },
+        {
+          "name": "missing_execution_mode_1",
+          "passed": true
+        },
+        {
+          "name": "missing_execution_mode_2",
+          "passed": true
+        },
+        {
+          "name": "missing_execution_mode_3",
+          "passed": true
+        },
+        {
+          "name": "missing_execution_mode_4",
+          "passed": true
+        },
+        {
+          "name": "missing_execution_mode_5",
+          "passed": true
+        },
+        {
+          "name": "missing_execution_mode_6",
+          "passed": true
+        },
+        {
+          "name": "missing_execution_mode_7",
+          "passed": true
+        },
+        {
+          "name": "missing_execution_mode_8",
+          "passed": true
+        },
+        {
+          "name": "missing_execution_mode_9",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "family": "guard_flag_enforcement",
+      "total": 50,
+      "passed": 50,
+      "failed": 0,
+      "tests": [
+        {
+          "name": "guard_dispatch_allowed_0",
+          "passed": true
+        },
+        {
+          "name": "guard_dispatch_allowed_1",
+          "passed": true
+        },
+        {
+          "name": "guard_dispatch_allowed_2",
+          "passed": true
+        },
+        {
+          "name": "guard_dispatch_allowed_3",
+          "passed": true
+        },
+        {
+          "name": "guard_dispatch_allowed_4",
+          "passed": true
+        },
+        {
+          "name": "guard_dispatch_allowed_5",
+          "passed": true
+        },
+        {
+          "name": "guard_dispatch_allowed_6",
+          "passed": true
+        },
+        {
+          "name": "guard_dispatch_allowed_7",
+          "passed": true
+        },
+        {
+          "name": "guard_dispatch_allowed_8",
+          "passed": true
+        },
+        {
+          "name": "guard_dispatch_allowed_9",
+          "passed": true
+        },
+        {
+          "name": "guard_dispatch_allowed_10",
+          "passed": true
+        },
+        {
+          "name": "guard_dispatch_allowed_11",
+          "passed": true
+        },
+        {
+          "name": "guard_module_execution_started_0",
+          "passed": true
+        },
+        {
+          "name": "guard_module_execution_started_1",
+          "passed": true
+        },
+        {
+          "name": "guard_module_execution_started_2",
+          "passed": true
+        },
+        {
+          "name": "guard_module_execution_started_3",
+          "passed": true
+        },
+        {
+          "name": "guard_module_execution_started_4",
+          "passed": true
+        },
+        {
+          "name": "guard_module_execution_started_5",
+          "passed": true
+        },
+        {
+          "name": "guard_module_execution_started_6",
+          "passed": true
+        },
+        {
+          "name": "guard_module_execution_started_7",
+          "passed": true
+        },
+        {
+          "name": "guard_module_execution_started_8",
+          "passed": true
+        },
+        {
+          "name": "guard_module_execution_started_9",
+          "passed": true
+        },
+        {
+          "name": "guard_module_execution_started_10",
+          "passed": true
+        },
+        {
+          "name": "guard_module_execution_started_11",
+          "passed": true
+        },
+        {
+          "name": "guard_response_generation_allowed_0",
+          "passed": true
+        },
+        {
+          "name": "guard_response_generation_allowed_1",
+          "passed": true
+        },
+        {
+          "name": "guard_response_generation_allowed_2",
+          "passed": true
+        },
+        {
+          "name": "guard_response_generation_allowed_3",
+          "passed": true
+        },
+        {
+          "name": "guard_response_generation_allowed_4",
+          "passed": true
+        },
+        {
+          "name": "guard_response_generation_allowed_5",
+          "passed": true
+        },
+        {
+          "name": "guard_response_generation_allowed_6",
+          "passed": true
+        },
+        {
+          "name": "guard_response_generation_allowed_7",
+          "passed": true
+        },
+        {
+          "name": "guard_response_generation_allowed_8",
+          "passed": true
+        },
+        {
+          "name": "guard_response_generation_allowed_9",
+          "passed": true
+        },
+        {
+          "name": "guard_response_generation_allowed_10",
+          "passed": true
+        },
+        {
+          "name": "guard_response_generation_allowed_11",
+          "passed": true
+        },
+        {
+          "name": "guard_response_generation_allowed_12",
+          "passed": true
+        },
+        {
+          "name": "guard_domain_writes_performed_0",
+          "passed": true
+        },
+        {
+          "name": "guard_domain_writes_performed_1",
+          "passed": true
+        },
+        {
+          "name": "guard_domain_writes_performed_2",
+          "passed": true
+        },
+        {
+          "name": "guard_domain_writes_performed_3",
+          "passed": true
+        },
+        {
+          "name": "guard_domain_writes_performed_4",
+          "passed": true
+        },
+        {
+          "name": "guard_domain_writes_performed_5",
+          "passed": true
+        },
+        {
+          "name": "guard_domain_writes_performed_6",
+          "passed": true
+        },
+        {
+          "name": "guard_domain_writes_performed_7",
+          "passed": true
+        },
+        {
+          "name": "guard_domain_writes_performed_8",
+          "passed": true
+        },
+        {
+          "name": "guard_domain_writes_performed_9",
+          "passed": true
+        },
+        {
+          "name": "guard_domain_writes_performed_10",
+          "passed": true
+        },
+        {
+          "name": "guard_domain_writes_performed_11",
+          "passed": true
+        },
+        {
+          "name": "guard_domain_writes_performed_12",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "family": "cross_tenant_isolation",
+      "total": 50,
+      "passed": 50,
+      "failed": 0,
+      "tests": [
+        {
+          "name": "tenant_scoped_success_0",
+          "passed": true
+        },
+        {
+          "name": "tenant_scoped_success_1",
+          "passed": true
+        },
+        {
+          "name": "tenant_scoped_success_2",
+          "passed": true
+        },
+        {
+          "name": "tenant_scoped_success_3",
+          "passed": true
+        },
+        {
+          "name": "tenant_scoped_success_4",
+          "passed": true
+        },
+        {
+          "name": "tenant_scoped_success_5",
+          "passed": true
+        },
+        {
+          "name": "tenant_scoped_success_6",
+          "passed": true
+        },
+        {
+          "name": "tenant_scoped_success_7",
+          "passed": true
+        },
+        {
+          "name": "tenant_scoped_success_8",
+          "passed": true
+        },
+        {
+          "name": "tenant_scoped_success_9",
+          "passed": true
+        },
+        {
+          "name": "tenant_scoped_success_10",
+          "passed": true
+        },
+        {
+          "name": "tenant_scoped_success_11",
+          "passed": true
+        },
+        {
+          "name": "tenant_scoped_success_12",
+          "passed": true
+        },
+        {
+          "name": "tenant_scoped_success_13",
+          "passed": true
+        },
+        {
+          "name": "tenant_scoped_success_14",
+          "passed": true
+        },
+        {
+          "name": "tenant_scoped_success_15",
+          "passed": true
+        },
+        {
+          "name": "tenant_scoped_success_16",
+          "passed": true
+        },
+        {
+          "name": "tenant_scoped_success_17",
+          "passed": true
+        },
+        {
+          "name": "tenant_scoped_success_18",
+          "passed": true
+        },
+        {
+          "name": "tenant_scoped_success_19",
+          "passed": true
+        },
+        {
+          "name": "tenant_scoped_success_20",
+          "passed": true
+        },
+        {
+          "name": "tenant_scoped_success_21",
+          "passed": true
+        },
+        {
+          "name": "tenant_scoped_success_22",
+          "passed": true
+        },
+        {
+          "name": "tenant_scoped_success_23",
+          "passed": true
+        },
+        {
+          "name": "tenant_scoped_success_24",
+          "passed": true
+        },
+        {
+          "name": "tenant_unsupported_module_0",
+          "passed": true
+        },
+        {
+          "name": "tenant_unsupported_module_1",
+          "passed": true
+        },
+        {
+          "name": "tenant_unsupported_module_2",
+          "passed": true
+        },
+        {
+          "name": "tenant_unsupported_module_3",
+          "passed": true
+        },
+        {
+          "name": "tenant_unsupported_module_4",
+          "passed": true
+        },
+        {
+          "name": "tenant_unsupported_module_5",
+          "passed": true
+        },
+        {
+          "name": "tenant_unsupported_module_6",
+          "passed": true
+        },
+        {
+          "name": "tenant_unsupported_module_7",
+          "passed": true
+        },
+        {
+          "name": "tenant_unsupported_module_8",
+          "passed": true
+        },
+        {
+          "name": "tenant_unsupported_module_9",
+          "passed": true
+        },
+        {
+          "name": "tenant_unsupported_module_10",
+          "passed": true
+        },
+        {
+          "name": "tenant_unsupported_module_11",
+          "passed": true
+        },
+        {
+          "name": "tenant_unsupported_module_12",
+          "passed": true
+        },
+        {
+          "name": "tenant_unsupported_module_13",
+          "passed": true
+        },
+        {
+          "name": "tenant_unsupported_module_14",
+          "passed": true
+        },
+        {
+          "name": "tenant_unsupported_module_15",
+          "passed": true
+        },
+        {
+          "name": "tenant_unsupported_module_16",
+          "passed": true
+        },
+        {
+          "name": "tenant_unsupported_module_17",
+          "passed": true
+        },
+        {
+          "name": "tenant_unsupported_module_18",
+          "passed": true
+        },
+        {
+          "name": "tenant_unsupported_module_19",
+          "passed": true
+        },
+        {
+          "name": "tenant_unsupported_module_20",
+          "passed": true
+        },
+        {
+          "name": "tenant_unsupported_module_21",
+          "passed": true
+        },
+        {
+          "name": "tenant_unsupported_module_22",
+          "passed": true
+        },
+        {
+          "name": "tenant_unsupported_module_23",
+          "passed": true
+        },
+        {
+          "name": "tenant_unsupported_module_24",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "family": "replay_idempotency",
+      "total": 50,
+      "passed": 50,
+      "failed": 0,
+      "tests": [
+        {
+          "name": "replay_same_output_0",
+          "passed": true
+        },
+        {
+          "name": "replay_same_output_1",
+          "passed": true
+        },
+        {
+          "name": "replay_same_output_2",
+          "passed": true
+        },
+        {
+          "name": "replay_same_output_3",
+          "passed": true
+        },
+        {
+          "name": "replay_same_output_4",
+          "passed": true
+        },
+        {
+          "name": "replay_same_output_5",
+          "passed": true
+        },
+        {
+          "name": "replay_same_output_6",
+          "passed": true
+        },
+        {
+          "name": "replay_same_output_7",
+          "passed": true
+        },
+        {
+          "name": "replay_same_output_8",
+          "passed": true
+        },
+        {
+          "name": "replay_same_output_9",
+          "passed": true
+        },
+        {
+          "name": "replay_same_output_10",
+          "passed": true
+        },
+        {
+          "name": "replay_same_output_11",
+          "passed": true
+        },
+        {
+          "name": "replay_same_output_12",
+          "passed": true
+        },
+        {
+          "name": "replay_same_output_13",
+          "passed": true
+        },
+        {
+          "name": "replay_same_output_14",
+          "passed": true
+        },
+        {
+          "name": "replay_same_output_15",
+          "passed": true
+        },
+        {
+          "name": "replay_same_output_16",
+          "passed": true
+        },
+        {
+          "name": "replay_same_output_17",
+          "passed": true
+        },
+        {
+          "name": "replay_same_output_18",
+          "passed": true
+        },
+        {
+          "name": "replay_same_output_19",
+          "passed": true
+        },
+        {
+          "name": "replay_same_output_20",
+          "passed": true
+        },
+        {
+          "name": "replay_same_output_21",
+          "passed": true
+        },
+        {
+          "name": "replay_same_output_22",
+          "passed": true
+        },
+        {
+          "name": "replay_same_output_23",
+          "passed": true
+        },
+        {
+          "name": "replay_same_output_24",
+          "passed": true
+        },
+        {
+          "name": "replay_same_output_25",
+          "passed": true
+        },
+        {
+          "name": "replay_same_output_26",
+          "passed": true
+        },
+        {
+          "name": "replay_same_output_27",
+          "passed": true
+        },
+        {
+          "name": "replay_same_output_28",
+          "passed": true
+        },
+        {
+          "name": "replay_same_output_29",
+          "passed": true
+        },
+        {
+          "name": "replay_same_output_30",
+          "passed": true
+        },
+        {
+          "name": "replay_same_output_31",
+          "passed": true
+        },
+        {
+          "name": "replay_same_output_32",
+          "passed": true
+        },
+        {
+          "name": "replay_same_output_33",
+          "passed": true
+        },
+        {
+          "name": "replay_same_output_34",
+          "passed": true
+        },
+        {
+          "name": "replay_same_output_35",
+          "passed": true
+        },
+        {
+          "name": "replay_same_output_36",
+          "passed": true
+        },
+        {
+          "name": "replay_same_output_37",
+          "passed": true
+        },
+        {
+          "name": "replay_same_output_38",
+          "passed": true
+        },
+        {
+          "name": "replay_same_output_39",
+          "passed": true
+        },
+        {
+          "name": "replay_same_output_40",
+          "passed": true
+        },
+        {
+          "name": "replay_same_output_41",
+          "passed": true
+        },
+        {
+          "name": "replay_same_output_42",
+          "passed": true
+        },
+        {
+          "name": "replay_same_output_43",
+          "passed": true
+        },
+        {
+          "name": "replay_same_output_44",
+          "passed": true
+        },
+        {
+          "name": "replay_same_output_45",
+          "passed": true
+        },
+        {
+          "name": "replay_same_output_46",
+          "passed": true
+        },
+        {
+          "name": "replay_same_output_47",
+          "passed": true
+        },
+        {
+          "name": "replay_same_output_48",
+          "passed": true
+        },
+        {
+          "name": "replay_same_output_49",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "family": "unsupported_module_handling",
+      "total": 50,
+      "passed": 50,
+      "failed": 0,
+      "tests": [
+        {
+          "name": "unsupported_module_0",
+          "passed": true
+        },
+        {
+          "name": "unsupported_module_1",
+          "passed": true
+        },
+        {
+          "name": "unsupported_module_2",
+          "passed": true
+        },
+        {
+          "name": "unsupported_module_3",
+          "passed": true
+        },
+        {
+          "name": "unsupported_module_4",
+          "passed": true
+        },
+        {
+          "name": "unsupported_module_5",
+          "passed": true
+        },
+        {
+          "name": "unsupported_module_6",
+          "passed": true
+        },
+        {
+          "name": "unsupported_module_7",
+          "passed": true
+        },
+        {
+          "name": "unsupported_module_8",
+          "passed": true
+        },
+        {
+          "name": "unsupported_module_9",
+          "passed": true
+        },
+        {
+          "name": "unsupported_module_10",
+          "passed": true
+        },
+        {
+          "name": "unsupported_module_11",
+          "passed": true
+        },
+        {
+          "name": "unsupported_module_12",
+          "passed": true
+        },
+        {
+          "name": "unsupported_module_13",
+          "passed": true
+        },
+        {
+          "name": "unsupported_module_14",
+          "passed": true
+        },
+        {
+          "name": "unsupported_module_15",
+          "passed": true
+        },
+        {
+          "name": "unsupported_module_16",
+          "passed": true
+        },
+        {
+          "name": "unsupported_module_17",
+          "passed": true
+        },
+        {
+          "name": "unsupported_module_18",
+          "passed": true
+        },
+        {
+          "name": "unsupported_module_19",
+          "passed": true
+        },
+        {
+          "name": "unsupported_module_20",
+          "passed": true
+        },
+        {
+          "name": "unsupported_module_21",
+          "passed": true
+        },
+        {
+          "name": "unsupported_module_22",
+          "passed": true
+        },
+        {
+          "name": "unsupported_module_23",
+          "passed": true
+        },
+        {
+          "name": "unsupported_module_24",
+          "passed": true
+        },
+        {
+          "name": "unsupported_module_25",
+          "passed": true
+        },
+        {
+          "name": "unsupported_module_26",
+          "passed": true
+        },
+        {
+          "name": "unsupported_module_27",
+          "passed": true
+        },
+        {
+          "name": "unsupported_module_28",
+          "passed": true
+        },
+        {
+          "name": "unsupported_module_29",
+          "passed": true
+        },
+        {
+          "name": "unsupported_module_30",
+          "passed": true
+        },
+        {
+          "name": "unsupported_module_31",
+          "passed": true
+        },
+        {
+          "name": "unsupported_module_32",
+          "passed": true
+        },
+        {
+          "name": "unsupported_module_33",
+          "passed": true
+        },
+        {
+          "name": "unsupported_module_34",
+          "passed": true
+        },
+        {
+          "name": "unsupported_module_35",
+          "passed": true
+        },
+        {
+          "name": "unsupported_module_36",
+          "passed": true
+        },
+        {
+          "name": "unsupported_module_37",
+          "passed": true
+        },
+        {
+          "name": "unsupported_module_38",
+          "passed": true
+        },
+        {
+          "name": "unsupported_module_39",
+          "passed": true
+        },
+        {
+          "name": "unsupported_module_40",
+          "passed": true
+        },
+        {
+          "name": "unsupported_module_41",
+          "passed": true
+        },
+        {
+          "name": "unsupported_module_42",
+          "passed": true
+        },
+        {
+          "name": "unsupported_module_43",
+          "passed": true
+        },
+        {
+          "name": "unsupported_module_44",
+          "passed": true
+        },
+        {
+          "name": "unsupported_module_45",
+          "passed": true
+        },
+        {
+          "name": "unsupported_module_46",
+          "passed": true
+        },
+        {
+          "name": "unsupported_module_47",
+          "passed": true
+        },
+        {
+          "name": "unsupported_module_48",
+          "passed": true
+        },
+        {
+          "name": "unsupported_module_49",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "family": "sql_contract_validation",
+      "total": 50,
+      "passed": 50,
+      "failed": 0,
+      "tests": [
+        {
+          "name": "01_schema_inspect.sql_not_empty",
+          "passed": true
+        },
+        {
+          "name": "01_schema_inspect.sql_is_probe_or_read",
+          "passed": true
+        },
+        {
+          "name": "01_schema_inspect.sql_mentions_tenant_or_fixture_scope",
+          "passed": true
+        },
+        {
+          "name": "02_load_execution_context.sql_not_empty",
+          "passed": true
+        },
+        {
+          "name": "02_load_execution_context.sql_is_probe_or_read",
+          "passed": true
+        },
+        {
+          "name": "02_load_execution_context.sql_mentions_tenant_or_fixture_scope",
+          "passed": true
+        },
+        {
+          "name": "03_load_dispatch_request.sql_not_empty",
+          "passed": true
+        },
+        {
+          "name": "03_load_dispatch_request.sql_is_probe_or_read",
+          "passed": true
+        },
+        {
+          "name": "03_load_dispatch_request.sql_mentions_tenant_or_fixture_scope",
+          "passed": true
+        },
+        {
+          "name": "04_load_task_candidates.sql_not_empty",
+          "passed": true
+        },
+        {
+          "name": "04_load_task_candidates.sql_is_probe_or_read",
+          "passed": true
+        },
+        {
+          "name": "04_load_task_candidates.sql_mentions_tenant_or_fixture_scope",
+          "passed": true
+        },
+        {
+          "name": "05_insert_task.sql_not_empty",
+          "passed": true
+        },
+        {
+          "name": "05_insert_task.sql_targets_tasks_table",
+          "passed": true
+        },
+        {
+          "name": "05_insert_task.sql_mentions_tenant_or_fixture_scope",
+          "passed": true
+        },
+        {
+          "name": "06_update_task.sql_not_empty",
+          "passed": true
+        },
+        {
+          "name": "06_update_task.sql_targets_tasks_table",
+          "passed": true
+        },
+        {
+          "name": "06_update_task.sql_mentions_tenant_or_fixture_scope",
+          "passed": true
+        },
+        {
+          "name": "07_complete_task.sql_not_empty",
+          "passed": true
+        },
+        {
+          "name": "07_complete_task.sql_targets_tasks_table",
+          "passed": true
+        },
+        {
+          "name": "07_complete_task.sql_mentions_tenant_or_fixture_scope",
+          "passed": true
+        },
+        {
+          "name": "08_delete_task.sql_not_empty",
+          "passed": true
+        },
+        {
+          "name": "08_delete_task.sql_targets_tasks_table",
+          "passed": true
+        },
+        {
+          "name": "08_delete_task.sql_mentions_tenant_or_fixture_scope",
+          "passed": true
+        },
+        {
+          "name": "10_fixtures_create.sql_not_empty",
+          "passed": true
+        },
+        {
+          "name": "10_fixtures_create.sql_targets_tasks_table",
+          "passed": true
+        },
+        {
+          "name": "10_fixtures_create.sql_mentions_tenant_or_fixture_scope",
+          "passed": true
+        },
+        {
+          "name": "11_fixtures_cleanup.sql_not_empty",
+          "passed": true
+        },
+        {
+          "name": "11_fixtures_cleanup.sql_targets_tasks_table",
+          "passed": true
+        },
+        {
+          "name": "11_fixtures_cleanup.sql_mentions_tenant_or_fixture_scope",
+          "passed": true
+        },
+        {
+          "name": "20_read_path_probe.sql_not_empty",
+          "passed": true
+        },
+        {
+          "name": "20_read_path_probe.sql_is_probe_or_read",
+          "passed": true
+        },
+        {
+          "name": "20_read_path_probe.sql_mentions_tenant_or_fixture_scope",
+          "passed": true
+        },
+        {
+          "name": "21_write_path_probe.sql_not_empty",
+          "passed": true
+        },
+        {
+          "name": "21_write_path_probe.sql_is_probe_or_read",
+          "passed": true
+        },
+        {
+          "name": "21_write_path_probe.sql_mentions_tenant_or_fixture_scope",
+          "passed": true
+        },
+        {
+          "name": "02_load_execution_context.sql_scopes_execution_context_0",
+          "passed": true
+        },
+        {
+          "name": "03_load_dispatch_request.sql_loads_plan_join_1",
+          "passed": true
+        },
+        {
+          "name": "05_insert_task.sql_inserts_open_task_2",
+          "passed": true
+        },
+        {
+          "name": "06_update_task.sql_updates_task_row_3",
+          "passed": true
+        },
+        {
+          "name": "07_complete_task.sql_completes_task_row_4",
+          "passed": true
+        },
+        {
+          "name": "08_delete_task.sql_deletes_task_row_5",
+          "passed": true
+        },
+        {
+          "name": "02_load_execution_context.sql_scopes_execution_context_6",
+          "passed": true
+        },
+        {
+          "name": "03_load_dispatch_request.sql_loads_plan_join_7",
+          "passed": true
+        },
+        {
+          "name": "05_insert_task.sql_inserts_open_task_8",
+          "passed": true
+        },
+        {
+          "name": "06_update_task.sql_updates_task_row_9",
+          "passed": true
+        },
+        {
+          "name": "07_complete_task.sql_completes_task_row_10",
+          "passed": true
+        },
+        {
+          "name": "08_delete_task.sql_deletes_task_row_11",
+          "passed": true
+        },
+        {
+          "name": "02_load_execution_context.sql_scopes_execution_context_12",
+          "passed": true
+        },
+        {
+          "name": "03_load_dispatch_request.sql_loads_plan_join_13",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "family": "reporting_and_tooling_contract",
+      "total": 50,
+      "passed": 50,
+      "failed": 0,
+      "tests": [
+        {
+          "name": "doc_exists_09_STAGE_WF-ME-01.md",
+          "passed": true
+        },
+        {
+          "name": "doc_exists_17_ACTIVE_STAGE_LOCK__WF-ME-01.md",
+          "passed": true
+        },
+        {
+          "name": "doc_exists_CURRENT_STAGE__WF-ME-01.md",
+          "passed": true
+        },
+        {
+          "name": "doc_exists_STATE__WF-ME-01.json",
+          "passed": true
+        },
+        {
+          "name": "doc_exists_BUILD_REPORT__WF-ME-01.md",
+          "passed": true
+        },
+        {
+          "name": "doc_exists_AUDIT_REPORT__WF-ME-01.md",
+          "passed": true
+        },
+        {
+          "name": "doc_exists_FIX_LOG__WF-ME-01.md",
+          "passed": true
+        },
+        {
+          "name": "doc_exists_CLOSURE_REPORT__WF-ME-01.md",
+          "passed": true
+        },
+        {
+          "name": "doc_exists_00_ROUTE_MAP__WF-ME-01_ACTIVATED.md",
+          "passed": true
+        },
+        {
+          "name": "workflow_file_exists_WF-ME-01_Module_Execution.json",
+          "passed": true
+        },
+        {
+          "name": "workflow_file_exists_WF-ME-01_blueprint.json",
+          "passed": true
+        },
+        {
+          "name": "workflow_file_exists_WF-ME-01_NODE_MAP.md",
+          "passed": true
+        },
+        {
+          "name": "workflow_file_exists_WF-ME-01_CONNECTION_MAP.md",
+          "passed": true
+        },
+        {
+          "name": "workflow_file_exists_WF-ME-01_IMPORT_PATCH_PLAN.md",
+          "passed": true
+        },
+        {
+          "name": "results_dir_exists_14",
+          "passed": true
+        },
+        {
+          "name": "results_dir_exists_15",
+          "passed": true
+        },
+        {
+          "name": "results_dir_exists_16",
+          "passed": true
+        },
+        {
+          "name": "results_dir_exists_17",
+          "passed": true
+        },
+        {
+          "name": "results_dir_exists_18",
+          "passed": true
+        },
+        {
+          "name": "results_dir_exists_19",
+          "passed": true
+        },
+        {
+          "name": "results_dir_exists_20",
+          "passed": true
+        },
+        {
+          "name": "results_dir_exists_21",
+          "passed": true
+        },
+        {
+          "name": "results_dir_exists_22",
+          "passed": true
+        },
+        {
+          "name": "results_dir_exists_23",
+          "passed": true
+        },
+        {
+          "name": "results_dir_exists_24",
+          "passed": true
+        },
+        {
+          "name": "results_dir_exists_25",
+          "passed": true
+        },
+        {
+          "name": "results_dir_exists_26",
+          "passed": true
+        },
+        {
+          "name": "results_dir_exists_27",
+          "passed": true
+        },
+        {
+          "name": "results_dir_exists_28",
+          "passed": true
+        },
+        {
+          "name": "results_dir_exists_29",
+          "passed": true
+        },
+        {
+          "name": "results_dir_exists_30",
+          "passed": true
+        },
+        {
+          "name": "results_dir_exists_31",
+          "passed": true
+        },
+        {
+          "name": "results_dir_exists_32",
+          "passed": true
+        },
+        {
+          "name": "results_dir_exists_33",
+          "passed": true
+        },
+        {
+          "name": "results_dir_exists_34",
+          "passed": true
+        },
+        {
+          "name": "results_dir_exists_35",
+          "passed": true
+        },
+        {
+          "name": "results_dir_exists_36",
+          "passed": true
+        },
+        {
+          "name": "results_dir_exists_37",
+          "passed": true
+        },
+        {
+          "name": "results_dir_exists_38",
+          "passed": true
+        },
+        {
+          "name": "results_dir_exists_39",
+          "passed": true
+        },
+        {
+          "name": "results_dir_exists_40",
+          "passed": true
+        },
+        {
+          "name": "results_dir_exists_41",
+          "passed": true
+        },
+        {
+          "name": "results_dir_exists_42",
+          "passed": true
+        },
+        {
+          "name": "results_dir_exists_43",
+          "passed": true
+        },
+        {
+          "name": "results_dir_exists_44",
+          "passed": true
+        },
+        {
+          "name": "results_dir_exists_45",
+          "passed": true
+        },
+        {
+          "name": "results_dir_exists_46",
+          "passed": true
+        },
+        {
+          "name": "results_dir_exists_47",
+          "passed": true
+        },
+        {
+          "name": "results_dir_exists_48",
+          "passed": true
+        },
+        {
+          "name": "results_dir_exists_49",
+          "passed": true
+        }
+      ]
+    }
+  ]
+}

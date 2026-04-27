@@ -1,0 +1,37 @@
+{
+  "case_id": "C1-L1-V1",
+  "run_tag": "p0_v2",
+  "runtime": {
+    "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+    "message_id": "bbb62435-1821-4bf8-8dbe-8f09fa488bde",
+    "thread_id": "6d6eff31-31f7-43db-84cb-fc895dc7a06d",
+    "reply_to_thread_id": null,
+    "idempotency_key": "e2e:p0_v2:C1-L1-V1",
+    "thread_label": "C1:C1-L1-V1",
+    "ts_iso": "2026-04-25T11:15:27.581Z",
+    "run_tag": "p0_v2",
+    "thread_context_kind": "seeded-fresh",
+    "fire_iso": "2026-04-25T11:16:45.811Z"
+  },
+  "invariants": [
+    {
+      "name": "assert_no_memory_write_for_case",
+      "sql": "SELECT count(*)::int AS c FROM memory_items\n          WHERE tenant_id = $1\n            AND ( (idempotency_key IS NOT NULL AND idempotency_key LIKE $2)\n                  OR (source_message_id = $3) )",
+      "params": [
+        "eee0e2e0-0000-0000-0000-000000000001",
+        "e2e:p0_v2:C1-L1-V1%",
+        "bbb62435-1821-4bf8-8dbe-8f09fa488bde"
+      ],
+      "unknown": false
+    },
+    {
+      "name": "assert_one_outbound_for_case",
+      "sql": "SELECT count(*)::int AS c FROM outbound_delivery_ledger_claude_mcp\n          WHERE tenant_id = $1 AND idempotency_key = $2",
+      "params": [
+        "eee0e2e0-0000-0000-0000-000000000001",
+        "e2e:p0_v2:C1-L1-V1"
+      ],
+      "unknown": false
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "message_id": "bf69bd06-674c-4277-8a69-1896783587cd",
+  "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+  "channel": "e2e-rich-matrix",
+  "direction": "inbound",
+  "author_type": "user",
+  "normalized_content": "Listează sugestiile cu status pending.",
+  "timestamp": "2026-04-27T08:23:36.626Z",
+  "source_message_ref": "e2e:IL-003:e2e:il-2026-04-27:IL-003",
+  "author_entity_id": null,
+  "related_entity_ids": [],
+  "metadata": {
+    "e2e_case_id": "IL-003",
+    "e2e_run_tag": "il-2026-04-27",
+    "e2e_intent_test": "list_improvements"
+  },
+  "idempotency_key": "e2e:il-2026-04-27:IL-003",
+  "thread_id": "609e6ba6-72f3-4e84-8faa-82c9ef483d93"
+}

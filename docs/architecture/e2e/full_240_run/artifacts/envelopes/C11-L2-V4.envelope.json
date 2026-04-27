@@ -1,0 +1,23 @@
+{
+  "message_id": "2527d2ff-7c5f-4661-813b-f13f28989a09",
+  "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+  "channel": "e2e-rich-matrix",
+  "direction": "inbound",
+  "author_type": "user",
+  "normalized_content": "Dacă primești mesajul acesta de două ori, să nu dublezi memoria.",
+  "timestamp": "2026-04-26T02:50:48.670Z",
+  "source_message_ref": "e2e:C11-L2-V4:e2e:f240-2026-04-26:C11-L2-replay",
+  "author_entity_id": null,
+  "related_entity_ids": [],
+  "metadata": {
+    "e2e_case_id": "C11-L2-V4",
+    "e2e_corridor": "C11",
+    "e2e_variant": "late_retry_after_state_change",
+    "e2e_phase": "P1_FOUNDATION_CRITICAL",
+    "e2e_priority": "P0",
+    "e2e_locale": "ro",
+    "e2e_run_tag": "f240-2026-04-26"
+  },
+  "idempotency_key": "e2e:f240-2026-04-26:C11-L2-replay",
+  "thread_id": "fe25fe1a-6795-4887-801d-211a6b0ac687"
+}

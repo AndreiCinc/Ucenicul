@@ -1,0 +1,20 @@
+{
+  "message_id": "32b94875-b845-4731-8c3e-2d06274c2eec",
+  "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+  "channel": "tcp1-task-corridors",
+  "direction": "inbound",
+  "author_type": "user",
+  "normalized_content": "Amintește-mi poimâine să verific contractul.",
+  "timestamp": "2026-04-25T13:18:25.281Z",
+  "source_message_ref": "tcp1:TC-RL-03:tmr:tcp1-2026-04-25:TC-RL-03",
+  "author_entity_id": null,
+  "related_entity_ids": [],
+  "metadata": {
+    "tcp1_case_id": "TC-RL-03",
+    "tcp1_run_tag": "tcp1-2026-04-25",
+    "tcp1_priority": "P0"
+  },
+  "idempotency_key": "tmr:tcp1-2026-04-25:TC-RL-03",
+  "thread_id": "932494bb-95ed-484d-8e27-17c2b1a91384",
+  "reply_to_thread_id": null
+}

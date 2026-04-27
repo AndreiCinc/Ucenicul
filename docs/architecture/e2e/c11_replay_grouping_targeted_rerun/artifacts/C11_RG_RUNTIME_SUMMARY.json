@@ -1,0 +1,47 @@
+[
+  {
+    "case_id": "C11-RG-001",
+    "role": "replay-group: first delivery",
+    "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+    "thread_id": "8567245f-ae46-4cb8-847d-09f7c1a434a1",
+    "message_id": "01b22ee4-3f47-4e5e-8922-0103fb40c918",
+    "idempotency_key": "e2e:c11rg-2026-04-27:C11-L1-replay",
+    "user_input": "Ține minte că prefer email dimineața."
+  },
+  {
+    "case_id": "C11-RG-002",
+    "role": "replay-group: duplicate_delivery_1",
+    "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+    "thread_id": "8567245f-ae46-4cb8-847d-09f7c1a434a1",
+    "message_id": "01b22ee4-3f47-4e5e-8922-0103fb40c918",
+    "idempotency_key": "e2e:c11rg-2026-04-27:C11-L1-replay",
+    "user_input": "EN case: Remember this once only even if the webhook retries."
+  },
+  {
+    "case_id": "C11-RG-003",
+    "role": "replay-group: duplicate_delivery_2",
+    "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+    "thread_id": "8567245f-ae46-4cb8-847d-09f7c1a434a1",
+    "message_id": "01b22ee4-3f47-4e5e-8922-0103fb40c918",
+    "idempotency_key": "e2e:c11rg-2026-04-27:C11-L1-replay",
+    "user_input": "Ține minte că prefer email dimineața."
+  },
+  {
+    "case_id": "C11-RG-004",
+    "role": "replay-group: late_retry_after_state_change",
+    "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+    "thread_id": "8567245f-ae46-4cb8-847d-09f7c1a434a1",
+    "message_id": "01b22ee4-3f47-4e5e-8922-0103fb40c918",
+    "idempotency_key": "e2e:c11rg-2026-04-27:C11-L1-replay",
+    "user_input": "Ține minte că prefer email dimineața."
+  },
+  {
+    "case_id": "C11-RG-005",
+    "role": "fresh-control",
+    "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+    "thread_id": "9bcfc96c-71b0-4388-895a-d25406e56fb1",
+    "message_id": "077fa147-686d-4702-861e-6ded636405ae",
+    "idempotency_key": "e2e:c11rg-2026-04-27-fresh:C11-L1-replay",
+    "user_input": "Ține minte că prefer email dimineața."
+  }
+]

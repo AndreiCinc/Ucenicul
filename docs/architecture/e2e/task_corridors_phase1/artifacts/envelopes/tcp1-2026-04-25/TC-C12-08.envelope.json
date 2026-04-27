@@ -1,0 +1,20 @@
+{
+  "message_id": "369d9b2e-d862-41f6-8dd0-4df50f0a70f6",
+  "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+  "channel": "tcp1-task-corridors",
+  "direction": "inbound",
+  "author_type": "user",
+  "normalized_content": "Anulează taskul cu callul de marți, clientul a anulat.",
+  "timestamp": "2026-04-25T13:18:25.281Z",
+  "source_message_ref": "tcp1:TC-C12-08:tmr:tcp1-2026-04-25:TC-C12-08",
+  "author_entity_id": null,
+  "related_entity_ids": [],
+  "metadata": {
+    "tcp1_case_id": "TC-C12-08",
+    "tcp1_run_tag": "tcp1-2026-04-25",
+    "tcp1_priority": "P1"
+  },
+  "idempotency_key": "tmr:tcp1-2026-04-25:TC-C12-08",
+  "thread_id": "4725d217-8081-463a-8491-62950bead65e",
+  "reply_to_thread_id": null
+}

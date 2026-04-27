@@ -1,0 +1,876 @@
+{
+  "case_id": "C5-L1-V1",
+  "run_tag": "p0_v2",
+  "runtime": {
+    "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+    "message_id": "db2df62b-fbee-453d-8271-7584d87dff31",
+    "thread_id": "57a626ab-8ff6-41c4-8387-9bf5cd7f9c69",
+    "reply_to_thread_id": null,
+    "idempotency_key": "e2e:p0_v2:C5-L1-V1",
+    "thread_label": "C5:C5-L1-V1",
+    "ts_iso": "2026-04-25T11:15:27.606Z",
+    "run_tag": "p0_v2",
+    "thread_context_kind": "seeded-fresh",
+    "fire_iso": "2026-04-25T11:16:54.271Z"
+  },
+  "tr_exec_id": "7392",
+  "chain": {
+    "tr_exec_id": "7392",
+    "hops_str": "TR:7392 → EC:7393 → OR:7394 → PL:7395 → DI:7400 → ME:7401 → RA:7402 → SU:7403 → RC:7404 → MO:7405",
+    "digest": {
+      "TR": {
+        "exec_id": "7392",
+        "status": "success",
+        "finished": true,
+        "started_at": "2026-04-25T11:16:13.560Z",
+        "last_node": "TR_Dispatch_To_EC_01_SUBCALL",
+        "last_node_json": {
+          "status_kind": "failed",
+          "result_type": "error",
+          "module_name": "plan_generation",
+          "error": {
+            "code": "INSUFFICIENT_PLANNING_CONTEXT",
+            "message": "No requested actions or mappable primary intent are available.",
+            "missing_fields": [
+              "planner_context.requested_actions or planner_context.primary_intent"
+            ]
+          }
+        },
+        "sub_calls": [
+          {
+            "via_node": "TR_Dispatch_To_EC_01_SUBCALL",
+            "exec_id": "7393",
+            "target_wf": "EC"
+          }
+        ],
+        "selected_nodes": {
+          "TR_Validate_Input": [
+            {
+              "executed": true,
+              "json": {
+                "_valid": "true",
+                "message_id": "db2df62b-fbee-453d-8271-7584d87dff31",
+                "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+                "channel": "e2e-rich-matrix",
+                "direction": "inbound",
+                "author_type": "user",
+                "normalized_content": "Multumesc!",
+                "timestamp": "2026-04-25T00:00:00.000Z",
+                "source_message_ref": "e2e:C5-L1-V1",
+                "author_entity_id": null,
+                "explicit_thread_id": "57a626ab-8ff6-41c4-8387-9bf5cd7f9c69",
+                "reply_to_message_id": null,
+                "reply_to_thread_id": null,
+                "related_entity_ids": [],
+                "metadata": {
+                  "e2e_case_id": "C5-L1-V1",
+                  "e2e_run_tag": "p0_v2"
+                },
+                "_attach_threshold": null,
+                "_reopen_threshold": null,
+                "_max_candidate_threads": null,
+                "_allow_latent_reopen": true,
+                "_allow_entity_assisted_match": true,
+                "_ambiguity_margin": null,
+                "_idempotency_key": "e2e:p0_v2:C5-L1-V1"
+              },
+              "error": null
+            }
+          ],
+          "TR_Build_EC_Envelope": [
+            {
+              "executed": true,
+              "json": {
+                "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+                "thread_id": "57a626ab-8ff6-41c4-8387-9bf5cd7f9c69",
+                "trigger_message_id": "db2df62b-fbee-453d-8271-7584d87dff31",
+                "resolution_method": "explicit_thread_reference",
+                "resolved_at": "2026-04-25T11:16:13.658Z",
+                "idempotency_key": "tr-to-ec:eee0e2e0-0000-0000-0000-000000000001:db2df62b-fbee-453d-8271-7584d87dff31:v1"
+              },
+              "error": null
+            }
+          ],
+          "TR_Dispatch_To_EC_01_SUBCALL": [
+            {
+              "executed": true,
+              "json": {
+                "status_kind": "failed",
+                "result_type": "error",
+                "module_name": "plan_generation",
+                "error": {
+                  "code": "INSUFFICIENT_PLANNING_CONTEXT",
+                  "message": "No requested actions or mappable primary intent are available.",
+                  "missing_fields": [
+                    "planner_context.requested_actions or planner_context.primary_intent"
+                  ]
+                }
+              },
+              "error": null
+            }
+          ]
+        }
+      },
+      "EC": {
+        "exec_id": "7393",
+        "status": "success",
+        "finished": true,
+        "started_at": "2026-04-25T11:16:14.014Z",
+        "last_node": "EC_Dispatch_To_OR_01_SUBCALL",
+        "last_node_json": {
+          "status_kind": "failed",
+          "result_type": "error",
+          "module_name": "plan_generation",
+          "error": {
+            "code": "INSUFFICIENT_PLANNING_CONTEXT",
+            "message": "No requested actions or mappable primary intent are available.",
+            "missing_fields": [
+              "planner_context.requested_actions or planner_context.primary_intent"
+            ]
+          }
+        },
+        "sub_calls": [
+          {
+            "via_node": "EC_Dispatch_To_OR_01_SUBCALL",
+            "exec_id": "7394",
+            "target_wf": "OR"
+          }
+        ],
+        "selected_nodes": {
+          "EC_Dispatch_To_OR_01_SUBCALL": [
+            {
+              "executed": true,
+              "json": {
+                "status_kind": "failed",
+                "result_type": "error",
+                "module_name": "plan_generation",
+                "error": {
+                  "code": "INSUFFICIENT_PLANNING_CONTEXT",
+                  "message": "No requested actions or mappable primary intent are available.",
+                  "missing_fields": [
+                    "planner_context.requested_actions or planner_context.primary_intent"
+                  ]
+                }
+              },
+              "error": null
+            }
+          ]
+        }
+      },
+      "OR": {
+        "exec_id": "7394",
+        "status": "success",
+        "finished": true,
+        "started_at": "2026-04-25T11:16:14.231Z",
+        "last_node": "OR_Dispatch_To_PL_01_SUBCALL",
+        "last_node_json": {
+          "status_kind": "failed",
+          "result_type": "error",
+          "module_name": "plan_generation",
+          "error": {
+            "code": "INSUFFICIENT_PLANNING_CONTEXT",
+            "message": "No requested actions or mappable primary intent are available.",
+            "missing_fields": [
+              "planner_context.requested_actions or planner_context.primary_intent"
+            ]
+          }
+        },
+        "sub_calls": [
+          {
+            "via_node": "OR_Dispatch_To_PL_01_SUBCALL",
+            "exec_id": "7395",
+            "target_wf": "PL"
+          }
+        ],
+        "selected_nodes": {
+          "OR_Build_Handoff_Payload": [
+            {
+              "executed": true,
+              "json": {
+                "status_kind": "success",
+                "result_type": "handoff",
+                "module_name": "orchestrator_input_handoff",
+                "payload": {
+                  "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+                  "thread_id": "57a626ab-8ff6-41c4-8387-9bf5cd7f9c69",
+                  "execution_id": "29aa8263-cd00-46b9-889c-f7b724569b4b",
+                  "trigger_message_id": "db2df62b-fbee-453d-8271-7584d87dff31",
+                  "idempotency_key": "tr-to-ec:eee0e2e0-0000-0000-0000-000000000001:db2df62b-fbee-453d-8271-7584d87dff31:v1",
+                  "execution_status": "initialized",
+                  "planning_allowed": true,
+                  "allowed_next_stage": "WF-PL-01",
+                  "orchestrator_input": {
+                    "planning_mode": "plan_only",
+                    "module_execution_allowed": false,
+                    "response_generation_allowed": false,
+                    "domain_writes_allowed": false
+                  },
+                  "planner_context": {
+                    "user_message_text": "Mulțumesc!",
+                    "primary_intent": "briefing"
+                  },
+                  "warnings": []
+                }
+              },
+              "error": null
+            }
+          ],
+          "OR_Dispatch_To_PL_01_SUBCALL": [
+            {
+              "executed": true,
+              "json": {
+                "status_kind": "failed",
+                "result_type": "error",
+                "module_name": "plan_generation",
+                "error": {
+                  "code": "INSUFFICIENT_PLANNING_CONTEXT",
+                  "message": "No requested actions or mappable primary intent are available.",
+                  "missing_fields": [
+                    "planner_context.requested_actions or planner_context.primary_intent"
+                  ]
+                }
+              },
+              "error": null
+            }
+          ]
+        }
+      },
+      "PL": {
+        "exec_id": "7395",
+        "status": "success",
+        "finished": true,
+        "started_at": "2026-04-25T11:16:14.522Z",
+        "last_node": "PL_Return_Error",
+        "last_node_json": {
+          "status_kind": "failed",
+          "result_type": "error",
+          "module_name": "plan_generation",
+          "error": {
+            "code": "INSUFFICIENT_PLANNING_CONTEXT",
+            "message": "No requested actions or mappable primary intent are available.",
+            "missing_fields": [
+              "planner_context.requested_actions or planner_context.primary_intent"
+            ]
+          }
+        },
+        "sub_calls": [],
+        "selected_nodes": {
+          "PL_Build_Planner_Input": [
+            {
+              "executed": true,
+              "json": {
+                "_context_ready": "false",
+                "error_code": "INSUFFICIENT_PLANNING_CONTEXT",
+                "error_message": "No requested actions or mappable primary intent are available.",
+                "missing_fields": [
+                  "planner_context.requested_actions or planner_context.primary_intent"
+                ]
+              },
+              "error": null
+            }
+          ],
+          "PL_Return_Error": [
+            {
+              "executed": true,
+              "json": {
+                "status_kind": "failed",
+                "result_type": "error",
+                "module_name": "plan_generation",
+                "error": {
+                  "code": "INSUFFICIENT_PLANNING_CONTEXT",
+                  "message": "No requested actions or mappable primary intent are available.",
+                  "missing_fields": [
+                    "planner_context.requested_actions or planner_context.primary_intent"
+                  ]
+                }
+              },
+              "error": null
+            }
+          ]
+        }
+      },
+      "DI": {
+        "exec_id": "7400",
+        "status": "success",
+        "finished": true,
+        "started_at": "2026-04-25T11:16:18.434Z",
+        "last_node": "DI_Dispatch_To_ME_01_SUBCALL",
+        "last_node_json": {
+          "_debug_summary": {
+            "execution_context_id": "32be5cc3-b53e-4d77-8469-5429293480c8",
+            "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+            "thread_id": "63a9f9c8-3d77-4486-8354-ac9df35c4be4",
+            "rollup_status": "success",
+            "module_results_count": 1,
+            "returned_step_ids": [
+              "step_01_search_memory"
+            ]
+          }
+        },
+        "sub_calls": [],
+        "selected_nodes": {
+          "DI_Build_Dispatch_Payload": [
+            {
+              "executed": true,
+              "json": {
+                "status_kind": "success",
+                "result_type": "dispatch",
+                "module_name": "dispatcher",
+                "payload": {
+                  "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+                  "thread_id": "63a9f9c8-3d77-4486-8354-ac9df35c4be4",
+                  "execution_id": "32be5cc3-b53e-4d77-8469-5429293480c8",
+                  "plan_id": "plan:32be5cc3-b53e-4d77-8469-5429293480c8:v1",
+                  "dispatch_id": "dispatch:plan:32be5cc3-b53e-4d77-8469-5429293480c8:v1:v1",
+                  "allowed_next_stage": "WF-ME-01",
+                  "ready_groups": [
+                    {
+                      "group_id": "group:sequential:001",
+                      "execution_mode": "sequential",
+                      "step_ids": [
+                        "step_01_search_memory"
+                      ],
+                      "module_requests": [
+                        {
+                          "execution_context_id": "32be5cc3-b53e-4d77-8469-5429293480c8",
+                          "thread_id": "63a9f9c8-3d77-4486-8354-ac9df35c4be4",
+                          "step_id": "step_01_search_memory",
+                          "module_name": "memory_module",
+                          "purpose": "Handle intent search_memory",
+                          "inputs": {
+                            "action": "search_memory",
+                            "query": "Ce știi despre Andrei?"
+                          },
+                          "idempotency_key": "tr-to-ec:eee0e2e0-0000-0000-0000-000000000001:66976505-3e9e-4b30-8b9a-2b452760922a:v1:step_01_search_memory:dispatch:v1"
+                        }
+                      ]
+                    }
+                  ],
+                  "dispatch_guard": {
+                    "dispatch_allowed": true,
+                    "module_execution_started": false,
+                    "response_generation_allowed": false,
+                    "domain_writes_performed": false
+                  },
+                  "warnings": []
+                }
+              },
+              "error": null
+            }
+          ],
+          "DI_Build_ME_Envelopes": [
+            {
+              "executed": true,
+              "json": {
+                "status_kind": "success",
+                "result_type": "dispatch",
+                "execution_context_id": "32be5cc3-b53e-4d77-8469-5429293480c8",
+                "thread_id": "63a9f9c8-3d77-4486-8354-ac9df35c4be4",
+                "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+                "dispatcher_input": {
+                  "dispatch_allowed": true,
+                  "module_execution_started": false,
+                  "response_generation_allowed": false,
+                  "domain_writes_performed": false,
+                  "step": {
+                    "step_id": "step_01_search_memory",
+                    "module_name": "memory_module",
+                    "purpose": "Handle intent search_memory",
+                    "inputs": {
+                      "action": "search_memory",
+                      "query": "Ce știi despre Andrei?"
+                    },
+                    "execution_mode": "sequential",
+                    "depends_on": [],
+                    "expected_outputs": [],
+                    "replan_if": [],
+                    "failure_policy": "continue_with_notice",
+                    "status": "pending"
+                  }
+                },
+                "idempotency_key": "tr-to-ec:eee0e2e0-0000-0000-0000-000000000001:66976505-3e9e-4b30-8b9a-2b452760922a:v1:step_01_search_memory:dispatch:v1"
+              },
+              "error": null
+            }
+          ],
+          "DI_Dispatch_To_ME_01_SUBCALL": [
+            {
+              "executed": true,
+              "json": {
+                "_debug_summary": {
+                  "execution_context_id": "32be5cc3-b53e-4d77-8469-5429293480c8",
+                  "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+                  "thread_id": "63a9f9c8-3d77-4486-8354-ac9df35c4be4",
+                  "rollup_status": "success",
+                  "module_results_count": 1,
+                  "returned_step_ids": [
+                    "step_01_search_memory"
+                  ]
+                }
+              },
+              "error": null
+            }
+          ]
+        }
+      },
+      "ME": {
+        "exec_id": "7401",
+        "status": "success",
+        "finished": true,
+        "started_at": "2026-04-25T11:16:18.683Z",
+        "last_node": "ME_Dispatch_To_RA_01_SUBCALL",
+        "last_node_json": {
+          "_debug_summary": {
+            "execution_context_id": "32be5cc3-b53e-4d77-8469-5429293480c8",
+            "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+            "thread_id": "63a9f9c8-3d77-4486-8354-ac9df35c4be4",
+            "rollup_status": "success",
+            "module_results_count": 1,
+            "returned_step_ids": [
+              "step_01_search_memory"
+            ]
+          }
+        },
+        "sub_calls": [],
+        "selected_nodes": {
+          "ME_Memory_Search_Result": [
+            {
+              "executed": true,
+              "json": {
+                "status_kind": "success",
+                "result_type": "module_result",
+                "execution_context_id": "32be5cc3-b53e-4d77-8469-5429293480c8",
+                "thread_id": "63a9f9c8-3d77-4486-8354-ac9df35c4be4",
+                "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+                "module_result": {
+                  "module_name": "memory_module",
+                  "step_id": "step_01_search_memory",
+                  "result_type": "analysis",
+                  "status": "success",
+                  "summary": "Memory search completed.",
+                  "observations": [],
+                  "proposals": [],
+                  "actions_executed": [
+                    {
+                      "action": "search_memory",
+                      "details": {
+                        "query": "Ce știi despre Andrei?",
+                        "used_embedding": false,
+                        "embedding_attempted": true,
+                        "embedding_error": null,
+                        "semantic_match_count": 0,
+                        "lexical_match_count": 0,
+                        "recall_results": []
+                      }
+                    }
+                  ],
+                  "artifacts": [],
+                  "confidence": 1,
+                  "needs_followup": false,
+                  "followup_requests": []
+                },
+                "module_execution_started": true,
+                "domain_writes_performed": false,
+                "response_generation_allowed": false
+              },
+              "error": null
+            }
+          ],
+          "ME_Build_RA_Envelope": [
+            {
+              "executed": true,
+              "json": {
+                "status_kind": "success",
+                "result_type": "module_batch",
+                "execution_context_id": "32be5cc3-b53e-4d77-8469-5429293480c8",
+                "thread_id": "63a9f9c8-3d77-4486-8354-ac9df35c4be4",
+                "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+                "aggregation_input": {
+                  "aggregation_allowed": true,
+                  "response_generation_allowed": false,
+                  "module_execution_completed": true,
+                  "domain_writes_performed": false,
+                  "module_results": [
+                    {
+                      "module_name": "memory_module",
+                      "step_id": "step_01_search_memory",
+                      "result_type": "analysis",
+                      "status": "success",
+                      "summary": "Memory search completed.",
+                      "observations": [],
+                      "proposals": [],
+                      "actions_executed": [
+                        {
+                          "action": "search_memory",
+                          "details": {
+                            "query": "Ce știi despre Andrei?",
+                            "used_embedding": false,
+                            "embedding_attempted": true,
+                            "embedding_error": null,
+                            "semantic_match_count": 0,
+                            "lexical_match_count": 0,
+                            "recall_results": []
+                          }
+                        }
+                      ],
+                      "artifacts": [],
+                      "confidence": 1,
+                      "needs_followup": false,
+                      "followup_requests": []
+                    }
+                  ],
+                  "expected_step_ids": [
+                    "step_01_search_memory"
+                  ]
+                }
+              },
+              "error": null
+            }
+          ],
+          "ME_Return_Result": [
+            {
+              "executed": true,
+              "json": {
+                "status_kind": "success",
+                "result_type": "module_result",
+                "execution_context_id": "32be5cc3-b53e-4d77-8469-5429293480c8",
+                "thread_id": "63a9f9c8-3d77-4486-8354-ac9df35c4be4",
+                "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+                "allowed_next_stage": "WF-RA-01",
+                "module_result": {
+                  "module_name": "memory_module",
+                  "step_id": "step_01_search_memory",
+                  "result_type": "analysis",
+                  "status": "success",
+                  "summary": "Memory search completed.",
+                  "observations": [],
+                  "proposals": [],
+                  "actions_executed": [
+                    {
+                      "action": "search_memory",
+                      "details": {
+                        "query": "Ce știi despre Andrei?",
+                        "used_embedding": false,
+                        "embedding_attempted": true,
+                        "embedding_error": null,
+                        "semantic_match_count": 0,
+                        "lexical_match_count": 0,
+                        "recall_results": []
+                      }
+                    }
+                  ],
+                  "artifacts": [],
+                  "confidence": 1,
+                  "needs_followup": false,
+                  "followup_requests": []
+                },
+                "module_execution_started": true,
+                "domain_writes_performed": false,
+                "response_generation_allowed": false
+              },
+              "error": null
+            }
+          ]
+        }
+      },
+      "RA": {
+        "exec_id": "7402",
+        "status": "success",
+        "finished": true,
+        "started_at": "2026-04-25T11:16:21.306Z",
+        "last_node": "RA_Return_Result",
+        "last_node_json": {
+          "status_kind": "success",
+          "result_type": "aggregated_result",
+          "execution_context_id": "32be5cc3-b53e-4d77-8469-5429293480c8",
+          "thread_id": "63a9f9c8-3d77-4486-8354-ac9df35c4be4",
+          "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+          "aggregated_result": {
+            "status": "success",
+            "summary": "Aggregated 1 module result(s) with rollup status success.",
+            "module_results_count": 1,
+            "module_names": [
+              "memory_module"
+            ],
+            "per_status_counts": {
+              "success": 1,
+              "partial": 0,
+              "failed": 0,
+              "no_action": 0
+            },
+            "actions_executed": [
+              {
+                "action": "search_memory",
+                "details": {
+                  "query": "Ce știi despre Andrei?",
+                  "used_embedding": false,
+                  "embedding_attempted": true,
+                  "embedding_error": null,
+                  "semantic_match_count": 0,
+                  "lexical_match_count": 0,
+                  "recall_results": []
+                }
+              }
+            ],
+            "artifacts": [],
+            "observations": [],
+            "proposals": [],
+            "confidence": 1,
+            "needs_followup": false,
+            "followup_requests": [],
+            "expected_step_ids": [
+              "step_01_search_memory"
+            ],
+            "returned_step_ids": [
+              "step_01_search_memory"
+            ]
+          },
+          "state_update_allowed": true,
+          "response_generation_allowed": false,
+          "domain_writes_performed": false,
+          "allowed_next_stage": "WF-SU-01",
+          "idempotency_key": "aggregate:32be5cc3-b53e-4d77-8469-5429293480c8"
+        },
+        "sub_calls": [],
+        "selected_nodes": {
+          "RA_Build_Downstream_Envelope": [
+            {
+              "executed": true,
+              "json": {
+                "status_kind": "success",
+                "result_type": "aggregated_result",
+                "execution_context_id": "32be5cc3-b53e-4d77-8469-5429293480c8",
+                "thread_id": "63a9f9c8-3d77-4486-8354-ac9df35c4be4",
+                "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+                "aggregated_result": {
+                  "status": "success",
+                  "summary": "Aggregated 1 module result(s) with rollup status success.",
+                  "module_results_count": 1,
+                  "module_names": [
+                    "memory_module"
+                  ],
+                  "per_status_counts": {
+                    "success": 1,
+                    "partial": 0,
+                    "failed": 0,
+                    "no_action": 0
+                  },
+                  "actions_executed": [
+                    {
+                      "action": "search_memory",
+                      "details": {
+                        "query": "Ce știi despre Andrei?",
+                        "used_embedding": false,
+                        "embedding_attempted": true,
+                        "embedding_error": null,
+                        "semantic_match_count": 0,
+                        "lexical_match_count": 0,
+                        "recall_results": []
+                      }
+                    }
+                  ],
+                  "artifacts": [],
+                  "observations": [],
+                  "proposals": [],
+                  "confidence": 1,
+                  "needs_followup": false,
+                  "followup_requests": [],
+                  "expected_step_ids": [
+                    "step_01_search_memory"
+                  ],
+                  "returned_step_ids": [
+                    "step_01_search_memory"
+                  ]
+                },
+                "state_update_allowed": true,
+                "response_generation_allowed": false,
+                "domain_writes_performed": false,
+                "allowed_next_stage": "WF-SU-01",
+                "idempotency_key": "aggregate:32be5cc3-b53e-4d77-8469-5429293480c8"
+              },
+              "error": null
+            }
+          ],
+          "RA_Dispatch_To_SU_01_SUBCALL": [
+            {
+              "executed": true,
+              "json": {
+                "_context_ready": false,
+                "status_kind": "error",
+                "result_type": "message_out_error",
+                "error": {
+                  "code": "MISSING_DELIVERY_TARGET",
+                  "message": "No delivery target could be resolved for outbound send.",
+                  "details": {
+                    "channel": "telegram"
+                  }
+                }
+              },
+              "error": null
+            }
+          ]
+        }
+      },
+      "SU": {
+        "exec_id": "7403",
+        "status": "success",
+        "finished": true,
+        "started_at": "2026-04-25T11:16:21.493Z",
+        "last_node": "SU_Dispatch_To_RC_01_SUBCALL",
+        "last_node_json": {
+          "_context_ready": false,
+          "status_kind": "error",
+          "result_type": "message_out_error",
+          "error": {
+            "code": "MISSING_DELIVERY_TARGET",
+            "message": "No delivery target could be resolved for outbound send.",
+            "details": {
+              "channel": "telegram"
+            }
+          }
+        },
+        "sub_calls": [],
+        "selected_nodes": {
+          "SU_Dispatch_To_RC_01_SUBCALL": [
+            {
+              "executed": true,
+              "json": {
+                "_context_ready": false,
+                "status_kind": "error",
+                "result_type": "message_out_error",
+                "error": {
+                  "code": "MISSING_DELIVERY_TARGET",
+                  "message": "No delivery target could be resolved for outbound send.",
+                  "details": {
+                    "channel": "telegram"
+                  }
+                }
+              },
+              "error": null
+            },
+            {
+              "executed": true,
+              "json": {
+                "_context_ready": false,
+                "status_kind": "error",
+                "result_type": "message_out_error",
+                "error": {
+                  "code": "MISSING_DELIVERY_TARGET",
+                  "message": "No delivery target could be resolved for outbound send.",
+                  "details": {
+                    "channel": "telegram"
+                  }
+                }
+              },
+              "error": null
+            },
+            {
+              "executed": true,
+              "json": {
+                "_context_ready": false,
+                "status_kind": "error",
+                "result_type": "message_out_error",
+                "error": {
+                  "code": "MISSING_DELIVERY_TARGET",
+                  "message": "No delivery target could be resolved for outbound send.",
+                  "details": {
+                    "channel": "telegram"
+                  }
+                }
+              },
+              "error": null
+            }
+          ]
+        }
+      },
+      "RC": {
+        "exec_id": "7404",
+        "status": "success",
+        "finished": true,
+        "started_at": "2026-04-25T11:16:21.913Z",
+        "last_node": "RC_Dispatch_To_MO_01_SUBCALL",
+        "last_node_json": {
+          "_context_ready": false,
+          "status_kind": "error",
+          "result_type": "message_out_error",
+          "error": {
+            "code": "MISSING_DELIVERY_TARGET",
+            "message": "No delivery target could be resolved for outbound send.",
+            "details": {
+              "channel": "telegram"
+            }
+          }
+        },
+        "sub_calls": [],
+        "selected_nodes": {
+          "RC_Build_Output_Envelope": [
+            {
+              "executed": true,
+              "json": {
+                "status_kind": "success",
+                "result_type": "composed_response",
+                "execution_context_id": "32be5cc3-b53e-4d77-8469-5429293480c8",
+                "thread_id": "63a9f9c8-3d77-4486-8354-ac9df35c4be4",
+                "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+                "composed_response": {
+                  "final_response_text": "Am pregătit răspunsul final, dar există și elemente rămase parțiale.\nWF-SU-01 finalized persistence for the aggregated_result envelope.\nAplicat: starea execuției, auditul intern.\nBlocat sau rămas neaplicat: firul de lucru, candidații de memorie.\nAtenționări: [object Object].",
+                  "response_status": "partial",
+                  "includes_followups": false,
+                  "includes_warnings": true,
+                  "followup_count": 0,
+                  "warning_count": 1,
+                  "channel": "telegram",
+                  "locale": "ro"
+                },
+                "output_gateway_allowed": true,
+                "allowed_next_stage": "MESSAGE_OUT",
+                "response_generation_allowed": true,
+                "idempotency_key": "compose:32be5cc3-b53e-4d77-8469-5429293480c8:224761e73ec23c5e"
+              },
+              "error": null
+            }
+          ],
+          "RC_Dispatch_To_MO_01_SUBCALL": [
+            {
+              "executed": true,
+              "json": {
+                "_context_ready": false,
+                "status_kind": "error",
+                "result_type": "message_out_error",
+                "error": {
+                  "code": "MISSING_DELIVERY_TARGET",
+                  "message": "No delivery target could be resolved for outbound send.",
+                  "details": {
+                    "channel": "telegram"
+                  }
+                }
+              },
+              "error": null
+            }
+          ]
+        }
+      },
+      "MO": {
+        "exec_id": "7405",
+        "status": "success",
+        "finished": true,
+        "started_at": "2026-04-25T11:16:22.115Z",
+        "last_node": "MO_Return_Context_Error",
+        "last_node_json": {
+          "_context_ready": false,
+          "status_kind": "error",
+          "result_type": "message_out_error",
+          "error": {
+            "code": "MISSING_DELIVERY_TARGET",
+            "message": "No delivery target could be resolved for outbound send.",
+            "details": {
+              "channel": "telegram"
+            }
+          }
+        },
+        "sub_calls": [],
+        "selected_nodes": {}
+      }
+    }
+  }
+}

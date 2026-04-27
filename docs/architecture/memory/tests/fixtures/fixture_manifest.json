@@ -1,0 +1,3757 @@
+{
+  "version": "1.0",
+  "total_cases": 250,
+  "cases_per_action": 50,
+  "entries": [
+    {
+      "id": "MEM-STORE-001",
+      "action": "store_memory",
+      "family": "happy_minimal",
+      "description": "minimal valid store with required fields",
+      "fixture_file": "store/store_001.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-STORE-002",
+      "action": "store_memory",
+      "family": "happy_rich",
+      "description": "store with optional metadata and evidence_refs",
+      "fixture_file": "store/store_002.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-STORE-003",
+      "action": "store_memory",
+      "family": "idempotency_replay",
+      "description": "same idempotency key returns existing memory_id",
+      "fixture_file": "store/store_003.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-STORE-004",
+      "action": "store_memory",
+      "family": "subjective_refusal",
+      "description": "subjective judgment rejected for observation/pattern",
+      "fixture_file": "store/store_004.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-STORE-005",
+      "action": "store_memory",
+      "family": "validation_failure",
+      "description": "missing required fields fail fast",
+      "fixture_file": "store/store_005.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-STORE-006",
+      "action": "store_memory",
+      "family": "search_seed",
+      "description": "stores records meant for later search/recall tests",
+      "fixture_file": "store/store_006.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-STORE-007",
+      "action": "store_memory",
+      "family": "status_override",
+      "description": "explicit non-default status handling denied or normalized",
+      "fixture_file": "store/store_007.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-STORE-008",
+      "action": "store_memory",
+      "family": "durability_defaults",
+      "description": "defaults applied when omitted",
+      "fixture_file": "store/store_008.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-STORE-009",
+      "action": "store_memory",
+      "family": "thread_required",
+      "description": "source_thread_id enforcement",
+      "fixture_file": "store/store_009.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-STORE-010",
+      "action": "store_memory",
+      "family": "embedding_path",
+      "description": "embedding generation path succeeds",
+      "fixture_file": "store/store_010.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-STORE-011",
+      "action": "store_memory",
+      "family": "happy_minimal",
+      "description": "minimal valid store with required fields",
+      "fixture_file": "store/store_011.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-STORE-012",
+      "action": "store_memory",
+      "family": "happy_rich",
+      "description": "store with optional metadata and evidence_refs",
+      "fixture_file": "store/store_012.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-STORE-013",
+      "action": "store_memory",
+      "family": "idempotency_replay",
+      "description": "same idempotency key returns existing memory_id",
+      "fixture_file": "store/store_013.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-STORE-014",
+      "action": "store_memory",
+      "family": "subjective_refusal",
+      "description": "subjective judgment rejected for observation/pattern",
+      "fixture_file": "store/store_014.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-STORE-015",
+      "action": "store_memory",
+      "family": "validation_failure",
+      "description": "missing required fields fail fast",
+      "fixture_file": "store/store_015.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-STORE-016",
+      "action": "store_memory",
+      "family": "search_seed",
+      "description": "stores records meant for later search/recall tests",
+      "fixture_file": "store/store_016.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-STORE-017",
+      "action": "store_memory",
+      "family": "status_override",
+      "description": "explicit non-default status handling denied or normalized",
+      "fixture_file": "store/store_017.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-STORE-018",
+      "action": "store_memory",
+      "family": "durability_defaults",
+      "description": "defaults applied when omitted",
+      "fixture_file": "store/store_018.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-STORE-019",
+      "action": "store_memory",
+      "family": "thread_required",
+      "description": "source_thread_id enforcement",
+      "fixture_file": "store/store_019.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-STORE-020",
+      "action": "store_memory",
+      "family": "embedding_path",
+      "description": "embedding generation path succeeds",
+      "fixture_file": "store/store_020.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-STORE-021",
+      "action": "store_memory",
+      "family": "happy_minimal",
+      "description": "minimal valid store with required fields",
+      "fixture_file": "store/store_021.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-STORE-022",
+      "action": "store_memory",
+      "family": "happy_rich",
+      "description": "store with optional metadata and evidence_refs",
+      "fixture_file": "store/store_022.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-STORE-023",
+      "action": "store_memory",
+      "family": "idempotency_replay",
+      "description": "same idempotency key returns existing memory_id",
+      "fixture_file": "store/store_023.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-STORE-024",
+      "action": "store_memory",
+      "family": "subjective_refusal",
+      "description": "subjective judgment rejected for observation/pattern",
+      "fixture_file": "store/store_024.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-STORE-025",
+      "action": "store_memory",
+      "family": "validation_failure",
+      "description": "missing required fields fail fast",
+      "fixture_file": "store/store_025.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-STORE-026",
+      "action": "store_memory",
+      "family": "search_seed",
+      "description": "stores records meant for later search/recall tests",
+      "fixture_file": "store/store_026.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-STORE-027",
+      "action": "store_memory",
+      "family": "status_override",
+      "description": "explicit non-default status handling denied or normalized",
+      "fixture_file": "store/store_027.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-STORE-028",
+      "action": "store_memory",
+      "family": "durability_defaults",
+      "description": "defaults applied when omitted",
+      "fixture_file": "store/store_028.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-STORE-029",
+      "action": "store_memory",
+      "family": "thread_required",
+      "description": "source_thread_id enforcement",
+      "fixture_file": "store/store_029.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-STORE-030",
+      "action": "store_memory",
+      "family": "embedding_path",
+      "description": "embedding generation path succeeds",
+      "fixture_file": "store/store_030.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-STORE-031",
+      "action": "store_memory",
+      "family": "happy_minimal",
+      "description": "minimal valid store with required fields",
+      "fixture_file": "store/store_031.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-STORE-032",
+      "action": "store_memory",
+      "family": "happy_rich",
+      "description": "store with optional metadata and evidence_refs",
+      "fixture_file": "store/store_032.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-STORE-033",
+      "action": "store_memory",
+      "family": "idempotency_replay",
+      "description": "same idempotency key returns existing memory_id",
+      "fixture_file": "store/store_033.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-STORE-034",
+      "action": "store_memory",
+      "family": "subjective_refusal",
+      "description": "subjective judgment rejected for observation/pattern",
+      "fixture_file": "store/store_034.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-STORE-035",
+      "action": "store_memory",
+      "family": "validation_failure",
+      "description": "missing required fields fail fast",
+      "fixture_file": "store/store_035.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-STORE-036",
+      "action": "store_memory",
+      "family": "search_seed",
+      "description": "stores records meant for later search/recall tests",
+      "fixture_file": "store/store_036.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-STORE-037",
+      "action": "store_memory",
+      "family": "status_override",
+      "description": "explicit non-default status handling denied or normalized",
+      "fixture_file": "store/store_037.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-STORE-038",
+      "action": "store_memory",
+      "family": "durability_defaults",
+      "description": "defaults applied when omitted",
+      "fixture_file": "store/store_038.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-STORE-039",
+      "action": "store_memory",
+      "family": "thread_required",
+      "description": "source_thread_id enforcement",
+      "fixture_file": "store/store_039.json",
+      "expected_aggregated_status": "failed",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-STORE-040",
+      "action": "store_memory",
+      "family": "embedding_path",
+      "description": "embedding generation path succeeds",
+      "fixture_file": "store/store_040.json",
+      "expected_aggregated_status": "failed",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-STORE-041",
+      "action": "store_memory",
+      "family": "happy_minimal",
+      "description": "minimal valid store with required fields",
+      "fixture_file": "store/store_041.json",
+      "expected_aggregated_status": "failed",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-STORE-042",
+      "action": "store_memory",
+      "family": "happy_rich",
+      "description": "store with optional metadata and evidence_refs",
+      "fixture_file": "store/store_042.json",
+      "expected_aggregated_status": "failed",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-STORE-043",
+      "action": "store_memory",
+      "family": "idempotency_replay",
+      "description": "same idempotency key returns existing memory_id",
+      "fixture_file": "store/store_043.json",
+      "expected_aggregated_status": "failed",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-STORE-044",
+      "action": "store_memory",
+      "family": "subjective_refusal",
+      "description": "subjective judgment rejected for observation/pattern",
+      "fixture_file": "store/store_044.json",
+      "expected_aggregated_status": "failed",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-STORE-045",
+      "action": "store_memory",
+      "family": "validation_failure",
+      "description": "missing required fields fail fast",
+      "fixture_file": "store/store_045.json",
+      "expected_aggregated_status": "failed",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-STORE-046",
+      "action": "store_memory",
+      "family": "search_seed",
+      "description": "stores records meant for later search/recall tests",
+      "fixture_file": "store/store_046.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-STORE-047",
+      "action": "store_memory",
+      "family": "status_override",
+      "description": "explicit non-default status handling denied or normalized",
+      "fixture_file": "store/store_047.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-STORE-048",
+      "action": "store_memory",
+      "family": "durability_defaults",
+      "description": "defaults applied when omitted",
+      "fixture_file": "store/store_048.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-STORE-049",
+      "action": "store_memory",
+      "family": "thread_required",
+      "description": "source_thread_id enforcement",
+      "fixture_file": "store/store_049.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-STORE-050",
+      "action": "store_memory",
+      "family": "embedding_path",
+      "description": "embedding generation path succeeds",
+      "fixture_file": "store/store_050.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-SEARCH-001",
+      "action": "search_memory",
+      "family": "happy_semantic",
+      "description": "semantic search returns ordered matches",
+      "fixture_file": "search/search_001.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-SEARCH-002",
+      "action": "search_memory",
+      "family": "status_default_active",
+      "description": "default filters only active rows",
+      "fixture_file": "search/search_002.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-SEARCH-003",
+      "action": "search_memory",
+      "family": "status_override",
+      "description": "explicit status override includes non-active rows",
+      "fixture_file": "search/search_003.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-SEARCH-004",
+      "action": "search_memory",
+      "family": "filter_intersection",
+      "description": "thread/type/tier filters intersect strictly",
+      "fixture_file": "search/search_004.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-SEARCH-005",
+      "action": "search_memory",
+      "family": "empty_result",
+      "description": "no rows returns success with empty results",
+      "fixture_file": "search/search_005.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-SEARCH-006",
+      "action": "search_memory",
+      "family": "limit_behavior",
+      "description": "limit enforced deterministically",
+      "fixture_file": "search/search_006.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-SEARCH-007",
+      "action": "search_memory",
+      "family": "invalid_input",
+      "description": "missing query or invalid limit",
+      "fixture_file": "search/search_007.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-SEARCH-008",
+      "action": "search_memory",
+      "family": "ranking_stability",
+      "description": "closest cosine distance first",
+      "fixture_file": "search/search_008.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-SEARCH-009",
+      "action": "search_memory",
+      "family": "cross_thread_guard",
+      "description": "wrong thread filter excludes rows",
+      "fixture_file": "search/search_009.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-SEARCH-010",
+      "action": "search_memory",
+      "family": "cross_status_guard",
+      "description": "superseded rows only returned when asked",
+      "fixture_file": "search/search_010.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-SEARCH-011",
+      "action": "search_memory",
+      "family": "happy_semantic",
+      "description": "semantic search returns ordered matches",
+      "fixture_file": "search/search_011.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-SEARCH-012",
+      "action": "search_memory",
+      "family": "status_default_active",
+      "description": "default filters only active rows",
+      "fixture_file": "search/search_012.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-SEARCH-013",
+      "action": "search_memory",
+      "family": "status_override",
+      "description": "explicit status override includes non-active rows",
+      "fixture_file": "search/search_013.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-SEARCH-014",
+      "action": "search_memory",
+      "family": "filter_intersection",
+      "description": "thread/type/tier filters intersect strictly",
+      "fixture_file": "search/search_014.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-SEARCH-015",
+      "action": "search_memory",
+      "family": "empty_result",
+      "description": "no rows returns success with empty results",
+      "fixture_file": "search/search_015.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-SEARCH-016",
+      "action": "search_memory",
+      "family": "limit_behavior",
+      "description": "limit enforced deterministically",
+      "fixture_file": "search/search_016.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-SEARCH-017",
+      "action": "search_memory",
+      "family": "invalid_input",
+      "description": "missing query or invalid limit",
+      "fixture_file": "search/search_017.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-SEARCH-018",
+      "action": "search_memory",
+      "family": "ranking_stability",
+      "description": "closest cosine distance first",
+      "fixture_file": "search/search_018.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-SEARCH-019",
+      "action": "search_memory",
+      "family": "cross_thread_guard",
+      "description": "wrong thread filter excludes rows",
+      "fixture_file": "search/search_019.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-SEARCH-020",
+      "action": "search_memory",
+      "family": "cross_status_guard",
+      "description": "superseded rows only returned when asked",
+      "fixture_file": "search/search_020.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-SEARCH-021",
+      "action": "search_memory",
+      "family": "happy_semantic",
+      "description": "semantic search returns ordered matches",
+      "fixture_file": "search/search_021.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-SEARCH-022",
+      "action": "search_memory",
+      "family": "status_default_active",
+      "description": "default filters only active rows",
+      "fixture_file": "search/search_022.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-SEARCH-023",
+      "action": "search_memory",
+      "family": "status_override",
+      "description": "explicit status override includes non-active rows",
+      "fixture_file": "search/search_023.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-SEARCH-024",
+      "action": "search_memory",
+      "family": "filter_intersection",
+      "description": "thread/type/tier filters intersect strictly",
+      "fixture_file": "search/search_024.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-SEARCH-025",
+      "action": "search_memory",
+      "family": "empty_result",
+      "description": "no rows returns success with empty results",
+      "fixture_file": "search/search_025.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-SEARCH-026",
+      "action": "search_memory",
+      "family": "limit_behavior",
+      "description": "limit enforced deterministically",
+      "fixture_file": "search/search_026.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-SEARCH-027",
+      "action": "search_memory",
+      "family": "invalid_input",
+      "description": "missing query or invalid limit",
+      "fixture_file": "search/search_027.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-SEARCH-028",
+      "action": "search_memory",
+      "family": "ranking_stability",
+      "description": "closest cosine distance first",
+      "fixture_file": "search/search_028.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-SEARCH-029",
+      "action": "search_memory",
+      "family": "cross_thread_guard",
+      "description": "wrong thread filter excludes rows",
+      "fixture_file": "search/search_029.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-SEARCH-030",
+      "action": "search_memory",
+      "family": "cross_status_guard",
+      "description": "superseded rows only returned when asked",
+      "fixture_file": "search/search_030.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-SEARCH-031",
+      "action": "search_memory",
+      "family": "happy_semantic",
+      "description": "semantic search returns ordered matches",
+      "fixture_file": "search/search_031.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-SEARCH-032",
+      "action": "search_memory",
+      "family": "status_default_active",
+      "description": "default filters only active rows",
+      "fixture_file": "search/search_032.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-SEARCH-033",
+      "action": "search_memory",
+      "family": "status_override",
+      "description": "explicit status override includes non-active rows",
+      "fixture_file": "search/search_033.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-SEARCH-034",
+      "action": "search_memory",
+      "family": "filter_intersection",
+      "description": "thread/type/tier filters intersect strictly",
+      "fixture_file": "search/search_034.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-SEARCH-035",
+      "action": "search_memory",
+      "family": "empty_result",
+      "description": "no rows returns success with empty results",
+      "fixture_file": "search/search_035.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-SEARCH-036",
+      "action": "search_memory",
+      "family": "limit_behavior",
+      "description": "limit enforced deterministically",
+      "fixture_file": "search/search_036.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-SEARCH-037",
+      "action": "search_memory",
+      "family": "invalid_input",
+      "description": "missing query or invalid limit",
+      "fixture_file": "search/search_037.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-SEARCH-038",
+      "action": "search_memory",
+      "family": "ranking_stability",
+      "description": "closest cosine distance first",
+      "fixture_file": "search/search_038.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-SEARCH-039",
+      "action": "search_memory",
+      "family": "cross_thread_guard",
+      "description": "wrong thread filter excludes rows",
+      "fixture_file": "search/search_039.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-SEARCH-040",
+      "action": "search_memory",
+      "family": "cross_status_guard",
+      "description": "superseded rows only returned when asked",
+      "fixture_file": "search/search_040.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-SEARCH-041",
+      "action": "search_memory",
+      "family": "happy_semantic",
+      "description": "semantic search returns ordered matches",
+      "fixture_file": "search/search_041.json",
+      "expected_aggregated_status": "partial",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-SEARCH-042",
+      "action": "search_memory",
+      "family": "status_default_active",
+      "description": "default filters only active rows",
+      "fixture_file": "search/search_042.json",
+      "expected_aggregated_status": "partial",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-SEARCH-043",
+      "action": "search_memory",
+      "family": "status_override",
+      "description": "explicit status override includes non-active rows",
+      "fixture_file": "search/search_043.json",
+      "expected_aggregated_status": "partial",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-SEARCH-044",
+      "action": "search_memory",
+      "family": "filter_intersection",
+      "description": "thread/type/tier filters intersect strictly",
+      "fixture_file": "search/search_044.json",
+      "expected_aggregated_status": "partial",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-SEARCH-045",
+      "action": "search_memory",
+      "family": "empty_result",
+      "description": "no rows returns success with empty results",
+      "fixture_file": "search/search_045.json",
+      "expected_aggregated_status": "partial",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-SEARCH-046",
+      "action": "search_memory",
+      "family": "limit_behavior",
+      "description": "limit enforced deterministically",
+      "fixture_file": "search/search_046.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-SEARCH-047",
+      "action": "search_memory",
+      "family": "invalid_input",
+      "description": "missing query or invalid limit",
+      "fixture_file": "search/search_047.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-SEARCH-048",
+      "action": "search_memory",
+      "family": "ranking_stability",
+      "description": "closest cosine distance first",
+      "fixture_file": "search/search_048.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-SEARCH-049",
+      "action": "search_memory",
+      "family": "cross_thread_guard",
+      "description": "wrong thread filter excludes rows",
+      "fixture_file": "search/search_049.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-SEARCH-050",
+      "action": "search_memory",
+      "family": "cross_status_guard",
+      "description": "superseded rows only returned when asked",
+      "fixture_file": "search/search_050.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-RECALL-001",
+      "action": "recall_memory",
+      "family": "happy_entity",
+      "description": "recall by entity_id",
+      "fixture_file": "recall/recall_001.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-RECALL-002",
+      "action": "recall_memory",
+      "family": "happy_thread",
+      "description": "recall by thread_id",
+      "fixture_file": "recall/recall_002.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-RECALL-003",
+      "action": "recall_memory",
+      "family": "happy_category",
+      "description": "recall by category",
+      "fixture_file": "recall/recall_003.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-RECALL-004",
+      "action": "recall_memory",
+      "family": "happy_type",
+      "description": "recall by memory_type",
+      "fixture_file": "recall/recall_004.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-RECALL-005",
+      "action": "recall_memory",
+      "family": "strict_intersection",
+      "description": "multiple filters intersect strictly",
+      "fixture_file": "recall/recall_005.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-RECALL-006",
+      "action": "recall_memory",
+      "family": "ordering_desc",
+      "description": "ordered by created_at desc",
+      "fixture_file": "recall/recall_006.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-RECALL-007",
+      "action": "recall_memory",
+      "family": "empty_result",
+      "description": "no rows returns success with empty results",
+      "fixture_file": "recall/recall_007.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-RECALL-008",
+      "action": "recall_memory",
+      "family": "invalid_input",
+      "description": "no supported filter supplied",
+      "fixture_file": "recall/recall_008.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-RECALL-009",
+      "action": "recall_memory",
+      "family": "status_scope",
+      "description": "status filter behavior",
+      "fixture_file": "recall/recall_009.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-RECALL-010",
+      "action": "recall_memory",
+      "family": "mixed_filter_guard",
+      "description": "filters never degrade to fuzzy fallback",
+      "fixture_file": "recall/recall_010.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-RECALL-011",
+      "action": "recall_memory",
+      "family": "happy_entity",
+      "description": "recall by entity_id",
+      "fixture_file": "recall/recall_011.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-RECALL-012",
+      "action": "recall_memory",
+      "family": "happy_thread",
+      "description": "recall by thread_id",
+      "fixture_file": "recall/recall_012.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-RECALL-013",
+      "action": "recall_memory",
+      "family": "happy_category",
+      "description": "recall by category",
+      "fixture_file": "recall/recall_013.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-RECALL-014",
+      "action": "recall_memory",
+      "family": "happy_type",
+      "description": "recall by memory_type",
+      "fixture_file": "recall/recall_014.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-RECALL-015",
+      "action": "recall_memory",
+      "family": "strict_intersection",
+      "description": "multiple filters intersect strictly",
+      "fixture_file": "recall/recall_015.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-RECALL-016",
+      "action": "recall_memory",
+      "family": "ordering_desc",
+      "description": "ordered by created_at desc",
+      "fixture_file": "recall/recall_016.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-RECALL-017",
+      "action": "recall_memory",
+      "family": "empty_result",
+      "description": "no rows returns success with empty results",
+      "fixture_file": "recall/recall_017.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-RECALL-018",
+      "action": "recall_memory",
+      "family": "invalid_input",
+      "description": "no supported filter supplied",
+      "fixture_file": "recall/recall_018.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-RECALL-019",
+      "action": "recall_memory",
+      "family": "status_scope",
+      "description": "status filter behavior",
+      "fixture_file": "recall/recall_019.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-RECALL-020",
+      "action": "recall_memory",
+      "family": "mixed_filter_guard",
+      "description": "filters never degrade to fuzzy fallback",
+      "fixture_file": "recall/recall_020.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-RECALL-021",
+      "action": "recall_memory",
+      "family": "happy_entity",
+      "description": "recall by entity_id",
+      "fixture_file": "recall/recall_021.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-RECALL-022",
+      "action": "recall_memory",
+      "family": "happy_thread",
+      "description": "recall by thread_id",
+      "fixture_file": "recall/recall_022.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-RECALL-023",
+      "action": "recall_memory",
+      "family": "happy_category",
+      "description": "recall by category",
+      "fixture_file": "recall/recall_023.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-RECALL-024",
+      "action": "recall_memory",
+      "family": "happy_type",
+      "description": "recall by memory_type",
+      "fixture_file": "recall/recall_024.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-RECALL-025",
+      "action": "recall_memory",
+      "family": "strict_intersection",
+      "description": "multiple filters intersect strictly",
+      "fixture_file": "recall/recall_025.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-RECALL-026",
+      "action": "recall_memory",
+      "family": "ordering_desc",
+      "description": "ordered by created_at desc",
+      "fixture_file": "recall/recall_026.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-RECALL-027",
+      "action": "recall_memory",
+      "family": "empty_result",
+      "description": "no rows returns success with empty results",
+      "fixture_file": "recall/recall_027.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-RECALL-028",
+      "action": "recall_memory",
+      "family": "invalid_input",
+      "description": "no supported filter supplied",
+      "fixture_file": "recall/recall_028.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-RECALL-029",
+      "action": "recall_memory",
+      "family": "status_scope",
+      "description": "status filter behavior",
+      "fixture_file": "recall/recall_029.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-RECALL-030",
+      "action": "recall_memory",
+      "family": "mixed_filter_guard",
+      "description": "filters never degrade to fuzzy fallback",
+      "fixture_file": "recall/recall_030.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-RECALL-031",
+      "action": "recall_memory",
+      "family": "happy_entity",
+      "description": "recall by entity_id",
+      "fixture_file": "recall/recall_031.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-RECALL-032",
+      "action": "recall_memory",
+      "family": "happy_thread",
+      "description": "recall by thread_id",
+      "fixture_file": "recall/recall_032.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-RECALL-033",
+      "action": "recall_memory",
+      "family": "happy_category",
+      "description": "recall by category",
+      "fixture_file": "recall/recall_033.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-RECALL-034",
+      "action": "recall_memory",
+      "family": "happy_type",
+      "description": "recall by memory_type",
+      "fixture_file": "recall/recall_034.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-RECALL-035",
+      "action": "recall_memory",
+      "family": "strict_intersection",
+      "description": "multiple filters intersect strictly",
+      "fixture_file": "recall/recall_035.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-RECALL-036",
+      "action": "recall_memory",
+      "family": "ordering_desc",
+      "description": "ordered by created_at desc",
+      "fixture_file": "recall/recall_036.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-RECALL-037",
+      "action": "recall_memory",
+      "family": "empty_result",
+      "description": "no rows returns success with empty results",
+      "fixture_file": "recall/recall_037.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-RECALL-038",
+      "action": "recall_memory",
+      "family": "invalid_input",
+      "description": "no supported filter supplied",
+      "fixture_file": "recall/recall_038.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-RECALL-039",
+      "action": "recall_memory",
+      "family": "status_scope",
+      "description": "status filter behavior",
+      "fixture_file": "recall/recall_039.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-RECALL-040",
+      "action": "recall_memory",
+      "family": "mixed_filter_guard",
+      "description": "filters never degrade to fuzzy fallback",
+      "fixture_file": "recall/recall_040.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-RECALL-041",
+      "action": "recall_memory",
+      "family": "happy_entity",
+      "description": "recall by entity_id",
+      "fixture_file": "recall/recall_041.json",
+      "expected_aggregated_status": "partial",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-RECALL-042",
+      "action": "recall_memory",
+      "family": "happy_thread",
+      "description": "recall by thread_id",
+      "fixture_file": "recall/recall_042.json",
+      "expected_aggregated_status": "partial",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-RECALL-043",
+      "action": "recall_memory",
+      "family": "happy_category",
+      "description": "recall by category",
+      "fixture_file": "recall/recall_043.json",
+      "expected_aggregated_status": "partial",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-RECALL-044",
+      "action": "recall_memory",
+      "family": "happy_type",
+      "description": "recall by memory_type",
+      "fixture_file": "recall/recall_044.json",
+      "expected_aggregated_status": "partial",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-RECALL-045",
+      "action": "recall_memory",
+      "family": "strict_intersection",
+      "description": "multiple filters intersect strictly",
+      "fixture_file": "recall/recall_045.json",
+      "expected_aggregated_status": "partial",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-RECALL-046",
+      "action": "recall_memory",
+      "family": "ordering_desc",
+      "description": "ordered by created_at desc",
+      "fixture_file": "recall/recall_046.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-RECALL-047",
+      "action": "recall_memory",
+      "family": "empty_result",
+      "description": "no rows returns success with empty results",
+      "fixture_file": "recall/recall_047.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-RECALL-048",
+      "action": "recall_memory",
+      "family": "invalid_input",
+      "description": "no supported filter supplied",
+      "fixture_file": "recall/recall_048.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-RECALL-049",
+      "action": "recall_memory",
+      "family": "status_scope",
+      "description": "status filter behavior",
+      "fixture_file": "recall/recall_049.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-RECALL-050",
+      "action": "recall_memory",
+      "family": "mixed_filter_guard",
+      "description": "filters never degrade to fuzzy fallback",
+      "fixture_file": "recall/recall_050.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-PROMOTE-001",
+      "action": "promote_memory",
+      "family": "happy_corroboration",
+      "description": "promotion allowed by corroboration_count >= 2",
+      "fixture_file": "promote/promote_001.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-PROMOTE-002",
+      "action": "promote_memory",
+      "family": "happy_user_confirmed",
+      "description": "promotion allowed by user_confirmed true",
+      "fixture_file": "promote/promote_002.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-PROMOTE-003",
+      "action": "promote_memory",
+      "family": "happy_evidence_validated",
+      "description": "promotion allowed by evidence_validated true",
+      "fixture_file": "promote/promote_003.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-PROMOTE-004",
+      "action": "promote_memory",
+      "family": "promotion_denied",
+      "description": "criteria missing -> partial",
+      "fixture_file": "promote/promote_004.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-PROMOTE-005",
+      "action": "promote_memory",
+      "family": "invalid_target",
+      "description": "target other than long_term fails",
+      "fixture_file": "promote/promote_005.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-PROMOTE-006",
+      "action": "promote_memory",
+      "family": "already_long_term",
+      "description": "already promoted rows handled deterministically",
+      "fixture_file": "promote/promote_006.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-PROMOTE-007",
+      "action": "promote_memory",
+      "family": "status_guard",
+      "description": "non-active rows cannot be promoted",
+      "fixture_file": "promote/promote_007.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-PROMOTE-008",
+      "action": "promote_memory",
+      "family": "evidence_merge",
+      "description": "evidence_refs appended on promote",
+      "fixture_file": "promote/promote_008.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-PROMOTE-009",
+      "action": "promote_memory",
+      "family": "counter_update",
+      "description": "last_reconfirmed_at and counts updated",
+      "fixture_file": "promote/promote_009.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-PROMOTE-010",
+      "action": "promote_memory",
+      "family": "missing_memory",
+      "description": "unknown memory_id fails",
+      "fixture_file": "promote/promote_010.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-PROMOTE-011",
+      "action": "promote_memory",
+      "family": "happy_corroboration",
+      "description": "promotion allowed by corroboration_count >= 2",
+      "fixture_file": "promote/promote_011.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-PROMOTE-012",
+      "action": "promote_memory",
+      "family": "happy_user_confirmed",
+      "description": "promotion allowed by user_confirmed true",
+      "fixture_file": "promote/promote_012.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-PROMOTE-013",
+      "action": "promote_memory",
+      "family": "happy_evidence_validated",
+      "description": "promotion allowed by evidence_validated true",
+      "fixture_file": "promote/promote_013.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-PROMOTE-014",
+      "action": "promote_memory",
+      "family": "promotion_denied",
+      "description": "criteria missing -> partial",
+      "fixture_file": "promote/promote_014.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-PROMOTE-015",
+      "action": "promote_memory",
+      "family": "invalid_target",
+      "description": "target other than long_term fails",
+      "fixture_file": "promote/promote_015.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-PROMOTE-016",
+      "action": "promote_memory",
+      "family": "already_long_term",
+      "description": "already promoted rows handled deterministically",
+      "fixture_file": "promote/promote_016.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-PROMOTE-017",
+      "action": "promote_memory",
+      "family": "status_guard",
+      "description": "non-active rows cannot be promoted",
+      "fixture_file": "promote/promote_017.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-PROMOTE-018",
+      "action": "promote_memory",
+      "family": "evidence_merge",
+      "description": "evidence_refs appended on promote",
+      "fixture_file": "promote/promote_018.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-PROMOTE-019",
+      "action": "promote_memory",
+      "family": "counter_update",
+      "description": "last_reconfirmed_at and counts updated",
+      "fixture_file": "promote/promote_019.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-PROMOTE-020",
+      "action": "promote_memory",
+      "family": "missing_memory",
+      "description": "unknown memory_id fails",
+      "fixture_file": "promote/promote_020.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-PROMOTE-021",
+      "action": "promote_memory",
+      "family": "happy_corroboration",
+      "description": "promotion allowed by corroboration_count >= 2",
+      "fixture_file": "promote/promote_021.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-PROMOTE-022",
+      "action": "promote_memory",
+      "family": "happy_user_confirmed",
+      "description": "promotion allowed by user_confirmed true",
+      "fixture_file": "promote/promote_022.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-PROMOTE-023",
+      "action": "promote_memory",
+      "family": "happy_evidence_validated",
+      "description": "promotion allowed by evidence_validated true",
+      "fixture_file": "promote/promote_023.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-PROMOTE-024",
+      "action": "promote_memory",
+      "family": "promotion_denied",
+      "description": "criteria missing -> partial",
+      "fixture_file": "promote/promote_024.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-PROMOTE-025",
+      "action": "promote_memory",
+      "family": "invalid_target",
+      "description": "target other than long_term fails",
+      "fixture_file": "promote/promote_025.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-PROMOTE-026",
+      "action": "promote_memory",
+      "family": "already_long_term",
+      "description": "already promoted rows handled deterministically",
+      "fixture_file": "promote/promote_026.json",
+      "expected_aggregated_status": "partial",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-PROMOTE-027",
+      "action": "promote_memory",
+      "family": "status_guard",
+      "description": "non-active rows cannot be promoted",
+      "fixture_file": "promote/promote_027.json",
+      "expected_aggregated_status": "partial",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-PROMOTE-028",
+      "action": "promote_memory",
+      "family": "evidence_merge",
+      "description": "evidence_refs appended on promote",
+      "fixture_file": "promote/promote_028.json",
+      "expected_aggregated_status": "partial",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-PROMOTE-029",
+      "action": "promote_memory",
+      "family": "counter_update",
+      "description": "last_reconfirmed_at and counts updated",
+      "fixture_file": "promote/promote_029.json",
+      "expected_aggregated_status": "partial",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-PROMOTE-030",
+      "action": "promote_memory",
+      "family": "missing_memory",
+      "description": "unknown memory_id fails",
+      "fixture_file": "promote/promote_030.json",
+      "expected_aggregated_status": "partial",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-PROMOTE-031",
+      "action": "promote_memory",
+      "family": "happy_corroboration",
+      "description": "promotion allowed by corroboration_count >= 2",
+      "fixture_file": "promote/promote_031.json",
+      "expected_aggregated_status": "partial",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-PROMOTE-032",
+      "action": "promote_memory",
+      "family": "happy_user_confirmed",
+      "description": "promotion allowed by user_confirmed true",
+      "fixture_file": "promote/promote_032.json",
+      "expected_aggregated_status": "partial",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-PROMOTE-033",
+      "action": "promote_memory",
+      "family": "happy_evidence_validated",
+      "description": "promotion allowed by evidence_validated true",
+      "fixture_file": "promote/promote_033.json",
+      "expected_aggregated_status": "partial",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-PROMOTE-034",
+      "action": "promote_memory",
+      "family": "promotion_denied",
+      "description": "criteria missing -> partial",
+      "fixture_file": "promote/promote_034.json",
+      "expected_aggregated_status": "partial",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-PROMOTE-035",
+      "action": "promote_memory",
+      "family": "invalid_target",
+      "description": "target other than long_term fails",
+      "fixture_file": "promote/promote_035.json",
+      "expected_aggregated_status": "partial",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-PROMOTE-036",
+      "action": "promote_memory",
+      "family": "already_long_term",
+      "description": "already promoted rows handled deterministically",
+      "fixture_file": "promote/promote_036.json",
+      "expected_aggregated_status": "partial",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-PROMOTE-037",
+      "action": "promote_memory",
+      "family": "status_guard",
+      "description": "non-active rows cannot be promoted",
+      "fixture_file": "promote/promote_037.json",
+      "expected_aggregated_status": "partial",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-PROMOTE-038",
+      "action": "promote_memory",
+      "family": "evidence_merge",
+      "description": "evidence_refs appended on promote",
+      "fixture_file": "promote/promote_038.json",
+      "expected_aggregated_status": "partial",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-PROMOTE-039",
+      "action": "promote_memory",
+      "family": "counter_update",
+      "description": "last_reconfirmed_at and counts updated",
+      "fixture_file": "promote/promote_039.json",
+      "expected_aggregated_status": "partial",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-PROMOTE-040",
+      "action": "promote_memory",
+      "family": "missing_memory",
+      "description": "unknown memory_id fails",
+      "fixture_file": "promote/promote_040.json",
+      "expected_aggregated_status": "partial",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-PROMOTE-041",
+      "action": "promote_memory",
+      "family": "happy_corroboration",
+      "description": "promotion allowed by corroboration_count >= 2",
+      "fixture_file": "promote/promote_041.json",
+      "expected_aggregated_status": "failed",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-PROMOTE-042",
+      "action": "promote_memory",
+      "family": "happy_user_confirmed",
+      "description": "promotion allowed by user_confirmed true",
+      "fixture_file": "promote/promote_042.json",
+      "expected_aggregated_status": "failed",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-PROMOTE-043",
+      "action": "promote_memory",
+      "family": "happy_evidence_validated",
+      "description": "promotion allowed by evidence_validated true",
+      "fixture_file": "promote/promote_043.json",
+      "expected_aggregated_status": "failed",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-PROMOTE-044",
+      "action": "promote_memory",
+      "family": "promotion_denied",
+      "description": "criteria missing -> partial",
+      "fixture_file": "promote/promote_044.json",
+      "expected_aggregated_status": "failed",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-PROMOTE-045",
+      "action": "promote_memory",
+      "family": "invalid_target",
+      "description": "target other than long_term fails",
+      "fixture_file": "promote/promote_045.json",
+      "expected_aggregated_status": "failed",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-PROMOTE-046",
+      "action": "promote_memory",
+      "family": "already_long_term",
+      "description": "already promoted rows handled deterministically",
+      "fixture_file": "promote/promote_046.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-PROMOTE-047",
+      "action": "promote_memory",
+      "family": "status_guard",
+      "description": "non-active rows cannot be promoted",
+      "fixture_file": "promote/promote_047.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-PROMOTE-048",
+      "action": "promote_memory",
+      "family": "evidence_merge",
+      "description": "evidence_refs appended on promote",
+      "fixture_file": "promote/promote_048.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-PROMOTE-049",
+      "action": "promote_memory",
+      "family": "counter_update",
+      "description": "last_reconfirmed_at and counts updated",
+      "fixture_file": "promote/promote_049.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-PROMOTE-050",
+      "action": "promote_memory",
+      "family": "missing_memory",
+      "description": "unknown memory_id fails",
+      "fixture_file": "promote/promote_050.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-SUPERSEDE-001",
+      "action": "supersede_memory",
+      "family": "happy_basic",
+      "description": "old row superseded, new row active",
+      "fixture_file": "supersede/supersede_001.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-SUPERSEDE-002",
+      "action": "supersede_memory",
+      "family": "happy_with_evidence",
+      "description": "new row carries evidence refs and linkage",
+      "fixture_file": "supersede/supersede_002.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-SUPERSEDE-003",
+      "action": "supersede_memory",
+      "family": "invalid_old_missing",
+      "description": "missing target fails",
+      "fixture_file": "supersede/supersede_003.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-SUPERSEDE-004",
+      "action": "supersede_memory",
+      "family": "invalid_old_superseded",
+      "description": "already superseded target fails",
+      "fixture_file": "supersede/supersede_004.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-SUPERSEDE-005",
+      "action": "supersede_memory",
+      "family": "transactional_integrity",
+      "description": "no split-brain old/new statuses",
+      "fixture_file": "supersede/supersede_005.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-SUPERSEDE-006",
+      "action": "supersede_memory",
+      "family": "idempotency_replay",
+      "description": "same supersede request is replay-safe",
+      "fixture_file": "supersede/supersede_006.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-SUPERSEDE-007",
+      "action": "supersede_memory",
+      "family": "store_contract_reuse",
+      "description": "new row honors store validation rules",
+      "fixture_file": "supersede/supersede_007.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-SUPERSEDE-008",
+      "action": "supersede_memory",
+      "family": "subjective_guard",
+      "description": "subjective content still refused",
+      "fixture_file": "supersede/supersede_008.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-SUPERSEDE-009",
+      "action": "supersede_memory",
+      "family": "linkage_integrity",
+      "description": "supersedes_memory_id persisted correctly",
+      "fixture_file": "supersede/supersede_009.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-SUPERSEDE-010",
+      "action": "supersede_memory",
+      "family": "status_scope",
+      "description": "only active old row is valid target",
+      "fixture_file": "supersede/supersede_010.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-SUPERSEDE-011",
+      "action": "supersede_memory",
+      "family": "happy_basic",
+      "description": "old row superseded, new row active",
+      "fixture_file": "supersede/supersede_011.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-SUPERSEDE-012",
+      "action": "supersede_memory",
+      "family": "happy_with_evidence",
+      "description": "new row carries evidence refs and linkage",
+      "fixture_file": "supersede/supersede_012.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-SUPERSEDE-013",
+      "action": "supersede_memory",
+      "family": "invalid_old_missing",
+      "description": "missing target fails",
+      "fixture_file": "supersede/supersede_013.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-SUPERSEDE-014",
+      "action": "supersede_memory",
+      "family": "invalid_old_superseded",
+      "description": "already superseded target fails",
+      "fixture_file": "supersede/supersede_014.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-SUPERSEDE-015",
+      "action": "supersede_memory",
+      "family": "transactional_integrity",
+      "description": "no split-brain old/new statuses",
+      "fixture_file": "supersede/supersede_015.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-SUPERSEDE-016",
+      "action": "supersede_memory",
+      "family": "idempotency_replay",
+      "description": "same supersede request is replay-safe",
+      "fixture_file": "supersede/supersede_016.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-SUPERSEDE-017",
+      "action": "supersede_memory",
+      "family": "store_contract_reuse",
+      "description": "new row honors store validation rules",
+      "fixture_file": "supersede/supersede_017.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-SUPERSEDE-018",
+      "action": "supersede_memory",
+      "family": "subjective_guard",
+      "description": "subjective content still refused",
+      "fixture_file": "supersede/supersede_018.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-SUPERSEDE-019",
+      "action": "supersede_memory",
+      "family": "linkage_integrity",
+      "description": "supersedes_memory_id persisted correctly",
+      "fixture_file": "supersede/supersede_019.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-SUPERSEDE-020",
+      "action": "supersede_memory",
+      "family": "status_scope",
+      "description": "only active old row is valid target",
+      "fixture_file": "supersede/supersede_020.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-SUPERSEDE-021",
+      "action": "supersede_memory",
+      "family": "happy_basic",
+      "description": "old row superseded, new row active",
+      "fixture_file": "supersede/supersede_021.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-SUPERSEDE-022",
+      "action": "supersede_memory",
+      "family": "happy_with_evidence",
+      "description": "new row carries evidence refs and linkage",
+      "fixture_file": "supersede/supersede_022.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-SUPERSEDE-023",
+      "action": "supersede_memory",
+      "family": "invalid_old_missing",
+      "description": "missing target fails",
+      "fixture_file": "supersede/supersede_023.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-SUPERSEDE-024",
+      "action": "supersede_memory",
+      "family": "invalid_old_superseded",
+      "description": "already superseded target fails",
+      "fixture_file": "supersede/supersede_024.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-SUPERSEDE-025",
+      "action": "supersede_memory",
+      "family": "transactional_integrity",
+      "description": "no split-brain old/new statuses",
+      "fixture_file": "supersede/supersede_025.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-SUPERSEDE-026",
+      "action": "supersede_memory",
+      "family": "idempotency_replay",
+      "description": "same supersede request is replay-safe",
+      "fixture_file": "supersede/supersede_026.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-SUPERSEDE-027",
+      "action": "supersede_memory",
+      "family": "store_contract_reuse",
+      "description": "new row honors store validation rules",
+      "fixture_file": "supersede/supersede_027.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-SUPERSEDE-028",
+      "action": "supersede_memory",
+      "family": "subjective_guard",
+      "description": "subjective content still refused",
+      "fixture_file": "supersede/supersede_028.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-SUPERSEDE-029",
+      "action": "supersede_memory",
+      "family": "linkage_integrity",
+      "description": "supersedes_memory_id persisted correctly",
+      "fixture_file": "supersede/supersede_029.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-SUPERSEDE-030",
+      "action": "supersede_memory",
+      "family": "status_scope",
+      "description": "only active old row is valid target",
+      "fixture_file": "supersede/supersede_030.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-SUPERSEDE-031",
+      "action": "supersede_memory",
+      "family": "happy_basic",
+      "description": "old row superseded, new row active",
+      "fixture_file": "supersede/supersede_031.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-SUPERSEDE-032",
+      "action": "supersede_memory",
+      "family": "happy_with_evidence",
+      "description": "new row carries evidence refs and linkage",
+      "fixture_file": "supersede/supersede_032.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-SUPERSEDE-033",
+      "action": "supersede_memory",
+      "family": "invalid_old_missing",
+      "description": "missing target fails",
+      "fixture_file": "supersede/supersede_033.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-SUPERSEDE-034",
+      "action": "supersede_memory",
+      "family": "invalid_old_superseded",
+      "description": "already superseded target fails",
+      "fixture_file": "supersede/supersede_034.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-SUPERSEDE-035",
+      "action": "supersede_memory",
+      "family": "transactional_integrity",
+      "description": "no split-brain old/new statuses",
+      "fixture_file": "supersede/supersede_035.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-SUPERSEDE-036",
+      "action": "supersede_memory",
+      "family": "idempotency_replay",
+      "description": "same supersede request is replay-safe",
+      "fixture_file": "supersede/supersede_036.json",
+      "expected_aggregated_status": "failed",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-SUPERSEDE-037",
+      "action": "supersede_memory",
+      "family": "store_contract_reuse",
+      "description": "new row honors store validation rules",
+      "fixture_file": "supersede/supersede_037.json",
+      "expected_aggregated_status": "failed",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-SUPERSEDE-038",
+      "action": "supersede_memory",
+      "family": "subjective_guard",
+      "description": "subjective content still refused",
+      "fixture_file": "supersede/supersede_038.json",
+      "expected_aggregated_status": "failed",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-SUPERSEDE-039",
+      "action": "supersede_memory",
+      "family": "linkage_integrity",
+      "description": "supersedes_memory_id persisted correctly",
+      "fixture_file": "supersede/supersede_039.json",
+      "expected_aggregated_status": "failed",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-SUPERSEDE-040",
+      "action": "supersede_memory",
+      "family": "status_scope",
+      "description": "only active old row is valid target",
+      "fixture_file": "supersede/supersede_040.json",
+      "expected_aggregated_status": "failed",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-SUPERSEDE-041",
+      "action": "supersede_memory",
+      "family": "happy_basic",
+      "description": "old row superseded, new row active",
+      "fixture_file": "supersede/supersede_041.json",
+      "expected_aggregated_status": "failed",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-SUPERSEDE-042",
+      "action": "supersede_memory",
+      "family": "happy_with_evidence",
+      "description": "new row carries evidence refs and linkage",
+      "fixture_file": "supersede/supersede_042.json",
+      "expected_aggregated_status": "failed",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-SUPERSEDE-043",
+      "action": "supersede_memory",
+      "family": "invalid_old_missing",
+      "description": "missing target fails",
+      "fixture_file": "supersede/supersede_043.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-SUPERSEDE-044",
+      "action": "supersede_memory",
+      "family": "invalid_old_superseded",
+      "description": "already superseded target fails",
+      "fixture_file": "supersede/supersede_044.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-SUPERSEDE-045",
+      "action": "supersede_memory",
+      "family": "transactional_integrity",
+      "description": "no split-brain old/new statuses",
+      "fixture_file": "supersede/supersede_045.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-SUPERSEDE-046",
+      "action": "supersede_memory",
+      "family": "idempotency_replay",
+      "description": "same supersede request is replay-safe",
+      "fixture_file": "supersede/supersede_046.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-SUPERSEDE-047",
+      "action": "supersede_memory",
+      "family": "store_contract_reuse",
+      "description": "new row honors store validation rules",
+      "fixture_file": "supersede/supersede_047.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-SUPERSEDE-048",
+      "action": "supersede_memory",
+      "family": "subjective_guard",
+      "description": "subjective content still refused",
+      "fixture_file": "supersede/supersede_048.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-SUPERSEDE-049",
+      "action": "supersede_memory",
+      "family": "linkage_integrity",
+      "description": "supersedes_memory_id persisted correctly",
+      "fixture_file": "supersede/supersede_049.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    },
+    {
+      "id": "MEM-SUPERSEDE-050",
+      "action": "supersede_memory",
+      "family": "status_scope",
+      "description": "only active old row is valid target",
+      "fixture_file": "supersede/supersede_050.json",
+      "expected_aggregated_status": "success",
+      "expected_db_assertions": [
+        "rows_created_or_updated_match_expectation",
+        "status_and_tier_match_oracle",
+        "idempotency_and_linkage_constraints_hold"
+      ],
+      "requires_connector_nodes_if_multi_workflow": true,
+      "notes": "If the implementation fans out into multiple workflows, the test must also provision and assert the connector nodes / Execute Workflow bridges between them."
+    }
+  ]
+}

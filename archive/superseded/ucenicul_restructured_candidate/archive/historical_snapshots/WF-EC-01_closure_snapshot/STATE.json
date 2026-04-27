@@ -1,0 +1,160 @@
+{
+  "current_stage": "WF-EC-01",
+  "current_stage_file": "06_STAGE_WF-EC-01.md",
+  "status": "closed",
+  "phase": "live_runtime_fully_verified",
+  "score": 10,
+  "score_previous": 9.5,
+  "score_cap_reason": null,
+  "fallback_mode_active": false,
+  "failed_path_label": "sdk_update_workflow_code",
+  "current_path_label": "native_json_blueprint_plus_manual_import_plus_dual_trigger_pindata_plus_extended_runtime_suite",
+  "next_path_label": "advance_to_wf_or_01",
+  "retry_count": 0,
+  "banned_strategy_labels": [
+    "sdk_update_workflow_code"
+  ],
+  "hard_blockers": [],
+  "soft_blockers": [],
+  "carry_forward_tool_limitations": [
+    "mcp__n8n__patch_workflow_nodes: PUT-schema mismatch; unsafe for in-place mutation of existing shells (refuses top-level node fields that GET returns: timeSavedMode, alwaysOutputData, notes; also rejects settings injections).",
+    "mcp__f2e8be41-…__execute_workflow in manual mode selects the webhook-registered trigger as start node (chat trigger with webhookId wins over manualTrigger without webhookId). Dual-trigger pinData is the working pattern when the intent is to exercise the manual trigger's path programmatically.",
+    "Chat trigger emits {sessionId, action, chatInput}; not a valid direct driver for structured modules. Any chat-driven entry requires an adapter node mapping chatInput → {tenant_id, thread_id, trigger_message_id}."
+  ],
+  "latest_evidence_level": "verified_by_live_workflow_read_and_db_query_and_11_live_runtime_executions_and_script_level_tests",
+  "script_level_tests": {
+    "suite": "workflows/tests/ec/test_families.py",
+    "families": 10,
+    "tests_total": 300,
+    "tests_passed": 300,
+    "tests_failed": 0,
+    "results_json": "workflows/tests/ec/results/results.json",
+    "results_md": "workflows/tests/ec/results/results.md",
+    "family_breakdown": {
+      "input_validation": 30,
+      "happy_path": 30,
+      "idempotency": 30,
+      "cross_tenant": 30,
+      "tr_ec_handoff": 30,
+      "node_validation": 30,
+      "node_payload_builder": 30,
+      "node_result_formatter": 30,
+      "node_error_formatter": 30,
+      "tooling_reporting": 30
+    }
+  },
+  "live_probes": {
+    "V1_shell_structural": "PASS",
+    "V2_happy_path_db": "PASS",
+    "V3_replay_idempotency_db": "PASS",
+    "V4_cross_tenant_isolation_db": "PASS",
+    "V5_invalid_input_end_to_end": "PASS (execution 687)",
+    "V6_tr_to_ec_handoff_db": "PASS",
+    "V2e_happy_path_end_to_end": "PASS (executions 689 fresh, 690 replay)",
+    "V2e_ext_extended_runtime_suite": "PASS (executions 691-699; 1 fresh + 3 sequential replays + 2 production-mode invalid + 3 concurrent replays)"
+  },
+  "live_runtime_invariants_verified": {
+    "happy_path_executions_count": 7,
+    "happy_path_db_rows_produced": 1,
+    "happy_path_distinct_ids_produced": 1,
+    "invalid_input_executions_count": 3,
+    "invalid_input_db_writes": 0,
+    "concurrency_stress_test_duplicates": 0,
+    "switch_fix_confirmed_on_executions": 11,
+    "ec_return_result_canonical_shape_identical_across_fresh_and_replay": true,
+    "ec_return_error_canonical_shape_identical_across_all_invalid_runs": true,
+    "ttl_seconds_verified": 900
+  },
+  "artifacts_on_disk": {
+    "blueprint_json": [
+      "workflows/WF-EC-01_Execution_Context.json",
+      "workflows/WF-EC-01_blueprint.json"
+    ],
+    "planning_docs": [
+      "workflows/WF-EC-01_NODE_MAP.md",
+      "workflows/WF-EC-01_CONNECTION_MAP.md",
+      "workflows/WF-EC-01_IMPORT_PATCH_PLAN.md"
+    ],
+    "sql": [
+      "workflows/sql/ec/01_schema_inspect.sql",
+      "workflows/sql/ec/02_upsert.sql",
+      "workflows/sql/ec/03_load_existing.sql",
+      "workflows/sql/ec/10_fixtures_create.sql",
+      "workflows/sql/ec/11_fixtures_cleanup.sql",
+      "workflows/sql/ec/20_behavior_probe.sql"
+    ],
+    "scripts": [
+      "workflows/scripts/ec/ec_logic.py"
+    ],
+    "tests": [
+      "workflows/tests/ec/test_families.py"
+    ],
+    "audits": [
+      "workflows/POST_IMPORT_AUDIT_WF-EC-01.md"
+    ]
+  },
+  "live_shell": {
+    "workflow_id": "v9jih4jqeXpOJOiH",
+    "shell_preserved": true,
+    "last_live_read": "verified_intact",
+    "version_counter": 31,
+    "nodes_total": 9,
+    "nodes_ec": 7,
+    "connections_total": 8,
+    "connections_ec": 6,
+    "switch_fix_applied_live": true,
+    "switch_fix_mirrored_on_disk": true,
+    "postgres_credentials_bound": true,
+    "always_output_data_on_postgres_nodes": true,
+    "available_in_mcp": true,
+    "pindata_on_manual_trigger": true,
+    "pindata_on_chat_trigger": true
+  },
+  "db_state": {
+    "execution_contexts_exists": true,
+    "execution_contexts_columns": 18,
+    "idempotency_key_unique": true,
+    "idempotency_key_unique_scope": "global (not per-tenant); tenant_id filter in EC_Load_Existing_Context is a correctness guarantee",
+    "status_check_allows_initialized": true,
+    "tenant_1_present": true,
+    "tenant_2_present_now": true,
+    "carry_forward_tr_ec_evidence_preserved": true,
+    "stage_local_ec_rows_after_cleanup": 0,
+    "fixture_threads_remaining": 0,
+    "fixture_messages_remaining": 0,
+    "ttl_seconds_verified": 900,
+    "total_rows_in_execution_contexts_post_cleanup": 1
+  },
+  "cycle_3_fix": {
+    "title": "EC_Route_Valid empty-array routing under dataType=boolean",
+    "found_in": "execution 686 (post-import invalid-input probe)",
+    "root_cause": "value1 authored as expression evaluating to real boolean, value2 stored as strings; under dataType=boolean strict boolean↔string comparison matches neither rule",
+    "fix_applied_by": "user (n8n UI)",
+    "fix_mirrored_on_disk": true,
+    "fix_verified_in": "executions 687, 695, 696 (invalid routing) + 689, 690, 691-694, 697-699 (valid routing)",
+    "reimport_safe": true
+  },
+  "cycle_4_closure": {
+    "title": "V2e closure + extended runtime suite",
+    "trigger": "user set pinData on BOTH triggers (manual + chat) with identical happy-path payload",
+    "new_insight": "mcp__f2e8be41-…__execute_workflow in manual mode selects the webhook-registered trigger (chat trigger) as start node; manual-trigger-only pinData is insufficient — dual-trigger pinData is the working pattern",
+    "first_attempt_failure": "execution 688 (manual mode, manual-trigger-only pinData) failed with 'Cannot read properties of undefined (reading \"map\")' because chat trigger was selected but had no pinData and no chatInput provided",
+    "closure_run": "execution 689 (happy path fresh insert, dual-trigger pinData)",
+    "extended_suite_runs": "executions 690-699 (replay + R1/R2/R3/R4 + R5/R6 + R7a/R7b/R7c)",
+    "total_live_runtime_executions": 11,
+    "db_invariants_verified": "7 happy-path runs → 1 row + 1 distinct id; 3 invalid runs → 0 DB writes"
+  },
+  "next_action": "Advance to WF-OR-01 (Orchestrator Input Handoff). See 00_ROUTE_MAP.md for next stage file.",
+  "first_live_surface_action": "Completed: user-performed manual UI import of workflows/WF-EC-01_Execution_Context.json into WF-EC-01 (v9jih4jqeXpOJOiH); user-set dual-trigger pinData; 11 live runtime executions.",
+  "last_updated": "2026-04-17",
+  "advance_allowed": true,
+  "advance_gate": "UNLOCKED — WF-OR-01 may begin",
+  "notes": [
+    "The live WF-EC-01 shell (v9jih4jqeXpOJOiH) was preserved throughout all 4 cycles.",
+    "The on-disk blueprint mirrors the live post-cycle-3 switch fix; re-import is idempotent and safe.",
+    "Carry-forward TR→EC evidence row (id a7ae786a-..., key ...:aaaabbbb-...-000000000010:exec_ctx:v1) is preserved.",
+    "Fixture cleanup is prefix-scoped (wfec01_fixture_%, wfec01_test_%) and leaves tenant_2 in place by design.",
+    "Script-level tests (300/300) validated logic; live runtime (11 executions across 5 scenario classes) validated engine + graph + DB contract end-to-end.",
+    "Stage closed at 10/10; WF-OR-01 is unlocked."
+  ]
+}

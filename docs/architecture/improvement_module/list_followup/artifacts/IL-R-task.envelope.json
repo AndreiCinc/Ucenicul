@@ -1,0 +1,19 @@
+{
+  "message_id": "75f2e862-7458-4cc7-8ebd-8b41db44a0a1",
+  "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+  "channel": "e2e-rich-matrix",
+  "direction": "inbound",
+  "author_type": "user",
+  "normalized_content": "Creează task: scrie raportul",
+  "timestamp": "2026-04-27T08:23:36.626Z",
+  "source_message_ref": "e2e:IL-R-task:e2e:il-2026-04-27:IL-R-task",
+  "author_entity_id": null,
+  "related_entity_ids": [],
+  "metadata": {
+    "e2e_case_id": "IL-R-task",
+    "e2e_run_tag": "il-2026-04-27",
+    "e2e_intent_test": "create_task"
+  },
+  "idempotency_key": "e2e:il-2026-04-27:IL-R-task",
+  "thread_id": "9ee8a9d2-f66d-4cd7-8446-db90e3686a71"
+}

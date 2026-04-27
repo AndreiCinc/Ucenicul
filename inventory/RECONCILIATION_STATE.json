@@ -1,0 +1,61 @@
+{
+  "phase": "CLOSED_10_OF_10_SYNCED",
+  "current_source_root": null,
+  "current_folder_being_scanned": null,
+  "current_file_being_processed": null,
+  "completed_counts": {
+    "phase_0_resume": "completed",
+    "phase_1_rescan": "completed",
+    "phase_2_content_review": "completed",
+    "phase_3_canonical_normalization": "completed",
+    "phase_4_relocation_update": "completed",
+    "phase_5_verification_pass_1": "completed",
+    "phase_6_verification_pass_2": "completed",
+    "phase_7_verification_pass_3": "completed",
+    "phase_8_final_report": "completed",
+    "phase_9_manifest_sync": "completed"
+  },
+  "unresolved_counts": {
+    "ambiguous_pre_review": 1,
+    "ambiguous_post_review": 0,
+    "collision_unresolved": 0,
+    "duplicate_dual_canonical": 0
+  },
+  "verification_pass_1_status": "passed",
+  "verification_pass_2_status": "passed",
+  "verification_pass_3_status": "passed",
+  "priors": {
+    "source_a_file_count": 587,
+    "source_b_file_count": 333,
+    "total": 920,
+    "workflow_owned": 144,
+    "claude_pipeline_asset": 237,
+    "repo_root_owned": 14,
+    "shared_technical": 9,
+    "archive_candidate": 154,
+    "duplicate_candidate": 361,
+    "ambiguous": 1
+  },
+  "last_updated_at": "2026-04-19T12:43:58.591271+00:00",
+  "acceptance_criteria_passed": 17,
+  "acceptance_criteria_total": 17,
+  "closure_status": "10/10 STRICT SYNCHRONIZED",
+  "counts_by_role_final": {
+    "source_a_file_count": 587,
+    "source_b_file_count": 333,
+    "total": 920,
+    "repo_root_owned": 14,
+    "shared_technical": 9,
+    "duplicate_candidate": 361,
+    "archive_candidate": 155,
+    "workflow_owned": 144,
+    "claude_pipeline_asset": 237
+  },
+  "priors_note": "priors[] is an immutable pre-content-review snapshot from initial classification (Phase 2). counts_by_role_final reflects the post-Phase-3R canonical state. Drift between the two is expected and audited in inventory/final_consistency_audit.json.",
+  "verification_pass_1_status_post_sync": "passed",
+  "verification_pass_2_status_post_sync": "passed",
+  "verification_pass_3_status_post_sync": "passed",
+  "final_consistency_audit_status": "PASSED — 10/10 checks, 0 mismatches",
+  "final_cross_check_10pt_status": "PASSED — 10/10 points",
+  "closure_hardening_complete_at": "2026-04-19T12:43:58.591271+00:00"
+}

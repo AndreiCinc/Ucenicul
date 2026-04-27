@@ -1,0 +1,20 @@
+{
+  "message_id": "17a9835a-98c1-485d-8c8f-46449cb3280c",
+  "tenant_id": "eee0e2e0-0000-0000-0000-00000000000b",
+  "channel": "rcp1-rich-matrix",
+  "direction": "inbound",
+  "author_type": "user",
+  "normalized_content": "Ce știi despre culoarea preferată tenant-A?",
+  "timestamp": "2026-04-25T19:17:11.983Z",
+  "source_message_ref": "rcp1:RC-C3-05",
+  "author_entity_id": null,
+  "related_entity_ids": [],
+  "metadata": {
+    "rcp1_case_id": "RC-C3-05",
+    "rcp1_corridor": "C3",
+    "rcp1_run_tag": "rcp1-2026-04-25"
+  },
+  "idempotency_key": "rcp1:rcp1-2026-04-25:RC-C3-05",
+  "thread_id": "a4a7970d-9671-40b0-84b2-06ba8cde772c",
+  "reply_to_thread_id": null
+}

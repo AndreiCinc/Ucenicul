@@ -1,0 +1,23 @@
+{
+  "message_id": "3d9f1f65-c528-4818-8057-ed7ee489272e",
+  "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+  "channel": "e2e-rich-matrix",
+  "direction": "inbound",
+  "author_type": "user",
+  "normalized_content": "Ține minte că Andrei preferă antrenamente dimineața.",
+  "timestamp": "2026-04-26T02:50:47.150Z",
+  "source_message_ref": "e2e:C2-L1-V4:e2e:f240-2026-04-26:C2-L1-V4",
+  "author_entity_id": null,
+  "related_entity_ids": [],
+  "metadata": {
+    "e2e_case_id": "C2-L1-V4",
+    "e2e_corridor": "C2",
+    "e2e_variant": "retry_or_isolation",
+    "e2e_phase": "P1_FOUNDATION",
+    "e2e_priority": "P1",
+    "e2e_locale": "ro",
+    "e2e_run_tag": "f240-2026-04-26"
+  },
+  "idempotency_key": "e2e:f240-2026-04-26:C2-L1-V4",
+  "thread_id": "6380dec2-0f85-4e3c-83f4-21b30fc8c16e"
+}

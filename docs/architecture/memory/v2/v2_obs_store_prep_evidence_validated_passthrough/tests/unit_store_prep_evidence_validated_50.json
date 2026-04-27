@@ -1,0 +1,839 @@
+{
+  "mission": "V2-OBS-STORE-PREP-EVIDENCE-VALIDATED-PASSTHROUGH",
+  "category": "local_unit",
+  "count": 50,
+  "cases": [
+    {
+      "id": "EVU-01",
+      "family": "true_passthrough",
+      "input": {
+        "evidence_validated": true,
+        "action": "store_memory",
+        "content": "Evidence validated unit 1",
+        "memory_type": "fact",
+        "category": "ev_true_passthrough",
+        "source_thread_id": "thread-evu-01"
+      },
+      "expected": {
+        "prep_error": false,
+        "__db.evidence_validated": true
+      }
+    },
+    {
+      "id": "EVU-02",
+      "family": "true_passthrough",
+      "input": {
+        "evidence_validated": true,
+        "action": "store_memory",
+        "content": "Evidence validated unit 2",
+        "memory_type": "fact",
+        "category": "ev_true_passthrough",
+        "source_thread_id": "thread-evu-02"
+      },
+      "expected": {
+        "prep_error": false,
+        "__db.evidence_validated": true
+      }
+    },
+    {
+      "id": "EVU-03",
+      "family": "true_passthrough",
+      "input": {
+        "evidence_validated": true,
+        "action": "store_memory",
+        "content": "Evidence validated unit 3",
+        "memory_type": "fact",
+        "category": "ev_true_passthrough",
+        "source_thread_id": "thread-evu-03"
+      },
+      "expected": {
+        "prep_error": false,
+        "__db.evidence_validated": true
+      }
+    },
+    {
+      "id": "EVU-04",
+      "family": "true_passthrough",
+      "input": {
+        "evidence_validated": true,
+        "action": "store_memory",
+        "content": "Evidence validated unit 4",
+        "memory_type": "fact",
+        "category": "ev_true_passthrough",
+        "source_thread_id": "thread-evu-04"
+      },
+      "expected": {
+        "prep_error": false,
+        "__db.evidence_validated": true
+      }
+    },
+    {
+      "id": "EVU-05",
+      "family": "true_passthrough",
+      "input": {
+        "evidence_validated": true,
+        "action": "store_memory",
+        "content": "Evidence validated unit 5",
+        "memory_type": "fact",
+        "category": "ev_true_passthrough",
+        "source_thread_id": "thread-evu-05"
+      },
+      "expected": {
+        "prep_error": false,
+        "__db.evidence_validated": true
+      }
+    },
+    {
+      "id": "EVU-06",
+      "family": "true_passthrough",
+      "input": {
+        "evidence_validated": true,
+        "action": "store_memory",
+        "content": "Evidence validated unit 6",
+        "memory_type": "fact",
+        "category": "ev_true_passthrough",
+        "source_thread_id": "thread-evu-06"
+      },
+      "expected": {
+        "prep_error": false,
+        "__db.evidence_validated": true
+      }
+    },
+    {
+      "id": "EVU-07",
+      "family": "true_passthrough",
+      "input": {
+        "evidence_validated": true,
+        "action": "store_memory",
+        "content": "Evidence validated unit 7",
+        "memory_type": "fact",
+        "category": "ev_true_passthrough",
+        "source_thread_id": "thread-evu-07"
+      },
+      "expected": {
+        "prep_error": false,
+        "__db.evidence_validated": true
+      }
+    },
+    {
+      "id": "EVU-08",
+      "family": "true_passthrough",
+      "input": {
+        "evidence_validated": true,
+        "action": "store_memory",
+        "content": "Evidence validated unit 8",
+        "memory_type": "fact",
+        "category": "ev_true_passthrough",
+        "source_thread_id": "thread-evu-08"
+      },
+      "expected": {
+        "prep_error": false,
+        "__db.evidence_validated": true
+      }
+    },
+    {
+      "id": "EVU-09",
+      "family": "true_passthrough",
+      "input": {
+        "evidence_validated": true,
+        "action": "store_memory",
+        "content": "Evidence validated unit 9",
+        "memory_type": "fact",
+        "category": "ev_true_passthrough",
+        "source_thread_id": "thread-evu-09"
+      },
+      "expected": {
+        "prep_error": false,
+        "__db.evidence_validated": true
+      }
+    },
+    {
+      "id": "EVU-10",
+      "family": "true_passthrough",
+      "input": {
+        "evidence_validated": true,
+        "action": "store_memory",
+        "content": "Evidence validated unit 10",
+        "memory_type": "fact",
+        "category": "ev_true_passthrough",
+        "source_thread_id": "thread-evu-10"
+      },
+      "expected": {
+        "prep_error": false,
+        "__db.evidence_validated": true
+      }
+    },
+    {
+      "id": "EVU-11",
+      "family": "true_passthrough",
+      "input": {
+        "evidence_validated": true,
+        "action": "store_memory",
+        "content": "Evidence validated unit 11",
+        "memory_type": "fact",
+        "category": "ev_true_passthrough",
+        "source_thread_id": "thread-evu-11"
+      },
+      "expected": {
+        "prep_error": false,
+        "__db.evidence_validated": true
+      }
+    },
+    {
+      "id": "EVU-12",
+      "family": "true_passthrough",
+      "input": {
+        "evidence_validated": true,
+        "action": "store_memory",
+        "content": "Evidence validated unit 12",
+        "memory_type": "fact",
+        "category": "ev_true_passthrough",
+        "source_thread_id": "thread-evu-12"
+      },
+      "expected": {
+        "prep_error": false,
+        "__db.evidence_validated": true
+      }
+    },
+    {
+      "id": "EVU-13",
+      "family": "true_passthrough",
+      "input": {
+        "evidence_validated": true,
+        "action": "store_memory",
+        "content": "Evidence validated unit 13",
+        "memory_type": "fact",
+        "category": "ev_true_passthrough",
+        "source_thread_id": "thread-evu-13"
+      },
+      "expected": {
+        "prep_error": false,
+        "__db.evidence_validated": true
+      }
+    },
+    {
+      "id": "EVU-14",
+      "family": "true_passthrough",
+      "input": {
+        "evidence_validated": true,
+        "action": "store_memory",
+        "content": "Evidence validated unit 14",
+        "memory_type": "fact",
+        "category": "ev_true_passthrough",
+        "source_thread_id": "thread-evu-14"
+      },
+      "expected": {
+        "prep_error": false,
+        "__db.evidence_validated": true
+      }
+    },
+    {
+      "id": "EVU-15",
+      "family": "true_passthrough",
+      "input": {
+        "evidence_validated": true,
+        "action": "store_memory",
+        "content": "Evidence validated unit 15",
+        "memory_type": "fact",
+        "category": "ev_true_passthrough",
+        "source_thread_id": "thread-evu-15"
+      },
+      "expected": {
+        "prep_error": false,
+        "__db.evidence_validated": true
+      }
+    },
+    {
+      "id": "EVU-16",
+      "family": "false_passthrough",
+      "input": {
+        "evidence_validated": false,
+        "action": "store_memory",
+        "content": "Evidence validated unit 16",
+        "memory_type": "fact",
+        "category": "ev_false_passthrough",
+        "source_thread_id": "thread-evu-16"
+      },
+      "expected": {
+        "prep_error": false,
+        "__db.evidence_validated": false
+      }
+    },
+    {
+      "id": "EVU-17",
+      "family": "false_passthrough",
+      "input": {
+        "evidence_validated": false,
+        "action": "store_memory",
+        "content": "Evidence validated unit 17",
+        "memory_type": "fact",
+        "category": "ev_false_passthrough",
+        "source_thread_id": "thread-evu-17"
+      },
+      "expected": {
+        "prep_error": false,
+        "__db.evidence_validated": false
+      }
+    },
+    {
+      "id": "EVU-18",
+      "family": "false_passthrough",
+      "input": {
+        "evidence_validated": false,
+        "action": "store_memory",
+        "content": "Evidence validated unit 18",
+        "memory_type": "fact",
+        "category": "ev_false_passthrough",
+        "source_thread_id": "thread-evu-18"
+      },
+      "expected": {
+        "prep_error": false,
+        "__db.evidence_validated": false
+      }
+    },
+    {
+      "id": "EVU-19",
+      "family": "false_passthrough",
+      "input": {
+        "evidence_validated": false,
+        "action": "store_memory",
+        "content": "Evidence validated unit 19",
+        "memory_type": "fact",
+        "category": "ev_false_passthrough",
+        "source_thread_id": "thread-evu-19"
+      },
+      "expected": {
+        "prep_error": false,
+        "__db.evidence_validated": false
+      }
+    },
+    {
+      "id": "EVU-20",
+      "family": "false_passthrough",
+      "input": {
+        "evidence_validated": false,
+        "action": "store_memory",
+        "content": "Evidence validated unit 20",
+        "memory_type": "fact",
+        "category": "ev_false_passthrough",
+        "source_thread_id": "thread-evu-20"
+      },
+      "expected": {
+        "prep_error": false,
+        "__db.evidence_validated": false
+      }
+    },
+    {
+      "id": "EVU-21",
+      "family": "false_passthrough",
+      "input": {
+        "evidence_validated": false,
+        "action": "store_memory",
+        "content": "Evidence validated unit 21",
+        "memory_type": "fact",
+        "category": "ev_false_passthrough",
+        "source_thread_id": "thread-evu-21"
+      },
+      "expected": {
+        "prep_error": false,
+        "__db.evidence_validated": false
+      }
+    },
+    {
+      "id": "EVU-22",
+      "family": "false_passthrough",
+      "input": {
+        "evidence_validated": false,
+        "action": "store_memory",
+        "content": "Evidence validated unit 22",
+        "memory_type": "fact",
+        "category": "ev_false_passthrough",
+        "source_thread_id": "thread-evu-22"
+      },
+      "expected": {
+        "prep_error": false,
+        "__db.evidence_validated": false
+      }
+    },
+    {
+      "id": "EVU-23",
+      "family": "false_passthrough",
+      "input": {
+        "evidence_validated": false,
+        "action": "store_memory",
+        "content": "Evidence validated unit 23",
+        "memory_type": "fact",
+        "category": "ev_false_passthrough",
+        "source_thread_id": "thread-evu-23"
+      },
+      "expected": {
+        "prep_error": false,
+        "__db.evidence_validated": false
+      }
+    },
+    {
+      "id": "EVU-24",
+      "family": "false_passthrough",
+      "input": {
+        "evidence_validated": false,
+        "action": "store_memory",
+        "content": "Evidence validated unit 24",
+        "memory_type": "fact",
+        "category": "ev_false_passthrough",
+        "source_thread_id": "thread-evu-24"
+      },
+      "expected": {
+        "prep_error": false,
+        "__db.evidence_validated": false
+      }
+    },
+    {
+      "id": "EVU-25",
+      "family": "false_passthrough",
+      "input": {
+        "evidence_validated": false,
+        "action": "store_memory",
+        "content": "Evidence validated unit 25",
+        "memory_type": "fact",
+        "category": "ev_false_passthrough",
+        "source_thread_id": "thread-evu-25"
+      },
+      "expected": {
+        "prep_error": false,
+        "__db.evidence_validated": false
+      }
+    },
+    {
+      "id": "EVU-26",
+      "family": "missing_default_false",
+      "input": {
+        "action": "store_memory",
+        "content": "Evidence validated unit 26",
+        "memory_type": "fact",
+        "category": "ev_missing_default_false",
+        "source_thread_id": "thread-evu-26"
+      },
+      "expected": {
+        "prep_error": false,
+        "__db.evidence_validated": false
+      }
+    },
+    {
+      "id": "EVU-27",
+      "family": "missing_default_false",
+      "input": {
+        "action": "store_memory",
+        "content": "Evidence validated unit 27",
+        "memory_type": "fact",
+        "category": "ev_missing_default_false",
+        "source_thread_id": "thread-evu-27"
+      },
+      "expected": {
+        "prep_error": false,
+        "__db.evidence_validated": false
+      }
+    },
+    {
+      "id": "EVU-28",
+      "family": "missing_default_false",
+      "input": {
+        "action": "store_memory",
+        "content": "Evidence validated unit 28",
+        "memory_type": "fact",
+        "category": "ev_missing_default_false",
+        "source_thread_id": "thread-evu-28"
+      },
+      "expected": {
+        "prep_error": false,
+        "__db.evidence_validated": false
+      }
+    },
+    {
+      "id": "EVU-29",
+      "family": "missing_default_false",
+      "input": {
+        "action": "store_memory",
+        "content": "Evidence validated unit 29",
+        "memory_type": "fact",
+        "category": "ev_missing_default_false",
+        "source_thread_id": "thread-evu-29"
+      },
+      "expected": {
+        "prep_error": false,
+        "__db.evidence_validated": false
+      }
+    },
+    {
+      "id": "EVU-30",
+      "family": "missing_default_false",
+      "input": {
+        "action": "store_memory",
+        "content": "Evidence validated unit 30",
+        "memory_type": "fact",
+        "category": "ev_missing_default_false",
+        "source_thread_id": "thread-evu-30"
+      },
+      "expected": {
+        "prep_error": false,
+        "__db.evidence_validated": false
+      }
+    },
+    {
+      "id": "EVU-31",
+      "family": "missing_default_false",
+      "input": {
+        "action": "store_memory",
+        "content": "Evidence validated unit 31",
+        "memory_type": "fact",
+        "category": "ev_missing_default_false",
+        "source_thread_id": "thread-evu-31"
+      },
+      "expected": {
+        "prep_error": false,
+        "__db.evidence_validated": false
+      }
+    },
+    {
+      "id": "EVU-32",
+      "family": "missing_default_false",
+      "input": {
+        "action": "store_memory",
+        "content": "Evidence validated unit 32",
+        "memory_type": "fact",
+        "category": "ev_missing_default_false",
+        "source_thread_id": "thread-evu-32"
+      },
+      "expected": {
+        "prep_error": false,
+        "__db.evidence_validated": false
+      }
+    },
+    {
+      "id": "EVU-33",
+      "family": "missing_default_false",
+      "input": {
+        "action": "store_memory",
+        "content": "Evidence validated unit 33",
+        "memory_type": "fact",
+        "category": "ev_missing_default_false",
+        "source_thread_id": "thread-evu-33"
+      },
+      "expected": {
+        "prep_error": false,
+        "__db.evidence_validated": false
+      }
+    },
+    {
+      "id": "EVU-34",
+      "family": "missing_default_false",
+      "input": {
+        "action": "store_memory",
+        "content": "Evidence validated unit 34",
+        "memory_type": "fact",
+        "category": "ev_missing_default_false",
+        "source_thread_id": "thread-evu-34"
+      },
+      "expected": {
+        "prep_error": false,
+        "__db.evidence_validated": false
+      }
+    },
+    {
+      "id": "EVU-35",
+      "family": "missing_default_false",
+      "input": {
+        "action": "store_memory",
+        "content": "Evidence validated unit 35",
+        "memory_type": "fact",
+        "category": "ev_missing_default_false",
+        "source_thread_id": "thread-evu-35"
+      },
+      "expected": {
+        "prep_error": false,
+        "__db.evidence_validated": false
+      }
+    },
+    {
+      "id": "EVU-36",
+      "family": "invalid_type_guard",
+      "input": {
+        "evidence_validated": "true",
+        "action": "store_memory",
+        "content": "Evidence validated unit 36",
+        "memory_type": "fact",
+        "category": "ev_invalid_type_guard",
+        "source_thread_id": "thread-evu-36"
+      },
+      "expected": {
+        "prep_error": true,
+        "__db.evidence_validated": false
+      }
+    },
+    {
+      "id": "EVU-37",
+      "family": "invalid_type_guard",
+      "input": {
+        "evidence_validated": "false",
+        "action": "store_memory",
+        "content": "Evidence validated unit 37",
+        "memory_type": "fact",
+        "category": "ev_invalid_type_guard",
+        "source_thread_id": "thread-evu-37"
+      },
+      "expected": {
+        "prep_error": true,
+        "__db.evidence_validated": false
+      }
+    },
+    {
+      "id": "EVU-38",
+      "family": "invalid_type_guard",
+      "input": {
+        "evidence_validated": 1,
+        "action": "store_memory",
+        "content": "Evidence validated unit 38",
+        "memory_type": "fact",
+        "category": "ev_invalid_type_guard",
+        "source_thread_id": "thread-evu-38"
+      },
+      "expected": {
+        "prep_error": true,
+        "__db.evidence_validated": false
+      }
+    },
+    {
+      "id": "EVU-39",
+      "family": "invalid_type_guard",
+      "input": {
+        "evidence_validated": 0,
+        "action": "store_memory",
+        "content": "Evidence validated unit 39",
+        "memory_type": "fact",
+        "category": "ev_invalid_type_guard",
+        "source_thread_id": "thread-evu-39"
+      },
+      "expected": {
+        "prep_error": true,
+        "__db.evidence_validated": false
+      }
+    },
+    {
+      "id": "EVU-40",
+      "family": "invalid_type_guard",
+      "input": {
+        "evidence_validated": null,
+        "action": "store_memory",
+        "content": "Evidence validated unit 40",
+        "memory_type": "fact",
+        "category": "ev_invalid_type_guard",
+        "source_thread_id": "thread-evu-40"
+      },
+      "expected": {
+        "prep_error": false,
+        "__db.evidence_validated": false
+      }
+    },
+    {
+      "id": "EVU-41",
+      "family": "invalid_type_guard",
+      "input": {
+        "evidence_validated": [],
+        "action": "store_memory",
+        "content": "Evidence validated unit 41",
+        "memory_type": "fact",
+        "category": "ev_invalid_type_guard",
+        "source_thread_id": "thread-evu-41"
+      },
+      "expected": {
+        "prep_error": true,
+        "__db.evidence_validated": false
+      }
+    },
+    {
+      "id": "EVU-42",
+      "family": "invalid_type_guard",
+      "input": {
+        "evidence_validated": {},
+        "action": "store_memory",
+        "content": "Evidence validated unit 42",
+        "memory_type": "fact",
+        "category": "ev_invalid_type_guard",
+        "source_thread_id": "thread-evu-42"
+      },
+      "expected": {
+        "prep_error": true,
+        "__db.evidence_validated": false
+      }
+    },
+    {
+      "id": "EVU-43",
+      "family": "invalid_type_guard",
+      "input": {
+        "evidence_validated": "yes",
+        "action": "store_memory",
+        "content": "Evidence validated unit 43",
+        "memory_type": "fact",
+        "category": "ev_invalid_type_guard",
+        "source_thread_id": "thread-evu-43"
+      },
+      "expected": {
+        "prep_error": true,
+        "__db.evidence_validated": false
+      }
+    },
+    {
+      "id": "EVU-44",
+      "family": "v2031_regression_combo",
+      "input": {
+        "tier": "long_term",
+        "user_confirmed": false,
+        "corroboration_count": 5,
+        "evidence_validated": true,
+        "action": "store_memory",
+        "content": "Evidence validated unit 44",
+        "memory_type": "fact",
+        "category": "ev_v2031_regression_combo",
+        "source_thread_id": "thread-evu-44"
+      },
+      "expected": {
+        "prep_error": false,
+        "__db.tier": "long_term",
+        "__db.user_confirmed": false,
+        "__db.corroboration_count": 5,
+        "__db.evidence_validated": true
+      }
+    },
+    {
+      "id": "EVU-45",
+      "family": "v2031_regression_combo",
+      "input": {
+        "tier": "recent",
+        "user_confirmed": true,
+        "corroboration_count": 1,
+        "evidence_validated": false,
+        "action": "store_memory",
+        "content": "Evidence validated unit 45",
+        "memory_type": "fact",
+        "category": "ev_v2031_regression_combo",
+        "source_thread_id": "thread-evu-45"
+      },
+      "expected": {
+        "prep_error": false,
+        "__db.tier": "recent",
+        "__db.user_confirmed": true,
+        "__db.corroboration_count": 1,
+        "__db.evidence_validated": false
+      }
+    },
+    {
+      "id": "EVU-46",
+      "family": "v2031_regression_combo",
+      "input": {
+        "tier": "long_term",
+        "user_confirmed": false,
+        "corroboration_count": 2,
+        "evidence_validated": true,
+        "action": "store_memory",
+        "content": "Evidence validated unit 46",
+        "memory_type": "fact",
+        "category": "ev_v2031_regression_combo",
+        "source_thread_id": "thread-evu-46"
+      },
+      "expected": {
+        "prep_error": false,
+        "__db.tier": "long_term",
+        "__db.user_confirmed": false,
+        "__db.corroboration_count": 2,
+        "__db.evidence_validated": true
+      }
+    },
+    {
+      "id": "EVU-47",
+      "family": "v2031_regression_combo",
+      "input": {
+        "tier": "recent",
+        "user_confirmed": true,
+        "corroboration_count": 3,
+        "evidence_validated": false,
+        "action": "store_memory",
+        "content": "Evidence validated unit 47",
+        "memory_type": "fact",
+        "category": "ev_v2031_regression_combo",
+        "source_thread_id": "thread-evu-47"
+      },
+      "expected": {
+        "prep_error": false,
+        "__db.tier": "recent",
+        "__db.user_confirmed": true,
+        "__db.corroboration_count": 3,
+        "__db.evidence_validated": false
+      }
+    },
+    {
+      "id": "EVU-48",
+      "family": "v2031_regression_combo",
+      "input": {
+        "tier": "long_term",
+        "user_confirmed": false,
+        "corroboration_count": 4,
+        "evidence_validated": true,
+        "action": "store_memory",
+        "content": "Evidence validated unit 48",
+        "memory_type": "fact",
+        "category": "ev_v2031_regression_combo",
+        "source_thread_id": "thread-evu-48"
+      },
+      "expected": {
+        "prep_error": false,
+        "__db.tier": "long_term",
+        "__db.user_confirmed": false,
+        "__db.corroboration_count": 4,
+        "__db.evidence_validated": true
+      }
+    },
+    {
+      "id": "EVU-49",
+      "family": "v2031_regression_combo",
+      "input": {
+        "tier": "recent",
+        "user_confirmed": true,
+        "corroboration_count": 5,
+        "evidence_validated": false,
+        "action": "store_memory",
+        "content": "Evidence validated unit 49",
+        "memory_type": "fact",
+        "category": "ev_v2031_regression_combo",
+        "source_thread_id": "thread-evu-49"
+      },
+      "expected": {
+        "prep_error": false,
+        "__db.tier": "recent",
+        "__db.user_confirmed": true,
+        "__db.corroboration_count": 5,
+        "__db.evidence_validated": false
+      }
+    },
+    {
+      "id": "EVU-50",
+      "family": "v2031_regression_combo",
+      "input": {
+        "tier": "long_term",
+        "user_confirmed": false,
+        "corroboration_count": 1,
+        "evidence_validated": true,
+        "action": "store_memory",
+        "content": "Evidence validated unit 50",
+        "memory_type": "fact",
+        "category": "ev_v2031_regression_combo",
+        "source_thread_id": "thread-evu-50"
+      },
+      "expected": {
+        "prep_error": false,
+        "__db.tier": "long_term",
+        "__db.user_confirmed": false,
+        "__db.corroboration_count": 1,
+        "__db.evidence_validated": true
+      }
+    }
+  ]
+}

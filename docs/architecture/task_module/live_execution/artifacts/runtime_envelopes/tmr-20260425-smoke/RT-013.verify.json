@@ -1,0 +1,16 @@
+{
+  "case_id": "RT-013",
+  "group": "list_tasks",
+  "priority": "P0",
+  "user_input": "Ce taskuri am deschise?",
+  "expected": {
+    "read_only": true,
+    "tasks_delta": 0,
+    "natural_list": true
+  },
+  "expected_intent": "list_tasks",
+  "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+  "message_id": "30158084-2865-4642-89c8-8d7db6eb62bb",
+  "thread_id": "5aff0729-1062-43d2-8d26-dd3a3468ebc7",
+  "idempotency_key": "tmr:tmr-20260425-smoke:RT-013"
+}

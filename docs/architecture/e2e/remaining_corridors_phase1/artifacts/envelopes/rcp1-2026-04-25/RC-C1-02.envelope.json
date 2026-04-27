@@ -1,0 +1,20 @@
+{
+  "message_id": "52de3497-06e5-47ab-8bfe-b488b05e267d",
+  "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+  "channel": "rcp1-rich-matrix",
+  "direction": "inbound",
+  "author_type": "user",
+  "normalized_content": "Hi, can you summarize what you can do?",
+  "timestamp": "2026-04-25T19:17:11.983Z",
+  "source_message_ref": "rcp1:RC-C1-02",
+  "author_entity_id": null,
+  "related_entity_ids": [],
+  "metadata": {
+    "rcp1_case_id": "RC-C1-02",
+    "rcp1_corridor": "C1",
+    "rcp1_run_tag": "rcp1-2026-04-25"
+  },
+  "idempotency_key": "rcp1:rcp1-2026-04-25:RC-C1-02",
+  "thread_id": "55cab28e-5270-492f-8dd5-95535e87c151",
+  "reply_to_thread_id": null
+}

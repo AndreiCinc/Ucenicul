@@ -1,0 +1,447 @@
+{
+  "mission": "V2-OBS-STORE-PREP-INPUT-PASSTHROUGH",
+  "category": "live_e2e_runtime",
+  "minimum_count": 50,
+  "tests": [
+    {
+      "id": "SPE-01",
+      "family": "defaults_live_store",
+      "workflow_action": "store_memory",
+      "payload": "omit tier/user_confirmed/corroboration_count, unique content namespace step1-default-01",
+      "oracle": "row inserted once; defaults match pre-mission behavior; embedding dim=1536; no errors."
+    },
+    {
+      "id": "SPE-02",
+      "family": "defaults_live_store",
+      "workflow_action": "store_memory",
+      "payload": "omit tier/user_confirmed/corroboration_count, unique content namespace step1-default-02",
+      "oracle": "row inserted once; defaults match pre-mission behavior; embedding dim=1536; no errors."
+    },
+    {
+      "id": "SPE-03",
+      "family": "defaults_live_store",
+      "workflow_action": "store_memory",
+      "payload": "omit tier/user_confirmed/corroboration_count, unique content namespace step1-default-03",
+      "oracle": "row inserted once; defaults match pre-mission behavior; embedding dim=1536; no errors."
+    },
+    {
+      "id": "SPE-04",
+      "family": "defaults_live_store",
+      "workflow_action": "store_memory",
+      "payload": "omit tier/user_confirmed/corroboration_count, unique content namespace step1-default-04",
+      "oracle": "row inserted once; defaults match pre-mission behavior; embedding dim=1536; no errors."
+    },
+    {
+      "id": "SPE-05",
+      "family": "defaults_live_store",
+      "workflow_action": "store_memory",
+      "payload": "omit tier/user_confirmed/corroboration_count, unique content namespace step1-default-05",
+      "oracle": "row inserted once; defaults match pre-mission behavior; embedding dim=1536; no errors."
+    },
+    {
+      "id": "SPE-06",
+      "family": "defaults_live_store",
+      "workflow_action": "store_memory",
+      "payload": "omit tier/user_confirmed/corroboration_count, unique content namespace step1-default-06",
+      "oracle": "row inserted once; defaults match pre-mission behavior; embedding dim=1536; no errors."
+    },
+    {
+      "id": "SPE-07",
+      "family": "defaults_live_store",
+      "workflow_action": "store_memory",
+      "payload": "omit tier/user_confirmed/corroboration_count, unique content namespace step1-default-07",
+      "oracle": "row inserted once; defaults match pre-mission behavior; embedding dim=1536; no errors."
+    },
+    {
+      "id": "SPE-08",
+      "family": "defaults_live_store",
+      "workflow_action": "store_memory",
+      "payload": "omit tier/user_confirmed/corroboration_count, unique content namespace step1-default-08",
+      "oracle": "row inserted once; defaults match pre-mission behavior; embedding dim=1536; no errors."
+    },
+    {
+      "id": "SPE-09",
+      "family": "defaults_live_store",
+      "workflow_action": "store_memory",
+      "payload": "omit tier/user_confirmed/corroboration_count, unique content namespace step1-default-09",
+      "oracle": "row inserted once; defaults match pre-mission behavior; embedding dim=1536; no errors."
+    },
+    {
+      "id": "SPE-10",
+      "family": "defaults_live_store",
+      "workflow_action": "store_memory",
+      "payload": "omit tier/user_confirmed/corroboration_count, unique content namespace step1-default-10",
+      "oracle": "row inserted once; defaults match pre-mission behavior; embedding dim=1536; no errors."
+    },
+    {
+      "id": "SPE-11",
+      "family": "tier_live_store",
+      "workflow_action": "store_memory",
+      "payload": {
+        "tier": "recent",
+        "unique": "step1-tier-11"
+      },
+      "oracle": "persisted row tier equals valid caller tier or design-approved normalized value; embedding dim=1536."
+    },
+    {
+      "id": "SPE-12",
+      "family": "tier_live_store",
+      "workflow_action": "store_memory",
+      "payload": {
+        "tier": "long_term",
+        "unique": "step1-tier-12"
+      },
+      "oracle": "persisted row tier equals valid caller tier or design-approved normalized value; embedding dim=1536."
+    },
+    {
+      "id": "SPE-13",
+      "family": "tier_live_store",
+      "workflow_action": "store_memory",
+      "payload": {
+        "tier": "recent",
+        "unique": "step1-tier-13"
+      },
+      "oracle": "persisted row tier equals valid caller tier or design-approved normalized value; embedding dim=1536."
+    },
+    {
+      "id": "SPE-14",
+      "family": "tier_live_store",
+      "workflow_action": "store_memory",
+      "payload": {
+        "tier": "long_term",
+        "unique": "step1-tier-14"
+      },
+      "oracle": "persisted row tier equals valid caller tier or design-approved normalized value; embedding dim=1536."
+    },
+    {
+      "id": "SPE-15",
+      "family": "tier_live_store",
+      "workflow_action": "store_memory",
+      "payload": {
+        "tier": "recent",
+        "unique": "step1-tier-15"
+      },
+      "oracle": "persisted row tier equals valid caller tier or design-approved normalized value; embedding dim=1536."
+    },
+    {
+      "id": "SPE-16",
+      "family": "tier_live_store",
+      "workflow_action": "store_memory",
+      "payload": {
+        "tier": "long_term",
+        "unique": "step1-tier-16"
+      },
+      "oracle": "persisted row tier equals valid caller tier or design-approved normalized value; embedding dim=1536."
+    },
+    {
+      "id": "SPE-17",
+      "family": "tier_live_store",
+      "workflow_action": "store_memory",
+      "payload": {
+        "tier": "recent",
+        "unique": "step1-tier-17"
+      },
+      "oracle": "persisted row tier equals valid caller tier or design-approved normalized value; embedding dim=1536."
+    },
+    {
+      "id": "SPE-18",
+      "family": "tier_live_store",
+      "workflow_action": "store_memory",
+      "payload": {
+        "tier": "long_term",
+        "unique": "step1-tier-18"
+      },
+      "oracle": "persisted row tier equals valid caller tier or design-approved normalized value; embedding dim=1536."
+    },
+    {
+      "id": "SPE-19",
+      "family": "tier_live_store",
+      "workflow_action": "store_memory",
+      "payload": {
+        "tier": "recent",
+        "unique": "step1-tier-19"
+      },
+      "oracle": "persisted row tier equals valid caller tier or design-approved normalized value; embedding dim=1536."
+    },
+    {
+      "id": "SPE-20",
+      "family": "tier_live_store",
+      "workflow_action": "store_memory",
+      "payload": {
+        "tier": "long_term",
+        "unique": "step1-tier-20"
+      },
+      "oracle": "persisted row tier equals valid caller tier or design-approved normalized value; embedding dim=1536."
+    },
+    {
+      "id": "SPE-21",
+      "family": "user_confirmed_live_store",
+      "workflow_action": "store_memory",
+      "payload": {
+        "user_confirmed": true,
+        "unique": "step1-uc-21"
+      },
+      "oracle": "persisted row user_confirmed equals caller value; idempotency key unique; embedding dim=1536."
+    },
+    {
+      "id": "SPE-22",
+      "family": "user_confirmed_live_store",
+      "workflow_action": "store_memory",
+      "payload": {
+        "user_confirmed": false,
+        "unique": "step1-uc-22"
+      },
+      "oracle": "persisted row user_confirmed equals caller value; idempotency key unique; embedding dim=1536."
+    },
+    {
+      "id": "SPE-23",
+      "family": "user_confirmed_live_store",
+      "workflow_action": "store_memory",
+      "payload": {
+        "user_confirmed": true,
+        "unique": "step1-uc-23"
+      },
+      "oracle": "persisted row user_confirmed equals caller value; idempotency key unique; embedding dim=1536."
+    },
+    {
+      "id": "SPE-24",
+      "family": "user_confirmed_live_store",
+      "workflow_action": "store_memory",
+      "payload": {
+        "user_confirmed": false,
+        "unique": "step1-uc-24"
+      },
+      "oracle": "persisted row user_confirmed equals caller value; idempotency key unique; embedding dim=1536."
+    },
+    {
+      "id": "SPE-25",
+      "family": "user_confirmed_live_store",
+      "workflow_action": "store_memory",
+      "payload": {
+        "user_confirmed": true,
+        "unique": "step1-uc-25"
+      },
+      "oracle": "persisted row user_confirmed equals caller value; idempotency key unique; embedding dim=1536."
+    },
+    {
+      "id": "SPE-26",
+      "family": "user_confirmed_live_store",
+      "workflow_action": "store_memory",
+      "payload": {
+        "user_confirmed": false,
+        "unique": "step1-uc-26"
+      },
+      "oracle": "persisted row user_confirmed equals caller value; idempotency key unique; embedding dim=1536."
+    },
+    {
+      "id": "SPE-27",
+      "family": "user_confirmed_live_store",
+      "workflow_action": "store_memory",
+      "payload": {
+        "user_confirmed": true,
+        "unique": "step1-uc-27"
+      },
+      "oracle": "persisted row user_confirmed equals caller value; idempotency key unique; embedding dim=1536."
+    },
+    {
+      "id": "SPE-28",
+      "family": "user_confirmed_live_store",
+      "workflow_action": "store_memory",
+      "payload": {
+        "user_confirmed": false,
+        "unique": "step1-uc-28"
+      },
+      "oracle": "persisted row user_confirmed equals caller value; idempotency key unique; embedding dim=1536."
+    },
+    {
+      "id": "SPE-29",
+      "family": "user_confirmed_live_store",
+      "workflow_action": "store_memory",
+      "payload": {
+        "user_confirmed": true,
+        "unique": "step1-uc-29"
+      },
+      "oracle": "persisted row user_confirmed equals caller value; idempotency key unique; embedding dim=1536."
+    },
+    {
+      "id": "SPE-30",
+      "family": "user_confirmed_live_store",
+      "workflow_action": "store_memory",
+      "payload": {
+        "user_confirmed": false,
+        "unique": "step1-uc-30"
+      },
+      "oracle": "persisted row user_confirmed equals caller value; idempotency key unique; embedding dim=1536."
+    },
+    {
+      "id": "SPE-31",
+      "family": "corroboration_live_store",
+      "workflow_action": "store_memory",
+      "payload": {
+        "corroboration_count": 0,
+        "unique": "step1-corro-31"
+      },
+      "oracle": "persisted/effective corroboration_count equals caller value or design-approved normalization; embedding dim=1536."
+    },
+    {
+      "id": "SPE-32",
+      "family": "corroboration_live_store",
+      "workflow_action": "store_memory",
+      "payload": {
+        "corroboration_count": 1,
+        "unique": "step1-corro-32"
+      },
+      "oracle": "persisted/effective corroboration_count equals caller value or design-approved normalization; embedding dim=1536."
+    },
+    {
+      "id": "SPE-33",
+      "family": "corroboration_live_store",
+      "workflow_action": "store_memory",
+      "payload": {
+        "corroboration_count": 2,
+        "unique": "step1-corro-33"
+      },
+      "oracle": "persisted/effective corroboration_count equals caller value or design-approved normalization; embedding dim=1536."
+    },
+    {
+      "id": "SPE-34",
+      "family": "corroboration_live_store",
+      "workflow_action": "store_memory",
+      "payload": {
+        "corroboration_count": 3,
+        "unique": "step1-corro-34"
+      },
+      "oracle": "persisted/effective corroboration_count equals caller value or design-approved normalization; embedding dim=1536."
+    },
+    {
+      "id": "SPE-35",
+      "family": "corroboration_live_store",
+      "workflow_action": "store_memory",
+      "payload": {
+        "corroboration_count": 5,
+        "unique": "step1-corro-35"
+      },
+      "oracle": "persisted/effective corroboration_count equals caller value or design-approved normalization; embedding dim=1536."
+    },
+    {
+      "id": "SPE-36",
+      "family": "corroboration_live_store",
+      "workflow_action": "store_memory",
+      "payload": {
+        "corroboration_count": 8,
+        "unique": "step1-corro-36"
+      },
+      "oracle": "persisted/effective corroboration_count equals caller value or design-approved normalization; embedding dim=1536."
+    },
+    {
+      "id": "SPE-37",
+      "family": "corroboration_live_store",
+      "workflow_action": "store_memory",
+      "payload": {
+        "corroboration_count": 13,
+        "unique": "step1-corro-37"
+      },
+      "oracle": "persisted/effective corroboration_count equals caller value or design-approved normalization; embedding dim=1536."
+    },
+    {
+      "id": "SPE-38",
+      "family": "corroboration_live_store",
+      "workflow_action": "store_memory",
+      "payload": {
+        "corroboration_count": 21,
+        "unique": "step1-corro-38"
+      },
+      "oracle": "persisted/effective corroboration_count equals caller value or design-approved normalization; embedding dim=1536."
+    },
+    {
+      "id": "SPE-39",
+      "family": "corroboration_live_store",
+      "workflow_action": "store_memory",
+      "payload": {
+        "corroboration_count": 2,
+        "unique": "step1-corro-39"
+      },
+      "oracle": "persisted/effective corroboration_count equals caller value or design-approved normalization; embedding dim=1536."
+    },
+    {
+      "id": "SPE-40",
+      "family": "corroboration_live_store",
+      "workflow_action": "store_memory",
+      "payload": {
+        "corroboration_count": 4,
+        "unique": "step1-corro-40"
+      },
+      "oracle": "persisted/effective corroboration_count equals caller value or design-approved normalization; embedding dim=1536."
+    },
+    {
+      "id": "SPE-41",
+      "family": "idempotent_replay",
+      "workflow_action": "store_memory replay",
+      "payload": "replay selected earlier step_id exactly",
+      "oracle": "rows_for_key remains 1; first-write-wins; updated_at unchanged where applicable."
+    },
+    {
+      "id": "SPE-42",
+      "family": "idempotent_replay",
+      "workflow_action": "store_memory replay",
+      "payload": "replay selected earlier step_id exactly",
+      "oracle": "rows_for_key remains 1; first-write-wins; updated_at unchanged where applicable."
+    },
+    {
+      "id": "SPE-43",
+      "family": "idempotent_replay",
+      "workflow_action": "store_memory replay",
+      "payload": "replay selected earlier step_id exactly",
+      "oracle": "rows_for_key remains 1; first-write-wins; updated_at unchanged where applicable."
+    },
+    {
+      "id": "SPE-44",
+      "family": "idempotent_replay",
+      "workflow_action": "store_memory replay",
+      "payload": "replay selected earlier step_id exactly",
+      "oracle": "rows_for_key remains 1; first-write-wins; updated_at unchanged where applicable."
+    },
+    {
+      "id": "SPE-45",
+      "family": "idempotent_replay",
+      "workflow_action": "store_memory replay",
+      "payload": "replay selected earlier step_id exactly",
+      "oracle": "rows_for_key remains 1; first-write-wins; updated_at unchanged where applicable."
+    },
+    {
+      "id": "SPE-46",
+      "family": "invalid_and_regression",
+      "workflow_action": "store/search/supersede spot",
+      "payload": "invalid pass-through value or regression smoke 46",
+      "oracle": "invalid value fails safely or normalizes per design; store embedding, supersede embedding, search/recall/promote/RA spot behavior preserved."
+    },
+    {
+      "id": "SPE-47",
+      "family": "invalid_and_regression",
+      "workflow_action": "store/search/supersede spot",
+      "payload": "invalid pass-through value or regression smoke 47",
+      "oracle": "invalid value fails safely or normalizes per design; store embedding, supersede embedding, search/recall/promote/RA spot behavior preserved."
+    },
+    {
+      "id": "SPE-48",
+      "family": "invalid_and_regression",
+      "workflow_action": "store/search/supersede spot",
+      "payload": "invalid pass-through value or regression smoke 48",
+      "oracle": "invalid value fails safely or normalizes per design; store embedding, supersede embedding, search/recall/promote/RA spot behavior preserved."
+    },
+    {
+      "id": "SPE-49",
+      "family": "invalid_and_regression",
+      "workflow_action": "store/search/supersede spot",
+      "payload": "invalid pass-through value or regression smoke 49",
+      "oracle": "invalid value fails safely or normalizes per design; store embedding, supersede embedding, search/recall/promote/RA spot behavior preserved."
+    },
+    {
+      "id": "SPE-50",
+      "family": "invalid_and_regression",
+      "workflow_action": "store/search/supersede spot",
+      "payload": "invalid pass-through value or regression smoke 50",
+      "oracle": "invalid value fails safely or normalizes per design; store embedding, supersede embedding, search/recall/promote/RA spot behavior preserved."
+    }
+  ]
+}

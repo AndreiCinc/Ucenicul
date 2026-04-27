@@ -1,0 +1,20 @@
+{
+  "message_id": "448552df-2b10-4468-8b79-20d6e7299f38",
+  "tenant_id": "eee0e2e0-0000-0000-0000-00000000000a",
+  "channel": "rcp1-rich-matrix",
+  "direction": "inbound",
+  "author_type": "user",
+  "normalized_content": "Ce știi despre moneda oficială tenant-A?",
+  "timestamp": "2026-04-25T19:17:11.983Z",
+  "source_message_ref": "rcp1:RC-C3-04",
+  "author_entity_id": null,
+  "related_entity_ids": [],
+  "metadata": {
+    "rcp1_case_id": "RC-C3-04",
+    "rcp1_corridor": "C3",
+    "rcp1_run_tag": "rcp1-2026-04-25"
+  },
+  "idempotency_key": "rcp1:rcp1-2026-04-25:RC-C3-04",
+  "thread_id": "1eb63885-2e4f-48d0-8d7a-b8204adbf893",
+  "reply_to_thread_id": null
+}

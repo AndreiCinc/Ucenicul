@@ -1,0 +1,19 @@
+{
+  "message_id": "2fbdbbcc-c3b7-469d-8afe-319556c25e5e",
+  "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+  "channel": "e2e-rich-matrix",
+  "direction": "inbound",
+  "author_type": "user",
+  "normalized_content": "Ce am notat despre preferințe?",
+  "timestamp": "2026-04-27T08:12:27.515Z",
+  "source_message_ref": "e2e:MR-001:e2e:mr-2026-04-27:MR-001",
+  "author_entity_id": null,
+  "related_entity_ids": [],
+  "metadata": {
+    "e2e_case_id": "MR-001",
+    "e2e_run_tag": "mr-2026-04-27",
+    "e2e_intent_test": "recall_memory"
+  },
+  "idempotency_key": "e2e:mr-2026-04-27:MR-001",
+  "thread_id": "5d597dcc-0379-4d51-831c-263cf53e2178"
+}

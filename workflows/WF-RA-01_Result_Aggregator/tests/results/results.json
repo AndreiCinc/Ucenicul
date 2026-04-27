@@ -1,0 +1,87 @@
+{
+  "total_families": 13,
+  "tests_per_family": 50,
+  "total_tests": 650,
+  "passed": 650,
+  "failed": 0,
+  "families": [
+    {
+      "family": "input_validation",
+      "total": 50,
+      "passed": 50,
+      "failed": 0
+    },
+    {
+      "family": "happy_path_single",
+      "total": 50,
+      "passed": 50,
+      "failed": 0
+    },
+    {
+      "family": "happy_path_parallel",
+      "total": 50,
+      "passed": 50,
+      "failed": 0
+    },
+    {
+      "family": "partial_status_rollup",
+      "total": 50,
+      "passed": 50,
+      "failed": 0
+    },
+    {
+      "family": "failed_status_rollup",
+      "total": 50,
+      "passed": 50,
+      "failed": 0
+    },
+    {
+      "family": "no_action_rollup",
+      "total": 50,
+      "passed": 50,
+      "failed": 0
+    },
+    {
+      "family": "cross_tenant_isolation",
+      "total": 50,
+      "passed": 50,
+      "failed": 0
+    },
+    {
+      "family": "replay_idempotency",
+      "total": 50,
+      "passed": 50,
+      "failed": 0
+    },
+    {
+      "family": "step_coverage_validation",
+      "total": 50,
+      "passed": 50,
+      "failed": 0
+    },
+    {
+      "family": "guard_flag_enforcement",
+      "total": 50,
+      "passed": 50,
+      "failed": 0
+    },
+    {
+      "family": "upstream_me_to_ra_handoff",
+      "total": 50,
+      "passed": 50,
+      "failed": 0
+    },
+    {
+      "family": "sql_contract_validation",
+      "total": 50,
+      "passed": 50,
+      "failed": 0
+    },
+    {
+      "family": "reporting_and_tooling_contract",
+      "total": 50,
+      "passed": 50,
+      "failed": 0
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "case_id": "C11-L1-V1",
+  "run_tag": "f240r-2026-04-26",
+  "runtime": {
+    "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+    "message_id": "4862347c-afbe-492a-86be-cf1d17799f78",
+    "thread_id": "011803d4-d094-40f4-8c57-236e08f76014",
+    "reply_to_thread_id": null,
+    "idempotency_key": "e2e:f240-2026-04-26:C11-L1-V1",
+    "thread_label": "C11:replay-L1",
+    "ts_iso": "2026-04-26T02:50:48.613Z",
+    "run_tag": "f240-2026-04-26",
+    "thread_context_kind": "seeded-fresh",
+    "fire_iso": "2026-04-26T09:26:20.252Z"
+  },
+  "invariants": [
+    {
+      "name": "assert_idempotency_unique",
+      "sql": "SELECT 'memory'::text AS tbl, count(*)::int AS c FROM memory_items WHERE tenant_id=$1 AND idempotency_key LIKE $2\n          UNION ALL\n          SELECT 'tasks', count(*)::int FROM tasks WHERE tenant_id=$1 AND created_at >= $3\n          UNION ALL\n          SELECT 'reminders', count(*)::int FROM reminders WHERE tenant_id=$1 AND created_at >= $3\n          UNION ALL\n          SELECT 'outbound', count(*)::int FROM messages WHERE tenant_id=$1 AND direction='outbound' AND created_at >= $3",
+      "params": [
+        "eee0e2e0-0000-0000-0000-000000000001",
+        "e2e:f240-2026-04-26:C11-L1-V1%",
+        "2026-04-26T09:26:20.252Z"
+      ],
+      "unknown": false
+    },
+    {
+      "name": "assert_one_outbound_for_case",
+      "sql": "SELECT count(*)::int AS c FROM outbound_delivery_ledger_claude_mcp\n          WHERE tenant_id = $1 AND idempotency_key = $2",
+      "params": [
+        "eee0e2e0-0000-0000-0000-000000000001",
+        "e2e:f240-2026-04-26:C11-L1-V1"
+      ],
+      "unknown": false
+    }
+  ]
+}

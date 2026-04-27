@@ -1,0 +1,38 @@
+{
+  "case_id": "v2014-safety-caller-001",
+  "execution_id": "3892",
+  "execution_status": "success",
+  "memory_id": "ae68a0ef-0daf-4c5e-a155-91b50b8bd231",
+  "idempotency_key": "mem-v2014-safety-caller-001",
+  "input_envelope": {
+    "action": "promote_memory",
+    "memory_id": "ae68a0ef-0daf-4c5e-a155-91b50b8bd231",
+    "promotion_target": "long_term",
+    "user_confirmed": true,
+    "evidence_validated": false
+  },
+  "db_pre": {
+    "tier": "recent",
+    "user_confirmed": false,
+    "evidence_validated": false,
+    "corroboration_count": 1,
+    "last_reconfirmed_at": null
+  },
+  "db_post": {
+    "tier": "long_term",
+    "user_confirmed": true,
+    "evidence_validated": false,
+    "corroboration_count": 1,
+    "last_reconfirmed_at": "2026-04-22T15:28:33.101Z"
+  },
+  "module_result": {
+    "status": "success",
+    "summary": "Memory promoted to long_term.",
+    "denial_reason": "accepted",
+    "acceptance_signals": ["user_confirmed"],
+    "promoted": true,
+    "domain_writes_performed": true
+  },
+  "verdict": "PASS — caller-driven accept still works, no regression introduced by V2-014.",
+  "captured_at": "2026-04-22T15:28:35.000Z"
+}

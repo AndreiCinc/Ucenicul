@@ -1,0 +1,65 @@
+{
+  "workflow_code": "WF-MO-01",
+  "workflow_name": "WF-MO-01 Message Out / Output Gateway",
+  "tier": "standard",
+  "status": "candidate_ready",
+  "posture": "pre_live_ready",
+  "score": 8.8,
+  "score_cap": 8.8,
+  "closed": false,
+  "advance_allowed": false,
+  "phase": "pre_live_ready",
+  "upstream_stage": "WF-RC-01",
+  "downstream_stage": "terminal_channel_delivery",
+  "closed_at": null,
+  "last_sync": null,
+  "last_verified": "2026-04-19",
+  "live_runs": 0,
+  "live_proof_summary": {
+    "workflow_id": null,
+    "version_id": null,
+    "note": "No live runtime proof yet. Handoff-bundle STATE confirms db_verified=false, live_workflow_verified=false, runtime_execution_verified=false, post_test_db_drift_verified=false."
+  },
+  "owner": "TBD",
+  "canonical": {
+    "implementation": "workflow/WF-MO-01_Message_Out.json",
+    "contracts": null,
+    "status": "state/STATE__WF-MO-01.json",
+    "test_matrix": "docs/WF-MO-01_TEST_MATRIX.md",
+    "handoff_bundle": "docs/ucenicul_claude_handoff_hardened/"
+  },
+  "evidence_on_disk": {
+    "implementation_present": true,
+    "duplicate_or_slim_blueprint_present": true,
+    "blueprint_path": "workflow/WF-MO-01_blueprint.json",
+    "contracts_present": false,
+    "test_matrix_present": true,
+    "sql_present": true,
+    "scripts_present": true,
+    "tests_present": true,
+    "test_results_present": true,
+    "handoff_bundle_present": true,
+    "handoff_bundle_contents": [
+      "AUDIT_REPORT__WF-MO-01.md",
+      "BUILD_REPORT__WF-MO-01.md",
+      "CLOSURE_REPORT__WF-MO-01.md",
+      "CURRENT_STAGE__WF-MO-01.md",
+      "FIX_LOG__WF-MO-01.md",
+      "STATE__WF-MO-01.json",
+      "UPSTREAM_TRUTH__WF-RC-01.md",
+      "00_ROUTE_MAP__WF-MO-01_ACTIVATED.md",
+      "13_STAGE_WF-MO-01.md",
+      "17_ACTIVE_STAGE_LOCK__WF-MO-01.md"
+    ],
+    "apply_first_present": true,
+    "claude_prompt_present": true,
+    "checksums_present": true
+  },
+  "missing": [
+    "docs/WF-MO-01_CONTRACTS.md",
+    "reports/LIVE_EXECUTIONS__WF-MO-01.md (workflow not live yet)"
+  ],
+  "notes": "WF-MO-01 is pre-live (candidate_ready at 8.8). Handoff bundle is accepted as canonical for its role per standard §3; bundle contains a nested STATE that is parallel to (not replaced by) this canonical STATE. Provenance: this STATE seeded from docs/ucenicul_claude_handoff_hardened/STATE__WF-MO-01.json.",
+  "last_updated": "2026-04-19",
+  "run_id": "run_2026-04-19_autonomous"
+}

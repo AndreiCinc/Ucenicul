@@ -1,0 +1,28 @@
+{
+  "executionId": "1533",
+  "step_id": "f4-t2",
+  "status": "success",
+  "db_row": {
+    "id": "c7f148d9-5742-46fa-a41c-a72ee94a2011",
+    "tier": "recent", "status": "active",
+    "corroboration_count": 1, "user_confirmed": false, "evidence_validated": false,
+    "promoted": false, "denial_reason": "acceptance_criteria_not_met"
+  },
+  "prep_db": { "user_confirmed": false, "evidence_validated": false, "corroboration_threshold": 2 },
+  "module_result": {
+    "status": "partial",
+    "summary": "Promotion denied: acceptance_criteria_not_met",
+    "actions_executed": [{"action":"promote_memory","details":{
+      "memory_id":"c7f148d9-5742-46fa-a41c-a72ee94a2011","tier":"recent","status":"active",
+      "last_reconfirmed_at":null,
+      "denial_reason":"acceptance_criteria_not_met","acceptance_signals":[]
+    }}],
+    "artifacts": [
+      {"type":"memory_id","value":"c7f148d9-5742-46fa-a41c-a72ee94a2011"},
+      {"type":"denial_reason","value":"acceptance_criteria_not_met","promoted":false}
+    ],
+    "needs_followup": true,
+    "followup_requests":[{"type":"provide_promotion_evidence","memory_id":"c7f148d9-5742-46fa-a41c-a72ee94a2011","reason":"acceptance_criteria_not_met"}],
+    "domain_writes_performed": false
+  }
+}

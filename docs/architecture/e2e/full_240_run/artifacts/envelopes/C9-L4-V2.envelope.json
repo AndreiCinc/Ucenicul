@@ -1,0 +1,23 @@
+{
+  "message_id": "05fdb9e1-3b70-432d-8c64-35eddce9267b",
+  "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+  "channel": "e2e-rich-matrix",
+  "direction": "inbound",
+  "author_type": "user",
+  "normalized_content": "Please handle this as an English equivalent: În firul trecut discutam despre un plan pentru Andrei, dar acum am deschis un fir nou. Ține minte doar informația durabilă că Andrei preferă antrenamentele dimineața și că marțea este problematică din cauza ședințelor. Nu continua automat planul operațional din firul anterior, pentru că nu sunt sigur dacă era final sau doar o variantă de lucru. Dacă ai nevoie de context ca să continui acel plan, întreabă-mă explicit. În acest fir vreau doar să verifici ce informații durabile poți folosi despre Andrei și să separi clar memoria de starea conversației trecute.",
+  "timestamp": "2026-04-26T02:50:48.370Z",
+  "source_message_ref": "e2e:C9-L4-V2:e2e:f240-2026-04-26:C9-L4-V2",
+  "author_entity_id": null,
+  "related_entity_ids": [],
+  "metadata": {
+    "e2e_case_id": "C9-L4-V2",
+    "e2e_corridor": "C9",
+    "e2e_variant": "thread_B_durable_recall",
+    "e2e_phase": "P1_FOUNDATION_CRITICAL",
+    "e2e_priority": "P0",
+    "e2e_locale": "en",
+    "e2e_run_tag": "f240-2026-04-26"
+  },
+  "idempotency_key": "e2e:f240-2026-04-26:C9-L4-V2",
+  "thread_id": "b3d18a6f-83d5-4cd4-8245-c67007b49bdd"
+}

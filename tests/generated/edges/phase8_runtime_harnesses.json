@@ -1,0 +1,30 @@
+{
+  "edge1": {
+    "id": "UNPzQUgmTK4VjVPQ",
+    "name": "phase8_runtime_harness_edge1_TR_to_EC",
+    "targetId": "v9jih4jqeXpOJOiH",
+    "webhook": "a1b2c3d4-phz8-edg1-harn-runtimeh00001",
+    "active": true
+  },
+  "edge2": {
+    "id": "H0HOwjUGzlpLwBHg",
+    "name": "phase8_runtime_harness_edge2_EC_to_OR",
+    "targetId": "KhGmNpi0ZDmrnz8W",
+    "webhook": "a1b2c3d4-phz8-edg2-harn-runtimeh00002",
+    "active": true
+  },
+  "edge3": {
+    "id": "NYJPNtoiwdZM1lJY",
+    "name": "phase8_runtime_harness_edge3_OR_to_PL",
+    "targetId": "RwToPLa1ErHl2tUi",
+    "webhook": "a1b2c3d4-phz8-edg3-harn-runtimeh00003",
+    "active": true
+  },
+  "edge4": {
+    "id": "R7Ji7JhT6430c76k",
+    "name": "phase8_runtime_harness_edge4_PL_to_DI",
+    "targetId": "abqYINcXr3JAhGGk",
+    "webhook": "a1b2c3d4-phz8-edg4-harn-runtimeh00004",
+    "active": true
+  }
+}

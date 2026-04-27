@@ -1,0 +1,16 @@
+{
+  "case_id": "RT-008",
+  "group": "reminder_like_as_task",
+  "priority": "P0",
+  "user_input": "Amintește-mi mâine la 9 să verific plata.",
+  "expected": {
+    "tasks_delta": 1,
+    "reminders_delta": 0,
+    "due_at_or_due_date_set": true
+  },
+  "expected_intent": "create_reminder",
+  "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+  "message_id": "2f56b788-c028-4b92-875f-3638dabdcf33",
+  "thread_id": "508b0766-3569-4c98-8575-e7b9bfb4891c",
+  "idempotency_key": "tmr:tmr-20260425-smoke:RT-008"
+}

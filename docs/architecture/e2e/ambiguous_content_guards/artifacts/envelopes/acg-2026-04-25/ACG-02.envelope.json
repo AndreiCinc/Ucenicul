@@ -1,0 +1,20 @@
+{
+  "message_id": "6ed5ab58-a62c-4936-8c98-7bad370c0a4a",
+  "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+  "channel": "acg-runtime",
+  "direction": "inbound",
+  "author_type": "user",
+  "normalized_content": "Ține minte asta.",
+  "timestamp": "2026-04-25T23:35:41.552Z",
+  "source_message_ref": "acg:ACG-02:acg:acg-2026-04-25:ACG-02",
+  "author_entity_id": null,
+  "related_entity_ids": [],
+  "metadata": {
+    "acg_case_id": "ACG-02",
+    "acg_lane": "memory_lane",
+    "acg_run_tag": "acg-2026-04-25"
+  },
+  "idempotency_key": "acg:acg-2026-04-25:ACG-02",
+  "thread_id": "fe0c4289-d300-4413-8cbe-b2d15651cb5b",
+  "reply_to_thread_id": null
+}

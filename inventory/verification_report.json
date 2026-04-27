@@ -1,0 +1,13 @@
+{
+  "passed_checks": [
+    "Coverage: all 920 source files accounted for.",
+    "Hash parity: every recorded hash_after matches source sha256.",
+    "Boundary: every pipeline-originated file (333) is either preserved inside .claude/ or is a documented promotion into product areas.",
+    "Workflow integrity: every file under workflows/ is accounted for in move_plan or is an auto-generated README.",
+    "Root clean: exactly the allowed top-level entries present (14).",
+    "Duplicates: 289 sha256 groups identified; non-canonical copies routed to archive/superseded/duplicates/.",
+    "Ambiguous: 1 file(s) placed in inventory/ambiguous_holding/ awaiting human review."
+  ],
+  "findings": [],
+  "status": "PASS"
+}

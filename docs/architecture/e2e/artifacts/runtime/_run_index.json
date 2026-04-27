@@ -1,0 +1,14 @@
+{
+  "run_tag": "p0_sanity",
+  "started_at": "2026-04-24T23:38:03.456Z",
+  "cases": {
+    "C1-L1-V1": {
+      "case_file": "/sessions/brave-quirky-brown/mnt/Ucenicul/docs/architecture/e2e/artifacts/runtime/C1-L1-V1.chain.json",
+      "invariants_file": "/sessions/brave-quirky-brown/mnt/Ucenicul/docs/architecture/e2e/artifacts/runtime/C1-L1-V1.invariants.json",
+      "fire_ms": 1777073883456,
+      "tr_exec_id": "1356",
+      "has_chain": true,
+      "fire_err": null
+    }
+  }
+}

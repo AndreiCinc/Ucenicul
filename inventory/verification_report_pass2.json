@@ -1,0 +1,24 @@
+{
+  "generated_at": "2026-04-19T13:09:10.501264+00:00",
+  "pass": 2,
+  "summary": {
+    "deployed_file_count": 993,
+    "unified_entry_count": 920,
+    "unique_target_paths": 920,
+    "collisions_found": 0,
+    "allowlist_generated_files_in_deployed": 80
+  },
+  "expected_exists": {
+    "passed": 920,
+    "failed_count": 0,
+    "failed": []
+  },
+  "expected_sha_matches": {
+    "passed": 920,
+    "failed_count": 0,
+    "failed": []
+  },
+  "stray_file_count": 0,
+  "stray_files_sample": [],
+  "collisions_found": []
+}

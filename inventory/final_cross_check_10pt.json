@@ -1,0 +1,86 @@
+{
+  "generated_at": "2026-04-19T13:09:07.117465+00:00",
+  "phase": "5_SYNC_FINAL_CROSS_CHECK",
+  "total_points": 10,
+  "passed": 10,
+  "failed": 0,
+  "all_passed": true,
+  "points": [
+    {
+      "n": 1,
+      "name": "ambiguous role absent from unified_inventory.entries",
+      "expected": 0,
+      "actual": 0,
+      "passed": true
+    },
+    {
+      "n": 2,
+      "name": "ambiguous_files.json is empty",
+      "expected": 0,
+      "actual": 0,
+      "passed": true
+    },
+    {
+      "n": 3,
+      "name": "unified_inventory.counts_by_role['ambiguous'] = 0",
+      "expected": 0,
+      "actual": 0,
+      "passed": true
+    },
+    {
+      "n": 4,
+      "name": "RECONCILIATION_STATE.unresolved_counts.ambiguous_post_review = 0",
+      "expected": 0,
+      "actual": 0,
+      "passed": true
+    },
+    {
+      "n": 5,
+      "name": "RECONCILIATION_STATE.counts_by_role_final['ambiguous'] = 0",
+      "expected": 0,
+      "actual": 0,
+      "passed": true
+    },
+    {
+      "n": 6,
+      "name": "relocation_log.collisions[] empty (current active state)",
+      "expected": [],
+      "actual": [],
+      "passed": true
+    },
+    {
+      "n": 7,
+      "name": "relocation_log.by_status.copied_with_collision_suffix = 0",
+      "expected": 0,
+      "actual": 0,
+      "passed": true
+    },
+    {
+      "n": 8,
+      "name": "no __collision_ files anywhere on disk",
+      "expected": [],
+      "actual": [],
+      "passed": true
+    },
+    {
+      "n": 9,
+      "name": "counts_by_role['archive_candidate'] aligns with entries Counter",
+      "expected": 155,
+      "actual": 155,
+      "passed": true
+    },
+    {
+      "n": 10,
+      "name": "all verification passes green AND audit passes 10/10",
+      "expected": "all green",
+      "actual": {
+        "v1_failed": 0,
+        "v2_stray": 0,
+        "v3_overall_passed": true,
+        "audit_failed": 0,
+        "audit_mismatches": 0
+      },
+      "passed": true
+    }
+  ]
+}

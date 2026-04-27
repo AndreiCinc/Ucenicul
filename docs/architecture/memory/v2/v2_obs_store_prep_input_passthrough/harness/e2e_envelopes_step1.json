@@ -1,0 +1,352 @@
+[
+  {
+    "id": "SPE-01",
+    "family": "defaults_live_store",
+    "step_id": "mem-smoke-v2obs-sppt-step1-default-01",
+    "chatInput": "{\"status_kind\":\"success\",\"result_type\":\"dispatch\",\"execution_context_id\":\"d4f82a41-01cd-4fb7-9d70-573557348e74\",\"thread_id\":\"77777777-0000-0000-0000-000000000007\",\"tenant_id\":\"aaaaaaaa-0000-0000-0000-000000000001\",\"dispatcher_input\":{\"dispatch_allowed\":true,\"module_execution_started\":false,\"response_generation_allowed\":false,\"domain_writes_performed\":false,\"step\":{\"step_id\":\"mem-smoke-v2obs-sppt-step1-default-01\",\"module_name\":\"memory_module\",\"purpose\":\"Step1 E2E SPE-01 family=defaults_live_store\",\"execution_mode\":\"execute\",\"inputs\":{\"action\":\"store_memory\",\"memory_type\":\"fact\",\"category\":\"v2obs_sppt\",\"source_thread_id\":\"77777777-0000-0000-0000-000000000007\",\"content\":\"v2obs-sppt e2e SPE-01 defaults_live_store distinctive content\"}}}}",
+    "replay": false
+  },
+  {
+    "id": "SPE-02",
+    "family": "defaults_live_store",
+    "step_id": "mem-smoke-v2obs-sppt-step1-default-02",
+    "chatInput": "{\"status_kind\":\"success\",\"result_type\":\"dispatch\",\"execution_context_id\":\"d4f82a41-01cd-4fb7-9d70-573557348e74\",\"thread_id\":\"77777777-0000-0000-0000-000000000007\",\"tenant_id\":\"aaaaaaaa-0000-0000-0000-000000000001\",\"dispatcher_input\":{\"dispatch_allowed\":true,\"module_execution_started\":false,\"response_generation_allowed\":false,\"domain_writes_performed\":false,\"step\":{\"step_id\":\"mem-smoke-v2obs-sppt-step1-default-02\",\"module_name\":\"memory_module\",\"purpose\":\"Step1 E2E SPE-02 family=defaults_live_store\",\"execution_mode\":\"execute\",\"inputs\":{\"action\":\"store_memory\",\"memory_type\":\"fact\",\"category\":\"v2obs_sppt\",\"source_thread_id\":\"77777777-0000-0000-0000-000000000007\",\"content\":\"v2obs-sppt e2e SPE-02 defaults_live_store distinctive content\"}}}}",
+    "replay": false
+  },
+  {
+    "id": "SPE-03",
+    "family": "defaults_live_store",
+    "step_id": "mem-smoke-v2obs-sppt-step1-default-03",
+    "chatInput": "{\"status_kind\":\"success\",\"result_type\":\"dispatch\",\"execution_context_id\":\"d4f82a41-01cd-4fb7-9d70-573557348e74\",\"thread_id\":\"77777777-0000-0000-0000-000000000007\",\"tenant_id\":\"aaaaaaaa-0000-0000-0000-000000000001\",\"dispatcher_input\":{\"dispatch_allowed\":true,\"module_execution_started\":false,\"response_generation_allowed\":false,\"domain_writes_performed\":false,\"step\":{\"step_id\":\"mem-smoke-v2obs-sppt-step1-default-03\",\"module_name\":\"memory_module\",\"purpose\":\"Step1 E2E SPE-03 family=defaults_live_store\",\"execution_mode\":\"execute\",\"inputs\":{\"action\":\"store_memory\",\"memory_type\":\"fact\",\"category\":\"v2obs_sppt\",\"source_thread_id\":\"77777777-0000-0000-0000-000000000007\",\"content\":\"v2obs-sppt e2e SPE-03 defaults_live_store distinctive content\"}}}}",
+    "replay": false
+  },
+  {
+    "id": "SPE-04",
+    "family": "defaults_live_store",
+    "step_id": "mem-smoke-v2obs-sppt-step1-default-04",
+    "chatInput": "{\"status_kind\":\"success\",\"result_type\":\"dispatch\",\"execution_context_id\":\"d4f82a41-01cd-4fb7-9d70-573557348e74\",\"thread_id\":\"77777777-0000-0000-0000-000000000007\",\"tenant_id\":\"aaaaaaaa-0000-0000-0000-000000000001\",\"dispatcher_input\":{\"dispatch_allowed\":true,\"module_execution_started\":false,\"response_generation_allowed\":false,\"domain_writes_performed\":false,\"step\":{\"step_id\":\"mem-smoke-v2obs-sppt-step1-default-04\",\"module_name\":\"memory_module\",\"purpose\":\"Step1 E2E SPE-04 family=defaults_live_store\",\"execution_mode\":\"execute\",\"inputs\":{\"action\":\"store_memory\",\"memory_type\":\"fact\",\"category\":\"v2obs_sppt\",\"source_thread_id\":\"77777777-0000-0000-0000-000000000007\",\"content\":\"v2obs-sppt e2e SPE-04 defaults_live_store distinctive content\"}}}}",
+    "replay": false
+  },
+  {
+    "id": "SPE-05",
+    "family": "defaults_live_store",
+    "step_id": "mem-smoke-v2obs-sppt-step1-default-05",
+    "chatInput": "{\"status_kind\":\"success\",\"result_type\":\"dispatch\",\"execution_context_id\":\"d4f82a41-01cd-4fb7-9d70-573557348e74\",\"thread_id\":\"77777777-0000-0000-0000-000000000007\",\"tenant_id\":\"aaaaaaaa-0000-0000-0000-000000000001\",\"dispatcher_input\":{\"dispatch_allowed\":true,\"module_execution_started\":false,\"response_generation_allowed\":false,\"domain_writes_performed\":false,\"step\":{\"step_id\":\"mem-smoke-v2obs-sppt-step1-default-05\",\"module_name\":\"memory_module\",\"purpose\":\"Step1 E2E SPE-05 family=defaults_live_store\",\"execution_mode\":\"execute\",\"inputs\":{\"action\":\"store_memory\",\"memory_type\":\"fact\",\"category\":\"v2obs_sppt\",\"source_thread_id\":\"77777777-0000-0000-0000-000000000007\",\"content\":\"v2obs-sppt e2e SPE-05 defaults_live_store distinctive content\"}}}}",
+    "replay": false
+  },
+  {
+    "id": "SPE-06",
+    "family": "defaults_live_store",
+    "step_id": "mem-smoke-v2obs-sppt-step1-default-06",
+    "chatInput": "{\"status_kind\":\"success\",\"result_type\":\"dispatch\",\"execution_context_id\":\"d4f82a41-01cd-4fb7-9d70-573557348e74\",\"thread_id\":\"77777777-0000-0000-0000-000000000007\",\"tenant_id\":\"aaaaaaaa-0000-0000-0000-000000000001\",\"dispatcher_input\":{\"dispatch_allowed\":true,\"module_execution_started\":false,\"response_generation_allowed\":false,\"domain_writes_performed\":false,\"step\":{\"step_id\":\"mem-smoke-v2obs-sppt-step1-default-06\",\"module_name\":\"memory_module\",\"purpose\":\"Step1 E2E SPE-06 family=defaults_live_store\",\"execution_mode\":\"execute\",\"inputs\":{\"action\":\"store_memory\",\"memory_type\":\"fact\",\"category\":\"v2obs_sppt\",\"source_thread_id\":\"77777777-0000-0000-0000-000000000007\",\"content\":\"v2obs-sppt e2e SPE-06 defaults_live_store distinctive content\"}}}}",
+    "replay": false
+  },
+  {
+    "id": "SPE-07",
+    "family": "defaults_live_store",
+    "step_id": "mem-smoke-v2obs-sppt-step1-default-07",
+    "chatInput": "{\"status_kind\":\"success\",\"result_type\":\"dispatch\",\"execution_context_id\":\"d4f82a41-01cd-4fb7-9d70-573557348e74\",\"thread_id\":\"77777777-0000-0000-0000-000000000007\",\"tenant_id\":\"aaaaaaaa-0000-0000-0000-000000000001\",\"dispatcher_input\":{\"dispatch_allowed\":true,\"module_execution_started\":false,\"response_generation_allowed\":false,\"domain_writes_performed\":false,\"step\":{\"step_id\":\"mem-smoke-v2obs-sppt-step1-default-07\",\"module_name\":\"memory_module\",\"purpose\":\"Step1 E2E SPE-07 family=defaults_live_store\",\"execution_mode\":\"execute\",\"inputs\":{\"action\":\"store_memory\",\"memory_type\":\"fact\",\"category\":\"v2obs_sppt\",\"source_thread_id\":\"77777777-0000-0000-0000-000000000007\",\"content\":\"v2obs-sppt e2e SPE-07 defaults_live_store distinctive content\"}}}}",
+    "replay": false
+  },
+  {
+    "id": "SPE-08",
+    "family": "defaults_live_store",
+    "step_id": "mem-smoke-v2obs-sppt-step1-default-08",
+    "chatInput": "{\"status_kind\":\"success\",\"result_type\":\"dispatch\",\"execution_context_id\":\"d4f82a41-01cd-4fb7-9d70-573557348e74\",\"thread_id\":\"77777777-0000-0000-0000-000000000007\",\"tenant_id\":\"aaaaaaaa-0000-0000-0000-000000000001\",\"dispatcher_input\":{\"dispatch_allowed\":true,\"module_execution_started\":false,\"response_generation_allowed\":false,\"domain_writes_performed\":false,\"step\":{\"step_id\":\"mem-smoke-v2obs-sppt-step1-default-08\",\"module_name\":\"memory_module\",\"purpose\":\"Step1 E2E SPE-08 family=defaults_live_store\",\"execution_mode\":\"execute\",\"inputs\":{\"action\":\"store_memory\",\"memory_type\":\"fact\",\"category\":\"v2obs_sppt\",\"source_thread_id\":\"77777777-0000-0000-0000-000000000007\",\"content\":\"v2obs-sppt e2e SPE-08 defaults_live_store distinctive content\"}}}}",
+    "replay": false
+  },
+  {
+    "id": "SPE-09",
+    "family": "defaults_live_store",
+    "step_id": "mem-smoke-v2obs-sppt-step1-default-09",
+    "chatInput": "{\"status_kind\":\"success\",\"result_type\":\"dispatch\",\"execution_context_id\":\"d4f82a41-01cd-4fb7-9d70-573557348e74\",\"thread_id\":\"77777777-0000-0000-0000-000000000007\",\"tenant_id\":\"aaaaaaaa-0000-0000-0000-000000000001\",\"dispatcher_input\":{\"dispatch_allowed\":true,\"module_execution_started\":false,\"response_generation_allowed\":false,\"domain_writes_performed\":false,\"step\":{\"step_id\":\"mem-smoke-v2obs-sppt-step1-default-09\",\"module_name\":\"memory_module\",\"purpose\":\"Step1 E2E SPE-09 family=defaults_live_store\",\"execution_mode\":\"execute\",\"inputs\":{\"action\":\"store_memory\",\"memory_type\":\"fact\",\"category\":\"v2obs_sppt\",\"source_thread_id\":\"77777777-0000-0000-0000-000000000007\",\"content\":\"v2obs-sppt e2e SPE-09 defaults_live_store distinctive content\"}}}}",
+    "replay": false
+  },
+  {
+    "id": "SPE-10",
+    "family": "defaults_live_store",
+    "step_id": "mem-smoke-v2obs-sppt-step1-default-10",
+    "chatInput": "{\"status_kind\":\"success\",\"result_type\":\"dispatch\",\"execution_context_id\":\"d4f82a41-01cd-4fb7-9d70-573557348e74\",\"thread_id\":\"77777777-0000-0000-0000-000000000007\",\"tenant_id\":\"aaaaaaaa-0000-0000-0000-000000000001\",\"dispatcher_input\":{\"dispatch_allowed\":true,\"module_execution_started\":false,\"response_generation_allowed\":false,\"domain_writes_performed\":false,\"step\":{\"step_id\":\"mem-smoke-v2obs-sppt-step1-default-10\",\"module_name\":\"memory_module\",\"purpose\":\"Step1 E2E SPE-10 family=defaults_live_store\",\"execution_mode\":\"execute\",\"inputs\":{\"action\":\"store_memory\",\"memory_type\":\"fact\",\"category\":\"v2obs_sppt\",\"source_thread_id\":\"77777777-0000-0000-0000-000000000007\",\"content\":\"v2obs-sppt e2e SPE-10 defaults_live_store distinctive content\"}}}}",
+    "replay": false
+  },
+  {
+    "id": "SPE-11",
+    "family": "tier_live_store",
+    "step_id": "mem-smoke-v2obs-sppt-step1-tier-11",
+    "chatInput": "{\"status_kind\":\"success\",\"result_type\":\"dispatch\",\"execution_context_id\":\"d4f82a41-01cd-4fb7-9d70-573557348e74\",\"thread_id\":\"77777777-0000-0000-0000-000000000007\",\"tenant_id\":\"aaaaaaaa-0000-0000-0000-000000000001\",\"dispatcher_input\":{\"dispatch_allowed\":true,\"module_execution_started\":false,\"response_generation_allowed\":false,\"domain_writes_performed\":false,\"step\":{\"step_id\":\"mem-smoke-v2obs-sppt-step1-tier-11\",\"module_name\":\"memory_module\",\"purpose\":\"Step1 E2E SPE-11 family=tier_live_store\",\"execution_mode\":\"execute\",\"inputs\":{\"action\":\"store_memory\",\"memory_type\":\"fact\",\"category\":\"v2obs_sppt\",\"source_thread_id\":\"77777777-0000-0000-0000-000000000007\",\"content\":\"v2obs-sppt e2e SPE-11 tier_live_store distinctive content\",\"tier\":\"recent\"}}}}",
+    "replay": false
+  },
+  {
+    "id": "SPE-12",
+    "family": "tier_live_store",
+    "step_id": "mem-smoke-v2obs-sppt-step1-tier-12",
+    "chatInput": "{\"status_kind\":\"success\",\"result_type\":\"dispatch\",\"execution_context_id\":\"d4f82a41-01cd-4fb7-9d70-573557348e74\",\"thread_id\":\"77777777-0000-0000-0000-000000000007\",\"tenant_id\":\"aaaaaaaa-0000-0000-0000-000000000001\",\"dispatcher_input\":{\"dispatch_allowed\":true,\"module_execution_started\":false,\"response_generation_allowed\":false,\"domain_writes_performed\":false,\"step\":{\"step_id\":\"mem-smoke-v2obs-sppt-step1-tier-12\",\"module_name\":\"memory_module\",\"purpose\":\"Step1 E2E SPE-12 family=tier_live_store\",\"execution_mode\":\"execute\",\"inputs\":{\"action\":\"store_memory\",\"memory_type\":\"fact\",\"category\":\"v2obs_sppt\",\"source_thread_id\":\"77777777-0000-0000-0000-000000000007\",\"content\":\"v2obs-sppt e2e SPE-12 tier_live_store distinctive content\",\"tier\":\"long_term\"}}}}",
+    "replay": false
+  },
+  {
+    "id": "SPE-13",
+    "family": "tier_live_store",
+    "step_id": "mem-smoke-v2obs-sppt-step1-tier-13",
+    "chatInput": "{\"status_kind\":\"success\",\"result_type\":\"dispatch\",\"execution_context_id\":\"d4f82a41-01cd-4fb7-9d70-573557348e74\",\"thread_id\":\"77777777-0000-0000-0000-000000000007\",\"tenant_id\":\"aaaaaaaa-0000-0000-0000-000000000001\",\"dispatcher_input\":{\"dispatch_allowed\":true,\"module_execution_started\":false,\"response_generation_allowed\":false,\"domain_writes_performed\":false,\"step\":{\"step_id\":\"mem-smoke-v2obs-sppt-step1-tier-13\",\"module_name\":\"memory_module\",\"purpose\":\"Step1 E2E SPE-13 family=tier_live_store\",\"execution_mode\":\"execute\",\"inputs\":{\"action\":\"store_memory\",\"memory_type\":\"fact\",\"category\":\"v2obs_sppt\",\"source_thread_id\":\"77777777-0000-0000-0000-000000000007\",\"content\":\"v2obs-sppt e2e SPE-13 tier_live_store distinctive content\",\"tier\":\"recent\"}}}}",
+    "replay": false
+  },
+  {
+    "id": "SPE-14",
+    "family": "tier_live_store",
+    "step_id": "mem-smoke-v2obs-sppt-step1-tier-14",
+    "chatInput": "{\"status_kind\":\"success\",\"result_type\":\"dispatch\",\"execution_context_id\":\"d4f82a41-01cd-4fb7-9d70-573557348e74\",\"thread_id\":\"77777777-0000-0000-0000-000000000007\",\"tenant_id\":\"aaaaaaaa-0000-0000-0000-000000000001\",\"dispatcher_input\":{\"dispatch_allowed\":true,\"module_execution_started\":false,\"response_generation_allowed\":false,\"domain_writes_performed\":false,\"step\":{\"step_id\":\"mem-smoke-v2obs-sppt-step1-tier-14\",\"module_name\":\"memory_module\",\"purpose\":\"Step1 E2E SPE-14 family=tier_live_store\",\"execution_mode\":\"execute\",\"inputs\":{\"action\":\"store_memory\",\"memory_type\":\"fact\",\"category\":\"v2obs_sppt\",\"source_thread_id\":\"77777777-0000-0000-0000-000000000007\",\"content\":\"v2obs-sppt e2e SPE-14 tier_live_store distinctive content\",\"tier\":\"long_term\"}}}}",
+    "replay": false
+  },
+  {
+    "id": "SPE-15",
+    "family": "tier_live_store",
+    "step_id": "mem-smoke-v2obs-sppt-step1-tier-15",
+    "chatInput": "{\"status_kind\":\"success\",\"result_type\":\"dispatch\",\"execution_context_id\":\"d4f82a41-01cd-4fb7-9d70-573557348e74\",\"thread_id\":\"77777777-0000-0000-0000-000000000007\",\"tenant_id\":\"aaaaaaaa-0000-0000-0000-000000000001\",\"dispatcher_input\":{\"dispatch_allowed\":true,\"module_execution_started\":false,\"response_generation_allowed\":false,\"domain_writes_performed\":false,\"step\":{\"step_id\":\"mem-smoke-v2obs-sppt-step1-tier-15\",\"module_name\":\"memory_module\",\"purpose\":\"Step1 E2E SPE-15 family=tier_live_store\",\"execution_mode\":\"execute\",\"inputs\":{\"action\":\"store_memory\",\"memory_type\":\"fact\",\"category\":\"v2obs_sppt\",\"source_thread_id\":\"77777777-0000-0000-0000-000000000007\",\"content\":\"v2obs-sppt e2e SPE-15 tier_live_store distinctive content\",\"tier\":\"recent\"}}}}",
+    "replay": false
+  },
+  {
+    "id": "SPE-16",
+    "family": "tier_live_store",
+    "step_id": "mem-smoke-v2obs-sppt-step1-tier-16",
+    "chatInput": "{\"status_kind\":\"success\",\"result_type\":\"dispatch\",\"execution_context_id\":\"d4f82a41-01cd-4fb7-9d70-573557348e74\",\"thread_id\":\"77777777-0000-0000-0000-000000000007\",\"tenant_id\":\"aaaaaaaa-0000-0000-0000-000000000001\",\"dispatcher_input\":{\"dispatch_allowed\":true,\"module_execution_started\":false,\"response_generation_allowed\":false,\"domain_writes_performed\":false,\"step\":{\"step_id\":\"mem-smoke-v2obs-sppt-step1-tier-16\",\"module_name\":\"memory_module\",\"purpose\":\"Step1 E2E SPE-16 family=tier_live_store\",\"execution_mode\":\"execute\",\"inputs\":{\"action\":\"store_memory\",\"memory_type\":\"fact\",\"category\":\"v2obs_sppt\",\"source_thread_id\":\"77777777-0000-0000-0000-000000000007\",\"content\":\"v2obs-sppt e2e SPE-16 tier_live_store distinctive content\",\"tier\":\"long_term\"}}}}",
+    "replay": false
+  },
+  {
+    "id": "SPE-17",
+    "family": "tier_live_store",
+    "step_id": "mem-smoke-v2obs-sppt-step1-tier-17",
+    "chatInput": "{\"status_kind\":\"success\",\"result_type\":\"dispatch\",\"execution_context_id\":\"d4f82a41-01cd-4fb7-9d70-573557348e74\",\"thread_id\":\"77777777-0000-0000-0000-000000000007\",\"tenant_id\":\"aaaaaaaa-0000-0000-0000-000000000001\",\"dispatcher_input\":{\"dispatch_allowed\":true,\"module_execution_started\":false,\"response_generation_allowed\":false,\"domain_writes_performed\":false,\"step\":{\"step_id\":\"mem-smoke-v2obs-sppt-step1-tier-17\",\"module_name\":\"memory_module\",\"purpose\":\"Step1 E2E SPE-17 family=tier_live_store\",\"execution_mode\":\"execute\",\"inputs\":{\"action\":\"store_memory\",\"memory_type\":\"fact\",\"category\":\"v2obs_sppt\",\"source_thread_id\":\"77777777-0000-0000-0000-000000000007\",\"content\":\"v2obs-sppt e2e SPE-17 tier_live_store distinctive content\",\"tier\":\"recent\"}}}}",
+    "replay": false
+  },
+  {
+    "id": "SPE-18",
+    "family": "tier_live_store",
+    "step_id": "mem-smoke-v2obs-sppt-step1-tier-18",
+    "chatInput": "{\"status_kind\":\"success\",\"result_type\":\"dispatch\",\"execution_context_id\":\"d4f82a41-01cd-4fb7-9d70-573557348e74\",\"thread_id\":\"77777777-0000-0000-0000-000000000007\",\"tenant_id\":\"aaaaaaaa-0000-0000-0000-000000000001\",\"dispatcher_input\":{\"dispatch_allowed\":true,\"module_execution_started\":false,\"response_generation_allowed\":false,\"domain_writes_performed\":false,\"step\":{\"step_id\":\"mem-smoke-v2obs-sppt-step1-tier-18\",\"module_name\":\"memory_module\",\"purpose\":\"Step1 E2E SPE-18 family=tier_live_store\",\"execution_mode\":\"execute\",\"inputs\":{\"action\":\"store_memory\",\"memory_type\":\"fact\",\"category\":\"v2obs_sppt\",\"source_thread_id\":\"77777777-0000-0000-0000-000000000007\",\"content\":\"v2obs-sppt e2e SPE-18 tier_live_store distinctive content\",\"tier\":\"long_term\"}}}}",
+    "replay": false
+  },
+  {
+    "id": "SPE-19",
+    "family": "tier_live_store",
+    "step_id": "mem-smoke-v2obs-sppt-step1-tier-19",
+    "chatInput": "{\"status_kind\":\"success\",\"result_type\":\"dispatch\",\"execution_context_id\":\"d4f82a41-01cd-4fb7-9d70-573557348e74\",\"thread_id\":\"77777777-0000-0000-0000-000000000007\",\"tenant_id\":\"aaaaaaaa-0000-0000-0000-000000000001\",\"dispatcher_input\":{\"dispatch_allowed\":true,\"module_execution_started\":false,\"response_generation_allowed\":false,\"domain_writes_performed\":false,\"step\":{\"step_id\":\"mem-smoke-v2obs-sppt-step1-tier-19\",\"module_name\":\"memory_module\",\"purpose\":\"Step1 E2E SPE-19 family=tier_live_store\",\"execution_mode\":\"execute\",\"inputs\":{\"action\":\"store_memory\",\"memory_type\":\"fact\",\"category\":\"v2obs_sppt\",\"source_thread_id\":\"77777777-0000-0000-0000-000000000007\",\"content\":\"v2obs-sppt e2e SPE-19 tier_live_store distinctive content\",\"tier\":\"recent\"}}}}",
+    "replay": false
+  },
+  {
+    "id": "SPE-20",
+    "family": "tier_live_store",
+    "step_id": "mem-smoke-v2obs-sppt-step1-tier-20",
+    "chatInput": "{\"status_kind\":\"success\",\"result_type\":\"dispatch\",\"execution_context_id\":\"d4f82a41-01cd-4fb7-9d70-573557348e74\",\"thread_id\":\"77777777-0000-0000-0000-000000000007\",\"tenant_id\":\"aaaaaaaa-0000-0000-0000-000000000001\",\"dispatcher_input\":{\"dispatch_allowed\":true,\"module_execution_started\":false,\"response_generation_allowed\":false,\"domain_writes_performed\":false,\"step\":{\"step_id\":\"mem-smoke-v2obs-sppt-step1-tier-20\",\"module_name\":\"memory_module\",\"purpose\":\"Step1 E2E SPE-20 family=tier_live_store\",\"execution_mode\":\"execute\",\"inputs\":{\"action\":\"store_memory\",\"memory_type\":\"fact\",\"category\":\"v2obs_sppt\",\"source_thread_id\":\"77777777-0000-0000-0000-000000000007\",\"content\":\"v2obs-sppt e2e SPE-20 tier_live_store distinctive content\",\"tier\":\"long_term\"}}}}",
+    "replay": false
+  },
+  {
+    "id": "SPE-21",
+    "family": "user_confirmed_live_store",
+    "step_id": "mem-smoke-v2obs-sppt-step1-uc-21",
+    "chatInput": "{\"status_kind\":\"success\",\"result_type\":\"dispatch\",\"execution_context_id\":\"d4f82a41-01cd-4fb7-9d70-573557348e74\",\"thread_id\":\"77777777-0000-0000-0000-000000000007\",\"tenant_id\":\"aaaaaaaa-0000-0000-0000-000000000001\",\"dispatcher_input\":{\"dispatch_allowed\":true,\"module_execution_started\":false,\"response_generation_allowed\":false,\"domain_writes_performed\":false,\"step\":{\"step_id\":\"mem-smoke-v2obs-sppt-step1-uc-21\",\"module_name\":\"memory_module\",\"purpose\":\"Step1 E2E SPE-21 family=user_confirmed_live_store\",\"execution_mode\":\"execute\",\"inputs\":{\"action\":\"store_memory\",\"memory_type\":\"fact\",\"category\":\"v2obs_sppt\",\"source_thread_id\":\"77777777-0000-0000-0000-000000000007\",\"content\":\"v2obs-sppt e2e SPE-21 user_confirmed_live_store distinctive content\",\"user_confirmed\":true}}}}",
+    "replay": false
+  },
+  {
+    "id": "SPE-22",
+    "family": "user_confirmed_live_store",
+    "step_id": "mem-smoke-v2obs-sppt-step1-uc-22",
+    "chatInput": "{\"status_kind\":\"success\",\"result_type\":\"dispatch\",\"execution_context_id\":\"d4f82a41-01cd-4fb7-9d70-573557348e74\",\"thread_id\":\"77777777-0000-0000-0000-000000000007\",\"tenant_id\":\"aaaaaaaa-0000-0000-0000-000000000001\",\"dispatcher_input\":{\"dispatch_allowed\":true,\"module_execution_started\":false,\"response_generation_allowed\":false,\"domain_writes_performed\":false,\"step\":{\"step_id\":\"mem-smoke-v2obs-sppt-step1-uc-22\",\"module_name\":\"memory_module\",\"purpose\":\"Step1 E2E SPE-22 family=user_confirmed_live_store\",\"execution_mode\":\"execute\",\"inputs\":{\"action\":\"store_memory\",\"memory_type\":\"fact\",\"category\":\"v2obs_sppt\",\"source_thread_id\":\"77777777-0000-0000-0000-000000000007\",\"content\":\"v2obs-sppt e2e SPE-22 user_confirmed_live_store distinctive content\",\"user_confirmed\":false}}}}",
+    "replay": false
+  },
+  {
+    "id": "SPE-23",
+    "family": "user_confirmed_live_store",
+    "step_id": "mem-smoke-v2obs-sppt-step1-uc-23",
+    "chatInput": "{\"status_kind\":\"success\",\"result_type\":\"dispatch\",\"execution_context_id\":\"d4f82a41-01cd-4fb7-9d70-573557348e74\",\"thread_id\":\"77777777-0000-0000-0000-000000000007\",\"tenant_id\":\"aaaaaaaa-0000-0000-0000-000000000001\",\"dispatcher_input\":{\"dispatch_allowed\":true,\"module_execution_started\":false,\"response_generation_allowed\":false,\"domain_writes_performed\":false,\"step\":{\"step_id\":\"mem-smoke-v2obs-sppt-step1-uc-23\",\"module_name\":\"memory_module\",\"purpose\":\"Step1 E2E SPE-23 family=user_confirmed_live_store\",\"execution_mode\":\"execute\",\"inputs\":{\"action\":\"store_memory\",\"memory_type\":\"fact\",\"category\":\"v2obs_sppt\",\"source_thread_id\":\"77777777-0000-0000-0000-000000000007\",\"content\":\"v2obs-sppt e2e SPE-23 user_confirmed_live_store distinctive content\",\"user_confirmed\":true}}}}",
+    "replay": false
+  },
+  {
+    "id": "SPE-24",
+    "family": "user_confirmed_live_store",
+    "step_id": "mem-smoke-v2obs-sppt-step1-uc-24",
+    "chatInput": "{\"status_kind\":\"success\",\"result_type\":\"dispatch\",\"execution_context_id\":\"d4f82a41-01cd-4fb7-9d70-573557348e74\",\"thread_id\":\"77777777-0000-0000-0000-000000000007\",\"tenant_id\":\"aaaaaaaa-0000-0000-0000-000000000001\",\"dispatcher_input\":{\"dispatch_allowed\":true,\"module_execution_started\":false,\"response_generation_allowed\":false,\"domain_writes_performed\":false,\"step\":{\"step_id\":\"mem-smoke-v2obs-sppt-step1-uc-24\",\"module_name\":\"memory_module\",\"purpose\":\"Step1 E2E SPE-24 family=user_confirmed_live_store\",\"execution_mode\":\"execute\",\"inputs\":{\"action\":\"store_memory\",\"memory_type\":\"fact\",\"category\":\"v2obs_sppt\",\"source_thread_id\":\"77777777-0000-0000-0000-000000000007\",\"content\":\"v2obs-sppt e2e SPE-24 user_confirmed_live_store distinctive content\",\"user_confirmed\":false}}}}",
+    "replay": false
+  },
+  {
+    "id": "SPE-25",
+    "family": "user_confirmed_live_store",
+    "step_id": "mem-smoke-v2obs-sppt-step1-uc-25",
+    "chatInput": "{\"status_kind\":\"success\",\"result_type\":\"dispatch\",\"execution_context_id\":\"d4f82a41-01cd-4fb7-9d70-573557348e74\",\"thread_id\":\"77777777-0000-0000-0000-000000000007\",\"tenant_id\":\"aaaaaaaa-0000-0000-0000-000000000001\",\"dispatcher_input\":{\"dispatch_allowed\":true,\"module_execution_started\":false,\"response_generation_allowed\":false,\"domain_writes_performed\":false,\"step\":{\"step_id\":\"mem-smoke-v2obs-sppt-step1-uc-25\",\"module_name\":\"memory_module\",\"purpose\":\"Step1 E2E SPE-25 family=user_confirmed_live_store\",\"execution_mode\":\"execute\",\"inputs\":{\"action\":\"store_memory\",\"memory_type\":\"fact\",\"category\":\"v2obs_sppt\",\"source_thread_id\":\"77777777-0000-0000-0000-000000000007\",\"content\":\"v2obs-sppt e2e SPE-25 user_confirmed_live_store distinctive content\",\"user_confirmed\":true}}}}",
+    "replay": false
+  },
+  {
+    "id": "SPE-26",
+    "family": "user_confirmed_live_store",
+    "step_id": "mem-smoke-v2obs-sppt-step1-uc-26",
+    "chatInput": "{\"status_kind\":\"success\",\"result_type\":\"dispatch\",\"execution_context_id\":\"d4f82a41-01cd-4fb7-9d70-573557348e74\",\"thread_id\":\"77777777-0000-0000-0000-000000000007\",\"tenant_id\":\"aaaaaaaa-0000-0000-0000-000000000001\",\"dispatcher_input\":{\"dispatch_allowed\":true,\"module_execution_started\":false,\"response_generation_allowed\":false,\"domain_writes_performed\":false,\"step\":{\"step_id\":\"mem-smoke-v2obs-sppt-step1-uc-26\",\"module_name\":\"memory_module\",\"purpose\":\"Step1 E2E SPE-26 family=user_confirmed_live_store\",\"execution_mode\":\"execute\",\"inputs\":{\"action\":\"store_memory\",\"memory_type\":\"fact\",\"category\":\"v2obs_sppt\",\"source_thread_id\":\"77777777-0000-0000-0000-000000000007\",\"content\":\"v2obs-sppt e2e SPE-26 user_confirmed_live_store distinctive content\",\"user_confirmed\":false}}}}",
+    "replay": false
+  },
+  {
+    "id": "SPE-27",
+    "family": "user_confirmed_live_store",
+    "step_id": "mem-smoke-v2obs-sppt-step1-uc-27",
+    "chatInput": "{\"status_kind\":\"success\",\"result_type\":\"dispatch\",\"execution_context_id\":\"d4f82a41-01cd-4fb7-9d70-573557348e74\",\"thread_id\":\"77777777-0000-0000-0000-000000000007\",\"tenant_id\":\"aaaaaaaa-0000-0000-0000-000000000001\",\"dispatcher_input\":{\"dispatch_allowed\":true,\"module_execution_started\":false,\"response_generation_allowed\":false,\"domain_writes_performed\":false,\"step\":{\"step_id\":\"mem-smoke-v2obs-sppt-step1-uc-27\",\"module_name\":\"memory_module\",\"purpose\":\"Step1 E2E SPE-27 family=user_confirmed_live_store\",\"execution_mode\":\"execute\",\"inputs\":{\"action\":\"store_memory\",\"memory_type\":\"fact\",\"category\":\"v2obs_sppt\",\"source_thread_id\":\"77777777-0000-0000-0000-000000000007\",\"content\":\"v2obs-sppt e2e SPE-27 user_confirmed_live_store distinctive content\",\"user_confirmed\":true}}}}",
+    "replay": false
+  },
+  {
+    "id": "SPE-28",
+    "family": "user_confirmed_live_store",
+    "step_id": "mem-smoke-v2obs-sppt-step1-uc-28",
+    "chatInput": "{\"status_kind\":\"success\",\"result_type\":\"dispatch\",\"execution_context_id\":\"d4f82a41-01cd-4fb7-9d70-573557348e74\",\"thread_id\":\"77777777-0000-0000-0000-000000000007\",\"tenant_id\":\"aaaaaaaa-0000-0000-0000-000000000001\",\"dispatcher_input\":{\"dispatch_allowed\":true,\"module_execution_started\":false,\"response_generation_allowed\":false,\"domain_writes_performed\":false,\"step\":{\"step_id\":\"mem-smoke-v2obs-sppt-step1-uc-28\",\"module_name\":\"memory_module\",\"purpose\":\"Step1 E2E SPE-28 family=user_confirmed_live_store\",\"execution_mode\":\"execute\",\"inputs\":{\"action\":\"store_memory\",\"memory_type\":\"fact\",\"category\":\"v2obs_sppt\",\"source_thread_id\":\"77777777-0000-0000-0000-000000000007\",\"content\":\"v2obs-sppt e2e SPE-28 user_confirmed_live_store distinctive content\",\"user_confirmed\":false}}}}",
+    "replay": false
+  },
+  {
+    "id": "SPE-29",
+    "family": "user_confirmed_live_store",
+    "step_id": "mem-smoke-v2obs-sppt-step1-uc-29",
+    "chatInput": "{\"status_kind\":\"success\",\"result_type\":\"dispatch\",\"execution_context_id\":\"d4f82a41-01cd-4fb7-9d70-573557348e74\",\"thread_id\":\"77777777-0000-0000-0000-000000000007\",\"tenant_id\":\"aaaaaaaa-0000-0000-0000-000000000001\",\"dispatcher_input\":{\"dispatch_allowed\":true,\"module_execution_started\":false,\"response_generation_allowed\":false,\"domain_writes_performed\":false,\"step\":{\"step_id\":\"mem-smoke-v2obs-sppt-step1-uc-29\",\"module_name\":\"memory_module\",\"purpose\":\"Step1 E2E SPE-29 family=user_confirmed_live_store\",\"execution_mode\":\"execute\",\"inputs\":{\"action\":\"store_memory\",\"memory_type\":\"fact\",\"category\":\"v2obs_sppt\",\"source_thread_id\":\"77777777-0000-0000-0000-000000000007\",\"content\":\"v2obs-sppt e2e SPE-29 user_confirmed_live_store distinctive content\",\"user_confirmed\":true}}}}",
+    "replay": false
+  },
+  {
+    "id": "SPE-30",
+    "family": "user_confirmed_live_store",
+    "step_id": "mem-smoke-v2obs-sppt-step1-uc-30",
+    "chatInput": "{\"status_kind\":\"success\",\"result_type\":\"dispatch\",\"execution_context_id\":\"d4f82a41-01cd-4fb7-9d70-573557348e74\",\"thread_id\":\"77777777-0000-0000-0000-000000000007\",\"tenant_id\":\"aaaaaaaa-0000-0000-0000-000000000001\",\"dispatcher_input\":{\"dispatch_allowed\":true,\"module_execution_started\":false,\"response_generation_allowed\":false,\"domain_writes_performed\":false,\"step\":{\"step_id\":\"mem-smoke-v2obs-sppt-step1-uc-30\",\"module_name\":\"memory_module\",\"purpose\":\"Step1 E2E SPE-30 family=user_confirmed_live_store\",\"execution_mode\":\"execute\",\"inputs\":{\"action\":\"store_memory\",\"memory_type\":\"fact\",\"category\":\"v2obs_sppt\",\"source_thread_id\":\"77777777-0000-0000-0000-000000000007\",\"content\":\"v2obs-sppt e2e SPE-30 user_confirmed_live_store distinctive content\",\"user_confirmed\":false}}}}",
+    "replay": false
+  },
+  {
+    "id": "SPE-31",
+    "family": "corroboration_live_store",
+    "step_id": "mem-smoke-v2obs-sppt-step1-corro-31",
+    "chatInput": "{\"status_kind\":\"success\",\"result_type\":\"dispatch\",\"execution_context_id\":\"d4f82a41-01cd-4fb7-9d70-573557348e74\",\"thread_id\":\"77777777-0000-0000-0000-000000000007\",\"tenant_id\":\"aaaaaaaa-0000-0000-0000-000000000001\",\"dispatcher_input\":{\"dispatch_allowed\":true,\"module_execution_started\":false,\"response_generation_allowed\":false,\"domain_writes_performed\":false,\"step\":{\"step_id\":\"mem-smoke-v2obs-sppt-step1-corro-31\",\"module_name\":\"memory_module\",\"purpose\":\"Step1 E2E SPE-31 family=corroboration_live_store\",\"execution_mode\":\"execute\",\"inputs\":{\"action\":\"store_memory\",\"memory_type\":\"fact\",\"category\":\"v2obs_sppt\",\"source_thread_id\":\"77777777-0000-0000-0000-000000000007\",\"content\":\"v2obs-sppt e2e SPE-31 corroboration_live_store distinctive content\",\"corroboration_count\":0}}}}",
+    "replay": false
+  },
+  {
+    "id": "SPE-32",
+    "family": "corroboration_live_store",
+    "step_id": "mem-smoke-v2obs-sppt-step1-corro-32",
+    "chatInput": "{\"status_kind\":\"success\",\"result_type\":\"dispatch\",\"execution_context_id\":\"d4f82a41-01cd-4fb7-9d70-573557348e74\",\"thread_id\":\"77777777-0000-0000-0000-000000000007\",\"tenant_id\":\"aaaaaaaa-0000-0000-0000-000000000001\",\"dispatcher_input\":{\"dispatch_allowed\":true,\"module_execution_started\":false,\"response_generation_allowed\":false,\"domain_writes_performed\":false,\"step\":{\"step_id\":\"mem-smoke-v2obs-sppt-step1-corro-32\",\"module_name\":\"memory_module\",\"purpose\":\"Step1 E2E SPE-32 family=corroboration_live_store\",\"execution_mode\":\"execute\",\"inputs\":{\"action\":\"store_memory\",\"memory_type\":\"fact\",\"category\":\"v2obs_sppt\",\"source_thread_id\":\"77777777-0000-0000-0000-000000000007\",\"content\":\"v2obs-sppt e2e SPE-32 corroboration_live_store distinctive content\",\"corroboration_count\":1}}}}",
+    "replay": false
+  },
+  {
+    "id": "SPE-33",
+    "family": "corroboration_live_store",
+    "step_id": "mem-smoke-v2obs-sppt-step1-corro-33",
+    "chatInput": "{\"status_kind\":\"success\",\"result_type\":\"dispatch\",\"execution_context_id\":\"d4f82a41-01cd-4fb7-9d70-573557348e74\",\"thread_id\":\"77777777-0000-0000-0000-000000000007\",\"tenant_id\":\"aaaaaaaa-0000-0000-0000-000000000001\",\"dispatcher_input\":{\"dispatch_allowed\":true,\"module_execution_started\":false,\"response_generation_allowed\":false,\"domain_writes_performed\":false,\"step\":{\"step_id\":\"mem-smoke-v2obs-sppt-step1-corro-33\",\"module_name\":\"memory_module\",\"purpose\":\"Step1 E2E SPE-33 family=corroboration_live_store\",\"execution_mode\":\"execute\",\"inputs\":{\"action\":\"store_memory\",\"memory_type\":\"fact\",\"category\":\"v2obs_sppt\",\"source_thread_id\":\"77777777-0000-0000-0000-000000000007\",\"content\":\"v2obs-sppt e2e SPE-33 corroboration_live_store distinctive content\",\"corroboration_count\":2}}}}",
+    "replay": false
+  },
+  {
+    "id": "SPE-34",
+    "family": "corroboration_live_store",
+    "step_id": "mem-smoke-v2obs-sppt-step1-corro-34",
+    "chatInput": "{\"status_kind\":\"success\",\"result_type\":\"dispatch\",\"execution_context_id\":\"d4f82a41-01cd-4fb7-9d70-573557348e74\",\"thread_id\":\"77777777-0000-0000-0000-000000000007\",\"tenant_id\":\"aaaaaaaa-0000-0000-0000-000000000001\",\"dispatcher_input\":{\"dispatch_allowed\":true,\"module_execution_started\":false,\"response_generation_allowed\":false,\"domain_writes_performed\":false,\"step\":{\"step_id\":\"mem-smoke-v2obs-sppt-step1-corro-34\",\"module_name\":\"memory_module\",\"purpose\":\"Step1 E2E SPE-34 family=corroboration_live_store\",\"execution_mode\":\"execute\",\"inputs\":{\"action\":\"store_memory\",\"memory_type\":\"fact\",\"category\":\"v2obs_sppt\",\"source_thread_id\":\"77777777-0000-0000-0000-000000000007\",\"content\":\"v2obs-sppt e2e SPE-34 corroboration_live_store distinctive content\",\"corroboration_count\":3}}}}",
+    "replay": false
+  },
+  {
+    "id": "SPE-35",
+    "family": "corroboration_live_store",
+    "step_id": "mem-smoke-v2obs-sppt-step1-corro-35",
+    "chatInput": "{\"status_kind\":\"success\",\"result_type\":\"dispatch\",\"execution_context_id\":\"d4f82a41-01cd-4fb7-9d70-573557348e74\",\"thread_id\":\"77777777-0000-0000-0000-000000000007\",\"tenant_id\":\"aaaaaaaa-0000-0000-0000-000000000001\",\"dispatcher_input\":{\"dispatch_allowed\":true,\"module_execution_started\":false,\"response_generation_allowed\":false,\"domain_writes_performed\":false,\"step\":{\"step_id\":\"mem-smoke-v2obs-sppt-step1-corro-35\",\"module_name\":\"memory_module\",\"purpose\":\"Step1 E2E SPE-35 family=corroboration_live_store\",\"execution_mode\":\"execute\",\"inputs\":{\"action\":\"store_memory\",\"memory_type\":\"fact\",\"category\":\"v2obs_sppt\",\"source_thread_id\":\"77777777-0000-0000-0000-000000000007\",\"content\":\"v2obs-sppt e2e SPE-35 corroboration_live_store distinctive content\",\"corroboration_count\":5}}}}",
+    "replay": false
+  },
+  {
+    "id": "SPE-36",
+    "family": "corroboration_live_store",
+    "step_id": "mem-smoke-v2obs-sppt-step1-corro-36",
+    "chatInput": "{\"status_kind\":\"success\",\"result_type\":\"dispatch\",\"execution_context_id\":\"d4f82a41-01cd-4fb7-9d70-573557348e74\",\"thread_id\":\"77777777-0000-0000-0000-000000000007\",\"tenant_id\":\"aaaaaaaa-0000-0000-0000-000000000001\",\"dispatcher_input\":{\"dispatch_allowed\":true,\"module_execution_started\":false,\"response_generation_allowed\":false,\"domain_writes_performed\":false,\"step\":{\"step_id\":\"mem-smoke-v2obs-sppt-step1-corro-36\",\"module_name\":\"memory_module\",\"purpose\":\"Step1 E2E SPE-36 family=corroboration_live_store\",\"execution_mode\":\"execute\",\"inputs\":{\"action\":\"store_memory\",\"memory_type\":\"fact\",\"category\":\"v2obs_sppt\",\"source_thread_id\":\"77777777-0000-0000-0000-000000000007\",\"content\":\"v2obs-sppt e2e SPE-36 corroboration_live_store distinctive content\",\"corroboration_count\":8}}}}",
+    "replay": false
+  },
+  {
+    "id": "SPE-37",
+    "family": "corroboration_live_store",
+    "step_id": "mem-smoke-v2obs-sppt-step1-corro-37",
+    "chatInput": "{\"status_kind\":\"success\",\"result_type\":\"dispatch\",\"execution_context_id\":\"d4f82a41-01cd-4fb7-9d70-573557348e74\",\"thread_id\":\"77777777-0000-0000-0000-000000000007\",\"tenant_id\":\"aaaaaaaa-0000-0000-0000-000000000001\",\"dispatcher_input\":{\"dispatch_allowed\":true,\"module_execution_started\":false,\"response_generation_allowed\":false,\"domain_writes_performed\":false,\"step\":{\"step_id\":\"mem-smoke-v2obs-sppt-step1-corro-37\",\"module_name\":\"memory_module\",\"purpose\":\"Step1 E2E SPE-37 family=corroboration_live_store\",\"execution_mode\":\"execute\",\"inputs\":{\"action\":\"store_memory\",\"memory_type\":\"fact\",\"category\":\"v2obs_sppt\",\"source_thread_id\":\"77777777-0000-0000-0000-000000000007\",\"content\":\"v2obs-sppt e2e SPE-37 corroboration_live_store distinctive content\",\"corroboration_count\":13}}}}",
+    "replay": false
+  },
+  {
+    "id": "SPE-38",
+    "family": "corroboration_live_store",
+    "step_id": "mem-smoke-v2obs-sppt-step1-corro-38",
+    "chatInput": "{\"status_kind\":\"success\",\"result_type\":\"dispatch\",\"execution_context_id\":\"d4f82a41-01cd-4fb7-9d70-573557348e74\",\"thread_id\":\"77777777-0000-0000-0000-000000000007\",\"tenant_id\":\"aaaaaaaa-0000-0000-0000-000000000001\",\"dispatcher_input\":{\"dispatch_allowed\":true,\"module_execution_started\":false,\"response_generation_allowed\":false,\"domain_writes_performed\":false,\"step\":{\"step_id\":\"mem-smoke-v2obs-sppt-step1-corro-38\",\"module_name\":\"memory_module\",\"purpose\":\"Step1 E2E SPE-38 family=corroboration_live_store\",\"execution_mode\":\"execute\",\"inputs\":{\"action\":\"store_memory\",\"memory_type\":\"fact\",\"category\":\"v2obs_sppt\",\"source_thread_id\":\"77777777-0000-0000-0000-000000000007\",\"content\":\"v2obs-sppt e2e SPE-38 corroboration_live_store distinctive content\",\"corroboration_count\":21}}}}",
+    "replay": false
+  },
+  {
+    "id": "SPE-39",
+    "family": "corroboration_live_store",
+    "step_id": "mem-smoke-v2obs-sppt-step1-corro-39",
+    "chatInput": "{\"status_kind\":\"success\",\"result_type\":\"dispatch\",\"execution_context_id\":\"d4f82a41-01cd-4fb7-9d70-573557348e74\",\"thread_id\":\"77777777-0000-0000-0000-000000000007\",\"tenant_id\":\"aaaaaaaa-0000-0000-0000-000000000001\",\"dispatcher_input\":{\"dispatch_allowed\":true,\"module_execution_started\":false,\"response_generation_allowed\":false,\"domain_writes_performed\":false,\"step\":{\"step_id\":\"mem-smoke-v2obs-sppt-step1-corro-39\",\"module_name\":\"memory_module\",\"purpose\":\"Step1 E2E SPE-39 family=corroboration_live_store\",\"execution_mode\":\"execute\",\"inputs\":{\"action\":\"store_memory\",\"memory_type\":\"fact\",\"category\":\"v2obs_sppt\",\"source_thread_id\":\"77777777-0000-0000-0000-000000000007\",\"content\":\"v2obs-sppt e2e SPE-39 corroboration_live_store distinctive content\",\"corroboration_count\":2}}}}",
+    "replay": false
+  },
+  {
+    "id": "SPE-40",
+    "family": "corroboration_live_store",
+    "step_id": "mem-smoke-v2obs-sppt-step1-corro-40",
+    "chatInput": "{\"status_kind\":\"success\",\"result_type\":\"dispatch\",\"execution_context_id\":\"d4f82a41-01cd-4fb7-9d70-573557348e74\",\"thread_id\":\"77777777-0000-0000-0000-000000000007\",\"tenant_id\":\"aaaaaaaa-0000-0000-0000-000000000001\",\"dispatcher_input\":{\"dispatch_allowed\":true,\"module_execution_started\":false,\"response_generation_allowed\":false,\"domain_writes_performed\":false,\"step\":{\"step_id\":\"mem-smoke-v2obs-sppt-step1-corro-40\",\"module_name\":\"memory_module\",\"purpose\":\"Step1 E2E SPE-40 family=corroboration_live_store\",\"execution_mode\":\"execute\",\"inputs\":{\"action\":\"store_memory\",\"memory_type\":\"fact\",\"category\":\"v2obs_sppt\",\"source_thread_id\":\"77777777-0000-0000-0000-000000000007\",\"content\":\"v2obs-sppt e2e SPE-40 corroboration_live_store distinctive content\",\"corroboration_count\":4}}}}",
+    "replay": false
+  },
+  {
+    "id": "SPE-41",
+    "family": "idempotent_replay",
+    "step_id": "mem-smoke-v2obs-sppt-step1-default-01",
+    "chatInput": "{\"status_kind\":\"success\",\"result_type\":\"dispatch\",\"execution_context_id\":\"d4f82a41-01cd-4fb7-9d70-573557348e74\",\"thread_id\":\"77777777-0000-0000-0000-000000000007\",\"tenant_id\":\"aaaaaaaa-0000-0000-0000-000000000001\",\"dispatcher_input\":{\"dispatch_allowed\":true,\"module_execution_started\":false,\"response_generation_allowed\":false,\"domain_writes_performed\":false,\"step\":{\"step_id\":\"mem-smoke-v2obs-sppt-step1-default-01\",\"module_name\":\"memory_module\",\"purpose\":\"Step1 E2E SPE-41 family=idempotent_replay\",\"execution_mode\":\"execute\",\"inputs\":{\"action\":\"store_memory\",\"memory_type\":\"fact\",\"category\":\"v2obs_sppt\",\"source_thread_id\":\"77777777-0000-0000-0000-000000000007\",\"content\":\"v2obs-sppt e2e SPE-41 idempotent_replay distinctive content\"}}}}",
+    "replay": true
+  },
+  {
+    "id": "SPE-42",
+    "family": "idempotent_replay",
+    "step_id": "mem-smoke-v2obs-sppt-step1-default-02",
+    "chatInput": "{\"status_kind\":\"success\",\"result_type\":\"dispatch\",\"execution_context_id\":\"d4f82a41-01cd-4fb7-9d70-573557348e74\",\"thread_id\":\"77777777-0000-0000-0000-000000000007\",\"tenant_id\":\"aaaaaaaa-0000-0000-0000-000000000001\",\"dispatcher_input\":{\"dispatch_allowed\":true,\"module_execution_started\":false,\"response_generation_allowed\":false,\"domain_writes_performed\":false,\"step\":{\"step_id\":\"mem-smoke-v2obs-sppt-step1-default-02\",\"module_name\":\"memory_module\",\"purpose\":\"Step1 E2E SPE-42 family=idempotent_replay\",\"execution_mode\":\"execute\",\"inputs\":{\"action\":\"store_memory\",\"memory_type\":\"fact\",\"category\":\"v2obs_sppt\",\"source_thread_id\":\"77777777-0000-0000-0000-000000000007\",\"content\":\"v2obs-sppt e2e SPE-42 idempotent_replay distinctive content\"}}}}",
+    "replay": true
+  },
+  {
+    "id": "SPE-43",
+    "family": "idempotent_replay",
+    "step_id": "mem-smoke-v2obs-sppt-step1-default-03",
+    "chatInput": "{\"status_kind\":\"success\",\"result_type\":\"dispatch\",\"execution_context_id\":\"d4f82a41-01cd-4fb7-9d70-573557348e74\",\"thread_id\":\"77777777-0000-0000-0000-000000000007\",\"tenant_id\":\"aaaaaaaa-0000-0000-0000-000000000001\",\"dispatcher_input\":{\"dispatch_allowed\":true,\"module_execution_started\":false,\"response_generation_allowed\":false,\"domain_writes_performed\":false,\"step\":{\"step_id\":\"mem-smoke-v2obs-sppt-step1-default-03\",\"module_name\":\"memory_module\",\"purpose\":\"Step1 E2E SPE-43 family=idempotent_replay\",\"execution_mode\":\"execute\",\"inputs\":{\"action\":\"store_memory\",\"memory_type\":\"fact\",\"category\":\"v2obs_sppt\",\"source_thread_id\":\"77777777-0000-0000-0000-000000000007\",\"content\":\"v2obs-sppt e2e SPE-43 idempotent_replay distinctive content\"}}}}",
+    "replay": true
+  },
+  {
+    "id": "SPE-44",
+    "family": "idempotent_replay",
+    "step_id": "mem-smoke-v2obs-sppt-step1-default-04",
+    "chatInput": "{\"status_kind\":\"success\",\"result_type\":\"dispatch\",\"execution_context_id\":\"d4f82a41-01cd-4fb7-9d70-573557348e74\",\"thread_id\":\"77777777-0000-0000-0000-000000000007\",\"tenant_id\":\"aaaaaaaa-0000-0000-0000-000000000001\",\"dispatcher_input\":{\"dispatch_allowed\":true,\"module_execution_started\":false,\"response_generation_allowed\":false,\"domain_writes_performed\":false,\"step\":{\"step_id\":\"mem-smoke-v2obs-sppt-step1-default-04\",\"module_name\":\"memory_module\",\"purpose\":\"Step1 E2E SPE-44 family=idempotent_replay\",\"execution_mode\":\"execute\",\"inputs\":{\"action\":\"store_memory\",\"memory_type\":\"fact\",\"category\":\"v2obs_sppt\",\"source_thread_id\":\"77777777-0000-0000-0000-000000000007\",\"content\":\"v2obs-sppt e2e SPE-44 idempotent_replay distinctive content\"}}}}",
+    "replay": true
+  },
+  {
+    "id": "SPE-45",
+    "family": "idempotent_replay",
+    "step_id": "mem-smoke-v2obs-sppt-step1-default-05",
+    "chatInput": "{\"status_kind\":\"success\",\"result_type\":\"dispatch\",\"execution_context_id\":\"d4f82a41-01cd-4fb7-9d70-573557348e74\",\"thread_id\":\"77777777-0000-0000-0000-000000000007\",\"tenant_id\":\"aaaaaaaa-0000-0000-0000-000000000001\",\"dispatcher_input\":{\"dispatch_allowed\":true,\"module_execution_started\":false,\"response_generation_allowed\":false,\"domain_writes_performed\":false,\"step\":{\"step_id\":\"mem-smoke-v2obs-sppt-step1-default-05\",\"module_name\":\"memory_module\",\"purpose\":\"Step1 E2E SPE-45 family=idempotent_replay\",\"execution_mode\":\"execute\",\"inputs\":{\"action\":\"store_memory\",\"memory_type\":\"fact\",\"category\":\"v2obs_sppt\",\"source_thread_id\":\"77777777-0000-0000-0000-000000000007\",\"content\":\"v2obs-sppt e2e SPE-45 idempotent_replay distinctive content\"}}}}",
+    "replay": true
+  },
+  {
+    "id": "SPE-46",
+    "family": "invalid_and_regression",
+    "step_id": "mem-smoke-v2obs-sppt-step1-invreg-46",
+    "chatInput": "{\"status_kind\":\"success\",\"result_type\":\"dispatch\",\"execution_context_id\":\"d4f82a41-01cd-4fb7-9d70-573557348e74\",\"thread_id\":\"77777777-0000-0000-0000-000000000007\",\"tenant_id\":\"aaaaaaaa-0000-0000-0000-000000000001\",\"dispatcher_input\":{\"dispatch_allowed\":true,\"module_execution_started\":false,\"response_generation_allowed\":false,\"domain_writes_performed\":false,\"step\":{\"step_id\":\"mem-smoke-v2obs-sppt-step1-invreg-46\",\"module_name\":\"memory_module\",\"purpose\":\"Step1 E2E SPE-46 family=invalid_and_regression\",\"execution_mode\":\"execute\",\"inputs\":{\"action\":\"store_memory\",\"memory_type\":\"fact\",\"category\":\"v2obs_sppt\",\"source_thread_id\":\"77777777-0000-0000-0000-000000000007\",\"content\":\"v2obs-sppt e2e SPE-46 invalid_and_regression distinctive content\",\"tier\":\"NOT_A_TIER\"}}}}",
+    "replay": false
+  },
+  {
+    "id": "SPE-47",
+    "family": "invalid_and_regression",
+    "step_id": "mem-smoke-v2obs-sppt-step1-invreg-47",
+    "chatInput": "{\"status_kind\":\"success\",\"result_type\":\"dispatch\",\"execution_context_id\":\"d4f82a41-01cd-4fb7-9d70-573557348e74\",\"thread_id\":\"77777777-0000-0000-0000-000000000007\",\"tenant_id\":\"aaaaaaaa-0000-0000-0000-000000000001\",\"dispatcher_input\":{\"dispatch_allowed\":true,\"module_execution_started\":false,\"response_generation_allowed\":false,\"domain_writes_performed\":false,\"step\":{\"step_id\":\"mem-smoke-v2obs-sppt-step1-invreg-47\",\"module_name\":\"memory_module\",\"purpose\":\"Step1 E2E SPE-47 family=invalid_and_regression\",\"execution_mode\":\"execute\",\"inputs\":{\"action\":\"store_memory\",\"memory_type\":\"fact\",\"category\":\"v2obs_sppt\",\"source_thread_id\":\"77777777-0000-0000-0000-000000000007\",\"content\":\"v2obs-sppt e2e SPE-47 invalid_and_regression distinctive content\",\"user_confirmed\":\"true\"}}}}",
+    "replay": false
+  },
+  {
+    "id": "SPE-48",
+    "family": "invalid_and_regression",
+    "step_id": "mem-smoke-v2obs-sppt-step1-invreg-48",
+    "chatInput": "{\"status_kind\":\"success\",\"result_type\":\"dispatch\",\"execution_context_id\":\"d4f82a41-01cd-4fb7-9d70-573557348e74\",\"thread_id\":\"77777777-0000-0000-0000-000000000007\",\"tenant_id\":\"aaaaaaaa-0000-0000-0000-000000000001\",\"dispatcher_input\":{\"dispatch_allowed\":true,\"module_execution_started\":false,\"response_generation_allowed\":false,\"domain_writes_performed\":false,\"step\":{\"step_id\":\"mem-smoke-v2obs-sppt-step1-invreg-48\",\"module_name\":\"memory_module\",\"purpose\":\"Step1 E2E SPE-48 family=invalid_and_regression\",\"execution_mode\":\"execute\",\"inputs\":{\"action\":\"store_memory\",\"memory_type\":\"fact\",\"category\":\"v2obs_sppt\",\"source_thread_id\":\"77777777-0000-0000-0000-000000000007\",\"content\":\"v2obs-sppt e2e SPE-48 invalid_and_regression distinctive content\",\"corroboration_count\":-3}}}}",
+    "replay": false
+  },
+  {
+    "id": "SPE-49",
+    "family": "invalid_and_regression",
+    "step_id": "mem-smoke-v2obs-sppt-step1-invreg-49",
+    "chatInput": "{\"status_kind\":\"success\",\"result_type\":\"dispatch\",\"execution_context_id\":\"d4f82a41-01cd-4fb7-9d70-573557348e74\",\"thread_id\":\"77777777-0000-0000-0000-000000000007\",\"tenant_id\":\"aaaaaaaa-0000-0000-0000-000000000001\",\"dispatcher_input\":{\"dispatch_allowed\":true,\"module_execution_started\":false,\"response_generation_allowed\":false,\"domain_writes_performed\":false,\"step\":{\"step_id\":\"mem-smoke-v2obs-sppt-step1-invreg-49\",\"module_name\":\"memory_module\",\"purpose\":\"Step1 E2E SPE-49 family=invalid_and_regression\",\"execution_mode\":\"execute\",\"inputs\":{\"action\":\"store_memory\",\"memory_type\":\"fact\",\"category\":\"v2obs_sppt\",\"source_thread_id\":\"77777777-0000-0000-0000-000000000007\",\"content\":\"v2obs-sppt e2e SPE-49 invalid_and_regression distinctive content\",\"tier\":null,\"user_confirmed\":1,\"corroboration_count\":\"2\"}}}}",
+    "replay": false
+  },
+  {
+    "id": "SPE-50",
+    "family": "invalid_and_regression",
+    "step_id": "mem-smoke-v2obs-sppt-step1-invreg-50",
+    "chatInput": "{\"status_kind\":\"success\",\"result_type\":\"dispatch\",\"execution_context_id\":\"d4f82a41-01cd-4fb7-9d70-573557348e74\",\"thread_id\":\"77777777-0000-0000-0000-000000000007\",\"tenant_id\":\"aaaaaaaa-0000-0000-0000-000000000001\",\"dispatcher_input\":{\"dispatch_allowed\":true,\"module_execution_started\":false,\"response_generation_allowed\":false,\"domain_writes_performed\":false,\"step\":{\"step_id\":\"mem-smoke-v2obs-sppt-step1-invreg-50\",\"module_name\":\"memory_module\",\"purpose\":\"Step1 E2E SPE-50 family=invalid_and_regression\",\"execution_mode\":\"execute\",\"inputs\":{\"action\":\"store_memory\",\"memory_type\":\"fact\",\"category\":\"v2obs_sppt\",\"source_thread_id\":\"77777777-0000-0000-0000-000000000007\",\"content\":\"v2obs-sppt e2e SPE-50 invalid_and_regression distinctive content\"}}}}",
+    "replay": false
+  }
+]

@@ -1,0 +1,23 @@
+{
+  "message_id": "3684992f-dd42-4b73-8dbe-6e1b00c73c85",
+  "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+  "channel": "e2e-rich-matrix",
+  "direction": "inbound",
+  "author_type": "user",
+  "normalized_content": "Care este diferența dintre obiectiv și sarcină?",
+  "timestamp": "2026-04-26T02:50:46.944Z",
+  "source_message_ref": "e2e:C1-L1-V1:e2e:f240-2026-04-26:C1-L1-V1",
+  "author_entity_id": null,
+  "related_entity_ids": [],
+  "metadata": {
+    "e2e_case_id": "C1-L1-V1",
+    "e2e_corridor": "C1",
+    "e2e_variant": "baseline_ro",
+    "e2e_phase": "P1_FOUNDATION",
+    "e2e_priority": "P1",
+    "e2e_locale": "ro",
+    "e2e_run_tag": "f240-2026-04-26"
+  },
+  "idempotency_key": "e2e:f240-2026-04-26:C1-L1-V1",
+  "thread_id": "adc4c056-1d4b-4690-8284-02d05cd972f7"
+}

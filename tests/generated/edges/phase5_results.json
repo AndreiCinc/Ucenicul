@@ -1,0 +1,33 @@
+{
+  "per_edge_cases": 50,
+  "total_tests": 200,
+  "passed": 200,
+  "failed": 0,
+  "edges": [
+    {
+      "edge": "edge_5_DI_to_ME",
+      "total": 50,
+      "passed": 50,
+      "failed": 0
+    },
+    {
+      "edge": "edge_6_ME_to_RA",
+      "total": 50,
+      "passed": 50,
+      "failed": 0
+    },
+    {
+      "edge": "edge_7_RA_to_SU",
+      "total": 50,
+      "passed": 50,
+      "failed": 0
+    },
+    {
+      "edge": "edge_9_RC_to_MO",
+      "total": 50,
+      "passed": 50,
+      "failed": 0
+    }
+  ],
+  "first_failure": null
+}

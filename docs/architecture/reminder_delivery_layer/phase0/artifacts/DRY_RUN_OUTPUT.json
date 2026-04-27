@@ -1,0 +1,177 @@
+{
+  "generated_at": "2026-04-27T09:11:18.311Z",
+  "tenants": [
+    {
+      "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+      "target": null,
+      "candidates_count": 22,
+      "sample_payloads": [
+        {
+          "status_kind": "success",
+          "result_type": "composed_response",
+          "execution_context_id": "<scheduler-tbd>",
+          "thread_id": "<scheduler-tbd>",
+          "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+          "composed_response": {
+            "response_status": "success",
+            "response_text": "Reminder: rd-fix:past-due-reminder — scadent: 2026-04-27 07:00 UTC.",
+            "channel": "telegram",
+            "warnings": [],
+            "followup_requests": []
+          },
+          "output_gateway_allowed": true,
+          "response_generation_allowed": true,
+          "allowed_next_stage": "MESSAGE_OUT",
+          "idempotency_key": "rd:1f6b1afd6e4cc925880b3c7a",
+          "delivery_target": null,
+          "_reminder_delivery": {
+            "task_id": "aaaaaaaa-0001-4000-8000-000000000001",
+            "due_at": "2026-04-27 07:00:00+00",
+            "due_occurrence_iso": "2026-04-27T07:00:00Z",
+            "delivery_key": "rd:eee0e2e0-0000-0000-0000-000000000001:aaaaaaaa-0001-4000-8000-000000000001:2026-04-27T07:00:00Z",
+            "target_status": "missing",
+            "origin_marker": "reminder_intent",
+            "classified_outcome": "MISSING_DELIVERY_TARGET"
+          },
+          "_intended_metadata_patch": {
+            "reminder_delivery": {
+              "status": "skipped_missing_target",
+              "last_attempt_at": "2026-04-27T09:11:18.312Z",
+              "delivery_attempts": 1,
+              "delivery_key": "rd:eee0e2e0-0000-0000-0000-000000000001:aaaaaaaa-0001-4000-8000-000000000001:2026-04-27T07:00:00Z",
+              "channel": "telegram",
+              "target_status": "missing"
+            }
+          }
+        },
+        {
+          "status_kind": "success",
+          "result_type": "composed_response",
+          "execution_context_id": "<scheduler-tbd>",
+          "thread_id": "<scheduler-tbd>",
+          "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+          "composed_response": {
+            "response_status": "success",
+            "response_text": "Reminder: rd-fix:now-due-reminder — scadent: 2026-04-27 09:08 UTC.",
+            "channel": "telegram",
+            "warnings": [],
+            "followup_requests": []
+          },
+          "output_gateway_allowed": true,
+          "response_generation_allowed": true,
+          "allowed_next_stage": "MESSAGE_OUT",
+          "idempotency_key": "rd:ae4f4adabc8ff496fa5f3f34",
+          "delivery_target": null,
+          "_reminder_delivery": {
+            "task_id": "aaaaaaaa-0001-4000-8000-000000000002",
+            "due_at": "2026-04-27 09:08:40Z",
+            "due_occurrence_iso": "2026-04-27T09:08:00Z",
+            "delivery_key": "rd:eee0e2e0-0000-0000-0000-000000000001:aaaaaaaa-0001-4000-8000-000000000002:2026-04-27T09:08:00Z",
+            "target_status": "missing",
+            "origin_marker": "reminder_intent",
+            "classified_outcome": "MISSING_DELIVERY_TARGET"
+          },
+          "_intended_metadata_patch": {
+            "reminder_delivery": {
+              "status": "skipped_missing_target",
+              "last_attempt_at": "2026-04-27T09:11:18.312Z",
+              "delivery_attempts": 1,
+              "delivery_key": "rd:eee0e2e0-0000-0000-0000-000000000001:aaaaaaaa-0001-4000-8000-000000000002:2026-04-27T09:08:00Z",
+              "channel": "telegram",
+              "target_status": "missing"
+            }
+          }
+        },
+        {
+          "status_kind": "success",
+          "result_type": "composed_response",
+          "execution_context_id": "<scheduler-tbd>",
+          "thread_id": "<scheduler-tbd>",
+          "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+          "composed_response": {
+            "response_status": "success",
+            "response_text": "Reminder: rd-fix:plain-task-due — scadent: 2026-04-27 08:54 UTC.",
+            "channel": "telegram",
+            "warnings": [],
+            "followup_requests": []
+          },
+          "output_gateway_allowed": true,
+          "response_generation_allowed": true,
+          "allowed_next_stage": "MESSAGE_OUT",
+          "idempotency_key": "rd:8de5836bf59c124929173724",
+          "delivery_target": null,
+          "_reminder_delivery": {
+            "task_id": "aaaaaaaa-0001-4000-8000-000000000009",
+            "due_at": "2026-04-27 08:54:40Z",
+            "due_occurrence_iso": "2026-04-27T08:54:00Z",
+            "delivery_key": "rd:eee0e2e0-0000-0000-0000-000000000001:aaaaaaaa-0001-4000-8000-000000000009:2026-04-27T08:54:00Z",
+            "target_status": "missing",
+            "origin_marker": "plain_task",
+            "classified_outcome": "MISSING_DELIVERY_TARGET"
+          },
+          "_intended_metadata_patch": {
+            "reminder_delivery": {
+              "status": "skipped_missing_target",
+              "last_attempt_at": "2026-04-27T09:11:18.312Z",
+              "delivery_attempts": 1,
+              "delivery_key": "rd:eee0e2e0-0000-0000-0000-000000000001:aaaaaaaa-0001-4000-8000-000000000009:2026-04-27T08:54:00Z",
+              "channel": "telegram",
+              "target_status": "missing"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "tenant_id": "eee0e2e0-0000-0000-0000-00000000000a",
+      "target": null,
+      "candidates_count": 2,
+      "sample_payloads": [
+        {
+          "status_kind": "success",
+          "result_type": "composed_response",
+          "execution_context_id": "<scheduler-tbd>",
+          "thread_id": "<scheduler-tbd>",
+          "tenant_id": "eee0e2e0-0000-0000-0000-00000000000a",
+          "composed_response": {
+            "response_status": "success",
+            "response_text": "Reminder: rd-fix:tenant-a-reminder — scadent: 2026-04-27 08:39 UTC.",
+            "channel": "telegram",
+            "warnings": [],
+            "followup_requests": []
+          },
+          "output_gateway_allowed": true,
+          "response_generation_allowed": true,
+          "allowed_next_stage": "MESSAGE_OUT",
+          "idempotency_key": "rd:8a10aa791ecb7b2d965b40b9",
+          "delivery_target": null,
+          "_reminder_delivery": {
+            "task_id": "aaaaaaaa-0001-4000-8000-000000000007",
+            "due_at": "2026-04-27 08:39:40Z",
+            "due_occurrence_iso": "2026-04-27T08:39:00Z",
+            "delivery_key": "rd:eee0e2e0-0000-0000-0000-00000000000a:aaaaaaaa-0001-4000-8000-000000000007:2026-04-27T08:39:00Z",
+            "target_status": "missing",
+            "origin_marker": "reminder_intent",
+            "classified_outcome": "MISSING_DELIVERY_TARGET"
+          },
+          "_intended_metadata_patch": {
+            "reminder_delivery": {
+              "status": "skipped_missing_target",
+              "last_attempt_at": "2026-04-27T09:11:18.312Z",
+              "delivery_attempts": 1,
+              "delivery_key": "rd:eee0e2e0-0000-0000-0000-00000000000a:aaaaaaaa-0001-4000-8000-000000000007:2026-04-27T08:39:00Z",
+              "channel": "telegram",
+              "target_status": "missing"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "tenant_id": "eee0e2e0-0000-0000-0000-00000000000b",
+      "target": null,
+      "candidates_count": 0,
+      "sample_payloads": []
+    }
+  ]
+}

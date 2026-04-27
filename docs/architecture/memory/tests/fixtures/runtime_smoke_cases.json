@@ -1,0 +1,67 @@
+{
+  "suite": "memory_module_v2_runtime_smoke",
+  "workflow_id": "uq26nh1grIpnHju0",
+  "tenant_id": "aaaaaaaa-0000-0000-0000-000000000001",
+  "execution_scope": "mem-smoke-v2",
+  "cases": [
+    {
+      "case_id": "F1-S1-store-basic",
+      "action": "store_memory",
+      "inputs": {
+        "memory_type": "fact",
+        "category": "smoke_store",
+        "content": "clientul raspunde mai repede dimineata",
+        "source_thread_id": "11111111-1111-1111-1111-111111111111",
+        "importance": 0.6,
+        "confidence": 0.8
+      },
+      "expected_runtime_status": "success",
+      "expected_db_effect": "insert_active_recent"
+    },
+    {
+      "case_id": "F1-S2-search-lexical",
+      "action": "search_memory",
+      "inputs": {
+        "query": "raspunde dimineata",
+        "memory_type": "fact",
+        "limit": 5
+      },
+      "expected_runtime_status": "success",
+      "expected_db_effect": "read_only_nonempty"
+    },
+    {
+      "case_id": "F1-S3-recall-thread",
+      "action": "recall_memory",
+      "inputs": {
+        "thread_id": "11111111-1111-1111-1111-111111111111",
+        "category": "smoke_store"
+      },
+      "expected_runtime_status": "success",
+      "expected_db_effect": "read_only_nonempty"
+    },
+    {
+      "case_id": "F1-S4-promote-confirmed",
+      "action": "promote_memory",
+      "inputs": {
+        "memory_id_from": "F1-S1-store-basic",
+        "promotion_target": "long_term",
+        "user_confirmed": true
+      },
+      "expected_runtime_status": "success",
+      "expected_db_effect": "tier_recent_to_long_term"
+    },
+    {
+      "case_id": "F1-S5-supersede-basic",
+      "action": "supersede_memory",
+      "inputs": {
+        "supersedes_memory_id_from": "F1-S1-store-basic",
+        "memory_type": "fact",
+        "category": "smoke_store",
+        "content": "clientul raspunde cel mai bine intre 08:00 si 10:00",
+        "source_thread_id": "11111111-1111-1111-1111-111111111111"
+      },
+      "expected_runtime_status": "success",
+      "expected_db_effect": "old_superseded_new_active"
+    }
+  ]
+}

@@ -1,0 +1,217 @@
+{
+  "current_stage": "WF-ME-01",
+  "current_stage_file": "09_STAGE_WF-ME-01.md",
+  "status": "closed",
+  "phase": "closed_10_of_10_on_v1_3_cross_tenant_guard",
+  "score": 10,
+  "score_cap": 10,
+  "score_cap_reason": "WF-ME-01 closed at 10/10 on v1.3-cross-tenant-guard. Live V1-V5 all PASS on v1.3 (execs 730/731/732/733/729). V6 DB-drift check: zero drift pre/post full V1-V5 (ec_hash=ed9487e781cfc75856228f052cbf3a15, tasks_hash=08b959749b4ce167e1ff42dcd24ea0f3, identical pre and post). Cycle 4 cross-tenant guard verified live: spoofed tenant_id request correctly fail-closed with CONTEXT_MISMATCH via ME_Check_Context_Match + ME_Route_Context_OK before reaching any task-action node. Script harness 650/650 PASS retained. Topology 18 nodes / 24 edges.",
+  "fallback_mode_active": false,
+  "failed_path_label": "wf_me_01_v1_2_cross_tenant_isolation_gap",
+  "current_path_label": "wf_me_01_closed_10_of_10_on_v1_3_cross_tenant_guard",
+  "next_path_label": "wf_ra_01_candidate_active",
+  "retry_count": 0,
+  "banned_strategy_labels": [
+    "sdk_update_workflow_code",
+    "mcp__n8n__patch_workflow_nodes"
+  ],
+  "hard_blockers": [],
+  "soft_blockers": [],
+  "cycle3_chat_trigger_added": {
+    "applied": true,
+    "trigger_reason": "MCP execute_workflow requires Schedule/Webhook/Form/Chat trigger; source pack shipped only executeWorkflowTrigger + manualTrigger.",
+    "added_node": "When chat message received (@n8n/n8n-nodes-langchain.chatTrigger, typeVersion 1.1, empty parameters) wired to ME_Validate_Dispatcher_Result",
+    "topology_delta": "15 -> 16 nodes, 20 -> 21 edges",
+    "version_id_bump": "wf-me-01-source-pack-v1.1-switch-format-fix -> wf-me-01-source-pack-v1.2-chat-trigger-added",
+    "sha256_post_patch": "5154be4522eebd57c68c36f1fb8e5efa9a5b24b221a698aee2a507054d18d128",
+    "file_size_bytes": 27137,
+    "parallel_to_wf_di_01": true
+  },
+  "carry_forward_tool_limitations": [
+    "mcp__n8n__patch_workflow_nodes remains banned until new live evidence disproves the safety risk.",
+    "Shell-preserving JS-body changes still require user import / re-import.",
+    "Chat trigger payloads must be adapted before structured stage validation (pattern now canonical: prepend JSON.parse(chatInput) adapter at every stage-entry validator).",
+    "n8n switch nodes MUST ship at typeVersion 3.2 with rules.values[].conditions.conditions[] (leftValue/rightValue/operator.{type,operation}) shape. Legacy typeVersion-3 conditions.string[] (value1/value2/operation) shape silently loses all rules on import. New canonical from WF-ME-01 Cycle 2."
+  ],
+  "latest_evidence_level": "closed_live_v1_v5_pass_on_v1_3_v6_zero_drift_harness_650_of_650_green",
+  "upstream_stage": {
+    "stage": "WF-DI-01",
+    "status": "closed",
+    "score": 10,
+    "closure_gate": "passed",
+    "carry_forward_evidence_available": true
+  },
+  "me_stage_scope_decision": {
+    "label": "dispatch_to_module_execution_adapter_only",
+    "includes": [
+      "validated dispatcher envelope",
+      "canonical task_module action routing",
+      "canonical module_result envelope construction",
+      "canonical error envelope construction"
+    ],
+    "excludes": [
+      "result aggregation (WF-RA-01)",
+      "state update (WF-SU-01)",
+      "response composition (WF-RC-01)",
+      "direct domain writes (off-node / pre-write mode)"
+    ]
+  },
+  "advance_allowed": true,
+  "advance_gate": "CLOSED_10_OF_10",
+  "next_action": "Activate WF-RA-01 (Result Aggregator) as the next candidate stage; WF-ME-01 closure evidence carried forward.",
+  "script_level_proof": {
+    "test_file": "workflows/tests/me/test_families.py",
+    "required_minimum_total": 650,
+    "required_minimum_families": 13,
+    "minimum_satisfied": true,
+    "tests_passed": 650,
+    "tests_failed": 0,
+    "results_json": "workflows/tests/me/results/results.json",
+    "results_md": "workflows/tests/me/results/results.md",
+    "family_breakdown": {
+      "input_validation": 50,
+      "happy_path_task_create": 50,
+      "happy_path_task_list": 50,
+      "happy_path_task_update": 50,
+      "happy_path_task_complete": 50,
+      "happy_path_task_delete": 50,
+      "invalid_dispatch_envelope": 50,
+      "guard_flag_enforcement": 50,
+      "cross_tenant_isolation": 50,
+      "replay_idempotency": 50,
+      "unsupported_module_handling": 50,
+      "sql_contract_validation": 50,
+      "reporting_and_tooling_contract": 50
+    }
+  },
+  "live_runtime_proof": {
+    "shell_version_awaiting_reimport": "wf-me-01-source-pack-v1.3-cross-tenant-guard",
+    "shell_version_last_live": "wf-me-01-source-pack-v1.2-chat-trigger-added",
+    "workflow_id": "uq26nh1grIpnHju0",
+    "previous_live_read_findings": {
+      "v1_0_completed": {
+        "switch_nodes_stripped": ["ME_Route_Valid", "ME_Route_Module_Name", "ME_Route_Task_Action"],
+        "connections_observed": 13,
+        "connections_expected": 20,
+        "cycle2_fix_applied": true
+      },
+      "v1_1_switch_format_fix": {
+        "switch_rule_counts": {"ME_Route_Valid": 2, "ME_Route_Module_Name": 1, "ME_Route_Task_Action": 5},
+        "switch_typeVersions_all_3_2": true,
+        "connections_observed": 20,
+        "connections_expected": 20,
+        "mcp_execute_workflow_blocked_due_to_no_chat_trigger": true,
+        "cycle3_chat_trigger_added": true
+      },
+      "v1_2_chat_trigger_added": {
+        "chat_trigger_landed": true,
+        "node_count": 16,
+        "edge_count": 21,
+        "V1_V4_pass_V5_fail_on_this_shell": true,
+        "cycle4_fix_applied": true
+      }
+    },
+    "results": {
+      "V1_happy_path": {"status": "PASS", "execution_id": 723, "shell": "v1.2", "notes": "task_module.create_task, canonical success module_result, allowed_next_stage=WF-RA-01, deterministic task_id"},
+      "V2_invalid_dispatch_input": {"status": "PASS", "execution_id": 724, "shell": "v1.2", "notes": "missing dispatcher_input -> INVALID_DISPATCH_INPUT canonical error"},
+      "V3_unsupported_module": {"status": "PASS", "execution_id": 725, "shell": "v1.2", "notes": "reminder_module -> UNSUPPORTED_MODULE via Route_Module_Name fallback"},
+      "V4_unsupported_action": {"status": "PASS", "execution_id": 726, "shell": "v1.2", "notes": "task_module.noop -> UNSUPPORTED_ACTION via Route_Task_Action fallback"},
+      "V5_cross_tenant_isolation": {"status": "FAIL_ON_V1_2_PENDING_ON_V1_3", "execution_id_v1_2": 727, "defect": "spoofed tenant not blocked; Postgres returned {} but downstream routing proceeded on validator envelope; success module_result with spoofed tenant_id surfaced", "cycle4_fix": "ME_Check_Context_Match + ME_Route_Context_OK added between Load_EC and Load_Task_Candidates; expect CONTEXT_MISMATCH on v1.3"},
+      "V6_db_drift": {"status": "PENDING", "notes": "baseline captured pre-V1: ec_count=2 hash ed9487e781cfc75856228f052cbf3a15; tasks_count=4 hash 7dccb99f1f8771767f109b195fe83697"}
+    }
+  },
+  "cycle4_cross_tenant_guard": {
+    "applied": true,
+    "trigger": "V5 on v1.2 (exec 727) showed cross-tenant request not blocked: Postgres Load_EC filter returned {} but alwaysOutputData=true forwarded empty row, and downstream switches route on validator envelope (not EC row), producing success module_result with spoofed tenant_id.",
+    "root_cause": "No stage-level cross-tenant gate existed in n8n shell. Python me_logic.py declares CONTEXT_MISMATCH in CANONICAL_ERROR_CODES but does not enforce it (live gate required in shell).",
+    "fix_pattern_source": "WF-OR-01 Cycle 2 V5 gap pattern: single guard node + fail-closed switch after upstream DB read.",
+    "nodes_added": [
+      "ME_Check_Context_Match (n8n-nodes-base.code, typeVersion 2)",
+      "ME_Route_Context_OK (n8n-nodes-base.switch, typeVersion 3.2)"
+    ],
+    "connections_rewired": "removed ME_Load_Execution_Context -> ME_Load_Task_Candidates; added ME_Load_Execution_Context -> ME_Check_Context_Match -> ME_Route_Context_OK -> {output 0: ME_Load_Task_Candidates, output 1: ME_Return_Error}",
+    "gate_logic": "asserts ecRow.id present, tenant_id match, thread_id match, execution_context_id match; on failure emits {_context_ok:'false', error_code:'CONTEXT_MISMATCH', error_message, missing_fields:[], details:{expected_*, found_*}}",
+    "no_code_node_changes_elsewhere": true,
+    "topology_delta": "16 -> 18 nodes, 21 -> 24 edges",
+    "version_id_bump": "wf-me-01-source-pack-v1.2-chat-trigger-added -> wf-me-01-source-pack-v1.3-cross-tenant-guard",
+    "sha256_post_patch": "0a7b95fdc020cd1aa9f978f39a2448ac13e79e74794cb75907bfd9f95abfee44",
+    "file_size_bytes": 30066,
+    "script_harness_post_patch": "650/650 PASS (Python canonical logic untouched; n8n-shell-only patch)"
+  },
+  "cycle2_switch_format_fix": {
+    "applied": true,
+    "trigger": "Live re-read of v1.0-completed shell showed all 3 switch nodes had their rules stripped to empty placeholders on import; 7 of 20 branch connections silently dropped.",
+    "root_cause": "Source pack used n8n switch typeVersion-3 with legacy conditions.string[] (value1/value2/operation) shape. n8n's live switch node at typeVersion 3 / 3.2 rejects that shape and rewrites the node to an empty placeholder.",
+    "fix_pattern_source": "WF-DI-01 live-known-good switch format (typeVersion 3.2, rules.values[].conditions.conditions[] with leftValue/rightValue/operator.{type,operation}, options.fallbackOutput=extra).",
+    "nodes_repatched": [
+      "ME_Route_Valid",
+      "ME_Route_Module_Name",
+      "ME_Route_Task_Action"
+    ],
+    "typeVersion_bump": "3 -> 3.2",
+    "topology_preserved": true,
+    "node_count": 15,
+    "edge_count": 20,
+    "connections_preserved": true,
+    "or_default_removed_on_route_task_action_rule0": "removed `|| 'create_task'` fallthrough so missing actions correctly surface UNSUPPORTED_ACTION instead of silently routing to create_task",
+    "fallback_slot_reservation": "ME_Route_Valid connections.main appended empty [] for output 2 (unused safety net), matching WF-DI-01 canonical shape where every typeVersion-3.2 switch with fallbackOutput=extra reserves a connection slot for each rule plus the extra output",
+    "version_id_bump": "wf-me-01-source-pack-v1.0-completed -> wf-me-01-source-pack-v1.1-switch-format-fix",
+    "sha256_post_patch": "ceba74a9994acc8044c5fd6783f8ab13f388c2b0ac77aed1c19a3affbb4e05ec",
+    "file_size_bytes": 26651,
+    "script_harness_post_patch": "650/650 PASS (harness does not exercise n8n switch shape; pass confirms no collateral damage to Python canonical logic or jsCode ports)"
+  },
+  "source_completion_cycle_1b": {
+    "applied": true,
+    "rationale": "Pack shipped n8n shell as skeleton (8 placeholder jsCode bodies). Ported me_logic.py (650/650 green) into n8n code nodes; corrected switch expressions for cross-Postgres reference safety; added chat-input adapter preamble on stage-entry validator (canonical carry-forward from WF-PL-01/WF-DI-01).",
+    "topology_preserved": true,
+    "node_count": 15,
+    "edge_count": 20,
+    "nodes_modified": [
+      "ME_Validate_Dispatcher_Result",
+      "ME_Task_Create_Result",
+      "ME_Task_List_Result",
+      "ME_Task_Update_Result",
+      "ME_Task_Complete_Result",
+      "ME_Task_Delete_Result",
+      "ME_Return_Error",
+      "ME_Return_Result",
+      "ME_Route_Module_Name",
+      "ME_Route_Task_Action",
+      "ME_Load_Task_Candidates"
+    ],
+    "credential_binding": "CREDENTIAL_PLACEHOLDER name=Postgres account 2 (resolved by n8n on import, same pattern as WF-DI-01)",
+    "version_id_bump": "CANDIDATE-WF-ME-01-v0 -> wf-me-01-source-pack-v1.0-completed"
+  },
+  "artifacts_on_disk": {
+    "blueprint_json": [
+      "workflows/WF-ME-01_Module_Execution.json",
+      "workflows/WF-ME-01_blueprint.json"
+    ],
+    "planning_docs": [
+      "workflows/WF-ME-01_NODE_MAP.md",
+      "workflows/WF-ME-01_CONNECTION_MAP.md",
+      "workflows/WF-ME-01_IMPORT_PATCH_PLAN.md",
+      "workflows/WF-ME-01_TEST_MATRIX.md"
+    ],
+    "sql": [
+      "workflows/sql/me/01_schema_inspect.sql",
+      "workflows/sql/me/02_load_execution_context.sql",
+      "workflows/sql/me/03_load_dispatch_request.sql",
+      "workflows/sql/me/04_load_task_candidates.sql",
+      "workflows/sql/me/05_insert_task.sql",
+      "workflows/sql/me/06_update_task.sql",
+      "workflows/sql/me/07_complete_task.sql",
+      "workflows/sql/me/08_delete_task.sql",
+      "workflows/sql/me/10_fixtures_create.sql",
+      "workflows/sql/me/11_fixtures_cleanup.sql",
+      "workflows/sql/me/20_read_path_probe.sql",
+      "workflows/sql/me/21_write_path_probe.sql"
+    ],
+    "scripts": [
+      "workflows/scripts/me/me_logic.py"
+    ],
+    "tests": [
+      "workflows/tests/me/test_families.py"
+    ]
+  }
+}

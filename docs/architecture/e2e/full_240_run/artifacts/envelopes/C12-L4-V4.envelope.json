@@ -1,0 +1,23 @@
+{
+  "message_id": "7f662ebd-623d-4d97-8d54-f23e023d8155",
+  "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+  "channel": "e2e-rich-matrix",
+  "direction": "inbound",
+  "author_type": "user",
+  "normalized_content": "Am nevoie să te ocupi de mai multe lucruri dintr-un singur mesaj. Am vorbit azi cu Andrei după antrenament și mi-a spus că dimineața îi este mai ușor să ajungă constant, dar marțea dimineața are ședințe la muncă și nu poate promite că ajunge. Pentru el vreau să reții că preferința principală rămâne dimineața, dar marțea trebuie tratată ca excepție. În același timp, Maria mi-a scris că vrea să revină la sală, dar nu salva încă nimic despre ea, pentru că doar tatonează. Te rog să îmi faci și un mesaj scurt pentru Maria, politicos și cald, în care îi propui să stabilim o întâlnire de evaluare. Pentru Andrei, dacă există deja o memorie care spune că preferă seara, corecteaz-o; dacă nu există, salvează doar informația nouă. Nu crea task-uri multiple aiurea; cel mult un task pentru follow-up cu Maria, dacă sistemul consideră că cererea este suficient de explicită. La final vreau un răspuns coerent care să îmi spună ce ai reținut, ce ai propus și ce nu ai salvat.",
+  "timestamp": "2026-04-26T02:50:48.912Z",
+  "source_message_ref": "e2e:C12-L4-V4:e2e:f240-2026-04-26:C12-L4-V4",
+  "author_entity_id": null,
+  "related_entity_ids": [],
+  "metadata": {
+    "e2e_case_id": "C12-L4-V4",
+    "e2e_corridor": "C12",
+    "e2e_variant": "retry_or_isolation",
+    "e2e_phase": "P3_HARD_CASES",
+    "e2e_priority": "P1",
+    "e2e_locale": "ro",
+    "e2e_run_tag": "f240-2026-04-26"
+  },
+  "idempotency_key": "e2e:f240-2026-04-26:C12-L4-V4",
+  "thread_id": "5e5258d0-1b32-4f50-8560-c86d68608238"
+}

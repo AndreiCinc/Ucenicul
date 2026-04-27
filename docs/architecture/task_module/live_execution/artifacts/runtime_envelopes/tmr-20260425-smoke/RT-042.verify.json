@@ -1,0 +1,15 @@
+{
+  "case_id": "RT-042",
+  "group": "negative_security_resilience",
+  "priority": "P0",
+  "user_input": "Actualizează task id bad-uuid.",
+  "expected": {
+    "no_db_write": true,
+    "validation_error": true
+  },
+  "expected_intent": "update_task",
+  "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+  "message_id": "97e63b42-f5ce-49f1-8c2e-89b21a37404f",
+  "thread_id": "95062583-5eee-45ff-8f21-b00681413ea3",
+  "idempotency_key": "tmr:tmr-20260425-smoke:RT-042"
+}

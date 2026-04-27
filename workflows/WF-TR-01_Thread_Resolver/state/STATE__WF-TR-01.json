@@ -1,0 +1,32 @@
+{
+  "workflow_code": "WF-TR-01",
+  "workflow_name": "WF-TR-01 Thread Resolver",
+  "tier": "standard",
+  "status": "populated",
+  "posture": "pre_live_ready",
+  "last_sync": null,
+  "last_verified": null,
+  "live_runs": 0,
+  "owner": "TBD",
+  "canonical": {
+    "implementation": "workflow/WF-TR-01_Thread_Resolver.json",
+    "patches": ["workflow/patches/WF-TR-01_PATCHED_switch_fix.json"],
+    "contracts": "docs/contracts/ThreadResolutionContracts.md",
+    "test_fixtures": "tests/fixtures/"
+  },
+  "evidence_on_disk": {
+    "remediation_report": "reports/REMEDIATION_REPORT_WF-TR-01.md",
+    "test_report": "reports/TEST_REPORT_WF-TR-01.md",
+    "mcp_technical_sheet": "docs/WF-TR-01_MCP_Technical_Sheet.md",
+    "handoffs": ["docs/handoffs/HANDOFF_WF-TR-01_2026-04-16.md"]
+  },
+  "missing": [
+    "docs/WF-TR-01_TEST_MATRIX.md",
+    "reports/CLOSURE_REPORT__WF-TR-01.md",
+    "reports/FIX_LOG__WF-TR-01.md",
+    "reports/LIVE_EXECUTIONS__WF-TR-01.md"
+  ],
+  "notes": "Contracts are canonical but nested (docs/contracts/ThreadResolutionContracts.md) rather than at docs/WF-TR-01_CONTRACTS.md. This is accepted by CANONICALITY_DECISION §1 for this run; a future wf-sync pass may produce a slim pointer file at the canonical location.",
+  "last_updated": "2026-04-19",
+  "run_id": "run_2026-04-19_autonomous"
+}

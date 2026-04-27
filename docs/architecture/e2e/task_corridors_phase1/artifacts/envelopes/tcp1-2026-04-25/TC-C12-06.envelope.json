@@ -1,0 +1,20 @@
+{
+  "message_id": "3c128f2e-df2d-474e-87a0-857340ef5bb1",
+  "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+  "channel": "tcp1-task-corridors",
+  "direction": "inbound",
+  "author_type": "user",
+  "normalized_content": "Mută taskul cu Q3 review pe joi la 9 pentru că X a cerut amânare.",
+  "timestamp": "2026-04-25T13:18:25.281Z",
+  "source_message_ref": "tcp1:TC-C12-06:tmr:tcp1-2026-04-25:TC-C12-06",
+  "author_entity_id": null,
+  "related_entity_ids": [],
+  "metadata": {
+    "tcp1_case_id": "TC-C12-06",
+    "tcp1_run_tag": "tcp1-2026-04-25",
+    "tcp1_priority": "P1"
+  },
+  "idempotency_key": "tmr:tcp1-2026-04-25:TC-C12-06",
+  "thread_id": "155fb813-0317-488b-8316-090b0f78cee1",
+  "reply_to_thread_id": null
+}

@@ -1,0 +1,20 @@
+{
+  "message_id": "2f56b788-c028-4b92-875f-3638dabdcf33",
+  "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+  "channel": "task-module-user-ready",
+  "direction": "inbound",
+  "author_type": "user",
+  "normalized_content": "Amintește-mi mâine la 9 să verific plata.",
+  "timestamp": "2026-04-25T12:47:21.221Z",
+  "source_message_ref": "tmr:RT-008:tmr:tmr-20260425-smoke:RT-008",
+  "author_entity_id": null,
+  "related_entity_ids": [],
+  "metadata": {
+    "tmr_case_id": "RT-008",
+    "tmr_group": "reminder_like_as_task",
+    "tmr_run_tag": "tmr-20260425-smoke"
+  },
+  "idempotency_key": "tmr:tmr-20260425-smoke:RT-008",
+  "thread_id": "508b0766-3569-4c98-8575-e7b9bfb4891c",
+  "reply_to_thread_id": null
+}

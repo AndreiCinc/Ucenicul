@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-04-19T09:39:04.813017+00:00",
+  "PRODUCT_ROOT": {
+    "prior_count": 587,
+    "rescan_count": 587,
+    "identical": 587,
+    "in_prior_only": [],
+    "in_rescan_only": [],
+    "hash_changed": []
+  },
+  "CLAUDE_PIPELINE_ROOT": {
+    "prior_count": 333,
+    "rescan_count": 333,
+    "identical": 333,
+    "in_prior_only": [],
+    "in_rescan_only": [],
+    "hash_changed": []
+  },
+  "total_in_rescan": 920,
+  "total_in_prior": 920
+}

@@ -1,0 +1,38 @@
+{
+  "case_id": "v2014-safety-deny-001",
+  "execution_id": "3883",
+  "execution_status": "success",
+  "memory_id": "bdeb00b4-4f2f-4bea-851d-eea913693efd",
+  "idempotency_key": "mem-v2014-safety-deny-001",
+  "input_envelope": {
+    "action": "promote_memory",
+    "memory_id": "bdeb00b4-4f2f-4bea-851d-eea913693efd",
+    "promotion_target": "long_term",
+    "user_confirmed": false,
+    "evidence_validated": false
+  },
+  "db_pre": {
+    "tier": "recent",
+    "user_confirmed": false,
+    "evidence_validated": false,
+    "corroboration_count": 1,
+    "last_reconfirmed_at": null
+  },
+  "db_post": {
+    "tier": "recent",
+    "user_confirmed": false,
+    "evidence_validated": false,
+    "corroboration_count": 1,
+    "last_reconfirmed_at": null
+  },
+  "module_result": {
+    "status": "partial",
+    "summary": "Promotion denied: acceptance_criteria_not_met",
+    "denial_reason": "acceptance_criteria_not_met",
+    "acceptance_signals": [],
+    "promoted": false,
+    "domain_writes_performed": false
+  },
+  "verdict": "PASS — denial behavior preserved, no false broadening introduced by V2-014.",
+  "captured_at": "2026-04-22T15:28:25.000Z"
+}

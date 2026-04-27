@@ -1,0 +1,23 @@
+{
+  "id": "TC-15",
+  "name": "Reply to message with no thread_id",
+  "description": "Message replies to another message, but that message has no thread_id in DB. Fallthrough to scoring path.",
+  "request": {
+    "message_id": "test-msg-015",
+    "tenant_id": "aaaaaaaa-0000-0000-0000-000000000001",
+    "channel": "telegram",
+    "direction": "inbound",
+    "author_type": "user",
+    "normalized_content": "Apartament pret locatie apartament",
+    "timestamp": "2026-04-15T12:00:00Z",
+    "source_message_ref": "tg_test_015",
+    "reply_to_message_id": "mmmmmmmm-0000-0000-0000-000000000002"
+  },
+  "expected": {
+    "decision": "create_new_thread",
+    "resolved_thread_id": null,
+    "ambiguity_detected": false,
+    "content_class_used": "normalized_content"
+  },
+  "note": "Reply linkage fails (reply target has no thread_id). Falls through to scoring. Scores below all thresholds."
+}

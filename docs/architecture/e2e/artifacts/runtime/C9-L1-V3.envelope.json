@@ -1,0 +1,23 @@
+{
+  "message_id": "66976505-3e9e-4b30-8b9a-2b452760922a",
+  "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+  "channel": "e2e-rich-matrix",
+  "direction": "inbound",
+  "author_type": "user",
+  "normalized_content": "Ce știi despre Andrei?",
+  "timestamp": "2026-04-25T11:15:27.618Z",
+  "source_message_ref": "e2e:C9-L1-V3:e2e:p0_v2:C9-L1-V3",
+  "author_entity_id": null,
+  "related_entity_ids": [],
+  "metadata": {
+    "e2e_case_id": "C9-L1-V3",
+    "e2e_corridor": "C9",
+    "e2e_variant": "thread_B_operational_continue_negative",
+    "e2e_phase": "P1_FOUNDATION_CRITICAL",
+    "e2e_priority": "P0",
+    "e2e_locale": "ro",
+    "e2e_run_tag": "p0_v2"
+  },
+  "idempotency_key": "e2e:p0_v2:C9-L1-V3",
+  "thread_id": "63a9f9c8-3d77-4486-8354-ac9df35c4be4"
+}

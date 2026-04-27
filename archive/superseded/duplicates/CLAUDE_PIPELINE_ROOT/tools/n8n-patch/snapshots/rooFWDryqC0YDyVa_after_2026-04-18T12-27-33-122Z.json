@@ -1,0 +1,146 @@
+{
+  "updatedAt": "2026-04-18T12:27:32.187Z",
+  "createdAt": "2026-04-18T11:07:56.189Z",
+  "id": "rooFWDryqC0YDyVa",
+  "name": "DEPRECATED__WF-MO-01_langchain_stub__rooFWDryqC0YDyVa",
+  "description": null,
+  "active": false,
+  "isArchived": false,
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "f060eaf3-9ef5-430e-8489-fa92073bc4a6",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.4,
+      "position": [
+        208,
+        0
+      ],
+      "id": "c535d395-3298-426a-9c33-b7af8616ec21",
+      "name": "When chat message received",
+      "webhookId": "7d97ddfa-cc6e-452c-81a0-af128d73f7d9"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        416,
+        0
+      ],
+      "id": "18b88e18-50d8-47c1-aaad-773b0d5415b9",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-5-mini"
+        },
+        "builtInTools": {},
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.3,
+      "position": [
+        288,
+        208
+      ],
+      "id": "dad5843b-32c9-4a18-8557-0e952281f0d1",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "svM62oyFwPbaIeX4",
+          "name": "OpenAi account"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "timeSavedMode": "fixed",
+    "callerPolicy": "workflowsFromSameOwner",
+    "availableInMCP": true
+  },
+  "staticData": null,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "pinData": {},
+  "versionId": "26df7a6f-d8b5-47f4-93de-899119e6fad7",
+  "activeVersionId": null,
+  "versionCounter": 20,
+  "triggerCount": 1,
+  "shared": [
+    {
+      "updatedAt": "2026-04-18T11:07:56.189Z",
+      "createdAt": "2026-04-18T11:07:56.189Z",
+      "role": "workflow:owner",
+      "workflowId": "rooFWDryqC0YDyVa",
+      "projectId": "WIRLhU6IcCuQzkzY",
+      "project": {
+        "updatedAt": "2026-03-27T16:42:52.879Z",
+        "createdAt": "2026-03-26T19:16:39.847Z",
+        "id": "WIRLhU6IcCuQzkzY",
+        "name": "Andrei Cinc <andrei.cinc9@gmail.com>",
+        "type": "personal",
+        "icon": null,
+        "description": null,
+        "creatorId": "68a414fd-cc03-4f02-87bc-9067f976e98a"
+      }
+    }
+  ],
+  "tags": [],
+  "activeVersion": null
+}

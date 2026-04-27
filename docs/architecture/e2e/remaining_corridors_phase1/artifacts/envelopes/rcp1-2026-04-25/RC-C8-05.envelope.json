@@ -1,0 +1,20 @@
+{
+  "message_id": "df5a98a2-2051-4933-88be-2ba40062f19a",
+  "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+  "channel": "rcp1-rich-matrix",
+  "direction": "inbound",
+  "author_type": "user",
+  "normalized_content": "Marchează taskul cu prezentarea pentru investitori ca făcut.",
+  "timestamp": "2026-04-25T19:17:11.984Z",
+  "source_message_ref": "rcp1:RC-C8-05",
+  "author_entity_id": null,
+  "related_entity_ids": [],
+  "metadata": {
+    "rcp1_case_id": "RC-C8-05",
+    "rcp1_corridor": "C8",
+    "rcp1_run_tag": "rcp1-2026-04-25"
+  },
+  "idempotency_key": "rcp1:rcp1-2026-04-25:RC-C8-05",
+  "thread_id": "4c1c5b87-4038-4e32-8489-9fb655149b21",
+  "reply_to_thread_id": null
+}

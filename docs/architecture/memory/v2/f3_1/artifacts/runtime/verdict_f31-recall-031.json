@@ -1,0 +1,19 @@
+{
+  "verdict": "PASS",
+  "bucket": null,
+  "reason": "recall oracle all checks pass",
+  "observed": {
+    "status": "success",
+    "applied_filters": [
+      "entity_id",
+      "source_thread_id",
+      "category",
+      "memory_type"
+    ],
+    "row_count": 1,
+    "pre_max": "2026-04-21T12:54:40.918Z",
+    "post_max": "2026-04-21T12:54:40.918Z"
+  },
+  "artifact": "exec_f31-recall-031_2965.raw.json",
+  "ts": "2026-04-22T05:43:38.217Z"
+}

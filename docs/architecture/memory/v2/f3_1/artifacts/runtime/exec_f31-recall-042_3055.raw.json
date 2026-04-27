@@ -1,0 +1,54 @@
+{
+  "case_id": "f31-recall-042",
+  "execution_id": "3055",
+  "execution_status": "success",
+  "execution_mcp_response": {
+    "executionId": "3055",
+    "status": "success"
+  },
+  "response_envelope": {
+    "status": "success",
+    "applied_filters": [
+      "entity_id",
+      "source_thread_id",
+      "category",
+      "memory_type"
+    ],
+    "recall_results": [
+      {
+        "memory_id": "da53c396-09af-4ba1-8fba-07c4295fa412",
+        "content": "Phase7 anchor A3 recall row",
+        "memory_type": "fact",
+        "tier": "recent",
+        "status": "active",
+        "category": "recall_test",
+        "source_thread_id": "33333333-0000-0000-0000-000000000003",
+        "entity_id": "eeeeeeee-0000-0000-0000-000000000001",
+        "created_at": "2026-04-20T20:38:58.028Z"
+      }
+    ]
+  },
+  "module_result_outer": {
+    "status_kind": "success",
+    "result_type": "module_result",
+    "module_name": "memory_module",
+    "step_id": "mem-f31-f31-recall-042",
+    "summary": "Memory recall completed (1 rows).",
+    "artifacts": [],
+    "domain_writes_performed": false,
+    "response_generation_allowed": false
+  },
+  "db_pre": [
+    {
+      "pre_max": "2026-04-21T12:54:40.918Z"
+    }
+  ],
+  "db_post": [
+    {
+      "post_max": "2026-04-21T12:54:40.918Z"
+    }
+  ],
+  "error": null,
+  "captured_at": "2026-04-22T05:43:39.086Z",
+  "notes": "Stage C recall rerun F31-FIX-003"
+}

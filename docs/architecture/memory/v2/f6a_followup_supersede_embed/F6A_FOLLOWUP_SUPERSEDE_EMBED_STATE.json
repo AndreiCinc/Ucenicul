@@ -1,0 +1,63 @@
+{
+  "mission_id": "F6A-FOLLOWUP-SUPERSEDE-EMBED",
+  "opened_at": "2026-04-24",
+  "closed_at": "2026-04-24",
+  "verdict": "SUCCESS",
+  "status": "CLOSED",
+  "authority_source": "Autonomous implementation pack v2 with tests (2026-04-24); operator prompt forbids mid-mission confirmations, requires V2-028 canonical channel, defines stop conditions",
+  "canonical_apply_channel": "V2-028 autonomous agent-run local n8n-patch pack (n8n-patch.mjs replace uq26nh1grIpnHju0 <post payload>)",
+  "target_workflow_id": "uq26nh1grIpnHju0",
+  "baseline_workflow": {
+    "versionId": "c07fe923-76eb-4901-b53b-14039536df55",
+    "nodeCount": 47,
+    "connectionCount": 65,
+    "active": true,
+    "lineage_tail": "96962424 (V2-OBS) -> c07fe923 (F6A)",
+    "verified_at": "2026-04-24 via mcp__n8n__verify_workflow allPass:true"
+  },
+  "target_after_apply": {
+    "versionId": "13e8e767-0b0e-401a-b3da-7db94e1f926a",
+    "nodeCount": 49,
+    "connectionCount": 67,
+    "active": true,
+    "lineage_tail": "c07fe923 (F6A) -> 13e8e767 (F6A-FOLLOWUP)"
+  },
+  "idempotency_namespace": "mem-smoke-f6a-followup-supersede-embed",
+  "phase": 9,
+  "blocked_by": null,
+  "patch_surface_applied": {
+    "new_nodes": ["ME_Memory_Supersede_Embed", "ME_Memory_Supersede_Embed_Merge"],
+    "modified_nodes": ["ME_Memory_Supersede_DB"],
+    "connection_edits": [
+      {"op": "remove", "from": "ME_Memory_Supersede_Prep", "to": "ME_Memory_Supersede_DB"},
+      {"op": "add", "from": "ME_Memory_Supersede_Prep", "to": "ME_Memory_Supersede_Embed"},
+      {"op": "add", "from": "ME_Memory_Supersede_Embed", "to": "ME_Memory_Supersede_Embed_Merge"},
+      {"op": "add", "from": "ME_Memory_Supersede_Embed_Merge", "to": "ME_Memory_Supersede_DB"}
+    ],
+    "merge_jscode_sha256": "6272bec4e67422947d71a1b2283670c57bc6e99b177a55f7754b842332750f9b",
+    "pre_snapshot_sha256": "1b487734443891a6e7c70c2cf63e26aabc6bd288ca6cd67cf1188dad2c816906",
+    "post_snapshot_sha256": "7f2816afdda50021b1b9a561eed23df4ad72d5ad7db1c3f1e9205cff589773b4"
+  },
+  "phases": {
+    "0_preflight": {"status": "GREEN", "completed_at": "2026-04-24"},
+    "1_scope_freeze": {"status": "GREEN", "completed_at": "2026-04-24"},
+    "2_cartography_design_freeze": {"status": "GREEN", "completed_at": "2026-04-24"},
+    "3_builder_payload": {"status": "GREEN", "completed_at": "2026-04-24", "build_inv_passed": 10},
+    "4_local_matrix": {"status": "GREEN", "completed_at": "2026-04-24", "mu": "9/9", "wd": "14/14", "li": "8/8", "total": "31/31"},
+    "5_pre_apply_verify": {"status": "GREEN", "completed_at": "2026-04-24"},
+    "6_apply_post_verify": {"status": "GREEN", "completed_at": "2026-04-24", "pre_versionId": "c07fe923-76eb-4901-b53b-14039536df55", "post_versionId": "13e8e767-0b0e-401a-b3da-7db94e1f926a", "ds_inv_passed": 14, "mu_live_reverify": "9/9"},
+    "7_live_e2e": {"status": "GREEN", "completed_at": "2026-04-24", "e2e": "6/6", "db_invariants": "8/8", "execution_ids": {"E1_seed": "4749", "E1_supersede": "4758", "E2_replay": "4767", "E3_search": "4776", "E4_invalid": "4785", "E5_store_regression": "4794", "E6_recall": "4803"}},
+    "8_reconciliation": {"status": "GREEN", "completed_at": "2026-04-24", "total_oracles": "52/52", "observations": 2, "retires_from_f6a": ["SCOPE-OBS-1"]},
+    "9_closeout_writeback": {"status": "GREEN", "completed_at": "2026-04-24", "ledger_entry": "V2-030"}
+  },
+  "observations_classified": [
+    {"id": "OBS-RECALL-UX-PREEXISTING", "summary": "Recall_Prep _error:true MISSING_REQUIRED_FIELDS on memory_id-only call but Result still summarizes '1 rows'", "decision": "accept (already tracked as V2-OBS-RECALL-SUMMARY-STRING pre-existing follow-up)"},
+    {"id": "OBS-ENVELOPE-INIT", "summary": "first E1 attempt used module_execution_started=true (validator requires false at entry)", "decision": "not a defect (calibration only; resolved in seconds; no state written)"}
+  ],
+  "retires_observations": [
+    {"id": "SCOPE-OBS-1", "source": "F6A_RECONCILIATION.md §3", "how": "supersede-lane replacement rows now carry embedding vector(1536) (E1 proof: a0eea3bb, similarity 0.8089 TOP-1)"}
+  ],
+  "success_criteria_count": 10,
+  "success_criteria_met": 10,
+  "forbidden_actions_observed": "no forbidden channel used: apply via V2-028 only; MCP read-only for verify + execute + SELECT; .env never exposed; no backfill; no ivfflat rebuild; no path 5; no MCP patch_workflow_nodes writes"
+}

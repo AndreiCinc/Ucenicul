@@ -1,0 +1,23 @@
+{
+  "message_id": "19e93b68-d2c3-4fc1-89a5-e26ef8d687aa",
+  "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+  "channel": "e2e-rich-matrix",
+  "direction": "inbound",
+  "author_type": "user",
+  "normalized_content": "EN case: What do you know about Andrei's training preferences?",
+  "timestamp": "2026-04-26T02:50:47.351Z",
+  "source_message_ref": "e2e:C3-L3-V2:e2e:f240-2026-04-26:C3-L3-V2",
+  "author_entity_id": null,
+  "related_entity_ids": [],
+  "metadata": {
+    "e2e_case_id": "C3-L3-V2",
+    "e2e_corridor": "C3",
+    "e2e_variant": "locale_en",
+    "e2e_phase": "P2_COMPOSITION",
+    "e2e_priority": "P1",
+    "e2e_locale": "en",
+    "e2e_run_tag": "f240-2026-04-26"
+  },
+  "idempotency_key": "e2e:f240-2026-04-26:C3-L3-V2",
+  "thread_id": "3992824d-cb01-4c71-82cd-798e5623b4e6"
+}

@@ -1,0 +1,47 @@
+{
+  "case_id": "C2-L1-V1",
+  "run_tag": "plbrf-2026-04-26",
+  "runtime": {
+    "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+    "message_id": "7d9e17bc-c922-4559-80ce-db8e2e8ee772",
+    "thread_id": "b82223ee-4eab-46d0-874e-59557fb76766",
+    "reply_to_thread_id": null,
+    "idempotency_key": "e2e:f240-2026-04-26:C2-L1-V1",
+    "thread_label": "C2:C2-L1-V1",
+    "ts_iso": "2026-04-26T02:50:47.126Z",
+    "run_tag": "f240-2026-04-26",
+    "thread_context_kind": "seeded-fresh",
+    "fire_iso": "2026-04-26T03:21:56.528Z"
+  },
+  "invariants": [
+    {
+      "name": "assert_memory_row_exists",
+      "sql": "SELECT count(*)::int AS c FROM memory_items\n          WHERE tenant_id = $1 AND source_thread_id = $2 AND created_at >= $3",
+      "params": [
+        "eee0e2e0-0000-0000-0000-000000000001",
+        "b82223ee-4eab-46d0-874e-59557fb76766",
+        "2026-04-26T03:21:56.528Z"
+      ],
+      "unknown": false
+    },
+    {
+      "name": "assert_embedding_dim_1536_when_success",
+      "sql": "SELECT id, vector_dims(embedding) AS dim FROM memory_items\n          WHERE tenant_id = $1 AND idempotency_key LIKE $2 AND embedding IS NOT NULL LIMIT 5",
+      "params": [
+        "eee0e2e0-0000-0000-0000-000000000001",
+        "e2e:f240-2026-04-26:C2-L1-V1%"
+      ],
+      "unknown": false
+    },
+    {
+      "name": "assert_idempotency_unique",
+      "sql": "SELECT 'memory'::text AS tbl, count(*)::int AS c FROM memory_items WHERE tenant_id=$1 AND idempotency_key LIKE $2\n          UNION ALL\n          SELECT 'tasks', count(*)::int FROM tasks WHERE tenant_id=$1 AND created_at >= $3\n          UNION ALL\n          SELECT 'reminders', count(*)::int FROM reminders WHERE tenant_id=$1 AND created_at >= $3\n          UNION ALL\n          SELECT 'outbound', count(*)::int FROM messages WHERE tenant_id=$1 AND direction='outbound' AND created_at >= $3",
+      "params": [
+        "eee0e2e0-0000-0000-0000-000000000001",
+        "e2e:f240-2026-04-26:C2-L1-V1%",
+        "2026-04-26T03:21:56.528Z"
+      ],
+      "unknown": false
+    }
+  ]
+}

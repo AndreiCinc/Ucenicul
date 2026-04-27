@@ -1,0 +1,18 @@
+{
+  "status_kind": "success",
+  "result_type": "composed_response",
+  "execution_context_id": "33333333-3333-3333-3333-333333333333",
+  "thread_id": "55555555-5555-5555-5555-555555555555",
+  "tenant_id": "44444444-4444-4444-4444-444444444444",
+  "composed_response": {
+    "response_status": "success",
+    "response_text": "[MO-01 V3 live test] Acesta este un mesaj de test pentru WF-MO-01 happy path.",
+    "channel": "telegram",
+    "locale": "ro",
+    "followup_requests": []
+  },
+  "output_gateway_allowed": true,
+  "allowed_next_stage": "MESSAGE_OUT",
+  "response_generation_allowed": true,
+  "idempotency_key": "mo-v3-test-20260418-104500-001"
+}

@@ -1,0 +1,307 @@
+{
+  "mission": "ACCEPT-VIA-CORROBORATION-PROBE",
+  "category": "live_e2e_runtime",
+  "minimum_count": 50,
+  "tests": [
+    {
+      "id": "CPE-01",
+      "family": "accept_via_corroboration",
+      "runtime_flow": "store seed A + store corroborating evidence + promote",
+      "oracle": "promote succeeds via corroboration; row tier becomes long_term; acceptance_signals includes corroboration; no direct DB writes."
+    },
+    {
+      "id": "CPE-02",
+      "family": "accept_via_corroboration",
+      "runtime_flow": "store seed A + store corroborating evidence + promote",
+      "oracle": "promote succeeds via corroboration; row tier becomes long_term; acceptance_signals includes corroboration; no direct DB writes."
+    },
+    {
+      "id": "CPE-03",
+      "family": "accept_via_corroboration",
+      "runtime_flow": "store seed A + store corroborating evidence + promote",
+      "oracle": "promote succeeds via corroboration; row tier becomes long_term; acceptance_signals includes corroboration; no direct DB writes."
+    },
+    {
+      "id": "CPE-04",
+      "family": "accept_via_corroboration",
+      "runtime_flow": "store seed A + store corroborating evidence + promote",
+      "oracle": "promote succeeds via corroboration; row tier becomes long_term; acceptance_signals includes corroboration; no direct DB writes."
+    },
+    {
+      "id": "CPE-05",
+      "family": "accept_via_corroboration",
+      "runtime_flow": "store seed A + store corroborating evidence + promote",
+      "oracle": "promote succeeds via corroboration; row tier becomes long_term; acceptance_signals includes corroboration; no direct DB writes."
+    },
+    {
+      "id": "CPE-06",
+      "family": "accept_via_corroboration",
+      "runtime_flow": "store seed A + store corroborating evidence + promote",
+      "oracle": "promote succeeds via corroboration; row tier becomes long_term; acceptance_signals includes corroboration; no direct DB writes."
+    },
+    {
+      "id": "CPE-07",
+      "family": "accept_via_corroboration",
+      "runtime_flow": "store seed A + store corroborating evidence + promote",
+      "oracle": "promote succeeds via corroboration; row tier becomes long_term; acceptance_signals includes corroboration; no direct DB writes."
+    },
+    {
+      "id": "CPE-08",
+      "family": "accept_via_corroboration",
+      "runtime_flow": "store seed A + store corroborating evidence + promote",
+      "oracle": "promote succeeds via corroboration; row tier becomes long_term; acceptance_signals includes corroboration; no direct DB writes."
+    },
+    {
+      "id": "CPE-09",
+      "family": "accept_via_corroboration",
+      "runtime_flow": "store seed A + store corroborating evidence + promote",
+      "oracle": "promote succeeds via corroboration; row tier becomes long_term; acceptance_signals includes corroboration; no direct DB writes."
+    },
+    {
+      "id": "CPE-10",
+      "family": "accept_via_corroboration",
+      "runtime_flow": "store seed A + store corroborating evidence + promote",
+      "oracle": "promote succeeds via corroboration; row tier becomes long_term; acceptance_signals includes corroboration; no direct DB writes."
+    },
+    {
+      "id": "CPE-11",
+      "family": "accept_via_corroboration",
+      "runtime_flow": "store seed A + store corroborating evidence + promote",
+      "oracle": "promote succeeds via corroboration; row tier becomes long_term; acceptance_signals includes corroboration; no direct DB writes."
+    },
+    {
+      "id": "CPE-12",
+      "family": "accept_via_corroboration",
+      "runtime_flow": "store seed A + store corroborating evidence + promote",
+      "oracle": "promote succeeds via corroboration; row tier becomes long_term; acceptance_signals includes corroboration; no direct DB writes."
+    },
+    {
+      "id": "CPE-13",
+      "family": "accept_via_corroboration",
+      "runtime_flow": "store seed A + store corroborating evidence + promote",
+      "oracle": "promote succeeds via corroboration; row tier becomes long_term; acceptance_signals includes corroboration; no direct DB writes."
+    },
+    {
+      "id": "CPE-14",
+      "family": "accept_via_corroboration",
+      "runtime_flow": "store seed A + store corroborating evidence + promote",
+      "oracle": "promote succeeds via corroboration; row tier becomes long_term; acceptance_signals includes corroboration; no direct DB writes."
+    },
+    {
+      "id": "CPE-15",
+      "family": "accept_via_corroboration",
+      "runtime_flow": "store seed A + store corroborating evidence + promote",
+      "oracle": "promote succeeds via corroboration; row tier becomes long_term; acceptance_signals includes corroboration; no direct DB writes."
+    },
+    {
+      "id": "CPE-16",
+      "family": "deny_below_threshold",
+      "runtime_flow": "single store seed + promote",
+      "oracle": "promote denied because corroboration threshold not met, unless another accepted signal is intentionally present."
+    },
+    {
+      "id": "CPE-17",
+      "family": "deny_below_threshold",
+      "runtime_flow": "single store seed + promote",
+      "oracle": "promote denied because corroboration threshold not met, unless another accepted signal is intentionally present."
+    },
+    {
+      "id": "CPE-18",
+      "family": "deny_below_threshold",
+      "runtime_flow": "single store seed + promote",
+      "oracle": "promote denied because corroboration threshold not met, unless another accepted signal is intentionally present."
+    },
+    {
+      "id": "CPE-19",
+      "family": "deny_below_threshold",
+      "runtime_flow": "single store seed + promote",
+      "oracle": "promote denied because corroboration threshold not met, unless another accepted signal is intentionally present."
+    },
+    {
+      "id": "CPE-20",
+      "family": "deny_below_threshold",
+      "runtime_flow": "single store seed + promote",
+      "oracle": "promote denied because corroboration threshold not met, unless another accepted signal is intentionally present."
+    },
+    {
+      "id": "CPE-21",
+      "family": "deny_below_threshold",
+      "runtime_flow": "single store seed + promote",
+      "oracle": "promote denied because corroboration threshold not met, unless another accepted signal is intentionally present."
+    },
+    {
+      "id": "CPE-22",
+      "family": "deny_below_threshold",
+      "runtime_flow": "single store seed + promote",
+      "oracle": "promote denied because corroboration threshold not met, unless another accepted signal is intentionally present."
+    },
+    {
+      "id": "CPE-23",
+      "family": "deny_below_threshold",
+      "runtime_flow": "single store seed + promote",
+      "oracle": "promote denied because corroboration threshold not met, unless another accepted signal is intentionally present."
+    },
+    {
+      "id": "CPE-24",
+      "family": "deny_below_threshold",
+      "runtime_flow": "single store seed + promote",
+      "oracle": "promote denied because corroboration threshold not met, unless another accepted signal is intentionally present."
+    },
+    {
+      "id": "CPE-25",
+      "family": "deny_below_threshold",
+      "runtime_flow": "single store seed + promote",
+      "oracle": "promote denied because corroboration threshold not met, unless another accepted signal is intentionally present."
+    },
+    {
+      "id": "CPE-26",
+      "family": "deny_wrong_tier_or_invalid_target",
+      "runtime_flow": "seed wrong tier/invalid target + promote",
+      "oracle": "promote denied; no unintended mutation."
+    },
+    {
+      "id": "CPE-27",
+      "family": "deny_wrong_tier_or_invalid_target",
+      "runtime_flow": "seed wrong tier/invalid target + promote",
+      "oracle": "promote denied; no unintended mutation."
+    },
+    {
+      "id": "CPE-28",
+      "family": "deny_wrong_tier_or_invalid_target",
+      "runtime_flow": "seed wrong tier/invalid target + promote",
+      "oracle": "promote denied; no unintended mutation."
+    },
+    {
+      "id": "CPE-29",
+      "family": "deny_wrong_tier_or_invalid_target",
+      "runtime_flow": "seed wrong tier/invalid target + promote",
+      "oracle": "promote denied; no unintended mutation."
+    },
+    {
+      "id": "CPE-30",
+      "family": "deny_wrong_tier_or_invalid_target",
+      "runtime_flow": "seed wrong tier/invalid target + promote",
+      "oracle": "promote denied; no unintended mutation."
+    },
+    {
+      "id": "CPE-31",
+      "family": "deny_wrong_tier_or_invalid_target",
+      "runtime_flow": "seed wrong tier/invalid target + promote",
+      "oracle": "promote denied; no unintended mutation."
+    },
+    {
+      "id": "CPE-32",
+      "family": "deny_wrong_tier_or_invalid_target",
+      "runtime_flow": "seed wrong tier/invalid target + promote",
+      "oracle": "promote denied; no unintended mutation."
+    },
+    {
+      "id": "CPE-33",
+      "family": "deny_wrong_tier_or_invalid_target",
+      "runtime_flow": "seed wrong tier/invalid target + promote",
+      "oracle": "promote denied; no unintended mutation."
+    },
+    {
+      "id": "CPE-34",
+      "family": "deny_wrong_tier_or_invalid_target",
+      "runtime_flow": "seed wrong tier/invalid target + promote",
+      "oracle": "promote denied; no unintended mutation."
+    },
+    {
+      "id": "CPE-35",
+      "family": "deny_wrong_tier_or_invalid_target",
+      "runtime_flow": "seed wrong tier/invalid target + promote",
+      "oracle": "promote denied; no unintended mutation."
+    },
+    {
+      "id": "CPE-36",
+      "family": "idempotent_replays",
+      "runtime_flow": "replay selected accepted and denied promote calls",
+      "oracle": "no duplicate side effects; accepted row remains long_term; denied cases remain unchanged."
+    },
+    {
+      "id": "CPE-37",
+      "family": "idempotent_replays",
+      "runtime_flow": "replay selected accepted and denied promote calls",
+      "oracle": "no duplicate side effects; accepted row remains long_term; denied cases remain unchanged."
+    },
+    {
+      "id": "CPE-38",
+      "family": "idempotent_replays",
+      "runtime_flow": "replay selected accepted and denied promote calls",
+      "oracle": "no duplicate side effects; accepted row remains long_term; denied cases remain unchanged."
+    },
+    {
+      "id": "CPE-39",
+      "family": "idempotent_replays",
+      "runtime_flow": "replay selected accepted and denied promote calls",
+      "oracle": "no duplicate side effects; accepted row remains long_term; denied cases remain unchanged."
+    },
+    {
+      "id": "CPE-40",
+      "family": "idempotent_replays",
+      "runtime_flow": "replay selected accepted and denied promote calls",
+      "oracle": "no duplicate side effects; accepted row remains long_term; denied cases remain unchanged."
+    },
+    {
+      "id": "CPE-41",
+      "family": "idempotent_replays",
+      "runtime_flow": "replay selected accepted and denied promote calls",
+      "oracle": "no duplicate side effects; accepted row remains long_term; denied cases remain unchanged."
+    },
+    {
+      "id": "CPE-42",
+      "family": "idempotent_replays",
+      "runtime_flow": "replay selected accepted and denied promote calls",
+      "oracle": "no duplicate side effects; accepted row remains long_term; denied cases remain unchanged."
+    },
+    {
+      "id": "CPE-43",
+      "family": "regression_spots",
+      "runtime_flow": "store/search/recall/supersede spot checks after probe",
+      "oracle": "F6A/F6A-FOLLOWUP embeddings remain intact; recall/search behavior preserved."
+    },
+    {
+      "id": "CPE-44",
+      "family": "regression_spots",
+      "runtime_flow": "store/search/recall/supersede spot checks after probe",
+      "oracle": "F6A/F6A-FOLLOWUP embeddings remain intact; recall/search behavior preserved."
+    },
+    {
+      "id": "CPE-45",
+      "family": "regression_spots",
+      "runtime_flow": "store/search/recall/supersede spot checks after probe",
+      "oracle": "F6A/F6A-FOLLOWUP embeddings remain intact; recall/search behavior preserved."
+    },
+    {
+      "id": "CPE-46",
+      "family": "regression_spots",
+      "runtime_flow": "store/search/recall/supersede spot checks after probe",
+      "oracle": "F6A/F6A-FOLLOWUP embeddings remain intact; recall/search behavior preserved."
+    },
+    {
+      "id": "CPE-47",
+      "family": "regression_spots",
+      "runtime_flow": "store/search/recall/supersede spot checks after probe",
+      "oracle": "F6A/F6A-FOLLOWUP embeddings remain intact; recall/search behavior preserved."
+    },
+    {
+      "id": "CPE-48",
+      "family": "regression_spots",
+      "runtime_flow": "store/search/recall/supersede spot checks after probe",
+      "oracle": "F6A/F6A-FOLLOWUP embeddings remain intact; recall/search behavior preserved."
+    },
+    {
+      "id": "CPE-49",
+      "family": "regression_spots",
+      "runtime_flow": "store/search/recall/supersede spot checks after probe",
+      "oracle": "F6A/F6A-FOLLOWUP embeddings remain intact; recall/search behavior preserved."
+    },
+    {
+      "id": "CPE-50",
+      "family": "regression_spots",
+      "runtime_flow": "store/search/recall/supersede spot checks after probe",
+      "oracle": "F6A/F6A-FOLLOWUP embeddings remain intact; recall/search behavior preserved."
+    }
+  ]
+}

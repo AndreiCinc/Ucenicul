@@ -1,0 +1,14 @@
+{
+  "workflow_name": "WF-RC-01 Response Composer",
+  "node_count": 14,
+  "connection_count": 13,
+  "trigger_count": 2,
+  "guard_switch_count": 2,
+  "postgres_node_count": 2,
+  "code_node_count": 8,
+  "upstream_stage": "WF-SU-01",
+  "downstream_stage": "MESSAGE_OUT",
+  "input_contract": "state_update_result",
+  "output_contract": "composed_response",
+  "writes_allowed": false
+}

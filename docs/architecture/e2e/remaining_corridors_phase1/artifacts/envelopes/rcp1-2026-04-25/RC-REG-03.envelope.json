@@ -1,0 +1,20 @@
+{
+  "message_id": "942acca8-8ee5-4494-81ce-3023b86f5ad1",
+  "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+  "channel": "rcp1-rich-matrix",
+  "direction": "inbound",
+  "author_type": "user",
+  "normalized_content": "Sugestie: rapoarte săptămânale automate sunt utile pentru manageri.",
+  "timestamp": "2026-04-25T19:17:11.984Z",
+  "source_message_ref": "rcp1:RC-REG-03",
+  "author_entity_id": null,
+  "related_entity_ids": [],
+  "metadata": {
+    "rcp1_case_id": "RC-REG-03",
+    "rcp1_corridor": "REG",
+    "rcp1_run_tag": "rcp1-2026-04-25"
+  },
+  "idempotency_key": "rcp1:rcp1-2026-04-25:RC-REG-03",
+  "thread_id": "61c7d619-3ec3-46e5-8b44-dc95bf46b8c1",
+  "reply_to_thread_id": null
+}

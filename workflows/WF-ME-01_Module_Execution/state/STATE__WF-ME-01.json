@@ -1,0 +1,61 @@
+{
+  "workflow_code": "WF-ME-01",
+  "workflow_name": "WF-ME-01 Module Execution",
+  "tier": "standard",
+  "status": "closed",
+  "posture": "live",
+  "score": 10,
+  "closed": true,
+  "advance_allowed": true,
+  "phase": "stage_closed_at_10_of_10_live_v1_v5_pass_v6_zero_drift",
+  "closed_at": null,
+  "last_sync": null,
+  "last_verified": "2026-04-19",
+  "live_runs": 5,
+  "live_runtime_proof_summary": {
+    "version_id": "wf-me-01-source-pack-v1.3-cross-tenant-guard",
+    "implementation_sha256": "0a7b95fdc020cd1aa9f978f39a2448ac13e79e74794cb75907bfd9f95abfee44",
+    "implementation_bytes": 30066,
+    "execution_ids": ["730", "731", "732", "733", "729"],
+    "v1_to_v5_all_pass": true,
+    "v6_zero_db_drift": true,
+    "ec_hash_stable": "ed9487e781cfc75856228f052cbf3a15",
+    "tasks_hash_stable": "08b959749b4ce167e1ff42dcd24ea0f3",
+    "test_harness": "13 families × 50 tests — 650/650 PASS",
+    "detailed_source": "reports/CLOSURE_REPORT__WF-ME-01.md"
+  },
+  "owner": "TBD",
+  "canonical": {
+    "implementation": "workflow/WF-ME-01_Module_Execution.json",
+    "contracts": null,
+    "status": "state/STATE__WF-ME-01.json",
+    "test_matrix": "docs/WF-ME-01_TEST_MATRIX.md"
+  },
+  "evidence_on_disk": {
+    "implementation_present": true,
+    "supporting_blueprint_present": true,
+    "supporting_blueprint_path": "workflow/WF-ME-01_blueprint.json",
+    "contracts_present": false,
+    "test_matrix_present": true,
+    "sql_present": true,
+    "scripts_present": true,
+    "tests_present": true,
+    "test_results_present": true,
+    "audit_report_present": true,
+    "build_report_present": true,
+    "closure_report_present": true,
+    "current_stage_present": true,
+    "fix_log_present": true,
+    "stage_lock_present": true
+  },
+  "missing": [
+    "docs/WF-ME-01_CONTRACTS.md",
+    "reports/LIVE_EXECUTIONS__WF-ME-01.md"
+  ],
+  "foreign": [
+    "docs/desktop.ini"
+  ],
+  "notes": "WF-ME-01 is closed at 10/10 on version wf-me-01-source-pack-v1.3-cross-tenant-guard. Blueprint JSON is ~1/3 the size of canonical — treated as `supporting` (possibly slim), not duplicate-full; a future wf-sync pass should verify it matches canonical slim shape per standard §5.3. STATE authored during autonomous run run_2026-04-19_autonomous.",
+  "last_updated": "2026-04-19",
+  "run_id": "run_2026-04-19_autonomous"
+}

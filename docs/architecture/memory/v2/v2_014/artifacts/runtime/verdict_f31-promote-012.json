@@ -1,0 +1,18 @@
+{
+  "case_id": "f31-promote-012",
+  "attempt": 2,
+  "execution_id": "3881",
+  "verdict": "PASS",
+  "bucket": null,
+  "reason": "Primary proof case re-PASSes after V2-014 patch. Row tier moved recent → long_term, last_reconfirmed_at set, denial_reason became 'accepted', acceptance_signals=['user_confirmed']. Validates that the new accept predicate honors row-persisted user_confirmed=true even when caller passes user_confirmed=false.",
+  "expectations_met": {
+    "n8n_execution_status_success": true,
+    "module_result_status_success": true,
+    "denial_reason_not_acceptance_criteria_not_met": true,
+    "tier_pre_recent": true,
+    "tier_post_long_term": true,
+    "last_reconfirmed_at_now_non_null": true,
+    "no_unexpected_column_writes": true
+  },
+  "captured_at": "2026-04-22T15:27:30.000Z"
+}

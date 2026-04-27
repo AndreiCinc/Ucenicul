@@ -1,0 +1,20 @@
+{
+  "message_id": "02aa3d5c-f396-4cd2-838e-dea015b1e74d",
+  "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+  "channel": "rcp1-rich-matrix",
+  "direction": "inbound",
+  "author_type": "user",
+  "normalized_content": "Creează task: regression smoke pentru chain post-improvement.",
+  "timestamp": "2026-04-25T19:17:11.984Z",
+  "source_message_ref": "rcp1:RC-REG-01",
+  "author_entity_id": null,
+  "related_entity_ids": [],
+  "metadata": {
+    "rcp1_case_id": "RC-REG-01",
+    "rcp1_corridor": "REG",
+    "rcp1_run_tag": "rcp1-2026-04-25"
+  },
+  "idempotency_key": "rcp1:rcp1-2026-04-25:RC-REG-01",
+  "thread_id": "06733569-fdae-4f9e-89bb-611cd6731822",
+  "reply_to_thread_id": null
+}

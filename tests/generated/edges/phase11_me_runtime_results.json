@@ -1,0 +1,166 @@
+{
+  "ts": "2026-04-20T15:12:14.362Z",
+  "phase": "phase11",
+  "suite": "me_expansion_runtime",
+  "total": 8,
+  "passed": 8,
+  "results": [
+    {
+      "case": "p11-smoke-02",
+      "handler": "ME_Reminder_Create_Result",
+      "exec": "1030",
+      "pass": true,
+      "failures": [],
+      "assertions": {
+        "executed": true,
+        "handler_ran": true,
+        "handler_status_success": true,
+        "handler_module_name_match": true,
+        "handler_action_match": true,
+        "handler_step_id_match": true,
+        "handler_domain_writes_false": true,
+        "return_result_success": true,
+        "envelope_is_module_batch": true,
+        "dispatch_ra_rollup_success": true,
+        "artifact_present": true
+      }
+    },
+    {
+      "case": "p11-list-reminders",
+      "handler": "ME_Reminder_List_Result",
+      "exec": "1039",
+      "pass": true,
+      "failures": [],
+      "assertions": {
+        "executed": true,
+        "handler_ran": true,
+        "handler_status_success": true,
+        "handler_module_name_match": true,
+        "handler_action_match": true,
+        "handler_step_id_match": true,
+        "handler_domain_writes_false": true,
+        "return_result_success": true,
+        "envelope_is_module_batch": true,
+        "dispatch_ra_rollup_success": true
+      }
+    },
+    {
+      "case": "p11-update-reminder",
+      "handler": "ME_Reminder_Update_Result",
+      "exec": "1048",
+      "pass": true,
+      "failures": [],
+      "assertions": {
+        "executed": true,
+        "handler_ran": true,
+        "handler_status_success": true,
+        "handler_module_name_match": true,
+        "handler_action_match": true,
+        "handler_step_id_match": true,
+        "handler_domain_writes_false": true,
+        "return_result_success": true,
+        "envelope_is_module_batch": true,
+        "dispatch_ra_rollup_success": true,
+        "artifact_present": true
+      }
+    },
+    {
+      "case": "p11-cancel-reminder",
+      "handler": "ME_Reminder_Cancel_Result",
+      "exec": "1057",
+      "pass": true,
+      "failures": [],
+      "assertions": {
+        "executed": true,
+        "handler_ran": true,
+        "handler_status_success": true,
+        "handler_module_name_match": true,
+        "handler_action_match": true,
+        "handler_step_id_match": true,
+        "handler_domain_writes_false": true,
+        "return_result_success": true,
+        "envelope_is_module_batch": true,
+        "dispatch_ra_rollup_success": true,
+        "artifact_present": true
+      }
+    },
+    {
+      "case": "p11-store-memory",
+      "handler": "ME_Memory_Store_Result",
+      "exec": "1066",
+      "pass": true,
+      "failures": [],
+      "assertions": {
+        "executed": true,
+        "handler_ran": true,
+        "handler_status_success": true,
+        "handler_module_name_match": true,
+        "handler_action_match": true,
+        "handler_step_id_match": true,
+        "handler_domain_writes_false": true,
+        "return_result_success": true,
+        "envelope_is_module_batch": true,
+        "dispatch_ra_rollup_success": true,
+        "artifact_present": true
+      }
+    },
+    {
+      "case": "p11-search-memory",
+      "handler": "ME_Memory_Search_Result",
+      "exec": "1075",
+      "pass": true,
+      "failures": [],
+      "assertions": {
+        "executed": true,
+        "handler_ran": true,
+        "handler_status_success": true,
+        "handler_module_name_match": true,
+        "handler_action_match": true,
+        "handler_step_id_match": true,
+        "handler_domain_writes_false": true,
+        "return_result_success": true,
+        "envelope_is_module_batch": true,
+        "dispatch_ra_rollup_success": true
+      }
+    },
+    {
+      "case": "p11-capture-feedback",
+      "handler": "ME_Improvement_Capture_Result",
+      "exec": "1084",
+      "pass": true,
+      "failures": [],
+      "assertions": {
+        "executed": true,
+        "handler_ran": true,
+        "handler_status_success": true,
+        "handler_module_name_match": true,
+        "handler_action_match": true,
+        "handler_step_id_match": true,
+        "handler_domain_writes_false": true,
+        "return_result_success": true,
+        "envelope_is_module_batch": true,
+        "dispatch_ra_rollup_success": true,
+        "artifact_present": true
+      }
+    },
+    {
+      "case": "p11-observe",
+      "handler": "ME_Watcher_Observe_Result",
+      "exec": "1093",
+      "pass": true,
+      "failures": [],
+      "assertions": {
+        "executed": true,
+        "handler_ran": true,
+        "handler_status_success": true,
+        "handler_module_name_match": true,
+        "handler_action_match": true,
+        "handler_step_id_match": true,
+        "handler_domain_writes_false": true,
+        "return_result_success": true,
+        "envelope_is_module_batch": true,
+        "dispatch_ra_rollup_success": true
+      }
+    }
+  ]
+}

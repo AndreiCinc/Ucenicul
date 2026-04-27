@@ -1,0 +1,129 @@
+{
+  "ts": "2026-04-20T17:04:21.058Z",
+  "phase": "phase12.3",
+  "scope": "TR-originated full primary chain after B11-PL field alignment (v1.3)",
+  "total": 4,
+  "passed": 4,
+  "results": [
+    {
+      "label": "p12-3-01-create_task",
+      "tr_exec_id": "1314",
+      "hops": "TR:1314 → EC:1315 → OR:1316 → PL:1317 → DI:1318 → ME:1319 → RA:1320 → SU:1321 → RC:1322 → MO:1323",
+      "reached_MO": true,
+      "ra_exec_id": "1320",
+      "me_handler": "ME_Task_Create_Result",
+      "me_module": "task_module",
+      "me_status_kind": "success",
+      "agg_status": "success",
+      "agg_modules": [
+        "task_module"
+      ],
+      "agg_count": 1,
+      "agg_actions": [
+        "create_task"
+      ],
+      "per_status": {
+        "success": 1,
+        "partial": 0,
+        "failed": 0,
+        "no_action": 0
+      },
+      "needs_followup": false,
+      "obs_codes": [],
+      "fup_codes": [],
+      "expected_module": "task_module",
+      "expected_agg_status": "success",
+      "pass": true
+    },
+    {
+      "label": "p12-3-02-create_reminder",
+      "tr_exec_id": "1328",
+      "hops": "TR:1328 → EC:1329 → OR:1330 → PL:1331 → DI:1332 → ME:1333 → RA:1334 → SU:1335 → RC:1336 → MO:1337",
+      "reached_MO": true,
+      "ra_exec_id": "1334",
+      "me_handler": "ME_Reminder_Create_Result",
+      "me_module": "reminder_module",
+      "me_status_kind": "success",
+      "agg_status": "success",
+      "agg_modules": [
+        "reminder_module"
+      ],
+      "agg_count": 1,
+      "agg_actions": [
+        "create_reminder"
+      ],
+      "per_status": {
+        "success": 1,
+        "partial": 0,
+        "failed": 0,
+        "no_action": 0
+      },
+      "needs_followup": false,
+      "obs_codes": [],
+      "fup_codes": [],
+      "expected_module": "reminder_module",
+      "expected_agg_status": "success",
+      "pass": true
+    },
+    {
+      "label": "p12-3-03-search_memory",
+      "tr_exec_id": "1342",
+      "hops": "TR:1342 → EC:1343 → OR:1344 → PL:1345 → DI:1346 → ME:1347 → RA:1348 → SU:1349 → RC:1350 → MO:1351",
+      "reached_MO": true,
+      "ra_exec_id": "1348",
+      "me_handler": "ME_Memory_Search_Result",
+      "me_module": "memory_module",
+      "me_status_kind": "success",
+      "agg_status": "success",
+      "agg_modules": [
+        "memory_module"
+      ],
+      "agg_count": 1,
+      "agg_actions": [
+        "search_memory"
+      ],
+      "per_status": {
+        "success": 1,
+        "partial": 0,
+        "failed": 0,
+        "no_action": 0
+      },
+      "needs_followup": false,
+      "obs_codes": [],
+      "fup_codes": [],
+      "expected_module": "memory_module",
+      "expected_agg_status": "success",
+      "pass": true
+    },
+    {
+      "label": "p12-3-04-save_suggestion",
+      "tr_exec_id": "1356",
+      "hops": "TR:1356 → EC:1357 → OR:1358 → PL:1359 → DI:1360 → ME:1361 → RA:1362 → SU:1363 → RC:1364 → MO:1365",
+      "reached_MO": true,
+      "ra_exec_id": "1362",
+      "me_handler": "ME_Improvement_Capture_Result",
+      "me_module": "improvement_module",
+      "me_status_kind": "success",
+      "agg_status": "success",
+      "agg_modules": [
+        "improvement_module"
+      ],
+      "agg_count": 1,
+      "agg_actions": [
+        "capture_feedback"
+      ],
+      "per_status": {
+        "success": 1,
+        "partial": 0,
+        "failed": 0,
+        "no_action": 0
+      },
+      "needs_followup": false,
+      "obs_codes": [],
+      "fup_codes": [],
+      "expected_module": "improvement_module",
+      "expected_agg_status": "success",
+      "pass": true
+    }
+  ]
+}

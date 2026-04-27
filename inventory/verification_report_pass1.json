@@ -1,0 +1,50 @@
+{
+  "generated_at": "2026-04-19T13:09:07.151344+00:00",
+  "pass": 1,
+  "entry_count": 920,
+  "checks": {
+    "deployed_exists": {
+      "passed": 920,
+      "failed": []
+    },
+    "sha_matches_source": {
+      "passed": 920,
+      "failed": []
+    },
+    "role_populated": {
+      "passed": 920,
+      "failed": []
+    },
+    "confidence_populated": {
+      "passed": 920,
+      "failed": []
+    },
+    "target_path_populated": {
+      "passed": 920,
+      "failed": []
+    }
+  },
+  "issues": [],
+  "summary": {
+    "deployed_exists": {
+      "passed": 920,
+      "failed_count": 0
+    },
+    "sha_matches_source": {
+      "passed": 920,
+      "failed_count": 0
+    },
+    "role_populated": {
+      "passed": 920,
+      "failed_count": 0
+    },
+    "confidence_populated": {
+      "passed": 920,
+      "failed_count": 0
+    },
+    "target_path_populated": {
+      "passed": 920,
+      "failed_count": 0
+    }
+  }
+}

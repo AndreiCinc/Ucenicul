@@ -1,0 +1,19 @@
+{
+  "message_id": "694b4b7a-b212-483d-8ff1-5dd11f24a836",
+  "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+  "channel": "e2e-rich-matrix",
+  "direction": "inbound",
+  "author_type": "user",
+  "normalized_content": "Ține minte că folosesc Node 22.",
+  "timestamp": "2026-04-27T08:23:36.626Z",
+  "source_message_ref": "e2e:IL-R-store:e2e:il-2026-04-27:IL-R-store",
+  "author_entity_id": null,
+  "related_entity_ids": [],
+  "metadata": {
+    "e2e_case_id": "IL-R-store",
+    "e2e_run_tag": "il-2026-04-27",
+    "e2e_intent_test": "store_memory"
+  },
+  "idempotency_key": "e2e:il-2026-04-27:IL-R-store",
+  "thread_id": "83485a49-3358-4b69-8805-d96f94e65fb0"
+}

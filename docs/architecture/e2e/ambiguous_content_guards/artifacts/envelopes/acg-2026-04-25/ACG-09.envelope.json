@@ -1,0 +1,20 @@
+{
+  "message_id": "4716f781-f02d-45ca-81f2-b2eb294d51d1",
+  "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+  "channel": "acg-runtime",
+  "direction": "inbound",
+  "author_type": "user",
+  "normalized_content": "Listează task-urile mele.",
+  "timestamp": "2026-04-25T23:35:41.591Z",
+  "source_message_ref": "acg:ACG-09:acg:acg-2026-04-25:ACG-09",
+  "author_entity_id": null,
+  "related_entity_ids": [],
+  "metadata": {
+    "acg_case_id": "ACG-09",
+    "acg_lane": "positive_lane",
+    "acg_run_tag": "acg-2026-04-25"
+  },
+  "idempotency_key": "acg:acg-2026-04-25:ACG-09",
+  "thread_id": "0411e127-593c-415f-8332-9794eb7dd0b8",
+  "reply_to_thread_id": null
+}

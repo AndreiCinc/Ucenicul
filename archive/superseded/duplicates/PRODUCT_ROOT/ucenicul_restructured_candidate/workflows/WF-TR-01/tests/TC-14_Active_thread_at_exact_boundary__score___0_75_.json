@@ -1,0 +1,34 @@
+{
+  "id": "TC-14",
+  "name": "Active thread at exact boundary (score = 0.75)",
+  "description": "Active thread scores exactly STRICT_ATTACH_THRESHOLD (0.75). Should attach (>= is inclusive).",
+  "request": {
+    "message_id": "test-msg-014",
+    "tenant_id": "aaaaaaaa-0000-0000-0000-000000000001",
+    "channel": "telegram",
+    "direction": "inbound",
+    "author_type": "user",
+    "normalized_content": "apartament pret locatie centru discutie",
+    "timestamp": "2026-04-15T12:00:00Z",
+    "source_message_ref": "tg_test_014"
+  },
+  "expected": {
+    "decision": "attach_existing_thread",
+    "resolved_thread_id": "tttttttt-0000-0000-0000-000000000006",
+    "ambiguity_detected": false,
+    "content_class_used": "normalized_content"
+  },
+  "candidate_threads_fixture": [
+    {
+      "thread_id": "tttttttt-0000-0000-0000-000000000006",
+      "thread_status": "active",
+      "thread_title": "Apartament Test Boundary",
+      "score": 0.75,
+      "entity_match": 0.2,
+      "semantic_match": 0.3,
+      "temporal_proximity": 0.15,
+      "channel_relevance": 0.1
+    }
+  ],
+  "note": "Boundary condition test: score >= threshold (inclusive)."
+}

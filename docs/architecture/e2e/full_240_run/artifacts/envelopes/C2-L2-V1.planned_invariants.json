@@ -1,0 +1,34 @@
+{
+  "case_id": "C2-L2-V1",
+  "invariants": [
+    {
+      "name": "assert_memory_row_exists",
+      "sql": "SELECT count(*)::int AS c FROM memory_items\n          WHERE tenant_id = $1 AND source_thread_id = $2 AND created_at >= $3",
+      "params": [
+        "eee0e2e0-0000-0000-0000-000000000001",
+        "f7fe36a0-cb5e-45b7-88ba-e006b9eb280a",
+        "2026-04-26T02:50:47.157Z"
+      ],
+      "unknown": false
+    },
+    {
+      "name": "assert_embedding_dim_1536_when_success",
+      "sql": "SELECT id, vector_dims(embedding) AS dim FROM memory_items\n          WHERE tenant_id = $1 AND idempotency_key LIKE $2 AND embedding IS NOT NULL LIMIT 5",
+      "params": [
+        "eee0e2e0-0000-0000-0000-000000000001",
+        "e2e:f240-2026-04-26:C2-L2-V1%"
+      ],
+      "unknown": false
+    },
+    {
+      "name": "assert_idempotency_unique",
+      "sql": "SELECT 'memory'::text AS tbl, count(*)::int AS c FROM memory_items WHERE tenant_id=$1 AND idempotency_key LIKE $2\n          UNION ALL\n          SELECT 'tasks', count(*)::int FROM tasks WHERE tenant_id=$1 AND created_at >= $3\n          UNION ALL\n          SELECT 'reminders', count(*)::int FROM reminders WHERE tenant_id=$1 AND created_at >= $3\n          UNION ALL\n          SELECT 'outbound', count(*)::int FROM messages WHERE tenant_id=$1 AND direction='outbound' AND created_at >= $3",
+      "params": [
+        "eee0e2e0-0000-0000-0000-000000000001",
+        "e2e:f240-2026-04-26:C2-L2-V1%",
+        "2026-04-26T02:50:47.157Z"
+      ],
+      "unknown": false
+    }
+  ]
+}

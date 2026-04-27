@@ -1,0 +1,29 @@
+{
+  "case_id": "C5-L1-V1",
+  "run_tag": "p0_v2",
+  "runtime": {
+    "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+    "message_id": "db2df62b-fbee-453d-8271-7584d87dff31",
+    "thread_id": "57a626ab-8ff6-41c4-8387-9bf5cd7f9c69",
+    "reply_to_thread_id": null,
+    "idempotency_key": "e2e:p0_v2:C5-L1-V1",
+    "thread_label": "C5:C5-L1-V1",
+    "ts_iso": "2026-04-25T11:15:27.606Z",
+    "run_tag": "p0_v2",
+    "thread_context_kind": "seeded-fresh",
+    "fire_iso": "2026-04-25T11:16:54.271Z"
+  },
+  "invariants": [
+    {
+      "name": "assert_no_domain_write",
+      "sql": "SELECT\n            (SELECT count(*) FROM tasks       WHERE tenant_id=$1 AND created_at >= $2)::int AS tasks,\n            (SELECT count(*) FROM reminders   WHERE tenant_id=$1 AND created_at >= $2)::int AS reminders,\n            (SELECT count(*) FROM memory_items WHERE tenant_id=$1 AND (idempotency_key LIKE $3 OR source_message_id=$4 OR created_at >= $2))::int AS memory_items",
+      "params": [
+        "eee0e2e0-0000-0000-0000-000000000001",
+        "2026-04-25T11:16:54.271Z",
+        "e2e:p0_v2:C5-L1-V1%",
+        "db2df62b-fbee-453d-8271-7584d87dff31"
+      ],
+      "unknown": false
+    }
+  ]
+}

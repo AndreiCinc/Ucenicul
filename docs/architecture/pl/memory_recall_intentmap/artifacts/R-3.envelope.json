@@ -1,0 +1,19 @@
+{
+  "message_id": "76b41908-0d51-4990-8952-b216ba982334",
+  "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+  "channel": "e2e-rich-matrix",
+  "direction": "inbound",
+  "author_type": "user",
+  "normalized_content": "Sugestie: adaugă export CSV.",
+  "timestamp": "2026-04-27T08:12:27.515Z",
+  "source_message_ref": "e2e:R-3:e2e:mr-2026-04-27:R-3",
+  "author_entity_id": null,
+  "related_entity_ids": [],
+  "metadata": {
+    "e2e_case_id": "R-3",
+    "e2e_run_tag": "mr-2026-04-27",
+    "e2e_intent_test": "save_suggestion"
+  },
+  "idempotency_key": "e2e:mr-2026-04-27:R-3",
+  "thread_id": "fcab04cc-a0b3-4ecb-84f6-7823042820f0"
+}

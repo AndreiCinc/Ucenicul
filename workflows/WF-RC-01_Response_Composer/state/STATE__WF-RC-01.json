@@ -1,0 +1,57 @@
+{
+  "workflow_code": "WF-RC-01",
+  "workflow_name": "WF-RC-01 Response Composer",
+  "tier": "standard",
+  "status": "candidate_active",
+  "posture": "pre_live_ready",
+  "score": 9.7,
+  "closed": false,
+  "advance_allowed": false,
+  "phase": "pre_live_ready",
+  "closed_at": null,
+  "last_sync": null,
+  "last_verified": "2026-04-19",
+  "live_runs": 0,
+  "owner": "TBD",
+  "canonical": {
+    "implementation": "workflow/WF-RC-01_Response_Composer.json",
+    "contracts": null,
+    "status": "state/STATE__WF-RC-01.json",
+    "test_matrix": "docs/WF-RC-01_TEST_MATRIX.md"
+  },
+  "evidence_on_disk": {
+    "implementation_present": true,
+    "duplicate_full_blueprint_present": true,
+    "duplicate_full_blueprint_path": "workflow/WF-RC-01_blueprint.json",
+    "contracts_present": false,
+    "test_matrix_present": true,
+    "sql_present": true,
+    "scripts_present": true,
+    "tests_present": true,
+    "test_results_present": true,
+    "audit_report_misfiled_in_docs": true,
+    "build_report_misfiled_in_docs": true,
+    "closure_report_misfiled_in_docs": true,
+    "current_stage_misfiled_in_docs": true,
+    "fix_log_misfiled_in_docs": true,
+    "legacy_state_json_misfiled_in_docs": true,
+    "reports_folder_has_only_apply_first_and_checksums": true
+  },
+  "missing": [
+    "docs/WF-RC-01_CONTRACTS.md",
+    "reports/AUDIT_REPORT__WF-RC-01.md (canonical location — actually misfiled in docs/)",
+    "reports/BUILD_REPORT__WF-RC-01.md (canonical location — actually misfiled in docs/)",
+    "reports/CLOSURE_REPORT__WF-RC-01.md (canonical location — actually misfiled in docs/)",
+    "reports/CURRENT_STAGE__WF-RC-01.md (canonical location — actually misfiled in docs/)",
+    "reports/FIX_LOG__WF-RC-01.md (canonical location — actually misfiled in docs/)",
+    "reports/LIVE_EXECUTIONS__WF-RC-01.md"
+  ],
+  "canonicality_drift": [
+    {"paths": ["docs/AUDIT_REPORT__WF-RC-01.md", "docs/BUILD_REPORT__WF-RC-01.md", "docs/CLOSURE_REPORT__WF-RC-01.md", "docs/CURRENT_STAGE__WF-RC-01.md", "docs/FIX_LOG__WF-RC-01.md", "docs/STATE__WF-RC-01.json"], "kind": "reports_and_state_misfiled_in_docs", "note": "Canonical locations are reports/ for reports and state/ for STATE. Files preserved in-place in this pass (move is gated by delete). Canonical-location READMEs point at these misfiled files.", "remediation_deferred": true},
+    {"path": "workflow/WF-RC-01_blueprint.json", "kind": "duplicate_full_blueprint_candidate", "note": "If byte-size substantially matches main JSON, same §5.3 bug as WF-OR-01/PL-01/DI-01. Treated as canonical-bug candidate; slim/move deferred."}
+  ],
+  "provenance": "Seed derived from docs/STATE__WF-RC-01.json (legacy, misfiled state file). STATE authored during autonomous run run_2026-04-19_autonomous.",
+  "notes": "WF-RC-01 is NOT closed — pre_live_ready at score 9.7. advance_allowed=false. No live-run evidence on disk yet.",
+  "last_updated": "2026-04-19",
+  "run_id": "run_2026-04-19_autonomous"
+}

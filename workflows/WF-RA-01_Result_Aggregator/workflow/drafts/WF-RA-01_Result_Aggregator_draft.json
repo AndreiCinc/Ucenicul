@@ -1,0 +1,302 @@
+{
+  "name": "WF-RA-01 Result Aggregator",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "ra1",
+      "name": "RA_Input",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1,
+      "position": [0, 0]
+    },
+    {
+      "parameters": {},
+      "id": "ra2",
+      "name": "RA_Manual_Test_Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [0, 220]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Validate canonical module batch envelope\nreturn items;"
+      },
+      "id": "ra3",
+      "name": "RA_Validate_Module_Batch",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [260, 110]
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "cond-valid-1",
+                    "leftValue": "={{ $json._valid }}",
+                    "rightValue": true,
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "_valid"
+            }
+          ]
+        },
+        "options": {
+          "fallbackOutput": "extra",
+          "renameFallbackOutput": "extra"
+        }
+      },
+      "id": "ra4",
+      "name": "RA_Route_Valid",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [520, 110]
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT id, tenant_id, thread_id, status, current_plan_ref, pending_steps, completed_steps, updated_at\nFROM public.execution_contexts\nWHERE id = $1::uuid AND tenant_id = $2::uuid\nLIMIT 1;",
+        "options": {}
+      },
+      "id": "ra5",
+      "name": "RA_Load_Execution_Context",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [780, 110],
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "jsCode": "// Verify execution_context row and tenant/thread match\nreturn items;"
+      },
+      "id": "ra6",
+      "name": "RA_Verify_Context_Match",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1040, 110]
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "cond-ctx-1",
+                    "leftValue": "={{ $json._context_ready }}",
+                    "rightValue": true,
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "_context_ready"
+            }
+          ]
+        },
+        "options": {
+          "fallbackOutput": "extra",
+          "renameFallbackOutput": "extra"
+        }
+      },
+      "id": "ra7",
+      "name": "RA_Route_Context_Ready",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [1300, 110]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Normalize aggregation input from upstream batch and verified execution context\nreturn items;"
+      },
+      "id": "ra8",
+      "name": "RA_Build_Aggregation_Input",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1560, 110]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Aggregate module results into one canonical aggregated_result\nreturn items;"
+      },
+      "id": "ra9",
+      "name": "RA_Aggregate_Module_Results",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1820, 110]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Build canonical success envelope for WF-SU-01\nreturn items;"
+      },
+      "id": "ra10",
+      "name": "RA_Build_Downstream_Envelope",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [2080, 110]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Canonical success return\nreturn items;"
+      },
+      "id": "ra11",
+      "name": "RA_Return_Result",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [2340, 110]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Canonical invalid input error\nreturn items;"
+      },
+      "id": "ra12",
+      "name": "RA_Return_Error",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [780, 320]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Canonical context mismatch / aggregation error\nreturn items;"
+      },
+      "id": "ra13",
+      "name": "RA_Return_Context_Error",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1560, 320]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Optional status summary emitter for live debug\nreturn items;"
+      },
+      "id": "ra14",
+      "name": "RA_Status_Summary",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [2080, 320]
+    }
+  ],
+  "connections": {
+    "RA_Input": {
+      "main": [
+        [
+          { "node": "RA_Validate_Module_Batch", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "RA_Manual_Test_Trigger": {
+      "main": [
+        [
+          { "node": "RA_Validate_Module_Batch", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "RA_Validate_Module_Batch": {
+      "main": [
+        [
+          { "node": "RA_Route_Valid", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "RA_Route_Valid": {
+      "main": [
+        [
+          { "node": "RA_Load_Execution_Context", "type": "main", "index": 0 }
+        ],
+        [
+          { "node": "RA_Return_Error", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "RA_Load_Execution_Context": {
+      "main": [
+        [
+          { "node": "RA_Verify_Context_Match", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "RA_Verify_Context_Match": {
+      "main": [
+        [
+          { "node": "RA_Route_Context_Ready", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "RA_Route_Context_Ready": {
+      "main": [
+        [
+          { "node": "RA_Build_Aggregation_Input", "type": "main", "index": 0 }
+        ],
+        [
+          { "node": "RA_Return_Context_Error", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "RA_Build_Aggregation_Input": {
+      "main": [
+        [
+          { "node": "RA_Aggregate_Module_Results", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "RA_Aggregate_Module_Results": {
+      "main": [
+        [
+          { "node": "RA_Build_Downstream_Envelope", "type": "main", "index": 0 },
+          { "node": "RA_Status_Summary", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "RA_Build_Downstream_Envelope": {
+      "main": [
+        [
+          { "node": "RA_Return_Result", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "RA_Status_Summary": {
+      "main": [
+        [
+          { "node": "RA_Return_Result", "type": "main", "index": 0 }
+        ]
+      ]
+    }
+  },
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  }
+}

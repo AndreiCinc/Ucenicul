@@ -1,0 +1,74 @@
+{
+  "total_families": 13,
+  "tests_per_family": 50,
+  "total_tests": 650,
+  "passed": 650,
+  "failed": 0,
+  "families": [
+    {
+      "family": "input_validation",
+      "passed": 50,
+      "failed": 0
+    },
+    {
+      "family": "happy_path_success",
+      "passed": 50,
+      "failed": 0
+    },
+    {
+      "family": "happy_path_partial",
+      "passed": 50,
+      "failed": 0
+    },
+    {
+      "family": "failure_rendering",
+      "passed": 50,
+      "failed": 0
+    },
+    {
+      "family": "followup_requests_rendering",
+      "passed": 50,
+      "failed": 0
+    },
+    {
+      "family": "blocked_write_rendering",
+      "passed": 50,
+      "failed": 0
+    },
+    {
+      "family": "warning_rendering",
+      "passed": 50,
+      "failed": 0
+    },
+    {
+      "family": "no_action_rendering",
+      "passed": 50,
+      "failed": 0
+    },
+    {
+      "family": "lineage_validation",
+      "passed": 50,
+      "failed": 0
+    },
+    {
+      "family": "rc_idempotency",
+      "passed": 50,
+      "failed": 0
+    },
+    {
+      "family": "wf_su_to_wf_rc_handoff",
+      "passed": 50,
+      "failed": 0
+    },
+    {
+      "family": "downstream_payload_shape",
+      "passed": 50,
+      "failed": 0
+    },
+    {
+      "family": "reporting_and_tooling_contract",
+      "passed": 50,
+      "failed": 0
+    }
+  ]
+}

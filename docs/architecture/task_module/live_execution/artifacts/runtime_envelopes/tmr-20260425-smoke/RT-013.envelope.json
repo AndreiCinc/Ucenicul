@@ -1,0 +1,20 @@
+{
+  "message_id": "30158084-2865-4642-89c8-8d7db6eb62bb",
+  "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+  "channel": "task-module-user-ready",
+  "direction": "inbound",
+  "author_type": "user",
+  "normalized_content": "Ce taskuri am deschise?",
+  "timestamp": "2026-04-25T12:47:21.230Z",
+  "source_message_ref": "tmr:RT-013:tmr:tmr-20260425-smoke:RT-013",
+  "author_entity_id": null,
+  "related_entity_ids": [],
+  "metadata": {
+    "tmr_case_id": "RT-013",
+    "tmr_group": "list_tasks",
+    "tmr_run_tag": "tmr-20260425-smoke"
+  },
+  "idempotency_key": "tmr:tmr-20260425-smoke:RT-013",
+  "thread_id": "5aff0729-1062-43d2-8d26-dd3a3468ebc7",
+  "reply_to_thread_id": null
+}

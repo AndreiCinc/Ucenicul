@@ -1,0 +1,1157 @@
+{
+  "mission": "ACCEPT-VIA-EVIDENCE-VALIDATED-PROBE",
+  "category": "runtime",
+  "count": 50,
+  "cases": [
+    {
+      "id": "EVP-R-01",
+      "family": "probe_runtime_accept",
+      "execute_workflow_sequence": [
+        {
+          "call": "store_memory",
+          "evidence_validated": true,
+          "tier": "recent",
+          "category": "ev_probe_runtime",
+          "content": "Probe runtime 1"
+        },
+        {
+          "call": "promote_memory",
+          "promotion_target": "$stored_id",
+          "user_confirmed": false,
+          "evidence_validated": false
+        }
+      ],
+      "expected_runtime": {
+        "all_calls_status_success": true,
+        "no_unhandled_error": true
+      }
+    },
+    {
+      "id": "EVP-R-02",
+      "family": "probe_runtime_accept",
+      "execute_workflow_sequence": [
+        {
+          "call": "store_memory",
+          "evidence_validated": true,
+          "tier": "recent",
+          "category": "ev_probe_runtime",
+          "content": "Probe runtime 2"
+        },
+        {
+          "call": "promote_memory",
+          "promotion_target": "$stored_id",
+          "user_confirmed": false,
+          "evidence_validated": false
+        }
+      ],
+      "expected_runtime": {
+        "all_calls_status_success": true,
+        "no_unhandled_error": true
+      }
+    },
+    {
+      "id": "EVP-R-03",
+      "family": "probe_runtime_accept",
+      "execute_workflow_sequence": [
+        {
+          "call": "store_memory",
+          "evidence_validated": true,
+          "tier": "recent",
+          "category": "ev_probe_runtime",
+          "content": "Probe runtime 3"
+        },
+        {
+          "call": "promote_memory",
+          "promotion_target": "$stored_id",
+          "user_confirmed": false,
+          "evidence_validated": false
+        }
+      ],
+      "expected_runtime": {
+        "all_calls_status_success": true,
+        "no_unhandled_error": true
+      }
+    },
+    {
+      "id": "EVP-R-04",
+      "family": "probe_runtime_accept",
+      "execute_workflow_sequence": [
+        {
+          "call": "store_memory",
+          "evidence_validated": true,
+          "tier": "recent",
+          "category": "ev_probe_runtime",
+          "content": "Probe runtime 4"
+        },
+        {
+          "call": "promote_memory",
+          "promotion_target": "$stored_id",
+          "user_confirmed": false,
+          "evidence_validated": false
+        }
+      ],
+      "expected_runtime": {
+        "all_calls_status_success": true,
+        "no_unhandled_error": true
+      }
+    },
+    {
+      "id": "EVP-R-05",
+      "family": "probe_runtime_accept",
+      "execute_workflow_sequence": [
+        {
+          "call": "store_memory",
+          "evidence_validated": true,
+          "tier": "recent",
+          "category": "ev_probe_runtime",
+          "content": "Probe runtime 5"
+        },
+        {
+          "call": "promote_memory",
+          "promotion_target": "$stored_id",
+          "user_confirmed": false,
+          "evidence_validated": false
+        }
+      ],
+      "expected_runtime": {
+        "all_calls_status_success": true,
+        "no_unhandled_error": true
+      }
+    },
+    {
+      "id": "EVP-R-06",
+      "family": "probe_runtime_accept",
+      "execute_workflow_sequence": [
+        {
+          "call": "store_memory",
+          "evidence_validated": true,
+          "tier": "recent",
+          "category": "ev_probe_runtime",
+          "content": "Probe runtime 6"
+        },
+        {
+          "call": "promote_memory",
+          "promotion_target": "$stored_id",
+          "user_confirmed": false,
+          "evidence_validated": false
+        }
+      ],
+      "expected_runtime": {
+        "all_calls_status_success": true,
+        "no_unhandled_error": true
+      }
+    },
+    {
+      "id": "EVP-R-07",
+      "family": "probe_runtime_accept",
+      "execute_workflow_sequence": [
+        {
+          "call": "store_memory",
+          "evidence_validated": true,
+          "tier": "recent",
+          "category": "ev_probe_runtime",
+          "content": "Probe runtime 7"
+        },
+        {
+          "call": "promote_memory",
+          "promotion_target": "$stored_id",
+          "user_confirmed": false,
+          "evidence_validated": false
+        }
+      ],
+      "expected_runtime": {
+        "all_calls_status_success": true,
+        "no_unhandled_error": true
+      }
+    },
+    {
+      "id": "EVP-R-08",
+      "family": "probe_runtime_accept",
+      "execute_workflow_sequence": [
+        {
+          "call": "store_memory",
+          "evidence_validated": true,
+          "tier": "recent",
+          "category": "ev_probe_runtime",
+          "content": "Probe runtime 8"
+        },
+        {
+          "call": "promote_memory",
+          "promotion_target": "$stored_id",
+          "user_confirmed": false,
+          "evidence_validated": false
+        }
+      ],
+      "expected_runtime": {
+        "all_calls_status_success": true,
+        "no_unhandled_error": true
+      }
+    },
+    {
+      "id": "EVP-R-09",
+      "family": "probe_runtime_accept",
+      "execute_workflow_sequence": [
+        {
+          "call": "store_memory",
+          "evidence_validated": true,
+          "tier": "recent",
+          "category": "ev_probe_runtime",
+          "content": "Probe runtime 9"
+        },
+        {
+          "call": "promote_memory",
+          "promotion_target": "$stored_id",
+          "user_confirmed": false,
+          "evidence_validated": false
+        }
+      ],
+      "expected_runtime": {
+        "all_calls_status_success": true,
+        "no_unhandled_error": true
+      }
+    },
+    {
+      "id": "EVP-R-10",
+      "family": "probe_runtime_accept",
+      "execute_workflow_sequence": [
+        {
+          "call": "store_memory",
+          "evidence_validated": true,
+          "tier": "recent",
+          "category": "ev_probe_runtime",
+          "content": "Probe runtime 10"
+        },
+        {
+          "call": "promote_memory",
+          "promotion_target": "$stored_id",
+          "user_confirmed": false,
+          "evidence_validated": false
+        }
+      ],
+      "expected_runtime": {
+        "all_calls_status_success": true,
+        "no_unhandled_error": true
+      }
+    },
+    {
+      "id": "EVP-R-11",
+      "family": "probe_runtime_accept",
+      "execute_workflow_sequence": [
+        {
+          "call": "store_memory",
+          "evidence_validated": true,
+          "tier": "recent",
+          "category": "ev_probe_runtime",
+          "content": "Probe runtime 11"
+        },
+        {
+          "call": "promote_memory",
+          "promotion_target": "$stored_id",
+          "user_confirmed": false,
+          "evidence_validated": false
+        }
+      ],
+      "expected_runtime": {
+        "all_calls_status_success": true,
+        "no_unhandled_error": true
+      }
+    },
+    {
+      "id": "EVP-R-12",
+      "family": "probe_runtime_accept",
+      "execute_workflow_sequence": [
+        {
+          "call": "store_memory",
+          "evidence_validated": true,
+          "tier": "recent",
+          "category": "ev_probe_runtime",
+          "content": "Probe runtime 12"
+        },
+        {
+          "call": "promote_memory",
+          "promotion_target": "$stored_id",
+          "user_confirmed": false,
+          "evidence_validated": false
+        }
+      ],
+      "expected_runtime": {
+        "all_calls_status_success": true,
+        "no_unhandled_error": true
+      }
+    },
+    {
+      "id": "EVP-R-13",
+      "family": "probe_runtime_accept",
+      "execute_workflow_sequence": [
+        {
+          "call": "store_memory",
+          "evidence_validated": true,
+          "tier": "recent",
+          "category": "ev_probe_runtime",
+          "content": "Probe runtime 13"
+        },
+        {
+          "call": "promote_memory",
+          "promotion_target": "$stored_id",
+          "user_confirmed": false,
+          "evidence_validated": false
+        }
+      ],
+      "expected_runtime": {
+        "all_calls_status_success": true,
+        "no_unhandled_error": true
+      }
+    },
+    {
+      "id": "EVP-R-14",
+      "family": "probe_runtime_accept",
+      "execute_workflow_sequence": [
+        {
+          "call": "store_memory",
+          "evidence_validated": true,
+          "tier": "recent",
+          "category": "ev_probe_runtime",
+          "content": "Probe runtime 14"
+        },
+        {
+          "call": "promote_memory",
+          "promotion_target": "$stored_id",
+          "user_confirmed": false,
+          "evidence_validated": false
+        }
+      ],
+      "expected_runtime": {
+        "all_calls_status_success": true,
+        "no_unhandled_error": true
+      }
+    },
+    {
+      "id": "EVP-R-15",
+      "family": "probe_runtime_accept",
+      "execute_workflow_sequence": [
+        {
+          "call": "store_memory",
+          "evidence_validated": true,
+          "tier": "recent",
+          "category": "ev_probe_runtime",
+          "content": "Probe runtime 15"
+        },
+        {
+          "call": "promote_memory",
+          "promotion_target": "$stored_id",
+          "user_confirmed": false,
+          "evidence_validated": false
+        }
+      ],
+      "expected_runtime": {
+        "all_calls_status_success": true,
+        "no_unhandled_error": true
+      }
+    },
+    {
+      "id": "EVP-R-16",
+      "family": "probe_runtime_accept",
+      "execute_workflow_sequence": [
+        {
+          "call": "store_memory",
+          "evidence_validated": true,
+          "tier": "recent",
+          "category": "ev_probe_runtime",
+          "content": "Probe runtime 16"
+        },
+        {
+          "call": "promote_memory",
+          "promotion_target": "$stored_id",
+          "user_confirmed": false,
+          "evidence_validated": false
+        }
+      ],
+      "expected_runtime": {
+        "all_calls_status_success": true,
+        "no_unhandled_error": true
+      }
+    },
+    {
+      "id": "EVP-R-17",
+      "family": "probe_runtime_accept",
+      "execute_workflow_sequence": [
+        {
+          "call": "store_memory",
+          "evidence_validated": true,
+          "tier": "recent",
+          "category": "ev_probe_runtime",
+          "content": "Probe runtime 17"
+        },
+        {
+          "call": "promote_memory",
+          "promotion_target": "$stored_id",
+          "user_confirmed": false,
+          "evidence_validated": false
+        }
+      ],
+      "expected_runtime": {
+        "all_calls_status_success": true,
+        "no_unhandled_error": true
+      }
+    },
+    {
+      "id": "EVP-R-18",
+      "family": "probe_runtime_accept",
+      "execute_workflow_sequence": [
+        {
+          "call": "store_memory",
+          "evidence_validated": true,
+          "tier": "recent",
+          "category": "ev_probe_runtime",
+          "content": "Probe runtime 18"
+        },
+        {
+          "call": "promote_memory",
+          "promotion_target": "$stored_id",
+          "user_confirmed": false,
+          "evidence_validated": false
+        }
+      ],
+      "expected_runtime": {
+        "all_calls_status_success": true,
+        "no_unhandled_error": true
+      }
+    },
+    {
+      "id": "EVP-R-19",
+      "family": "probe_runtime_accept",
+      "execute_workflow_sequence": [
+        {
+          "call": "store_memory",
+          "evidence_validated": true,
+          "tier": "recent",
+          "category": "ev_probe_runtime",
+          "content": "Probe runtime 19"
+        },
+        {
+          "call": "promote_memory",
+          "promotion_target": "$stored_id",
+          "user_confirmed": false,
+          "evidence_validated": false
+        }
+      ],
+      "expected_runtime": {
+        "all_calls_status_success": true,
+        "no_unhandled_error": true
+      }
+    },
+    {
+      "id": "EVP-R-20",
+      "family": "probe_runtime_accept",
+      "execute_workflow_sequence": [
+        {
+          "call": "store_memory",
+          "evidence_validated": true,
+          "tier": "recent",
+          "category": "ev_probe_runtime",
+          "content": "Probe runtime 20"
+        },
+        {
+          "call": "promote_memory",
+          "promotion_target": "$stored_id",
+          "user_confirmed": false,
+          "evidence_validated": false
+        }
+      ],
+      "expected_runtime": {
+        "all_calls_status_success": true,
+        "no_unhandled_error": true
+      }
+    },
+    {
+      "id": "EVP-R-21",
+      "family": "probe_runtime_deny",
+      "execute_workflow_sequence": [
+        {
+          "call": "store_memory",
+          "evidence_validated": false,
+          "tier": "recent",
+          "category": "ev_probe_runtime",
+          "content": "Probe runtime 21"
+        },
+        {
+          "call": "promote_memory",
+          "promotion_target": "$stored_id",
+          "user_confirmed": false,
+          "evidence_validated": false
+        }
+      ],
+      "expected_runtime": {
+        "all_calls_status_success": true,
+        "no_unhandled_error": true
+      }
+    },
+    {
+      "id": "EVP-R-22",
+      "family": "probe_runtime_deny",
+      "execute_workflow_sequence": [
+        {
+          "call": "store_memory",
+          "evidence_validated": false,
+          "tier": "recent",
+          "category": "ev_probe_runtime",
+          "content": "Probe runtime 22"
+        },
+        {
+          "call": "promote_memory",
+          "promotion_target": "$stored_id",
+          "user_confirmed": false,
+          "evidence_validated": false
+        }
+      ],
+      "expected_runtime": {
+        "all_calls_status_success": true,
+        "no_unhandled_error": true
+      }
+    },
+    {
+      "id": "EVP-R-23",
+      "family": "probe_runtime_deny",
+      "execute_workflow_sequence": [
+        {
+          "call": "store_memory",
+          "evidence_validated": false,
+          "tier": "recent",
+          "category": "ev_probe_runtime",
+          "content": "Probe runtime 23"
+        },
+        {
+          "call": "promote_memory",
+          "promotion_target": "$stored_id",
+          "user_confirmed": false,
+          "evidence_validated": false
+        }
+      ],
+      "expected_runtime": {
+        "all_calls_status_success": true,
+        "no_unhandled_error": true
+      }
+    },
+    {
+      "id": "EVP-R-24",
+      "family": "probe_runtime_deny",
+      "execute_workflow_sequence": [
+        {
+          "call": "store_memory",
+          "evidence_validated": false,
+          "tier": "recent",
+          "category": "ev_probe_runtime",
+          "content": "Probe runtime 24"
+        },
+        {
+          "call": "promote_memory",
+          "promotion_target": "$stored_id",
+          "user_confirmed": false,
+          "evidence_validated": false
+        }
+      ],
+      "expected_runtime": {
+        "all_calls_status_success": true,
+        "no_unhandled_error": true
+      }
+    },
+    {
+      "id": "EVP-R-25",
+      "family": "probe_runtime_deny",
+      "execute_workflow_sequence": [
+        {
+          "call": "store_memory",
+          "evidence_validated": false,
+          "tier": "recent",
+          "category": "ev_probe_runtime",
+          "content": "Probe runtime 25"
+        },
+        {
+          "call": "promote_memory",
+          "promotion_target": "$stored_id",
+          "user_confirmed": false,
+          "evidence_validated": false
+        }
+      ],
+      "expected_runtime": {
+        "all_calls_status_success": true,
+        "no_unhandled_error": true
+      }
+    },
+    {
+      "id": "EVP-R-26",
+      "family": "probe_runtime_deny",
+      "execute_workflow_sequence": [
+        {
+          "call": "store_memory",
+          "evidence_validated": false,
+          "tier": "recent",
+          "category": "ev_probe_runtime",
+          "content": "Probe runtime 26"
+        },
+        {
+          "call": "promote_memory",
+          "promotion_target": "$stored_id",
+          "user_confirmed": false,
+          "evidence_validated": false
+        }
+      ],
+      "expected_runtime": {
+        "all_calls_status_success": true,
+        "no_unhandled_error": true
+      }
+    },
+    {
+      "id": "EVP-R-27",
+      "family": "probe_runtime_deny",
+      "execute_workflow_sequence": [
+        {
+          "call": "store_memory",
+          "evidence_validated": false,
+          "tier": "recent",
+          "category": "ev_probe_runtime",
+          "content": "Probe runtime 27"
+        },
+        {
+          "call": "promote_memory",
+          "promotion_target": "$stored_id",
+          "user_confirmed": false,
+          "evidence_validated": false
+        }
+      ],
+      "expected_runtime": {
+        "all_calls_status_success": true,
+        "no_unhandled_error": true
+      }
+    },
+    {
+      "id": "EVP-R-28",
+      "family": "probe_runtime_deny",
+      "execute_workflow_sequence": [
+        {
+          "call": "store_memory",
+          "evidence_validated": false,
+          "tier": "recent",
+          "category": "ev_probe_runtime",
+          "content": "Probe runtime 28"
+        },
+        {
+          "call": "promote_memory",
+          "promotion_target": "$stored_id",
+          "user_confirmed": false,
+          "evidence_validated": false
+        }
+      ],
+      "expected_runtime": {
+        "all_calls_status_success": true,
+        "no_unhandled_error": true
+      }
+    },
+    {
+      "id": "EVP-R-29",
+      "family": "probe_runtime_deny",
+      "execute_workflow_sequence": [
+        {
+          "call": "store_memory",
+          "evidence_validated": false,
+          "tier": "recent",
+          "category": "ev_probe_runtime",
+          "content": "Probe runtime 29"
+        },
+        {
+          "call": "promote_memory",
+          "promotion_target": "$stored_id",
+          "user_confirmed": false,
+          "evidence_validated": false
+        }
+      ],
+      "expected_runtime": {
+        "all_calls_status_success": true,
+        "no_unhandled_error": true
+      }
+    },
+    {
+      "id": "EVP-R-30",
+      "family": "probe_runtime_deny",
+      "execute_workflow_sequence": [
+        {
+          "call": "store_memory",
+          "evidence_validated": false,
+          "tier": "recent",
+          "category": "ev_probe_runtime",
+          "content": "Probe runtime 30"
+        },
+        {
+          "call": "promote_memory",
+          "promotion_target": "$stored_id",
+          "user_confirmed": false,
+          "evidence_validated": false
+        }
+      ],
+      "expected_runtime": {
+        "all_calls_status_success": true,
+        "no_unhandled_error": true
+      }
+    },
+    {
+      "id": "EVP-R-31",
+      "family": "probe_runtime_deny",
+      "execute_workflow_sequence": [
+        {
+          "call": "store_memory",
+          "evidence_validated": false,
+          "tier": "recent",
+          "category": "ev_probe_runtime",
+          "content": "Probe runtime 31"
+        },
+        {
+          "call": "promote_memory",
+          "promotion_target": "$stored_id",
+          "user_confirmed": false,
+          "evidence_validated": false
+        }
+      ],
+      "expected_runtime": {
+        "all_calls_status_success": true,
+        "no_unhandled_error": true
+      }
+    },
+    {
+      "id": "EVP-R-32",
+      "family": "probe_runtime_deny",
+      "execute_workflow_sequence": [
+        {
+          "call": "store_memory",
+          "evidence_validated": false,
+          "tier": "recent",
+          "category": "ev_probe_runtime",
+          "content": "Probe runtime 32"
+        },
+        {
+          "call": "promote_memory",
+          "promotion_target": "$stored_id",
+          "user_confirmed": false,
+          "evidence_validated": false
+        }
+      ],
+      "expected_runtime": {
+        "all_calls_status_success": true,
+        "no_unhandled_error": true
+      }
+    },
+    {
+      "id": "EVP-R-33",
+      "family": "probe_runtime_deny",
+      "execute_workflow_sequence": [
+        {
+          "call": "store_memory",
+          "evidence_validated": false,
+          "tier": "recent",
+          "category": "ev_probe_runtime",
+          "content": "Probe runtime 33"
+        },
+        {
+          "call": "promote_memory",
+          "promotion_target": "$stored_id",
+          "user_confirmed": false,
+          "evidence_validated": false
+        }
+      ],
+      "expected_runtime": {
+        "all_calls_status_success": true,
+        "no_unhandled_error": true
+      }
+    },
+    {
+      "id": "EVP-R-34",
+      "family": "probe_runtime_deny",
+      "execute_workflow_sequence": [
+        {
+          "call": "store_memory",
+          "evidence_validated": false,
+          "tier": "recent",
+          "category": "ev_probe_runtime",
+          "content": "Probe runtime 34"
+        },
+        {
+          "call": "promote_memory",
+          "promotion_target": "$stored_id",
+          "user_confirmed": false,
+          "evidence_validated": false
+        }
+      ],
+      "expected_runtime": {
+        "all_calls_status_success": true,
+        "no_unhandled_error": true
+      }
+    },
+    {
+      "id": "EVP-R-35",
+      "family": "probe_runtime_deny",
+      "execute_workflow_sequence": [
+        {
+          "call": "store_memory",
+          "evidence_validated": false,
+          "tier": "recent",
+          "category": "ev_probe_runtime",
+          "content": "Probe runtime 35"
+        },
+        {
+          "call": "promote_memory",
+          "promotion_target": "$stored_id",
+          "user_confirmed": false,
+          "evidence_validated": false
+        }
+      ],
+      "expected_runtime": {
+        "all_calls_status_success": true,
+        "no_unhandled_error": true
+      }
+    },
+    {
+      "id": "EVP-R-36",
+      "family": "probe_runtime_deny",
+      "execute_workflow_sequence": [
+        {
+          "call": "store_memory",
+          "evidence_validated": false,
+          "tier": "recent",
+          "category": "ev_probe_runtime",
+          "content": "Probe runtime 36"
+        },
+        {
+          "call": "promote_memory",
+          "promotion_target": "$stored_id",
+          "user_confirmed": false,
+          "evidence_validated": false
+        }
+      ],
+      "expected_runtime": {
+        "all_calls_status_success": true,
+        "no_unhandled_error": true
+      }
+    },
+    {
+      "id": "EVP-R-37",
+      "family": "probe_runtime_deny",
+      "execute_workflow_sequence": [
+        {
+          "call": "store_memory",
+          "evidence_validated": false,
+          "tier": "recent",
+          "category": "ev_probe_runtime",
+          "content": "Probe runtime 37"
+        },
+        {
+          "call": "promote_memory",
+          "promotion_target": "$stored_id",
+          "user_confirmed": false,
+          "evidence_validated": false
+        }
+      ],
+      "expected_runtime": {
+        "all_calls_status_success": true,
+        "no_unhandled_error": true
+      }
+    },
+    {
+      "id": "EVP-R-38",
+      "family": "probe_runtime_deny",
+      "execute_workflow_sequence": [
+        {
+          "call": "store_memory",
+          "evidence_validated": false,
+          "tier": "recent",
+          "category": "ev_probe_runtime",
+          "content": "Probe runtime 38"
+        },
+        {
+          "call": "promote_memory",
+          "promotion_target": "$stored_id",
+          "user_confirmed": false,
+          "evidence_validated": false
+        }
+      ],
+      "expected_runtime": {
+        "all_calls_status_success": true,
+        "no_unhandled_error": true
+      }
+    },
+    {
+      "id": "EVP-R-39",
+      "family": "probe_runtime_deny",
+      "execute_workflow_sequence": [
+        {
+          "call": "store_memory",
+          "evidence_validated": false,
+          "tier": "recent",
+          "category": "ev_probe_runtime",
+          "content": "Probe runtime 39"
+        },
+        {
+          "call": "promote_memory",
+          "promotion_target": "$stored_id",
+          "user_confirmed": false,
+          "evidence_validated": false
+        }
+      ],
+      "expected_runtime": {
+        "all_calls_status_success": true,
+        "no_unhandled_error": true
+      }
+    },
+    {
+      "id": "EVP-R-40",
+      "family": "probe_runtime_deny",
+      "execute_workflow_sequence": [
+        {
+          "call": "store_memory",
+          "evidence_validated": false,
+          "tier": "recent",
+          "category": "ev_probe_runtime",
+          "content": "Probe runtime 40"
+        },
+        {
+          "call": "promote_memory",
+          "promotion_target": "$stored_id",
+          "user_confirmed": false,
+          "evidence_validated": false
+        }
+      ],
+      "expected_runtime": {
+        "all_calls_status_success": true,
+        "no_unhandled_error": true
+      }
+    },
+    {
+      "id": "EVP-R-41",
+      "family": "probe_runtime_regression",
+      "execute_workflow_sequence": [
+        {
+          "call": "store_memory",
+          "evidence_validated": true,
+          "tier": "recent",
+          "category": "ev_probe_runtime",
+          "content": "Probe runtime 41"
+        },
+        {
+          "call": "promote_memory",
+          "promotion_target": "$stored_id",
+          "user_confirmed": false,
+          "evidence_validated": false
+        }
+      ],
+      "expected_runtime": {
+        "all_calls_status_success": true,
+        "no_unhandled_error": true
+      }
+    },
+    {
+      "id": "EVP-R-42",
+      "family": "probe_runtime_regression",
+      "execute_workflow_sequence": [
+        {
+          "call": "store_memory",
+          "evidence_validated": true,
+          "tier": "recent",
+          "category": "ev_probe_runtime",
+          "content": "Probe runtime 42"
+        },
+        {
+          "call": "promote_memory",
+          "promotion_target": "$stored_id",
+          "user_confirmed": false,
+          "evidence_validated": false
+        }
+      ],
+      "expected_runtime": {
+        "all_calls_status_success": true,
+        "no_unhandled_error": true
+      }
+    },
+    {
+      "id": "EVP-R-43",
+      "family": "probe_runtime_regression",
+      "execute_workflow_sequence": [
+        {
+          "call": "store_memory",
+          "evidence_validated": true,
+          "tier": "recent",
+          "category": "ev_probe_runtime",
+          "content": "Probe runtime 43"
+        },
+        {
+          "call": "promote_memory",
+          "promotion_target": "$stored_id",
+          "user_confirmed": false,
+          "evidence_validated": false
+        }
+      ],
+      "expected_runtime": {
+        "all_calls_status_success": true,
+        "no_unhandled_error": true
+      }
+    },
+    {
+      "id": "EVP-R-44",
+      "family": "probe_runtime_regression",
+      "execute_workflow_sequence": [
+        {
+          "call": "store_memory",
+          "evidence_validated": true,
+          "tier": "recent",
+          "category": "ev_probe_runtime",
+          "content": "Probe runtime 44"
+        },
+        {
+          "call": "promote_memory",
+          "promotion_target": "$stored_id",
+          "user_confirmed": false,
+          "evidence_validated": false
+        }
+      ],
+      "expected_runtime": {
+        "all_calls_status_success": true,
+        "no_unhandled_error": true
+      }
+    },
+    {
+      "id": "EVP-R-45",
+      "family": "probe_runtime_regression",
+      "execute_workflow_sequence": [
+        {
+          "call": "store_memory",
+          "evidence_validated": true,
+          "tier": "recent",
+          "category": "ev_probe_runtime",
+          "content": "Probe runtime 45"
+        },
+        {
+          "call": "promote_memory",
+          "promotion_target": "$stored_id",
+          "user_confirmed": false,
+          "evidence_validated": false
+        }
+      ],
+      "expected_runtime": {
+        "all_calls_status_success": true,
+        "no_unhandled_error": true
+      }
+    },
+    {
+      "id": "EVP-R-46",
+      "family": "probe_runtime_regression",
+      "execute_workflow_sequence": [
+        {
+          "call": "store_memory",
+          "evidence_validated": true,
+          "tier": "recent",
+          "category": "ev_probe_runtime",
+          "content": "Probe runtime 46"
+        },
+        {
+          "call": "promote_memory",
+          "promotion_target": "$stored_id",
+          "user_confirmed": false,
+          "evidence_validated": false
+        }
+      ],
+      "expected_runtime": {
+        "all_calls_status_success": true,
+        "no_unhandled_error": true
+      }
+    },
+    {
+      "id": "EVP-R-47",
+      "family": "probe_runtime_regression",
+      "execute_workflow_sequence": [
+        {
+          "call": "store_memory",
+          "evidence_validated": true,
+          "tier": "recent",
+          "category": "ev_probe_runtime",
+          "content": "Probe runtime 47"
+        },
+        {
+          "call": "promote_memory",
+          "promotion_target": "$stored_id",
+          "user_confirmed": false,
+          "evidence_validated": false
+        }
+      ],
+      "expected_runtime": {
+        "all_calls_status_success": true,
+        "no_unhandled_error": true
+      }
+    },
+    {
+      "id": "EVP-R-48",
+      "family": "probe_runtime_regression",
+      "execute_workflow_sequence": [
+        {
+          "call": "store_memory",
+          "evidence_validated": true,
+          "tier": "recent",
+          "category": "ev_probe_runtime",
+          "content": "Probe runtime 48"
+        },
+        {
+          "call": "promote_memory",
+          "promotion_target": "$stored_id",
+          "user_confirmed": false,
+          "evidence_validated": false
+        }
+      ],
+      "expected_runtime": {
+        "all_calls_status_success": true,
+        "no_unhandled_error": true
+      }
+    },
+    {
+      "id": "EVP-R-49",
+      "family": "probe_runtime_regression",
+      "execute_workflow_sequence": [
+        {
+          "call": "store_memory",
+          "evidence_validated": true,
+          "tier": "recent",
+          "category": "ev_probe_runtime",
+          "content": "Probe runtime 49"
+        },
+        {
+          "call": "promote_memory",
+          "promotion_target": "$stored_id",
+          "user_confirmed": false,
+          "evidence_validated": false
+        }
+      ],
+      "expected_runtime": {
+        "all_calls_status_success": true,
+        "no_unhandled_error": true
+      }
+    },
+    {
+      "id": "EVP-R-50",
+      "family": "probe_runtime_regression",
+      "execute_workflow_sequence": [
+        {
+          "call": "store_memory",
+          "evidence_validated": true,
+          "tier": "recent",
+          "category": "ev_probe_runtime",
+          "content": "Probe runtime 50"
+        },
+        {
+          "call": "promote_memory",
+          "promotion_target": "$stored_id",
+          "user_confirmed": false,
+          "evidence_validated": false
+        }
+      ],
+      "expected_runtime": {
+        "all_calls_status_success": true,
+        "no_unhandled_error": true
+      }
+    }
+  ]
+}

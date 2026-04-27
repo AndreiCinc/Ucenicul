@@ -1,0 +1,2338 @@
+{
+  "source_root": "CLAUDE_PIPELINE_ROOT",
+  "file_count": 333,
+  "total_bytes": 7557449,
+  "entries": [
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "00_ROUTE_MAP.md",
+      "size_bytes": 1154,
+      "sha256": "df132630a778ba0faa5154ba9a6125cc0aa5d3bab73440d146f93945dff27406",
+      "mtime_iso": "2026-04-16T22:11:26.031148+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "01_MASTER_OPERATING_CONTRACT.md",
+      "size_bytes": 2499,
+      "sha256": "1d44792a1ad2834184d60c80b1df4b448ef6c4fc5c78cb2f47ddda30fb48a882",
+      "mtime_iso": "2026-04-16T21:10:55.119332+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "02_AGENT_REGISTRY.md",
+      "size_bytes": 2810,
+      "sha256": "3f722fe3118b50898c7bd49bd8134a359647f2aaf309c8decdcdc6ad2648cd78",
+      "mtime_iso": "2026-04-16T21:10:55.151865+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "03_EXECUTION_LOOP.md",
+      "size_bytes": 2765,
+      "sha256": "3607e2f89c96474cc6b8b34b79dc956dfe967d6a7f32955537dd36e8f984bcc9",
+      "mtime_iso": "2026-04-16T21:42:18.555099+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "04_N8N_MCP_PLAYBOOK.md",
+      "size_bytes": 2886,
+      "sha256": "d95917195f3313ddf36cae330953c85b4b5211f1e5ddfdd5a3f5654e9fc9cdc5",
+      "mtime_iso": "2026-04-16T21:10:55.197748+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "05_DB_AUTONOMY_PLAYBOOK.md",
+      "size_bytes": 2300,
+      "sha256": "c1e310dce98b54bb8b41a5033710771b980ef50cdb15dc0aba22c6d77bcd2b2e",
+      "mtime_iso": "2026-04-16T21:10:55.213639+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "06_STAGE_WF-EC-01.md",
+      "size_bytes": 3539,
+      "sha256": "d97e461717335549bbbaf301fde26c1816118f487c2dc6674c76d5e44047ca4f",
+      "mtime_iso": "2026-04-16T21:10:55.245560+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "06_STAGE_WF-PL-01.md",
+      "size_bytes": 15817,
+      "sha256": "c16d3077b2e52c77fbbb943a29519bc2b34bd84426535627e8faf90f10dd0fac",
+      "mtime_iso": "2026-04-17T14:58:35.310778+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "07_IMPEDIMENTS_AND_GUARDRAILS.md",
+      "size_bytes": 4031,
+      "sha256": "c8443d9653e460dbf988e3152c63a0fa35abd15a18ba91dc77126a71d67f6752",
+      "mtime_iso": "2026-04-16T21:10:55.278104+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "08_SCORECARD_AND_GATES.md",
+      "size_bytes": 1576,
+      "sha256": "a4da98516b40cc1e8da255972ed900ee1ee5e578220514db1d0501deac81b3df",
+      "mtime_iso": "2026-04-16T22:12:14.357939+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "09_REPORT_TEMPLATES.md",
+      "size_bytes": 1330,
+      "sha256": "7ee8d393ffe02164f8f20813335b99fd76250b8607a3abc4e45581e9a6d1c622",
+      "mtime_iso": "2026-04-16T22:12:34.229425+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "10_FILE_SCORECARD.md",
+      "size_bytes": 2974,
+      "sha256": "dda376b2f20c6db228e852573d7933a8b6ac55cd04f5c93c575b451781a7b00f",
+      "mtime_iso": "2026-04-16T21:10:55.482344+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "11_DECISION_PRESETS.md",
+      "size_bytes": 6810,
+      "sha256": "414f3480f803bdc301ca12fa4908b13b1206c3db705edaebd321f40cc6e15c60",
+      "mtime_iso": "2026-04-16T21:10:55.545459+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "12_TOOL_FAILURE_MATRIX.md",
+      "size_bytes": 7245,
+      "sha256": "b489f7d1e834154812a1e88d6ab57403c28712e72d2acbfdb12de75226e5cc7f",
+      "mtime_iso": "2026-04-16T21:42:53.949900+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "13_WORKFLOW_SNAPSHOT_AND_ROLLBACK.md",
+      "size_bytes": 4154,
+      "sha256": "613dbcd372b536be70be847be8cad1341ae90328b2726c5eb07bb68ab14f92c1",
+      "mtime_iso": "2026-04-16T21:10:55.607253+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "14_TEST_FIXTURE_REGISTRY.md",
+      "size_bytes": 4152,
+      "sha256": "5e6978aa0235fec1520f03dfa082d746f78d757d28a64bd17695a506bdc5785d",
+      "mtime_iso": "2026-04-16T21:10:55.638801+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "15_STAGE_TEMPLATE.md",
+      "size_bytes": 3331,
+      "sha256": "647ec6881273c4f515f7ffbe079a124228a3c0bf743710306be1e988c359dc22",
+      "mtime_iso": "2026-04-16T21:10:55.671348+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "16_AUTONOMOUS_STOP_AND_RECOVERY.md",
+      "size_bytes": 4573,
+      "sha256": "ed65d8f13c307996b4d044d07b3b01f80df88abff4d6e31cf4dd05d22f776653",
+      "mtime_iso": "2026-04-16T21:43:58.926565+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "17_ACTIVE_STAGE_LOCK.md",
+      "size_bytes": 13666,
+      "sha256": "d99e178004883c9394d22ceb1a269ea873238f858bd4e46e9e2cd235ab2c75e0",
+      "mtime_iso": "2026-04-17T14:59:18.665847+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "18_RUNTIME_CANONICAL_TARGET.md",
+      "size_bytes": 5434,
+      "sha256": "d1abd63279be15c77c904123167ffa3e8a823a6bdcccf52899c5059ba8a73036",
+      "mtime_iso": "2026-04-16T22:14:26.919366+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "19_MODULE_CONTRACTS.md",
+      "size_bytes": 4136,
+      "sha256": "e5e7f3a5a50aa450028f92ce10611e43f7e7b9af3875661879e07bbdddceeb2f",
+      "mtime_iso": "2026-04-16T22:16:41.650056+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "20_EXECUTION_CONTEXT_EVOLUTION.md",
+      "size_bytes": 3116,
+      "sha256": "e64f56902f4155b9aa9972d8d54fb3cdc907beebc49d4924b3d57ab8b8af7b74",
+      "mtime_iso": "2026-04-16T22:17:58.119473+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "21_RESPONSE_COMPOSER_CONTRACT.md",
+      "size_bytes": 2912,
+      "sha256": "132d6cd9dea33200c483fd125a6e009a64636f06e58425d439362ed98a0ac77d",
+      "mtime_iso": "2026-04-16T22:18:19.597407+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "ANALYSIS_OpenClaw_n8n_claw_Reuse_Audit.md",
+      "size_bytes": 39980,
+      "sha256": "849aa2472b0d05c0e96dd39d09653d6d436294ae62559f34ca85134d9dafb821",
+      "mtime_iso": "2026-04-18T08:15:09.494247+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "AUDIT_REPORT.md",
+      "size_bytes": 35,
+      "sha256": "df9e5cee1e1e81a971fd67ac20206f40ff42970a7c525233ee8da0ac073b97d7",
+      "mtime_iso": "2026-04-16T21:10:55.400260+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "AUDIT_REPORT_WF-EC-01.md",
+      "size_bytes": 10061,
+      "sha256": "a393315871c762670a131c71092317572f650211e01a5bc7ba9b0614482f954b",
+      "mtime_iso": "2026-04-18T21:18:58.323986+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "AUDIT_REPORT_WF-PL-01.md",
+      "size_bytes": 7456,
+      "sha256": "1abd08f6c1c876095c86c20b8178997f47d09c5f70130d2400993a1fdba76e03",
+      "mtime_iso": "2026-04-17T15:01:13.001743+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "BUILD_REPORT.md",
+      "size_bytes": 6343,
+      "sha256": "a83dc29f6cb3be5407a45421a3c3292a753200ac4ba05e104ab267e685e70f4e",
+      "mtime_iso": "2026-04-16T22:08:55.833236+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "BUILD_REPORT_WF-EC-01.md",
+      "size_bytes": 7698,
+      "sha256": "a33b5c903e4551ecdfd5520f6088936e4f05698eb8c70b467cc5ad4a51f43372",
+      "mtime_iso": "2026-04-18T21:17:13.263554+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "BUILD_REPORT_WF-PL-01.md",
+      "size_bytes": 7841,
+      "sha256": "d62c0882f01729182c22b01be70c9b16512d9c518eae80455a8d6548d38879c8",
+      "mtime_iso": "2026-04-17T15:00:17.859913+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "BUILD_REPORT_WF-RC-01.md",
+      "size_bytes": 2287,
+      "sha256": "ffffb65f6a063670816ab86feb9346081259832a89461491fd963eb32bef9b6e",
+      "mtime_iso": "2026-04-18T09:37:34.753966+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "CLAUDE.md",
+      "size_bytes": 5140,
+      "sha256": "e4870936eb35c6bc70ed366a491dacbe097935fd568465da01cd6ace0bb421c3",
+      "mtime_iso": "2026-04-18T08:42:03.163699+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "CLOSURE_REPORT.md",
+      "size_bytes": 37,
+      "sha256": "addea8af432ed587cc25922175aad892fd279bee78284c1ed1f2fd4b2085e653",
+      "mtime_iso": "2026-04-16T21:10:55.431789+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "CLOSURE_REPORT_WF-EC-01.md",
+      "size_bytes": 17738,
+      "sha256": "805a9a35824996ba2960ad1d330ea64b14948c861e4da91bc96b7b4d7d66e56c",
+      "mtime_iso": "2026-04-18T21:20:51.163062+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "CLOSURE_REPORT_WF-MO-01.md",
+      "size_bytes": 13749,
+      "sha256": "9fe7c8611d97725a91550718229a5c6c40108653b4cd08f01f6d7c7e3cba138a",
+      "mtime_iso": "2026-04-18T11:22:47.406448+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "CLOSURE_REPORT_WF-PL-01.md",
+      "size_bytes": 7629,
+      "sha256": "cd89b73f9b05d811073add3ee098729039644e1997e47d444a694fb050e6611d",
+      "mtime_iso": "2026-04-17T15:12:15.200103+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "CLOSURE_REPORT_WF-RC-01.md",
+      "size_bytes": 8534,
+      "sha256": "f309600a5e51ab8432d15d09c39bf5b74c7ff0ca14b2f27a501a096b74638e98",
+      "mtime_iso": "2026-04-18T10:33:54.436042+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "CLOSURE_REPORT_WF-SU-01.md",
+      "size_bytes": 5472,
+      "sha256": "c730989570cf57f5bd9e58e6b6a98081969bf59270e7781bd96b1f8d5037912a",
+      "mtime_iso": "2026-04-18T07:59:42.581700+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "CURRENT_STAGE.md",
+      "size_bytes": 1549,
+      "sha256": "b305a9ce008cf6663b88bd00cdd9a9c46cf205fd9841fcc050adca156416665a",
+      "mtime_iso": "2026-04-17T15:12:51.545824+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "FIX_LOG.md",
+      "size_bytes": 30,
+      "sha256": "a4890a7dc663eb31da0eea35f6ebd9debe84adc7ad59e3275cbccc166aca7014",
+      "mtime_iso": "2026-04-16T21:10:55.415770+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "FIX_LOG_WF-EC-01.md",
+      "size_bytes": 4480,
+      "sha256": "f21ab2324f0d7e316649d6ac2589e5459366a052fd009ef9f7c8c0fc2631dcc7",
+      "mtime_iso": "2026-04-18T21:17:49.440219+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "FIX_LOG_WF-PL-01.md",
+      "size_bytes": 7824,
+      "sha256": "9e11742b45f02a2924d56f14260f10df45cdc2be5dbf8ed39da95422515cc923",
+      "mtime_iso": "2026-04-17T15:02:06.023406+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "FIX_LOG_WF-RC-01.md",
+      "size_bytes": 5196,
+      "sha256": "9c2893a4c2d4d7297d64f609baae77650e03f70e5b5ba650e290af59e215ed3b",
+      "mtime_iso": "2026-04-18T09:56:12.182806+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "README.md",
+      "size_bytes": 2341,
+      "sha256": "00bb54e0f9797919493990f3eecfae09f6d9555c356e59602253b51e4912fdec",
+      "mtime_iso": "2026-04-16T21:10:55.088794+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "STATE.json",
+      "size_bytes": 28613,
+      "sha256": "6eec0596545b00e50628172be6b042c8b2efa2cbdb19432ffe3f648acbe29bd0",
+      "mtime_iso": "2026-04-18T21:21:36.409872+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "STATE.json.bak-ec01-closure-20260419",
+      "size_bytes": 24034,
+      "sha256": "6ac34447f49fb18a56419145604141433e910d7eb2661baf5060b0c74b9386dd",
+      "mtime_iso": "2026-04-18T21:20:58.467978+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "STATE_WF-SU-01.json",
+      "size_bytes": 5651,
+      "sha256": "0e96f29295aec63590e6338181822ba0dbc40bc8059501266565ec02c121626f",
+      "mtime_iso": "2026-04-18T07:58:34.844600+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "WF-E2E-01_CHAIN_CONTRACT_MAP.md",
+      "size_bytes": 9799,
+      "sha256": "2a0c0b92d8ff4cfee2131cfc8c78d0470671e524fba0aa33d027c8e06dd5948e",
+      "mtime_iso": "2026-04-18T12:24:55.347649+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "WF-E2E-01_CHAIN_READINESS_REVIEW.md",
+      "size_bytes": 7941,
+      "sha256": "44e6250822a2db0f9a4feae80d855adcb7877ef9105042ad8a0fe517a2fc8c13",
+      "mtime_iso": "2026-04-18T20:44:05.972003+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "WF-E2E-01_DUPLICATE_DISPOSITION.md",
+      "size_bytes": 3681,
+      "sha256": "fbfb1c6a2665181c4235ae53f143d934654cb83aab0b2ebe489e49fc0dbfee9a",
+      "mtime_iso": "2026-04-18T12:28:08.003094+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "WF-E2E-01_OPERATOR_REPORT_20260418.md",
+      "size_bytes": 9401,
+      "sha256": "bbfa1f7527ed18c522fed464ee577c8360cbff0c1d945d6f187b1d97c3e541f4",
+      "mtime_iso": "2026-04-18T20:45:37.768116+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "WF-E2E-01_PACK_VS_LIVE_DIFF.md",
+      "size_bytes": 9926,
+      "sha256": "685d1342eb4b6a143b69193ba2cf80fcae129fe4c3b573f45ce70d119c3f9fb4",
+      "mtime_iso": "2026-04-18T20:39:03.911846+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "WF-E2E-01_PHASE_A_B_SYNTHESIS.md",
+      "size_bytes": 14275,
+      "sha256": "fd7c078ff4925640457706baf446a7f276f540f7eb57f42df1cb61f44b8daa12",
+      "mtime_iso": "2026-04-18T12:01:10.777346+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "WF-E2E-01_RC01_TO_MO01_CONNECTOR_ACTIVATION.md",
+      "size_bytes": 8601,
+      "sha256": "b71a66032e6c2888ede8f81662950e66498291beecb999d1a58f52a052a61622",
+      "mtime_iso": "2026-04-18T12:35:57.285566+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "WF-E2E-01_RC01_TO_MO01_CONNECTOR_PLAN.md",
+      "size_bytes": 7918,
+      "sha256": "90ff9ad74bbd3c2e0e1f972504ace421e91f5a7c6b123f5778d265fbc51997be",
+      "mtime_iso": "2026-04-18T12:29:18.855569+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "WF-E2E-01_STAGE_FILE.md",
+      "size_bytes": 5772,
+      "sha256": "7dd56785259416243583ad5b8ef281d16d399dc43077bde8fc5f4713f723754c",
+      "mtime_iso": "2026-04-18T12:37:10.350813+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "WF-E2E-01_SU01_CALLABLE_AS_SUB_SMOKE.md",
+      "size_bytes": 6354,
+      "sha256": "7ad003d9c849396d6378176d9cf8e4fc6d8691ab809bbea767fc53cc1cd89968",
+      "mtime_iso": "2026-04-18T12:49:40.676853+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "WF-E2E-01_TR01_REVERIFICATION.md",
+      "size_bytes": 7952,
+      "sha256": "95c251387262842693d1c7de084c6b33e88ce6e1c9eb34884d8025897f35629f",
+      "mtime_iso": "2026-04-18T20:42:23.621136+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "WF-EC-01_CLOSURE_CONTRACT.md",
+      "size_bytes": 19709,
+      "sha256": "242ce4ec05c8e716a77d0fda4536802bbfdab10945939b42b2e49fe0a2a30f09",
+      "mtime_iso": "2026-04-18T21:03:42.250654+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "WF-EC-01_CLOSURE_PLAN.md",
+      "size_bytes": 14824,
+      "sha256": "5e321a2f8d44717bc64edfbc4bd565f98d11f6e0ae00023916d8048a9d572fa2",
+      "mtime_iso": "2026-04-18T21:07:37.898365+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "WF-EC-01_LIVE_REALITY_CHECK.md",
+      "size_bytes": 10941,
+      "sha256": "58b604886794626d17cb26f225ef371026da036b41a6d0512a0f20501fbd5be9",
+      "mtime_iso": "2026-04-18T21:05:58.240211+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "WF-EC-01_OPERATOR_REPORT_20260419.md",
+      "size_bytes": 15706,
+      "sha256": "5f519205e2dc262e962e6a3dbb2b54a7ad17de90ee69987f52868f1cecb41645",
+      "mtime_iso": "2026-04-18T21:23:39.041186+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "WF-RA-01_Result_Aggregator_LIVE.json",
+      "size_bytes": 17854,
+      "sha256": "b62214cadcf156db13a70434652511b5a6e6aae7664d177a9fa9c8d2652a4f2d",
+      "mtime_iso": "2026-04-17T21:06:54.055303+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "WF-RA-01_VERIFIER_DELIVERY.md",
+      "size_bytes": 9150,
+      "sha256": "564270112f74a7435817aa6263b60dba386e35c3e109b8a0a286eef119920020",
+      "mtime_iso": "2026-04-17T20:48:22.184984+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "WF-RC-01_CLOSURE_REPORT.md",
+      "size_bytes": 7288,
+      "sha256": "fe86c89e353d847809a7a5b1ffd612d2aa1dcf871bc7cf27c3f93a9e662106e1",
+      "mtime_iso": "2026-04-18T10:25:41.419707+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "WF-SU-01_VERIFIER_DELIVERY.md",
+      "size_bytes": 9665,
+      "sha256": "15ed6807c89ac720df380260f9d16103abc648546d7380b1e2d96d8ededae0b9",
+      "mtime_iso": "2026-04-18T08:00:51.063495+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "WORK_LOG_WF-PL-01.md",
+      "size_bytes": 22486,
+      "sha256": "dcc04cde98727590db0f5005cb9e82d72e223628981ac3baf8cbaf09e510694e",
+      "mtime_iso": "2026-04-17T15:14:56.792564+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "n8n-fixer.md",
+      "size_bytes": 2683,
+      "sha256": "aec020b65243bd420dcc3a7bec9cfc0b1337796968ee19b32a29791584bdb2aa",
+      "mtime_iso": "2026-03-28T11:57:29.049980+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "n8n-reader.md",
+      "size_bytes": 4211,
+      "sha256": "287e7870e0ecbe4aa134aaeabae1600aff866134fc54e9e0a971a2b330e1f007",
+      "mtime_iso": "2026-04-02T22:07:01.254441+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "n8n-tester.md",
+      "size_bytes": 1340,
+      "sha256": "b184d27d5f4995092f65c3c1844d20596b4860c6efa77eef1bfa311614202495",
+      "mtime_iso": "2026-03-28T12:14:46.648417+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "ziOCmWkZ",
+      "size_bytes": 32948,
+      "sha256": "9f054947e60467075ed9e542ccbbb5409d28b96ebbba4e5f0a4d5690f1bb0d89",
+      "mtime_iso": "2026-04-17T20:46:20.896483+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "docs/ucenicul_claude_handoff_hardened/archive/WF-OR-01_closure_snapshot/README.md",
+      "size_bytes": 1794,
+      "sha256": "a523e36e89176e9d2e12a68dce18eb2f86919de09c3f6d1577b78ea2dd9eea76",
+      "mtime_iso": "2026-04-17T15:13:11.051129+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "snapshots/TClXgmO8H8zsSwMb_pre-rc-impl-20260418T122000.json",
+      "size_bytes": 2005,
+      "sha256": "6ac020018635710b8069097eac0624786301e4d333100f95bc8d1dfadda69109",
+      "mtime_iso": "2026-04-18T09:26:00.712536+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "snapshots/WF-RC-01_Response_Composer_bound.json",
+      "size_bytes": 17836,
+      "sha256": "5159760186f9de45d0738d9d8a3bd87e5fdb4695f6096eccc731a852d9da8cce",
+      "mtime_iso": "2026-04-18T09:35:37.332846+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/.audit.jsonl",
+      "size_bytes": 28283,
+      "sha256": "34777c805b10fa14bc470390591d9524f1877d2b4cfbb2befdc650f6cf70c594",
+      "mtime_iso": "2026-04-18T21:11:53.186203+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/.env",
+      "size_bytes": 607,
+      "sha256": "29b312bdeb098781ddc924f75c9f5f603e81d73ffcfce9f9c761a29e4b42fd0f",
+      "mtime_iso": "2026-04-18T10:01:52.895197+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/.gitignore",
+      "size_bytes": 29,
+      "sha256": "3b9c8558a36140758eaa8e5c0ca055c3503e13bb5941593082e5eb861550939c",
+      "mtime_iso": "2026-04-18T08:29:00.322925+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/README.md",
+      "size_bytes": 7334,
+      "sha256": "ece5016d0db6564fd9fd92b820459a286c90276c013e7bb2461a495551d61de7",
+      "mtime_iso": "2026-04-18T08:28:59.777780+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/TClXgmO8H8zsSwMb-put-ready.json",
+      "size_bytes": 2250,
+      "sha256": "26a3d83224a4b4aaddbbf6e60dca8c3ab508c68f86a0b5ef7e3c1e1cb3950933",
+      "mtime_iso": "2026-04-18T09:37:19.061688+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/TClXgmO8H8zsSwMb-rc01-put-ready.json",
+      "size_bytes": 17843,
+      "sha256": "db8c824ef2b9004c9eeb6acbec497fe988801536d6561634c25bb00fd2d7b8dc",
+      "mtime_iso": "2026-04-18T10:14:18.641624+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/TClXgmO8H8zsSwMb-report.md",
+      "size_bytes": 1243,
+      "sha256": "5747442170726fbb057966d75a33fdfdb64580ba1b3e337f055175291ae63f26",
+      "mtime_iso": "2026-04-18T09:37:19.061688+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/WF-MO-01-put-ready.json",
+      "size_bytes": 14367,
+      "sha256": "091b7d888992f864683ccf0e92e15f9008abb4dc004fba0ebc9491c5efdf39fc",
+      "mtime_iso": "2026-04-18T11:07:19.630393+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/backup-workflow-TClXgmO8H8zsSwMb-2026-04-18T09-37-19-059Z.json",
+      "size_bytes": 6825,
+      "sha256": "27e7f2d456c409899ee92438c534e78f93e77fda776c6ad2e28b6e8df86dd735",
+      "mtime_iso": "2026-04-18T09:37:19.060688+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/generate-artifact.js",
+      "size_bytes": 2526,
+      "sha256": "c13386b49073de9891ad37a8fcf6ad931d20be5b6721473b214e3e2ab897112d",
+      "mtime_iso": "2026-04-18T09:37:14.773582+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/n8n-patch.mjs",
+      "size_bytes": 21029,
+      "sha256": "6354d5f0cf471b5a69e1fb56cdade7d9163cd54adbb0a48c88b165443f6b4608",
+      "mtime_iso": "2026-04-18T10:00:30.464718+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/workflow-TClXgmO8H8zsSwMb.json",
+      "size_bytes": 6825,
+      "sha256": "27e7f2d456c409899ee92438c534e78f93e77fda776c6ad2e28b6e8df86dd735",
+      "mtime_iso": "2026-04-18T10:00:28.159401+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/.vscode/tasks.json",
+      "size_bytes": 2728,
+      "sha256": "b1d1ef9288b1c3c1ef9d8361dfd350eba655210882c95a043c9cff5375bd7296",
+      "mtime_iso": "2026-04-18T09:37:18.457569+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/ec-closure-harness/EC-01_caller.json",
+      "size_bytes": 1457,
+      "sha256": "292e022da56bbae34cacc54748b28e5c7c0b9c6319ae9902b251656714eafcf6",
+      "mtime_iso": "2026-04-18T21:09:58.910826+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/ec-closure-harness/WF-EC-01_post-closure-mutation.json",
+      "size_bytes": 14921,
+      "sha256": "1a35b457ce723dfd8b64410605b4f4dc39fc1480361b79426a59f70689f5080c",
+      "mtime_iso": "2026-04-18T21:08:07.335017+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/mo-test-harness/MO_Route_Channel_switch.params.json",
+      "size_bytes": 333,
+      "sha256": "213e3ef22cdafd427bf482b7f1cbc9b2a5e07849d3298260e6e0728dffc1324d",
+      "mtime_iso": "2026-04-18T11:18:13.216617+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/mo-test-harness/MO_Route_Context_Ready_switch.params.json",
+      "size_bytes": 354,
+      "sha256": "6b0ab32d4f7d042e72c101c3b09eef8d5a8da113b4b43bac7f47d46255d4d957",
+      "mtime_iso": "2026-04-18T11:18:13.210617+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/mo-test-harness/MO_Route_Valid_switch.params.json",
+      "size_bytes": 346,
+      "sha256": "08a62184b900889d122a4b50866f96e6aad94dc62e2ebc7f66e3feaf772c5e63",
+      "mtime_iso": "2026-04-18T11:18:13.204106+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/mo-test-harness/V2.fixture.json",
+      "size_bytes": 3,
+      "sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+      "mtime_iso": "2026-04-18T11:11:11.700686+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/mo-test-harness/V2.params.json",
+      "size_bytes": 2714,
+      "sha256": "0412b5fff2c2f9cd90a74c46974ec2adab2539c92a852e71de3485a17604f3b7",
+      "mtime_iso": "2026-04-18T11:17:13.955275+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/mo-test-harness/V3.fixture.json",
+      "size_bytes": 653,
+      "sha256": "057d9c4e0745358b315fc5bae4aa2fdede840fc90e3934700a7aeb5f61b75bda",
+      "mtime_iso": "2026-04-18T11:11:18.060601+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/mo-test-harness/V3.params.json",
+      "size_bytes": 3342,
+      "sha256": "a55f98ba3e65a5d6d78ee34917dbb0f9c2d332b7a503a75e13eefdc14f5cf00a",
+      "mtime_iso": "2026-04-18T11:18:43.735189+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/mo-test-harness/V4.fixture.json",
+      "size_bytes": 574,
+      "sha256": "70754ebf53accf286440ae3adc3c2344eb5fc7cf62904b3b45ad629e9a2b2bf9",
+      "mtime_iso": "2026-04-18T11:11:22.902728+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/mo-test-harness/V4.params.json",
+      "size_bytes": 3267,
+      "sha256": "7814779f3af45dde5f9ef7608a5ac7447a4d25f74f3892f92468ab295ea7478c",
+      "mtime_iso": "2026-04-18T11:19:10.375904+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/mo-test-harness/V5.fixture.json",
+      "size_bytes": 571,
+      "sha256": "b3a62106ded930f42090ec5993355ebd0fc3a7b1ccb80843b0cebe41bbed3486",
+      "mtime_iso": "2026-04-18T11:11:27.304110+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/mo-test-harness/V5.params.json",
+      "size_bytes": 3264,
+      "sha256": "c7f6eca873fd246007c898065c63fd139bd070f8717e421f9636eaa1609853b8",
+      "mtime_iso": "2026-04-18T11:19:36.347915+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/mo-test-harness/V6.fixture.json",
+      "size_bytes": 653,
+      "sha256": "057d9c4e0745358b315fc5bae4aa2fdede840fc90e3934700a7aeb5f61b75bda",
+      "mtime_iso": "2026-04-18T11:11:32.058055+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/mo-test-harness/V6.params.json",
+      "size_bytes": 3342,
+      "sha256": "a55f98ba3e65a5d6d78ee34917dbb0f9c2d332b7a503a75e13eefdc14f5cf00a",
+      "mtime_iso": "2026-04-18T11:19:58.323611+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/mo-test-harness/build-code-params-js.py",
+      "size_bytes": 10261,
+      "sha256": "f19dda223de91208fc8095bcd15126121c1e829aec81a332da90bda6d0fdf852",
+      "mtime_iso": "2026-04-18T11:13:03.698789+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/mo-test-harness/build-code-params.py",
+      "size_bytes": 15957,
+      "sha256": "eb37c5bb873ad63b6173b84da470f1fbffc8ad28176bef6c801f88be0839f265",
+      "mtime_iso": "2026-04-18T11:10:19.607110+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/mo-test-harness/build_delivery_request.params.json",
+      "size_bytes": 1279,
+      "sha256": "f01628cb35a101fb9678c21938b4b35a4886b54578fe90f9e69d784dd1c3eaeb",
+      "mtime_iso": "2026-04-18T11:10:23.340627+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/mo-test-harness/build_delivery_result.params.json",
+      "size_bytes": 3689,
+      "sha256": "f0370453b8fb9efaff674b97231f8b78a70873a7921a107fc2d4ec9b88a4a610",
+      "mtime_iso": "2026-04-18T11:10:23.345628+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/mo-test-harness/build_req_js.params.json",
+      "size_bytes": 1035,
+      "sha256": "8b021bb7a02bc3694d91eea720113da65bc5e6a1a371c1881839fc4700086bb3",
+      "mtime_iso": "2026-04-18T11:15:20.790386+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/mo-test-harness/build_result_js.params.json",
+      "size_bytes": 2644,
+      "sha256": "dcb52588879c4aa02dc1cbdfb96bd0662e42b36ff22a38f0bc8445408ea0557d",
+      "mtime_iso": "2026-04-18T11:15:20.794996+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/mo-test-harness/channel_delivery.params.json",
+      "size_bytes": 361,
+      "sha256": "80a7b1b41f4a247a4eb691631d3ca6e2db0b73dc1be69e3726c08f8f3c45a014",
+      "mtime_iso": "2026-04-18T11:10:23.365134+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/mo-test-harness/inject-fixture.mjs",
+      "size_bytes": 965,
+      "sha256": "016893ca77832bf343ef7f9379bc090b5140ef69d0524629391ac39e4567ce83",
+      "mtime_iso": "2026-04-18T11:17:08.885765+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/mo-test-harness/log_outbound.params.json",
+      "size_bytes": 1284,
+      "sha256": "6b7e1974c2a202c4171ce891ccf854c14a020c72e5319cd47402502dd08dcfc5",
+      "mtime_iso": "2026-04-18T11:10:23.360127+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/mo-test-harness/original-validate-jsCode.js",
+      "size_bytes": 2375,
+      "sha256": "b74f5e5df1c1586d2de94ee6231f057952d44b448cee8452f008cfcc940618d9",
+      "mtime_iso": "2026-04-18T11:16:53.102086+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/mo-test-harness/original-validate-pythonCode.py",
+      "size_bytes": 2712,
+      "sha256": "c52668167a1596cad471ea462e18a7f5e12fd73676131a73840d16b4d921230b",
+      "mtime_iso": "2026-04-18T11:10:56.721661+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/mo-test-harness/replay_probe.params.json",
+      "size_bytes": 455,
+      "sha256": "43805b5781e935d924a9495693462bc0776055ce10c773f656fe6086fe2efe00",
+      "mtime_iso": "2026-04-18T11:10:23.356493+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/mo-test-harness/restore-validate.params.json",
+      "size_bytes": 2519,
+      "sha256": "c4d85b1b8b4383f4520f2fa4dd7380d38951224d4e4dfd2317f8a2862dadfa4e",
+      "mtime_iso": "2026-04-18T11:20:33.965456+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/mo-test-harness/terminal.params.json",
+      "size_bytes": 124,
+      "sha256": "276e512e8d437eb852d8a2dbd1dfeea2e6ea4718731c41556a16e04e8e1ae3d7",
+      "mtime_iso": "2026-04-18T11:10:23.351097+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/mo-test-harness/terminal_js.params.json",
+      "size_bytes": 82,
+      "sha256": "55238700eb8d35a05c67d67068d20d81e9e71c472caf10f85bb27e68c3cacd47",
+      "mtime_iso": "2026-04-18T11:15:20.799996+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/mo-test-harness/validate.params.json",
+      "size_bytes": 2965,
+      "sha256": "3f43619a71b4d959d846ce6acd979d5d841439dbbe04d5be807c02f579920ea5",
+      "mtime_iso": "2026-04-18T11:10:23.330626+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/mo-test-harness/validate_js.params.json",
+      "size_bytes": 2519,
+      "sha256": "c4d85b1b8b4383f4520f2fa4dd7380d38951224d4e4dfd2317f8a2862dadfa4e",
+      "mtime_iso": "2026-04-18T11:15:20.775495+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/mo-test-harness/verify_js.params.json",
+      "size_bytes": 3842,
+      "sha256": "ba83c336d56232aeb873d82f7ab18922ce918d311395391eeb31754660b83b20",
+      "mtime_iso": "2026-04-18T11:15:20.781237+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/mo-test-harness/verify_lineage.params.json",
+      "size_bytes": 5085,
+      "sha256": "cec0d27dbb1138c46d1b60b8deb62a7645f71058a59ff1d079c0ffc476ae80c9",
+      "mtime_iso": "2026-04-18T11:10:23.336623+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/rc-test-harness/V2.fixture.json",
+      "size_bytes": 3,
+      "sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+      "mtime_iso": "2026-04-18T10:15:33.022635+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/rc-test-harness/V2.params.json",
+      "size_bytes": 2097,
+      "sha256": "ad145f2bda498ed1b3a4de70c94102bcef60c968373f0e092fce082e6859c7d7",
+      "mtime_iso": "2026-04-18T10:15:50.771869+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/rc-test-harness/V3.fixture.json",
+      "size_bytes": 688,
+      "sha256": "62ca9206d451e0f59d1b210b535b4cc3238395a587d2c6c540e0eec3d72d9aab",
+      "mtime_iso": "2026-04-18T10:15:33.037135+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/rc-test-harness/V3.params.json",
+      "size_bytes": 2770,
+      "sha256": "146aed6f703183c6703fb17ec5230301f358e67082376686ae8b00ed49e54f3b",
+      "mtime_iso": "2026-04-18T10:19:05.240475+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/rc-test-harness/V3b.fixture.json",
+      "size_bytes": 843,
+      "sha256": "2de725349e2472e9605007f90fd6059761b3b2ca17894e3f5a4894db1e000dfa",
+      "mtime_iso": "2026-04-18T10:15:33.052660+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/rc-test-harness/V3b.params.json",
+      "size_bytes": 2935,
+      "sha256": "d77a5c9c867cd628d83c573e75a0ab58ca2adb3210fc003297fad1ea592c5bb8",
+      "mtime_iso": "2026-04-18T10:19:28.877434+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/rc-test-harness/V4.fixture.json",
+      "size_bytes": 987,
+      "sha256": "b108f889624e076902d56a49675b9c4b50491cf41022cb25cdb5d1c55f8a6b27",
+      "mtime_iso": "2026-04-18T10:15:33.063792+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/rc-test-harness/V4.params.json",
+      "size_bytes": 3059,
+      "sha256": "00f5354c21eb4408432d03f223af50897cfc254e222f5bfd6262adbad46d3fe8",
+      "mtime_iso": "2026-04-18T10:22:09.268178+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/rc-test-harness/V5.fixture.json",
+      "size_bytes": 653,
+      "sha256": "242bff499355366e3cddbbe1b86a795b29b8300c972a75de327d140648db436a",
+      "mtime_iso": "2026-04-18T10:15:33.072952+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/rc-test-harness/V5.params.json",
+      "size_bytes": 2731,
+      "sha256": "0b0e4f1769fcd398fdefcc04320a536df93348e0e0ddab092ffd9bc21e0fd442",
+      "mtime_iso": "2026-04-18T10:22:47.236550+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/rc-test-harness/inject-fixture.mjs",
+      "size_bytes": 620,
+      "sha256": "e1b2413b6985bcc89dbd179f9f41e099d4f37522f87a6b23f8f1eb1b4fdda1ba",
+      "mtime_iso": "2026-04-18T10:15:46.743755+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/rc-test-harness/original-validate-jsCode.js",
+      "size_bytes": 2032,
+      "sha256": "bf08f75b93ade74ecdddc34f73bf411937b012651206147a964c0b06b168b805",
+      "mtime_iso": "2026-04-18T10:15:08.076903+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/rc-test-harness/restore.params.json",
+      "size_bytes": 2106,
+      "sha256": "c6ae5f873209cd47643011a76ac9fb55781e8f3b4bb61a28aa3a8964768a66ff",
+      "mtime_iso": "2026-04-18T10:23:18.710619+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/rc-test-harness/run-live-test.mjs",
+      "size_bytes": 842,
+      "sha256": "707ccaad96cf159a11f17f0699c0d287bcf6b6a60dd77f42fce93a7abf60cb5d",
+      "mtime_iso": "2026-04-18T10:15:15.814892+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/rc-test-harness/switch-fix-context.json",
+      "size_bytes": 492,
+      "sha256": "e5e403ae9e79a1bfbb6a74453076f2caa70bfe147232e8eb5c607ab7b3a327c7",
+      "mtime_iso": "2026-04-18T10:18:35.127284+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/rc-test-harness/switch-fix-valid.json",
+      "size_bytes": 484,
+      "sha256": "58d1672430ce992e7fcb73e2583ea47f570e86191165bb2dcf15c42deb4cc219",
+      "mtime_iso": "2026-04-18T10:18:35.115900+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/ENiYNfL3ul8AmmCB_after_2026-04-18T12-44-02-183Z.json",
+      "size_bytes": 55804,
+      "sha256": "99cc71b7daf6165833e6f38da00f25db5c8a3c3ba1f35c089f61a27c2aa8d4f8",
+      "mtime_iso": "2026-04-18T12:44:02.197940+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/ENiYNfL3ul8AmmCB_before_2026-04-18T12-43-41-597Z.json",
+      "size_bytes": 56002,
+      "sha256": "288833d41206ec2057d28b257388406c4f77c2557b6fd02d9e4dcfc2114573d8",
+      "mtime_iso": "2026-04-18T12:43:41.623613+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/ENiYNfL3ul8AmmCB_before_2026-04-18T12-44-01-444Z.json",
+      "size_bytes": 55252,
+      "sha256": "e66c409159b33fc1ca5c9edeb082efb4952a107b32a5f41042ce4db9b9079bb7",
+      "mtime_iso": "2026-04-18T12:44:01.462907+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/ENiYNfL3ul8AmmCB_post-trigger-add-20260418.json",
+      "size_bytes": 55804,
+      "sha256": "99cc71b7daf6165833e6f38da00f25db5c8a3c3ba1f35c089f61a27c2aa8d4f8",
+      "mtime_iso": "2026-04-18T12:44:14.188863+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/ENiYNfL3ul8AmmCB_pre-trigger-add-20260418.json",
+      "size_bytes": 56002,
+      "sha256": "288833d41206ec2057d28b257388406c4f77c2557b6fd02d9e4dcfc2114573d8",
+      "mtime_iso": "2026-04-18T12:43:24.234911+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/ENiYNfL3ul8AmmCB_trigger-add-payload.json",
+      "size_bytes": 56464,
+      "sha256": "5cde0f9330ee56ca785ce421f3e979c6ece969eaaa192554c9c9c84c4b092c2d",
+      "mtime_iso": "2026-04-18T12:44:00.004900+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/OooZdC0DgsDR6gm0_after_2026-04-18T11-10-32-515Z.json",
+      "size_bytes": 37269,
+      "sha256": "cf947361ba2d52d581a6d350b648d4b7bc0b5040c7de313f0c7ccb788af37c79",
+      "mtime_iso": "2026-04-18T11:10:32.525110+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/OooZdC0DgsDR6gm0_after_2026-04-18T11-10-33-503Z.json",
+      "size_bytes": 47087,
+      "sha256": "0412cb7f737ee4f90ad3fababdc19d3556caad2c918ad362cfc9f37225074edf",
+      "mtime_iso": "2026-04-18T11:10:33.514790+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/OooZdC0DgsDR6gm0_after_2026-04-18T11-10-34-473Z.json",
+      "size_bytes": 49294,
+      "sha256": "75819a54c72c3e798241cde5017a8209eb8f4e7ddab3e3368cd721fdf811263e",
+      "mtime_iso": "2026-04-18T11:10:34.484339+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/OooZdC0DgsDR6gm0_after_2026-04-18T11-10-35-458Z.json",
+      "size_bytes": 56302,
+      "sha256": "fd4d5856eee90097e12541e71860737d5d25af9c87deec0f7223fa153c69fa70",
+      "mtime_iso": "2026-04-18T11:10:35.470523+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/OooZdC0DgsDR6gm0_after_2026-04-18T11-10-36-417Z.json",
+      "size_bytes": 56314,
+      "sha256": "615c3c6accdfd77db0cbf80fa5703a969aac0f1e6dd329dcd77179b7a6694681",
+      "mtime_iso": "2026-04-18T11:10:36.430001+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/OooZdC0DgsDR6gm0_after_2026-04-18T11-10-37-382Z.json",
+      "size_bytes": 56326,
+      "sha256": "8036240bda167a329d5c67fd293d20dbb0284073454abb17cda486f2010e9081",
+      "mtime_iso": "2026-04-18T11:10:37.394658+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/OooZdC0DgsDR6gm0_after_2026-04-18T11-10-38-339Z.json",
+      "size_bytes": 56338,
+      "sha256": "240d7037e27c2a8e7688324fed2c219c19a0e23bc9a5c67173200846bc449b61",
+      "mtime_iso": "2026-04-18T11:10:38.352587+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/OooZdC0DgsDR6gm0_after_2026-04-18T11-10-39-304Z.json",
+      "size_bytes": 56498,
+      "sha256": "adce59f23848a44febc9fba24d75d55b8e60a5b8a8052679f85240de2ec75ea1",
+      "mtime_iso": "2026-04-18T11:10:39.315286+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/OooZdC0DgsDR6gm0_after_2026-04-18T11-10-40-267Z.json",
+      "size_bytes": 56626,
+      "sha256": "1731fa2ecc7ffb3b46ecee5380f006668faad6c6a28b75a853e5e11b7bbbea4d",
+      "mtime_iso": "2026-04-18T11:10:40.277826+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/OooZdC0DgsDR6gm0_after_2026-04-18T11-10-41-242Z.json",
+      "size_bytes": 57836,
+      "sha256": "a6c6b297603326c9c4eb1316d83afe6fa42f098891fcd929b9d0e0cb24479b4f",
+      "mtime_iso": "2026-04-18T11:10:41.261280+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/OooZdC0DgsDR6gm0_after_2026-04-18T11-11-50-345Z.json",
+      "size_bytes": 58172,
+      "sha256": "857e37ae1a1d5246c2dfbfc82a58d489ffe5758020125fc869ffa32165dbf163",
+      "mtime_iso": "2026-04-18T11:11:50.357361+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/OooZdC0DgsDR6gm0_after_2026-04-18T11-16-15-969Z.json",
+      "size_bytes": 63184,
+      "sha256": "971f5920c5427974c3212192bc6fb8a5d9b4338b34e5a4a634809eb53501db73",
+      "mtime_iso": "2026-04-18T11:16:15.981293+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/OooZdC0DgsDR6gm0_after_2026-04-18T11-16-24-203Z.json",
+      "size_bytes": 70830,
+      "sha256": "81446da10e20f4bf9b65ec762874b901edd4b470ed377778da7cb546db824cb6",
+      "mtime_iso": "2026-04-18T11:16:24.216461+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/OooZdC0DgsDR6gm0_after_2026-04-18T11-16-27-549Z.json",
+      "size_bytes": 72874,
+      "sha256": "553745d9d27dea23ee05916babaa660f405e480fa3fbae0df067b94f1398c712",
+      "mtime_iso": "2026-04-18T11:16:27.562543+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/OooZdC0DgsDR6gm0_after_2026-04-18T11-16-31-182Z.json",
+      "size_bytes": 78136,
+      "sha256": "06bebf644402bac8da4e88553f0c47ba556ef1f52598b713be0f0f2bcfae2340",
+      "mtime_iso": "2026-04-18T11:16:31.203664+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/OooZdC0DgsDR6gm0_after_2026-04-18T11-16-36-257Z.json",
+      "size_bytes": 78274,
+      "sha256": "23ab8adf3bc4e2cbe79e63eda7ee530007c09991f0c1626f88919ba128685ddb",
+      "mtime_iso": "2026-04-18T11:16:36.272143+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/OooZdC0DgsDR6gm0_after_2026-04-18T11-16-37-281Z.json",
+      "size_bytes": 78412,
+      "sha256": "99c71881ec603212619a7d98cfdc9c1ad896222a336a609d7efd78927cddfeb6",
+      "mtime_iso": "2026-04-18T11:16:37.297897+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/OooZdC0DgsDR6gm0_after_2026-04-18T11-16-38-276Z.json",
+      "size_bytes": 78550,
+      "sha256": "8aa8e7f9d57b90d7665abd3cd59e949130a8b1fd50848c140d425a51e38dd0f2",
+      "mtime_iso": "2026-04-18T11:16:38.298291+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/OooZdC0DgsDR6gm0_after_2026-04-18T11-17-15-204Z.json",
+      "size_bytes": 78946,
+      "sha256": "d3c1c240db7287f9a227eb9a3008c3c45f14139c47b5d127141f34cb00d47df9",
+      "mtime_iso": "2026-04-18T11:17:15.218989+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/OooZdC0DgsDR6gm0_after_2026-04-18T11-18-20-677Z.json",
+      "size_bytes": 79088,
+      "sha256": "f28c286ad362b46dd344b6696b0e4f619ad90943283c002ab83d50e0e948dbff",
+      "mtime_iso": "2026-04-18T11:18:20.693417+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/OooZdC0DgsDR6gm0_after_2026-04-18T11-18-21-718Z.json",
+      "size_bytes": 79230,
+      "sha256": "1a473b1a34ccf882efce8c46bcdfc05dcf5ab22b9f36f1f6048737716b627139",
+      "mtime_iso": "2026-04-18T11:18:21.733720+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/OooZdC0DgsDR6gm0_after_2026-04-18T11-18-22-702Z.json",
+      "size_bytes": 79372,
+      "sha256": "553ba22d13a0d77b2d1fa96a54984d0aa7f1703acfd0ca575406d273bae63ab3",
+      "mtime_iso": "2026-04-18T11:18:22.717336+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/OooZdC0DgsDR6gm0_after_2026-04-18T11-18-44-855Z.json",
+      "size_bytes": 80628,
+      "sha256": "78c4f04747da9c6259cddcf8ace4da5f02803abe71d0084c9258571bc6834d9e",
+      "mtime_iso": "2026-04-18T11:18:44.878201+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/OooZdC0DgsDR6gm0_after_2026-04-18T11-19-11-422Z.json",
+      "size_bytes": 80478,
+      "sha256": "dad195b978e787c4c2061778fa3d345c30c8739d67f78b2960afd10aa04f273f",
+      "mtime_iso": "2026-04-18T11:19:11.438912+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/OooZdC0DgsDR6gm0_after_2026-04-18T11-19-37-384Z.json",
+      "size_bytes": 80472,
+      "sha256": "ac2a723829df7715a1c6d8f8e836dabccbd190cf38278a26a0dbc28dfc7a5c56",
+      "mtime_iso": "2026-04-18T11:19:37.400108+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/OooZdC0DgsDR6gm0_after_2026-04-18T11-19-59-371Z.json",
+      "size_bytes": 80629,
+      "sha256": "e130cd04f8c333b8adb491f783cd803fa173b3f9d6a573cda3a6ad47d62665a6",
+      "mtime_iso": "2026-04-18T11:19:59.386692+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/OooZdC0DgsDR6gm0_after_2026-04-18T11-20-35-031Z.json",
+      "size_bytes": 78977,
+      "sha256": "eeafd79288d6232ed9cde149f962d1d8c7c6d1dd6d471e1bcff47f92bbab57bf",
+      "mtime_iso": "2026-04-18T11:20:35.045557+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/OooZdC0DgsDR6gm0_before_2026-04-18T11-10-31-687Z.json",
+      "size_bytes": 31414,
+      "sha256": "438d6b82c53db3a292c21f2f5b7c36423b5eedf5d3bd504a9857eed0661b2545",
+      "mtime_iso": "2026-04-18T11:10:31.698257+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/OooZdC0DgsDR6gm0_before_2026-04-18T11-10-32-827Z.json",
+      "size_bytes": 37269,
+      "sha256": "cf947361ba2d52d581a6d350b648d4b7bc0b5040c7de313f0c7ccb788af37c79",
+      "mtime_iso": "2026-04-18T11:10:32.839005+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/OooZdC0DgsDR6gm0_before_2026-04-18T11-10-33-808Z.json",
+      "size_bytes": 47087,
+      "sha256": "0412cb7f737ee4f90ad3fababdc19d3556caad2c918ad362cfc9f37225074edf",
+      "mtime_iso": "2026-04-18T11:10:33.819471+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/OooZdC0DgsDR6gm0_before_2026-04-18T11-10-34-791Z.json",
+      "size_bytes": 49294,
+      "sha256": "75819a54c72c3e798241cde5017a8209eb8f4e7ddab3e3368cd721fdf811263e",
+      "mtime_iso": "2026-04-18T11:10:34.801698+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/OooZdC0DgsDR6gm0_before_2026-04-18T11-10-35-769Z.json",
+      "size_bytes": 56302,
+      "sha256": "fd4d5856eee90097e12541e71860737d5d25af9c87deec0f7223fa153c69fa70",
+      "mtime_iso": "2026-04-18T11:10:35.781873+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/OooZdC0DgsDR6gm0_before_2026-04-18T11-10-36-736Z.json",
+      "size_bytes": 56314,
+      "sha256": "615c3c6accdfd77db0cbf80fa5703a969aac0f1e6dd329dcd77179b7a6694681",
+      "mtime_iso": "2026-04-18T11:10:36.751257+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/OooZdC0DgsDR6gm0_before_2026-04-18T11-10-37-700Z.json",
+      "size_bytes": 56326,
+      "sha256": "8036240bda167a329d5c67fd293d20dbb0284073454abb17cda486f2010e9081",
+      "mtime_iso": "2026-04-18T11:10:37.713737+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/OooZdC0DgsDR6gm0_before_2026-04-18T11-10-38-661Z.json",
+      "size_bytes": 56338,
+      "sha256": "240d7037e27c2a8e7688324fed2c219c19a0e23bc9a5c67173200846bc449b61",
+      "mtime_iso": "2026-04-18T11:10:38.673465+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/OooZdC0DgsDR6gm0_before_2026-04-18T11-10-39-625Z.json",
+      "size_bytes": 56498,
+      "sha256": "adce59f23848a44febc9fba24d75d55b8e60a5b8a8052679f85240de2ec75ea1",
+      "mtime_iso": "2026-04-18T11:10:39.639151+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/OooZdC0DgsDR6gm0_before_2026-04-18T11-10-40-587Z.json",
+      "size_bytes": 56626,
+      "sha256": "1731fa2ecc7ffb3b46ecee5380f006668faad6c6a28b75a853e5e11b7bbbea4d",
+      "mtime_iso": "2026-04-18T11:10:40.599703+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/OooZdC0DgsDR6gm0_before_2026-04-18T11-11-49-491Z.json",
+      "size_bytes": 58388,
+      "sha256": "ad5bdee525f013fde2de4df7947a3367bb90dd67ddf57660d2c5f1e7e1b647fc",
+      "mtime_iso": "2026-04-18T11:11:49.506611+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/OooZdC0DgsDR6gm0_before_2026-04-18T11-16-15-070Z.json",
+      "size_bytes": 58724,
+      "sha256": "56012ef3a23899fd2c93e361ef8636d1cbf6354bf8f9289f631be4a91b9a3b7b",
+      "mtime_iso": "2026-04-18T11:16:15.087404+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/OooZdC0DgsDR6gm0_before_2026-04-18T11-16-23-483Z.json",
+      "size_bytes": 63184,
+      "sha256": "971f5920c5427974c3212192bc6fb8a5d9b4338b34e5a4a634809eb53501db73",
+      "mtime_iso": "2026-04-18T11:16:23.499922+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/OooZdC0DgsDR6gm0_before_2026-04-18T11-16-26-830Z.json",
+      "size_bytes": 70830,
+      "sha256": "81446da10e20f4bf9b65ec762874b901edd4b470ed377778da7cb546db824cb6",
+      "mtime_iso": "2026-04-18T11:16:26.845332+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/OooZdC0DgsDR6gm0_before_2026-04-18T11-16-30-463Z.json",
+      "size_bytes": 72874,
+      "sha256": "553745d9d27dea23ee05916babaa660f405e480fa3fbae0df067b94f1398c712",
+      "mtime_iso": "2026-04-18T11:16:30.482450+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/OooZdC0DgsDR6gm0_before_2026-04-18T11-16-35-581Z.json",
+      "size_bytes": 78136,
+      "sha256": "06bebf644402bac8da4e88553f0c47ba556ef1f52598b713be0f0f2bcfae2340",
+      "mtime_iso": "2026-04-18T11:16:35.599060+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/OooZdC0DgsDR6gm0_before_2026-04-18T11-16-36-599Z.json",
+      "size_bytes": 78274,
+      "sha256": "23ab8adf3bc4e2cbe79e63eda7ee530007c09991f0c1626f88919ba128685ddb",
+      "mtime_iso": "2026-04-18T11:16:36.614761+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/OooZdC0DgsDR6gm0_before_2026-04-18T11-16-37-594Z.json",
+      "size_bytes": 78412,
+      "sha256": "99c71881ec603212619a7d98cfdc9c1ad896222a336a609d7efd78927cddfeb6",
+      "mtime_iso": "2026-04-18T11:16:37.610272+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/OooZdC0DgsDR6gm0_before_2026-04-18T11-17-14-288Z.json",
+      "size_bytes": 79102,
+      "sha256": "668ba28cc020a621fe3cc62d4e11ff9cd79c0f83c04ea8ce2c074fd9d89fa34a",
+      "mtime_iso": "2026-04-18T11:17:14.305207+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/OooZdC0DgsDR6gm0_before_2026-04-18T11-18-19-789Z.json",
+      "size_bytes": 78946,
+      "sha256": "d3c1c240db7287f9a227eb9a3008c3c45f14139c47b5d127141f34cb00d47df9",
+      "mtime_iso": "2026-04-18T11:18:19.806774+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/OooZdC0DgsDR6gm0_before_2026-04-18T11-18-21-020Z.json",
+      "size_bytes": 79088,
+      "sha256": "f28c286ad362b46dd344b6696b0e4f619ad90943283c002ab83d50e0e948dbff",
+      "mtime_iso": "2026-04-18T11:18:21.035358+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/OooZdC0DgsDR6gm0_before_2026-04-18T11-18-22-029Z.json",
+      "size_bytes": 79230,
+      "sha256": "1a473b1a34ccf882efce8c46bcdfc05dcf5ab22b9f36f1f6048737716b627139",
+      "mtime_iso": "2026-04-18T11:18:22.046935+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/OooZdC0DgsDR6gm0_before_2026-04-18T11-18-44-069Z.json",
+      "size_bytes": 79924,
+      "sha256": "67cd023b69f41fd4b671402ce357209ed823e4b3212f7006ab13c653e56c58ef",
+      "mtime_iso": "2026-04-18T11:18:44.082114+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/OooZdC0DgsDR6gm0_before_2026-04-18T11-19-10-720Z.json",
+      "size_bytes": 81180,
+      "sha256": "9b944351c9e17afea68769bc968b1098324e2c750103ef0ec1dc52403eb07aec",
+      "mtime_iso": "2026-04-18T11:19:10.742793+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/OooZdC0DgsDR6gm0_before_2026-04-18T11-19-36-667Z.json",
+      "size_bytes": 81030,
+      "sha256": "6ffe6b3b53414d261b7f21ae377690b38405f089b5b9a3927b365960cb6ca93a",
+      "mtime_iso": "2026-04-18T11:19:36.682774+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/OooZdC0DgsDR6gm0_before_2026-04-18T11-19-58-686Z.json",
+      "size_bytes": 81024,
+      "sha256": "12ce25850b5052c8904aa0e47bf71606afa0cec252a44dc155a9aef910fddf1e",
+      "mtime_iso": "2026-04-18T11:19:58.701044+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/OooZdC0DgsDR6gm0_before_2026-04-18T11-20-34-316Z.json",
+      "size_bytes": 81181,
+      "sha256": "e03e2070ed36aea05648016ac492a13e403846b5ae14a4be31aae77fd11a3597",
+      "mtime_iso": "2026-04-18T11:20:34.332422+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/OooZdC0DgsDR6gm0_post-import-20260418T1040Z.json",
+      "size_bytes": 15404,
+      "sha256": "5168ddf7e5d707145598fabc0ffc78bb20499b679125afcd99965c39f0bb99f8",
+      "mtime_iso": "2026-04-18T11:07:39.014426+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/OooZdC0DgsDR6gm0_post-js-translate-20260418T1415Z.json",
+      "size_bytes": 79102,
+      "sha256": "668ba28cc020a621fe3cc62d4e11ff9cd79c0f83c04ea8ce2c074fd9d89fa34a",
+      "mtime_iso": "2026-04-18T11:16:46.791415+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/OooZdC0DgsDR6gm0_post-patchall-20260418T1044Z.json",
+      "size_bytes": 58388,
+      "sha256": "ad5bdee525f013fde2de4df7947a3367bb90dd67ddf57660d2c5f1e7e1b647fc",
+      "mtime_iso": "2026-04-18T11:10:56.699791+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/OooZdC0DgsDR6gm0_post-restore-20260418T1420Z.json",
+      "size_bytes": 79529,
+      "sha256": "491b364f354394f04b8c3bff022f43b4efd8165150c572ae2b10bcfc7a364dae",
+      "mtime_iso": "2026-04-18T11:20:42.649273+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/OooZdC0DgsDR6gm0_pre-js-translate-20260418T1415Z.json",
+      "size_bytes": 58724,
+      "sha256": "56012ef3a23899fd2c93e361ef8636d1cbf6354bf8f9289f631be4a91b9a3b7b",
+      "mtime_iso": "2026-04-18T11:16:05.156052+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/Q4FywM9FThgxgrwR_after_2026-04-18T21-10-35-010Z.json",
+      "size_bytes": 2892,
+      "sha256": "7b6a6ac068c36083f59f8de14faf32c9c4d47c3308d399ffa230fdd4e7aea674",
+      "mtime_iso": "2026-04-18T21:10:35.015371+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/Q4FywM9FThgxgrwR_after_2026-04-18T21-11-10-801Z.json",
+      "size_bytes": 2901,
+      "sha256": "4de82af67734bea9272119bcaecd3d2e56da7c6d2bbda21a408c20322f5baa97",
+      "mtime_iso": "2026-04-18T21:11:10.807526+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/Q4FywM9FThgxgrwR_after_2026-04-18T21-11-53-177Z.json",
+      "size_bytes": 2993,
+      "sha256": "109892a471385009755090b60a96a20749fcca3fc120aaa86332c6cdc06d8a8b",
+      "mtime_iso": "2026-04-18T21:11:53.183537+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/Q4FywM9FThgxgrwR_before_2026-04-18T21-10-34-498Z.json",
+      "size_bytes": 2608,
+      "sha256": "042c4549cc0061aa14811b0272f3bc18ca86a28cd56041a146e9ed77cb5974ba",
+      "mtime_iso": "2026-04-18T21:10:34.505015+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/Q4FywM9FThgxgrwR_before_2026-04-18T21-11-10-466Z.json",
+      "size_bytes": 2892,
+      "sha256": "7b6a6ac068c36083f59f8de14faf32c9c4d47c3308d399ffa230fdd4e7aea674",
+      "mtime_iso": "2026-04-18T21:11:10.472716+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/Q4FywM9FThgxgrwR_before_2026-04-18T21-11-52-841Z.json",
+      "size_bytes": 2901,
+      "sha256": "4de82af67734bea9272119bcaecd3d2e56da7c6d2bbda21a408c20322f5baa97",
+      "mtime_iso": "2026-04-18T21:11:52.846922+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/TClXgmO8H8zsSwMb_after_2026-04-18T09-01-47-167Z.json",
+      "size_bytes": 7377,
+      "sha256": "617bb5dc90f62fd6a8d6ec1a40250fe95c75ce9f57a561f49407fc4fd1e367a0",
+      "mtime_iso": "2026-04-18T09:01:47.170155+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/TClXgmO8H8zsSwMb_after_2026-04-18T10-03-25-269Z.json",
+      "size_bytes": 6600,
+      "sha256": "93fd7268a2a0d9076d1a098d3720c5074e078495195a1e642f83902b986e86dc",
+      "mtime_iso": "2026-04-18T10:03:25.277925+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/TClXgmO8H8zsSwMb_after_2026-04-18T10-09-09-027Z.json",
+      "size_bytes": 38449,
+      "sha256": "daa0b195b847e2ae43bb7faaf108c1df6b4787e78bca061265be54998aecf54a",
+      "mtime_iso": "2026-04-18T10:09:09.048692+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/TClXgmO8H8zsSwMb_after_2026-04-18T10-11-56-694Z.json",
+      "size_bytes": 39552,
+      "sha256": "c952d84178e40eae0c5924ec6f61390d47d5b9e82433ebd89fdd5d547bc0d06d",
+      "mtime_iso": "2026-04-18T10:11:56.736427+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/TClXgmO8H8zsSwMb_after_2026-04-18T10-14-20-260Z.json",
+      "size_bytes": 38400,
+      "sha256": "ca4e5b8c2976824c3ba89d7e8beb85900fc379633fcb69eae938831802f8988b",
+      "mtime_iso": "2026-04-18T10:14:20.315793+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/TClXgmO8H8zsSwMb_after_2026-04-18T10-15-52-116Z.json",
+      "size_bytes": 38382,
+      "sha256": "cbd496789be0916517ebb6b8eec576f0d7044aad2a49db6dc35f238b2359d405",
+      "mtime_iso": "2026-04-18T10:15:52.145986+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/TClXgmO8H8zsSwMb_after_2026-04-18T10-18-36-410Z.json",
+      "size_bytes": 38542,
+      "sha256": "5f96706855c8108b9ed0701f2cf5db3b71f4f7bd553e312586b8d451b47e6139",
+      "mtime_iso": "2026-04-18T10:18:36.432317+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/TClXgmO8H8zsSwMb_after_2026-04-18T10-18-37-598Z.json",
+      "size_bytes": 38702,
+      "sha256": "3e7d4e6284107431c23a763964be6f485181f8821f4d9a712ab3ba607990dd4c",
+      "mtime_iso": "2026-04-18T10:18:37.620846+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/TClXgmO8H8zsSwMb_after_2026-04-18T10-19-06-420Z.json",
+      "size_bytes": 40048,
+      "sha256": "01fb8580f1bb4b76015ba4e3276d37ad660d885be4dc9135619ddfab80248ce1",
+      "mtime_iso": "2026-04-18T10:19:06.463186+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/TClXgmO8H8zsSwMb_after_2026-04-18T10-19-30-078Z.json",
+      "size_bytes": 40378,
+      "sha256": "de8a05a07e06b574619911111e4d47d9913d472540aa2fa623467b455df6687e",
+      "mtime_iso": "2026-04-18T10:19:30.110657+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/TClXgmO8H8zsSwMb_after_2026-04-18T10-22-17-699Z.json",
+      "size_bytes": 40626,
+      "sha256": "0adf5e3e3e7aec06ae22d9b8a278af61d212e0c2d271c6502147477601653752",
+      "mtime_iso": "2026-04-18T10:22:17.736032+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/TClXgmO8H8zsSwMb_after_2026-04-18T10-22-48-487Z.json",
+      "size_bytes": 39970,
+      "sha256": "2a1b6b4e25c2c743aa4e33ec1d767e1df4c8eacf5d808949d28b877158256769",
+      "mtime_iso": "2026-04-18T10:22:48.519912+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/TClXgmO8H8zsSwMb_after_2026-04-18T10-23-19-920Z.json",
+      "size_bytes": 38720,
+      "sha256": "c99726faf540bcb8cef92b8195e5e232900b0ac37b72eb272d87cd3e9154a6c6",
+      "mtime_iso": "2026-04-18T10:23:19.943119+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/TClXgmO8H8zsSwMb_after_2026-04-18T12-34-01-307Z.json",
+      "size_bytes": 42976,
+      "sha256": "9b5ca9a1a9171c5a4901bfe17c690d108aacd68f46c763425e4dabca019d020a",
+      "mtime_iso": "2026-04-18T12:34:01.318063+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/TClXgmO8H8zsSwMb_before_2026-04-18T09-01-46-486Z.json",
+      "size_bytes": 6814,
+      "sha256": "00c5f5359f5ffe48b2bbb31a61971c0b0e31da440f8fa11ea9cf138f5d790e6e",
+      "mtime_iso": "2026-04-18T09:01:46.488443+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/TClXgmO8H8zsSwMb_before_2026-04-18T10-03-24-287Z.json",
+      "size_bytes": 8480,
+      "sha256": "515be4ee59aa151fc685a3e543dea9da1a5b6fb160e72a3dab9684641f7f4d10",
+      "mtime_iso": "2026-04-18T10:03:24.299045+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/TClXgmO8H8zsSwMb_before_2026-04-18T10-09-08-182Z.json",
+      "size_bytes": 7152,
+      "sha256": "44f10d4aa1a319e90121a2498c160967d03ed2cbafa36dfc58b79d59543554b4",
+      "mtime_iso": "2026-04-18T10:09:08.193723+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/TClXgmO8H8zsSwMb_before_2026-04-18T10-11-55-683Z.json",
+      "size_bytes": 39001,
+      "sha256": "8bfc0e959e879898512472285bd77481398227c472766dec23fbb9eb0c2b2153",
+      "mtime_iso": "2026-04-18T10:11:55.735250+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/TClXgmO8H8zsSwMb_before_2026-04-18T10-12-53-232Z.json",
+      "size_bytes": 40104,
+      "sha256": "cdd3c50838425301f4d1591d033e7d0b7cb019d789c523b86fb2fbe2fd9e4162",
+      "mtime_iso": "2026-04-18T10:12:53.270790+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/TClXgmO8H8zsSwMb_before_2026-04-18T10-14-19-354Z.json",
+      "size_bytes": 37272,
+      "sha256": "b86a1e6962c52cb5edda0f35e9b236b7367dfee578f1431fb6a78d7c16209329",
+      "mtime_iso": "2026-04-18T10:14:19.395817+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/TClXgmO8H8zsSwMb_before_2026-04-18T10-15-51-212Z.json",
+      "size_bytes": 38952,
+      "sha256": "cdf6840e60c27a3263fda5f03875ad89a14342d3467aa0767b2b6dedadefaeab",
+      "mtime_iso": "2026-04-18T10:15:51.231063+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/TClXgmO8H8zsSwMb_before_2026-04-18T10-18-35-561Z.json",
+      "size_bytes": 38382,
+      "sha256": "cbd496789be0916517ebb6b8eec576f0d7044aad2a49db6dc35f238b2359d405",
+      "mtime_iso": "2026-04-18T10:18:35.585064+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/TClXgmO8H8zsSwMb_before_2026-04-18T10-18-36-828Z.json",
+      "size_bytes": 38542,
+      "sha256": "5f96706855c8108b9ed0701f2cf5db3b71f4f7bd553e312586b8d451b47e6139",
+      "mtime_iso": "2026-04-18T10:18:36.863745+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/TClXgmO8H8zsSwMb_before_2026-04-18T10-19-05-669Z.json",
+      "size_bytes": 39254,
+      "sha256": "6115a725c703c096f445c99d99bdd5bdb3d45912059f86e996ac1f009c5abf06",
+      "mtime_iso": "2026-04-18T10:19:05.698212+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/TClXgmO8H8zsSwMb_before_2026-04-18T10-19-29-270Z.json",
+      "size_bytes": 40048,
+      "sha256": "01fb8580f1bb4b76015ba4e3276d37ad660d885be4dc9135619ddfab80248ce1",
+      "mtime_iso": "2026-04-18T10:19:29.291795+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/TClXgmO8H8zsSwMb_before_2026-04-18T10-22-16-845Z.json",
+      "size_bytes": 40378,
+      "sha256": "de8a05a07e06b574619911111e4d47d9913d472540aa2fa623467b455df6687e",
+      "mtime_iso": "2026-04-18T10:22:16.873638+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/TClXgmO8H8zsSwMb_before_2026-04-18T10-22-47-636Z.json",
+      "size_bytes": 41178,
+      "sha256": "e6fdc0c7f851368e871bf1db01435ca588dc094f6c22e83391dfc3f4a7818542",
+      "mtime_iso": "2026-04-18T10:22:47.694129+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/TClXgmO8H8zsSwMb_before_2026-04-18T10-23-19-187Z.json",
+      "size_bytes": 40522,
+      "sha256": "4732a15128a2cb22a5b340648cbe237ff21f988a1f0a0375f0aa77c8997efed1",
+      "mtime_iso": "2026-04-18T10:23:19.204247+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/TClXgmO8H8zsSwMb_before_2026-04-18T12-34-00-552Z.json",
+      "size_bytes": 39272,
+      "sha256": "8bcc5127f8026d6ad5030459c30f4a9bd7aad6fab2320a99d4ee7c8cec358433",
+      "mtime_iso": "2026-04-18T12:34:00.562769+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/TClXgmO8H8zsSwMb_e2e-connector-payload.json",
+      "size_bytes": 41517,
+      "sha256": "2d4ec6ecb43ff7da532ac8cf9f192a5af1eacd25aa80c42fb1306dbe20191299",
+      "mtime_iso": "2026-04-18T12:33:56.115906+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/TClXgmO8H8zsSwMb_post-e2e-connector-20260418.json",
+      "size_bytes": 42976,
+      "sha256": "9b5ca9a1a9171c5a4901bfe17c690d108aacd68f46c763425e4dabca019d020a",
+      "mtime_iso": "2026-04-18T12:34:09.167474+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/TClXgmO8H8zsSwMb_post-rc01-final-20260418T1023Z.json",
+      "size_bytes": 39272,
+      "sha256": "8bcc5127f8026d6ad5030459c30f4a9bd7aad6fab2320a99d4ee7c8cec358433",
+      "mtime_iso": "2026-04-18T10:23:27.810432+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/TClXgmO8H8zsSwMb_post-rc01-replace-20260418T100928Z.json",
+      "size_bytes": 39001,
+      "sha256": "8bfc0e959e879898512472285bd77481398227c472766dec23fbb9eb0c2b2153",
+      "mtime_iso": "2026-04-18T10:09:29.477149+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/TClXgmO8H8zsSwMb_post-tinyedit-20260418T100335Z.json",
+      "size_bytes": 7152,
+      "sha256": "44f10d4aa1a319e90121a2498c160967d03ed2cbafa36dfc58b79d59543554b4",
+      "mtime_iso": "2026-04-18T10:03:36.174608+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/TClXgmO8H8zsSwMb_pre-e2e-connector-20260418.json",
+      "size_bytes": 39272,
+      "sha256": "8bcc5127f8026d6ad5030459c30f4a9bd7aad6fab2320a99d4ee7c8cec358433",
+      "mtime_iso": "2026-04-18T12:33:22.264506+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/TClXgmO8H8zsSwMb_pre-rc01-replace-20260418T100855Z.json",
+      "size_bytes": 7152,
+      "sha256": "44f10d4aa1a319e90121a2498c160967d03ed2cbafa36dfc58b79d59543554b4",
+      "mtime_iso": "2026-04-18T10:08:55.772806+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/TClXgmO8H8zsSwMb_pre-tinyedit-20260418T100220Z.json",
+      "size_bytes": 8480,
+      "sha256": "515be4ee59aa151fc685a3e543dea9da1a5b6fb160e72a3dab9684641f7f4d10",
+      "mtime_iso": "2026-04-18T10:02:21.433578+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/e2e-01-su-smoke-caller-mcp.json",
+      "size_bytes": 1710,
+      "sha256": "d3b3b15e849c2623c8a8fa832ee99c762fc9e9a51b5fe3309eea683c16fb8ac9",
+      "mtime_iso": "2026-04-18T12:45:19.583657+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/e2e-01-su-smoke-caller.json",
+      "size_bytes": 1682,
+      "sha256": "97e6a849fb20be2e2b9b4b3c974461b96c03956811911ad3becb695b74d63453",
+      "mtime_iso": "2026-04-18T12:44:48.282404+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/rooFWDryqC0YDyVa_after_2026-04-18T12-27-33-122Z.json",
+      "size_bytes": 3375,
+      "sha256": "3bbf9d26945cf5815d3288175b2bce087253a931aa099ab3ede8b6696eb780e9",
+      "mtime_iso": "2026-04-18T12:27:33.130313+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/rooFWDryqC0YDyVa_before_2026-04-18T12-27-32-793Z.json",
+      "size_bytes": 3330,
+      "sha256": "2e11bd320259ef7cfc743b350c8728b892dccc1e28f060bf3123d112132596d4",
+      "mtime_iso": "2026-04-18T12:27:32.798553+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/u4sWtaivxwHwIh37_after_2026-04-18T12-45-23-123Z.json",
+      "size_bytes": 2747,
+      "sha256": "616de1f9fd499c73666e14732de7d1e15ee731169e2cbf9a62e046bed7be5cd9",
+      "mtime_iso": "2026-04-18T12:45:23.129288+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/u4sWtaivxwHwIh37_before_2026-04-18T12-45-22-808Z.json",
+      "size_bytes": 2748,
+      "sha256": "be870aba1e3a2ecc8bd8dd0cb75781d9bcc829be414481c6e2200c3acb3e62c9",
+      "mtime_iso": "2026-04-18T12:45:22.816463+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/v9jih4jqeXpOJOiH_after_2026-04-18T21-08-19-806Z.json",
+      "size_bytes": 33050,
+      "sha256": "1102debe801524381a1f4873561320bc479b6e39940b6bb29a92076e6ac71f09",
+      "mtime_iso": "2026-04-18T21:08:19.817127+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/v9jih4jqeXpOJOiH_before_2026-04-18T21-08-18-898Z.json",
+      "size_bytes": 32954,
+      "sha256": "01da182efd0b1d8a65fed7f9e4bdc712acd46001b5c6968644ac0e0d916038f7",
+      "mtime_iso": "2026-04-18T21:08:18.913805+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/v9jih4jqeXpOJOiH_ec01-phase2-20260419.json",
+      "size_bytes": 32954,
+      "sha256": "01da182efd0b1d8a65fed7f9e4bdc712acd46001b5c6968644ac0e0d916038f7",
+      "mtime_iso": "2026-04-18T21:03:53.932404+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/v9jih4jqeXpOJOiH_ec01-post-closure-mutation-20260419.json",
+      "size_bytes": 33602,
+      "sha256": "4b598160b158f63600c76eb88af2c8cf351e8e3a49cbfdea31028df8e43ffbdc",
+      "mtime_iso": "2026-04-18T21:08:25.300896+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/v9jih4jqeXpOJOiH_ec01-post-vsweep-20260419.json",
+      "size_bytes": 33602,
+      "sha256": "4b598160b158f63600c76eb88af2c8cf351e8e3a49cbfdea31028df8e43ffbdc",
+      "mtime_iso": "2026-04-18T21:12:39.266857+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/v9jih4jqeXpOJOiH_ec01-pre-closure-mutation-20260419.json",
+      "size_bytes": 32954,
+      "sha256": "01da182efd0b1d8a65fed7f9e4bdc712acd46001b5c6968644ac0e0d916038f7",
+      "mtime_iso": "2026-04-18T21:07:50.480653+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/v9jih4jqeXpOJOiH_ec01-precycle-20260418.json",
+      "size_bytes": 32954,
+      "sha256": "01da182efd0b1d8a65fed7f9e4bdc712acd46001b5c6968644ac0e0d916038f7",
+      "mtime_iso": "2026-04-18T20:56:08.559771+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/wI8hpSROxQI0zC9f_reverify-20260418.json",
+      "size_bytes": 96726,
+      "sha256": "241a2f43af9175d95383345eb521a466d2099d7e28a0f871188889c1701138fc",
+      "mtime_iso": "2026-04-18T20:39:42.972511+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/e2e-01-discovery/DI_abqYINcXr3JAhGGk.json",
+      "size_bytes": 41191,
+      "sha256": "e2c1b0cd1efddf5ccf57a8e69c5a28278cedd0ce1fc43a90316f6a90087b3a7e",
+      "mtime_iso": "2026-04-18T11:55:59.456046+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/e2e-01-discovery/EC_v9jih4jqeXpOJOiH.json",
+      "size_bytes": 32403,
+      "sha256": "205d2b03d07d33ed898504f1f6cf2b852b5fb16e0bd7d72832e14d84201fa2f6",
+      "mtime_iso": "2026-04-18T11:55:58.488479+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/e2e-01-discovery/ME_uq26nh1grIpnHju0.json",
+      "size_bytes": 64789,
+      "sha256": "ba0e491359676ee2b665cbc0efe45e03b183a4adeefabf6035067ad62281f8ea",
+      "mtime_iso": "2026-04-18T11:55:59.787117+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/e2e-01-discovery/MO_dup_rooFWDryqC0YDyVa.json",
+      "size_bytes": 7919,
+      "sha256": "72ab71dd4f8b3c4797e66f18b21ac75566762ba8b39c3103edc463e71d5e0a98",
+      "mtime_iso": "2026-04-18T11:56:01.383107+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/e2e-01-discovery/MO_gateway_OooZdC0DgsDR6gm0.json",
+      "size_bytes": 79529,
+      "sha256": "491b364f354394f04b8c3bff022f43b4efd8165150c572ae2b10bcfc7a364dae",
+      "mtime_iso": "2026-04-18T11:56:01.072310+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/e2e-01-discovery/OR_KhGmNpi0ZDmrnz8W.json",
+      "size_bytes": 32237,
+      "sha256": "5d0a3f0b80df870bd105ea79ec75570686a1b3c9073ba5abfb45de5596bc22e5",
+      "mtime_iso": "2026-04-18T11:55:58.801570+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/e2e-01-discovery/PL_RwToPLa1ErHl2tUi.json",
+      "size_bytes": 45041,
+      "sha256": "07b90e7db00726527296b82b6cf7234c39afab05082e47ee458bdd8832473506",
+      "mtime_iso": "2026-04-18T11:55:59.123480+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/e2e-01-discovery/RA_5RcNLtxNjAHJsZPE.json",
+      "size_bytes": 43436,
+      "sha256": "b231a56fddbd91161ac7a88fb4fe310ed0278803dcb79e898cd76639c285ad0c",
+      "mtime_iso": "2026-04-18T11:56:00.101315+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/e2e-01-discovery/RC_TClXgmO8H8zsSwMb.json",
+      "size_bytes": 39272,
+      "sha256": "8bcc5127f8026d6ad5030459c30f4a9bd7aad6fab2320a99d4ee7c8cec358433",
+      "mtime_iso": "2026-04-18T11:56:00.733316+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/e2e-01-discovery/SU_ENiYNfL3ul8AmmCB.json",
+      "size_bytes": 55451,
+      "sha256": "78e5611f4fceb2c673b87534874a9578a9ac29a5db8cd9b7f5f5d4d7a5b4f577",
+      "mtime_iso": "2026-04-18T11:56:00.426317+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/e2e-01-discovery/TR_wI8hpSROxQI0zC9f.json",
+      "size_bytes": 96175,
+      "sha256": "a12c841a98e70bb02ae6d3add3139cc9517875c5d8e1cd7f3168f25f30402ae7",
+      "mtime_iso": "2026-04-18T11:55:58.134907+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/e2e-01-duplicate-disposition/rooFWDryqC0YDyVa_post-disposition-20260418.json",
+      "size_bytes": 3375,
+      "sha256": "3bbf9d26945cf5815d3288175b2bce087253a931aa099ab3ede8b6696eb780e9",
+      "mtime_iso": "2026-04-18T12:27:37.431848+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/e2e-01-duplicate-disposition/rooFWDryqC0YDyVa_pre-disposition-20260418.json",
+      "size_bytes": 8470,
+      "sha256": "5c3b0bb4a77e3b987599d942adac06697575f63cd7a37a740adbbda8fc00e6ad",
+      "mtime_iso": "2026-04-18T12:27:19.599472+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "tools/n8n-patch/snapshots/e2e-01-duplicate-disposition/rooFWDryqC0YDyVa_rename-payload.json",
+      "size_bytes": 8539,
+      "sha256": "34458ca0cfd6468d2e02ffc3ad3ce8f178a7f7b866dce9b66593d179c6b04739",
+      "mtime_iso": "2026-04-18T12:27:31.204712+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "wf-ra-01_full_source_pack/CLAUDE_PROMPT__WF-RA-01.txt",
+      "size_bytes": 296,
+      "sha256": "cb3143ebc5c9feb314a83d227d9098c5a1973ab093b8fd9a61ed564691561dbd",
+      "mtime_iso": "2026-04-17T20:46:48.449930+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "wf-ra-01_full_source_pack/README_APPLY_FIRST.md",
+      "size_bytes": 533,
+      "sha256": "b30652dbc6eedca2cb40ab048004e7c710c8115d076a9a6c6e3de15d8c850b09",
+      "mtime_iso": "2026-04-17T20:46:48.452935+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "wf-ra-01_full_source_pack/SHA256SUMS.txt",
+      "size_bytes": 3579,
+      "sha256": "a96888b69f077afeb3a299d8ad86db8c44c12276680ca35ff05d315d9acb9ab0",
+      "mtime_iso": "2026-04-17T22:03:40.128437+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "wf-ra-01_full_source_pack/docs/ucenicul_claude_handoff_hardened/00_ROUTE_MAP__WF-RA-01_ACTIVATED.md",
+      "size_bytes": 1676,
+      "sha256": "2f8ffa6572e8011e7db9afe7748155057e284060d15b18f634fca3d7a14e2008",
+      "mtime_iso": "2026-04-17T22:03:32.196563+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "wf-ra-01_full_source_pack/docs/ucenicul_claude_handoff_hardened/10_STAGE_WF-RA-01.md",
+      "size_bytes": 3322,
+      "sha256": "cd8667a293674fe52025556dda2de6d3ec24fc1fc97e965e5c88411d7224f91f",
+      "mtime_iso": "2026-04-17T22:03:32.189523+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "wf-ra-01_full_source_pack/docs/ucenicul_claude_handoff_hardened/17_ACTIVE_STAGE_LOCK__WF-RA-01.md",
+      "size_bytes": 1514,
+      "sha256": "f9dc111bded00580f9c3bf1eeeea6148f523875a863bc08c4ff378e10e357735",
+      "mtime_iso": "2026-04-17T22:03:32.182516+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "wf-ra-01_full_source_pack/docs/ucenicul_claude_handoff_hardened/AUDIT_REPORT__WF-RA-01.md",
+      "size_bytes": 4301,
+      "sha256": "200fb55936c2db21702be6ba7cd92c64775ef85bae22501050550c7122fc9dac",
+      "mtime_iso": "2026-04-17T22:03:32.204635+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "wf-ra-01_full_source_pack/docs/ucenicul_claude_handoff_hardened/BUILD_REPORT__WF-RA-01.md",
+      "size_bytes": 6452,
+      "sha256": "c4eee35470c81cb4afc64be171e70e5df5482599160ab8d0713ded3091d7dced",
+      "mtime_iso": "2026-04-17T22:03:32.211679+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "wf-ra-01_full_source_pack/docs/ucenicul_claude_handoff_hardened/CLOSURE_REPORT__WF-RA-01.md",
+      "size_bytes": 5297,
+      "sha256": "da90b11b09d9492918bd74a7b3369e60634b1c17e88f691699811838088eddb7",
+      "mtime_iso": "2026-04-17T22:03:32.126365+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "wf-ra-01_full_source_pack/docs/ucenicul_claude_handoff_hardened/CURRENT_STAGE__WF-RA-01.md",
+      "size_bytes": 2602,
+      "sha256": "080bc1631fa0f72bbcc99dac9406059398faca2724e3c046b5db5795e4238e67",
+      "mtime_iso": "2026-04-17T22:03:32.175389+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "wf-ra-01_full_source_pack/docs/ucenicul_claude_handoff_hardened/FINAL_STAGE_POSTURE__WF-RA-01.md",
+      "size_bytes": 4989,
+      "sha256": "0de195a247b332a2c13ecf138b4c1afd020e14d755eda2bc3c23e364f27a6360",
+      "mtime_iso": "2026-04-17T22:03:32.167421+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "wf-ra-01_full_source_pack/docs/ucenicul_claude_handoff_hardened/FIX_LOG__WF-RA-01.md",
+      "size_bytes": 15616,
+      "sha256": "26b9933294d36eabf0e5314a24dce37aaad47cfd9a99c8a8e74f62e7afdf8c34",
+      "mtime_iso": "2026-04-17T22:03:32.155898+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "wf-ra-01_full_source_pack/docs/ucenicul_claude_handoff_hardened/STATE__WF-RA-01.json",
+      "size_bytes": 7461,
+      "sha256": "fa3f0f4a2b961de3eb03cfd9a79ace804eed1e8a159dea98d0497e94271ac3c1",
+      "mtime_iso": "2026-04-17T22:03:32.138450+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "wf-ra-01_full_source_pack/workflows/WF-RA-01_CONNECTION_MAP.md",
+      "size_bytes": 777,
+      "sha256": "da3141c21eed563841cba4dec398871430e6bbaac7bbc89acb9e51a5ad4c2e3a",
+      "mtime_iso": "2026-04-17T20:46:48.489956+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "wf-ra-01_full_source_pack/workflows/WF-RA-01_IMPORT_PATCH_PLAN.md",
+      "size_bytes": 801,
+      "sha256": "7bb3adfca4f8c0d345d9d5e17bebb0789d2294abe255ebaf183a0b2f834d61d2",
+      "mtime_iso": "2026-04-17T20:46:48.491955+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "wf-ra-01_full_source_pack/workflows/WF-RA-01_NODE_MAP.md",
+      "size_bytes": 1084,
+      "sha256": "9b75704f0fabf5d6d356eea6a250a8f7f3ee6c9a77399139815bbd954250827b",
+      "mtime_iso": "2026-04-17T20:46:48.494953+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "wf-ra-01_full_source_pack/workflows/WF-RA-01_Result_Aggregator.json",
+      "size_bytes": 7962,
+      "sha256": "968ef53fc86ca14debf8c48ccc270dcb30304753cd24cb5dddd8ab071511a441",
+      "mtime_iso": "2026-04-17T20:51:08.079753+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "wf-ra-01_full_source_pack/workflows/WF-RA-01_TEST_MATRIX.md",
+      "size_bytes": 5071,
+      "sha256": "699464eeae53e22b3b719b92e63e3281be73583e37e854fbe6e9e47575e68cbe",
+      "mtime_iso": "2026-04-17T22:03:32.219679+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "wf-ra-01_full_source_pack/workflows/WF-RA-01_blueprint.json",
+      "size_bytes": 450,
+      "sha256": "ca6ad27bcb6886bdbacfed0c35e1bceafd10385374556cd70668e49ece6b25d1",
+      "mtime_iso": "2026-04-17T20:46:48.559477+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "wf-ra-01_full_source_pack/workflows/scripts/ra/ra_logic.py",
+      "size_bytes": 8160,
+      "sha256": "082c74a0a53e8f0c95084870903738f43eeab89682c1d79b27fd181028b48546",
+      "mtime_iso": "2026-04-17T20:46:48.504953+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "wf-ra-01_full_source_pack/workflows/scripts/ra/__pycache__/ra_logic.cpython-310.pyc",
+      "size_bytes": 6007,
+      "sha256": "8d1275a83120fe215893972d7b58345831e4cdd39f10360ebfcc53225dadf9e0",
+      "mtime_iso": "2026-04-17T20:47:20.072275+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "wf-ra-01_full_source_pack/workflows/scripts/ra/__pycache__/ra_logic.cpython-313.pyc",
+      "size_bytes": 8495,
+      "sha256": "be0d6da4e95e315587116a131f3ad869a9ecc02b3f16aac403d420c6fde37c00",
+      "mtime_iso": "2026-04-17T20:42:54.774040+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "wf-ra-01_full_source_pack/workflows/sql/ra/01_schema_inspect.sql",
+      "size_bytes": 249,
+      "sha256": "871d17b9ed0d11753309c0f169bcaf5ec3aca3188c4ee2d587166bbbed155228",
+      "mtime_iso": "2026-04-17T20:46:48.520957+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "wf-ra-01_full_source_pack/workflows/sql/ra/02_load_execution_context.sql",
+      "size_bytes": 236,
+      "sha256": "65b63f084c8288c1f6408c14a3928512d1e2ae897b6753434b0ad042090d08e3",
+      "mtime_iso": "2026-04-17T20:46:48.524473+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "wf-ra-01_full_source_pack/workflows/sql/ra/03_load_execution_context_by_idempotency.sql",
+      "size_bytes": 233,
+      "sha256": "4d91ba9c53aa225fdce5c984ce6fea1cc25fc2acfad0f217ad75ce08bec79d64",
+      "mtime_iso": "2026-04-17T20:46:48.528474+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "wf-ra-01_full_source_pack/workflows/sql/ra/03_load_module_results.sql",
+      "size_bytes": 1270,
+      "sha256": "8eddae1f290a5dceacd29cc9b87acad2f1613b5ab9ec5610327aabd5f6bb2d7e",
+      "mtime_iso": "2026-04-17T20:46:48.513957+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "wf-ra-01_full_source_pack/workflows/sql/ra/04_load_plan_context.sql",
+      "size_bytes": 850,
+      "sha256": "1517aeabbbc12d283937a74e1d5d8ff1eb28cf371a986936ea6ee82a0cc99a99",
+      "mtime_iso": "2026-04-17T20:46:48.517956+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "wf-ra-01_full_source_pack/workflows/sql/ra/04_read_module_batch_probe.sql",
+      "size_bytes": 338,
+      "sha256": "020f67ceae1b0fc9245d33ebec10c637b0484b171d3d0b7428a943de5f5d6f95",
+      "mtime_iso": "2026-04-17T20:46:48.532474+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "wf-ra-01_full_source_pack/workflows/sql/ra/10_fixtures_create.sql",
+      "size_bytes": 458,
+      "sha256": "751c874eb882799e8cc48044521d477e2bb8940deae60b91bfd3bcbee7e03109",
+      "mtime_iso": "2026-04-17T20:46:48.535474+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "wf-ra-01_full_source_pack/workflows/sql/ra/11_fixtures_cleanup.sql",
+      "size_bytes": 115,
+      "sha256": "81c56d4efed2ab6d8206404c2eaa57fb4a1093fe691256304a49ad3dde22c57a",
+      "mtime_iso": "2026-04-17T20:46:48.540474+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "wf-ra-01_full_source_pack/workflows/sql/ra/20_read_path_probe.sql",
+      "size_bytes": 199,
+      "sha256": "eb5cd083084dbda2e44937a1efa501bb42357dfffb24bdcead5ea1a45f0e6644",
+      "mtime_iso": "2026-04-17T20:46:48.544473+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "wf-ra-01_full_source_pack/workflows/tests/ra/test_families.py",
+      "size_bytes": 10467,
+      "sha256": "29ddc5b56d86db98f248499e51186c7e34eb7d8bee05d324f018fc7b2c957f80",
+      "mtime_iso": "2026-04-17T20:46:48.548474+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "wf-ra-01_full_source_pack/workflows/tests/ra/results/results.json",
+      "size_bytes": 1569,
+      "sha256": "625999eb2952e462beba9b3b078d66f29ad6d376100375f5ef510c82fe68de2c",
+      "mtime_iso": "2026-04-17T20:47:20.737686+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "wf-ra-01_full_source_pack/workflows/tests/ra/results/results.md",
+      "size_bytes": 693,
+      "sha256": "a4823ed1e3d52c9d556d7d7bce80d3d516fffafe2076870f018e792f895c04e1",
+      "mtime_iso": "2026-04-17T20:47:20.742686+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "wf-su-01/SU_BUILD_ENVELOPE_TOLERANT_JSCODE.js",
+      "size_bytes": 3596,
+      "sha256": "77db213386faba77303530331a03c78203281cd6b25333c2f7cdf60b55eb72a1",
+      "mtime_iso": "2026-04-18T07:45:50.172117+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "wf-su-01/SU_LIVE_EXECUTIONS.md",
+      "size_bytes": 10482,
+      "sha256": "23905acd4f56538e1d133e28eff221c5625417dea37fc14d988dd9b1aa0a66a0",
+      "mtime_iso": "2026-04-18T07:57:27.372655+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "wf-su-01/SU_PINDATA_ENVELOPES.json",
+      "size_bytes": 5362,
+      "sha256": "8dc7a355385ba19c95d7fbd62052a28dcf9fdacb0ff20eb55faf37f19363c3ce",
+      "mtime_iso": "2026-04-18T07:40:01.525657+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "wf-su-01/SU_RESULTS.md",
+      "size_bytes": 714,
+      "sha256": "8ff3ff7efc4745b2d597cd276474cb5d2c2d90eb1afd223a670965412e254afa",
+      "mtime_iso": "2026-04-18T07:35:00.816674+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "wf-su-01/WF-SU-01_State_Persistence_Updater.json",
+      "size_bytes": 25037,
+      "sha256": "7ce79118c01c845f01078f7070a2ca69678d4202a438c8a1f519186ce762b431",
+      "mtime_iso": "2026-04-18T07:21:53.805214+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "wf-su-01/WF-SU-01_State_Persistence_Updater_HOTFIX.json",
+      "size_bytes": 25638,
+      "sha256": "6db4165d93680cdd737798cc10f05cfbbcb617ab93405fe37b5823be2694a0a0",
+      "mtime_iso": "2026-04-18T07:29:38.248502+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "wf-su-01/wf-su-01_full_source_pack_final.zip",
+      "size_bytes": 45309,
+      "sha256": "6550458dd097f9294a49ec55658fab7afcf787d695985c5d12a15769b2b04901",
+      "mtime_iso": "2026-04-18T07:21:53.798201+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "workflows/WF-PL-01_IMPORT_PATCH_PLAN.md",
+      "size_bytes": 7960,
+      "sha256": "be0b2ad287dcca2879ece498bd7ab6f04ae9126b13615c4a85fe1d38d3b24cc5",
+      "mtime_iso": "2026-04-17T15:04:30.259257+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "workflows/WF-PL-01_Plan_Builder.json",
+      "size_bytes": 15109,
+      "sha256": "616624eea5d3e8645c8ad55f988bfba63fdc6d3bb6be054480b1498201453fb6",
+      "mtime_iso": "2026-04-17T15:03:25.468385+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "workflows/WF-PL-01_blueprint.json",
+      "size_bytes": 15109,
+      "sha256": "616624eea5d3e8645c8ad55f988bfba63fdc6d3bb6be054480b1498201453fb6",
+      "mtime_iso": "2026-04-17T15:03:29.366188+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "workflows/scripts/pl/__init__.py",
+      "size_bytes": 427,
+      "sha256": "59bc3a683041aae1afb718075f64401cd9aaa177516bf87b13f6b1df1fab4692",
+      "mtime_iso": "2026-04-17T15:07:07.041644+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "workflows/scripts/pl/pl_logic.py",
+      "size_bytes": 16732,
+      "sha256": "f0ce10ad7dfc2ce8136915e13fe0684cde3253e54eb33b22c88fc7a0d01bd23e",
+      "mtime_iso": "2026-04-17T15:08:13.553852+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "workflows/scripts/pl/__pycache__/__init__.cpython-310.pyc",
+      "size_bytes": 618,
+      "sha256": "1816e7cdd104c864f949e06c27817510f269fb7652118127e9516aac3a00b276",
+      "mtime_iso": "2026-04-17T15:08:21.101965+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "workflows/scripts/pl/__pycache__/pl_logic.cpython-310.pyc",
+      "size_bytes": 12457,
+      "sha256": "d9ad71c2891efba4ef2736edc41ce0c07c03267913ed658daf0745255d05e09f",
+      "mtime_iso": "2026-04-17T15:08:21.115333+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "workflows/sql/pl/00_README.md",
+      "size_bytes": 1714,
+      "sha256": "34c4dc031f2cb6695dc9a2ee9b4cc622680c00cf28ca93d5325d81e6613c50f9",
+      "mtime_iso": "2026-04-17T15:04:52.322805+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "workflows/sql/pl/01_schema_inspect.sql",
+      "size_bytes": 3012,
+      "sha256": "5f85cad39294ca4fe7e9a51aa5b1550b0d06c98877526901e2b1e0f44ce8721f",
+      "mtime_iso": "2026-04-17T15:05:07.359325+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "workflows/sql/pl/02_create_table_candidate.sql",
+      "size_bytes": 2113,
+      "sha256": "f87d07eae25851ecd92d1aa8f06a8d03db1eb094559aace63f714f2452c18b33",
+      "mtime_iso": "2026-04-17T15:05:20.440848+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "workflows/sql/pl/03_create_table_fallback_claude_mcp.sql",
+      "size_bytes": 1604,
+      "sha256": "e858ea324c2fa81b774ef484ed0adb7a54535f45b834fdecb0870a15aa525c7e",
+      "mtime_iso": "2026-04-17T15:05:29.340334+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "workflows/sql/pl/04_parameterized_upsert.sql",
+      "size_bytes": 1918,
+      "sha256": "546186a3bd49a61a34aa241c3ec6e6f57345c487a495cb64bcc22abde799b262",
+      "mtime_iso": "2026-04-17T15:05:42.030683+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "workflows/sql/pl/05_parameterized_replay_select.sql",
+      "size_bytes": 582,
+      "sha256": "bcde350e49b45d629ce392b6c0fb70e92c6c908220d29ebd2c11ef7cd87ba4c0",
+      "mtime_iso": "2026-04-17T15:05:47.998268+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "workflows/sql/pl/06_fixture_pack_claude_mcp.sql",
+      "size_bytes": 4436,
+      "sha256": "69acaac3ffb35e145658ce360cc1a2fab87a829d827040eb7b5fb1a1644f7c78",
+      "mtime_iso": "2026-04-17T15:06:13.867633+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "workflows/sql/pl/07_cleanup.sql",
+      "size_bytes": 1330,
+      "sha256": "6fe029f1c5b030d555d177bff95be01b88068e50ea26166c900666b08731ca5f",
+      "mtime_iso": "2026-04-17T15:06:25.833363+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "workflows/sql/pl/08_read_path_probe.sql",
+      "size_bytes": 1779,
+      "sha256": "3a9021a6a386e9895782ca7713d8a6b68ae6c8ec4ccdfda33d84597a5aa94a9d",
+      "mtime_iso": "2026-04-17T15:06:38.561715+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "workflows/sql/pl/99_merge_back_notes.sql",
+      "size_bytes": 2201,
+      "sha256": "c7dba513e183e2a452a82b84b451b205fff18d068865f5174449720bc0be93fc",
+      "mtime_iso": "2026-04-17T15:06:52.057651+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "workflows/tests/pl/__init__.py",
+      "size_bytes": 105,
+      "sha256": "072390f1abfd481238b0977f206c27b3a9f1dbba93acdb0741c25d1ae4cb3889",
+      "mtime_iso": "2026-04-17T15:08:31.722959+00:00"
+    },
+    {
+      "source_root": "CLAUDE_PIPELINE_ROOT",
+      "original_path": "workflows/tests/pl/test_families.py",
+      "size_bytes": 38908,
+      "sha256": "59f8ae9dca545e63f35d76b52ef3c26602027c44edc733ae83949aad9781ac00",
+      "mtime_iso": "2026-04-17T15:11:08.771969+00:00"
+    }
+  ]
+}

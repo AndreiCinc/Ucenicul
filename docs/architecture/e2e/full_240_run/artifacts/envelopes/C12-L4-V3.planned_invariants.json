@@ -1,0 +1,17 @@
+{
+  "case_id": "C12-L4-V3",
+  "invariants": [
+    {
+      "name": "assert_side_effect_count_within_expected_bounds",
+      "sql": "SELECT 1 WHERE 1=0",
+      "params": [],
+      "unknown": false
+    },
+    {
+      "name": "assert_all_required_components_reflected_in_response",
+      "sql": "SELECT 1 WHERE 1=0",
+      "params": [],
+      "unknown": false
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "message_id": "a88b2762-7fa1-4440-80e2-7dae97b38b65",
+  "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+  "channel": "e2e-rich-matrix",
+  "direction": "inbound",
+  "author_type": "user",
+  "normalized_content": "Creează un task: review pull request",
+  "timestamp": "2026-04-27T08:12:27.515Z",
+  "source_message_ref": "e2e:R-2:e2e:mr-2026-04-27:R-2",
+  "author_entity_id": null,
+  "related_entity_ids": [],
+  "metadata": {
+    "e2e_case_id": "R-2",
+    "e2e_run_tag": "mr-2026-04-27",
+    "e2e_intent_test": "create_task"
+  },
+  "idempotency_key": "e2e:mr-2026-04-27:R-2",
+  "thread_id": "66720778-a1e1-4dd9-84dd-db2ba5be986e"
+}

@@ -1,0 +1,436 @@
+{
+  "ts": "2026-04-20T14:29:11.119Z",
+  "cases": 4,
+  "per_case": [
+    {
+      "label": "smoke-01-happy",
+      "thread_id": "11111111-0000-0000-0000-000000000001",
+      "thread_title": "Apartament centru Ion",
+      "start_exec_id": "985",
+      "chain_depth": 4,
+      "chain_path": "TR → EC → OR → PL",
+      "terminal_wf": "PL",
+      "terminal_status_kind": "failed",
+      "terminal_module": "plan_generation",
+      "terminal_error_code": "INSUFFICIENT_PLANNING_CONTEXT",
+      "terminal_error_message": "Planning goal is missing.",
+      "terminal_missing_fields": [
+        "planner_context.goal or planner_context.user_message_text"
+      ]
+    },
+    {
+      "label": "smoke-02-boundary",
+      "thread_id": "44444444-0000-0000-0000-000000000004",
+      "thread_title": "Proiect important A",
+      "start_exec_id": "989",
+      "chain_depth": 4,
+      "chain_path": "TR → EC → OR → PL",
+      "terminal_wf": "PL",
+      "terminal_status_kind": "failed",
+      "terminal_module": "plan_generation",
+      "terminal_error_code": "INSUFFICIENT_PLANNING_CONTEXT",
+      "terminal_error_message": "Planning goal is missing.",
+      "terminal_missing_fields": [
+        "planner_context.goal or planner_context.user_message_text"
+      ]
+    },
+    {
+      "label": "smoke-03-persistence",
+      "thread_id": "55555555-0000-0000-0000-000000000005",
+      "thread_title": "Proiect important B",
+      "start_exec_id": "993",
+      "chain_depth": 4,
+      "chain_path": "TR → EC → OR → PL",
+      "terminal_wf": "PL",
+      "terminal_status_kind": "failed",
+      "terminal_module": "plan_generation",
+      "terminal_error_code": "INSUFFICIENT_PLANNING_CONTEXT",
+      "terminal_error_message": "Planning goal is missing.",
+      "terminal_missing_fields": [
+        "planner_context.goal or planner_context.user_message_text"
+      ]
+    },
+    {
+      "label": "smoke-04-boundary2",
+      "thread_id": "66666666-0000-0000-0000-000000000006",
+      "thread_title": "Apartament Test Boundary",
+      "start_exec_id": "997",
+      "chain_depth": 4,
+      "chain_path": "TR → EC → OR → PL",
+      "terminal_wf": "PL",
+      "terminal_status_kind": "failed",
+      "terminal_module": "plan_generation",
+      "terminal_error_code": "INSUFFICIENT_PLANNING_CONTEXT",
+      "terminal_error_message": "Planning goal is missing.",
+      "terminal_missing_fields": [
+        "planner_context.goal or planner_context.user_message_text"
+      ]
+    }
+  ],
+  "details": [
+    {
+      "label": "smoke-01-happy",
+      "start_exec_id": "985",
+      "chain": [
+        {
+          "depth": 0,
+          "exec_id": "985",
+          "wf_id": "wI8hpSROxQI0zC9f",
+          "wf_acronym": "TR",
+          "last_node": "TR_Dispatch_To_EC_01_SUBCALL",
+          "terminal_status_kind": "failed",
+          "terminal_result_type": "error",
+          "terminal_module": "plan_generation",
+          "terminal_error_code": "INSUFFICIENT_PLANNING_CONTEXT",
+          "terminal_error_message": "Planning goal is missing.",
+          "terminal_missing_fields": [
+            "planner_context.goal or planner_context.user_message_text"
+          ],
+          "sub_execs": [
+            {
+              "node": "TR_Dispatch_To_EC_01_SUBCALL",
+              "exec_id": "986",
+              "wf_acronym": "EC"
+            }
+          ]
+        },
+        {
+          "depth": 1,
+          "exec_id": "986",
+          "wf_id": "v9jih4jqeXpOJOiH",
+          "wf_acronym": "EC",
+          "last_node": "EC_Dispatch_To_OR_01_SUBCALL",
+          "terminal_status_kind": "failed",
+          "terminal_result_type": "error",
+          "terminal_module": "plan_generation",
+          "terminal_error_code": "INSUFFICIENT_PLANNING_CONTEXT",
+          "terminal_error_message": "Planning goal is missing.",
+          "terminal_missing_fields": [
+            "planner_context.goal or planner_context.user_message_text"
+          ],
+          "sub_execs": [
+            {
+              "node": "EC_Dispatch_To_OR_01_SUBCALL",
+              "exec_id": "987",
+              "wf_acronym": "OR"
+            }
+          ]
+        },
+        {
+          "depth": 2,
+          "exec_id": "987",
+          "wf_id": "KhGmNpi0ZDmrnz8W",
+          "wf_acronym": "OR",
+          "last_node": "OR_Dispatch_To_PL_01_SUBCALL",
+          "terminal_status_kind": "failed",
+          "terminal_result_type": "error",
+          "terminal_module": "plan_generation",
+          "terminal_error_code": "INSUFFICIENT_PLANNING_CONTEXT",
+          "terminal_error_message": "Planning goal is missing.",
+          "terminal_missing_fields": [
+            "planner_context.goal or planner_context.user_message_text"
+          ],
+          "sub_execs": [
+            {
+              "node": "OR_Dispatch_To_PL_01_SUBCALL",
+              "exec_id": "988",
+              "wf_acronym": "PL"
+            }
+          ]
+        },
+        {
+          "depth": 3,
+          "exec_id": "988",
+          "wf_id": "RwToPLa1ErHl2tUi",
+          "wf_acronym": "PL",
+          "last_node": "PL_Return_Error",
+          "terminal_status_kind": "failed",
+          "terminal_result_type": "error",
+          "terminal_module": "plan_generation",
+          "terminal_error_code": "INSUFFICIENT_PLANNING_CONTEXT",
+          "terminal_error_message": "Planning goal is missing.",
+          "terminal_missing_fields": [
+            "planner_context.goal or planner_context.user_message_text"
+          ],
+          "sub_execs": []
+        }
+      ],
+      "depth_reached": 4,
+      "thread_id": "11111111-0000-0000-0000-000000000001",
+      "thread_title": "Apartament centru Ion"
+    },
+    {
+      "label": "smoke-02-boundary",
+      "start_exec_id": "989",
+      "chain": [
+        {
+          "depth": 0,
+          "exec_id": "989",
+          "wf_id": "wI8hpSROxQI0zC9f",
+          "wf_acronym": "TR",
+          "last_node": "TR_Dispatch_To_EC_01_SUBCALL",
+          "terminal_status_kind": "failed",
+          "terminal_result_type": "error",
+          "terminal_module": "plan_generation",
+          "terminal_error_code": "INSUFFICIENT_PLANNING_CONTEXT",
+          "terminal_error_message": "Planning goal is missing.",
+          "terminal_missing_fields": [
+            "planner_context.goal or planner_context.user_message_text"
+          ],
+          "sub_execs": [
+            {
+              "node": "TR_Dispatch_To_EC_01_SUBCALL",
+              "exec_id": "990",
+              "wf_acronym": "EC"
+            }
+          ]
+        },
+        {
+          "depth": 1,
+          "exec_id": "990",
+          "wf_id": "v9jih4jqeXpOJOiH",
+          "wf_acronym": "EC",
+          "last_node": "EC_Dispatch_To_OR_01_SUBCALL",
+          "terminal_status_kind": "failed",
+          "terminal_result_type": "error",
+          "terminal_module": "plan_generation",
+          "terminal_error_code": "INSUFFICIENT_PLANNING_CONTEXT",
+          "terminal_error_message": "Planning goal is missing.",
+          "terminal_missing_fields": [
+            "planner_context.goal or planner_context.user_message_text"
+          ],
+          "sub_execs": [
+            {
+              "node": "EC_Dispatch_To_OR_01_SUBCALL",
+              "exec_id": "991",
+              "wf_acronym": "OR"
+            }
+          ]
+        },
+        {
+          "depth": 2,
+          "exec_id": "991",
+          "wf_id": "KhGmNpi0ZDmrnz8W",
+          "wf_acronym": "OR",
+          "last_node": "OR_Dispatch_To_PL_01_SUBCALL",
+          "terminal_status_kind": "failed",
+          "terminal_result_type": "error",
+          "terminal_module": "plan_generation",
+          "terminal_error_code": "INSUFFICIENT_PLANNING_CONTEXT",
+          "terminal_error_message": "Planning goal is missing.",
+          "terminal_missing_fields": [
+            "planner_context.goal or planner_context.user_message_text"
+          ],
+          "sub_execs": [
+            {
+              "node": "OR_Dispatch_To_PL_01_SUBCALL",
+              "exec_id": "992",
+              "wf_acronym": "PL"
+            }
+          ]
+        },
+        {
+          "depth": 3,
+          "exec_id": "992",
+          "wf_id": "RwToPLa1ErHl2tUi",
+          "wf_acronym": "PL",
+          "last_node": "PL_Return_Error",
+          "terminal_status_kind": "failed",
+          "terminal_result_type": "error",
+          "terminal_module": "plan_generation",
+          "terminal_error_code": "INSUFFICIENT_PLANNING_CONTEXT",
+          "terminal_error_message": "Planning goal is missing.",
+          "terminal_missing_fields": [
+            "planner_context.goal or planner_context.user_message_text"
+          ],
+          "sub_execs": []
+        }
+      ],
+      "depth_reached": 4,
+      "thread_id": "44444444-0000-0000-0000-000000000004",
+      "thread_title": "Proiect important A"
+    },
+    {
+      "label": "smoke-03-persistence",
+      "start_exec_id": "993",
+      "chain": [
+        {
+          "depth": 0,
+          "exec_id": "993",
+          "wf_id": "wI8hpSROxQI0zC9f",
+          "wf_acronym": "TR",
+          "last_node": "TR_Dispatch_To_EC_01_SUBCALL",
+          "terminal_status_kind": "failed",
+          "terminal_result_type": "error",
+          "terminal_module": "plan_generation",
+          "terminal_error_code": "INSUFFICIENT_PLANNING_CONTEXT",
+          "terminal_error_message": "Planning goal is missing.",
+          "terminal_missing_fields": [
+            "planner_context.goal or planner_context.user_message_text"
+          ],
+          "sub_execs": [
+            {
+              "node": "TR_Dispatch_To_EC_01_SUBCALL",
+              "exec_id": "994",
+              "wf_acronym": "EC"
+            }
+          ]
+        },
+        {
+          "depth": 1,
+          "exec_id": "994",
+          "wf_id": "v9jih4jqeXpOJOiH",
+          "wf_acronym": "EC",
+          "last_node": "EC_Dispatch_To_OR_01_SUBCALL",
+          "terminal_status_kind": "failed",
+          "terminal_result_type": "error",
+          "terminal_module": "plan_generation",
+          "terminal_error_code": "INSUFFICIENT_PLANNING_CONTEXT",
+          "terminal_error_message": "Planning goal is missing.",
+          "terminal_missing_fields": [
+            "planner_context.goal or planner_context.user_message_text"
+          ],
+          "sub_execs": [
+            {
+              "node": "EC_Dispatch_To_OR_01_SUBCALL",
+              "exec_id": "995",
+              "wf_acronym": "OR"
+            }
+          ]
+        },
+        {
+          "depth": 2,
+          "exec_id": "995",
+          "wf_id": "KhGmNpi0ZDmrnz8W",
+          "wf_acronym": "OR",
+          "last_node": "OR_Dispatch_To_PL_01_SUBCALL",
+          "terminal_status_kind": "failed",
+          "terminal_result_type": "error",
+          "terminal_module": "plan_generation",
+          "terminal_error_code": "INSUFFICIENT_PLANNING_CONTEXT",
+          "terminal_error_message": "Planning goal is missing.",
+          "terminal_missing_fields": [
+            "planner_context.goal or planner_context.user_message_text"
+          ],
+          "sub_execs": [
+            {
+              "node": "OR_Dispatch_To_PL_01_SUBCALL",
+              "exec_id": "996",
+              "wf_acronym": "PL"
+            }
+          ]
+        },
+        {
+          "depth": 3,
+          "exec_id": "996",
+          "wf_id": "RwToPLa1ErHl2tUi",
+          "wf_acronym": "PL",
+          "last_node": "PL_Return_Error",
+          "terminal_status_kind": "failed",
+          "terminal_result_type": "error",
+          "terminal_module": "plan_generation",
+          "terminal_error_code": "INSUFFICIENT_PLANNING_CONTEXT",
+          "terminal_error_message": "Planning goal is missing.",
+          "terminal_missing_fields": [
+            "planner_context.goal or planner_context.user_message_text"
+          ],
+          "sub_execs": []
+        }
+      ],
+      "depth_reached": 4,
+      "thread_id": "55555555-0000-0000-0000-000000000005",
+      "thread_title": "Proiect important B"
+    },
+    {
+      "label": "smoke-04-boundary2",
+      "start_exec_id": "997",
+      "chain": [
+        {
+          "depth": 0,
+          "exec_id": "997",
+          "wf_id": "wI8hpSROxQI0zC9f",
+          "wf_acronym": "TR",
+          "last_node": "TR_Dispatch_To_EC_01_SUBCALL",
+          "terminal_status_kind": "failed",
+          "terminal_result_type": "error",
+          "terminal_module": "plan_generation",
+          "terminal_error_code": "INSUFFICIENT_PLANNING_CONTEXT",
+          "terminal_error_message": "Planning goal is missing.",
+          "terminal_missing_fields": [
+            "planner_context.goal or planner_context.user_message_text"
+          ],
+          "sub_execs": [
+            {
+              "node": "TR_Dispatch_To_EC_01_SUBCALL",
+              "exec_id": "998",
+              "wf_acronym": "EC"
+            }
+          ]
+        },
+        {
+          "depth": 1,
+          "exec_id": "998",
+          "wf_id": "v9jih4jqeXpOJOiH",
+          "wf_acronym": "EC",
+          "last_node": "EC_Dispatch_To_OR_01_SUBCALL",
+          "terminal_status_kind": "failed",
+          "terminal_result_type": "error",
+          "terminal_module": "plan_generation",
+          "terminal_error_code": "INSUFFICIENT_PLANNING_CONTEXT",
+          "terminal_error_message": "Planning goal is missing.",
+          "terminal_missing_fields": [
+            "planner_context.goal or planner_context.user_message_text"
+          ],
+          "sub_execs": [
+            {
+              "node": "EC_Dispatch_To_OR_01_SUBCALL",
+              "exec_id": "999",
+              "wf_acronym": "OR"
+            }
+          ]
+        },
+        {
+          "depth": 2,
+          "exec_id": "999",
+          "wf_id": "KhGmNpi0ZDmrnz8W",
+          "wf_acronym": "OR",
+          "last_node": "OR_Dispatch_To_PL_01_SUBCALL",
+          "terminal_status_kind": "failed",
+          "terminal_result_type": "error",
+          "terminal_module": "plan_generation",
+          "terminal_error_code": "INSUFFICIENT_PLANNING_CONTEXT",
+          "terminal_error_message": "Planning goal is missing.",
+          "terminal_missing_fields": [
+            "planner_context.goal or planner_context.user_message_text"
+          ],
+          "sub_execs": [
+            {
+              "node": "OR_Dispatch_To_PL_01_SUBCALL",
+              "exec_id": "1000",
+              "wf_acronym": "PL"
+            }
+          ]
+        },
+        {
+          "depth": 3,
+          "exec_id": "1000",
+          "wf_id": "RwToPLa1ErHl2tUi",
+          "wf_acronym": "PL",
+          "last_node": "PL_Return_Error",
+          "terminal_status_kind": "failed",
+          "terminal_result_type": "error",
+          "terminal_module": "plan_generation",
+          "terminal_error_code": "INSUFFICIENT_PLANNING_CONTEXT",
+          "terminal_error_message": "Planning goal is missing.",
+          "terminal_missing_fields": [
+            "planner_context.goal or planner_context.user_message_text"
+          ],
+          "sub_execs": []
+        }
+      ],
+      "depth_reached": 4,
+      "thread_id": "66666666-0000-0000-0000-000000000006",
+      "thread_title": "Apartament Test Boundary"
+    }
+  ]
+}

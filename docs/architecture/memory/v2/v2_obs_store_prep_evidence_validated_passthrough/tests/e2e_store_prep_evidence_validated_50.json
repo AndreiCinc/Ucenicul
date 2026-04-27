@@ -1,0 +1,1036 @@
+{
+  "mission": "V2-OBS-STORE-PREP-EVIDENCE-VALIDATED-PASSTHROUGH",
+  "category": "live_e2e",
+  "count": 50,
+  "cases": [
+    {
+      "id": "EVE-01",
+      "family": "persist_true_and_promote_ready",
+      "steps": [
+        {
+          "call": "store_memory",
+          "evidence_validated": true,
+          "tier": "recent",
+          "category": "ev_e2e_true"
+        },
+        {
+          "call": "promote_memory",
+          "promotion_target": "$stored_id",
+          "user_confirmed": false,
+          "evidence_validated": false
+        }
+      ],
+      "expected_e2e": {
+        "stored.evidence_validated": true,
+        "promote.denial_reason": "accepted",
+        "promote.acceptance_signals_contains": "evidence_validated"
+      }
+    },
+    {
+      "id": "EVE-02",
+      "family": "persist_true_and_promote_ready",
+      "steps": [
+        {
+          "call": "store_memory",
+          "evidence_validated": true,
+          "tier": "recent",
+          "category": "ev_e2e_true"
+        },
+        {
+          "call": "promote_memory",
+          "promotion_target": "$stored_id",
+          "user_confirmed": false,
+          "evidence_validated": false
+        }
+      ],
+      "expected_e2e": {
+        "stored.evidence_validated": true,
+        "promote.denial_reason": "accepted",
+        "promote.acceptance_signals_contains": "evidence_validated"
+      }
+    },
+    {
+      "id": "EVE-03",
+      "family": "persist_true_and_promote_ready",
+      "steps": [
+        {
+          "call": "store_memory",
+          "evidence_validated": true,
+          "tier": "recent",
+          "category": "ev_e2e_true"
+        },
+        {
+          "call": "promote_memory",
+          "promotion_target": "$stored_id",
+          "user_confirmed": false,
+          "evidence_validated": false
+        }
+      ],
+      "expected_e2e": {
+        "stored.evidence_validated": true,
+        "promote.denial_reason": "accepted",
+        "promote.acceptance_signals_contains": "evidence_validated"
+      }
+    },
+    {
+      "id": "EVE-04",
+      "family": "persist_true_and_promote_ready",
+      "steps": [
+        {
+          "call": "store_memory",
+          "evidence_validated": true,
+          "tier": "recent",
+          "category": "ev_e2e_true"
+        },
+        {
+          "call": "promote_memory",
+          "promotion_target": "$stored_id",
+          "user_confirmed": false,
+          "evidence_validated": false
+        }
+      ],
+      "expected_e2e": {
+        "stored.evidence_validated": true,
+        "promote.denial_reason": "accepted",
+        "promote.acceptance_signals_contains": "evidence_validated"
+      }
+    },
+    {
+      "id": "EVE-05",
+      "family": "persist_true_and_promote_ready",
+      "steps": [
+        {
+          "call": "store_memory",
+          "evidence_validated": true,
+          "tier": "recent",
+          "category": "ev_e2e_true"
+        },
+        {
+          "call": "promote_memory",
+          "promotion_target": "$stored_id",
+          "user_confirmed": false,
+          "evidence_validated": false
+        }
+      ],
+      "expected_e2e": {
+        "stored.evidence_validated": true,
+        "promote.denial_reason": "accepted",
+        "promote.acceptance_signals_contains": "evidence_validated"
+      }
+    },
+    {
+      "id": "EVE-06",
+      "family": "persist_true_and_promote_ready",
+      "steps": [
+        {
+          "call": "store_memory",
+          "evidence_validated": true,
+          "tier": "recent",
+          "category": "ev_e2e_true"
+        },
+        {
+          "call": "promote_memory",
+          "promotion_target": "$stored_id",
+          "user_confirmed": false,
+          "evidence_validated": false
+        }
+      ],
+      "expected_e2e": {
+        "stored.evidence_validated": true,
+        "promote.denial_reason": "accepted",
+        "promote.acceptance_signals_contains": "evidence_validated"
+      }
+    },
+    {
+      "id": "EVE-07",
+      "family": "persist_true_and_promote_ready",
+      "steps": [
+        {
+          "call": "store_memory",
+          "evidence_validated": true,
+          "tier": "recent",
+          "category": "ev_e2e_true"
+        },
+        {
+          "call": "promote_memory",
+          "promotion_target": "$stored_id",
+          "user_confirmed": false,
+          "evidence_validated": false
+        }
+      ],
+      "expected_e2e": {
+        "stored.evidence_validated": true,
+        "promote.denial_reason": "accepted",
+        "promote.acceptance_signals_contains": "evidence_validated"
+      }
+    },
+    {
+      "id": "EVE-08",
+      "family": "persist_true_and_promote_ready",
+      "steps": [
+        {
+          "call": "store_memory",
+          "evidence_validated": true,
+          "tier": "recent",
+          "category": "ev_e2e_true"
+        },
+        {
+          "call": "promote_memory",
+          "promotion_target": "$stored_id",
+          "user_confirmed": false,
+          "evidence_validated": false
+        }
+      ],
+      "expected_e2e": {
+        "stored.evidence_validated": true,
+        "promote.denial_reason": "accepted",
+        "promote.acceptance_signals_contains": "evidence_validated"
+      }
+    },
+    {
+      "id": "EVE-09",
+      "family": "persist_true_and_promote_ready",
+      "steps": [
+        {
+          "call": "store_memory",
+          "evidence_validated": true,
+          "tier": "recent",
+          "category": "ev_e2e_true"
+        },
+        {
+          "call": "promote_memory",
+          "promotion_target": "$stored_id",
+          "user_confirmed": false,
+          "evidence_validated": false
+        }
+      ],
+      "expected_e2e": {
+        "stored.evidence_validated": true,
+        "promote.denial_reason": "accepted",
+        "promote.acceptance_signals_contains": "evidence_validated"
+      }
+    },
+    {
+      "id": "EVE-10",
+      "family": "persist_true_and_promote_ready",
+      "steps": [
+        {
+          "call": "store_memory",
+          "evidence_validated": true,
+          "tier": "recent",
+          "category": "ev_e2e_true"
+        },
+        {
+          "call": "promote_memory",
+          "promotion_target": "$stored_id",
+          "user_confirmed": false,
+          "evidence_validated": false
+        }
+      ],
+      "expected_e2e": {
+        "stored.evidence_validated": true,
+        "promote.denial_reason": "accepted",
+        "promote.acceptance_signals_contains": "evidence_validated"
+      }
+    },
+    {
+      "id": "EVE-11",
+      "family": "persist_true_and_promote_ready",
+      "steps": [
+        {
+          "call": "store_memory",
+          "evidence_validated": true,
+          "tier": "recent",
+          "category": "ev_e2e_true"
+        },
+        {
+          "call": "promote_memory",
+          "promotion_target": "$stored_id",
+          "user_confirmed": false,
+          "evidence_validated": false
+        }
+      ],
+      "expected_e2e": {
+        "stored.evidence_validated": true,
+        "promote.denial_reason": "accepted",
+        "promote.acceptance_signals_contains": "evidence_validated"
+      }
+    },
+    {
+      "id": "EVE-12",
+      "family": "persist_true_and_promote_ready",
+      "steps": [
+        {
+          "call": "store_memory",
+          "evidence_validated": true,
+          "tier": "recent",
+          "category": "ev_e2e_true"
+        },
+        {
+          "call": "promote_memory",
+          "promotion_target": "$stored_id",
+          "user_confirmed": false,
+          "evidence_validated": false
+        }
+      ],
+      "expected_e2e": {
+        "stored.evidence_validated": true,
+        "promote.denial_reason": "accepted",
+        "promote.acceptance_signals_contains": "evidence_validated"
+      }
+    },
+    {
+      "id": "EVE-13",
+      "family": "persist_true_and_promote_ready",
+      "steps": [
+        {
+          "call": "store_memory",
+          "evidence_validated": true,
+          "tier": "recent",
+          "category": "ev_e2e_true"
+        },
+        {
+          "call": "promote_memory",
+          "promotion_target": "$stored_id",
+          "user_confirmed": false,
+          "evidence_validated": false
+        }
+      ],
+      "expected_e2e": {
+        "stored.evidence_validated": true,
+        "promote.denial_reason": "accepted",
+        "promote.acceptance_signals_contains": "evidence_validated"
+      }
+    },
+    {
+      "id": "EVE-14",
+      "family": "persist_true_and_promote_ready",
+      "steps": [
+        {
+          "call": "store_memory",
+          "evidence_validated": true,
+          "tier": "recent",
+          "category": "ev_e2e_true"
+        },
+        {
+          "call": "promote_memory",
+          "promotion_target": "$stored_id",
+          "user_confirmed": false,
+          "evidence_validated": false
+        }
+      ],
+      "expected_e2e": {
+        "stored.evidence_validated": true,
+        "promote.denial_reason": "accepted",
+        "promote.acceptance_signals_contains": "evidence_validated"
+      }
+    },
+    {
+      "id": "EVE-15",
+      "family": "persist_true_and_promote_ready",
+      "steps": [
+        {
+          "call": "store_memory",
+          "evidence_validated": true,
+          "tier": "recent",
+          "category": "ev_e2e_true"
+        },
+        {
+          "call": "promote_memory",
+          "promotion_target": "$stored_id",
+          "user_confirmed": false,
+          "evidence_validated": false
+        }
+      ],
+      "expected_e2e": {
+        "stored.evidence_validated": true,
+        "promote.denial_reason": "accepted",
+        "promote.acceptance_signals_contains": "evidence_validated"
+      }
+    },
+    {
+      "id": "EVE-16",
+      "family": "persist_false_not_promote_by_ev",
+      "steps": [
+        {
+          "call": "store_memory",
+          "evidence_validated": false,
+          "tier": "recent",
+          "category": "ev_e2e_false"
+        },
+        {
+          "call": "promote_memory",
+          "promotion_target": "$stored_id",
+          "user_confirmed": false,
+          "evidence_validated": false
+        }
+      ],
+      "expected_e2e": {
+        "stored.evidence_validated": false,
+        "promote.denial_reason": "acceptance_criteria_not_met"
+      }
+    },
+    {
+      "id": "EVE-17",
+      "family": "persist_false_not_promote_by_ev",
+      "steps": [
+        {
+          "call": "store_memory",
+          "evidence_validated": false,
+          "tier": "recent",
+          "category": "ev_e2e_false"
+        },
+        {
+          "call": "promote_memory",
+          "promotion_target": "$stored_id",
+          "user_confirmed": false,
+          "evidence_validated": false
+        }
+      ],
+      "expected_e2e": {
+        "stored.evidence_validated": false,
+        "promote.denial_reason": "acceptance_criteria_not_met"
+      }
+    },
+    {
+      "id": "EVE-18",
+      "family": "persist_false_not_promote_by_ev",
+      "steps": [
+        {
+          "call": "store_memory",
+          "evidence_validated": false,
+          "tier": "recent",
+          "category": "ev_e2e_false"
+        },
+        {
+          "call": "promote_memory",
+          "promotion_target": "$stored_id",
+          "user_confirmed": false,
+          "evidence_validated": false
+        }
+      ],
+      "expected_e2e": {
+        "stored.evidence_validated": false,
+        "promote.denial_reason": "acceptance_criteria_not_met"
+      }
+    },
+    {
+      "id": "EVE-19",
+      "family": "persist_false_not_promote_by_ev",
+      "steps": [
+        {
+          "call": "store_memory",
+          "evidence_validated": false,
+          "tier": "recent",
+          "category": "ev_e2e_false"
+        },
+        {
+          "call": "promote_memory",
+          "promotion_target": "$stored_id",
+          "user_confirmed": false,
+          "evidence_validated": false
+        }
+      ],
+      "expected_e2e": {
+        "stored.evidence_validated": false,
+        "promote.denial_reason": "acceptance_criteria_not_met"
+      }
+    },
+    {
+      "id": "EVE-20",
+      "family": "persist_false_not_promote_by_ev",
+      "steps": [
+        {
+          "call": "store_memory",
+          "evidence_validated": false,
+          "tier": "recent",
+          "category": "ev_e2e_false"
+        },
+        {
+          "call": "promote_memory",
+          "promotion_target": "$stored_id",
+          "user_confirmed": false,
+          "evidence_validated": false
+        }
+      ],
+      "expected_e2e": {
+        "stored.evidence_validated": false,
+        "promote.denial_reason": "acceptance_criteria_not_met"
+      }
+    },
+    {
+      "id": "EVE-21",
+      "family": "persist_false_not_promote_by_ev",
+      "steps": [
+        {
+          "call": "store_memory",
+          "evidence_validated": false,
+          "tier": "recent",
+          "category": "ev_e2e_false"
+        },
+        {
+          "call": "promote_memory",
+          "promotion_target": "$stored_id",
+          "user_confirmed": false,
+          "evidence_validated": false
+        }
+      ],
+      "expected_e2e": {
+        "stored.evidence_validated": false,
+        "promote.denial_reason": "acceptance_criteria_not_met"
+      }
+    },
+    {
+      "id": "EVE-22",
+      "family": "persist_false_not_promote_by_ev",
+      "steps": [
+        {
+          "call": "store_memory",
+          "evidence_validated": false,
+          "tier": "recent",
+          "category": "ev_e2e_false"
+        },
+        {
+          "call": "promote_memory",
+          "promotion_target": "$stored_id",
+          "user_confirmed": false,
+          "evidence_validated": false
+        }
+      ],
+      "expected_e2e": {
+        "stored.evidence_validated": false,
+        "promote.denial_reason": "acceptance_criteria_not_met"
+      }
+    },
+    {
+      "id": "EVE-23",
+      "family": "persist_false_not_promote_by_ev",
+      "steps": [
+        {
+          "call": "store_memory",
+          "evidence_validated": false,
+          "tier": "recent",
+          "category": "ev_e2e_false"
+        },
+        {
+          "call": "promote_memory",
+          "promotion_target": "$stored_id",
+          "user_confirmed": false,
+          "evidence_validated": false
+        }
+      ],
+      "expected_e2e": {
+        "stored.evidence_validated": false,
+        "promote.denial_reason": "acceptance_criteria_not_met"
+      }
+    },
+    {
+      "id": "EVE-24",
+      "family": "persist_false_not_promote_by_ev",
+      "steps": [
+        {
+          "call": "store_memory",
+          "evidence_validated": false,
+          "tier": "recent",
+          "category": "ev_e2e_false"
+        },
+        {
+          "call": "promote_memory",
+          "promotion_target": "$stored_id",
+          "user_confirmed": false,
+          "evidence_validated": false
+        }
+      ],
+      "expected_e2e": {
+        "stored.evidence_validated": false,
+        "promote.denial_reason": "acceptance_criteria_not_met"
+      }
+    },
+    {
+      "id": "EVE-25",
+      "family": "persist_false_not_promote_by_ev",
+      "steps": [
+        {
+          "call": "store_memory",
+          "evidence_validated": false,
+          "tier": "recent",
+          "category": "ev_e2e_false"
+        },
+        {
+          "call": "promote_memory",
+          "promotion_target": "$stored_id",
+          "user_confirmed": false,
+          "evidence_validated": false
+        }
+      ],
+      "expected_e2e": {
+        "stored.evidence_validated": false,
+        "promote.denial_reason": "acceptance_criteria_not_met"
+      }
+    },
+    {
+      "id": "EVE-26",
+      "family": "combined_regression",
+      "steps": [
+        {
+          "call": "store_memory",
+          "evidence_validated": true,
+          "user_confirmed": false,
+          "corroboration_count": 1,
+          "tier": "recent",
+          "category": "ev_e2e_combined"
+        },
+        {
+          "call": "recall_memory",
+          "memory_id": "$stored_id"
+        }
+      ],
+      "expected_e2e": {
+        "store.status": "success",
+        "recall.finds_stored_id": true
+      }
+    },
+    {
+      "id": "EVE-27",
+      "family": "combined_regression",
+      "steps": [
+        {
+          "call": "store_memory",
+          "evidence_validated": false,
+          "user_confirmed": true,
+          "corroboration_count": 2,
+          "tier": "recent",
+          "category": "ev_e2e_combined"
+        },
+        {
+          "call": "recall_memory",
+          "memory_id": "$stored_id"
+        }
+      ],
+      "expected_e2e": {
+        "store.status": "success",
+        "recall.finds_stored_id": true
+      }
+    },
+    {
+      "id": "EVE-28",
+      "family": "combined_regression",
+      "steps": [
+        {
+          "call": "store_memory",
+          "evidence_validated": true,
+          "user_confirmed": false,
+          "corroboration_count": 1,
+          "tier": "recent",
+          "category": "ev_e2e_combined"
+        },
+        {
+          "call": "recall_memory",
+          "memory_id": "$stored_id"
+        }
+      ],
+      "expected_e2e": {
+        "store.status": "success",
+        "recall.finds_stored_id": true
+      }
+    },
+    {
+      "id": "EVE-29",
+      "family": "combined_regression",
+      "steps": [
+        {
+          "call": "store_memory",
+          "evidence_validated": false,
+          "user_confirmed": true,
+          "corroboration_count": 1,
+          "tier": "recent",
+          "category": "ev_e2e_combined"
+        },
+        {
+          "call": "recall_memory",
+          "memory_id": "$stored_id"
+        }
+      ],
+      "expected_e2e": {
+        "store.status": "success",
+        "recall.finds_stored_id": true
+      }
+    },
+    {
+      "id": "EVE-30",
+      "family": "combined_regression",
+      "steps": [
+        {
+          "call": "store_memory",
+          "evidence_validated": true,
+          "user_confirmed": false,
+          "corroboration_count": 2,
+          "tier": "recent",
+          "category": "ev_e2e_combined"
+        },
+        {
+          "call": "recall_memory",
+          "memory_id": "$stored_id"
+        }
+      ],
+      "expected_e2e": {
+        "store.status": "success",
+        "recall.finds_stored_id": true
+      }
+    },
+    {
+      "id": "EVE-31",
+      "family": "combined_regression",
+      "steps": [
+        {
+          "call": "store_memory",
+          "evidence_validated": false,
+          "user_confirmed": true,
+          "corroboration_count": 1,
+          "tier": "recent",
+          "category": "ev_e2e_combined"
+        },
+        {
+          "call": "recall_memory",
+          "memory_id": "$stored_id"
+        }
+      ],
+      "expected_e2e": {
+        "store.status": "success",
+        "recall.finds_stored_id": true
+      }
+    },
+    {
+      "id": "EVE-32",
+      "family": "combined_regression",
+      "steps": [
+        {
+          "call": "store_memory",
+          "evidence_validated": true,
+          "user_confirmed": false,
+          "corroboration_count": 1,
+          "tier": "recent",
+          "category": "ev_e2e_combined"
+        },
+        {
+          "call": "recall_memory",
+          "memory_id": "$stored_id"
+        }
+      ],
+      "expected_e2e": {
+        "store.status": "success",
+        "recall.finds_stored_id": true
+      }
+    },
+    {
+      "id": "EVE-33",
+      "family": "combined_regression",
+      "steps": [
+        {
+          "call": "store_memory",
+          "evidence_validated": false,
+          "user_confirmed": true,
+          "corroboration_count": 2,
+          "tier": "recent",
+          "category": "ev_e2e_combined"
+        },
+        {
+          "call": "recall_memory",
+          "memory_id": "$stored_id"
+        }
+      ],
+      "expected_e2e": {
+        "store.status": "success",
+        "recall.finds_stored_id": true
+      }
+    },
+    {
+      "id": "EVE-34",
+      "family": "combined_regression",
+      "steps": [
+        {
+          "call": "store_memory",
+          "evidence_validated": true,
+          "user_confirmed": false,
+          "corroboration_count": 1,
+          "tier": "recent",
+          "category": "ev_e2e_combined"
+        },
+        {
+          "call": "recall_memory",
+          "memory_id": "$stored_id"
+        }
+      ],
+      "expected_e2e": {
+        "store.status": "success",
+        "recall.finds_stored_id": true
+      }
+    },
+    {
+      "id": "EVE-35",
+      "family": "combined_regression",
+      "steps": [
+        {
+          "call": "store_memory",
+          "evidence_validated": false,
+          "user_confirmed": true,
+          "corroboration_count": 1,
+          "tier": "recent",
+          "category": "ev_e2e_combined"
+        },
+        {
+          "call": "recall_memory",
+          "memory_id": "$stored_id"
+        }
+      ],
+      "expected_e2e": {
+        "store.status": "success",
+        "recall.finds_stored_id": true
+      }
+    },
+    {
+      "id": "EVE-36",
+      "family": "idempotency",
+      "steps": [
+        {
+          "call": "store_memory",
+          "evidence_validated": true,
+          "idempotency_key_suffix": "ev-idem-36"
+        },
+        {
+          "call": "store_memory",
+          "evidence_validated": true,
+          "idempotency_key_suffix": "ev-idem-36"
+        }
+      ],
+      "expected_e2e": {
+        "rows_for_idempotency_key": 1,
+        "evidence_validated": true
+      }
+    },
+    {
+      "id": "EVE-37",
+      "family": "idempotency",
+      "steps": [
+        {
+          "call": "store_memory",
+          "evidence_validated": true,
+          "idempotency_key_suffix": "ev-idem-37"
+        },
+        {
+          "call": "store_memory",
+          "evidence_validated": true,
+          "idempotency_key_suffix": "ev-idem-37"
+        }
+      ],
+      "expected_e2e": {
+        "rows_for_idempotency_key": 1,
+        "evidence_validated": true
+      }
+    },
+    {
+      "id": "EVE-38",
+      "family": "idempotency",
+      "steps": [
+        {
+          "call": "store_memory",
+          "evidence_validated": true,
+          "idempotency_key_suffix": "ev-idem-38"
+        },
+        {
+          "call": "store_memory",
+          "evidence_validated": true,
+          "idempotency_key_suffix": "ev-idem-38"
+        }
+      ],
+      "expected_e2e": {
+        "rows_for_idempotency_key": 1,
+        "evidence_validated": true
+      }
+    },
+    {
+      "id": "EVE-39",
+      "family": "idempotency",
+      "steps": [
+        {
+          "call": "store_memory",
+          "evidence_validated": true,
+          "idempotency_key_suffix": "ev-idem-39"
+        },
+        {
+          "call": "store_memory",
+          "evidence_validated": true,
+          "idempotency_key_suffix": "ev-idem-39"
+        }
+      ],
+      "expected_e2e": {
+        "rows_for_idempotency_key": 1,
+        "evidence_validated": true
+      }
+    },
+    {
+      "id": "EVE-40",
+      "family": "idempotency",
+      "steps": [
+        {
+          "call": "store_memory",
+          "evidence_validated": true,
+          "idempotency_key_suffix": "ev-idem-40"
+        },
+        {
+          "call": "store_memory",
+          "evidence_validated": true,
+          "idempotency_key_suffix": "ev-idem-40"
+        }
+      ],
+      "expected_e2e": {
+        "rows_for_idempotency_key": 1,
+        "evidence_validated": true
+      }
+    },
+    {
+      "id": "EVE-41",
+      "family": "idempotency",
+      "steps": [
+        {
+          "call": "store_memory",
+          "evidence_validated": true,
+          "idempotency_key_suffix": "ev-idem-41"
+        },
+        {
+          "call": "store_memory",
+          "evidence_validated": true,
+          "idempotency_key_suffix": "ev-idem-41"
+        }
+      ],
+      "expected_e2e": {
+        "rows_for_idempotency_key": 1,
+        "evidence_validated": true
+      }
+    },
+    {
+      "id": "EVE-42",
+      "family": "idempotency",
+      "steps": [
+        {
+          "call": "store_memory",
+          "evidence_validated": true,
+          "idempotency_key_suffix": "ev-idem-42"
+        },
+        {
+          "call": "store_memory",
+          "evidence_validated": true,
+          "idempotency_key_suffix": "ev-idem-42"
+        }
+      ],
+      "expected_e2e": {
+        "rows_for_idempotency_key": 1,
+        "evidence_validated": true
+      }
+    },
+    {
+      "id": "EVE-43",
+      "family": "non_target_regression",
+      "steps": [
+        {
+          "call": "promote_memory",
+          "notes": "non-target smoke with existing/generated fixture"
+        }
+      ],
+      "expected_e2e": {
+        "no_regression": true
+      }
+    },
+    {
+      "id": "EVE-44",
+      "family": "non_target_regression",
+      "steps": [
+        {
+          "call": "store_memory",
+          "notes": "non-target smoke with existing/generated fixture"
+        }
+      ],
+      "expected_e2e": {
+        "no_regression": true
+      }
+    },
+    {
+      "id": "EVE-45",
+      "family": "non_target_regression",
+      "steps": [
+        {
+          "call": "search_memory",
+          "notes": "non-target smoke with existing/generated fixture"
+        }
+      ],
+      "expected_e2e": {
+        "no_regression": true
+      }
+    },
+    {
+      "id": "EVE-46",
+      "family": "non_target_regression",
+      "steps": [
+        {
+          "call": "supersede_memory",
+          "notes": "non-target smoke with existing/generated fixture"
+        }
+      ],
+      "expected_e2e": {
+        "no_regression": true
+      }
+    },
+    {
+      "id": "EVE-47",
+      "family": "non_target_regression",
+      "steps": [
+        {
+          "call": "recall_memory",
+          "notes": "non-target smoke with existing/generated fixture"
+        }
+      ],
+      "expected_e2e": {
+        "no_regression": true
+      }
+    },
+    {
+      "id": "EVE-48",
+      "family": "non_target_regression",
+      "steps": [
+        {
+          "call": "promote_memory",
+          "notes": "non-target smoke with existing/generated fixture"
+        }
+      ],
+      "expected_e2e": {
+        "no_regression": true
+      }
+    },
+    {
+      "id": "EVE-49",
+      "family": "non_target_regression",
+      "steps": [
+        {
+          "call": "store_memory",
+          "notes": "non-target smoke with existing/generated fixture"
+        }
+      ],
+      "expected_e2e": {
+        "no_regression": true
+      }
+    },
+    {
+      "id": "EVE-50",
+      "family": "non_target_regression",
+      "steps": [
+        {
+          "call": "search_memory",
+          "notes": "non-target smoke with existing/generated fixture"
+        }
+      ],
+      "expected_e2e": {
+        "no_regression": true
+      }
+    }
+  ]
+}

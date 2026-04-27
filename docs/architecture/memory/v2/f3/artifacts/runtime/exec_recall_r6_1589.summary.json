@@ -1,0 +1,19 @@
+{
+  "exec_id": "1589",
+  "case_id": "F3-recall-r6",
+  "step_id": "mem-batch-v2c-recall-r6",
+  "action": "recall_memory",
+  "inputs": {
+    "source_thread_id": "33333333-0000-0000-0000-000000000003",
+    "category": "recall_test",
+    "limit": 10
+  },
+  "applied_filters": ["source_thread_id", "category"],
+  "result_status_kind": "success",
+  "module_result_status": "success",
+  "row_count": 1,
+  "row_ids_in_order": ["da53c396-09af-4ba1-8fba-07c4295fa412"],
+  "oracle": "Strict intersection: only row with source_thread_id=33333333 AND category=recall_test = A3. Excludes other threads/categories. — pass",
+  "domain_writes_performed": false,
+  "ra_dispatch_status": "success"
+}

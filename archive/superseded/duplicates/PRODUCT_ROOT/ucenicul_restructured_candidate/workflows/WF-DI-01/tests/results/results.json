@@ -1,0 +1,72 @@
+{
+  "families": {
+    "input_validation": {
+      "tests": 50,
+      "passed": 50,
+      "failed": 0
+    },
+    "happy_path": {
+      "tests": 50,
+      "passed": 50,
+      "failed": 0
+    },
+    "invalid_plan": {
+      "tests": 50,
+      "passed": 50,
+      "failed": 0
+    },
+    "step_contract_validation": {
+      "tests": 50,
+      "passed": 50,
+      "failed": 0
+    },
+    "dependency_ordering": {
+      "tests": 50,
+      "passed": 50,
+      "failed": 0
+    },
+    "parallel_dispatch_eligibility": {
+      "tests": 50,
+      "passed": 50,
+      "failed": 0
+    },
+    "replay_idempotency": {
+      "tests": 50,
+      "passed": 50,
+      "failed": 0
+    },
+    "cross_tenant_isolation": {
+      "tests": 50,
+      "passed": 50,
+      "failed": 0
+    },
+    "wf_pl_to_wf_di_handoff": {
+      "tests": 50,
+      "passed": 50,
+      "failed": 0
+    },
+    "reporting_and_tooling_contract": {
+      "tests": 50,
+      "passed": 50,
+      "failed": 0
+    },
+    "module_registry_resolution": {
+      "tests": 50,
+      "passed": 50,
+      "failed": 0
+    },
+    "error_payload_builder": {
+      "tests": 50,
+      "passed": 50,
+      "failed": 0
+    },
+    "blueprint_structure": {
+      "tests": 50,
+      "passed": 50,
+      "failed": 0
+    }
+  },
+  "tests_total": 650,
+  "tests_passed": 650,
+  "tests_failed": 0
+}

@@ -1,0 +1,27 @@
+{
+  "status_kind":"success",
+  "result_type":"state_update_result",
+  "execution_context_id":"33333333-3333-3333-3333-333333333333",
+  "thread_id":"55555555-5555-5555-5555-555555555555",
+  "tenant_id":"44444444-4444-4444-4444-444444444444",
+  "allowed_next_stage":"WF-RC-01",
+  "response_generation_allowed":true,
+  "channel":"telegram",
+  "locale":"ro",
+  "state_update_result":{
+    "status":"success",
+    "summary":"Am procesat cererea ta.",
+    "applied_write_classes":["execution_state_update"],
+    "blocked_write_classes":["domain_event_write"],
+    "warnings":[
+      {"code":"CAL_UNREACHABLE","message":"Sincronizarea calendar a eșuat temporar."},
+      "atenție: timpul estimat poate varia"
+    ],
+    "followup_requests":[
+      {"code":"NEED_DATE","message":"Care e data limită exactă?"},
+      {"code":"NEED_RECIPIENT","message":"Cui trebuie trimis?"}
+    ],
+    "actions_acknowledged":["draft_message"],
+    "user_visible_facts":["conversația a fost salvată"]
+  }
+}

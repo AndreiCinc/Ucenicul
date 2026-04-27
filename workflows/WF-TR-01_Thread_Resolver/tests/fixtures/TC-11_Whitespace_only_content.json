@@ -1,0 +1,22 @@
+{
+  "id": "TC-11",
+  "name": "Whitespace-only content",
+  "description": "Message contains only whitespace. Validator should reject as invalid (empty content).",
+  "request": {
+    "message_id": "test-msg-011",
+    "tenant_id": "aaaaaaaa-0000-0000-0000-000000000001",
+    "channel": "telegram",
+    "direction": "inbound",
+    "author_type": "user",
+    "normalized_content": "   \n\t   ",
+    "timestamp": "2026-04-15T12:00:00Z",
+    "source_message_ref": "tg_test_011"
+  },
+  "expected": {
+    "decision": "fail_invalid_input",
+    "resolved_thread_id": null,
+    "ambiguity_detected": false,
+    "content_class_used": "none",
+    "error_code": "INVALID_INPUT"
+  }
+}

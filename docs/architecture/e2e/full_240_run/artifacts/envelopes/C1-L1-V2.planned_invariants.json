@@ -1,0 +1,24 @@
+{
+  "case_id": "C1-L1-V2",
+  "invariants": [
+    {
+      "name": "assert_no_memory_write_for_case",
+      "sql": "SELECT count(*)::int AS c FROM memory_items\n          WHERE tenant_id = $1 AND source_thread_id = $2 AND created_at >= $3",
+      "params": [
+        "eee0e2e0-0000-0000-0000-000000000001",
+        "f8227e56-5d9f-45a7-8395-271af35e0601",
+        "2026-04-26T02:50:46.960Z"
+      ],
+      "unknown": false
+    },
+    {
+      "name": "assert_one_outbound_for_case",
+      "sql": "SELECT count(*)::int AS c FROM outbound_delivery_ledger_claude_mcp\n          WHERE tenant_id = $1 AND idempotency_key = $2",
+      "params": [
+        "eee0e2e0-0000-0000-0000-000000000001",
+        "e2e:f240-2026-04-26:C1-L1-V2"
+      ],
+      "unknown": false
+    }
+  ]
+}

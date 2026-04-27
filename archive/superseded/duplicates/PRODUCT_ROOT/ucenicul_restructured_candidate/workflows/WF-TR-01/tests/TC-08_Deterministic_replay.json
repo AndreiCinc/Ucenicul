@@ -1,0 +1,22 @@
+{
+  "id": "TC-08",
+  "name": "Deterministic replay",
+  "description": "Run TC-01 twice. Result decision and resolved_thread_id must be identical.",
+  "request": {
+    "message_id": "test-msg-008",
+    "tenant_id": "aaaaaaaa-0000-0000-0000-000000000001",
+    "channel": "telegram",
+    "direction": "inbound",
+    "author_type": "user",
+    "normalized_content": "Orice text, nu conteaza",
+    "timestamp": "2026-04-15T12:00:00Z",
+    "source_message_ref": "tg_test_008",
+    "thread_id": "tttttttt-0000-0000-0000-000000000001"
+  },
+  "expected": {
+    "decision": "attach_existing_thread",
+    "resolved_thread_id": "tttttttt-0000-0000-0000-000000000001",
+    "deterministic": true
+  },
+  "note": "Run this fixture twice. Both runs must produce the same decision and resolved_thread_id."
+}

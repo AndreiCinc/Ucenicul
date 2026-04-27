@@ -1,0 +1,43 @@
+{
+  "id": "TC-06",
+  "name": "Ambiguous candidate set",
+  "description": "Two threads have nearly identical scores within ambiguity margin (0.05). Ambiguity rule fires -> create new.",
+  "request": {
+    "message_id": "test-msg-006",
+    "tenant_id": "aaaaaaaa-0000-0000-0000-000000000001",
+    "channel": "telegram",
+    "direction": "inbound",
+    "author_type": "user",
+    "normalized_content": "proiect important detalii noi",
+    "timestamp": "2026-04-15T12:00:00Z",
+    "source_message_ref": "tg_test_006"
+  },
+  "expected": {
+    "decision": "create_new_thread",
+    "resolved_thread_id": null,
+    "ambiguity_detected": true,
+    "content_class_used": "normalized_content"
+  },
+  "candidate_threads_fixture": [
+    {
+      "thread_id": "tttttttt-0000-0000-0000-000000000004",
+      "thread_status": "active",
+      "thread_title": "Proiect important A",
+      "score": 0.7,
+      "entity_match": 0,
+      "semantic_match": 0.35,
+      "temporal_proximity": 0.2,
+      "channel_relevance": 0.15
+    },
+    {
+      "thread_id": "tttttttt-0000-0000-0000-000000000005",
+      "thread_status": "active",
+      "thread_title": "Proiect important B",
+      "score": 0.7,
+      "entity_match": 0,
+      "semantic_match": 0.35,
+      "temporal_proximity": 0.2,
+      "channel_relevance": 0.15
+    }
+  ]
+}

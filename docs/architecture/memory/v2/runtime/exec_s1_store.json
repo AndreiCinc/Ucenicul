@@ -1,0 +1,27 @@
+{
+  "executionId": "1370",
+  "workflowId": "uq26nh1grIpnHju0",
+  "action": "store_memory",
+  "step_id": "mem-smoke-v2f1:s1",
+  "timestamp_started": "2026-04-20T21:49:49.148Z",
+  "timestamp_stopped": "2026-04-20T21:49:49.725Z",
+  "memory_path_verdict": "pass",
+  "memory_id_inserted": "a0909481-a0a8-4682-8689-fbe50a6fa919",
+  "idempotency_key": "store_memory:d4f82a41-01cd-4fb7-9d70-573557348e74:mem-smoke-v2f1:s1",
+  "module_result": {
+    "status_kind": "success",
+    "module_name": "memory_module",
+    "status": "success",
+    "summary": "Memory store completed.",
+    "confidence": 1,
+    "idempotency_reused": false,
+    "artifacts": [{"type":"memory_id","value":"a0909481-a0a8-4682-8689-fbe50a6fa919"}]
+  },
+  "downstream_aggregation": {
+    "status": "expected_error",
+    "node": "ME_Dispatch_To_RA_01_SUBCALL",
+    "error_code": "INVALID_AGGREGATION_INPUT",
+    "error_message": "Aggregation stage must start from a no-write batch envelope.",
+    "note": "Expected — the smoke invokes the memory module in isolation from the dispatcher+batcher chain. WF-RA-01 rejects because domain_writes_performed=true is present in the aggregation envelope. Memory module itself is green up to ME_Return_Result."
+  }
+}

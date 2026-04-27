@@ -1,0 +1,23 @@
+{
+  "message_id": "45bb5ec1-7abf-4888-83a5-5c8463428708",
+  "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+  "channel": "e2e-rich-matrix",
+  "direction": "inbound",
+  "author_type": "user",
+  "normalized_content": "Continuă planul de mai sus și fă varianta scurtă.",
+  "timestamp": "2026-04-26T02:50:48.106Z",
+  "source_message_ref": "e2e:C8-L2-V1:e2e:f240-2026-04-26:C8-L2-V1",
+  "author_entity_id": null,
+  "related_entity_ids": [],
+  "metadata": {
+    "e2e_case_id": "C8-L2-V1",
+    "e2e_corridor": "C8",
+    "e2e_variant": "message_1_seed_thread",
+    "e2e_phase": "P3_HARD_CASES",
+    "e2e_priority": "P2",
+    "e2e_locale": "ro",
+    "e2e_run_tag": "f240-2026-04-26"
+  },
+  "idempotency_key": "e2e:f240-2026-04-26:C8-L2-V1",
+  "thread_id": "7987b25d-72a6-4ea3-8c1c-0285bebdd1de"
+}

@@ -1,0 +1,45 @@
+{
+  "stage_code": "WF-RC-01",
+  "stage_name": "Response Composer",
+  "status": "candidate_active",
+  "posture": "pre_live_ready",
+  "score": 9.7,
+  "score_cap": 9.7,
+  "closed": false,
+  "advance_allowed": false,
+  "evidence_classification": {
+    "source_pack_complete": true,
+    "script_verified": true,
+    "sql_verified": "static",
+    "db_verified": "unknown",
+    "live_workflow_verified": false,
+    "runtime_execution_verified": false,
+    "post_test_db_drift_verified": false
+  },
+  "upstream_stage": "WF-SU-01",
+  "downstream_stage": "MESSAGE_OUT",
+  "next_action": "Import WF-RC-01_Response_Composer.json and run V1\u2013V6 live verification.",
+  "script_test_summary": {
+    "families": 13,
+    "tests_per_family": 50,
+    "total_tests": 650,
+    "passed": 650,
+    "failed": 0
+  },
+  "shell_shape_spec": {
+    "node_count": 14,
+    "connection_count": 13,
+    "triggers": [
+      "RC_Input",
+      "RC_Manual_Test_Trigger"
+    ],
+    "guard_switches": [
+      "RC_Route_Valid",
+      "RC_Route_Context_Ready"
+    ],
+    "postgres_nodes": [
+      "RC_Load_Execution_Context",
+      "RC_Load_Thread_Context"
+    ]
+  }
+}

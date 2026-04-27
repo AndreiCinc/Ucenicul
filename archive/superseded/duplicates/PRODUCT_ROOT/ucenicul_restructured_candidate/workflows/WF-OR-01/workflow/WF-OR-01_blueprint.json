@@ -1,0 +1,305 @@
+{
+  "name": "WF-OR-01",
+  "nodes": [
+    {
+      "id": "or-manual",
+      "name": "When clicking 'Execute workflow'",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -980,
+        240
+      ],
+      "parameters": {}
+    },
+    {
+      "id": "or-chat",
+      "name": "When chat message received",
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -980,
+        420
+      ],
+      "parameters": {}
+    },
+    {
+      "id": "or-validate",
+      "name": "OR_Validate_EC_Result",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -760,
+        320
+      ],
+      "parameters": {
+        "mode": "runOnceForAllItems",
+        "jsCode": "\n// OR_Validate_EC_Result — v1.1 (accepts wrapped OR flat EC output)\n// Source of truth for the flat shape: WF-EC-01 EC_Return_Result.\nconst input = $json;\nlet candidate = input;\nif (typeof input.chatInput === 'string' && !input.payload && !input.id) {\n  try {\n    candidate = JSON.parse(input.chatInput);\n  } catch (e) {\n    candidate = input;\n  }\n}\nfunction invalid(code, message, missing) {\n  return [{ json: {\n    _valid: 'false',\n    error_code: code,\n    error_message: message,\n    missing_fields: (missing && missing.length ? missing : ['root'])\n  }}];\n}\nif (!candidate || typeof candidate !== 'object' || Array.isArray(candidate)) {\n  return invalid('INVALID_HANDOFF_INPUT', 'Input is not a JSON object.', ['root']);\n}\nconst shape = (candidate.payload && typeof candidate.payload === 'object')\n  ? 'wrapped'\n  : ((candidate.id && candidate.status && candidate.status_kind) ? 'flat' : 'unknown');\nlet normalizedPayload = null;\nlet sourceShape = shape;\nlet warnings = [];\nif (shape === 'wrapped') {\n  const requiredTop = ['status_kind', 'result_type', 'payload'];\n  const requiredPayload = ['tenant_id', 'thread_id', 'execution_id', 'trigger_message_id', 'idempotency_key', 'status', 'ttl_seconds'];\n  const missing = [];\n  for (const key of requiredTop) { if (!(key in candidate)) missing.push(key); }\n  const payload = candidate.payload;\n  for (const key of requiredPayload) { if (!(key in payload)) missing.push(`payload.${key}`); }\n  if (missing.length) return invalid('INVALID_HANDOFF_INPUT', 'Required handoff fields are missing.', [...new Set(missing)].sort());\n  if (candidate.status_kind !== 'success') return invalid('INVALID_HANDOFF_INPUT', 'status_kind must be success.', ['status_kind']);\n  if (candidate.result_type !== 'state') return invalid('INVALID_HANDOFF_INPUT', 'result_type must be state.', ['result_type']);\n  if (String(payload.status) !== 'initialized') return invalid('NOT_READY_FOR_PLANNING', 'Execution context is not initialized.', ['payload.status']);\n  const ttl = Number(payload.ttl_seconds);\n  if (!Number.isFinite(ttl) || ttl <= 0) return invalid('NOT_READY_FOR_PLANNING', 'ttl_seconds must be positive.', ['payload.ttl_seconds']);\n  normalizedPayload = {\n    tenant_id: String(payload.tenant_id),\n    thread_id: String(payload.thread_id),\n    execution_id: String(payload.execution_id),\n    trigger_message_id: String(payload.trigger_message_id),\n    idempotency_key: String(payload.idempotency_key),\n    status: String(payload.status),\n    ttl_seconds: ttl\n  };\n} else if (shape === 'flat') {\n  const requiredFlat = ['status_kind', 'result_type', 'id', 'tenant_id', 'thread_id', 'trigger_message_id', 'status'];\n  const missing = [];\n  for (const key of requiredFlat) { if (!(key in candidate)) missing.push(key); }\n  if (missing.length) return invalid('INVALID_HANDOFF_INPUT', 'Required flat EC fields are missing.', [...new Set(missing)].sort());\n  if (candidate.status_kind !== 'success') return invalid('INVALID_HANDOFF_INPUT', 'status_kind must be success.', ['status_kind']);\n  if (candidate.result_type !== 'state') return invalid('INVALID_HANDOFF_INPUT', 'result_type must be state.', ['result_type']);\n  if (String(candidate.status) !== 'initialized') return invalid('NOT_READY_FOR_PLANNING', 'Execution context is not initialized.', ['status']);\n  if (candidate.error && Object.keys(candidate.error).length) return invalid('INVALID_HANDOFF_INPUT', 'Upstream carries a non-null error.', ['error']);\n  const syntheticKey = String(candidate.tenant_id) + ':' + String(candidate.trigger_message_id) + ':exec_ctx:v1';\n  normalizedPayload = {\n    tenant_id: String(candidate.tenant_id),\n    thread_id: String(candidate.thread_id),\n    execution_id: String(candidate.id),\n    trigger_message_id: String(candidate.trigger_message_id),\n    idempotency_key: String(candidate.idempotency_key || syntheticKey),\n    status: String(candidate.status),\n    ttl_seconds: Number(candidate.ttl_seconds || 900)\n  };\n  if (!('idempotency_key' in candidate)) warnings.push('idempotency_key synthesized from flat EC shape');\n  if (!('ttl_seconds' in candidate)) warnings.push('ttl_seconds defaulted to 900 from flat EC shape');\n} else {\n  return invalid('INVALID_HANDOFF_INPUT', 'Input shape does not match wrapped or flat EC contract.', ['payload or flat-identifier fields']);\n}\nreturn [{ json: {\n  _valid: 'true',\n  _source_shape: sourceShape,\n  _normalized_ec_result: {\n    status_kind: 'success',\n    result_type: 'state',\n    module_name: candidate.module_name || 'execution_context_init',\n    warnings: (Array.isArray(candidate.warnings) ? candidate.warnings.slice() : []).concat(warnings),\n    payload: normalizedPayload\n  }\n}}];\n"
+      }
+    },
+    {
+      "id": "or-switch",
+      "name": "OR_Route_Valid",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        -540,
+        320
+      ],
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json._valid }}",
+                    "rightValue": "true",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "valid"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json._valid }}",
+                    "rightValue": "false",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "invalid"
+            }
+          ]
+        },
+        "options": {
+          "fallbackOutput": "extra"
+        }
+      }
+    },
+    {
+      "id": "or-extract",
+      "name": "OR_Extract_Handoff_Input",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -300,
+        220
+      ],
+      "parameters": {
+        "mode": "runOnceForAllItems",
+        "jsCode": "\nconst ec = $json._normalized_ec_result;\nconst p = ec.payload;\nreturn [{ json: {\n  tenant_id: p.tenant_id,\n  thread_id: p.thread_id,\n  execution_id: p.execution_id,\n  trigger_message_id: p.trigger_message_id,\n  idempotency_key: p.idempotency_key,\n  expected_status: p.status,\n  ttl_seconds: p.ttl_seconds,\n  source_module: ec.module_name,\n  warnings: ec.warnings || []\n}}];\n"
+      }
+    },
+    {
+      "id": "or-load",
+      "name": "OR_Load_Execution_Context",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [
+        -80,
+        220
+      ],
+      "alwaysOutputData": true,
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT\n  ec.id::text AS execution_id,\n  ec.tenant_id::text AS tenant_id,\n  ec.thread_id::text AS thread_id,\n  ec.trigger_message_id::text AS trigger_message_id,\n  ec.idempotency_key,\n  ec.status,\n  CASE WHEN ec.expires_at IS NULL THEN NULL ELSE EXTRACT(EPOCH FROM (ec.expires_at - ec.created_at))::int END AS ttl_seconds\nFROM public.execution_contexts ec\nWHERE ec.id = '{{ $json.execution_id }}'::uuid\n  AND ec.tenant_id = '{{ $json.tenant_id }}'::uuid\n  AND ec.thread_id = '{{ $json.thread_id }}'::uuid\nLIMIT 1;",
+        "options": {}
+      },
+      "credentials": {
+        "postgres": {
+          "id": "CREDENTIAL_PLACEHOLDER",
+          "name": "Postgres account 2"
+        }
+      }
+    },
+    {
+      "id": "or-verify",
+      "name": "OR_Verify_Context_Match",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        140,
+        220
+      ],
+      "parameters": {
+        "mode": "runOnceForAllItems",
+        "jsCode": "\nconst row = $json;\nconst handoff = {\n  execution_id: String(row.execution_id || ''),\n  tenant_id: String(row.tenant_id || ''),\n  thread_id: String(row.thread_id || ''),\n  trigger_message_id: String(row.trigger_message_id || ''),\n  expected_status: String(row.status || '')\n};\nif (!handoff.execution_id || !handoff.tenant_id || !handoff.thread_id || !handoff.trigger_message_id) {\n  return [{ json: {\n    _valid: 'false',\n    error_code: 'CONTEXT_MISMATCH',\n    error_message: 'Execution context row was not found or is incomplete.',\n    missing_fields: ['execution_context']\n  }}];\n}\nreturn [{ json: {\n  _valid: 'true',\n  execution_id: handoff.execution_id,\n  tenant_id: handoff.tenant_id,\n  thread_id: handoff.thread_id,\n  trigger_message_id: handoff.trigger_message_id,\n  idempotency_key: String(row.idempotency_key || ''),\n  expected_status: handoff.expected_status,\n  ttl_seconds: row.ttl_seconds,\n  warnings: []\n}}];\n"
+      }
+    },
+    {
+      "id": "or-build",
+      "name": "OR_Build_Handoff_Payload",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        360,
+        220
+      ],
+      "parameters": {
+        "mode": "runOnceForAllItems",
+        "jsCode": "\nreturn [{ json: {\n  status_kind: 'success',\n  result_type: 'handoff',\n  module_name: 'orchestrator_input_handoff',\n  payload: {\n    tenant_id: String($json.tenant_id),\n    thread_id: String($json.thread_id),\n    execution_id: String($json.execution_id),\n    trigger_message_id: String($json.trigger_message_id),\n    idempotency_key: String($json.idempotency_key),\n    execution_status: String($json.expected_status),\n    planning_allowed: true,\n    allowed_next_stage: 'WF-PL-01',\n    orchestrator_input: {\n      planning_mode: 'plan_only',\n      module_execution_allowed: false,\n      response_generation_allowed: false,\n      domain_writes_allowed: false\n    },\n    warnings: Array.isArray($json.warnings) ? $json.warnings : []\n  }\n}}];\n"
+      }
+    },
+    {
+      "id": "or-return-ok",
+      "name": "OR_Return_Result",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        580,
+        220
+      ],
+      "parameters": {
+        "mode": "runOnceForAllItems",
+        "jsCode": "return items;"
+      }
+    },
+    {
+      "id": "or-return-error",
+      "name": "OR_Return_Error",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -300,
+        420
+      ],
+      "parameters": {
+        "mode": "runOnceForAllItems",
+        "jsCode": "\nreturn [{ json: {\n  status_kind: 'failed',\n  result_type: 'error',\n  module_name: 'orchestrator_input_handoff',\n  error: {\n    code: $json.error_code || 'INVALID_HANDOFF_INPUT',\n    message: $json.error_message || 'Unknown handoff error.',\n    missing_fields: Array.isArray($json.missing_fields) ? $json.missing_fields : []\n  }\n}}];\n"
+      }
+    }
+  ],
+  "connections": {
+    "When clicking 'Execute workflow'": {
+      "main": [
+        [
+          {
+            "node": "OR_Validate_EC_Result",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "OR_Validate_EC_Result",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OR_Validate_EC_Result": {
+      "main": [
+        [
+          {
+            "node": "OR_Route_Valid",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OR_Route_Valid": {
+      "main": [
+        [
+          {
+            "node": "OR_Extract_Handoff_Input",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "OR_Return_Error",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        []
+      ]
+    },
+    "OR_Extract_Handoff_Input": {
+      "main": [
+        [
+          {
+            "node": "OR_Load_Execution_Context",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OR_Load_Execution_Context": {
+      "main": [
+        [
+          {
+            "node": "OR_Verify_Context_Match",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OR_Verify_Context_Match": {
+      "main": [
+        [
+          {
+            "node": "OR_Build_Handoff_Payload",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OR_Build_Handoff_Payload": {
+      "main": [
+        [
+          {
+            "node": "OR_Return_Result",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "availableInMCP": true
+  },
+  "pinData": {},
+  "versionId": "wf-or-01-source-pack-v1",
+  "meta": {
+    "templateCredsSetupCompleted": false
+  }
+}

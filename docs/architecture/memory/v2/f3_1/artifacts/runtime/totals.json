@@ -1,0 +1,46 @@
+{
+  "suite": "memory_module_v2.F3_1",
+  "generated_at": "2026-04-22T14:21:27.542Z",
+  "totals": {
+    "target": 150,
+    "executed": 150,
+    "pass": 149,
+    "fail": 1,
+    "blocked": 0,
+    "unexecuted": 0
+  },
+  "per_family": {
+    "search_lexical_fallback": {
+      "target": 50,
+      "executed": 50,
+      "pass": 50,
+      "fail": 0,
+      "blocked": 0,
+      "unexecuted": 0
+    },
+    "recall_intersection": {
+      "target": 50,
+      "executed": 50,
+      "pass": 50,
+      "fail": 0,
+      "blocked": 0,
+      "unexecuted": 0
+    },
+    "promote_denial_vocabulary": {
+      "target": 25,
+      "executed": 25,
+      "pass": 24,
+      "fail": 1,
+      "blocked": 0,
+      "unexecuted": 0
+    },
+    "supersede_idempotency": {
+      "target": 25,
+      "executed": 25,
+      "pass": 25,
+      "fail": 0,
+      "blocked": 0,
+      "unexecuted": 0
+    }
+  }
+}

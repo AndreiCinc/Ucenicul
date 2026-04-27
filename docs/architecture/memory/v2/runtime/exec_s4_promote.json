@@ -1,0 +1,29 @@
+{
+  "executionId": "1390",
+  "workflowId": "uq26nh1grIpnHju0",
+  "action": "promote_memory",
+  "step_id": "mem-smoke-v2f1:s4",
+  "timestamp_started": "2026-04-20T21:51:20.950Z",
+  "timestamp_stopped": "2026-04-20T21:51:21.458Z",
+  "memory_path_verdict": "pass",
+  "target_memory_id": "7b03cd9c-0e3e-45ea-bad6-6fc4adc774f5",
+  "db_outcome": {
+    "promoted": true,
+    "denial_reason_db": "accepted",
+    "new_tier": "long_term",
+    "user_confirmed": true,
+    "last_reconfirmed_at": "2026-04-20T21:51:21.238Z"
+  },
+  "module_result": {
+    "status_kind": "success",
+    "status": "success",
+    "summary": "Memory promoted to long_term.",
+    "details_denial_reason": null
+  },
+  "downstream_aggregation": {
+    "status": "expected_error",
+    "error_code": "INVALID_AGGREGATION_INPUT",
+    "note": "Expected — domain_writes_performed=true on promote; same isolation artefact as S1."
+  },
+  "finding_for_f4": "ME_Memory_Promote_Result forces actions_executed[0].details.denial_reason=null on accepted. F4 vocabulary needs to propagate denial_reason_db (accepted / already_long_term / not_in_recent_tier / acceptance_criteria_not_met) into artifacts."
+}

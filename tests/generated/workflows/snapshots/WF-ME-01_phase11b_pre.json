@@ -1,0 +1,2725 @@
+{
+  "updatedAt": "2026-04-20T15:06:36.586Z",
+  "createdAt": "2026-04-17T20:36:49.235Z",
+  "id": "uq26nh1grIpnHju0",
+  "name": "WF-ME-01 Module Execution",
+  "description": null,
+  "active": true,
+  "isArchived": false,
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "9da57d91-6144-4ebd-9e9b-87f4fc95080e",
+      "name": "ME_Input",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1,
+      "position": [
+        576,
+        352
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "c4b6dd64-9dd0-42c2-aaa1-8fa75c9279f8",
+      "name": "ME_Manual_Test_Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        576,
+        576
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\nconst input = $json;\nlet candidate = input;\nif (input && typeof input.chatInput === 'string' && !input.status_kind && !input.dispatcher_input) {\n  try { candidate = JSON.parse(input.chatInput); } catch (e) { candidate = input; }\n}\nfunction invalid(code, message, missing) {\n  return [{ json: { _valid: 'false', error_code: code, error_message: message, missing_fields: missing || [] } }];\n}\nif (!candidate || typeof candidate !== 'object' || Array.isArray(candidate)) {\n  return invalid('INVALID_DISPATCH_INPUT', 'Input is not a JSON object.', ['root']);\n}\nconst requiredTop = ['status_kind','result_type','execution_context_id','thread_id','tenant_id','dispatcher_input'];\nconst missingTop = requiredTop.filter(k => !(k in candidate));\nif (missingTop.length) return invalid('INVALID_DISPATCH_INPUT', 'Dispatcher envelope missing required top-level fields.', missingTop);\nif (candidate.status_kind !== 'success') return invalid('INVALID_DISPATCH_INPUT', 'status_kind must be success.', ['status_kind']);\nif (candidate.result_type !== 'dispatch') return invalid('INVALID_DISPATCH_INPUT', 'result_type must be dispatch.', ['result_type']);\nconst di = candidate.dispatcher_input;\nif (!di || typeof di !== 'object' || Array.isArray(di)) return invalid('INVALID_DISPATCH_INPUT', 'dispatcher_input must be an object.', ['dispatcher_input']);\nconst requiredDi = ['dispatch_allowed','module_execution_started','response_generation_allowed','domain_writes_performed','step'];\nconst missingDi = requiredDi.filter(k => !(k in di));\nif (missingDi.length) return invalid('INVALID_DISPATCH_INPUT', 'Dispatcher input is incomplete.', missingDi.map(k => `dispatcher_input.${k}`));\nif (di.dispatch_allowed !== true) return invalid('INVALID_DISPATCH_INPUT', 'Dispatch is not allowed by upstream guard flags.', ['dispatcher_input.dispatch_allowed']);\nif (di.module_execution_started !== false) return invalid('INVALID_DISPATCH_INPUT', 'Module execution already started for this dispatch envelope.', ['dispatcher_input.module_execution_started']);\nif (di.response_generation_allowed !== false) return invalid('INVALID_DISPATCH_INPUT', 'Response generation must remain disabled in module execution stage.', ['dispatcher_input.response_generation_allowed']);\nif (di.domain_writes_performed !== false) return invalid('INVALID_DISPATCH_INPUT', 'Dispatcher envelope already indicates domain writes were performed.', ['dispatcher_input.domain_writes_performed']);\nconst step = di.step;\nif (!step || typeof step !== 'object' || Array.isArray(step)) return invalid('INVALID_DISPATCH_INPUT', 'dispatcher_input.step must be an object.', ['dispatcher_input.step']);\nconst requiredStep = ['step_id','module_name','purpose','inputs','execution_mode'];\nconst missingStep = requiredStep.filter(k => !(k in step));\nif (missingStep.length) return invalid('MISSING_REQUIRED_FIELDS', 'Dispatch step is missing required fields.', missingStep.map(k => `dispatcher_input.step.${k}`));\nreturn [{ json: {\n  _valid: 'true',\n  execution_context_id: String(candidate.execution_context_id),\n  thread_id: String(candidate.thread_id),\n  tenant_id: String(candidate.tenant_id),\n  idempotency_key: String(candidate.idempotency_key || `dispatch:${step.step_id}`),\n  step: step\n}}];\n"
+      },
+      "id": "31540574-4a57-410f-bb51-48637ac971ff",
+      "name": "ME_Validate_Dispatcher_Result",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        848,
+        352
+      ]
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json._valid }}",
+                    "rightValue": "true",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "valid"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json._valid }}",
+                    "rightValue": "false",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "invalid"
+            }
+          ]
+        },
+        "options": {
+          "fallbackOutput": "extra"
+        }
+      },
+      "id": "6a24b8e3-ada0-4cb6-a68d-7e556122f393",
+      "name": "ME_Route_Valid",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        1088,
+        352
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT * FROM public.execution_contexts WHERE id = $1::uuid AND tenant_id = $2::uuid LIMIT 1;",
+        "options": {
+          "queryReplacement": "={{ [$json.execution_context_id, $json.tenant_id] }}"
+        }
+      },
+      "id": "e9a22ec0-f9c2-4e3e-9bd6-ee2c1e79ff4b",
+      "name": "ME_Load_Execution_Context",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.4,
+      "alwaysOutputData": true,
+      "position": [
+        1328,
+        288
+      ],
+      "credentials": {
+        "postgres": {
+          "id": "z9nKgToNWvIW7P8f",
+          "name": "Postgres account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT * FROM public.tasks WHERE tenant_id = $1::uuid AND (($2::uuid IS NOT NULL AND id = $2::uuid) OR ($3::text IS NOT NULL AND title ILIKE $3::text)) LIMIT 50;",
+        "options": {
+          "queryReplacement": "={{ [$('ME_Validate_Dispatcher_Result').first().json.tenant_id, $('ME_Validate_Dispatcher_Result').first().json.step.inputs.task_id || null, $('ME_Validate_Dispatcher_Result').first().json.step.inputs.title_match || null] }}"
+        }
+      },
+      "id": "f8a29f9b-851b-4723-878e-39a9ba96ab82",
+      "name": "ME_Load_Task_Candidates",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.4,
+      "alwaysOutputData": true,
+      "position": [
+        2048,
+        272
+      ],
+      "credentials": {
+        "postgres": {
+          "id": "z9nKgToNWvIW7P8f",
+          "name": "Postgres account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $('ME_Validate_Dispatcher_Result').first().json.step.module_name }}",
+                    "rightValue": "task_module",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "task_module"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $('ME_Validate_Dispatcher_Result').first().json.step.module_name }}",
+                    "rightValue": "reminder_module",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "reminder_module"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $('ME_Validate_Dispatcher_Result').first().json.step.module_name }}",
+                    "rightValue": "memory_module",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "memory_module"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $('ME_Validate_Dispatcher_Result').first().json.step.module_name }}",
+                    "rightValue": "improvement_module",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "improvement_module"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $('ME_Validate_Dispatcher_Result').first().json.step.module_name }}",
+                    "rightValue": "watcher_module_basic",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "watcher_module_basic"
+            }
+          ]
+        },
+        "options": {
+          "fallbackOutput": "extra"
+        }
+      },
+      "id": "fd28b866-0c57-428a-9877-c2cd2ab4d08b",
+      "name": "ME_Route_Module_Name",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        2288,
+        272
+      ]
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $('ME_Validate_Dispatcher_Result').first().json.step.inputs.action }}",
+                    "rightValue": "create_task",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "create_task"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $('ME_Validate_Dispatcher_Result').first().json.step.inputs.action }}",
+                    "rightValue": "list_tasks",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "list_tasks"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $('ME_Validate_Dispatcher_Result').first().json.step.inputs.action }}",
+                    "rightValue": "update_task",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "update_task"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $('ME_Validate_Dispatcher_Result').first().json.step.inputs.action }}",
+                    "rightValue": "complete_task",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "complete_task"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $('ME_Validate_Dispatcher_Result').first().json.step.inputs.action }}",
+                    "rightValue": "delete_task",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "delete_task"
+            }
+          ]
+        },
+        "options": {
+          "fallbackOutput": "extra"
+        }
+      },
+      "id": "37711183-f0b2-49cb-b22b-0db2dbbca5bc",
+      "name": "ME_Route_Task_Action",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        2528,
+        272
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\nconst env = $('ME_Validate_Dispatcher_Result').first().json;\nconst step = env.step;\nconst inputs = step.inputs || {};\nconst missing = ['description'].filter(f => !inputs[f]);\nif (missing.length) {\n  return [{ json: { _error: true, error_code: 'MISSING_REQUIRED_FIELDS', error_message: 'Task create inputs are incomplete.', missing_fields: missing } }];\n}\nconst taskId = `task:${env.tenant_id}:${step.step_id}`;\nreturn [{ json: {\n  status_kind: 'success',\n  result_type: 'module_result',\n  execution_context_id: env.execution_context_id,\n  thread_id: env.thread_id,\n  tenant_id: env.tenant_id,\n  module_result: {\n    module_name: 'task_module',\n    step_id: step.step_id,\n    result_type: 'execution',\n    status: 'success',\n    summary: 'Task create request prepared successfully.',\n    observations: [],\n    proposals: [],\n    actions_executed: [{\n      action: 'create_task',\n      details: {\n        task_id: taskId,\n        title: inputs.title || inputs.description,\n        description: inputs.description,\n        priority: inputs.priority || 'normal',\n        due_type: inputs.due_type || 'flexible',\n        due_date: inputs.due_date || null,\n        due_at: inputs.due_at || null\n      }\n    }],\n    artifacts: [{ type: 'task_id', value: taskId }],\n    confidence: 1.0,\n    needs_followup: false,\n    followup_requests: []\n  },\n  module_execution_started: true,\n  domain_writes_performed: false,\n  response_generation_allowed: false\n}}];\n"
+      },
+      "id": "72c07567-feca-4329-84d1-66b35db4a906",
+      "name": "ME_Task_Create_Result",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2768,
+        112
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\nconst env = $('ME_Validate_Dispatcher_Result').first().json;\nconst step = env.step;\nconst inputs = step.inputs || {};\nreturn [{ json: {\n  status_kind: 'success',\n  result_type: 'module_result',\n  execution_context_id: env.execution_context_id,\n  thread_id: env.thread_id,\n  tenant_id: env.tenant_id,\n  module_result: {\n    module_name: 'task_module',\n    step_id: step.step_id,\n    result_type: 'analysis',\n    status: 'success',\n    summary: 'Task list request prepared successfully.',\n    observations: [],\n    proposals: [],\n    actions_executed: [{\n      action: 'list_tasks',\n      details: {\n        timeframe: inputs.timeframe || 'all',\n        status: inputs.status || 'open',\n        limit: inputs.limit || 20\n      }\n    }],\n    artifacts: [],\n    confidence: 1.0,\n    needs_followup: false,\n    followup_requests: []\n  },\n  module_execution_started: true,\n  domain_writes_performed: false,\n  response_generation_allowed: false\n}}];\n"
+      },
+      "id": "1b466b06-9d90-4b04-acb9-d166d6ca0cec",
+      "name": "ME_Task_List_Result",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2768,
+        192
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\nconst env = $('ME_Validate_Dispatcher_Result').first().json;\nconst step = env.step;\nconst inputs = step.inputs || {};\nif (!inputs.task_id && !inputs.title_match) {\n  return [{ json: { _error: true, error_code: 'MISSING_REQUIRED_FIELDS', error_message: 'Task update requires task_id or title_match.', missing_fields: ['task_id_or_title_match'] } }];\n}\nconst mutable = ['title','description','priority','due_date','due_at','status'];\nconst patch = {};\nfor (const k of mutable) {\n  if (inputs[k] !== undefined && inputs[k] !== null) patch[k] = inputs[k];\n}\nif (Object.keys(patch).length === 0) {\n  return [{ json: { _error: true, error_code: 'MISSING_REQUIRED_FIELDS', error_message: 'Task update requires at least one mutable field.', missing_fields: ['patch'] } }];\n}\nreturn [{ json: {\n  status_kind: 'success',\n  result_type: 'module_result',\n  execution_context_id: env.execution_context_id,\n  thread_id: env.thread_id,\n  tenant_id: env.tenant_id,\n  module_result: {\n    module_name: 'task_module',\n    step_id: step.step_id,\n    result_type: 'execution',\n    status: 'success',\n    summary: 'Task update request prepared successfully.',\n    observations: [],\n    proposals: [],\n    actions_executed: [{\n      action: 'update_task',\n      details: { task_id: inputs.task_id || null, title_match: inputs.title_match || null, patch: patch }\n    }],\n    artifacts: [],\n    confidence: 1.0,\n    needs_followup: false,\n    followup_requests: []\n  },\n  module_execution_started: true,\n  domain_writes_performed: false,\n  response_generation_allowed: false\n}}];\n"
+      },
+      "id": "f67836cd-5cc0-41af-919a-a2d3c3ff21ed",
+      "name": "ME_Task_Update_Result",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2768,
+        272
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\nconst env = $('ME_Validate_Dispatcher_Result').first().json;\nconst step = env.step;\nconst inputs = step.inputs || {};\nif (!inputs.task_id && !inputs.title_match) {\n  return [{ json: { _error: true, error_code: 'MISSING_REQUIRED_FIELDS', error_message: 'Task complete requires task_id or title_match.', missing_fields: ['task_id_or_title_match'] } }];\n}\nreturn [{ json: {\n  status_kind: 'success',\n  result_type: 'module_result',\n  execution_context_id: env.execution_context_id,\n  thread_id: env.thread_id,\n  tenant_id: env.tenant_id,\n  module_result: {\n    module_name: 'task_module',\n    step_id: step.step_id,\n    result_type: 'execution',\n    status: 'success',\n    summary: 'Task complete request prepared successfully.',\n    observations: [],\n    proposals: [],\n    actions_executed: [{\n      action: 'complete_task',\n      details: { task_id: inputs.task_id || null, title_match: inputs.title_match || null }\n    }],\n    artifacts: [],\n    confidence: 1.0,\n    needs_followup: false,\n    followup_requests: []\n  },\n  module_execution_started: true,\n  domain_writes_performed: false,\n  response_generation_allowed: false\n}}];\n"
+      },
+      "id": "8b16b5bf-dd70-4f94-a195-6397589cc4b8",
+      "name": "ME_Task_Complete_Result",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2768,
+        352
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\nconst env = $('ME_Validate_Dispatcher_Result').first().json;\nconst step = env.step;\nconst inputs = step.inputs || {};\nif (!inputs.task_id && !inputs.title_match && !inputs.scope) {\n  return [{ json: { _error: true, error_code: 'MISSING_REQUIRED_FIELDS', error_message: 'Task delete requires task_id, title_match, or scope.', missing_fields: ['task_id_or_title_match_or_scope'] } }];\n}\nreturn [{ json: {\n  status_kind: 'success',\n  result_type: 'module_result',\n  execution_context_id: env.execution_context_id,\n  thread_id: env.thread_id,\n  tenant_id: env.tenant_id,\n  module_result: {\n    module_name: 'task_module',\n    step_id: step.step_id,\n    result_type: 'execution',\n    status: 'success',\n    summary: 'Task delete request prepared successfully.',\n    observations: [],\n    proposals: [],\n    actions_executed: [{\n      action: 'delete_task',\n      details: { task_id: inputs.task_id || null, title_match: inputs.title_match || null, scope: inputs.scope || null }\n    }],\n    artifacts: [],\n    confidence: 1.0,\n    needs_followup: false,\n    followup_requests: []\n  },\n  module_execution_started: true,\n  domain_writes_performed: false,\n  response_generation_allowed: false\n}}];\n"
+      },
+      "id": "9851f4a3-3191-4a03-be10-509a4de88f16",
+      "name": "ME_Task_Delete_Result",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2768,
+        432
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\nconst env = $('ME_Validate_Dispatcher_Result').first().json;\nconst data = $json || {};\nconst KNOWN_MODULES = new Set(['task_module','reminder_module','memory_module','improvement_module','watcher_module_basic']);\nlet code, message, missing, details;\nif (data && data.error_code) {\n  code = data.error_code;\n  message = data.error_message || 'Module execution validation error.';\n  missing = Array.isArray(data.missing_fields) ? data.missing_fields : [];\n  details = {};\n} else if (env && env.step && !KNOWN_MODULES.has(env.step.module_name)) {\n  code = 'UNSUPPORTED_MODULE';\n  message = `WF-ME-01 does not support module ${env.step.module_name}.`;\n  missing = [];\n  details = { module_name: env.step.module_name };\n} else {\n  const moduleName = env && env.step ? env.step.module_name : 'unknown_module';\n  const action = (env && env.step && env.step.inputs) ? env.step.inputs.action : null;\n  code = 'UNSUPPORTED_ACTION';\n  message = `Unsupported ${moduleName} action: ${action}.`;\n  missing = [];\n  details = { module_name: moduleName, action: action };\n}\nreturn [{ json: {\n  status_kind: 'error',\n  result_type: 'module_error',\n  module_name: 'module_execution',\n  error: {\n    code: code,\n    message: message,\n    missing_fields: missing,\n    details: details\n  }\n}}];\n"
+      },
+      "id": "cc50ad68-b87c-47d8-a584-2beccd54c656",
+      "name": "ME_Return_Error",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2768,
+        592
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\nconst data = $json;\nif (data && data._error === true) {\n  return [{ json: {\n    status_kind: 'error',\n    result_type: 'module_error',\n    module_name: 'module_execution',\n    error: {\n      code: data.error_code || 'INVALID_DISPATCH_INPUT',\n      message: data.error_message || 'Module execution error.',\n      missing_fields: Array.isArray(data.missing_fields) ? data.missing_fields : [],\n      details: {}\n    }\n  }}];\n}\nreturn [{ json: {\n  status_kind: data.status_kind,\n  result_type: data.result_type,\n  execution_context_id: data.execution_context_id,\n  thread_id: data.thread_id,\n  tenant_id: data.tenant_id,\n  allowed_next_stage: 'WF-RA-01',\n  module_result: data.module_result,\n  module_execution_started: data.module_execution_started === true,\n  domain_writes_performed: data.domain_writes_performed === true,\n  response_generation_allowed: data.response_generation_allowed === true\n}}];\n"
+      },
+      "id": "5d99eb52-9957-425f-9e60-902b2d2dbf49",
+      "name": "ME_Return_Result",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        3008,
+        272
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "22f293ff-feec-4e11-bbf6-6927be17224c",
+      "name": "When chat message received",
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        592,
+        128
+      ],
+      "webhookId": "803c9d53-897b-46be-991a-1c2ebcd1f702"
+    },
+    {
+      "parameters": {
+        "jsCode": "\nconst ecRow = $json;\nconst env = $('ME_Validate_Dispatcher_Result').first().json;\nconst ecHasId = !!(ecRow && ecRow.id);\nconst tenantMatch = ecHasId && ecRow.tenant_id === env.tenant_id;\nconst threadMatch = ecHasId && ecRow.thread_id === env.thread_id;\nconst ecIdMatch = ecHasId && String(ecRow.id) === String(env.execution_context_id);\nif (!ecHasId || !tenantMatch || !threadMatch || !ecIdMatch) {\n  return [{ json: {\n    _context_ok: 'false',\n    error_code: 'CONTEXT_MISMATCH',\n    error_message: 'Execution context not found or does not match request tenant/thread.',\n    missing_fields: [],\n    details: {\n      expected_execution_context_id: env.execution_context_id,\n      expected_tenant_id: env.tenant_id,\n      expected_thread_id: env.thread_id,\n      found_execution_context_id: ecHasId ? ecRow.id : null,\n      found_tenant_id: ecHasId ? ecRow.tenant_id : null,\n      found_thread_id: ecHasId ? ecRow.thread_id : null\n    }\n  }}];\n}\nreturn [{ json: Object.assign({ _context_ok: 'true' }, ecRow) }];\n"
+      },
+      "id": "c29a16fd-6fc3-4739-921c-76cf80a8e236",
+      "name": "ME_Check_Context_Match",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1552,
+        288
+      ]
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json._context_ok }}",
+                    "rightValue": "true",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "context_ok"
+            }
+          ]
+        },
+        "options": {
+          "fallbackOutput": "extra"
+        }
+      },
+      "id": "a44dc7b3-bdb7-4249-963f-1edadcd3c718",
+      "name": "ME_Route_Context_OK",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        1712,
+        288
+      ]
+    },
+    {
+      "id": "me-dispatch-to-ra-01-subcall",
+      "name": "ME_Dispatch_To_RA_01_SUBCALL",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        3268,
+        272
+      ],
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "5RcNLtxNjAHJsZPE",
+          "mode": "list",
+          "cachedResultName": "WF-RA-01 Result Aggregator"
+        },
+        "mode": "once",
+        "options": {
+          "waitForSubWorkflow": true
+        }
+      }
+    },
+    {
+      "id": "me-build-ra-envelope",
+      "name": "ME_Build_RA_Envelope",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        3268,
+        412
+      ],
+      "parameters": {
+        "language": "javaScript",
+        "jsCode": "// Wrap ME module_result into a single-result module_batch envelope for RA-01.\nconst src = $json;\nif (!src || src.status_kind !== 'success' || src.result_type !== 'module_result') {\n  return [{ json: src }];\n}\nconst mr = src.module_result || {};\nreturn [{ json: {\n  status_kind: 'success',\n  result_type: 'module_batch',\n  execution_context_id: src.execution_context_id,\n  thread_id: src.thread_id,\n  tenant_id: src.tenant_id,\n  aggregation_input: {\n    aggregation_allowed: true,\n    response_generation_allowed: false,\n    module_execution_completed: true,\n    domain_writes_performed: !!src.domain_writes_performed,\n    module_results: [mr],\n    expected_step_ids: [mr.step_id]\n  }\n}}];"
+      }
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $('ME_Validate_Dispatcher_Result').first().json.step.inputs.action }}",
+                    "rightValue": "create_reminder",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "create_reminder"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $('ME_Validate_Dispatcher_Result').first().json.step.inputs.action }}",
+                    "rightValue": "list_reminders",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "list_reminders"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $('ME_Validate_Dispatcher_Result').first().json.step.inputs.action }}",
+                    "rightValue": "update_reminder",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "update_reminder"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $('ME_Validate_Dispatcher_Result').first().json.step.inputs.action }}",
+                    "rightValue": "cancel_reminder",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "cancel_reminder"
+            }
+          ]
+        },
+        "options": {
+          "fallbackOutput": "extra"
+        }
+      },
+      "id": "me-phase11-route-reminder-action",
+      "name": "ME_Route_Reminder_Action",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        2528,
+        805
+      ]
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $('ME_Validate_Dispatcher_Result').first().json.step.inputs.action }}",
+                    "rightValue": "store_memory",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "store_memory"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $('ME_Validate_Dispatcher_Result').first().json.step.inputs.action }}",
+                    "rightValue": "search_memory",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "search_memory"
+            }
+          ]
+        },
+        "options": {
+          "fallbackOutput": "extra"
+        }
+      },
+      "id": "me-phase11-route-memory-action",
+      "name": "ME_Route_Memory_Action",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        2528,
+        1075
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\nconst env = $('ME_Validate_Dispatcher_Result').first().json;\nconst step = env.step;\nconst inputs = step.inputs || {};\nconst missing = ['description'].filter(f => !inputs[f]);\nif (missing.length) {\n  return [{ json: { _error: true, error_code: 'MISSING_REQUIRED_FIELDS', error_message: 'Reminder create inputs are incomplete.', missing_fields: missing } }];\n}\nconst reminderId = `reminder:${env.tenant_id}:${step.step_id}`;\nreturn [{ json: {\n  status_kind: 'success',\n  result_type: 'module_result',\n  execution_context_id: env.execution_context_id,\n  thread_id: env.thread_id,\n  tenant_id: env.tenant_id,\n  module_result: {\n    module_name: 'reminder_module',\n    step_id: step.step_id,\n    result_type: 'execution',\n    status: 'success',\n    summary: 'Reminder create request prepared successfully.',\n    observations: [],\n    proposals: [],\n    actions_executed: [{\n      action: 'create_reminder',\n      details: {\n        reminder_id: reminderId,\n        title: inputs.title || inputs.description,\n        description: inputs.description,\n        due_date: inputs.due_date || null,\n        time: inputs.time || null,\n        remind_at: inputs.remind_at || null,\n        recurrence: inputs.recurrence || null\n      }\n    }],\n    artifacts: [{ type: 'reminder_id', value: reminderId }],\n    confidence: 1.0,\n    needs_followup: false,\n    followup_requests: []\n  },\n  module_execution_started: true,\n  domain_writes_performed: false,\n  response_generation_allowed: false\n}}];\n"
+      },
+      "id": "me-phase11-me-reminder-create-result",
+      "name": "ME_Reminder_Create_Result",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2768,
+        700
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\nconst env = $('ME_Validate_Dispatcher_Result').first().json;\nconst step = env.step;\nconst inputs = step.inputs || {};\nreturn [{ json: {\n  status_kind: 'success',\n  result_type: 'module_result',\n  execution_context_id: env.execution_context_id,\n  thread_id: env.thread_id,\n  tenant_id: env.tenant_id,\n  module_result: {\n    module_name: 'reminder_module',\n    step_id: step.step_id,\n    result_type: 'analysis',\n    status: 'success',\n    summary: 'Reminder list request prepared successfully.',\n    observations: [],\n    proposals: [],\n    actions_executed: [{\n      action: 'list_reminders',\n      details: {\n        timeframe: inputs.timeframe || 'all',\n        status: inputs.status || null,\n        limit: inputs.limit || 25,\n        list_results: []\n      }\n    }],\n    artifacts: [],\n    confidence: 1.0,\n    needs_followup: false,\n    followup_requests: []\n  },\n  module_execution_started: true,\n  domain_writes_performed: false,\n  response_generation_allowed: false\n}}];\n"
+      },
+      "id": "me-phase11-me-reminder-list-result",
+      "name": "ME_Reminder_List_Result",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2768,
+        770
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\nconst env = $('ME_Validate_Dispatcher_Result').first().json;\nconst step = env.step;\nconst inputs = step.inputs || {};\nconst hasIdentifier = !!(inputs.reminder_id || inputs.title_match);\nconst patch = inputs.patch && typeof inputs.patch === 'object' ? inputs.patch : {};\nconst hasPatch = Object.keys(patch).some(k => patch[k] !== undefined && patch[k] !== null && patch[k] !== '');\nconst missing = [];\nif (!hasIdentifier) missing.push('reminder_id_or_title_match');\nif (!hasPatch) missing.push('patch');\nif (missing.length) {\n  return [{ json: { _error: true, error_code: 'MISSING_REQUIRED_FIELDS', error_message: 'Reminder update inputs are incomplete.', missing_fields: missing } }];\n}\nconst reminderRef = inputs.reminder_id || `title_match:${inputs.title_match}`;\nreturn [{ json: {\n  status_kind: 'success',\n  result_type: 'module_result',\n  execution_context_id: env.execution_context_id,\n  thread_id: env.thread_id,\n  tenant_id: env.tenant_id,\n  module_result: {\n    module_name: 'reminder_module',\n    step_id: step.step_id,\n    result_type: 'execution',\n    status: 'success',\n    summary: 'Reminder update request prepared successfully.',\n    observations: [],\n    proposals: [],\n    actions_executed: [{\n      action: 'update_reminder',\n      details: {\n        reminder_id: inputs.reminder_id || null,\n        title_match: inputs.title_match || null,\n        patch: {\n          title: patch.title || null,\n          description: patch.description || null,\n          remind_at: patch.remind_at || null,\n          status: patch.status || null,\n          recurrence: patch.recurrence || null\n        }\n      }\n    }],\n    artifacts: [{ type: 'reminder_id', value: reminderRef }],\n    confidence: 1.0,\n    needs_followup: false,\n    followup_requests: []\n  },\n  module_execution_started: true,\n  domain_writes_performed: false,\n  response_generation_allowed: false\n}}];\n"
+      },
+      "id": "me-phase11-me-reminder-update-result",
+      "name": "ME_Reminder_Update_Result",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2768,
+        840
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\nconst env = $('ME_Validate_Dispatcher_Result').first().json;\nconst step = env.step;\nconst inputs = step.inputs || {};\nconst missing = [];\nif (!inputs.reminder_id && !inputs.title_match) missing.push('reminder_id_or_title_match');\nif (missing.length) {\n  return [{ json: { _error: true, error_code: 'MISSING_REQUIRED_FIELDS', error_message: 'Reminder cancel inputs are incomplete.', missing_fields: missing } }];\n}\nconst reminderRef = inputs.reminder_id || `title_match:${inputs.title_match}`;\nreturn [{ json: {\n  status_kind: 'success',\n  result_type: 'module_result',\n  execution_context_id: env.execution_context_id,\n  thread_id: env.thread_id,\n  tenant_id: env.tenant_id,\n  module_result: {\n    module_name: 'reminder_module',\n    step_id: step.step_id,\n    result_type: 'execution',\n    status: 'success',\n    summary: 'Reminder cancel request prepared successfully.',\n    observations: [],\n    proposals: [],\n    actions_executed: [{\n      action: 'cancel_reminder',\n      details: {\n        reminder_id: inputs.reminder_id || null,\n        title_match: inputs.title_match || null,\n        new_status: 'cancelled'\n      }\n    }],\n    artifacts: [{ type: 'reminder_id', value: reminderRef }],\n    confidence: 1.0,\n    needs_followup: false,\n    followup_requests: []\n  },\n  module_execution_started: true,\n  domain_writes_performed: false,\n  response_generation_allowed: false\n}}];\n"
+      },
+      "id": "me-phase11-me-reminder-cancel-result",
+      "name": "ME_Reminder_Cancel_Result",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2768,
+        910
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\nconst env = $('ME_Validate_Dispatcher_Result').first().json;\nconst step = env.step;\nconst inputs = step.inputs || {};\nconst validTypes = ['fact','observation','pattern','inference','preference','constraint'];\nconst missing = [];\nif (!inputs.content) missing.push('content');\nif (!inputs.memory_type || !validTypes.includes(inputs.memory_type)) missing.push('memory_type');\nif (missing.length) {\n  return [{ json: { _error: true, error_code: 'MISSING_REQUIRED_FIELDS', error_message: 'Memory store inputs are incomplete.', missing_fields: missing } }];\n}\nconst memoryId = `memory:${env.tenant_id}:${step.step_id}`;\nreturn [{ json: {\n  status_kind: 'success',\n  result_type: 'module_result',\n  execution_context_id: env.execution_context_id,\n  thread_id: env.thread_id,\n  tenant_id: env.tenant_id,\n  module_result: {\n    module_name: 'memory_module',\n    step_id: step.step_id,\n    result_type: 'execution',\n    status: 'success',\n    summary: 'Memory store request prepared successfully.',\n    observations: [],\n    proposals: [],\n    actions_executed: [{\n      action: 'store_memory',\n      details: {\n        memory_id: memoryId,\n        content: inputs.content,\n        memory_type: inputs.memory_type,\n        source_context: inputs.source_context || null,\n        durability: inputs.durability || 'standard'\n      }\n    }],\n    artifacts: [{ type: 'memory_id', value: memoryId }],\n    confidence: 1.0,\n    needs_followup: false,\n    followup_requests: []\n  },\n  module_execution_started: true,\n  domain_writes_performed: false,\n  response_generation_allowed: false\n}}];\n"
+      },
+      "id": "me-phase11-me-memory-store-result",
+      "name": "ME_Memory_Store_Result",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2768,
+        1040
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\nconst env = $('ME_Validate_Dispatcher_Result').first().json;\nconst step = env.step;\nconst inputs = step.inputs || {};\nconst missing = [];\nif (!inputs.query) missing.push('query');\nif (missing.length) {\n  return [{ json: { _error: true, error_code: 'MISSING_REQUIRED_FIELDS', error_message: 'Memory search inputs are incomplete.', missing_fields: missing } }];\n}\nreturn [{ json: {\n  status_kind: 'success',\n  result_type: 'module_result',\n  execution_context_id: env.execution_context_id,\n  thread_id: env.thread_id,\n  tenant_id: env.tenant_id,\n  module_result: {\n    module_name: 'memory_module',\n    step_id: step.step_id,\n    result_type: 'analysis',\n    status: 'success',\n    summary: 'Memory search request prepared successfully.',\n    observations: [],\n    proposals: [],\n    actions_executed: [{\n      action: 'search_memory',\n      details: {\n        query: inputs.query,\n        timeframe: inputs.timeframe || 'all',\n        memory_type: inputs.memory_type || null,\n        limit: inputs.limit || 10,\n        recall_results: []\n      }\n    }],\n    artifacts: [],\n    confidence: 1.0,\n    needs_followup: false,\n    followup_requests: []\n  },\n  module_execution_started: true,\n  domain_writes_performed: false,\n  response_generation_allowed: false\n}}];\n"
+      },
+      "id": "me-phase11-me-memory-search-result",
+      "name": "ME_Memory_Search_Result",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2768,
+        1110
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\nconst env = $('ME_Validate_Dispatcher_Result').first().json;\nconst step = env.step;\nconst inputs = step.inputs || {};\nconst missing = [];\nif (!inputs.feedback_content) missing.push('feedback_content');\nif (missing.length) {\n  return [{ json: { _error: true, error_code: 'MISSING_REQUIRED_FIELDS', error_message: 'Improvement capture inputs are incomplete.', missing_fields: missing } }];\n}\nconst improvementId = `improvement:${env.tenant_id}:${step.step_id}`;\nreturn [{ json: {\n  status_kind: 'success',\n  result_type: 'module_result',\n  execution_context_id: env.execution_context_id,\n  thread_id: env.thread_id,\n  tenant_id: env.tenant_id,\n  module_result: {\n    module_name: 'improvement_module',\n    step_id: step.step_id,\n    result_type: 'execution',\n    status: 'success',\n    summary: 'Improvement capture request prepared successfully.',\n    observations: [],\n    proposals: [],\n    actions_executed: [{\n      action: 'capture_feedback',\n      details: {\n        improvement_id: improvementId,\n        feedback_content: inputs.feedback_content,\n        category: inputs.category || null,\n        severity: inputs.severity || 'normal'\n      }\n    }],\n    artifacts: [{ type: 'improvement_id', value: improvementId }],\n    confidence: 1.0,\n    needs_followup: false,\n    followup_requests: []\n  },\n  module_execution_started: true,\n  domain_writes_performed: false,\n  response_generation_allowed: false\n}}];\n"
+      },
+      "id": "me-phase11-me-improvement-capture-result",
+      "name": "ME_Improvement_Capture_Result",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2768,
+        1240
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\nconst env = $('ME_Validate_Dispatcher_Result').first().json;\nconst step = env.step;\nconst inputs = step.inputs || {};\nconst digest = {\n  has_thread_summary: !!inputs.thread_summary,\n  has_recent_memory_context: !!inputs.recent_memory_context,\n  module_results_so_far_count: Array.isArray(inputs.module_results_so_far) ? inputs.module_results_so_far.length : 0\n};\nreturn [{ json: {\n  status_kind: 'success',\n  result_type: 'module_result',\n  execution_context_id: env.execution_context_id,\n  thread_id: env.thread_id,\n  tenant_id: env.tenant_id,\n  module_result: {\n    module_name: 'watcher_module_basic',\n    step_id: step.step_id,\n    result_type: 'analysis',\n    status: 'success',\n    summary: 'Watcher observation returned empty result set.',\n    observations: [],\n    proposals: [],\n    anomaly_signals: [],\n    actions_executed: [{\n      action: 'observe',\n      details: { trigger: 'passive', inputs_digest: digest }\n    }],\n    artifacts: [],\n    confidence: 1.0,\n    needs_followup: false,\n    followup_requests: []\n  },\n  module_execution_started: true,\n  domain_writes_performed: false,\n  response_generation_allowed: false\n}}];\n"
+      },
+      "id": "me-phase11-me-watcher-observe-result",
+      "name": "ME_Watcher_Observe_Result",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2768,
+        1340
+      ]
+    }
+  ],
+  "connections": {
+    "ME_Input": {
+      "main": [
+        [
+          {
+            "node": "ME_Validate_Dispatcher_Result",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ME_Manual_Test_Trigger": {
+      "main": [
+        [
+          {
+            "node": "ME_Validate_Dispatcher_Result",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ME_Validate_Dispatcher_Result": {
+      "main": [
+        [
+          {
+            "node": "ME_Route_Valid",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ME_Route_Valid": {
+      "main": [
+        [
+          {
+            "node": "ME_Load_Execution_Context",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "ME_Return_Error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ME_Load_Execution_Context": {
+      "main": [
+        [
+          {
+            "node": "ME_Check_Context_Match",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ME_Load_Task_Candidates": {
+      "main": [
+        [
+          {
+            "node": "ME_Route_Module_Name",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ME_Route_Module_Name": {
+      "main": [
+        [
+          {
+            "node": "ME_Route_Task_Action",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "ME_Route_Reminder_Action",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "ME_Route_Memory_Action",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "ME_Improvement_Capture_Result",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "ME_Watcher_Observe_Result",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "ME_Return_Error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ME_Route_Task_Action": {
+      "main": [
+        [
+          {
+            "node": "ME_Task_Create_Result",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "ME_Task_List_Result",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "ME_Task_Update_Result",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "ME_Task_Complete_Result",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "ME_Task_Delete_Result",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "ME_Return_Error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ME_Task_Create_Result": {
+      "main": [
+        [
+          {
+            "node": "ME_Return_Result",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ME_Task_List_Result": {
+      "main": [
+        [
+          {
+            "node": "ME_Return_Result",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ME_Task_Update_Result": {
+      "main": [
+        [
+          {
+            "node": "ME_Return_Result",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ME_Task_Complete_Result": {
+      "main": [
+        [
+          {
+            "node": "ME_Return_Result",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ME_Task_Delete_Result": {
+      "main": [
+        [
+          {
+            "node": "ME_Return_Result",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "ME_Validate_Dispatcher_Result",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ME_Check_Context_Match": {
+      "main": [
+        [
+          {
+            "node": "ME_Route_Context_OK",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ME_Route_Context_OK": {
+      "main": [
+        [
+          {
+            "node": "ME_Load_Task_Candidates",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "ME_Return_Error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ME_Return_Result": {
+      "main": [
+        [
+          {
+            "node": "ME_Build_RA_Envelope",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ME_Build_RA_Envelope": {
+      "main": [
+        [
+          {
+            "node": "ME_Dispatch_To_RA_01_SUBCALL",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ME_Route_Reminder_Action": {
+      "main": [
+        [
+          {
+            "node": "ME_Reminder_Create_Result",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "ME_Reminder_List_Result",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "ME_Reminder_Update_Result",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "ME_Reminder_Cancel_Result",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "ME_Return_Error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ME_Route_Memory_Action": {
+      "main": [
+        [
+          {
+            "node": "ME_Memory_Store_Result",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "ME_Memory_Search_Result",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "ME_Return_Error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ME_Reminder_Create_Result": {
+      "main": [
+        [
+          {
+            "node": "ME_Return_Result",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ME_Reminder_List_Result": {
+      "main": [
+        [
+          {
+            "node": "ME_Return_Result",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ME_Reminder_Update_Result": {
+      "main": [
+        [
+          {
+            "node": "ME_Return_Result",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ME_Reminder_Cancel_Result": {
+      "main": [
+        [
+          {
+            "node": "ME_Return_Result",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ME_Memory_Store_Result": {
+      "main": [
+        [
+          {
+            "node": "ME_Return_Result",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ME_Memory_Search_Result": {
+      "main": [
+        [
+          {
+            "node": "ME_Return_Result",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ME_Improvement_Capture_Result": {
+      "main": [
+        [
+          {
+            "node": "ME_Return_Result",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ME_Watcher_Observe_Result": {
+      "main": [
+        [
+          {
+            "node": "ME_Return_Result",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "timeSavedMode": "fixed",
+    "callerPolicy": "workflowsFromSameOwner",
+    "availableInMCP": true
+  },
+  "staticData": null,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "pinData": {},
+  "versionId": "1feb0cb7-f7b8-4360-b0f2-be86e6df3827",
+  "activeVersionId": "1feb0cb7-f7b8-4360-b0f2-be86e6df3827",
+  "versionCounter": 67,
+  "triggerCount": 1,
+  "shared": [
+    {
+      "updatedAt": "2026-04-17T20:36:49.235Z",
+      "createdAt": "2026-04-17T20:36:49.235Z",
+      "role": "workflow:owner",
+      "workflowId": "uq26nh1grIpnHju0",
+      "projectId": "WIRLhU6IcCuQzkzY",
+      "project": {
+        "updatedAt": "2026-03-27T16:42:52.879Z",
+        "createdAt": "2026-03-26T19:16:39.847Z",
+        "id": "WIRLhU6IcCuQzkzY",
+        "name": "Andrei Cinc <andrei.cinc9@gmail.com>",
+        "type": "personal",
+        "icon": null,
+        "description": null,
+        "creatorId": "68a414fd-cc03-4f02-87bc-9067f976e98a"
+      }
+    }
+  ],
+  "tags": [],
+  "activeVersion": {
+    "updatedAt": "2026-04-20T15:06:36.599Z",
+    "createdAt": "2026-04-20T15:06:36.599Z",
+    "versionId": "1feb0cb7-f7b8-4360-b0f2-be86e6df3827",
+    "workflowId": "uq26nh1grIpnHju0",
+    "nodes": [
+      {
+        "parameters": {},
+        "id": "9da57d91-6144-4ebd-9e9b-87f4fc95080e",
+        "name": "ME_Input",
+        "type": "n8n-nodes-base.executeWorkflowTrigger",
+        "typeVersion": 1,
+        "position": [
+          576,
+          352
+        ]
+      },
+      {
+        "parameters": {},
+        "id": "c4b6dd64-9dd0-42c2-aaa1-8fa75c9279f8",
+        "name": "ME_Manual_Test_Trigger",
+        "type": "n8n-nodes-base.manualTrigger",
+        "typeVersion": 1,
+        "position": [
+          576,
+          576
+        ]
+      },
+      {
+        "parameters": {
+          "jsCode": "\nconst input = $json;\nlet candidate = input;\nif (input && typeof input.chatInput === 'string' && !input.status_kind && !input.dispatcher_input) {\n  try { candidate = JSON.parse(input.chatInput); } catch (e) { candidate = input; }\n}\nfunction invalid(code, message, missing) {\n  return [{ json: { _valid: 'false', error_code: code, error_message: message, missing_fields: missing || [] } }];\n}\nif (!candidate || typeof candidate !== 'object' || Array.isArray(candidate)) {\n  return invalid('INVALID_DISPATCH_INPUT', 'Input is not a JSON object.', ['root']);\n}\nconst requiredTop = ['status_kind','result_type','execution_context_id','thread_id','tenant_id','dispatcher_input'];\nconst missingTop = requiredTop.filter(k => !(k in candidate));\nif (missingTop.length) return invalid('INVALID_DISPATCH_INPUT', 'Dispatcher envelope missing required top-level fields.', missingTop);\nif (candidate.status_kind !== 'success') return invalid('INVALID_DISPATCH_INPUT', 'status_kind must be success.', ['status_kind']);\nif (candidate.result_type !== 'dispatch') return invalid('INVALID_DISPATCH_INPUT', 'result_type must be dispatch.', ['result_type']);\nconst di = candidate.dispatcher_input;\nif (!di || typeof di !== 'object' || Array.isArray(di)) return invalid('INVALID_DISPATCH_INPUT', 'dispatcher_input must be an object.', ['dispatcher_input']);\nconst requiredDi = ['dispatch_allowed','module_execution_started','response_generation_allowed','domain_writes_performed','step'];\nconst missingDi = requiredDi.filter(k => !(k in di));\nif (missingDi.length) return invalid('INVALID_DISPATCH_INPUT', 'Dispatcher input is incomplete.', missingDi.map(k => `dispatcher_input.${k}`));\nif (di.dispatch_allowed !== true) return invalid('INVALID_DISPATCH_INPUT', 'Dispatch is not allowed by upstream guard flags.', ['dispatcher_input.dispatch_allowed']);\nif (di.module_execution_started !== false) return invalid('INVALID_DISPATCH_INPUT', 'Module execution already started for this dispatch envelope.', ['dispatcher_input.module_execution_started']);\nif (di.response_generation_allowed !== false) return invalid('INVALID_DISPATCH_INPUT', 'Response generation must remain disabled in module execution stage.', ['dispatcher_input.response_generation_allowed']);\nif (di.domain_writes_performed !== false) return invalid('INVALID_DISPATCH_INPUT', 'Dispatcher envelope already indicates domain writes were performed.', ['dispatcher_input.domain_writes_performed']);\nconst step = di.step;\nif (!step || typeof step !== 'object' || Array.isArray(step)) return invalid('INVALID_DISPATCH_INPUT', 'dispatcher_input.step must be an object.', ['dispatcher_input.step']);\nconst requiredStep = ['step_id','module_name','purpose','inputs','execution_mode'];\nconst missingStep = requiredStep.filter(k => !(k in step));\nif (missingStep.length) return invalid('MISSING_REQUIRED_FIELDS', 'Dispatch step is missing required fields.', missingStep.map(k => `dispatcher_input.step.${k}`));\nreturn [{ json: {\n  _valid: 'true',\n  execution_context_id: String(candidate.execution_context_id),\n  thread_id: String(candidate.thread_id),\n  tenant_id: String(candidate.tenant_id),\n  idempotency_key: String(candidate.idempotency_key || `dispatch:${step.step_id}`),\n  step: step\n}}];\n"
+        },
+        "id": "31540574-4a57-410f-bb51-48637ac971ff",
+        "name": "ME_Validate_Dispatcher_Result",
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2,
+        "position": [
+          848,
+          352
+        ]
+      },
+      {
+        "parameters": {
+          "rules": {
+            "values": [
+              {
+                "conditions": {
+                  "options": {
+                    "caseSensitive": true,
+                    "leftValue": "",
+                    "typeValidation": "strict",
+                    "version": 2
+                  },
+                  "conditions": [
+                    {
+                      "leftValue": "={{ $json._valid }}",
+                      "rightValue": "true",
+                      "operator": {
+                        "type": "string",
+                        "operation": "equals"
+                      }
+                    }
+                  ],
+                  "combinator": "and"
+                },
+                "renameOutput": true,
+                "outputKey": "valid"
+              },
+              {
+                "conditions": {
+                  "options": {
+                    "caseSensitive": true,
+                    "leftValue": "",
+                    "typeValidation": "strict",
+                    "version": 2
+                  },
+                  "conditions": [
+                    {
+                      "leftValue": "={{ $json._valid }}",
+                      "rightValue": "false",
+                      "operator": {
+                        "type": "string",
+                        "operation": "equals"
+                      }
+                    }
+                  ],
+                  "combinator": "and"
+                },
+                "renameOutput": true,
+                "outputKey": "invalid"
+              }
+            ]
+          },
+          "options": {
+            "fallbackOutput": "extra"
+          }
+        },
+        "id": "6a24b8e3-ada0-4cb6-a68d-7e556122f393",
+        "name": "ME_Route_Valid",
+        "type": "n8n-nodes-base.switch",
+        "typeVersion": 3.2,
+        "position": [
+          1088,
+          352
+        ]
+      },
+      {
+        "parameters": {
+          "operation": "executeQuery",
+          "query": "SELECT * FROM public.execution_contexts WHERE id = $1::uuid AND tenant_id = $2::uuid LIMIT 1;",
+          "options": {
+            "queryReplacement": "={{ [$json.execution_context_id, $json.tenant_id] }}"
+          }
+        },
+        "id": "e9a22ec0-f9c2-4e3e-9bd6-ee2c1e79ff4b",
+        "name": "ME_Load_Execution_Context",
+        "type": "n8n-nodes-base.postgres",
+        "typeVersion": 2.4,
+        "alwaysOutputData": true,
+        "position": [
+          1328,
+          288
+        ],
+        "credentials": {
+          "postgres": {
+            "id": "z9nKgToNWvIW7P8f",
+            "name": "Postgres account 2"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "operation": "executeQuery",
+          "query": "SELECT * FROM public.tasks WHERE tenant_id = $1::uuid AND (($2::uuid IS NOT NULL AND id = $2::uuid) OR ($3::text IS NOT NULL AND title ILIKE $3::text)) LIMIT 50;",
+          "options": {
+            "queryReplacement": "={{ [$('ME_Validate_Dispatcher_Result').first().json.tenant_id, $('ME_Validate_Dispatcher_Result').first().json.step.inputs.task_id || null, $('ME_Validate_Dispatcher_Result').first().json.step.inputs.title_match || null] }}"
+          }
+        },
+        "id": "f8a29f9b-851b-4723-878e-39a9ba96ab82",
+        "name": "ME_Load_Task_Candidates",
+        "type": "n8n-nodes-base.postgres",
+        "typeVersion": 2.4,
+        "alwaysOutputData": true,
+        "position": [
+          2048,
+          272
+        ],
+        "credentials": {
+          "postgres": {
+            "id": "z9nKgToNWvIW7P8f",
+            "name": "Postgres account 2"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "rules": {
+            "values": [
+              {
+                "conditions": {
+                  "options": {
+                    "caseSensitive": true,
+                    "leftValue": "",
+                    "typeValidation": "strict",
+                    "version": 2
+                  },
+                  "conditions": [
+                    {
+                      "leftValue": "={{ $('ME_Validate_Dispatcher_Result').first().json.step.module_name }}",
+                      "rightValue": "task_module",
+                      "operator": {
+                        "type": "string",
+                        "operation": "equals"
+                      }
+                    }
+                  ],
+                  "combinator": "and"
+                },
+                "renameOutput": true,
+                "outputKey": "task_module"
+              },
+              {
+                "conditions": {
+                  "options": {
+                    "caseSensitive": true,
+                    "leftValue": "",
+                    "typeValidation": "strict",
+                    "version": 2
+                  },
+                  "conditions": [
+                    {
+                      "leftValue": "={{ $('ME_Validate_Dispatcher_Result').first().json.step.module_name }}",
+                      "rightValue": "reminder_module",
+                      "operator": {
+                        "type": "string",
+                        "operation": "equals"
+                      }
+                    }
+                  ],
+                  "combinator": "and"
+                },
+                "renameOutput": true,
+                "outputKey": "reminder_module"
+              },
+              {
+                "conditions": {
+                  "options": {
+                    "caseSensitive": true,
+                    "leftValue": "",
+                    "typeValidation": "strict",
+                    "version": 2
+                  },
+                  "conditions": [
+                    {
+                      "leftValue": "={{ $('ME_Validate_Dispatcher_Result').first().json.step.module_name }}",
+                      "rightValue": "memory_module",
+                      "operator": {
+                        "type": "string",
+                        "operation": "equals"
+                      }
+                    }
+                  ],
+                  "combinator": "and"
+                },
+                "renameOutput": true,
+                "outputKey": "memory_module"
+              },
+              {
+                "conditions": {
+                  "options": {
+                    "caseSensitive": true,
+                    "leftValue": "",
+                    "typeValidation": "strict",
+                    "version": 2
+                  },
+                  "conditions": [
+                    {
+                      "leftValue": "={{ $('ME_Validate_Dispatcher_Result').first().json.step.module_name }}",
+                      "rightValue": "improvement_module",
+                      "operator": {
+                        "type": "string",
+                        "operation": "equals"
+                      }
+                    }
+                  ],
+                  "combinator": "and"
+                },
+                "renameOutput": true,
+                "outputKey": "improvement_module"
+              },
+              {
+                "conditions": {
+                  "options": {
+                    "caseSensitive": true,
+                    "leftValue": "",
+                    "typeValidation": "strict",
+                    "version": 2
+                  },
+                  "conditions": [
+                    {
+                      "leftValue": "={{ $('ME_Validate_Dispatcher_Result').first().json.step.module_name }}",
+                      "rightValue": "watcher_module_basic",
+                      "operator": {
+                        "type": "string",
+                        "operation": "equals"
+                      }
+                    }
+                  ],
+                  "combinator": "and"
+                },
+                "renameOutput": true,
+                "outputKey": "watcher_module_basic"
+              }
+            ]
+          },
+          "options": {
+            "fallbackOutput": "extra"
+          }
+        },
+        "id": "fd28b866-0c57-428a-9877-c2cd2ab4d08b",
+        "name": "ME_Route_Module_Name",
+        "type": "n8n-nodes-base.switch",
+        "typeVersion": 3.2,
+        "position": [
+          2288,
+          272
+        ]
+      },
+      {
+        "parameters": {
+          "rules": {
+            "values": [
+              {
+                "conditions": {
+                  "options": {
+                    "caseSensitive": true,
+                    "leftValue": "",
+                    "typeValidation": "strict",
+                    "version": 2
+                  },
+                  "conditions": [
+                    {
+                      "leftValue": "={{ $('ME_Validate_Dispatcher_Result').first().json.step.inputs.action }}",
+                      "rightValue": "create_task",
+                      "operator": {
+                        "type": "string",
+                        "operation": "equals"
+                      }
+                    }
+                  ],
+                  "combinator": "and"
+                },
+                "renameOutput": true,
+                "outputKey": "create_task"
+              },
+              {
+                "conditions": {
+                  "options": {
+                    "caseSensitive": true,
+                    "leftValue": "",
+                    "typeValidation": "strict",
+                    "version": 2
+                  },
+                  "conditions": [
+                    {
+                      "leftValue": "={{ $('ME_Validate_Dispatcher_Result').first().json.step.inputs.action }}",
+                      "rightValue": "list_tasks",
+                      "operator": {
+                        "type": "string",
+                        "operation": "equals"
+                      }
+                    }
+                  ],
+                  "combinator": "and"
+                },
+                "renameOutput": true,
+                "outputKey": "list_tasks"
+              },
+              {
+                "conditions": {
+                  "options": {
+                    "caseSensitive": true,
+                    "leftValue": "",
+                    "typeValidation": "strict",
+                    "version": 2
+                  },
+                  "conditions": [
+                    {
+                      "leftValue": "={{ $('ME_Validate_Dispatcher_Result').first().json.step.inputs.action }}",
+                      "rightValue": "update_task",
+                      "operator": {
+                        "type": "string",
+                        "operation": "equals"
+                      }
+                    }
+                  ],
+                  "combinator": "and"
+                },
+                "renameOutput": true,
+                "outputKey": "update_task"
+              },
+              {
+                "conditions": {
+                  "options": {
+                    "caseSensitive": true,
+                    "leftValue": "",
+                    "typeValidation": "strict",
+                    "version": 2
+                  },
+                  "conditions": [
+                    {
+                      "leftValue": "={{ $('ME_Validate_Dispatcher_Result').first().json.step.inputs.action }}",
+                      "rightValue": "complete_task",
+                      "operator": {
+                        "type": "string",
+                        "operation": "equals"
+                      }
+                    }
+                  ],
+                  "combinator": "and"
+                },
+                "renameOutput": true,
+                "outputKey": "complete_task"
+              },
+              {
+                "conditions": {
+                  "options": {
+                    "caseSensitive": true,
+                    "leftValue": "",
+                    "typeValidation": "strict",
+                    "version": 2
+                  },
+                  "conditions": [
+                    {
+                      "leftValue": "={{ $('ME_Validate_Dispatcher_Result').first().json.step.inputs.action }}",
+                      "rightValue": "delete_task",
+                      "operator": {
+                        "type": "string",
+                        "operation": "equals"
+                      }
+                    }
+                  ],
+                  "combinator": "and"
+                },
+                "renameOutput": true,
+                "outputKey": "delete_task"
+              }
+            ]
+          },
+          "options": {
+            "fallbackOutput": "extra"
+          }
+        },
+        "id": "37711183-f0b2-49cb-b22b-0db2dbbca5bc",
+        "name": "ME_Route_Task_Action",
+        "type": "n8n-nodes-base.switch",
+        "typeVersion": 3.2,
+        "position": [
+          2528,
+          272
+        ]
+      },
+      {
+        "parameters": {
+          "jsCode": "\nconst env = $('ME_Validate_Dispatcher_Result').first().json;\nconst step = env.step;\nconst inputs = step.inputs || {};\nconst missing = ['description'].filter(f => !inputs[f]);\nif (missing.length) {\n  return [{ json: { _error: true, error_code: 'MISSING_REQUIRED_FIELDS', error_message: 'Task create inputs are incomplete.', missing_fields: missing } }];\n}\nconst taskId = `task:${env.tenant_id}:${step.step_id}`;\nreturn [{ json: {\n  status_kind: 'success',\n  result_type: 'module_result',\n  execution_context_id: env.execution_context_id,\n  thread_id: env.thread_id,\n  tenant_id: env.tenant_id,\n  module_result: {\n    module_name: 'task_module',\n    step_id: step.step_id,\n    result_type: 'execution',\n    status: 'success',\n    summary: 'Task create request prepared successfully.',\n    observations: [],\n    proposals: [],\n    actions_executed: [{\n      action: 'create_task',\n      details: {\n        task_id: taskId,\n        title: inputs.title || inputs.description,\n        description: inputs.description,\n        priority: inputs.priority || 'normal',\n        due_type: inputs.due_type || 'flexible',\n        due_date: inputs.due_date || null,\n        due_at: inputs.due_at || null\n      }\n    }],\n    artifacts: [{ type: 'task_id', value: taskId }],\n    confidence: 1.0,\n    needs_followup: false,\n    followup_requests: []\n  },\n  module_execution_started: true,\n  domain_writes_performed: false,\n  response_generation_allowed: false\n}}];\n"
+        },
+        "id": "72c07567-feca-4329-84d1-66b35db4a906",
+        "name": "ME_Task_Create_Result",
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2,
+        "position": [
+          2768,
+          112
+        ]
+      },
+      {
+        "parameters": {
+          "jsCode": "\nconst env = $('ME_Validate_Dispatcher_Result').first().json;\nconst step = env.step;\nconst inputs = step.inputs || {};\nreturn [{ json: {\n  status_kind: 'success',\n  result_type: 'module_result',\n  execution_context_id: env.execution_context_id,\n  thread_id: env.thread_id,\n  tenant_id: env.tenant_id,\n  module_result: {\n    module_name: 'task_module',\n    step_id: step.step_id,\n    result_type: 'analysis',\n    status: 'success',\n    summary: 'Task list request prepared successfully.',\n    observations: [],\n    proposals: [],\n    actions_executed: [{\n      action: 'list_tasks',\n      details: {\n        timeframe: inputs.timeframe || 'all',\n        status: inputs.status || 'open',\n        limit: inputs.limit || 20\n      }\n    }],\n    artifacts: [],\n    confidence: 1.0,\n    needs_followup: false,\n    followup_requests: []\n  },\n  module_execution_started: true,\n  domain_writes_performed: false,\n  response_generation_allowed: false\n}}];\n"
+        },
+        "id": "1b466b06-9d90-4b04-acb9-d166d6ca0cec",
+        "name": "ME_Task_List_Result",
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2,
+        "position": [
+          2768,
+          192
+        ]
+      },
+      {
+        "parameters": {
+          "jsCode": "\nconst env = $('ME_Validate_Dispatcher_Result').first().json;\nconst step = env.step;\nconst inputs = step.inputs || {};\nif (!inputs.task_id && !inputs.title_match) {\n  return [{ json: { _error: true, error_code: 'MISSING_REQUIRED_FIELDS', error_message: 'Task update requires task_id or title_match.', missing_fields: ['task_id_or_title_match'] } }];\n}\nconst mutable = ['title','description','priority','due_date','due_at','status'];\nconst patch = {};\nfor (const k of mutable) {\n  if (inputs[k] !== undefined && inputs[k] !== null) patch[k] = inputs[k];\n}\nif (Object.keys(patch).length === 0) {\n  return [{ json: { _error: true, error_code: 'MISSING_REQUIRED_FIELDS', error_message: 'Task update requires at least one mutable field.', missing_fields: ['patch'] } }];\n}\nreturn [{ json: {\n  status_kind: 'success',\n  result_type: 'module_result',\n  execution_context_id: env.execution_context_id,\n  thread_id: env.thread_id,\n  tenant_id: env.tenant_id,\n  module_result: {\n    module_name: 'task_module',\n    step_id: step.step_id,\n    result_type: 'execution',\n    status: 'success',\n    summary: 'Task update request prepared successfully.',\n    observations: [],\n    proposals: [],\n    actions_executed: [{\n      action: 'update_task',\n      details: { task_id: inputs.task_id || null, title_match: inputs.title_match || null, patch: patch }\n    }],\n    artifacts: [],\n    confidence: 1.0,\n    needs_followup: false,\n    followup_requests: []\n  },\n  module_execution_started: true,\n  domain_writes_performed: false,\n  response_generation_allowed: false\n}}];\n"
+        },
+        "id": "f67836cd-5cc0-41af-919a-a2d3c3ff21ed",
+        "name": "ME_Task_Update_Result",
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2,
+        "position": [
+          2768,
+          272
+        ]
+      },
+      {
+        "parameters": {
+          "jsCode": "\nconst env = $('ME_Validate_Dispatcher_Result').first().json;\nconst step = env.step;\nconst inputs = step.inputs || {};\nif (!inputs.task_id && !inputs.title_match) {\n  return [{ json: { _error: true, error_code: 'MISSING_REQUIRED_FIELDS', error_message: 'Task complete requires task_id or title_match.', missing_fields: ['task_id_or_title_match'] } }];\n}\nreturn [{ json: {\n  status_kind: 'success',\n  result_type: 'module_result',\n  execution_context_id: env.execution_context_id,\n  thread_id: env.thread_id,\n  tenant_id: env.tenant_id,\n  module_result: {\n    module_name: 'task_module',\n    step_id: step.step_id,\n    result_type: 'execution',\n    status: 'success',\n    summary: 'Task complete request prepared successfully.',\n    observations: [],\n    proposals: [],\n    actions_executed: [{\n      action: 'complete_task',\n      details: { task_id: inputs.task_id || null, title_match: inputs.title_match || null }\n    }],\n    artifacts: [],\n    confidence: 1.0,\n    needs_followup: false,\n    followup_requests: []\n  },\n  module_execution_started: true,\n  domain_writes_performed: false,\n  response_generation_allowed: false\n}}];\n"
+        },
+        "id": "8b16b5bf-dd70-4f94-a195-6397589cc4b8",
+        "name": "ME_Task_Complete_Result",
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2,
+        "position": [
+          2768,
+          352
+        ]
+      },
+      {
+        "parameters": {
+          "jsCode": "\nconst env = $('ME_Validate_Dispatcher_Result').first().json;\nconst step = env.step;\nconst inputs = step.inputs || {};\nif (!inputs.task_id && !inputs.title_match && !inputs.scope) {\n  return [{ json: { _error: true, error_code: 'MISSING_REQUIRED_FIELDS', error_message: 'Task delete requires task_id, title_match, or scope.', missing_fields: ['task_id_or_title_match_or_scope'] } }];\n}\nreturn [{ json: {\n  status_kind: 'success',\n  result_type: 'module_result',\n  execution_context_id: env.execution_context_id,\n  thread_id: env.thread_id,\n  tenant_id: env.tenant_id,\n  module_result: {\n    module_name: 'task_module',\n    step_id: step.step_id,\n    result_type: 'execution',\n    status: 'success',\n    summary: 'Task delete request prepared successfully.',\n    observations: [],\n    proposals: [],\n    actions_executed: [{\n      action: 'delete_task',\n      details: { task_id: inputs.task_id || null, title_match: inputs.title_match || null, scope: inputs.scope || null }\n    }],\n    artifacts: [],\n    confidence: 1.0,\n    needs_followup: false,\n    followup_requests: []\n  },\n  module_execution_started: true,\n  domain_writes_performed: false,\n  response_generation_allowed: false\n}}];\n"
+        },
+        "id": "9851f4a3-3191-4a03-be10-509a4de88f16",
+        "name": "ME_Task_Delete_Result",
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2,
+        "position": [
+          2768,
+          432
+        ]
+      },
+      {
+        "parameters": {
+          "jsCode": "\nconst env = $('ME_Validate_Dispatcher_Result').first().json;\nconst data = $json || {};\nconst KNOWN_MODULES = new Set(['task_module','reminder_module','memory_module','improvement_module','watcher_module_basic']);\nlet code, message, missing, details;\nif (data && data.error_code) {\n  code = data.error_code;\n  message = data.error_message || 'Module execution validation error.';\n  missing = Array.isArray(data.missing_fields) ? data.missing_fields : [];\n  details = {};\n} else if (env && env.step && !KNOWN_MODULES.has(env.step.module_name)) {\n  code = 'UNSUPPORTED_MODULE';\n  message = `WF-ME-01 does not support module ${env.step.module_name}.`;\n  missing = [];\n  details = { module_name: env.step.module_name };\n} else {\n  const moduleName = env && env.step ? env.step.module_name : 'unknown_module';\n  const action = (env && env.step && env.step.inputs) ? env.step.inputs.action : null;\n  code = 'UNSUPPORTED_ACTION';\n  message = `Unsupported ${moduleName} action: ${action}.`;\n  missing = [];\n  details = { module_name: moduleName, action: action };\n}\nreturn [{ json: {\n  status_kind: 'error',\n  result_type: 'module_error',\n  module_name: 'module_execution',\n  error: {\n    code: code,\n    message: message,\n    missing_fields: missing,\n    details: details\n  }\n}}];\n"
+        },
+        "id": "cc50ad68-b87c-47d8-a584-2beccd54c656",
+        "name": "ME_Return_Error",
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2,
+        "position": [
+          2768,
+          592
+        ]
+      },
+      {
+        "parameters": {
+          "jsCode": "\nconst data = $json;\nif (data && data._error === true) {\n  return [{ json: {\n    status_kind: 'error',\n    result_type: 'module_error',\n    module_name: 'module_execution',\n    error: {\n      code: data.error_code || 'INVALID_DISPATCH_INPUT',\n      message: data.error_message || 'Module execution error.',\n      missing_fields: Array.isArray(data.missing_fields) ? data.missing_fields : [],\n      details: {}\n    }\n  }}];\n}\nreturn [{ json: {\n  status_kind: data.status_kind,\n  result_type: data.result_type,\n  execution_context_id: data.execution_context_id,\n  thread_id: data.thread_id,\n  tenant_id: data.tenant_id,\n  allowed_next_stage: 'WF-RA-01',\n  module_result: data.module_result,\n  module_execution_started: data.module_execution_started === true,\n  domain_writes_performed: data.domain_writes_performed === true,\n  response_generation_allowed: data.response_generation_allowed === true\n}}];\n"
+        },
+        "id": "5d99eb52-9957-425f-9e60-902b2d2dbf49",
+        "name": "ME_Return_Result",
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2,
+        "position": [
+          3008,
+          272
+        ]
+      },
+      {
+        "parameters": {
+          "options": {}
+        },
+        "id": "22f293ff-feec-4e11-bbf6-6927be17224c",
+        "name": "When chat message received",
+        "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+        "typeVersion": 1.1,
+        "position": [
+          592,
+          128
+        ],
+        "webhookId": "803c9d53-897b-46be-991a-1c2ebcd1f702"
+      },
+      {
+        "parameters": {
+          "jsCode": "\nconst ecRow = $json;\nconst env = $('ME_Validate_Dispatcher_Result').first().json;\nconst ecHasId = !!(ecRow && ecRow.id);\nconst tenantMatch = ecHasId && ecRow.tenant_id === env.tenant_id;\nconst threadMatch = ecHasId && ecRow.thread_id === env.thread_id;\nconst ecIdMatch = ecHasId && String(ecRow.id) === String(env.execution_context_id);\nif (!ecHasId || !tenantMatch || !threadMatch || !ecIdMatch) {\n  return [{ json: {\n    _context_ok: 'false',\n    error_code: 'CONTEXT_MISMATCH',\n    error_message: 'Execution context not found or does not match request tenant/thread.',\n    missing_fields: [],\n    details: {\n      expected_execution_context_id: env.execution_context_id,\n      expected_tenant_id: env.tenant_id,\n      expected_thread_id: env.thread_id,\n      found_execution_context_id: ecHasId ? ecRow.id : null,\n      found_tenant_id: ecHasId ? ecRow.tenant_id : null,\n      found_thread_id: ecHasId ? ecRow.thread_id : null\n    }\n  }}];\n}\nreturn [{ json: Object.assign({ _context_ok: 'true' }, ecRow) }];\n"
+        },
+        "id": "c29a16fd-6fc3-4739-921c-76cf80a8e236",
+        "name": "ME_Check_Context_Match",
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2,
+        "position": [
+          1552,
+          288
+        ]
+      },
+      {
+        "parameters": {
+          "rules": {
+            "values": [
+              {
+                "conditions": {
+                  "options": {
+                    "caseSensitive": true,
+                    "leftValue": "",
+                    "typeValidation": "strict",
+                    "version": 2
+                  },
+                  "conditions": [
+                    {
+                      "leftValue": "={{ $json._context_ok }}",
+                      "rightValue": "true",
+                      "operator": {
+                        "type": "string",
+                        "operation": "equals"
+                      }
+                    }
+                  ],
+                  "combinator": "and"
+                },
+                "renameOutput": true,
+                "outputKey": "context_ok"
+              }
+            ]
+          },
+          "options": {
+            "fallbackOutput": "extra"
+          }
+        },
+        "id": "a44dc7b3-bdb7-4249-963f-1edadcd3c718",
+        "name": "ME_Route_Context_OK",
+        "type": "n8n-nodes-base.switch",
+        "typeVersion": 3.2,
+        "position": [
+          1712,
+          288
+        ]
+      },
+      {
+        "id": "me-dispatch-to-ra-01-subcall",
+        "name": "ME_Dispatch_To_RA_01_SUBCALL",
+        "type": "n8n-nodes-base.executeWorkflow",
+        "typeVersion": 1.2,
+        "position": [
+          3268,
+          272
+        ],
+        "parameters": {
+          "workflowId": {
+            "__rl": true,
+            "value": "5RcNLtxNjAHJsZPE",
+            "mode": "list",
+            "cachedResultName": "WF-RA-01 Result Aggregator"
+          },
+          "mode": "once",
+          "options": {
+            "waitForSubWorkflow": true
+          }
+        }
+      },
+      {
+        "id": "me-build-ra-envelope",
+        "name": "ME_Build_RA_Envelope",
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2,
+        "position": [
+          3268,
+          412
+        ],
+        "parameters": {
+          "language": "javaScript",
+          "jsCode": "// Wrap ME module_result into a single-result module_batch envelope for RA-01.\nconst src = $json;\nif (!src || src.status_kind !== 'success' || src.result_type !== 'module_result') {\n  return [{ json: src }];\n}\nconst mr = src.module_result || {};\nreturn [{ json: {\n  status_kind: 'success',\n  result_type: 'module_batch',\n  execution_context_id: src.execution_context_id,\n  thread_id: src.thread_id,\n  tenant_id: src.tenant_id,\n  aggregation_input: {\n    aggregation_allowed: true,\n    response_generation_allowed: false,\n    module_execution_completed: true,\n    domain_writes_performed: !!src.domain_writes_performed,\n    module_results: [mr],\n    expected_step_ids: [mr.step_id]\n  }\n}}];"
+        }
+      },
+      {
+        "parameters": {
+          "rules": {
+            "values": [
+              {
+                "conditions": {
+                  "options": {
+                    "caseSensitive": true,
+                    "leftValue": "",
+                    "typeValidation": "strict",
+                    "version": 2
+                  },
+                  "conditions": [
+                    {
+                      "leftValue": "={{ $('ME_Validate_Dispatcher_Result').first().json.step.inputs.action }}",
+                      "rightValue": "create_reminder",
+                      "operator": {
+                        "type": "string",
+                        "operation": "equals"
+                      }
+                    }
+                  ],
+                  "combinator": "and"
+                },
+                "renameOutput": true,
+                "outputKey": "create_reminder"
+              },
+              {
+                "conditions": {
+                  "options": {
+                    "caseSensitive": true,
+                    "leftValue": "",
+                    "typeValidation": "strict",
+                    "version": 2
+                  },
+                  "conditions": [
+                    {
+                      "leftValue": "={{ $('ME_Validate_Dispatcher_Result').first().json.step.inputs.action }}",
+                      "rightValue": "list_reminders",
+                      "operator": {
+                        "type": "string",
+                        "operation": "equals"
+                      }
+                    }
+                  ],
+                  "combinator": "and"
+                },
+                "renameOutput": true,
+                "outputKey": "list_reminders"
+              },
+              {
+                "conditions": {
+                  "options": {
+                    "caseSensitive": true,
+                    "leftValue": "",
+                    "typeValidation": "strict",
+                    "version": 2
+                  },
+                  "conditions": [
+                    {
+                      "leftValue": "={{ $('ME_Validate_Dispatcher_Result').first().json.step.inputs.action }}",
+                      "rightValue": "update_reminder",
+                      "operator": {
+                        "type": "string",
+                        "operation": "equals"
+                      }
+                    }
+                  ],
+                  "combinator": "and"
+                },
+                "renameOutput": true,
+                "outputKey": "update_reminder"
+              },
+              {
+                "conditions": {
+                  "options": {
+                    "caseSensitive": true,
+                    "leftValue": "",
+                    "typeValidation": "strict",
+                    "version": 2
+                  },
+                  "conditions": [
+                    {
+                      "leftValue": "={{ $('ME_Validate_Dispatcher_Result').first().json.step.inputs.action }}",
+                      "rightValue": "cancel_reminder",
+                      "operator": {
+                        "type": "string",
+                        "operation": "equals"
+                      }
+                    }
+                  ],
+                  "combinator": "and"
+                },
+                "renameOutput": true,
+                "outputKey": "cancel_reminder"
+              }
+            ]
+          },
+          "options": {
+            "fallbackOutput": "extra"
+          }
+        },
+        "id": "me-phase11-route-reminder-action",
+        "name": "ME_Route_Reminder_Action",
+        "type": "n8n-nodes-base.switch",
+        "typeVersion": 3.2,
+        "position": [
+          2528,
+          805
+        ]
+      },
+      {
+        "parameters": {
+          "rules": {
+            "values": [
+              {
+                "conditions": {
+                  "options": {
+                    "caseSensitive": true,
+                    "leftValue": "",
+                    "typeValidation": "strict",
+                    "version": 2
+                  },
+                  "conditions": [
+                    {
+                      "leftValue": "={{ $('ME_Validate_Dispatcher_Result').first().json.step.inputs.action }}",
+                      "rightValue": "store_memory",
+                      "operator": {
+                        "type": "string",
+                        "operation": "equals"
+                      }
+                    }
+                  ],
+                  "combinator": "and"
+                },
+                "renameOutput": true,
+                "outputKey": "store_memory"
+              },
+              {
+                "conditions": {
+                  "options": {
+                    "caseSensitive": true,
+                    "leftValue": "",
+                    "typeValidation": "strict",
+                    "version": 2
+                  },
+                  "conditions": [
+                    {
+                      "leftValue": "={{ $('ME_Validate_Dispatcher_Result').first().json.step.inputs.action }}",
+                      "rightValue": "search_memory",
+                      "operator": {
+                        "type": "string",
+                        "operation": "equals"
+                      }
+                    }
+                  ],
+                  "combinator": "and"
+                },
+                "renameOutput": true,
+                "outputKey": "search_memory"
+              }
+            ]
+          },
+          "options": {
+            "fallbackOutput": "extra"
+          }
+        },
+        "id": "me-phase11-route-memory-action",
+        "name": "ME_Route_Memory_Action",
+        "type": "n8n-nodes-base.switch",
+        "typeVersion": 3.2,
+        "position": [
+          2528,
+          1075
+        ]
+      },
+      {
+        "parameters": {
+          "jsCode": "\nconst env = $('ME_Validate_Dispatcher_Result').first().json;\nconst step = env.step;\nconst inputs = step.inputs || {};\nconst missing = ['description'].filter(f => !inputs[f]);\nif (missing.length) {\n  return [{ json: { _error: true, error_code: 'MISSING_REQUIRED_FIELDS', error_message: 'Reminder create inputs are incomplete.', missing_fields: missing } }];\n}\nconst reminderId = `reminder:${env.tenant_id}:${step.step_id}`;\nreturn [{ json: {\n  status_kind: 'success',\n  result_type: 'module_result',\n  execution_context_id: env.execution_context_id,\n  thread_id: env.thread_id,\n  tenant_id: env.tenant_id,\n  module_result: {\n    module_name: 'reminder_module',\n    step_id: step.step_id,\n    result_type: 'execution',\n    status: 'success',\n    summary: 'Reminder create request prepared successfully.',\n    observations: [],\n    proposals: [],\n    actions_executed: [{\n      action: 'create_reminder',\n      details: {\n        reminder_id: reminderId,\n        title: inputs.title || inputs.description,\n        description: inputs.description,\n        due_date: inputs.due_date || null,\n        time: inputs.time || null,\n        remind_at: inputs.remind_at || null,\n        recurrence: inputs.recurrence || null\n      }\n    }],\n    artifacts: [{ type: 'reminder_id', value: reminderId }],\n    confidence: 1.0,\n    needs_followup: false,\n    followup_requests: []\n  },\n  module_execution_started: true,\n  domain_writes_performed: false,\n  response_generation_allowed: false\n}}];\n"
+        },
+        "id": "me-phase11-me-reminder-create-result",
+        "name": "ME_Reminder_Create_Result",
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2,
+        "position": [
+          2768,
+          700
+        ]
+      },
+      {
+        "parameters": {
+          "jsCode": "\nconst env = $('ME_Validate_Dispatcher_Result').first().json;\nconst step = env.step;\nconst inputs = step.inputs || {};\nreturn [{ json: {\n  status_kind: 'success',\n  result_type: 'module_result',\n  execution_context_id: env.execution_context_id,\n  thread_id: env.thread_id,\n  tenant_id: env.tenant_id,\n  module_result: {\n    module_name: 'reminder_module',\n    step_id: step.step_id,\n    result_type: 'analysis',\n    status: 'success',\n    summary: 'Reminder list request prepared successfully.',\n    observations: [],\n    proposals: [],\n    actions_executed: [{\n      action: 'list_reminders',\n      details: {\n        timeframe: inputs.timeframe || 'all',\n        status: inputs.status || null,\n        limit: inputs.limit || 25,\n        list_results: []\n      }\n    }],\n    artifacts: [],\n    confidence: 1.0,\n    needs_followup: false,\n    followup_requests: []\n  },\n  module_execution_started: true,\n  domain_writes_performed: false,\n  response_generation_allowed: false\n}}];\n"
+        },
+        "id": "me-phase11-me-reminder-list-result",
+        "name": "ME_Reminder_List_Result",
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2,
+        "position": [
+          2768,
+          770
+        ]
+      },
+      {
+        "parameters": {
+          "jsCode": "\nconst env = $('ME_Validate_Dispatcher_Result').first().json;\nconst step = env.step;\nconst inputs = step.inputs || {};\nconst hasIdentifier = !!(inputs.reminder_id || inputs.title_match);\nconst patch = inputs.patch && typeof inputs.patch === 'object' ? inputs.patch : {};\nconst hasPatch = Object.keys(patch).some(k => patch[k] !== undefined && patch[k] !== null && patch[k] !== '');\nconst missing = [];\nif (!hasIdentifier) missing.push('reminder_id_or_title_match');\nif (!hasPatch) missing.push('patch');\nif (missing.length) {\n  return [{ json: { _error: true, error_code: 'MISSING_REQUIRED_FIELDS', error_message: 'Reminder update inputs are incomplete.', missing_fields: missing } }];\n}\nconst reminderRef = inputs.reminder_id || `title_match:${inputs.title_match}`;\nreturn [{ json: {\n  status_kind: 'success',\n  result_type: 'module_result',\n  execution_context_id: env.execution_context_id,\n  thread_id: env.thread_id,\n  tenant_id: env.tenant_id,\n  module_result: {\n    module_name: 'reminder_module',\n    step_id: step.step_id,\n    result_type: 'execution',\n    status: 'success',\n    summary: 'Reminder update request prepared successfully.',\n    observations: [],\n    proposals: [],\n    actions_executed: [{\n      action: 'update_reminder',\n      details: {\n        reminder_id: inputs.reminder_id || null,\n        title_match: inputs.title_match || null,\n        patch: {\n          title: patch.title || null,\n          description: patch.description || null,\n          remind_at: patch.remind_at || null,\n          status: patch.status || null,\n          recurrence: patch.recurrence || null\n        }\n      }\n    }],\n    artifacts: [{ type: 'reminder_id', value: reminderRef }],\n    confidence: 1.0,\n    needs_followup: false,\n    followup_requests: []\n  },\n  module_execution_started: true,\n  domain_writes_performed: false,\n  response_generation_allowed: false\n}}];\n"
+        },
+        "id": "me-phase11-me-reminder-update-result",
+        "name": "ME_Reminder_Update_Result",
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2,
+        "position": [
+          2768,
+          840
+        ]
+      },
+      {
+        "parameters": {
+          "jsCode": "\nconst env = $('ME_Validate_Dispatcher_Result').first().json;\nconst step = env.step;\nconst inputs = step.inputs || {};\nconst missing = [];\nif (!inputs.reminder_id && !inputs.title_match) missing.push('reminder_id_or_title_match');\nif (missing.length) {\n  return [{ json: { _error: true, error_code: 'MISSING_REQUIRED_FIELDS', error_message: 'Reminder cancel inputs are incomplete.', missing_fields: missing } }];\n}\nconst reminderRef = inputs.reminder_id || `title_match:${inputs.title_match}`;\nreturn [{ json: {\n  status_kind: 'success',\n  result_type: 'module_result',\n  execution_context_id: env.execution_context_id,\n  thread_id: env.thread_id,\n  tenant_id: env.tenant_id,\n  module_result: {\n    module_name: 'reminder_module',\n    step_id: step.step_id,\n    result_type: 'execution',\n    status: 'success',\n    summary: 'Reminder cancel request prepared successfully.',\n    observations: [],\n    proposals: [],\n    actions_executed: [{\n      action: 'cancel_reminder',\n      details: {\n        reminder_id: inputs.reminder_id || null,\n        title_match: inputs.title_match || null,\n        new_status: 'cancelled'\n      }\n    }],\n    artifacts: [{ type: 'reminder_id', value: reminderRef }],\n    confidence: 1.0,\n    needs_followup: false,\n    followup_requests: []\n  },\n  module_execution_started: true,\n  domain_writes_performed: false,\n  response_generation_allowed: false\n}}];\n"
+        },
+        "id": "me-phase11-me-reminder-cancel-result",
+        "name": "ME_Reminder_Cancel_Result",
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2,
+        "position": [
+          2768,
+          910
+        ]
+      },
+      {
+        "parameters": {
+          "jsCode": "\nconst env = $('ME_Validate_Dispatcher_Result').first().json;\nconst step = env.step;\nconst inputs = step.inputs || {};\nconst validTypes = ['fact','observation','pattern','inference','preference','constraint'];\nconst missing = [];\nif (!inputs.content) missing.push('content');\nif (!inputs.memory_type || !validTypes.includes(inputs.memory_type)) missing.push('memory_type');\nif (missing.length) {\n  return [{ json: { _error: true, error_code: 'MISSING_REQUIRED_FIELDS', error_message: 'Memory store inputs are incomplete.', missing_fields: missing } }];\n}\nconst memoryId = `memory:${env.tenant_id}:${step.step_id}`;\nreturn [{ json: {\n  status_kind: 'success',\n  result_type: 'module_result',\n  execution_context_id: env.execution_context_id,\n  thread_id: env.thread_id,\n  tenant_id: env.tenant_id,\n  module_result: {\n    module_name: 'memory_module',\n    step_id: step.step_id,\n    result_type: 'execution',\n    status: 'success',\n    summary: 'Memory store request prepared successfully.',\n    observations: [],\n    proposals: [],\n    actions_executed: [{\n      action: 'store_memory',\n      details: {\n        memory_id: memoryId,\n        content: inputs.content,\n        memory_type: inputs.memory_type,\n        source_context: inputs.source_context || null,\n        durability: inputs.durability || 'standard'\n      }\n    }],\n    artifacts: [{ type: 'memory_id', value: memoryId }],\n    confidence: 1.0,\n    needs_followup: false,\n    followup_requests: []\n  },\n  module_execution_started: true,\n  domain_writes_performed: false,\n  response_generation_allowed: false\n}}];\n"
+        },
+        "id": "me-phase11-me-memory-store-result",
+        "name": "ME_Memory_Store_Result",
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2,
+        "position": [
+          2768,
+          1040
+        ]
+      },
+      {
+        "parameters": {
+          "jsCode": "\nconst env = $('ME_Validate_Dispatcher_Result').first().json;\nconst step = env.step;\nconst inputs = step.inputs || {};\nconst missing = [];\nif (!inputs.query) missing.push('query');\nif (missing.length) {\n  return [{ json: { _error: true, error_code: 'MISSING_REQUIRED_FIELDS', error_message: 'Memory search inputs are incomplete.', missing_fields: missing } }];\n}\nreturn [{ json: {\n  status_kind: 'success',\n  result_type: 'module_result',\n  execution_context_id: env.execution_context_id,\n  thread_id: env.thread_id,\n  tenant_id: env.tenant_id,\n  module_result: {\n    module_name: 'memory_module',\n    step_id: step.step_id,\n    result_type: 'analysis',\n    status: 'success',\n    summary: 'Memory search request prepared successfully.',\n    observations: [],\n    proposals: [],\n    actions_executed: [{\n      action: 'search_memory',\n      details: {\n        query: inputs.query,\n        timeframe: inputs.timeframe || 'all',\n        memory_type: inputs.memory_type || null,\n        limit: inputs.limit || 10,\n        recall_results: []\n      }\n    }],\n    artifacts: [],\n    confidence: 1.0,\n    needs_followup: false,\n    followup_requests: []\n  },\n  module_execution_started: true,\n  domain_writes_performed: false,\n  response_generation_allowed: false\n}}];\n"
+        },
+        "id": "me-phase11-me-memory-search-result",
+        "name": "ME_Memory_Search_Result",
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2,
+        "position": [
+          2768,
+          1110
+        ]
+      },
+      {
+        "parameters": {
+          "jsCode": "\nconst env = $('ME_Validate_Dispatcher_Result').first().json;\nconst step = env.step;\nconst inputs = step.inputs || {};\nconst missing = [];\nif (!inputs.feedback_content) missing.push('feedback_content');\nif (missing.length) {\n  return [{ json: { _error: true, error_code: 'MISSING_REQUIRED_FIELDS', error_message: 'Improvement capture inputs are incomplete.', missing_fields: missing } }];\n}\nconst improvementId = `improvement:${env.tenant_id}:${step.step_id}`;\nreturn [{ json: {\n  status_kind: 'success',\n  result_type: 'module_result',\n  execution_context_id: env.execution_context_id,\n  thread_id: env.thread_id,\n  tenant_id: env.tenant_id,\n  module_result: {\n    module_name: 'improvement_module',\n    step_id: step.step_id,\n    result_type: 'execution',\n    status: 'success',\n    summary: 'Improvement capture request prepared successfully.',\n    observations: [],\n    proposals: [],\n    actions_executed: [{\n      action: 'capture_feedback',\n      details: {\n        improvement_id: improvementId,\n        feedback_content: inputs.feedback_content,\n        category: inputs.category || null,\n        severity: inputs.severity || 'normal'\n      }\n    }],\n    artifacts: [{ type: 'improvement_id', value: improvementId }],\n    confidence: 1.0,\n    needs_followup: false,\n    followup_requests: []\n  },\n  module_execution_started: true,\n  domain_writes_performed: false,\n  response_generation_allowed: false\n}}];\n"
+        },
+        "id": "me-phase11-me-improvement-capture-result",
+        "name": "ME_Improvement_Capture_Result",
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2,
+        "position": [
+          2768,
+          1240
+        ]
+      },
+      {
+        "parameters": {
+          "jsCode": "\nconst env = $('ME_Validate_Dispatcher_Result').first().json;\nconst step = env.step;\nconst inputs = step.inputs || {};\nconst digest = {\n  has_thread_summary: !!inputs.thread_summary,\n  has_recent_memory_context: !!inputs.recent_memory_context,\n  module_results_so_far_count: Array.isArray(inputs.module_results_so_far) ? inputs.module_results_so_far.length : 0\n};\nreturn [{ json: {\n  status_kind: 'success',\n  result_type: 'module_result',\n  execution_context_id: env.execution_context_id,\n  thread_id: env.thread_id,\n  tenant_id: env.tenant_id,\n  module_result: {\n    module_name: 'watcher_module_basic',\n    step_id: step.step_id,\n    result_type: 'analysis',\n    status: 'success',\n    summary: 'Watcher observation returned empty result set.',\n    observations: [],\n    proposals: [],\n    anomaly_signals: [],\n    actions_executed: [{\n      action: 'observe',\n      details: { trigger: 'passive', inputs_digest: digest }\n    }],\n    artifacts: [],\n    confidence: 1.0,\n    needs_followup: false,\n    followup_requests: []\n  },\n  module_execution_started: true,\n  domain_writes_performed: false,\n  response_generation_allowed: false\n}}];\n"
+        },
+        "id": "me-phase11-me-watcher-observe-result",
+        "name": "ME_Watcher_Observe_Result",
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2,
+        "position": [
+          2768,
+          1340
+        ]
+      }
+    ],
+    "connections": {
+      "ME_Input": {
+        "main": [
+          [
+            {
+              "node": "ME_Validate_Dispatcher_Result",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "ME_Manual_Test_Trigger": {
+        "main": [
+          [
+            {
+              "node": "ME_Validate_Dispatcher_Result",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "ME_Validate_Dispatcher_Result": {
+        "main": [
+          [
+            {
+              "node": "ME_Route_Valid",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "ME_Route_Valid": {
+        "main": [
+          [
+            {
+              "node": "ME_Load_Execution_Context",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          [
+            {
+              "node": "ME_Return_Error",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "ME_Load_Execution_Context": {
+        "main": [
+          [
+            {
+              "node": "ME_Check_Context_Match",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "ME_Load_Task_Candidates": {
+        "main": [
+          [
+            {
+              "node": "ME_Route_Module_Name",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "ME_Route_Module_Name": {
+        "main": [
+          [
+            {
+              "node": "ME_Route_Task_Action",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          [
+            {
+              "node": "ME_Route_Reminder_Action",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          [
+            {
+              "node": "ME_Route_Memory_Action",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          [
+            {
+              "node": "ME_Improvement_Capture_Result",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          [
+            {
+              "node": "ME_Watcher_Observe_Result",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          [
+            {
+              "node": "ME_Return_Error",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "ME_Route_Task_Action": {
+        "main": [
+          [
+            {
+              "node": "ME_Task_Create_Result",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          [
+            {
+              "node": "ME_Task_List_Result",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          [
+            {
+              "node": "ME_Task_Update_Result",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          [
+            {
+              "node": "ME_Task_Complete_Result",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          [
+            {
+              "node": "ME_Task_Delete_Result",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          [
+            {
+              "node": "ME_Return_Error",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "ME_Task_Create_Result": {
+        "main": [
+          [
+            {
+              "node": "ME_Return_Result",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "ME_Task_List_Result": {
+        "main": [
+          [
+            {
+              "node": "ME_Return_Result",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "ME_Task_Update_Result": {
+        "main": [
+          [
+            {
+              "node": "ME_Return_Result",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "ME_Task_Complete_Result": {
+        "main": [
+          [
+            {
+              "node": "ME_Return_Result",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "ME_Task_Delete_Result": {
+        "main": [
+          [
+            {
+              "node": "ME_Return_Result",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "When chat message received": {
+        "main": [
+          [
+            {
+              "node": "ME_Validate_Dispatcher_Result",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "ME_Check_Context_Match": {
+        "main": [
+          [
+            {
+              "node": "ME_Route_Context_OK",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "ME_Route_Context_OK": {
+        "main": [
+          [
+            {
+              "node": "ME_Load_Task_Candidates",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          [
+            {
+              "node": "ME_Return_Error",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "ME_Return_Result": {
+        "main": [
+          [
+            {
+              "node": "ME_Build_RA_Envelope",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "ME_Build_RA_Envelope": {
+        "main": [
+          [
+            {
+              "node": "ME_Dispatch_To_RA_01_SUBCALL",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "ME_Route_Reminder_Action": {
+        "main": [
+          [
+            {
+              "node": "ME_Reminder_Create_Result",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          [
+            {
+              "node": "ME_Reminder_List_Result",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          [
+            {
+              "node": "ME_Reminder_Update_Result",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          [
+            {
+              "node": "ME_Reminder_Cancel_Result",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          [
+            {
+              "node": "ME_Return_Error",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "ME_Route_Memory_Action": {
+        "main": [
+          [
+            {
+              "node": "ME_Memory_Store_Result",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          [
+            {
+              "node": "ME_Memory_Search_Result",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          [
+            {
+              "node": "ME_Return_Error",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "ME_Reminder_Create_Result": {
+        "main": [
+          [
+            {
+              "node": "ME_Return_Result",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "ME_Reminder_List_Result": {
+        "main": [
+          [
+            {
+              "node": "ME_Return_Result",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "ME_Reminder_Update_Result": {
+        "main": [
+          [
+            {
+              "node": "ME_Return_Result",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "ME_Reminder_Cancel_Result": {
+        "main": [
+          [
+            {
+              "node": "ME_Return_Result",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "ME_Memory_Store_Result": {
+        "main": [
+          [
+            {
+              "node": "ME_Return_Result",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "ME_Memory_Search_Result": {
+        "main": [
+          [
+            {
+              "node": "ME_Return_Result",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "ME_Improvement_Capture_Result": {
+        "main": [
+          [
+            {
+              "node": "ME_Return_Result",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "ME_Watcher_Observe_Result": {
+        "main": [
+          [
+            {
+              "node": "ME_Return_Result",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      }
+    },
+    "authors": "Andrei Cinc",
+    "name": null,
+    "description": null,
+    "autosaved": false,
+    "workflowPublishHistory": [
+      {
+        "createdAt": "2026-04-20T15:06:37.031Z",
+        "id": 644,
+        "workflowId": "uq26nh1grIpnHju0",
+        "versionId": "1feb0cb7-f7b8-4360-b0f2-be86e6df3827",
+        "event": "activated",
+        "userId": "68a414fd-cc03-4f02-87bc-9067f976e98a"
+      }
+    ]
+  }
+}

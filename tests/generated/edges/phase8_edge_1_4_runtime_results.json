@@ -1,0 +1,1296 @@
+{
+  "ts": "2026-04-20T05:39:16.367Z",
+  "total": 40,
+  "by_edge": {
+    "TR→EC": {
+      "total": 10,
+      "harness_success": 10,
+      "target_reached": 10,
+      "target_status_success": 10,
+      "target_status_failed": 0,
+      "target_terminal_success": 0,
+      "target_terminal_failed": 10,
+      "target_error_codes": {
+        "INSUFFICIENT_PLANNING_CONTEXT": 10
+      }
+    },
+    "EC→OR": {
+      "total": 10,
+      "harness_success": 10,
+      "target_reached": 10,
+      "target_status_success": 10,
+      "target_status_failed": 0,
+      "target_terminal_success": 0,
+      "target_terminal_failed": 10,
+      "target_error_codes": {
+        "INVALID_HANDOFF_INPUT": 10
+      }
+    },
+    "OR→PL": {
+      "total": 10,
+      "harness_success": 10,
+      "target_reached": 10,
+      "target_status_success": 10,
+      "target_status_failed": 0,
+      "target_terminal_success": 0,
+      "target_terminal_failed": 10,
+      "target_error_codes": {
+        "CONTEXT_MISMATCH": 10
+      }
+    },
+    "PL→DI": {
+      "total": 10,
+      "harness_success": 10,
+      "target_reached": 10,
+      "target_status_success": 10,
+      "target_status_failed": 0,
+      "target_terminal_success": 0,
+      "target_terminal_failed": 10,
+      "target_error_codes": {
+        "CONTEXT_MISMATCH": 10
+      }
+    }
+  },
+  "results": [
+    {
+      "edge": 1,
+      "edge_name": "TR→EC",
+      "case_id": 1,
+      "harness_id": "UNPzQUgmTK4VjVPQ",
+      "harness_exec_id": "873",
+      "harness_status": "success",
+      "harness_terminal_status_kind": "failed",
+      "harness_terminal_error_code": "INSUFFICIENT_PLANNING_CONTEXT",
+      "target_id": "v9jih4jqeXpOJOiH",
+      "target": {
+        "status": "success",
+        "lastNode": "EC_Dispatch_To_OR_01_SUBCALL",
+        "terminal_status_kind": "failed",
+        "terminal_result_type": "error",
+        "terminal_error_code": "INSUFFICIENT_PLANNING_CONTEXT",
+        "sub_executions": [
+          {
+            "node": "EC_Dispatch_To_OR_01_SUBCALL",
+            "exec_id": "875",
+            "wf_id": "KhGmNpi0ZDmrnz8W"
+          }
+        ],
+        "exec_id": "874",
+        "wf_id": "v9jih4jqeXpOJOiH"
+      },
+      "chain_sub_executions": [
+        {
+          "node": "Invoke_Target",
+          "exec_id": "874",
+          "wf_id": "v9jih4jqeXpOJOiH"
+        }
+      ]
+    },
+    {
+      "edge": 1,
+      "edge_name": "TR→EC",
+      "case_id": 2,
+      "harness_id": "UNPzQUgmTK4VjVPQ",
+      "harness_exec_id": "907",
+      "harness_status": "success",
+      "harness_terminal_status_kind": "failed",
+      "harness_terminal_error_code": "INSUFFICIENT_PLANNING_CONTEXT",
+      "target_id": "v9jih4jqeXpOJOiH",
+      "target": {
+        "status": "success",
+        "lastNode": "EC_Dispatch_To_OR_01_SUBCALL",
+        "terminal_status_kind": "failed",
+        "terminal_result_type": "error",
+        "terminal_error_code": "INSUFFICIENT_PLANNING_CONTEXT",
+        "sub_executions": [
+          {
+            "node": "EC_Dispatch_To_OR_01_SUBCALL",
+            "exec_id": "909",
+            "wf_id": "KhGmNpi0ZDmrnz8W"
+          }
+        ],
+        "exec_id": "908",
+        "wf_id": "v9jih4jqeXpOJOiH"
+      },
+      "chain_sub_executions": [
+        {
+          "node": "Invoke_Target",
+          "exec_id": "908",
+          "wf_id": "v9jih4jqeXpOJOiH"
+        }
+      ]
+    },
+    {
+      "edge": 1,
+      "edge_name": "TR→EC",
+      "case_id": 3,
+      "harness_id": "UNPzQUgmTK4VjVPQ",
+      "harness_exec_id": "911",
+      "harness_status": "success",
+      "harness_terminal_status_kind": "failed",
+      "harness_terminal_error_code": "INSUFFICIENT_PLANNING_CONTEXT",
+      "target_id": "v9jih4jqeXpOJOiH",
+      "target": {
+        "status": "success",
+        "lastNode": "EC_Dispatch_To_OR_01_SUBCALL",
+        "terminal_status_kind": "failed",
+        "terminal_result_type": "error",
+        "terminal_error_code": "INSUFFICIENT_PLANNING_CONTEXT",
+        "sub_executions": [
+          {
+            "node": "EC_Dispatch_To_OR_01_SUBCALL",
+            "exec_id": "913",
+            "wf_id": "KhGmNpi0ZDmrnz8W"
+          }
+        ],
+        "exec_id": "912",
+        "wf_id": "v9jih4jqeXpOJOiH"
+      },
+      "chain_sub_executions": [
+        {
+          "node": "Invoke_Target",
+          "exec_id": "912",
+          "wf_id": "v9jih4jqeXpOJOiH"
+        }
+      ]
+    },
+    {
+      "edge": 1,
+      "edge_name": "TR→EC",
+      "case_id": 4,
+      "harness_id": "UNPzQUgmTK4VjVPQ",
+      "harness_exec_id": "915",
+      "harness_status": "success",
+      "harness_terminal_status_kind": "failed",
+      "harness_terminal_error_code": "INSUFFICIENT_PLANNING_CONTEXT",
+      "target_id": "v9jih4jqeXpOJOiH",
+      "target": {
+        "status": "success",
+        "lastNode": "EC_Dispatch_To_OR_01_SUBCALL",
+        "terminal_status_kind": "failed",
+        "terminal_result_type": "error",
+        "terminal_error_code": "INSUFFICIENT_PLANNING_CONTEXT",
+        "sub_executions": [
+          {
+            "node": "EC_Dispatch_To_OR_01_SUBCALL",
+            "exec_id": "917",
+            "wf_id": "KhGmNpi0ZDmrnz8W"
+          }
+        ],
+        "exec_id": "916",
+        "wf_id": "v9jih4jqeXpOJOiH"
+      },
+      "chain_sub_executions": [
+        {
+          "node": "Invoke_Target",
+          "exec_id": "916",
+          "wf_id": "v9jih4jqeXpOJOiH"
+        }
+      ]
+    },
+    {
+      "edge": 1,
+      "edge_name": "TR→EC",
+      "case_id": 5,
+      "harness_id": "UNPzQUgmTK4VjVPQ",
+      "harness_exec_id": "919",
+      "harness_status": "success",
+      "harness_terminal_status_kind": "failed",
+      "harness_terminal_error_code": "INSUFFICIENT_PLANNING_CONTEXT",
+      "target_id": "v9jih4jqeXpOJOiH",
+      "target": {
+        "status": "success",
+        "lastNode": "EC_Dispatch_To_OR_01_SUBCALL",
+        "terminal_status_kind": "failed",
+        "terminal_result_type": "error",
+        "terminal_error_code": "INSUFFICIENT_PLANNING_CONTEXT",
+        "sub_executions": [
+          {
+            "node": "EC_Dispatch_To_OR_01_SUBCALL",
+            "exec_id": "921",
+            "wf_id": "KhGmNpi0ZDmrnz8W"
+          }
+        ],
+        "exec_id": "920",
+        "wf_id": "v9jih4jqeXpOJOiH"
+      },
+      "chain_sub_executions": [
+        {
+          "node": "Invoke_Target",
+          "exec_id": "920",
+          "wf_id": "v9jih4jqeXpOJOiH"
+        }
+      ]
+    },
+    {
+      "edge": 1,
+      "edge_name": "TR→EC",
+      "case_id": 6,
+      "harness_id": "UNPzQUgmTK4VjVPQ",
+      "harness_exec_id": "923",
+      "harness_status": "success",
+      "harness_terminal_status_kind": "failed",
+      "harness_terminal_error_code": "INSUFFICIENT_PLANNING_CONTEXT",
+      "target_id": "v9jih4jqeXpOJOiH",
+      "target": {
+        "status": "success",
+        "lastNode": "EC_Dispatch_To_OR_01_SUBCALL",
+        "terminal_status_kind": "failed",
+        "terminal_result_type": "error",
+        "terminal_error_code": "INSUFFICIENT_PLANNING_CONTEXT",
+        "sub_executions": [
+          {
+            "node": "EC_Dispatch_To_OR_01_SUBCALL",
+            "exec_id": "925",
+            "wf_id": "KhGmNpi0ZDmrnz8W"
+          }
+        ],
+        "exec_id": "924",
+        "wf_id": "v9jih4jqeXpOJOiH"
+      },
+      "chain_sub_executions": [
+        {
+          "node": "Invoke_Target",
+          "exec_id": "924",
+          "wf_id": "v9jih4jqeXpOJOiH"
+        }
+      ]
+    },
+    {
+      "edge": 1,
+      "edge_name": "TR→EC",
+      "case_id": 7,
+      "harness_id": "UNPzQUgmTK4VjVPQ",
+      "harness_exec_id": "927",
+      "harness_status": "success",
+      "harness_terminal_status_kind": "failed",
+      "harness_terminal_error_code": "INSUFFICIENT_PLANNING_CONTEXT",
+      "target_id": "v9jih4jqeXpOJOiH",
+      "target": {
+        "status": "success",
+        "lastNode": "EC_Dispatch_To_OR_01_SUBCALL",
+        "terminal_status_kind": "failed",
+        "terminal_result_type": "error",
+        "terminal_error_code": "INSUFFICIENT_PLANNING_CONTEXT",
+        "sub_executions": [
+          {
+            "node": "EC_Dispatch_To_OR_01_SUBCALL",
+            "exec_id": "929",
+            "wf_id": "KhGmNpi0ZDmrnz8W"
+          }
+        ],
+        "exec_id": "928",
+        "wf_id": "v9jih4jqeXpOJOiH"
+      },
+      "chain_sub_executions": [
+        {
+          "node": "Invoke_Target",
+          "exec_id": "928",
+          "wf_id": "v9jih4jqeXpOJOiH"
+        }
+      ]
+    },
+    {
+      "edge": 1,
+      "edge_name": "TR→EC",
+      "case_id": 8,
+      "harness_id": "UNPzQUgmTK4VjVPQ",
+      "harness_exec_id": "931",
+      "harness_status": "success",
+      "harness_terminal_status_kind": "failed",
+      "harness_terminal_error_code": "INSUFFICIENT_PLANNING_CONTEXT",
+      "target_id": "v9jih4jqeXpOJOiH",
+      "target": {
+        "status": "success",
+        "lastNode": "EC_Dispatch_To_OR_01_SUBCALL",
+        "terminal_status_kind": "failed",
+        "terminal_result_type": "error",
+        "terminal_error_code": "INSUFFICIENT_PLANNING_CONTEXT",
+        "sub_executions": [
+          {
+            "node": "EC_Dispatch_To_OR_01_SUBCALL",
+            "exec_id": "933",
+            "wf_id": "KhGmNpi0ZDmrnz8W"
+          }
+        ],
+        "exec_id": "932",
+        "wf_id": "v9jih4jqeXpOJOiH"
+      },
+      "chain_sub_executions": [
+        {
+          "node": "Invoke_Target",
+          "exec_id": "932",
+          "wf_id": "v9jih4jqeXpOJOiH"
+        }
+      ]
+    },
+    {
+      "edge": 1,
+      "edge_name": "TR→EC",
+      "case_id": 9,
+      "harness_id": "UNPzQUgmTK4VjVPQ",
+      "harness_exec_id": "935",
+      "harness_status": "success",
+      "harness_terminal_status_kind": "failed",
+      "harness_terminal_error_code": "INSUFFICIENT_PLANNING_CONTEXT",
+      "target_id": "v9jih4jqeXpOJOiH",
+      "target": {
+        "status": "success",
+        "lastNode": "EC_Dispatch_To_OR_01_SUBCALL",
+        "terminal_status_kind": "failed",
+        "terminal_result_type": "error",
+        "terminal_error_code": "INSUFFICIENT_PLANNING_CONTEXT",
+        "sub_executions": [
+          {
+            "node": "EC_Dispatch_To_OR_01_SUBCALL",
+            "exec_id": "937",
+            "wf_id": "KhGmNpi0ZDmrnz8W"
+          }
+        ],
+        "exec_id": "936",
+        "wf_id": "v9jih4jqeXpOJOiH"
+      },
+      "chain_sub_executions": [
+        {
+          "node": "Invoke_Target",
+          "exec_id": "936",
+          "wf_id": "v9jih4jqeXpOJOiH"
+        }
+      ]
+    },
+    {
+      "edge": 1,
+      "edge_name": "TR→EC",
+      "case_id": 10,
+      "harness_id": "UNPzQUgmTK4VjVPQ",
+      "harness_exec_id": "939",
+      "harness_status": "success",
+      "harness_terminal_status_kind": "failed",
+      "harness_terminal_error_code": "INSUFFICIENT_PLANNING_CONTEXT",
+      "target_id": "v9jih4jqeXpOJOiH",
+      "target": {
+        "status": "success",
+        "lastNode": "EC_Dispatch_To_OR_01_SUBCALL",
+        "terminal_status_kind": "failed",
+        "terminal_result_type": "error",
+        "terminal_error_code": "INSUFFICIENT_PLANNING_CONTEXT",
+        "sub_executions": [
+          {
+            "node": "EC_Dispatch_To_OR_01_SUBCALL",
+            "exec_id": "941",
+            "wf_id": "KhGmNpi0ZDmrnz8W"
+          }
+        ],
+        "exec_id": "940",
+        "wf_id": "v9jih4jqeXpOJOiH"
+      },
+      "chain_sub_executions": [
+        {
+          "node": "Invoke_Target",
+          "exec_id": "940",
+          "wf_id": "v9jih4jqeXpOJOiH"
+        }
+      ]
+    },
+    {
+      "edge": 2,
+      "edge_name": "EC→OR",
+      "case_id": 1,
+      "harness_id": "H0HOwjUGzlpLwBHg",
+      "harness_exec_id": "877",
+      "harness_status": "success",
+      "harness_terminal_status_kind": "failed",
+      "harness_terminal_error_code": "INVALID_HANDOFF_INPUT",
+      "target_id": "KhGmNpi0ZDmrnz8W",
+      "target": {
+        "status": "success",
+        "lastNode": "OR_Dispatch_To_PL_01_SUBCALL",
+        "terminal_status_kind": "failed",
+        "terminal_result_type": "error",
+        "terminal_error_code": "INVALID_HANDOFF_INPUT",
+        "sub_executions": [
+          {
+            "node": "OR_Dispatch_To_PL_01_SUBCALL",
+            "exec_id": "879",
+            "wf_id": "RwToPLa1ErHl2tUi"
+          }
+        ],
+        "exec_id": "878",
+        "wf_id": "KhGmNpi0ZDmrnz8W"
+      },
+      "chain_sub_executions": [
+        {
+          "node": "Invoke_Target",
+          "exec_id": "878",
+          "wf_id": "KhGmNpi0ZDmrnz8W"
+        }
+      ]
+    },
+    {
+      "edge": 2,
+      "edge_name": "EC→OR",
+      "case_id": 2,
+      "harness_id": "H0HOwjUGzlpLwBHg",
+      "harness_exec_id": "880",
+      "harness_status": "success",
+      "harness_terminal_status_kind": "failed",
+      "harness_terminal_error_code": "INVALID_HANDOFF_INPUT",
+      "target_id": "KhGmNpi0ZDmrnz8W",
+      "target": {
+        "status": "success",
+        "lastNode": "OR_Dispatch_To_PL_01_SUBCALL",
+        "terminal_status_kind": "failed",
+        "terminal_result_type": "error",
+        "terminal_error_code": "INVALID_HANDOFF_INPUT",
+        "sub_executions": [
+          {
+            "node": "OR_Dispatch_To_PL_01_SUBCALL",
+            "exec_id": "882",
+            "wf_id": "RwToPLa1ErHl2tUi"
+          }
+        ],
+        "exec_id": "881",
+        "wf_id": "KhGmNpi0ZDmrnz8W"
+      },
+      "chain_sub_executions": [
+        {
+          "node": "Invoke_Target",
+          "exec_id": "881",
+          "wf_id": "KhGmNpi0ZDmrnz8W"
+        }
+      ]
+    },
+    {
+      "edge": 2,
+      "edge_name": "EC→OR",
+      "case_id": 3,
+      "harness_id": "H0HOwjUGzlpLwBHg",
+      "harness_exec_id": "883",
+      "harness_status": "success",
+      "harness_terminal_status_kind": "failed",
+      "harness_terminal_error_code": "INVALID_HANDOFF_INPUT",
+      "target_id": "KhGmNpi0ZDmrnz8W",
+      "target": {
+        "status": "success",
+        "lastNode": "OR_Dispatch_To_PL_01_SUBCALL",
+        "terminal_status_kind": "failed",
+        "terminal_result_type": "error",
+        "terminal_error_code": "INVALID_HANDOFF_INPUT",
+        "sub_executions": [
+          {
+            "node": "OR_Dispatch_To_PL_01_SUBCALL",
+            "exec_id": "885",
+            "wf_id": "RwToPLa1ErHl2tUi"
+          }
+        ],
+        "exec_id": "884",
+        "wf_id": "KhGmNpi0ZDmrnz8W"
+      },
+      "chain_sub_executions": [
+        {
+          "node": "Invoke_Target",
+          "exec_id": "884",
+          "wf_id": "KhGmNpi0ZDmrnz8W"
+        }
+      ]
+    },
+    {
+      "edge": 2,
+      "edge_name": "EC→OR",
+      "case_id": 4,
+      "harness_id": "H0HOwjUGzlpLwBHg",
+      "harness_exec_id": "886",
+      "harness_status": "success",
+      "harness_terminal_status_kind": "failed",
+      "harness_terminal_error_code": "INVALID_HANDOFF_INPUT",
+      "target_id": "KhGmNpi0ZDmrnz8W",
+      "target": {
+        "status": "success",
+        "lastNode": "OR_Dispatch_To_PL_01_SUBCALL",
+        "terminal_status_kind": "failed",
+        "terminal_result_type": "error",
+        "terminal_error_code": "INVALID_HANDOFF_INPUT",
+        "sub_executions": [
+          {
+            "node": "OR_Dispatch_To_PL_01_SUBCALL",
+            "exec_id": "888",
+            "wf_id": "RwToPLa1ErHl2tUi"
+          }
+        ],
+        "exec_id": "887",
+        "wf_id": "KhGmNpi0ZDmrnz8W"
+      },
+      "chain_sub_executions": [
+        {
+          "node": "Invoke_Target",
+          "exec_id": "887",
+          "wf_id": "KhGmNpi0ZDmrnz8W"
+        }
+      ]
+    },
+    {
+      "edge": 2,
+      "edge_name": "EC→OR",
+      "case_id": 5,
+      "harness_id": "H0HOwjUGzlpLwBHg",
+      "harness_exec_id": "889",
+      "harness_status": "success",
+      "harness_terminal_status_kind": "failed",
+      "harness_terminal_error_code": "INVALID_HANDOFF_INPUT",
+      "target_id": "KhGmNpi0ZDmrnz8W",
+      "target": {
+        "status": "success",
+        "lastNode": "OR_Dispatch_To_PL_01_SUBCALL",
+        "terminal_status_kind": "failed",
+        "terminal_result_type": "error",
+        "terminal_error_code": "INVALID_HANDOFF_INPUT",
+        "sub_executions": [
+          {
+            "node": "OR_Dispatch_To_PL_01_SUBCALL",
+            "exec_id": "891",
+            "wf_id": "RwToPLa1ErHl2tUi"
+          }
+        ],
+        "exec_id": "890",
+        "wf_id": "KhGmNpi0ZDmrnz8W"
+      },
+      "chain_sub_executions": [
+        {
+          "node": "Invoke_Target",
+          "exec_id": "890",
+          "wf_id": "KhGmNpi0ZDmrnz8W"
+        }
+      ]
+    },
+    {
+      "edge": 2,
+      "edge_name": "EC→OR",
+      "case_id": 6,
+      "harness_id": "H0HOwjUGzlpLwBHg",
+      "harness_exec_id": "892",
+      "harness_status": "success",
+      "harness_terminal_status_kind": "failed",
+      "harness_terminal_error_code": "INVALID_HANDOFF_INPUT",
+      "target_id": "KhGmNpi0ZDmrnz8W",
+      "target": {
+        "status": "success",
+        "lastNode": "OR_Dispatch_To_PL_01_SUBCALL",
+        "terminal_status_kind": "failed",
+        "terminal_result_type": "error",
+        "terminal_error_code": "INVALID_HANDOFF_INPUT",
+        "sub_executions": [
+          {
+            "node": "OR_Dispatch_To_PL_01_SUBCALL",
+            "exec_id": "894",
+            "wf_id": "RwToPLa1ErHl2tUi"
+          }
+        ],
+        "exec_id": "893",
+        "wf_id": "KhGmNpi0ZDmrnz8W"
+      },
+      "chain_sub_executions": [
+        {
+          "node": "Invoke_Target",
+          "exec_id": "893",
+          "wf_id": "KhGmNpi0ZDmrnz8W"
+        }
+      ]
+    },
+    {
+      "edge": 2,
+      "edge_name": "EC→OR",
+      "case_id": 7,
+      "harness_id": "H0HOwjUGzlpLwBHg",
+      "harness_exec_id": "895",
+      "harness_status": "success",
+      "harness_terminal_status_kind": "failed",
+      "harness_terminal_error_code": "INVALID_HANDOFF_INPUT",
+      "target_id": "KhGmNpi0ZDmrnz8W",
+      "target": {
+        "status": "success",
+        "lastNode": "OR_Dispatch_To_PL_01_SUBCALL",
+        "terminal_status_kind": "failed",
+        "terminal_result_type": "error",
+        "terminal_error_code": "INVALID_HANDOFF_INPUT",
+        "sub_executions": [
+          {
+            "node": "OR_Dispatch_To_PL_01_SUBCALL",
+            "exec_id": "897",
+            "wf_id": "RwToPLa1ErHl2tUi"
+          }
+        ],
+        "exec_id": "896",
+        "wf_id": "KhGmNpi0ZDmrnz8W"
+      },
+      "chain_sub_executions": [
+        {
+          "node": "Invoke_Target",
+          "exec_id": "896",
+          "wf_id": "KhGmNpi0ZDmrnz8W"
+        }
+      ]
+    },
+    {
+      "edge": 2,
+      "edge_name": "EC→OR",
+      "case_id": 8,
+      "harness_id": "H0HOwjUGzlpLwBHg",
+      "harness_exec_id": "898",
+      "harness_status": "success",
+      "harness_terminal_status_kind": "failed",
+      "harness_terminal_error_code": "INVALID_HANDOFF_INPUT",
+      "target_id": "KhGmNpi0ZDmrnz8W",
+      "target": {
+        "status": "success",
+        "lastNode": "OR_Dispatch_To_PL_01_SUBCALL",
+        "terminal_status_kind": "failed",
+        "terminal_result_type": "error",
+        "terminal_error_code": "INVALID_HANDOFF_INPUT",
+        "sub_executions": [
+          {
+            "node": "OR_Dispatch_To_PL_01_SUBCALL",
+            "exec_id": "900",
+            "wf_id": "RwToPLa1ErHl2tUi"
+          }
+        ],
+        "exec_id": "899",
+        "wf_id": "KhGmNpi0ZDmrnz8W"
+      },
+      "chain_sub_executions": [
+        {
+          "node": "Invoke_Target",
+          "exec_id": "899",
+          "wf_id": "KhGmNpi0ZDmrnz8W"
+        }
+      ]
+    },
+    {
+      "edge": 2,
+      "edge_name": "EC→OR",
+      "case_id": 9,
+      "harness_id": "H0HOwjUGzlpLwBHg",
+      "harness_exec_id": "901",
+      "harness_status": "success",
+      "harness_terminal_status_kind": "failed",
+      "harness_terminal_error_code": "INVALID_HANDOFF_INPUT",
+      "target_id": "KhGmNpi0ZDmrnz8W",
+      "target": {
+        "status": "success",
+        "lastNode": "OR_Dispatch_To_PL_01_SUBCALL",
+        "terminal_status_kind": "failed",
+        "terminal_result_type": "error",
+        "terminal_error_code": "INVALID_HANDOFF_INPUT",
+        "sub_executions": [
+          {
+            "node": "OR_Dispatch_To_PL_01_SUBCALL",
+            "exec_id": "903",
+            "wf_id": "RwToPLa1ErHl2tUi"
+          }
+        ],
+        "exec_id": "902",
+        "wf_id": "KhGmNpi0ZDmrnz8W"
+      },
+      "chain_sub_executions": [
+        {
+          "node": "Invoke_Target",
+          "exec_id": "902",
+          "wf_id": "KhGmNpi0ZDmrnz8W"
+        }
+      ]
+    },
+    {
+      "edge": 2,
+      "edge_name": "EC→OR",
+      "case_id": 10,
+      "harness_id": "H0HOwjUGzlpLwBHg",
+      "harness_exec_id": "904",
+      "harness_status": "success",
+      "harness_terminal_status_kind": "failed",
+      "harness_terminal_error_code": "INVALID_HANDOFF_INPUT",
+      "target_id": "KhGmNpi0ZDmrnz8W",
+      "target": {
+        "status": "success",
+        "lastNode": "OR_Dispatch_To_PL_01_SUBCALL",
+        "terminal_status_kind": "failed",
+        "terminal_result_type": "error",
+        "terminal_error_code": "INVALID_HANDOFF_INPUT",
+        "sub_executions": [
+          {
+            "node": "OR_Dispatch_To_PL_01_SUBCALL",
+            "exec_id": "906",
+            "wf_id": "RwToPLa1ErHl2tUi"
+          }
+        ],
+        "exec_id": "905",
+        "wf_id": "KhGmNpi0ZDmrnz8W"
+      },
+      "chain_sub_executions": [
+        {
+          "node": "Invoke_Target",
+          "exec_id": "905",
+          "wf_id": "KhGmNpi0ZDmrnz8W"
+        }
+      ]
+    },
+    {
+      "edge": 3,
+      "edge_name": "OR→PL",
+      "case_id": 1,
+      "harness_id": "NYJPNtoiwdZM1lJY",
+      "harness_exec_id": "943",
+      "harness_status": "success",
+      "harness_terminal_status_kind": "failed",
+      "harness_terminal_error_code": "CONTEXT_MISMATCH",
+      "target_id": "RwToPLa1ErHl2tUi",
+      "target": {
+        "status": "success",
+        "lastNode": "PL_Return_Error",
+        "terminal_status_kind": "failed",
+        "terminal_result_type": "error",
+        "terminal_error_code": "CONTEXT_MISMATCH",
+        "sub_executions": [],
+        "exec_id": "944",
+        "wf_id": "RwToPLa1ErHl2tUi"
+      },
+      "chain_sub_executions": [
+        {
+          "node": "Invoke_Target",
+          "exec_id": "944",
+          "wf_id": "RwToPLa1ErHl2tUi"
+        }
+      ]
+    },
+    {
+      "edge": 3,
+      "edge_name": "OR→PL",
+      "case_id": 2,
+      "harness_id": "NYJPNtoiwdZM1lJY",
+      "harness_exec_id": "945",
+      "harness_status": "success",
+      "harness_terminal_status_kind": "failed",
+      "harness_terminal_error_code": "CONTEXT_MISMATCH",
+      "target_id": "RwToPLa1ErHl2tUi",
+      "target": {
+        "status": "success",
+        "lastNode": "PL_Return_Error",
+        "terminal_status_kind": "failed",
+        "terminal_result_type": "error",
+        "terminal_error_code": "CONTEXT_MISMATCH",
+        "sub_executions": [],
+        "exec_id": "946",
+        "wf_id": "RwToPLa1ErHl2tUi"
+      },
+      "chain_sub_executions": [
+        {
+          "node": "Invoke_Target",
+          "exec_id": "946",
+          "wf_id": "RwToPLa1ErHl2tUi"
+        }
+      ]
+    },
+    {
+      "edge": 3,
+      "edge_name": "OR→PL",
+      "case_id": 3,
+      "harness_id": "NYJPNtoiwdZM1lJY",
+      "harness_exec_id": "947",
+      "harness_status": "success",
+      "harness_terminal_status_kind": "failed",
+      "harness_terminal_error_code": "CONTEXT_MISMATCH",
+      "target_id": "RwToPLa1ErHl2tUi",
+      "target": {
+        "status": "success",
+        "lastNode": "PL_Return_Error",
+        "terminal_status_kind": "failed",
+        "terminal_result_type": "error",
+        "terminal_error_code": "CONTEXT_MISMATCH",
+        "sub_executions": [],
+        "exec_id": "948",
+        "wf_id": "RwToPLa1ErHl2tUi"
+      },
+      "chain_sub_executions": [
+        {
+          "node": "Invoke_Target",
+          "exec_id": "948",
+          "wf_id": "RwToPLa1ErHl2tUi"
+        }
+      ]
+    },
+    {
+      "edge": 3,
+      "edge_name": "OR→PL",
+      "case_id": 4,
+      "harness_id": "NYJPNtoiwdZM1lJY",
+      "harness_exec_id": "949",
+      "harness_status": "success",
+      "harness_terminal_status_kind": "failed",
+      "harness_terminal_error_code": "CONTEXT_MISMATCH",
+      "target_id": "RwToPLa1ErHl2tUi",
+      "target": {
+        "status": "success",
+        "lastNode": "PL_Return_Error",
+        "terminal_status_kind": "failed",
+        "terminal_result_type": "error",
+        "terminal_error_code": "CONTEXT_MISMATCH",
+        "sub_executions": [],
+        "exec_id": "950",
+        "wf_id": "RwToPLa1ErHl2tUi"
+      },
+      "chain_sub_executions": [
+        {
+          "node": "Invoke_Target",
+          "exec_id": "950",
+          "wf_id": "RwToPLa1ErHl2tUi"
+        }
+      ]
+    },
+    {
+      "edge": 3,
+      "edge_name": "OR→PL",
+      "case_id": 5,
+      "harness_id": "NYJPNtoiwdZM1lJY",
+      "harness_exec_id": "951",
+      "harness_status": "success",
+      "harness_terminal_status_kind": "failed",
+      "harness_terminal_error_code": "CONTEXT_MISMATCH",
+      "target_id": "RwToPLa1ErHl2tUi",
+      "target": {
+        "status": "success",
+        "lastNode": "PL_Return_Error",
+        "terminal_status_kind": "failed",
+        "terminal_result_type": "error",
+        "terminal_error_code": "CONTEXT_MISMATCH",
+        "sub_executions": [],
+        "exec_id": "952",
+        "wf_id": "RwToPLa1ErHl2tUi"
+      },
+      "chain_sub_executions": [
+        {
+          "node": "Invoke_Target",
+          "exec_id": "952",
+          "wf_id": "RwToPLa1ErHl2tUi"
+        }
+      ]
+    },
+    {
+      "edge": 3,
+      "edge_name": "OR→PL",
+      "case_id": 6,
+      "harness_id": "NYJPNtoiwdZM1lJY",
+      "harness_exec_id": "953",
+      "harness_status": "success",
+      "harness_terminal_status_kind": "failed",
+      "harness_terminal_error_code": "CONTEXT_MISMATCH",
+      "target_id": "RwToPLa1ErHl2tUi",
+      "target": {
+        "status": "success",
+        "lastNode": "PL_Return_Error",
+        "terminal_status_kind": "failed",
+        "terminal_result_type": "error",
+        "terminal_error_code": "CONTEXT_MISMATCH",
+        "sub_executions": [],
+        "exec_id": "954",
+        "wf_id": "RwToPLa1ErHl2tUi"
+      },
+      "chain_sub_executions": [
+        {
+          "node": "Invoke_Target",
+          "exec_id": "954",
+          "wf_id": "RwToPLa1ErHl2tUi"
+        }
+      ]
+    },
+    {
+      "edge": 3,
+      "edge_name": "OR→PL",
+      "case_id": 7,
+      "harness_id": "NYJPNtoiwdZM1lJY",
+      "harness_exec_id": "955",
+      "harness_status": "success",
+      "harness_terminal_status_kind": "failed",
+      "harness_terminal_error_code": "CONTEXT_MISMATCH",
+      "target_id": "RwToPLa1ErHl2tUi",
+      "target": {
+        "status": "success",
+        "lastNode": "PL_Return_Error",
+        "terminal_status_kind": "failed",
+        "terminal_result_type": "error",
+        "terminal_error_code": "CONTEXT_MISMATCH",
+        "sub_executions": [],
+        "exec_id": "956",
+        "wf_id": "RwToPLa1ErHl2tUi"
+      },
+      "chain_sub_executions": [
+        {
+          "node": "Invoke_Target",
+          "exec_id": "956",
+          "wf_id": "RwToPLa1ErHl2tUi"
+        }
+      ]
+    },
+    {
+      "edge": 3,
+      "edge_name": "OR→PL",
+      "case_id": 8,
+      "harness_id": "NYJPNtoiwdZM1lJY",
+      "harness_exec_id": "957",
+      "harness_status": "success",
+      "harness_terminal_status_kind": "failed",
+      "harness_terminal_error_code": "CONTEXT_MISMATCH",
+      "target_id": "RwToPLa1ErHl2tUi",
+      "target": {
+        "status": "success",
+        "lastNode": "PL_Return_Error",
+        "terminal_status_kind": "failed",
+        "terminal_result_type": "error",
+        "terminal_error_code": "CONTEXT_MISMATCH",
+        "sub_executions": [],
+        "exec_id": "958",
+        "wf_id": "RwToPLa1ErHl2tUi"
+      },
+      "chain_sub_executions": [
+        {
+          "node": "Invoke_Target",
+          "exec_id": "958",
+          "wf_id": "RwToPLa1ErHl2tUi"
+        }
+      ]
+    },
+    {
+      "edge": 3,
+      "edge_name": "OR→PL",
+      "case_id": 9,
+      "harness_id": "NYJPNtoiwdZM1lJY",
+      "harness_exec_id": "959",
+      "harness_status": "success",
+      "harness_terminal_status_kind": "failed",
+      "harness_terminal_error_code": "CONTEXT_MISMATCH",
+      "target_id": "RwToPLa1ErHl2tUi",
+      "target": {
+        "status": "success",
+        "lastNode": "PL_Return_Error",
+        "terminal_status_kind": "failed",
+        "terminal_result_type": "error",
+        "terminal_error_code": "CONTEXT_MISMATCH",
+        "sub_executions": [],
+        "exec_id": "960",
+        "wf_id": "RwToPLa1ErHl2tUi"
+      },
+      "chain_sub_executions": [
+        {
+          "node": "Invoke_Target",
+          "exec_id": "960",
+          "wf_id": "RwToPLa1ErHl2tUi"
+        }
+      ]
+    },
+    {
+      "edge": 3,
+      "edge_name": "OR→PL",
+      "case_id": 10,
+      "harness_id": "NYJPNtoiwdZM1lJY",
+      "harness_exec_id": "961",
+      "harness_status": "success",
+      "harness_terminal_status_kind": "failed",
+      "harness_terminal_error_code": "CONTEXT_MISMATCH",
+      "target_id": "RwToPLa1ErHl2tUi",
+      "target": {
+        "status": "success",
+        "lastNode": "PL_Return_Error",
+        "terminal_status_kind": "failed",
+        "terminal_result_type": "error",
+        "terminal_error_code": "CONTEXT_MISMATCH",
+        "sub_executions": [],
+        "exec_id": "962",
+        "wf_id": "RwToPLa1ErHl2tUi"
+      },
+      "chain_sub_executions": [
+        {
+          "node": "Invoke_Target",
+          "exec_id": "962",
+          "wf_id": "RwToPLa1ErHl2tUi"
+        }
+      ]
+    },
+    {
+      "edge": 4,
+      "edge_name": "PL→DI",
+      "case_id": 1,
+      "harness_id": "R7Ji7JhT6430c76k",
+      "harness_exec_id": "963",
+      "harness_status": "success",
+      "harness_terminal_status_kind": "failed",
+      "harness_terminal_error_code": "CONTEXT_MISMATCH",
+      "target_id": "abqYINcXr3JAhGGk",
+      "target": {
+        "status": "success",
+        "lastNode": "DI_Return_Error",
+        "terminal_status_kind": "failed",
+        "terminal_result_type": "error",
+        "terminal_error_code": "CONTEXT_MISMATCH",
+        "sub_executions": [],
+        "exec_id": "964",
+        "wf_id": "abqYINcXr3JAhGGk"
+      },
+      "chain_sub_executions": [
+        {
+          "node": "Invoke_Target",
+          "exec_id": "964",
+          "wf_id": "abqYINcXr3JAhGGk"
+        }
+      ]
+    },
+    {
+      "edge": 4,
+      "edge_name": "PL→DI",
+      "case_id": 2,
+      "harness_id": "R7Ji7JhT6430c76k",
+      "harness_exec_id": "965",
+      "harness_status": "success",
+      "harness_terminal_status_kind": "failed",
+      "harness_terminal_error_code": "CONTEXT_MISMATCH",
+      "target_id": "abqYINcXr3JAhGGk",
+      "target": {
+        "status": "success",
+        "lastNode": "DI_Return_Error",
+        "terminal_status_kind": "failed",
+        "terminal_result_type": "error",
+        "terminal_error_code": "CONTEXT_MISMATCH",
+        "sub_executions": [],
+        "exec_id": "966",
+        "wf_id": "abqYINcXr3JAhGGk"
+      },
+      "chain_sub_executions": [
+        {
+          "node": "Invoke_Target",
+          "exec_id": "966",
+          "wf_id": "abqYINcXr3JAhGGk"
+        }
+      ]
+    },
+    {
+      "edge": 4,
+      "edge_name": "PL→DI",
+      "case_id": 3,
+      "harness_id": "R7Ji7JhT6430c76k",
+      "harness_exec_id": "967",
+      "harness_status": "success",
+      "harness_terminal_status_kind": "failed",
+      "harness_terminal_error_code": "CONTEXT_MISMATCH",
+      "target_id": "abqYINcXr3JAhGGk",
+      "target": {
+        "status": "success",
+        "lastNode": "DI_Return_Error",
+        "terminal_status_kind": "failed",
+        "terminal_result_type": "error",
+        "terminal_error_code": "CONTEXT_MISMATCH",
+        "sub_executions": [],
+        "exec_id": "968",
+        "wf_id": "abqYINcXr3JAhGGk"
+      },
+      "chain_sub_executions": [
+        {
+          "node": "Invoke_Target",
+          "exec_id": "968",
+          "wf_id": "abqYINcXr3JAhGGk"
+        }
+      ]
+    },
+    {
+      "edge": 4,
+      "edge_name": "PL→DI",
+      "case_id": 4,
+      "harness_id": "R7Ji7JhT6430c76k",
+      "harness_exec_id": "969",
+      "harness_status": "success",
+      "harness_terminal_status_kind": "failed",
+      "harness_terminal_error_code": "CONTEXT_MISMATCH",
+      "target_id": "abqYINcXr3JAhGGk",
+      "target": {
+        "status": "success",
+        "lastNode": "DI_Return_Error",
+        "terminal_status_kind": "failed",
+        "terminal_result_type": "error",
+        "terminal_error_code": "CONTEXT_MISMATCH",
+        "sub_executions": [],
+        "exec_id": "970",
+        "wf_id": "abqYINcXr3JAhGGk"
+      },
+      "chain_sub_executions": [
+        {
+          "node": "Invoke_Target",
+          "exec_id": "970",
+          "wf_id": "abqYINcXr3JAhGGk"
+        }
+      ]
+    },
+    {
+      "edge": 4,
+      "edge_name": "PL→DI",
+      "case_id": 5,
+      "harness_id": "R7Ji7JhT6430c76k",
+      "harness_exec_id": "971",
+      "harness_status": "success",
+      "harness_terminal_status_kind": "failed",
+      "harness_terminal_error_code": "CONTEXT_MISMATCH",
+      "target_id": "abqYINcXr3JAhGGk",
+      "target": {
+        "status": "success",
+        "lastNode": "DI_Return_Error",
+        "terminal_status_kind": "failed",
+        "terminal_result_type": "error",
+        "terminal_error_code": "CONTEXT_MISMATCH",
+        "sub_executions": [],
+        "exec_id": "972",
+        "wf_id": "abqYINcXr3JAhGGk"
+      },
+      "chain_sub_executions": [
+        {
+          "node": "Invoke_Target",
+          "exec_id": "972",
+          "wf_id": "abqYINcXr3JAhGGk"
+        }
+      ]
+    },
+    {
+      "edge": 4,
+      "edge_name": "PL→DI",
+      "case_id": 6,
+      "harness_id": "R7Ji7JhT6430c76k",
+      "harness_exec_id": "973",
+      "harness_status": "success",
+      "harness_terminal_status_kind": "failed",
+      "harness_terminal_error_code": "CONTEXT_MISMATCH",
+      "target_id": "abqYINcXr3JAhGGk",
+      "target": {
+        "status": "success",
+        "lastNode": "DI_Return_Error",
+        "terminal_status_kind": "failed",
+        "terminal_result_type": "error",
+        "terminal_error_code": "CONTEXT_MISMATCH",
+        "sub_executions": [],
+        "exec_id": "974",
+        "wf_id": "abqYINcXr3JAhGGk"
+      },
+      "chain_sub_executions": [
+        {
+          "node": "Invoke_Target",
+          "exec_id": "974",
+          "wf_id": "abqYINcXr3JAhGGk"
+        }
+      ]
+    },
+    {
+      "edge": 4,
+      "edge_name": "PL→DI",
+      "case_id": 7,
+      "harness_id": "R7Ji7JhT6430c76k",
+      "harness_exec_id": "975",
+      "harness_status": "success",
+      "harness_terminal_status_kind": "failed",
+      "harness_terminal_error_code": "CONTEXT_MISMATCH",
+      "target_id": "abqYINcXr3JAhGGk",
+      "target": {
+        "status": "success",
+        "lastNode": "DI_Return_Error",
+        "terminal_status_kind": "failed",
+        "terminal_result_type": "error",
+        "terminal_error_code": "CONTEXT_MISMATCH",
+        "sub_executions": [],
+        "exec_id": "976",
+        "wf_id": "abqYINcXr3JAhGGk"
+      },
+      "chain_sub_executions": [
+        {
+          "node": "Invoke_Target",
+          "exec_id": "976",
+          "wf_id": "abqYINcXr3JAhGGk"
+        }
+      ]
+    },
+    {
+      "edge": 4,
+      "edge_name": "PL→DI",
+      "case_id": 8,
+      "harness_id": "R7Ji7JhT6430c76k",
+      "harness_exec_id": "977",
+      "harness_status": "success",
+      "harness_terminal_status_kind": "failed",
+      "harness_terminal_error_code": "CONTEXT_MISMATCH",
+      "target_id": "abqYINcXr3JAhGGk",
+      "target": {
+        "status": "success",
+        "lastNode": "DI_Return_Error",
+        "terminal_status_kind": "failed",
+        "terminal_result_type": "error",
+        "terminal_error_code": "CONTEXT_MISMATCH",
+        "sub_executions": [],
+        "exec_id": "978",
+        "wf_id": "abqYINcXr3JAhGGk"
+      },
+      "chain_sub_executions": [
+        {
+          "node": "Invoke_Target",
+          "exec_id": "978",
+          "wf_id": "abqYINcXr3JAhGGk"
+        }
+      ]
+    },
+    {
+      "edge": 4,
+      "edge_name": "PL→DI",
+      "case_id": 9,
+      "harness_id": "R7Ji7JhT6430c76k",
+      "harness_exec_id": "979",
+      "harness_status": "success",
+      "harness_terminal_status_kind": "failed",
+      "harness_terminal_error_code": "CONTEXT_MISMATCH",
+      "target_id": "abqYINcXr3JAhGGk",
+      "target": {
+        "status": "success",
+        "lastNode": "DI_Return_Error",
+        "terminal_status_kind": "failed",
+        "terminal_result_type": "error",
+        "terminal_error_code": "CONTEXT_MISMATCH",
+        "sub_executions": [],
+        "exec_id": "980",
+        "wf_id": "abqYINcXr3JAhGGk"
+      },
+      "chain_sub_executions": [
+        {
+          "node": "Invoke_Target",
+          "exec_id": "980",
+          "wf_id": "abqYINcXr3JAhGGk"
+        }
+      ]
+    },
+    {
+      "edge": 4,
+      "edge_name": "PL→DI",
+      "case_id": 10,
+      "harness_id": "R7Ji7JhT6430c76k",
+      "harness_exec_id": "981",
+      "harness_status": "success",
+      "harness_terminal_status_kind": "failed",
+      "harness_terminal_error_code": "CONTEXT_MISMATCH",
+      "target_id": "abqYINcXr3JAhGGk",
+      "target": {
+        "status": "success",
+        "lastNode": "DI_Return_Error",
+        "terminal_status_kind": "failed",
+        "terminal_result_type": "error",
+        "terminal_error_code": "CONTEXT_MISMATCH",
+        "sub_executions": [],
+        "exec_id": "982",
+        "wf_id": "abqYINcXr3JAhGGk"
+      },
+      "chain_sub_executions": [
+        {
+          "node": "Invoke_Target",
+          "exec_id": "982",
+          "wf_id": "abqYINcXr3JAhGGk"
+        }
+      ]
+    }
+  ]
+}

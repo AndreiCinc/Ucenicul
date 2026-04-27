@@ -1,0 +1,17 @@
+{
+  "exec_id": "1622",
+  "case_id": "F3-promote-pf3-seed-eb",
+  "step_id": "mem-batch-v2c-pf3-seed-eb",
+  "action": "store_memory",
+  "purpose": "Seed recent-tier row to be promoted via evidence_validated path in PF3",
+  "result_status_kind": "success",
+  "module_result_status": "success",
+  "new_memory_id": "5a0b1317-8723-41be-8166-b027f98c1104",
+  "category": "smoke_f3_promote",
+  "tier": "recent",
+  "status_after": "active",
+  "user_confirmed_at_insert": false,
+  "evidence_validated_at_insert": false,
+  "corroboration_count": 1,
+  "domain_writes_performed": true
+}

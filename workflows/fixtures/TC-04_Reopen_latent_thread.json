@@ -1,0 +1,34 @@
+{
+  "id": "TC-04",
+  "name": "Reopen latent thread",
+  "description": "Author entity matches latent thread, content overlaps significantly. Score above REOPEN_THRESHOLD (0.65) but thread is latent, not active.",
+  "request": {
+    "message_id": "test-msg-004",
+    "tenant_id": "aaaaaaaa-0000-0000-0000-000000000001",
+    "channel": "telegram",
+    "direction": "inbound",
+    "author_type": "user",
+    "normalized_content": "Maria, inca mai ai nevoie de ajutor cu factura care trebuie trimisa?",
+    "timestamp": "2026-04-15T12:00:00Z",
+    "source_message_ref": "tg_test_004",
+    "author_entity_id": "eeeeeeee-0000-0000-0000-000000000002"
+  },
+  "expected": {
+    "decision": "reopen_latent_thread",
+    "resolved_thread_id": "tttttttt-0000-0000-0000-000000000002",
+    "ambiguity_detected": false,
+    "content_class_used": "normalized_content"
+  },
+  "candidate_threads_fixture": [
+    {
+      "thread_id": "tttttttt-0000-0000-0000-000000000002",
+      "thread_status": "latent",
+      "thread_title": "Factura Maria",
+      "score": 0.68,
+      "entity_match": 0.3,
+      "semantic_match": 0.25,
+      "temporal_proximity": 0.1,
+      "channel_relevance": 0.03
+    }
+  ]
+}

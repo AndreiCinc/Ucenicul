@@ -1,0 +1,159 @@
+{
+  "_comment": "Copy one of these blocks into n8n UI: open WF-SU-01 -> click SU_Manual_Test_Trigger -> 'Pin data' -> paste the corresponding envelope. Run once per V test. I then read execution IDs and close.",
+
+  "V3_happy_path": {
+    "status_kind": "success",
+    "result_type": "aggregated_result",
+    "execution_context_id": "33333333-3333-3333-3333-333333333333",
+    "thread_id": "55555555-5555-5555-5555-555555555555",
+    "tenant_id": "44444444-4444-4444-4444-444444444444",
+    "aggregated_result": {
+      "summary": "ok",
+      "status": "success",
+      "module_results_count": 1,
+      "module_names": ["m1"],
+      "per_status_counts": {"success": 1},
+      "actions_executed": [],
+      "artifacts": [],
+      "observations": [],
+      "proposals": [],
+      "confidence": 0.9,
+      "needs_followup": false,
+      "followup_requests": [],
+      "expected_step_ids": ["s1"],
+      "returned_step_ids": ["s1"]
+    },
+    "allowed_next_stage": "WF-SU-01",
+    "state_update_allowed": true,
+    "response_generation_allowed": false,
+    "domain_writes_performed": false,
+    "idempotency_key": "aggregate:33333333-3333-3333-3333-333333333333:v1"
+  },
+
+  "V2_invalid_input": {
+    "status_kind": "success",
+    "result_type": "aggregated_result",
+    "execution_context_id": "33333333-3333-3333-3333-333333333333",
+    "thread_id": "55555555-5555-5555-5555-555555555555",
+    "tenant_id": "44444444-4444-4444-4444-444444444444",
+    "aggregated_result": {
+      "summary": "bad-flags",
+      "status": "success",
+      "module_results_count": 1,
+      "module_names": ["m1"],
+      "per_status_counts": {"success": 1},
+      "actions_executed": [],
+      "artifacts": [],
+      "observations": [],
+      "proposals": [],
+      "confidence": 0.9,
+      "needs_followup": false,
+      "followup_requests": [],
+      "expected_step_ids": ["s1"],
+      "returned_step_ids": ["s1"]
+    },
+    "allowed_next_stage": "WF-RC-01",
+    "state_update_allowed": true,
+    "response_generation_allowed": false,
+    "domain_writes_performed": false,
+    "idempotency_key": "aggregate:33333333-3333-3333-3333-333333333333:v2"
+  },
+
+  "V4_forbidden_write": {
+    "status_kind": "success",
+    "result_type": "aggregated_result",
+    "execution_context_id": "33333333-3333-3333-3333-333333333333",
+    "thread_id": "55555555-5555-5555-5555-555555555555",
+    "tenant_id": "44444444-4444-4444-4444-444444444444",
+    "aggregated_result": {
+      "summary": "forbid-class",
+      "status": "success",
+      "module_results_count": 1,
+      "module_names": ["m1"],
+      "per_status_counts": {"success": 1},
+      "actions_executed": [],
+      "artifacts": [],
+      "observations": [],
+      "proposals": [],
+      "confidence": 0.9,
+      "needs_followup": false,
+      "followup_requests": [],
+      "expected_step_ids": ["s1"],
+      "returned_step_ids": ["s1"]
+    },
+    "allowed_next_stage": "WF-SU-01",
+    "state_update_allowed": true,
+    "response_generation_allowed": false,
+    "domain_writes_performed": false,
+    "idempotency_key": "aggregate:33333333-3333-3333-3333-333333333333:v4",
+    "_write_permission_override": {
+      "allowed_write_classes": [
+        "execution_state_update",
+        "thread_state_update",
+        "audit_persistence",
+        "memory_candidate_persistence",
+        "domain_event_write"
+      ],
+      "denied_write_classes": []
+    }
+  },
+
+  "V5_lineage_mismatch": {
+    "status_kind": "success",
+    "result_type": "aggregated_result",
+    "execution_context_id": "33333333-3333-3333-3333-333333333333",
+    "thread_id": "55555555-5555-5555-5555-555555555555",
+    "tenant_id": "99999999-9999-9999-9999-999999999999",
+    "aggregated_result": {
+      "summary": "lineage-mismatch",
+      "status": "success",
+      "module_results_count": 1,
+      "module_names": ["m1"],
+      "per_status_counts": {"success": 1},
+      "actions_executed": [],
+      "artifacts": [],
+      "observations": [],
+      "proposals": [],
+      "confidence": 0.9,
+      "needs_followup": false,
+      "followup_requests": [],
+      "expected_step_ids": ["s1"],
+      "returned_step_ids": ["s1"]
+    },
+    "allowed_next_stage": "WF-SU-01",
+    "state_update_allowed": true,
+    "response_generation_allowed": false,
+    "domain_writes_performed": false,
+    "idempotency_key": "aggregate:33333333-3333-3333-3333-333333333333:v5"
+  },
+
+  "V5b_replay_blocked": {
+    "status_kind": "success",
+    "result_type": "aggregated_result",
+    "execution_context_id": "33333333-3333-3333-3333-333333333333",
+    "thread_id": "55555555-5555-5555-5555-555555555555",
+    "tenant_id": "44444444-4444-4444-4444-444444444444",
+    "aggregated_result": {
+      "summary": "replay",
+      "status": "success",
+      "module_results_count": 1,
+      "module_names": ["m1"],
+      "per_status_counts": {"success": 1},
+      "actions_executed": [],
+      "artifacts": [],
+      "observations": [],
+      "proposals": [],
+      "confidence": 0.9,
+      "needs_followup": false,
+      "followup_requests": [],
+      "expected_step_ids": ["s1"],
+      "returned_step_ids": ["s1"]
+    },
+    "allowed_next_stage": "WF-SU-01",
+    "state_update_allowed": true,
+    "response_generation_allowed": false,
+    "domain_writes_performed": false,
+    "idempotency_key": "aggregate:33333333-3333-3333-3333-333333333333:v5b",
+    "_replay_seen_input_hash": "deadbeef"
+  }
+}

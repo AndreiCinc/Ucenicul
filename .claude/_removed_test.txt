@@ -1,0 +1,5 @@
+# sandbox vestige (safe to ignore)
+
+This file was created as a write-capability probe during the 2026-04-19 closure pass and could not be deleted under the current mount. It contains no real content. Do not read it as authoritative.
+
+The real .claude README is `./README.md`.

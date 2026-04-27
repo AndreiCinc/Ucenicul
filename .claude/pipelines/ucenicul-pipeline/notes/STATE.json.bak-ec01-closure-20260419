@@ -1,0 +1,579 @@
+{
+  "current_stage": "WF-EC-01",
+  "current_stage_file": "06_STAGE_WF-EC-01.md",
+  "status": "ready_to_start",
+  "phase": "build",
+  "score": 0,
+  "next_action": "Read the required files in README.md order, then perform DB and workflow reality checks.",
+  "last_updated": "2026-04-18T13:05Z",
+  "advance_allowed": false,
+  "notes": [
+    "Preserve the WF-EC-01 workflow shell created by the user.",
+    "If direct DB change is blocked or risky, create parallel structures with suffix _claude_mcp.",
+    "Do not leave the workflow blank after any update."
+  ],
+  "pl_01_prep": {
+    "cycle_type": "SCOPE_EXPANSION_PREP",
+    "prepared_stage": "WF-PL-01",
+    "prepared_stage_file": "06_STAGE_WF-PL-01.md",
+    "prep_status": "BLOCKED_WITH_EVIDENCE",
+    "prep_phase": "script_proof_complete",
+    "prep_score": 8.3,
+    "prep_cap": 8.5,
+    "advance_allowed": false,
+    "last_updated": "2026-04-17",
+    "next_executable_action": "User closes EC-01 live \u2192 builds & closes OR-01 live \u2192 resolves HDR-1..HDR-5 in 06_STAGE_WF-PL-01.md \u2192 creates WF-PL-01 shell \u2192 imports workflows/WF-PL-01_Plan_Builder.json \u2192 runs V1..V6 per workflows/WF-PL-01_IMPORT_PATCH_PLAN.md",
+    "artifacts_produced": [
+      "06_STAGE_WF-PL-01.md",
+      "WORK_LOG_WF-PL-01.md",
+      "BUILD_REPORT_WF-PL-01.md",
+      "AUDIT_REPORT_WF-PL-01.md",
+      "FIX_LOG_WF-PL-01.md",
+      "CLOSURE_REPORT_WF-PL-01.md",
+      "17_ACTIVE_STAGE_LOCK.md (\u00a710 appended)",
+      "workflows/WF-PL-01_Plan_Builder.json",
+      "workflows/WF-PL-01_blueprint.json",
+      "workflows/WF-PL-01_IMPORT_PATCH_PLAN.md",
+      "workflows/sql/pl/00_README.md",
+      "workflows/sql/pl/01_schema_inspect.sql",
+      "workflows/sql/pl/02_create_table_candidate.sql",
+      "workflows/sql/pl/03_create_table_fallback_claude_mcp.sql",
+      "workflows/sql/pl/04_parameterized_upsert.sql",
+      "workflows/sql/pl/05_parameterized_replay_select.sql",
+      "workflows/sql/pl/06_fixture_pack_claude_mcp.sql",
+      "workflows/sql/pl/07_cleanup.sql",
+      "workflows/sql/pl/08_read_path_probe.sql",
+      "workflows/sql/pl/99_merge_back_notes.sql",
+      "workflows/scripts/pl/__init__.py",
+      "workflows/scripts/pl/pl_logic.py",
+      "workflows/tests/pl/__init__.py",
+      "workflows/tests/pl/test_families.py",
+      "docs/ucenicul_claude_handoff_hardened/archive/WF-OR-01_closure_snapshot/README.md"
+    ],
+    "tests": {
+      "total": 500,
+      "passed": 500,
+      "families": 10,
+      "percent": 100.0,
+      "runner": "python3 workflows/tests/pl/test_families.py"
+    },
+    "open_decisions": [
+      "HDR-1: LLM planning call in PL-01? default=NO",
+      "HDR-2: execution_plans canonical vs _claude_mcp? default=canonical pending live inspection",
+      "HDR-3: Plan Validator separate stage? default=NO (internal sub-node)",
+      "HDR-4: Compound splitting in PL-01? default=YES",
+      "HDR-5: Step fields beyond 4 doc-mandated? default=+step_id +status"
+    ]
+  },
+  "rc_01_live_impl": {
+    "cycle_type": "LIVE_IMPLEMENTATION_PASS",
+    "target_workflow_id": "TClXgmO8H8zsSwMb",
+    "source_pack": "wf-rc-01_full_source_pack.zip",
+    "status": "CLOSED",
+    "score": 10,
+    "live_patch_applied": true,
+    "off_node_tests": {
+      "total": 650,
+      "passed": 650,
+      "families": 13,
+      "runner": "python3 workflows/tests/rc/test_families.py"
+    },
+    "live_shell_match": true,
+    "live_shell": {
+      "nodeCount": 14,
+      "edgeCount": 13,
+      "triggers": 2,
+      "switches": 2,
+      "postgres": 2
+    },
+    "credential_bound": {
+      "id": "qpZLzVs17Zy7HCFB",
+      "name": "Postgres account"
+    },
+    "live_v1_v6": {
+      "V1": {
+        "result": "PASS",
+        "evidence": "static shell match"
+      },
+      "V2": {
+        "result": "PASS",
+        "execution_id": "750",
+        "terminal": "RC_Return_Error"
+      },
+      "V3": {
+        "result": "PASS",
+        "execution_id": "751",
+        "terminal": "RC_Return_Result"
+      },
+      "V3b": {
+        "result": "PASS",
+        "execution_id": "752",
+        "terminal": "RC_Return_Result",
+        "response_status": "partial",
+        "warning_count": 1
+      },
+      "V4": {
+        "result": "PASS",
+        "execution_id": "753",
+        "terminal": "RC_Return_Result",
+        "warning_count": 2,
+        "followup_count": 2
+      },
+      "V5": {
+        "result": "PASS",
+        "execution_id": "754",
+        "terminal": "RC_Return_Context_Error",
+        "error_code": "LINEAGE_MISMATCH"
+      },
+      "V6": {
+        "result": "PASS",
+        "evidence": "max(updated_at) on execution_contexts/threads/messages all pre-date the test window 10:14-10:22Z"
+      }
+    },
+    "pack_bug_patched_live": {
+      "where": "RC_Route_Valid + RC_Route_Context_Ready",
+      "from": "operator.equals(true) on boolean expression",
+      "to": "operator.true(singleValue)",
+      "doc": "wf-rc-01-pack/workflows/WF-RC-01_PACK_BUG_SWITCH_V32.md"
+    },
+    "last_updated": "2026-04-18",
+    "advance_allowed": true,
+    "closes_to": "MESSAGE_OUT (downstream wiring out of scope)",
+    "artifacts_produced": [
+      "snapshots/TClXgmO8H8zsSwMb_pre-rc01-replace-20260418T100855Z.json",
+      "snapshots/TClXgmO8H8zsSwMb_post-rc01-replace-20260418T100928Z.json",
+      "snapshots/TClXgmO8H8zsSwMb_post-rc01-final-20260418T1023Z.json",
+      "tools/n8n-patch/rc-test-harness/V2.fixture.json",
+      "tools/n8n-patch/rc-test-harness/V3.fixture.json",
+      "tools/n8n-patch/rc-test-harness/V3b.fixture.json",
+      "tools/n8n-patch/rc-test-harness/V4.fixture.json",
+      "tools/n8n-patch/rc-test-harness/V5.fixture.json",
+      "tools/n8n-patch/rc-test-harness/inject-fixture.mjs",
+      "tools/n8n-patch/rc-test-harness/original-validate-jsCode.js",
+      "tools/n8n-patch/rc-test-harness/switch-fix-valid.json",
+      "tools/n8n-patch/rc-test-harness/switch-fix-context.json",
+      "tools/n8n-patch/.audit.jsonl",
+      "wf-rc-01-pack/workflows/WF-RC-01_PACK_BUG_SWITCH_V32.md",
+      "WF-RC-01_CLOSURE_REPORT.md",
+      "CLOSURE_REPORT_WF-RC-01.md",
+      "BUILD_REPORT_WF-RC-01.md",
+      "FIX_LOG_WF-RC-01.md"
+    ],
+    "post_close_state": {
+      "validate_jscode_restored_byte_identical": true,
+      "fixtures_cleaned": {
+        "execution_contexts_33": "deleted",
+        "threads_55": "deleted"
+      },
+      "workflow_active": true
+    },
+    "outstanding_followups": [
+      "Update canonical pack JSON (WF-RC-01_Response_Composer.json) to use the isTrue switch operator before any greenfield re-deploy."
+    ]
+  },
+  "su_01_live_impl": {
+    "cycle_type": "FOLDED_FROM_PER_STAGE_STATE_FILE",
+    "folded_from": "STATE_WF-SU-01.json",
+    "folded_at": "2026-04-18",
+    "folded_by_decision": "user direction 2026-04-18 \u2014 SU-01 treated as closed-enough for WF-E2E-01 purposes; top-level tracking required for consistency",
+    "target_workflow_id": "ENiYNfL3ul8AmmCB",
+    "status": "CLOSED_ENOUGH",
+    "score": 10,
+    "closed": true,
+    "closed_at": "2026-04-18T07:57:00Z",
+    "advance_allowed": true,
+    "upstream_stage": "WF-RA-01",
+    "downstream_stage": "WF-RC-01",
+    "live_shell": {
+      "node_count_spec": 17,
+      "node_count_live": 17,
+      "edge_count_spec": 18,
+      "edge_count_live": 18,
+      "delta_note": "SU_Input executeWorkflowTrigger re-added additively under E2E-01 on 2026-04-18. Node-count + edge-count now match pack. Remaining drift is cosmetic node-name *1 suffixes on non-trigger nodes (from prior hotfix re-import).",
+      "previous_delta_note": "SU_Input executeWorkflowTrigger dropped at hotfix re-import; manual trigger remained as V2..V5 entry."
+    },
+    "script_results": {
+      "total": 650,
+      "passed": 650,
+      "families": 13
+    },
+    "live_executions": [
+      {
+        "v": "V2",
+        "execution_id": "746",
+        "status": "error",
+        "captured_error_code": "INVALID_STATE_UPDATE_INPUT",
+        "db_drift": 0
+      },
+      {
+        "v": "V3",
+        "execution_id": "744",
+        "status": "success",
+        "db_drift": 0
+      },
+      {
+        "v": "V4",
+        "execution_id": "745",
+        "status": "error",
+        "captured_error_code": "FORBIDDEN_WRITE_CLASS",
+        "db_drift": 0
+      },
+      {
+        "v": "V5_cross_tenant",
+        "execution_id": "747",
+        "status": "success",
+        "captured_error_code": "LINEAGE_MISMATCH",
+        "db_drift": 0
+      }
+    ],
+    "known_impediments_from_su": [
+      "n8n API PUT rejects additional properties in settings (binaryMode, timeSavedMode, availableInMCP)",
+      "Code v2 reserved top-level keys (error, json, binary, pairedItem) mitigated via { json: ... } wrap on all terminal nodes",
+      "Switch-routing wart: SU_Route_Valid1 + SU_Route_Context_Ready1 route errors on output[0] instead of output[1]; error code/shape correct at validator, Postgres CTEs tenant-scoped fail-closed",
+      "SU_Input executeWorkflowTrigger missing live \u2014 must be re-added before E2E link 8 (SU -> RC) can be wired"
+    ],
+    "artifacts": {
+      "per_stage_state": "STATE_WF-SU-01.json",
+      "closure_report": "CLOSURE_REPORT_WF-SU-01.md",
+      "verifier_delivery": "WF-SU-01_VERIFIER_DELIVERY.md",
+      "live_json": "wf-su-01/WF-SU-01_State_Persistence_Updater.json",
+      "hotfix_json": "wf-su-01/WF-SU-01_State_Persistence_Updater_HOTFIX.json"
+    },
+    "outstanding_followups": [
+      "Fix switch-routing wart on SU_Route_Valid1 / SU_Route_Context_Ready1 so errors exit output[1].",
+      "Run a green-payload sub-workflow smoke against SU-01 (valid _envelope carrying execution_context_id + tenant_id) to confirm full V3-shape pass through SU_Input. Currently only invalid-payload smoke has run (execution 763).",
+      "Normalise *1 suffixed node names back to pack names (cosmetic; not blocking E2E)."
+    ],
+    "sub_call_smoke": {
+      "proven_callable_as_sub": true,
+      "proven_via": "execution 763 on ENiYNfL3ul8AmmCB (child of execution 762 on ephemeral caller u4sWtaivxwHwIh37)",
+      "date": "2026-04-18T12:45:28Z",
+      "payload_class": "invalid (safe-fail)",
+      "db_drift": "zero",
+      "artefact": "WF-E2E-01_SU01_CALLABLE_AS_SUB_SMOKE.md"
+    }
+  },
+  "tr_01_reverification_pending": {
+    "cycle_type": "REVERIFICATION_REQUIRED",
+    "flagged_at": "2026-04-18",
+    "flagged_by_decision": "user direction 2026-04-18 \u2014 TR-01 is route-map-asserted CLOSED but has no top-level closure report or STATE entry; must be re-verified before WF-E2E-01 can rely on its contract",
+    "target_workflow_id": "wI8hpSROxQI0zC9f",
+    "current_route_map_status": "CLOSED",
+    "evidence_gaps": [
+      "No CLOSURE_REPORT_WF-TR-01.md at repo root",
+      "No tr_01_live_impl block in STATE.json",
+      "No V2..V6 execution IDs on file"
+    ],
+    "blocks": [
+      "wf-e2e-01 link 1 (TR -> EC)"
+    ],
+    "advance_allowed": false,
+    "required_to_clear": [
+      "V1 static shell match against TR-01 canonical pack (if pack exists) or against a re-derived contract",
+      "V2..V6 live execution IDs with terminal node + error code capture",
+      "V7 drift-zero DB probe",
+      "Promote tr_01_live_impl into STATE.json mirroring su_01_live_impl shape"
+    ],
+    "reverify_result": {
+      "completed_at": "2026-04-18T12:55Z",
+      "method": "read-only audit (no live mutation)",
+      "live_shell": {
+        "nodes": 20,
+        "edges": 18,
+        "active": true,
+        "availableInMCP": true
+      },
+      "trust_posture": "conditional",
+      "closed": false,
+      "evidence": {
+        "audit_rows": 4,
+        "earliest_audit": "2026-04-16T16:27:31Z",
+        "latest_audit": "2026-04-16T20:15:31Z",
+        "branches_observed": [
+          "attach_existing_thread:direct_reply_shortcircuit",
+          "attach_existing_thread:direct_reply_override_semantic",
+          "attach_existing_thread:score_above_threshold",
+          "fail_invalid_input"
+        ],
+        "branches_not_observed": [
+          "create_new_thread",
+          "create_branch_thread",
+          "reopen_thread",
+          "ambiguous_escalate"
+        ],
+        "code_quality": "v2.0 (Remediated) \u2014 adapter layer, deterministic resolution_id, idempotent INSERT ON CONFLICT DO NOTHING, result-return isolated from audit failure"
+      },
+      "gaps": [
+        "No CLOSURE_REPORT_WF-TR-01.md exists.",
+        "No STATE entry at top level (tr_01_live_impl) \u2014 only the pending flag.",
+        "No TR->EC sub-workflow connector (structurally absent from live chain).",
+        "No executeWorkflowTrigger on TR-01 (acceptable for chain head).",
+        "Partial V-sweep \u2014 4 of ~7 decision branches exercised."
+      ],
+      "advance_allowed": false,
+      "artefact": "WF-E2E-01_TR01_REVERIFICATION.md",
+      "recommended_next_step": "Future formal TR-01 closure cycle: full V-sweep, closure report, STATE promotion. TR->EC connector wiring deferred until EC-01 is 10/10 closed."
+    }
+  },
+  "e2e_01_meta": {
+    "cycle_type": "META_STAGE",
+    "stage": "WF-E2E-01",
+    "status": "BLOCKED_ON_FEEDER_STAGES",
+    "posture": "out-of-band meta-stage; does not displace CURRENT_STAGE (WF-EC-01 remains active)",
+    "authorised_scope": "Option B (limited) per user direction 2026-04-18; Option A Ship-Disabled GO at 2026-04-18T12:34Z for the RC-01 -> MO-01 connector only",
+    "opened_at": "2026-04-18",
+    "artefacts_produced": [
+      "WF-E2E-01_PHASE_A_B_SYNTHESIS.md",
+      "WF-E2E-01_STAGE_FILE.md",
+      "WF-E2E-01_CHAIN_CONTRACT_MAP.md",
+      "WF-E2E-01_PACK_VS_LIVE_DIFF.md",
+      "WF-E2E-01_DUPLICATE_DISPOSITION.md",
+      "WF-E2E-01_RC01_TO_MO01_CONNECTOR_PLAN.md",
+      "WF-E2E-01_RC01_TO_MO01_CONNECTOR_ACTIVATION.md",
+      "tools/n8n-patch/snapshots/e2e-01-discovery/*.json",
+      "tools/n8n-patch/snapshots/e2e-01-duplicate-disposition/*.json",
+      "tools/n8n-patch/snapshots/TClXgmO8H8zsSwMb_pre-e2e-connector-20260418.json",
+      "tools/n8n-patch/snapshots/TClXgmO8H8zsSwMb_post-e2e-connector-20260418.json",
+      "tools/n8n-patch/snapshots/TClXgmO8H8zsSwMb_e2e-connector-payload.json",
+      "WF-E2E-01_SU01_CALLABLE_AS_SUB_SMOKE.md",
+      "WF-E2E-01_CHAIN_READINESS_REVIEW.md",
+      "WF-E2E-01_TR01_REVERIFICATION.md",
+      "WF-E2E-01_OPERATOR_REPORT_20260418.md"
+    ],
+    "live_mutations_applied": [
+      {
+        "ts": "2026-04-18T12:27:33Z",
+        "target": "rooFWDryqC0YDyVa",
+        "op": "deactivate + replace (rename)",
+        "from": "WF-MO-01 (active, 4-node LangChain agent)",
+        "to": "DEPRECATED__WF-MO-01_langchain_stub__rooFWDryqC0YDyVa (inactive)",
+        "reversible_via": "tools/n8n-patch/snapshots/e2e-01-duplicate-disposition/rooFWDryqC0YDyVa_pre-disposition-20260418.json"
+      },
+      {
+        "ts": "2026-04-18T12:34:01Z",
+        "target": "TClXgmO8H8zsSwMb",
+        "op": "replace (additive)",
+        "delta": "+2 nodes (RC_Prepare_MO_01_Handoff, RC_Dispatch_To_MO_01_SUBCALL) both disabled=true; +2 edges fanning from RC_Build_Output_Envelope; 0 deletions; 8 existing jsCode bodies sha256-preserved",
+        "post_shell": {
+          "nodes": 16,
+          "edges": 15,
+          "active": true,
+          "settings.availableInMCP": true
+        },
+        "behaviour_change": "none (both new nodes disabled; payload gate dispatch_to_mo_01 must also be true to fire)",
+        "db_drift_post": {
+          "messages": 6,
+          "threads": 7,
+          "execution_contexts": 2,
+          "tenants": 7,
+          "outbound_delivery_ledger_claude_mcp": 0
+        },
+        "audit_entry": {
+          "before_hash": "684aa046102e",
+          "after_hash": "1fd4cf9ac92c"
+        },
+        "reversible_via": "tools/n8n-patch/snapshots/TClXgmO8H8zsSwMb_pre-e2e-connector-20260418.json"
+      },
+      {
+        "ts": "2026-04-18T~12:40Z",
+        "target": "ENiYNfL3ul8AmmCB",
+        "op": "replace (additive)",
+        "delta": "+1 node (SU_Input executeWorkflowTrigger typeVersion 1 with empty params) + 1 edge (SU_Input -> SU_Validate_Aggregated_Input1); 0 deletions; 16 existing nodes byte-identical",
+        "post_shell": {
+          "nodes": 17,
+          "edges": 18,
+          "active": true,
+          "settings.availableInMCP": true
+        },
+        "behaviour_change": "SU-01 is now invokable as sub-workflow in addition to its pre-existing manual trigger path.",
+        "smoke_evidence": "execution 763 proved callable-as-sub with zero DB drift.",
+        "db_drift_post": {
+          "execution_contexts": 2,
+          "threads": 7,
+          "messages": 6,
+          "tenants": 7,
+          "rag_memories": 42,
+          "tasks": 4,
+          "reminders": 1,
+          "outbound_delivery_ledger_claude_mcp": 0
+        },
+        "reversible_via": "tools/n8n-patch/snapshots/ENiYNfL3ul8AmmCB_pre-trigger-add-20260418.json"
+      }
+    ],
+    "rc_to_mo_link_status": {
+      "structural_wired": true,
+      "node_disabled": true,
+      "payload_gated": true,
+      "smoke_executed": false,
+      "real_telegram_fired": false,
+      "closure_claimed": false,
+      "next_step_for_enablement": "see WF-E2E-01_RC01_TO_MO01_CONNECTOR_ACTIVATION.md sections 2 (preconditions) and 3 (recipe); requires explicit user GO and feeder closures"
+    },
+    "feeder_closure_backlog": [
+      "TR-01 re-verification (see tr_01_reverification_pending)",
+      "EC-01 closure (active canonical stage)",
+      "OR-01 closure",
+      "PL-01 closure (currently BLOCKED_WITH_EVIDENCE 8.3/10)",
+      "DI-01 closure",
+      "ME-01 closure",
+      "RA-01 closure",
+      "SU-01 SU_Input executeWorkflowTrigger re-add (-1 node delta vs pack)"
+    ],
+    "forbidden_within_meta_stage": [
+      "Touching EC-01 (active canonical stage)",
+      "Adding executeWorkflowTrigger to any unclosed feeder",
+      "Running 40-per-link test matrix",
+      "Running full chain E2E with real Telegram delivery",
+      "Any closure claim for a link or chain before feeders individually close",
+      "Enabling RC_Prepare_MO_01_Handoff or RC_Dispatch_To_MO_01_SUBCALL without going through the activation recipe in WF-E2E-01_RC01_TO_MO01_CONNECTOR_ACTIVATION.md"
+    ],
+    "chain_readiness_summary": {
+      "links_structurally_present": 1,
+      "links_half_present": 4,
+      "links_absent": 4,
+      "stages_callable_as_sub": 5,
+      "new_callable_as_sub_under_e2e01": [
+        "SU-01"
+      ],
+      "only_gated_link": "Link 9 RC->MO (both new nodes disabled, payload gate)"
+    },
+    "operator_window_closed_at": "2026-04-18T13:05Z"
+  },
+  "mo_01_live_impl": {
+    "cycle_type": "LIVE_IMPLEMENTATION_PASS",
+    "target_workflow_id": "OooZdC0DgsDR6gm0",
+    "source_pack": "wf-mo-01_planning_pack.zip",
+    "status": "CLOSED",
+    "score": 10,
+    "live_patch_applied": true,
+    "live_shell_match": true,
+    "live_shell": {
+      "nodeCount": 18,
+      "edgeCount": 18,
+      "triggers": 2,
+      "switches": 3,
+      "postgres": 5,
+      "telegram": 1,
+      "code": 7
+    },
+    "credential_bound": {
+      "postgres": {
+        "id": "qpZLzVs17Zy7HCFB",
+        "name": "Postgres account"
+      },
+      "telegram": {
+        "id": "Z0ovMbkHwXEC8ZtF",
+        "name": "Telegram account",
+        "chat_id": "5101664726"
+      }
+    },
+    "live_v2_v7": {
+      "V2": {
+        "result": "PASS",
+        "execution_id": "757",
+        "terminal": "MO_Return_Error",
+        "error_code": "INVALID_MESSAGE_OUT_INPUT"
+      },
+      "V3": {
+        "result": "PASS",
+        "execution_id": "758",
+        "terminal": "MO_Return_Result",
+        "provider_message_ref": "telegram:5101664726:536",
+        "response_text_hash": "0528424d0e9fe1d9",
+        "applied_write_classes": [
+          "provider_delivery",
+          "outbound_message_log"
+        ]
+      },
+      "V4": {
+        "result": "PASS",
+        "execution_id": "759",
+        "terminal": "MO_Return_Context_Error",
+        "error_code": "UNSUPPORTED_CHANNEL"
+      },
+      "V5": {
+        "result": "PASS",
+        "execution_id": "760",
+        "terminal": "MO_Return_Context_Error",
+        "error_code": "LINEAGE_MISMATCH"
+      },
+      "V6": {
+        "result": "PASS",
+        "execution_id": "761",
+        "terminal": "MO_Return_Context_Error",
+        "error_code": "REPLAY_BLOCKED"
+      },
+      "V7": {
+        "result": "PASS",
+        "evidence": "post-cleanup counts match baselines; messages=6 threads=7 execution_contexts=2 tenants=7 ledger=0"
+      }
+    },
+    "pack_bugs_patched_live": [
+      {
+        "where": "all 7 Code nodes",
+        "from": "language=python with pythonCode bodies",
+        "to": "language=javaScript with jsCode faithful translation of mo_logic.py",
+        "reason": "Railway n8n has no Python 3 runtime (exec #755 reported Python runner unavailable)",
+        "canonical_js_generator": "tools/n8n-patch/mo-test-harness/build-code-params-js.py"
+      },
+      {
+        "where": "MO_Route_Valid + MO_Route_Context_Ready + MO_Route_Channel",
+        "from": "single rule on output[0], no options.fallbackOutput",
+        "to": "options.fallbackOutput = 'extra'",
+        "reason": "switch v3.2 drops unmatched items by default; pack connections on main[1] were unreachable"
+      },
+      {
+        "where": "MO_Load_Channel_Delivery_Context + MO_Log_Outbound_Message + MO_Replay_Guard_Probe",
+        "from": "tenants.telegram_chat_id column; messages.source column; canonical outbound_message_log table",
+        "to": "tenants.metadata->>'telegram_chat_id'; outbound_delivery_ledger_claude_mcp fallback ledger with unique (tenant_id, idempotency_key)",
+        "reason": "live DB schema does not have these columns/tables; fallback pattern per CLAUDE.md discipline"
+      }
+    ],
+    "last_updated": "2026-04-18",
+    "advance_allowed": true,
+    "closes_to": "end of canonical pipeline (terminal stage)",
+    "artifacts_produced": [
+      "tools/n8n-patch/snapshots/OooZdC0DgsDR6gm0_post-import-20260418T1040Z.json",
+      "tools/n8n-patch/snapshots/OooZdC0DgsDR6gm0_post-patchall-20260418T1044Z.json",
+      "tools/n8n-patch/snapshots/OooZdC0DgsDR6gm0_pre-js-translate-20260418T1415Z.json",
+      "tools/n8n-patch/snapshots/OooZdC0DgsDR6gm0_post-js-translate-20260418T1415Z.json",
+      "tools/n8n-patch/snapshots/OooZdC0DgsDR6gm0_post-restore-20260418T1420Z.json",
+      "tools/n8n-patch/mo-test-harness/build-code-params-js.py",
+      "tools/n8n-patch/mo-test-harness/original-validate-jsCode.js",
+      "tools/n8n-patch/mo-test-harness/inject-fixture.mjs",
+      "tools/n8n-patch/mo-test-harness/V2.fixture.json",
+      "tools/n8n-patch/mo-test-harness/V3.fixture.json",
+      "tools/n8n-patch/mo-test-harness/V4.fixture.json",
+      "tools/n8n-patch/mo-test-harness/V5.fixture.json",
+      "tools/n8n-patch/mo-test-harness/V6.fixture.json",
+      "tools/n8n-patch/mo-test-harness/MO_Route_Valid_switch.params.json",
+      "tools/n8n-patch/mo-test-harness/MO_Route_Context_Ready_switch.params.json",
+      "tools/n8n-patch/mo-test-harness/MO_Route_Channel_switch.params.json",
+      "tools/n8n-patch/.audit.jsonl",
+      "CLOSURE_REPORT_WF-MO-01.md"
+    ],
+    "post_close_state": {
+      "validate_jscode_restored_byte_identical": true,
+      "fixtures_cleaned": {
+        "tenants_44": "deleted",
+        "threads_55": "deleted",
+        "execution_contexts_33": "deleted",
+        "outbound_delivery_ledger_claude_mcp_v3_row": "deleted"
+      },
+      "baselines_restored": {
+        "messages": 6,
+        "threads": 7,
+        "execution_contexts": 2,
+        "tenants": 7,
+        "outbound_delivery_ledger_claude_mcp": 0
+      },
+      "workflow_active": true
+    },
+    "outstanding_followups": [
+      "Update canonical pack JSON (wf-mo-01-pack/workflows/WF-MO-01_Message_Out.json) so all Code nodes are javaScript per build-code-params-js.py, and all switches carry options.fallbackOutput='extra'.",
+      "Write wf-mo-01-pack/workflows/WF-MO-01_PACK_BUGS.md documenting the 3 pack bugs.",
+      "Add the 3 rewritten SQL templates under wf-mo-01-pack/workflows/sql/mo/ for greenfield reproducibility.",
+      "Decide on canonical outbound log table (add messages.direction column, or promote outbound_delivery_ledger_claude_mcp to canonical)."
+    ]
+  }
+}

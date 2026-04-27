@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-RA-01_Result_Aggregator/tests/test_families.py", line 252, in <module>
+    run()
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-RA-01_Result_Aggregator/tests/test_families.py", line 213, in run
+    fn(i)
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-RA-01_Result_Aggregator/tests/test_families.py", line 165, in family_sql_contract_validation
+    ensure(not missing, f"missing required SQL files: {sorted(missing)}")
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-RA-01_Result_Aggregator/tests/test_families.py", line 53, in ensure
+    raise AssertionError(message)
+AssertionError: missing required SQL files: ['01_schema_inspect.sql', '02_load_execution_context.sql', '03_load_module_results.sql', '04_load_plan_context.sql', '10_fixtures_create.sql', '11_fixtures_cleanup.sql', '20_read_path_probe.sql']

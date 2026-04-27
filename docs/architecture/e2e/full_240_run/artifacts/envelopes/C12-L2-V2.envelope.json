@@ -1,0 +1,23 @@
+{
+  "message_id": "5cc5c047-ad6b-4b19-852c-12415281c7b5",
+  "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+  "channel": "e2e-rich-matrix",
+  "direction": "inbound",
+  "author_type": "user",
+  "normalized_content": "EN case: Remember Andrei's morning preference and draft a message for Maria without saving Maria as a fact.",
+  "timestamp": "2026-04-26T02:50:48.827Z",
+  "source_message_ref": "e2e:C12-L2-V2:e2e:f240-2026-04-26:C12-L2-V2",
+  "author_entity_id": null,
+  "related_entity_ids": [],
+  "metadata": {
+    "e2e_case_id": "C12-L2-V2",
+    "e2e_corridor": "C12",
+    "e2e_variant": "locale_en",
+    "e2e_phase": "P3_HARD_CASES",
+    "e2e_priority": "P1",
+    "e2e_locale": "en",
+    "e2e_run_tag": "f240-2026-04-26"
+  },
+  "idempotency_key": "e2e:f240-2026-04-26:C12-L2-V2",
+  "thread_id": "2280a673-15ef-4523-8365-277a9bb3dbec"
+}

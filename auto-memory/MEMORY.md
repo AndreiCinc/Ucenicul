@@ -1,0 +1,2 @@
+- [Senior→junior step-by-step cadence](feedback_step_by_step_mode.md) — one step, wait for confirmation, no extra detail
+- [memory_module mission baseline](project_memory_module_mission.md) — role, authority, frozen decisions, write-fence, phases; load at start of every run until user overwrites

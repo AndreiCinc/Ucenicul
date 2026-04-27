@@ -1,0 +1,172 @@
+{
+  "stage_code": "WF-RA-01",
+  "stage_name": "Result Aggregator",
+  "status": "closed",
+  "posture": "live_closed",
+  "score": 10.0,
+  "score_cap": 10.0,
+  "closed": true,
+  "advance_allowed": true,
+  "evidence_classification": {
+    "source_pack_complete": true,
+    "script_verified": true,
+    "db_verified": true,
+    "live_workflow_verified": true,
+    "runtime_execution_verified": "full",
+    "post_test_db_drift_verified": true
+  },
+  "live_proof": {
+    "workflow_id": "5RcNLtxNjAHJsZPE",
+    "version_id": "8eeb0bd0-477c-40a3-839a-8f76415bc962",
+    "active": true,
+    "node_count": 14,
+    "connection_count": 14,
+    "postgres_credential_bound": true,
+    "postgres_credential_id": "z9nKgToNWvIW7P8f",
+    "postgres_credential_name": "Postgres account 2",
+    "query_replacement_configured": true,
+    "executions_recorded": [
+      {
+        "execution_id": "721",
+        "purpose": "V1 shell proof (placeholder code iteration, superseded)",
+        "status": "success"
+      },
+      {
+        "execution_id": "734",
+        "purpose": "V1 shell + V2 invalid input (real canonical JS firing, Cycle 3)",
+        "status": "success",
+        "last_node_executed": "RA_Return_Error",
+        "observed_error_code": "INVALID_AGGREGATION_INPUT",
+        "observed_missing_fields": [
+          "status_kind",
+          "result_type",
+          "execution_context_id",
+          "thread_id",
+          "tenant_id",
+          "aggregation_input"
+        ]
+      },
+      {
+        "execution_id": "735",
+        "purpose": "V1 shell + V2 invalid input re-verification (Cycle 4; execute_workflow with inputs.webhookData was honored by the run but not injected into the manualTrigger — the trigger emitted {} and the canonical validator path fired again)",
+        "status": "success",
+        "last_node_executed": "RA_Return_Error",
+        "observed_error_code": "INVALID_AGGREGATION_INPUT",
+        "observed_missing_fields": [
+          "status_kind",
+          "result_type",
+          "execution_context_id",
+          "thread_id",
+          "tenant_id",
+          "aggregation_input"
+        ]
+      },
+      {
+        "execution_id": "736",
+        "purpose": "V3 happy path — LIVE E2E PASS (Cycle 5; user-pinned canonical module_batch envelope on RA_Manual_Test_Trigger). Full happy branch executed: Validate -> Route_Valid -> Load_Execution_Context -> Verify_Context_Match -> Route_Context_Ready -> Build_Aggregation_Input -> Aggregate_Module_Results -> Build_Downstream_Envelope -> Return_Result. Canonical aggregated_result emitted with allowed_next_stage=WF-SU-01.",
+        "status": "success",
+        "last_node_executed": "RA_Return_Result",
+        "observed_result_type": "aggregated_result",
+        "observed_rollup_status": "success",
+        "observed_allowed_next_stage": "WF-SU-01",
+        "observed_state_update_allowed": true,
+        "observed_response_generation_allowed": false,
+        "observed_domain_writes_performed": false,
+        "observed_idempotency_key": "aggregate:33333333-3333-3333-3333-333333333333"
+      },
+      {
+        "execution_id": "737",
+        "purpose": "V5 context mismatch — LIVE E2E PASS (Cycle 5; user-pinned envelope with wrong tenant_id=99999999-9999-9999-9999-999999999999). SQL returned 0 rows (alwaysOutputData emitted {}); RA_Verify_Context_Match detected hasRow=false; canonical CONTEXT_MISMATCH emitted; routed to RA_Return_Context_Error.",
+        "status": "success",
+        "last_node_executed": "RA_Return_Context_Error",
+        "observed_error_code": "CONTEXT_MISMATCH",
+        "observed_error_details": {
+          "execution_context_id": "33333333-3333-3333-3333-333333333333",
+          "tenant_id": "99999999-9999-9999-9999-999999999999"
+        }
+      },
+      {
+        "execution_id": "738",
+        "purpose": "V4 malformed batch — LIVE E2E PASS (Cycle 5; user-pinned envelope with duplicate step_id=s1 across two module_results). RA_Validate_Module_Batch fired canonical DUPLICATE_STEP_IDS; routed through RA_Route_Valid fallback to RA_Return_Error.",
+        "status": "success",
+        "last_node_executed": "RA_Return_Error",
+        "observed_error_code": "DUPLICATE_STEP_IDS",
+        "observed_error_details": {
+          "step_id": "s1"
+        }
+      }
+    ],
+    "sql_probes": {
+      "v3_read_path": "pass",
+      "v4_cross_tenant_fail_closed": "pass",
+      "fixture_execution_context_id": "33333333-3333-3333-3333-333333333333",
+      "fixture_tenant_id": "44444444-4444-4444-4444-444444444444",
+      "fixture_thread_id": "55555555-5555-5555-5555-555555555555",
+      "fixture_inserted_and_cleaned_up": true
+    },
+    "e2e_live_matrix": {
+      "v1_shell_integrity": "live_pass",
+      "v2_invalid_input": "live_pass",
+      "v3_happy_path": "live_pass_e2e",
+      "v4_malformed_batch": "live_pass_e2e",
+      "v5_context_mismatch": "live_pass_e2e",
+      "v6_db_drift": "live_pass"
+    },
+    "db_drift": {
+      "baseline": {
+        "execution_contexts": 2,
+        "tasks": 4,
+        "reminders": 1,
+        "messages": 5,
+        "rag_memories": 42
+      },
+      "post_test": {
+        "execution_contexts": 2,
+        "tasks": 4,
+        "reminders": 1,
+        "messages": 5,
+        "rag_memories": 42
+      },
+      "drift": {
+        "execution_contexts": 0,
+        "tasks": 0,
+        "reminders": 0,
+        "messages": 0,
+        "rag_memories": 0
+      }
+    }
+  },
+  "remaining_closure_blocker": null,
+  "upstream_stage": "WF-ME-01",
+  "downstream_stage": "WF-SU-01",
+  "read_only_stage": true,
+  "next_action": "Advance to WF-SU-01 State + DB + Memory Update. WF-RA-01 emits canonical aggregated_result with allowed_next_stage=WF-SU-01 and state_update_allowed=true.",
+  "script_test_summary": {
+    "families": 13,
+    "tests_per_family": 50,
+    "total_tests": 650,
+    "passed": 650,
+    "failed": 0,
+    "reproduced_in_verifier_run": true
+  },
+  "shell_shape_live": {
+    "node_count": 14,
+    "connection_count": 14,
+    "triggers": ["RA_Input", "RA_Manual_Test_Trigger"],
+    "guard_switches": ["_valid", "_context_ready"],
+    "postgres_nodes": ["RA_Load_Execution_Context"],
+    "always_output_data_nodes": ["RA_Load_Execution_Context"]
+  },
+  "reconciliation_notes": [
+    "Added canonical SQL bridge files 03_load_module_results.sql and 04_load_plan_context.sql.",
+    "Fixed connection_count 13 -> 14 in blueprint and test matrix to match workflow JSON and connection map.",
+    "Strengthened family_sql_contract_validation with name-presence checks and a wider forbidden-writes list.",
+    "Replaced all 9 Code nodes' placeholder JS with the canonical logic translated from ra_logic.py.",
+    "Configured RA_Load_Execution_Context.options.queryReplacement to bind $1/$2 from the envelope.",
+    "Regenerated SHA256SUMS.txt after every cycle.",
+    "Cycle 4 — shell re-verified intact post-patch attempts: 14 nodes / 14 edges / alwaysOutputData / queryReplacement all preserved; versionId unchanged.",
+    "Cycle 4 — fixture status must be 'aggregating' (per execution_contexts_status_check), not 'running'.",
+    "Cycle 5 — user pinned V3/V5/V4 envelopes sequentially on RA_Manual_Test_Trigger via the n8n UI; Claude ran each manually and recorded executions 736/737/738 with canonical outputs. Stage lifted 9.2 -> 10, closed=true, advance_allowed=true.",
+    "Cycle 5 — final DB drift re-verified after all 3 E2E runs + fixture cleanup: 2/4/1/5/42 across all 5 domain tables, drift 0/0/0/0/0."
+  ]
+}

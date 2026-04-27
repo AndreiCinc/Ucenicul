@@ -1,0 +1,14 @@
+{
+  "verdict": "PASS",
+  "bucket": null,
+  "reason": "supersede oracle all checks pass",
+  "observed": {
+    "status": "success",
+    "error_code": null,
+    "idempotency_reused": false,
+    "new_insert": true,
+    "db_post_rows": 2
+  },
+  "artifact": "exec_f31-supersede-005_3713.raw.json",
+  "ts": "2026-04-22T14:20:48.544Z"
+}

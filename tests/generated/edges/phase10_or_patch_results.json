@@ -1,0 +1,54 @@
+{
+  "ts": "2026-04-20T00:00:00Z",
+  "phase": "phase10",
+  "scope": "Smallest canonical fix for B9-OR-PL-PLANNER-CONTEXT-GAP",
+  "target_workflow": {
+    "id": "KhGmNpi0ZDmrnz8W",
+    "name": "WF-OR-01"
+  },
+  "sub_patches": [
+    {
+      "id": "phase10",
+      "summary": "Inject planner_context.user_message_text",
+      "script": "tests/generated/workflows/snapshots/_patch_or_planner_context_phase10.mjs",
+      "snapshots": {
+        "pre": "tests/generated/workflows/snapshots/WF-OR-01_phase10_pre.json",
+        "put": "tests/generated/workflows/snapshots/WF-OR-01_phase10_put.json"
+      },
+      "changes": [
+        "Added postgres node OR_Load_Trigger_Message between OR_Verify_Context_Match and OR_Build_Handoff_Payload",
+        "Credentials preserved: reused postgres creds from OR_Load_Execution_Context (cred id z9nKgToNWvIW7P8f)",
+        "Rewired: OR_Verify_Context_Match -> OR_Load_Trigger_Message -> OR_Build_Handoff_Payload",
+        "Updated OR_Build_Handoff_Payload to v1.3: reads verify output by node name, reads message row from $json, injects payload.planner_context.user_message_text when non-empty",
+        "All existing payload fields and error short-circuit behavior preserved"
+      ]
+    },
+    {
+      "id": "phase10b",
+      "summary": "Also inject planner_context.primary_intent (passthrough of persisted messages.intent column)",
+      "trigger_evidence": "After phase10 live, TR-originated smoke exec 1001 reached PL but failed on PL's second data guard with error.missing_fields=[\"planner_context.requested_actions or planner_context.primary_intent\"].",
+      "scope_justification": "Not a synthesis of goal (which the scope guard explicitly prohibited); primary_intent is read from the existing messages.intent column populated by the upstream ingestion/NLU layer. Keeping the patch local to WF-OR-01 and minimal.",
+      "script": "tests/generated/workflows/snapshots/_patch_or_planner_context_phase10b.mjs",
+      "snapshots": {
+        "pre": "tests/generated/workflows/snapshots/WF-OR-01_phase10b_pre.json",
+        "put": "tests/generated/workflows/snapshots/WF-OR-01_phase10b_put.json"
+      },
+      "changes": [
+        "Extended OR_Load_Trigger_Message SELECT to also return m.intent AS intent",
+        "Updated OR_Build_Handoff_Payload to v1.4: injects payload.planner_context.primary_intent when messages.intent is non-empty",
+        "No schema change. No additional synthesis. No change outside WF-OR-01."
+      ]
+    }
+  ],
+  "verification_after_patch": {
+    "or_load_node_query_includes_intent": true,
+    "or_build_code_includes_primary_intent": true,
+    "planner_context_observed_in_rerun": {
+      "p10-smoke-01": {"user_message_text": "actualizeaza pretul apartamentului din centru la 95000 eur", "primary_intent": "update_task"},
+      "p10-smoke-02": {"user_message_text": "creeaza un task nou pregateste contractul pentru proiect important a pana vineri", "primary_intent": "create_task"},
+      "p10-smoke-03": {"user_message_text": "seteaza o reamintire pentru proiect important b la 09:00 maine", "primary_intent": "create_reminder"},
+      "p10-smoke-04": {"user_message_text": "muta data pentru apartament test boundary cu trei zile mai tarziu", "primary_intent": "update_task"}
+    }
+  },
+  "b9_blocker_status_after_patch": "resolved — PL no longer blocks on planner_context; chain progresses to DI"
+}

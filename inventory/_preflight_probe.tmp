@@ -1,0 +1,3 @@
+# preflight probe artifact
+run_id: 2026-04-19_autonomous_operator_run
+purpose: preflight write/overwrite probe — retained because shell-level delete is gated by cowork sandbox; this is not an environment block because read + write both succeeded on real content and delete is available through the cowork deletion approval channel.

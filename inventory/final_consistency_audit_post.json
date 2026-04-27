@@ -1,0 +1,79 @@
+{
+  "generated_at": "2026-04-19T12:43:08.873348+00:00",
+  "phase": "1_SYNC_CONSISTENCY_AUDIT",
+  "checks_run": [
+    {
+      "check": "unified_inventory.counts_by_role matches entries",
+      "passed": true,
+      "detail": "counts: {'repo_root_owned': 14, 'shared_technical': 9, 'duplicate_candidate': 361, 'archive_candidate': 155, 'workflow_owned': 144, 'claude_pipeline_asset': 237}"
+    },
+    {
+      "check": "ambiguous role absent from entries AND ambiguous_files empty",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "no active collision (disk + relocation_log)",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "relocation_log.entries[].target_path matches unified",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "move_plan.entries target_path matches unified",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "RECONCILIATION_STATE has counts_by_role_final aligned with observed",
+      "passed": true,
+      "detail": "final={'repo_root_owned': 14, 'shared_technical': 9, 'duplicate_candidate': 361, 'archive_candidate': 155, 'workflow_owned': 144, 'claude_pipeline_asset': 237}"
+    },
+    {
+      "check": "final report tables match observed counts",
+      "passed": true,
+      "detail": "ambiguous=0, archive=155"
+    },
+    {
+      "check": "verification passes 1/2/3 all green",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "no __collision_ suffix anywhere on disk",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "source roots and unified entries 1:1",
+      "passed": true,
+      "detail": "920 keys"
+    }
+  ],
+  "mismatches_found": 0,
+  "mismatch_details": [],
+  "proposed_regenerations": [],
+  "summary": {
+    "total_checks": 10,
+    "passed": 10,
+    "failed": 0,
+    "mismatch_categories": []
+  },
+  "status": "PASSED — SYNCHRONIZED",
+  "status_history": {
+    "historical_pre_sync_state": "PENDING_REGENERATION",
+    "current_state": "PASSED — SYNCHRONIZED",
+    "note": "status_before_fix was a stale placeholder pre-seeded before checks ran; replaced with computed status post-results during Phase 9b polish."
+  },
+  "polish_log": [
+    {
+      "phase": "9b_CLOSURE_POLISH",
+      "timestamp_utc": "2026-04-19T13:07:38.801754+00:00",
+      "change": "replaced status_before_fix=PENDING_REGENERATION with computed status + status_history",
+      "reason": "audit was 10/10 green but carried a stale pre-state label that contradicted the synchronized closure."
+    }
+  ]
+}

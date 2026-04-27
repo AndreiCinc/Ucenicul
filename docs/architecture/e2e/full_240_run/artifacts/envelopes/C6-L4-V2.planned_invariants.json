@@ -1,0 +1,11 @@
+{
+  "case_id": "C6-L4-V2",
+  "invariants": [
+    {
+      "name": "assert_planned_side_effects_match_user_intent",
+      "sql": "SELECT 1 WHERE 1=0",
+      "params": [],
+      "unknown": false
+    }
+  ]
+}

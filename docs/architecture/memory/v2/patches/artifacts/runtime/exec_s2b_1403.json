@@ -1,0 +1,50 @@
+{
+  "executionId": "1403",
+  "workflowId": "uq26nh1grIpnHju0",
+  "status": "success",
+  "startedAt": "2026-04-20T22:07:04.246Z",
+  "stoppedAt": "2026-04-20T22:07:06.737Z",
+  "purpose": "Patch A smoke s2b — zero-hit, expect empty recall_results, used_embedding=false, status=success",
+  "oracle_check": {
+    "search_db_returned_placeholder": true,
+    "search_db_raw_output": {"success": true},
+    "placeholder_filtered_out_by_result_node": true,
+    "recall_results_count": 0,
+    "used_embedding": false,
+    "status": "success",
+    "summary": "Memory search completed.",
+    "needs_followup": false,
+    "followup_requests_count": 0
+  },
+  "ME_Memory_Search_DB_output": [
+    {"success": true}
+  ],
+  "ME_Memory_Search_Result_output": {
+    "status_kind": "success",
+    "result_type": "module_result",
+    "module_result": {
+      "module_name": "memory_module",
+      "step_id": "mem-smoke-v2f1:patchA-s2b",
+      "result_type": "analysis",
+      "status": "success",
+      "summary": "Memory search completed.",
+      "observations": [],
+      "proposals": [],
+      "actions_executed": [
+        {
+          "action": "search_memory",
+          "details": {
+            "query": "zzz_no_match_zzz",
+            "used_embedding": false,
+            "recall_results": []
+          }
+        }
+      ],
+      "artifacts": [],
+      "confidence": 1,
+      "needs_followup": false,
+      "followup_requests": []
+    }
+  },
+  "verdict": "BUG-V2-01 FIXED: Placeholder {success:true} from Postgres node is filtered out by the result node; recall_results=[] as expected. BUG-V2-02 FIXED: used_embedding=false correctly reported."
+}

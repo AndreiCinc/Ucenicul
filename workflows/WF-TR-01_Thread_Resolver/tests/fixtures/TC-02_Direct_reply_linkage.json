@@ -1,0 +1,23 @@
+{
+  "id": "TC-02",
+  "name": "Direct reply linkage",
+  "description": "Message is a reply to another message that has a thread_id in DB.",
+  "request": {
+    "message_id": "test-msg-002",
+    "tenant_id": "aaaaaaaa-0000-0000-0000-000000000001",
+    "channel": "telegram",
+    "direction": "inbound",
+    "author_type": "user",
+    "normalized_content": "Da, sunt de acord cu apartamentul",
+    "timestamp": "2026-04-15T12:00:00Z",
+    "source_message_ref": "tg_test_002",
+    "reply_to_message_id": "mmmmmmmm-0000-0000-0000-000000000001"
+  },
+  "expected": {
+    "decision": "attach_existing_thread",
+    "resolved_thread_id": "tttttttt-0000-0000-0000-000000000001",
+    "ambiguity_detected": false,
+    "candidate_scores_empty": true,
+    "content_class_used": "normalized_content"
+  }
+}

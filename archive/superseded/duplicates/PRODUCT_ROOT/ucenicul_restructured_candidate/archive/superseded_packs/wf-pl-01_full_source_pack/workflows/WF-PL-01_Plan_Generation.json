@@ -1,0 +1,439 @@
+{
+  "name": "WF-PL-01",
+  "nodes": [
+    {
+      "id": "pl-manual",
+      "name": "When clicking 'Execute workflow'",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -1100,
+        260
+      ],
+      "parameters": {}
+    },
+    {
+      "id": "pl-chat",
+      "name": "When chat message received",
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -1100,
+        440
+      ],
+      "parameters": {}
+    },
+    {
+      "id": "pl-validate",
+      "name": "PL_Validate_OR_Handoff",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -860,
+        350
+      ],
+      "parameters": {
+        "mode": "runOnceForAllItems",
+        "jsCode": "\n// PL_Validate_OR_Handoff \u2014 v1.0\nconst input = $json;\nlet candidate = input;\nif (typeof input.chatInput === 'string' && !input.payload && !input.status_kind) {\n  try { candidate = JSON.parse(input.chatInput); } catch (e) { candidate = input; }\n}\nfunction invalid(code, message, missing) {\n  return [{ json: { _valid: 'false', error_code: code, error_message: message, missing_fields: (missing && missing.length ? missing : ['root']) } }];\n}\nif (!candidate || typeof candidate !== 'object' || Array.isArray(candidate)) {\n  return invalid('INVALID_HANDOFF_INPUT', 'Input is not a JSON object.', ['root']);\n}\nconst requiredTop = ['status_kind', 'result_type', 'payload'];\nconst missing = [];\nfor (const key of requiredTop) { if (!(key in candidate)) missing.push(key); }\nif (missing.length) return invalid('INVALID_HANDOFF_INPUT', 'Required handoff fields are missing.', missing);\nconst payload = candidate.payload;\nif (!payload || typeof payload !== 'object' || Array.isArray(payload)) return invalid('INVALID_HANDOFF_INPUT', 'payload must be an object.', ['payload']);\nconst requiredPayload = ['tenant_id','thread_id','execution_id','trigger_message_id','idempotency_key','execution_status','planning_allowed','allowed_next_stage','orchestrator_input'];\nfor (const key of requiredPayload) { if (!(key in payload)) missing.push(`payload.${key}`); }\nif (missing.length) return invalid('INVALID_HANDOFF_INPUT', 'Required handoff payload fields are missing.', [...new Set(missing)].sort());\nif (candidate.status_kind !== 'success') return invalid('INVALID_HANDOFF_INPUT', 'status_kind must be success.', ['status_kind']);\nif (candidate.result_type !== 'handoff') return invalid('INVALID_HANDOFF_INPUT', 'result_type must be handoff.', ['result_type']);\nif (String(payload.execution_status) !== 'initialized') return invalid('CONTEXT_MISMATCH', 'Execution context is not initialized.', ['payload.execution_status']);\nif (payload.planning_allowed !== true) return invalid('INVALID_HANDOFF_INPUT', 'planning_allowed must be true.', ['payload.planning_allowed']);\nif (String(payload.allowed_next_stage) !== 'WF-PL-01') return invalid('INVALID_HANDOFF_INPUT', 'allowed_next_stage must be WF-PL-01.', ['payload.allowed_next_stage']);\nreturn [{\n  json: {\n    _valid: 'true',\n    _normalized_or_handoff: {\n      status_kind: 'success',\n      result_type: 'handoff',\n      module_name: candidate.module_name || 'orchestrator_input_handoff',\n      payload: {\n        tenant_id: String(payload.tenant_id),\n        thread_id: String(payload.thread_id),\n        execution_id: String(payload.execution_id),\n        trigger_message_id: String(payload.trigger_message_id),\n        idempotency_key: String(payload.idempotency_key),\n        execution_status: String(payload.execution_status),\n        planning_allowed: true,\n        allowed_next_stage: 'WF-PL-01',\n        orchestrator_input: payload.orchestrator_input || {},\n        planner_context: payload.planner_context || candidate.planner_context || {},\n        warnings: Array.isArray(payload.warnings) ? payload.warnings.slice() : []\n      }\n    }\n  }\n}];\n"
+      }
+    },
+    {
+      "id": "pl-switch-valid",
+      "name": "PL_Route_Valid",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        -620,
+        350
+      ],
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json._valid }}",
+                    "rightValue": "true",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "valid"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json._valid }}",
+                    "rightValue": "false",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "invalid"
+            }
+          ]
+        },
+        "options": {
+          "fallbackOutput": "extra"
+        }
+      }
+    },
+    {
+      "id": "pl-extract",
+      "name": "PL_Extract_Planning_Input",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -380,
+        220
+      ],
+      "parameters": {
+        "mode": "runOnceForAllItems",
+        "jsCode": "\nconst h = $json._normalized_or_handoff.payload;\nreturn [{ json: {\n  tenant_id: h.tenant_id,\n  thread_id: h.thread_id,\n  execution_id: h.execution_id,\n  trigger_message_id: h.trigger_message_id,\n  idempotency_key: h.idempotency_key,\n  execution_status: h.execution_status,\n  planner_context: h.planner_context || {},\n  warnings: Array.isArray(h.warnings) ? h.warnings : []\n}}];\n"
+      }
+    },
+    {
+      "id": "pl-load",
+      "name": "PL_Load_Execution_Context",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [
+        -160,
+        220
+      ],
+      "alwaysOutputData": true,
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT\n  ec.id::text AS execution_id,\n  ec.tenant_id::text AS tenant_id,\n  ec.thread_id::text AS thread_id,\n  ec.trigger_message_id::text AS trigger_message_id,\n  ec.idempotency_key,\n  ec.status,\n  CASE WHEN ec.expires_at IS NULL THEN NULL ELSE EXTRACT(EPOCH FROM (ec.expires_at - ec.created_at))::int END AS ttl_seconds\nFROM public.execution_contexts ec\nWHERE ec.id = '{{ $json.execution_id }}'::uuid\n  AND ec.tenant_id = '{{ $json.tenant_id }}'::uuid\n  AND ec.thread_id = '{{ $json.thread_id }}'::uuid\nLIMIT 1;",
+        "options": {}
+      },
+      "credentials": {
+        "postgres": {
+          "id": "CREDENTIAL_PLACEHOLDER",
+          "name": "Postgres account 2"
+        }
+      }
+    },
+    {
+      "id": "pl-verify",
+      "name": "PL_Verify_Context_Match",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        60,
+        220
+      ],
+      "parameters": {
+        "mode": "runOnceForAllItems",
+        "jsCode": "\nconst row = $json;\nif (!row.execution_id || !row.tenant_id || !row.thread_id || !row.trigger_message_id) {\n  return [{ json: {\n    _verified: 'false',\n    error_code: 'CONTEXT_MISMATCH',\n    error_message: 'Execution context row was not found or is incomplete.',\n    missing_fields: ['execution_context']\n  }}];\n}\nreturn [{ json: {\n  _verified: 'true',\n  execution_id: String(row.execution_id),\n  tenant_id: String(row.tenant_id),\n  thread_id: String(row.thread_id),\n  trigger_message_id: String(row.trigger_message_id),\n  idempotency_key: String(row.idempotency_key || ''),\n  execution_status: String(row.status || ''),\n  ttl_seconds: row.ttl_seconds,\n  warnings: []\n}}];\n"
+      }
+    },
+    {
+      "id": "pl-registry",
+      "name": "PL_Load_Module_Registry",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        280,
+        220
+      ],
+      "parameters": {
+        "mode": "runOnceForAllItems",
+        "jsCode": "\nreturn [{ json: {\n  module_registry: [\n    { module_name: 'task_module', module_type: 'executor', capabilities: ['create_task','list_tasks','update_task','complete_task','delete_task'] },\n    { module_name: 'reminder_module', module_type: 'executor', capabilities: ['create_reminder','list_reminders','update_reminder','cancel_reminder'] },\n    { module_name: 'memory_module', module_type: 'executor', capabilities: ['store_memory','search_memory'] },\n    { module_name: 'improvement_module', module_type: 'executor', capabilities: ['capture_feedback'] },\n    { module_name: 'watcher_module_basic', module_type: 'observer', capabilities: ['produce_observation'] }\n  ]\n}}];\n"
+      }
+    },
+    {
+      "id": "pl-build",
+      "name": "PL_Build_Planner_Input",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        500,
+        220
+      ],
+      "parameters": {
+        "mode": "runOnceForAllItems",
+        "jsCode": "\nconst input = $input.all();\nconst verify = input.find(i => i.json.execution_id || i.json._verified)?.json || {};\nconst registry = input.find(i => Array.isArray(i.json.module_registry))?.json || { module_registry: [] };\nconst plannerContext = verify.planner_context || $json.planner_context || {};\nconst goal = String(plannerContext.goal || plannerContext.user_message_text || '').trim();\nconst primaryIntent = String(plannerContext.primary_intent || '').trim();\nlet requestedActions = Array.isArray(plannerContext.requested_actions) ? plannerContext.requested_actions.slice() : [];\nconst intentMap = {\n  create_task: 'create_task',\n  list_tasks: 'list_tasks',\n  update_task: 'update_task',\n  complete_task: 'complete_task',\n  delete_task: 'delete_task',\n  create_reminder: 'create_reminder',\n  list_reminders: 'list_reminders',\n  update_reminder: 'update_reminder',\n  cancel_reminder: 'cancel_reminder',\n  search_memory: 'search_memory',\n  save_suggestion: 'capture_feedback'\n};\nconst actionToModule = {\n  create_task: 'task_module',\n  list_tasks: 'task_module',\n  update_task: 'task_module',\n  complete_task: 'task_module',\n  delete_task: 'task_module',\n  create_reminder: 'reminder_module',\n  list_reminders: 'reminder_module',\n  update_reminder: 'reminder_module',\n  cancel_reminder: 'reminder_module',\n  search_memory: 'memory_module',\n  capture_feedback: 'improvement_module',\n  observe: 'watcher_module_basic'\n};\nif (verify._verified === 'false') {\n  return [{ json: {\n    _context_ready: 'false',\n    error_code: verify.error_code || 'CONTEXT_MISMATCH',\n    error_message: verify.error_message || 'Execution context verification failed.',\n    missing_fields: Array.isArray(verify.missing_fields) ? verify.missing_fields : []\n  }}];\n}\nif (!requestedActions.length && primaryIntent && intentMap[primaryIntent]) {\n  const action = intentMap[primaryIntent];\n  requestedActions = [{\n    action,\n    module_name: actionToModule[action],\n    purpose: `Handle intent ${primaryIntent}`,\n    inputs: plannerContext.inputs || {}\n  }];\n}\nif (!goal) {\n  return [{ json: {\n    _context_ready: 'false',\n    error_code: 'INSUFFICIENT_PLANNING_CONTEXT',\n    error_message: 'Planning goal is missing.',\n    missing_fields: ['planner_context.goal or planner_context.user_message_text']\n  }}];\n}\nif (!requestedActions.length) {\n  return [{ json: {\n    _context_ready: 'false',\n    error_code: 'INSUFFICIENT_PLANNING_CONTEXT',\n    error_message: 'No requested actions or mappable primary intent are available.',\n    missing_fields: ['planner_context.requested_actions or planner_context.primary_intent']\n  }}];\n}\nreturn [{ json: {\n  _context_ready: 'true',\n  execution_id: verify.execution_id,\n  tenant_id: verify.tenant_id,\n  thread_id: verify.thread_id,\n  trigger_message_id: verify.trigger_message_id,\n  idempotency_key: verify.idempotency_key,\n  goal,\n  primary_intent: primaryIntent || 'multi_action_request',\n  requested_actions: requestedActions,\n  module_registry: registry.module_registry || [],\n  warnings: Array.isArray(verify.warnings) ? verify.warnings : []\n}}];\n"
+      }
+    },
+    {
+      "id": "pl-switch-ready",
+      "name": "PL_Route_Context_Ready",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        720,
+        220
+      ],
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json._context_ready }}",
+                    "rightValue": "true",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "ready"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json._context_ready }}",
+                    "rightValue": "false",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "not_ready"
+            }
+          ]
+        },
+        "options": {
+          "fallbackOutput": "extra"
+        }
+      }
+    },
+    {
+      "id": "pl-generate",
+      "name": "PL_Generate_Plan",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        940,
+        160
+      ],
+      "parameters": {
+        "mode": "runOnceForAllItems",
+        "jsCode": "\nconst actionToModule = {\n  create_task: 'task_module',\n  list_tasks: 'task_module',\n  update_task: 'task_module',\n  complete_task: 'task_module',\n  delete_task: 'task_module',\n  create_reminder: 'reminder_module',\n  list_reminders: 'reminder_module',\n  update_reminder: 'reminder_module',\n  cancel_reminder: 'reminder_module',\n  search_memory: 'memory_module',\n  capture_feedback: 'improvement_module',\n  observe: 'watcher_module_basic'\n};\nconst steps = [];\nfor (let i = 0; i < ($json.requested_actions || []).length; i++) {\n  const action = $json.requested_actions[i] || {};\n  const actionName = String(action.action || '');\n  const moduleName = String(action.module_name || actionToModule[actionName] || '');\n  steps.push({\n    step_id: `step_${String(i + 1).padStart(2, '0')}_${actionName || 'action'}`,\n    module_name: moduleName,\n    purpose: String(action.purpose || `Execute ${actionName}`),\n    inputs: action.inputs || {},\n    depends_on: action.depends_on || [],\n    execution_mode: action.execution_mode || 'sequential',\n    expected_outputs: action.expected_outputs || [],\n    replan_if: action.replan_if || ['failed'],\n    failure_policy: action.failure_policy || 'continue_with_notice',\n    status: 'pending'\n  });\n}\nreturn [{ json: {\n  status_kind: 'success',\n  result_type: 'plan',\n  module_name: 'plan_generation',\n  payload: {\n    plan_id: `plan:${$json.execution_id}:v1`,\n    execution_id: String($json.execution_id),\n    thread_id: String($json.thread_id),\n    goal: String($json.goal),\n    primary_intent: String($json.primary_intent),\n    reasoning_summary: `Generated ${steps.length} bounded step(s) from the validated orchestrator handoff.`,\n    steps,\n    allowed_next_stage: 'WF-DI-01',\n    dispatcher_input: {\n      dispatch_allowed: true,\n      module_execution_started: false,\n      response_generation_allowed: false,\n      domain_writes_performed: false\n    },\n    warnings: Array.isArray($json.warnings) ? $json.warnings : []\n  }\n}}];\n"
+      }
+    },
+    {
+      "id": "pl-return-ok",
+      "name": "PL_Return_Result",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1160,
+        160
+      ],
+      "parameters": {
+        "mode": "runOnceForAllItems",
+        "jsCode": "return items;"
+      }
+    },
+    {
+      "id": "pl-return-error",
+      "name": "PL_Return_Error",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        940,
+        380
+      ],
+      "parameters": {
+        "mode": "runOnceForAllItems",
+        "jsCode": "\nreturn [{ json: {\n  status_kind: 'failed',\n  result_type: 'error',\n  module_name: 'plan_generation',\n  error: {\n    code: $json.error_code || 'PLAN_BUILD_FAILED',\n    message: $json.error_message || 'Unknown planning error.',\n    missing_fields: Array.isArray($json.missing_fields) ? $json.missing_fields : []\n  }\n}}];\n"
+      }
+    }
+  ],
+  "connections": {
+    "When clicking 'Execute workflow'": {
+      "main": [
+        [
+          {
+            "node": "PL_Validate_OR_Handoff",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "PL_Validate_OR_Handoff",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "PL_Validate_OR_Handoff": {
+      "main": [
+        [
+          {
+            "node": "PL_Route_Valid",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "PL_Route_Valid": {
+      "main": [
+        [
+          {
+            "node": "PL_Extract_Planning_Input",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "PL_Return_Error",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        []
+      ]
+    },
+    "PL_Extract_Planning_Input": {
+      "main": [
+        [
+          {
+            "node": "PL_Load_Execution_Context",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "PL_Load_Execution_Context": {
+      "main": [
+        [
+          {
+            "node": "PL_Verify_Context_Match",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "PL_Verify_Context_Match": {
+      "main": [
+        [
+          {
+            "node": "PL_Load_Module_Registry",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "PL_Load_Module_Registry": {
+      "main": [
+        [
+          {
+            "node": "PL_Build_Planner_Input",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "PL_Build_Planner_Input": {
+      "main": [
+        [
+          {
+            "node": "PL_Route_Context_Ready",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "PL_Route_Context_Ready": {
+      "main": [
+        [
+          {
+            "node": "PL_Generate_Plan",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "PL_Return_Error",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        []
+      ]
+    },
+    "PL_Generate_Plan": {
+      "main": [
+        [
+          {
+            "node": "PL_Return_Result",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "availableInMCP": true
+  },
+  "pinData": {},
+  "versionId": "wf-pl-01-source-pack-v1",
+  "meta": {
+    "templateCredsSetupCompleted": false
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "case_id": "RT-027",
+  "group": "delete_task",
+  "priority": "P0",
+  "user_input": "Anulează taskul cu oferta veche.",
+  "expected": {
+    "soft_cancelled_or_deleted": true,
+    "auditable": true
+  },
+  "expected_intent": "delete_task",
+  "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+  "message_id": "ca0be91b-ed40-4443-8072-0cc42a875941",
+  "thread_id": "3dd0391e-3033-4265-82b0-7048fe15322f",
+  "idempotency_key": "tmr:tmr-20260425-smoke:RT-027"
+}

@@ -1,0 +1,27 @@
+{
+  "exec_id": "1580",
+  "case_id": "F3-recall-r5",
+  "step_id": "mem-batch-v2c-recall-r5",
+  "action": "recall_memory",
+  "inputs": {
+    "memory_type": "fact",
+    "limit": 50
+  },
+  "applied_filters": ["memory_type"],
+  "result_status_kind": "success",
+  "module_result_status": "success",
+  "row_count": 8,
+  "row_ids_in_order": [
+    "cc0dc5c2-ef0d-41f7-84ec-9b919a2a9671",
+    "6ceb9437-960e-45b4-a1cf-706116723360",
+    "a0909481-a0a8-4682-8689-fbe50a6fa919",
+    "75a617be-c5a9-4f70-9bcf-35f0db6bcd26",
+    "7b03cd9c-0e3e-45ea-bad6-6fc4adc774f5",
+    "578c7d1d-fa33-40d9-bda0-a76192c1e0c4",
+    "da53c396-09af-4ba1-8fba-07c4295fa412",
+    "c7f148d9-5742-46fa-a41c-a72ee94a2011"
+  ],
+  "oracle": "8 active rows = 10 total - 2 superseded (adbad490, 28c3a392). All rows memory_type=fact. created_at DESC — pass",
+  "domain_writes_performed": false,
+  "ra_dispatch_status": "success"
+}

@@ -1,0 +1,7 @@
+- mission loaded
+- queue built
+- write boundaries loaded
+- failsafe tree loaded
+- per-workflow loop active
+- quarantine policy loaded
+- reporting targets loaded

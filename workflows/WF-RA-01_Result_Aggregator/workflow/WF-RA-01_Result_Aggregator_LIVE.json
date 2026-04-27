@@ -1,0 +1,304 @@
+{
+  "name": "WF-RA-01 Result Aggregator",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "ra1",
+      "name": "RA_Input",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1,
+      "position": [0, 0]
+    },
+    {
+      "parameters": {},
+      "id": "ra2",
+      "name": "RA_Manual_Test_Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [0, 220]
+    },
+    {
+      "parameters": {
+        "jsCode": "// WF-RA-01 RA_Validate_Module_Batch — canonical envelope validation.\nconst CANONICAL_ERROR_CODES = new Set(['INVALID_AGGREGATION_INPUT','CONTEXT_MISMATCH','MISSING_REQUIRED_FIELDS','MISSING_MODULE_RESULTS','DUPLICATE_STEP_IDS']);\nconst PERMITTED_RESULT_STATUSES = new Set(['success','partial','failed','no_action']);\nfunction canonicalError(code, message, missingFields, details){\n  if(!CANONICAL_ERROR_CODES.has(code)) code='INVALID_AGGREGATION_INPUT';\n  return { status_kind:'error', result_type:'aggregation_error', error:{ code, message, missing_fields: missingFields||[], details: details||{} } };\n}\nfunction validate(payload){\n  const requiredTop=['status_kind','result_type','execution_context_id','thread_id','tenant_id','aggregation_input'];\n  const missingTop=requiredTop.filter(f=>!(f in payload));\n  if(missingTop.length) return [false, canonicalError('INVALID_AGGREGATION_INPUT','Aggregation envelope missing required top-level fields.', missingTop)];\n  if(payload.status_kind!=='success'||payload.result_type!=='module_batch')\n    return [false, canonicalError('INVALID_AGGREGATION_INPUT','Aggregation envelope must be a canonical success/module_batch payload.', [], {status_kind:payload.status_kind, result_type:payload.result_type})];\n  const ai=payload.aggregation_input;\n  const missingAi=['aggregation_allowed','response_generation_allowed','module_execution_completed','domain_writes_performed','module_results','expected_step_ids'].filter(f=>!(f in ai));\n  if(missingAi.length) return [false, canonicalError('INVALID_AGGREGATION_INPUT','Aggregation input is incomplete.', missingAi)];\n  if(!ai.aggregation_allowed) return [false, canonicalError('INVALID_AGGREGATION_INPUT','Aggregation is not allowed by upstream guard flags.')];\n  if(ai.response_generation_allowed) return [false, canonicalError('INVALID_AGGREGATION_INPUT','Response generation must remain disabled in aggregation stage.')];\n  if(!ai.module_execution_completed) return [false, canonicalError('INVALID_AGGREGATION_INPUT','Module execution must be completed before aggregation.')];\n  if(ai.domain_writes_performed) return [false, canonicalError('INVALID_AGGREGATION_INPUT','Aggregation stage must start from a no-write batch envelope.')];\n  const mr=ai.module_results, esi=ai.expected_step_ids;\n  if(!Array.isArray(mr)||mr.length===0) return [false, canonicalError('MISSING_MODULE_RESULTS','Aggregation requires a non-empty module_results list.')];\n  if(!Array.isArray(esi)||esi.length===0) return [false, canonicalError('MISSING_REQUIRED_FIELDS','Aggregation requires expected_step_ids.', ['expected_step_ids'])];\n  const required=['module_name','step_id','result_type','status','summary','actions_executed','artifacts','observations','proposals','confidence','needs_followup','followup_requests'];\n  const seen=new Set(); const normalized=[];\n  for(let i=0;i<mr.length;i++){\n    const r=mr[i];\n    const miss=required.filter(f=>!(f in r));\n    if(miss.length) return [false, canonicalError('MISSING_REQUIRED_FIELDS','Module result at index '+i+' is incomplete.', miss)];\n    if(!PERMITTED_RESULT_STATUSES.has(r.status)) return [false, canonicalError('INVALID_AGGREGATION_INPUT','Invalid module result status at index '+i+'.', [], {status:r.status})];\n    if(seen.has(r.step_id)) return [false, canonicalError('DUPLICATE_STEP_IDS','Duplicate step_id detected in module batch.', [], {step_id:r.step_id})];\n    seen.add(r.step_id); normalized.push(JSON.parse(JSON.stringify(r)));\n  }\n  const missingSteps=esi.filter(s=>!seen.has(s));\n  if(missingSteps.length) return [false, canonicalError('MISSING_MODULE_RESULTS','Expected step results are missing from the module batch.', missingSteps)];\n  return [true, { execution_context_id: payload.execution_context_id, thread_id: payload.thread_id, tenant_id: payload.tenant_id, expected_step_ids: esi.slice(), module_results: normalized, idempotency_key: payload.idempotency_key || ('aggregate:'+payload.execution_context_id) }];\n}\nconst out=[];\nfor(const it of items){\n  const payload = (it.json && Object.keys(it.json).length) ? it.json : {};\n  const [ok, result] = validate(payload);\n  if(ok){ out.push({ json: { _valid:true, _envelope: result, _original_input: payload } }); }\n  else { out.push({ json: { _valid:false, _error: result, _original_input: payload } }); }\n}\nreturn out;"
+      },
+      "id": "ra3",
+      "name": "RA_Validate_Module_Batch",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [260, 110]
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "cond-valid-1",
+                    "leftValue": "={{ $json._valid }}",
+                    "rightValue": true,
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "_valid"
+            }
+          ]
+        },
+        "options": {
+          "fallbackOutput": "extra",
+          "renameFallbackOutput": "extra"
+        }
+      },
+      "id": "ra4",
+      "name": "RA_Route_Valid",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [520, 110]
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT id, tenant_id, thread_id, status, current_plan_ref, pending_steps, completed_steps, updated_at\nFROM public.execution_contexts\nWHERE id = $1::uuid AND tenant_id = $2::uuid\nLIMIT 1;",
+        "options": {
+          "queryReplacement": "={{ $json._envelope.execution_context_id }},={{ $json._envelope.tenant_id }}"
+        }
+      },
+      "id": "ra5",
+      "name": "RA_Load_Execution_Context",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [780, 110],
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "jsCode": "// WF-RA-01 RA_Verify_Context_Match — verify DB row matches envelope tenant/thread\nconst out = [];\nfor (let i = 0; i < items.length; i++) {\n  const row = items[i].json || {};\n  let envelope = null;\n  try { envelope = $('RA_Validate_Module_Batch').first().json._envelope; } catch (e) { envelope = null; }\n  if (!envelope) {\n    out.push({ json: { _context_ready: false, _error: { status_kind:'error', result_type:'aggregation_error', error:{ code:'CONTEXT_MISMATCH', message:'Envelope missing at verify step.', missing_fields: [], details: {} } } } });\n    continue;\n  }\n  const hasRow = row && row.id;\n  if (!hasRow) {\n    out.push({ json: { _context_ready: false, _envelope: envelope, _error: { status_kind:'error', result_type:'aggregation_error', error:{ code:'CONTEXT_MISMATCH', message:'execution_context row not found.', missing_fields: [], details: { execution_context_id: envelope.execution_context_id, tenant_id: envelope.tenant_id } } } } });\n    continue;\n  }\n  const rowTid = String(row.tenant_id||'').toLowerCase();\n  const envTid = String(envelope.tenant_id||'').toLowerCase();\n  const rowThr = String(row.thread_id||'').toLowerCase();\n  const envThr = String(envelope.thread_id||'').toLowerCase();\n  if (rowTid !== envTid || rowThr !== envThr) {\n    out.push({ json: { _context_ready: false, _envelope: envelope, _error: { status_kind:'error', result_type:'aggregation_error', error:{ code:'CONTEXT_MISMATCH', message:'tenant_id/thread_id mismatch between envelope and execution_contexts row.', missing_fields: [], details: { row_tenant_id: row.tenant_id, env_tenant_id: envelope.tenant_id, row_thread_id: row.thread_id, env_thread_id: envelope.thread_id } } } } });\n    continue;\n  }\n  out.push({ json: { _context_ready: true, _envelope: envelope, _context_row: row } });\n}\nreturn out;"
+      },
+      "id": "ra6",
+      "name": "RA_Verify_Context_Match",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1040, 110]
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "cond-ctx-1",
+                    "leftValue": "={{ $json._context_ready }}",
+                    "rightValue": true,
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "_context_ready"
+            }
+          ]
+        },
+        "options": {
+          "fallbackOutput": "extra",
+          "renameFallbackOutput": "extra"
+        }
+      },
+      "id": "ra7",
+      "name": "RA_Route_Context_Ready",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [1300, 110]
+    },
+    {
+      "parameters": {
+        "jsCode": "// WF-RA-01 RA_Build_Aggregation_Input — pass-through envelope + context row.\nreturn items.map(it => ({ json: { _envelope: it.json._envelope, _context_row: it.json._context_row } }));"
+      },
+      "id": "ra8",
+      "name": "RA_Build_Aggregation_Input",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1560, 110]
+    },
+    {
+      "parameters": {
+        "jsCode": "// WF-RA-01 RA_Aggregate_Module_Results — canonical aggregation.\nfunction rollup(statuses){\n  if(statuses.every(s=>s==='success')) return 'success';\n  if(statuses.every(s=>s==='failed')) return 'failed';\n  if(statuses.every(s=>s==='no_action')) return 'no_action';\n  return 'partial';\n}\nconst out = [];\nfor(const it of items){\n  const env = it.json._envelope;\n  const ctx = it.json._context_row || {};\n  const results = env.module_results;\n  const statuses = results.map(r=>r.status);\n  const status = rollup(statuses);\n  const actions_executed=[], artifacts=[], observations=[], proposals=[], followup_requests=[], module_names=[];\n  const per_status_counts = { success:0, partial:0, failed:0, no_action:0 };\n  let total_confidence=0;\n  for(const r of results){\n    module_names.push(r.module_name);\n    per_status_counts[r.status] = (per_status_counts[r.status]||0)+1;\n    total_confidence += Number(r.confidence||0);\n    actions_executed.push(...JSON.parse(JSON.stringify(r.actions_executed||[])));\n    artifacts.push(...JSON.parse(JSON.stringify(r.artifacts||[])));\n    observations.push(...(r.observations||[]));\n    proposals.push(...JSON.parse(JSON.stringify(r.proposals||[])));\n    if(r.needs_followup) followup_requests.push(...JSON.parse(JSON.stringify(r.followup_requests||[])));\n  }\n  const avg_confidence = Math.round((total_confidence/results.length)*10000)/10000;\n  const aggregated_result = {\n    status,\n    summary: 'Aggregated '+results.length+' module result(s) with rollup status '+status+'.',\n    module_results_count: results.length,\n    module_names,\n    per_status_counts,\n    actions_executed,\n    artifacts,\n    observations,\n    proposals,\n    confidence: avg_confidence,\n    needs_followup: followup_requests.length>0,\n    followup_requests,\n    expected_step_ids: env.expected_step_ids.slice(),\n    returned_step_ids: results.map(r=>r.step_id)\n  };\n  out.push({ json: { _envelope: env, _context_row: ctx, _aggregated_result: aggregated_result } });\n}\nreturn out;"
+      },
+      "id": "ra9",
+      "name": "RA_Aggregate_Module_Results",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1820, 110]
+    },
+    {
+      "parameters": {
+        "jsCode": "// WF-RA-01 RA_Build_Downstream_Envelope — build canonical success envelope for WF-SU-01.\nconst out = [];\nfor(const it of items){\n  const env = it.json._envelope;\n  const aggregated = it.json._aggregated_result;\n  out.push({ json: {\n    status_kind: 'success',\n    result_type: 'aggregated_result',\n    execution_context_id: env.execution_context_id,\n    thread_id: env.thread_id,\n    tenant_id: env.tenant_id,\n    aggregated_result: aggregated,\n    state_update_allowed: true,\n    response_generation_allowed: false,\n    domain_writes_performed: false,\n    allowed_next_stage: 'WF-SU-01',\n    idempotency_key: env.idempotency_key\n  } });\n}\nreturn out;"
+      },
+      "id": "ra10",
+      "name": "RA_Build_Downstream_Envelope",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [2080, 110]
+    },
+    {
+      "parameters": {
+        "jsCode": "// WF-RA-01 RA_Return_Result — final canonical return.\nreturn items;"
+      },
+      "id": "ra11",
+      "name": "RA_Return_Result",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [2340, 110]
+    },
+    {
+      "parameters": {
+        "jsCode": "// WF-RA-01 RA_Return_Error — invalid input envelope.\nconst out=[];\nfor(const it of items){\n  const err = it.json._error || { status_kind:'error', result_type:'aggregation_error', error:{ code:'INVALID_AGGREGATION_INPUT', message:'Unknown invalid input.', missing_fields:[], details:{} } };\n  out.push({ json: err });\n}\nreturn out;"
+      },
+      "id": "ra12",
+      "name": "RA_Return_Error",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [780, 320]
+    },
+    {
+      "parameters": {
+        "jsCode": "// WF-RA-01 RA_Return_Context_Error — context mismatch / aggregation error.\nconst out=[];\nfor(const it of items){\n  const err = it.json._error || { status_kind:'error', result_type:'aggregation_error', error:{ code:'CONTEXT_MISMATCH', message:'Unknown context mismatch.', missing_fields:[], details:{} } };\n  out.push({ json: err });\n}\nreturn out;"
+      },
+      "id": "ra13",
+      "name": "RA_Return_Context_Error",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1560, 320]
+    },
+    {
+      "parameters": {
+        "jsCode": "// WF-RA-01 RA_Status_Summary — live debug summary (side-channel, no effect on canonical output).\nconst out=[];\nfor(const it of items){\n  const env = it.json._envelope || {};\n  const ag = it.json._aggregated_result || {};\n  out.push({ json: { _debug_summary: { execution_context_id: env.execution_context_id, tenant_id: env.tenant_id, thread_id: env.thread_id, rollup_status: ag.status, module_results_count: ag.module_results_count, returned_step_ids: ag.returned_step_ids } } });\n}\nreturn out;"
+      },
+      "id": "ra14",
+      "name": "RA_Status_Summary",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [2080, 320]
+    }
+  ],
+  "connections": {
+    "RA_Input": {
+      "main": [
+        [
+          { "node": "RA_Validate_Module_Batch", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "RA_Manual_Test_Trigger": {
+      "main": [
+        [
+          { "node": "RA_Validate_Module_Batch", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "RA_Validate_Module_Batch": {
+      "main": [
+        [
+          { "node": "RA_Route_Valid", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "RA_Route_Valid": {
+      "main": [
+        [
+          { "node": "RA_Load_Execution_Context", "type": "main", "index": 0 }
+        ],
+        [
+          { "node": "RA_Return_Error", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "RA_Load_Execution_Context": {
+      "main": [
+        [
+          { "node": "RA_Verify_Context_Match", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "RA_Verify_Context_Match": {
+      "main": [
+        [
+          { "node": "RA_Route_Context_Ready", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "RA_Route_Context_Ready": {
+      "main": [
+        [
+          { "node": "RA_Build_Aggregation_Input", "type": "main", "index": 0 }
+        ],
+        [
+          { "node": "RA_Return_Context_Error", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "RA_Build_Aggregation_Input": {
+      "main": [
+        [
+          { "node": "RA_Aggregate_Module_Results", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "RA_Aggregate_Module_Results": {
+      "main": [
+        [
+          { "node": "RA_Build_Downstream_Envelope", "type": "main", "index": 0 },
+          { "node": "RA_Status_Summary", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "RA_Build_Downstream_Envelope": {
+      "main": [
+        [
+          { "node": "RA_Return_Result", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "RA_Status_Summary": {
+      "main": [
+        [
+          { "node": "RA_Return_Result", "type": "main", "index": 0 }
+        ]
+      ]
+    }
+  },
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  }
+}

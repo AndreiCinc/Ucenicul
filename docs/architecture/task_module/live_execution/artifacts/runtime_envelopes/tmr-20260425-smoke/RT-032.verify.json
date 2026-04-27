@@ -1,0 +1,15 @@
+{
+  "case_id": "RT-032",
+  "group": "idempotency_retry",
+  "priority": "P0",
+  "user_input": "Creează task: verifică plata E2E retry.",
+  "expected": {
+    "first_run_success": true,
+    "replay_no_duplicate_or_extra_side_effect": true
+  },
+  "expected_intent": "create_task",
+  "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+  "message_id": "71f9a220-4919-46c8-8bf3-0859afdb1e5a",
+  "thread_id": "7615bcbb-f9ae-4086-87f4-81ef0b155ade",
+  "idempotency_key": "tmr:tmr-20260425-smoke:RT-032"
+}

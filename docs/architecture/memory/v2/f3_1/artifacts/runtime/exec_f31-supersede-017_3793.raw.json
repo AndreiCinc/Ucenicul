@@ -1,0 +1,40 @@
+{
+  "case_id": "f31-supersede-017",
+  "execution_id": "3793",
+  "execution_status": "success",
+  "execution_mcp_response": {
+    "executionId": "3793",
+    "status": "success"
+  },
+  "response_envelope": {
+    "status": "error",
+    "error_code": "SUPERSEDE_TARGET_INVALID",
+    "idempotency_reused": null,
+    "new_insert": null,
+    "superseded_memory_id": "22222222-aaaa-bbbb-cccc-dddd00000017",
+    "new_memory_id": null
+  },
+  "module_result_outer": {
+    "status_kind": "error",
+    "result_type": "module_error",
+    "module_name": "module_execution",
+    "step_id": "mem-f31-f31-supersede-017",
+    "summary": "Old memory not found or already superseded.",
+    "artifacts": [],
+    "domain_writes_performed": false,
+    "response_generation_allowed": false
+  },
+  "db_pre": [
+    {
+      "case_id": "f31-supersede-017",
+      "memory_id": "22222222-aaaa-bbbb-cccc-dddd00000017",
+      "tenant_id": "bbbbbbbb-0000-0000-0000-000000000002",
+      "tier": "recent",
+      "status": "active"
+    }
+  ],
+  "db_post": [],
+  "error": null,
+  "captured_at": "2026-04-22T14:20:40.443Z",
+  "notes": "Stage C lane 4 synthesized raw. Evidence: summary_success=false idem_true=false idem_false=false target_invalid=true. Downstream n8n-level 'failed' is aggregation_error (INVALID_AGGREGATION_INPUT) that fires after module resolution; module_result.status is authoritative for F3.1."
+}

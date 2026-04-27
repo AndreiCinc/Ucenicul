@@ -1,0 +1,20 @@
+{
+  "message_id": "5d2f3142-0e50-4e5d-820b-ae8366db37e1",
+  "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+  "channel": "rcp1-rich-matrix",
+  "direction": "inbound",
+  "author_type": "user",
+  "normalized_content": "Bună dimineața!",
+  "timestamp": "2026-04-25T19:17:11.984Z",
+  "source_message_ref": "rcp1:RC-C5-02",
+  "author_entity_id": null,
+  "related_entity_ids": [],
+  "metadata": {
+    "rcp1_case_id": "RC-C5-02",
+    "rcp1_corridor": "C5",
+    "rcp1_run_tag": "rcp1-2026-04-25"
+  },
+  "idempotency_key": "rcp1:rcp1-2026-04-25:RC-C5-02",
+  "thread_id": "36f93d35-15ca-4313-8e02-42d7e08ee7e0",
+  "reply_to_thread_id": null
+}

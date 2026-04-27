@@ -1,0 +1,413 @@
+{
+  "mission": "V2-OBS-STORE-PREP-INPUT-PASSTHROUGH",
+  "category": "local_unit",
+  "minimum_count": 50,
+  "tests": [
+    {
+      "id": "SPU-01",
+      "category": "defaults_and_shape",
+      "input": "caller omits pass-through fields; variant 1",
+      "oracle": "Store_Prep emits current default tier/user_confirmed/corroboration_count and preserves existing __db shape."
+    },
+    {
+      "id": "SPU-02",
+      "category": "defaults_and_shape",
+      "input": "caller omits pass-through fields; variant 2",
+      "oracle": "Store_Prep emits current default tier/user_confirmed/corroboration_count and preserves existing __db shape."
+    },
+    {
+      "id": "SPU-03",
+      "category": "defaults_and_shape",
+      "input": "caller omits pass-through fields; variant 3",
+      "oracle": "Store_Prep emits current default tier/user_confirmed/corroboration_count and preserves existing __db shape."
+    },
+    {
+      "id": "SPU-04",
+      "category": "defaults_and_shape",
+      "input": "caller omits pass-through fields; variant 4",
+      "oracle": "Store_Prep emits current default tier/user_confirmed/corroboration_count and preserves existing __db shape."
+    },
+    {
+      "id": "SPU-05",
+      "category": "defaults_and_shape",
+      "input": "caller omits pass-through fields; variant 5",
+      "oracle": "Store_Prep emits current default tier/user_confirmed/corroboration_count and preserves existing __db shape."
+    },
+    {
+      "id": "SPU-06",
+      "category": "defaults_and_shape",
+      "input": "caller omits pass-through fields; variant 6",
+      "oracle": "Store_Prep emits current default tier/user_confirmed/corroboration_count and preserves existing __db shape."
+    },
+    {
+      "id": "SPU-07",
+      "category": "defaults_and_shape",
+      "input": "caller omits pass-through fields; variant 7",
+      "oracle": "Store_Prep emits current default tier/user_confirmed/corroboration_count and preserves existing __db shape."
+    },
+    {
+      "id": "SPU-08",
+      "category": "defaults_and_shape",
+      "input": "caller omits pass-through fields; variant 8",
+      "oracle": "Store_Prep emits current default tier/user_confirmed/corroboration_count and preserves existing __db shape."
+    },
+    {
+      "id": "SPU-09",
+      "category": "defaults_and_shape",
+      "input": "caller omits pass-through fields; variant 9",
+      "oracle": "Store_Prep emits current default tier/user_confirmed/corroboration_count and preserves existing __db shape."
+    },
+    {
+      "id": "SPU-10",
+      "category": "defaults_and_shape",
+      "input": "caller omits pass-through fields; variant 10",
+      "oracle": "Store_Prep emits current default tier/user_confirmed/corroboration_count and preserves existing __db shape."
+    },
+    {
+      "id": "SPU-11",
+      "category": "tier_passthrough",
+      "input": {
+        "tier": "recent",
+        "variant": 11
+      },
+      "oracle": "Valid caller tier is present in Store_Prep __db output and not overwritten by default."
+    },
+    {
+      "id": "SPU-12",
+      "category": "tier_passthrough",
+      "input": {
+        "tier": "long_term",
+        "variant": 12
+      },
+      "oracle": "Valid caller tier is present in Store_Prep __db output and not overwritten by default."
+    },
+    {
+      "id": "SPU-13",
+      "category": "tier_passthrough",
+      "input": {
+        "tier": "recent",
+        "variant": 13
+      },
+      "oracle": "Valid caller tier is present in Store_Prep __db output and not overwritten by default."
+    },
+    {
+      "id": "SPU-14",
+      "category": "tier_passthrough",
+      "input": {
+        "tier": "long_term",
+        "variant": 14
+      },
+      "oracle": "Valid caller tier is present in Store_Prep __db output and not overwritten by default."
+    },
+    {
+      "id": "SPU-15",
+      "category": "tier_passthrough",
+      "input": {
+        "tier": "recent",
+        "variant": 15
+      },
+      "oracle": "Valid caller tier is present in Store_Prep __db output and not overwritten by default."
+    },
+    {
+      "id": "SPU-16",
+      "category": "tier_passthrough",
+      "input": {
+        "tier": "long_term",
+        "variant": 16
+      },
+      "oracle": "Valid caller tier is present in Store_Prep __db output and not overwritten by default."
+    },
+    {
+      "id": "SPU-17",
+      "category": "tier_passthrough",
+      "input": {
+        "tier": "recent",
+        "variant": 17
+      },
+      "oracle": "Valid caller tier is present in Store_Prep __db output and not overwritten by default."
+    },
+    {
+      "id": "SPU-18",
+      "category": "tier_passthrough",
+      "input": {
+        "tier": "long_term",
+        "variant": 18
+      },
+      "oracle": "Valid caller tier is present in Store_Prep __db output and not overwritten by default."
+    },
+    {
+      "id": "SPU-19",
+      "category": "tier_passthrough",
+      "input": {
+        "tier": "recent",
+        "variant": 19
+      },
+      "oracle": "Valid caller tier is present in Store_Prep __db output and not overwritten by default."
+    },
+    {
+      "id": "SPU-20",
+      "category": "tier_passthrough",
+      "input": {
+        "tier": "long_term",
+        "variant": 20
+      },
+      "oracle": "Valid caller tier is present in Store_Prep __db output and not overwritten by default."
+    },
+    {
+      "id": "SPU-21",
+      "category": "user_confirmed_passthrough",
+      "input": {
+        "user_confirmed": false,
+        "variant": 21
+      },
+      "oracle": "Boolean user_confirmed is preserved exactly when valid; omitted value still defaults as before."
+    },
+    {
+      "id": "SPU-22",
+      "category": "user_confirmed_passthrough",
+      "input": {
+        "user_confirmed": true,
+        "variant": 22
+      },
+      "oracle": "Boolean user_confirmed is preserved exactly when valid; omitted value still defaults as before."
+    },
+    {
+      "id": "SPU-23",
+      "category": "user_confirmed_passthrough",
+      "input": {
+        "user_confirmed": false,
+        "variant": 23
+      },
+      "oracle": "Boolean user_confirmed is preserved exactly when valid; omitted value still defaults as before."
+    },
+    {
+      "id": "SPU-24",
+      "category": "user_confirmed_passthrough",
+      "input": {
+        "user_confirmed": true,
+        "variant": 24
+      },
+      "oracle": "Boolean user_confirmed is preserved exactly when valid; omitted value still defaults as before."
+    },
+    {
+      "id": "SPU-25",
+      "category": "user_confirmed_passthrough",
+      "input": {
+        "user_confirmed": false,
+        "variant": 25
+      },
+      "oracle": "Boolean user_confirmed is preserved exactly when valid; omitted value still defaults as before."
+    },
+    {
+      "id": "SPU-26",
+      "category": "user_confirmed_passthrough",
+      "input": {
+        "user_confirmed": true,
+        "variant": 26
+      },
+      "oracle": "Boolean user_confirmed is preserved exactly when valid; omitted value still defaults as before."
+    },
+    {
+      "id": "SPU-27",
+      "category": "user_confirmed_passthrough",
+      "input": {
+        "user_confirmed": false,
+        "variant": 27
+      },
+      "oracle": "Boolean user_confirmed is preserved exactly when valid; omitted value still defaults as before."
+    },
+    {
+      "id": "SPU-28",
+      "category": "user_confirmed_passthrough",
+      "input": {
+        "user_confirmed": true,
+        "variant": 28
+      },
+      "oracle": "Boolean user_confirmed is preserved exactly when valid; omitted value still defaults as before."
+    },
+    {
+      "id": "SPU-29",
+      "category": "user_confirmed_passthrough",
+      "input": {
+        "user_confirmed": false,
+        "variant": 29
+      },
+      "oracle": "Boolean user_confirmed is preserved exactly when valid; omitted value still defaults as before."
+    },
+    {
+      "id": "SPU-30",
+      "category": "user_confirmed_passthrough",
+      "input": {
+        "user_confirmed": true,
+        "variant": 30
+      },
+      "oracle": "Boolean user_confirmed is preserved exactly when valid; omitted value still defaults as before."
+    },
+    {
+      "id": "SPU-31",
+      "category": "corroboration_count_passthrough",
+      "input": {
+        "corroboration_count": 0
+      },
+      "oracle": "Non-negative integer corroboration_count is preserved or safely bounded according to live contract; no silent hardcode."
+    },
+    {
+      "id": "SPU-32",
+      "category": "corroboration_count_passthrough",
+      "input": {
+        "corroboration_count": 1
+      },
+      "oracle": "Non-negative integer corroboration_count is preserved or safely bounded according to live contract; no silent hardcode."
+    },
+    {
+      "id": "SPU-33",
+      "category": "corroboration_count_passthrough",
+      "input": {
+        "corroboration_count": 2
+      },
+      "oracle": "Non-negative integer corroboration_count is preserved or safely bounded according to live contract; no silent hardcode."
+    },
+    {
+      "id": "SPU-34",
+      "category": "corroboration_count_passthrough",
+      "input": {
+        "corroboration_count": 3
+      },
+      "oracle": "Non-negative integer corroboration_count is preserved or safely bounded according to live contract; no silent hardcode."
+    },
+    {
+      "id": "SPU-35",
+      "category": "corroboration_count_passthrough",
+      "input": {
+        "corroboration_count": 5
+      },
+      "oracle": "Non-negative integer corroboration_count is preserved or safely bounded according to live contract; no silent hardcode."
+    },
+    {
+      "id": "SPU-36",
+      "category": "corroboration_count_passthrough",
+      "input": {
+        "corroboration_count": 10
+      },
+      "oracle": "Non-negative integer corroboration_count is preserved or safely bounded according to live contract; no silent hardcode."
+    },
+    {
+      "id": "SPU-37",
+      "category": "corroboration_count_passthrough",
+      "input": {
+        "corroboration_count": 2
+      },
+      "oracle": "Non-negative integer corroboration_count is preserved or safely bounded according to live contract; no silent hardcode."
+    },
+    {
+      "id": "SPU-38",
+      "category": "corroboration_count_passthrough",
+      "input": {
+        "corroboration_count": 1
+      },
+      "oracle": "Non-negative integer corroboration_count is preserved or safely bounded according to live contract; no silent hardcode."
+    },
+    {
+      "id": "SPU-39",
+      "category": "corroboration_count_passthrough",
+      "input": {
+        "corroboration_count": 0
+      },
+      "oracle": "Non-negative integer corroboration_count is preserved or safely bounded according to live contract; no silent hardcode."
+    },
+    {
+      "id": "SPU-40",
+      "category": "corroboration_count_passthrough",
+      "input": {
+        "corroboration_count": 7
+      },
+      "oracle": "Non-negative integer corroboration_count is preserved or safely bounded according to live contract; no silent hardcode."
+    },
+    {
+      "id": "SPU-41",
+      "category": "combinations_and_invalids",
+      "input": {
+        "tier": "recent",
+        "user_confirmed": true,
+        "corroboration_count": 2
+      },
+      "oracle": "Combination behavior matches design freeze: valid fields pass, invalid fields reject/normalize safely, no unrelated field drift."
+    },
+    {
+      "id": "SPU-42",
+      "category": "combinations_and_invalids",
+      "input": {
+        "tier": "long_term",
+        "user_confirmed": false,
+        "corroboration_count": 5
+      },
+      "oracle": "Combination behavior matches design freeze: valid fields pass, invalid fields reject/normalize safely, no unrelated field drift."
+    },
+    {
+      "id": "SPU-43",
+      "category": "combinations_and_invalids",
+      "input": {
+        "tier": "invalid_tier"
+      },
+      "oracle": "Combination behavior matches design freeze: valid fields pass, invalid fields reject/normalize safely, no unrelated field drift."
+    },
+    {
+      "id": "SPU-44",
+      "category": "combinations_and_invalids",
+      "input": {
+        "user_confirmed": "true"
+      },
+      "oracle": "Combination behavior matches design freeze: valid fields pass, invalid fields reject/normalize safely, no unrelated field drift."
+    },
+    {
+      "id": "SPU-45",
+      "category": "combinations_and_invalids",
+      "input": {
+        "corroboration_count": -1
+      },
+      "oracle": "Combination behavior matches design freeze: valid fields pass, invalid fields reject/normalize safely, no unrelated field drift."
+    },
+    {
+      "id": "SPU-46",
+      "category": "combinations_and_invalids",
+      "input": {
+        "corroboration_count": "2"
+      },
+      "oracle": "Combination behavior matches design freeze: valid fields pass, invalid fields reject/normalize safely, no unrelated field drift."
+    },
+    {
+      "id": "SPU-47",
+      "category": "combinations_and_invalids",
+      "input": {
+        "tier": null
+      },
+      "oracle": "Combination behavior matches design freeze: valid fields pass, invalid fields reject/normalize safely, no unrelated field drift."
+    },
+    {
+      "id": "SPU-48",
+      "category": "combinations_and_invalids",
+      "input": {
+        "user_confirmed": null
+      },
+      "oracle": "Combination behavior matches design freeze: valid fields pass, invalid fields reject/normalize safely, no unrelated field drift."
+    },
+    {
+      "id": "SPU-49",
+      "category": "combinations_and_invalids",
+      "input": {
+        "corroboration_count": null
+      },
+      "oracle": "Combination behavior matches design freeze: valid fields pass, invalid fields reject/normalize safely, no unrelated field drift."
+    },
+    {
+      "id": "SPU-50",
+      "category": "combinations_and_invalids",
+      "input": {
+        "tier": "recent",
+        "user_confirmed": true,
+        "corroboration_count": 0
+      },
+      "oracle": "Combination behavior matches design freeze: valid fields pass, invalid fields reject/normalize safely, no unrelated field drift."
+    }
+  ]
+}

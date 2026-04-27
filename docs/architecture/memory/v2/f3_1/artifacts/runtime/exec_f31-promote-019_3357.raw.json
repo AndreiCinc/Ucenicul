@@ -1,0 +1,72 @@
+{
+  "case_id": "f31-promote-019",
+  "execution_id": "3357",
+  "execution_status": "success",
+  "execution_mcp_response": {
+    "executionId": "3357",
+    "status": "success"
+  },
+  "response_envelope": {
+    "status": "success",
+    "denial_reason": "accepted",
+    "acceptance_signals": [
+      "user_confirmed",
+      "evidence_validated"
+    ],
+    "promoted": null,
+    "memory_id": "d32b56dc-beaf-4337-917b-24aefadccc40",
+    "tier_before": null,
+    "tier_after": null
+  },
+  "module_result_outer": {
+    "status_kind": "success",
+    "result_type": "module_result",
+    "module_name": "memory_module",
+    "step_id": "mem-f31-f31-promote-019",
+    "summary": "Memory promoted to long_term.",
+    "artifacts": [
+      {
+        "type": "memory_id",
+        "value": "d32b56dc-beaf-4337-917b-24aefadccc40"
+      },
+      {
+        "type": "denial_reason",
+        "value": "accepted",
+        "promoted": true
+      },
+      {
+        "type": "acceptance_signals",
+        "value": [
+          "user_confirmed",
+          "evidence_validated"
+        ]
+      }
+    ],
+    "domain_writes_performed": true,
+    "response_generation_allowed": false
+  },
+  "db_pre": [
+    {
+      "id": "d32b56dc-beaf-4337-917b-24aefadccc40",
+      "tier": "recent",
+      "status": "active",
+      "user_confirmed": false,
+      "evidence_validated": false,
+      "corroboration_count": 1,
+      "last_reconfirmed_at": null
+    }
+  ],
+  "db_post": [
+    {
+      "id": "d32b56dc-beaf-4337-917b-24aefadccc40",
+      "tier": "long_term",
+      "status": "active",
+      "user_confirmed": true,
+      "evidence_validated": true,
+      "corroboration_count": 1,
+      "last_reconfirmed_at": "2026-04-22T06:05:53.652Z"
+    }
+  ],
+  "error": null,
+  "captured_at": "2026-04-22T13:43:18.664Z"
+}

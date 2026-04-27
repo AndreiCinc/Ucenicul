@@ -1,0 +1,23 @@
+{
+  "message_id": "94a28349-cad7-4439-88fa-a14003f413ac",
+  "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+  "channel": "e2e-rich-matrix",
+  "direction": "inbound",
+  "author_type": "user",
+  "normalized_content": "EN case: Explain briefly the difference between a goal and a task.",
+  "timestamp": "2026-04-26T02:50:47.036Z",
+  "source_message_ref": "e2e:C1-L3-V2:e2e:f240-2026-04-26:C1-L3-V2",
+  "author_entity_id": null,
+  "related_entity_ids": [],
+  "metadata": {
+    "e2e_case_id": "C1-L3-V2",
+    "e2e_corridor": "C1",
+    "e2e_variant": "locale_en",
+    "e2e_phase": "P1_FOUNDATION",
+    "e2e_priority": "P1",
+    "e2e_locale": "en",
+    "e2e_run_tag": "f240-2026-04-26"
+  },
+  "idempotency_key": "e2e:f240-2026-04-26:C1-L3-V2",
+  "thread_id": "2a907f8a-fa78-4960-87a4-e93671932656"
+}

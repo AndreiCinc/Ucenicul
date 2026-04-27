@@ -1,0 +1,20 @@
+{
+  "message_id": "be2b39cc-c4fb-4209-83ef-92bbaa3c1c81",
+  "tenant_id": "eee0e2e0-0000-0000-0000-00000000000a",
+  "channel": "rcp1-rich-matrix",
+  "direction": "inbound",
+  "author_type": "user",
+  "normalized_content": "Corectează: tenant-A folosește acum EUR, nu RON.",
+  "timestamp": "2026-04-25T19:17:11.984Z",
+  "source_message_ref": "rcp1:RC-C4-03",
+  "author_entity_id": null,
+  "related_entity_ids": [],
+  "metadata": {
+    "rcp1_case_id": "RC-C4-03",
+    "rcp1_corridor": "C4",
+    "rcp1_run_tag": "rcp1-2026-04-25"
+  },
+  "idempotency_key": "rcp1:rcp1-2026-04-25:RC-C4-03",
+  "thread_id": "8ac8ac7a-2dfa-4547-8484-eb87550c20f3",
+  "reply_to_thread_id": null
+}

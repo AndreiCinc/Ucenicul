@@ -1,0 +1,117 @@
+{
+  "current_stage": "WF-DI-01",
+  "current_stage_file": "08_STAGE_WF-DI-01.md",
+  "status": "closed",
+  "phase": "closed_live_v1_v6_passed_zero_db_drift",
+  "score": 10,
+  "score_previous": 8.5,
+  "score_cap_reason": "All live gates passed on v1.1 shell: V1 happy path emits WF-ME-01 handoff; V2 INVALID_HANDOFF_INPUT; V3 INVALID_PLAN; V4 replay deterministic; V5 CONTEXT_MISMATCH fail-closed; V6 zero DB drift (ec_hash identical pre and post).",
+  "fallback_mode_active": false,
+  "failed_path_label": null,
+  "current_path_label": "wf_di_01_closed",
+  "next_path_label": "activate_wf_me_01",
+  "retry_count": 1,
+  "banned_strategy_labels": [
+    "sdk_update_workflow_code",
+    "mcp__n8n__patch_workflow_nodes"
+  ],
+  "hard_blockers": [],
+  "soft_blockers": [],
+  "carry_forward_tool_limitations": [
+    "mcp__n8n__patch_workflow_nodes remains banned until new live evidence disproves the safety risk.",
+    "Shell-preserving JS-body changes still require user import / re-import.",
+    "Chat trigger payloads must be adapted before structured stage validation (pattern now canonical: prepend JSON.parse(chatInput) adapter at every stage-entry validator)."
+  ],
+  "latest_evidence_level": "live_v1_v6_passed_on_v1_1_shell_zero_db_drift",
+  "upstream_stage": {
+    "stage": "WF-PL-01",
+    "status": "closed",
+    "score": 10,
+    "closure_gate": "passed",
+    "carry_forward_evidence_available": true
+  },
+  "dispatcher_stage_scope_decision": {
+    "label": "plan_to_dispatch_adapter_only",
+    "includes": [
+      "validated plan input",
+      "dependency grouping",
+      "module request creation",
+      "dispatch envelope generation"
+    ],
+    "excludes": [
+      "module execution",
+      "result aggregation",
+      "response composition",
+      "direct domain writes"
+    ]
+  },
+  "advance_allowed": true,
+  "advance_gate": "PASSED_LIVE_PROOF",
+  "next_action": "Activate WF-ME-01 (Module Execution) stage: create/apply source pack, run script harness, guide user through n8n import, run V1\u2013V6 live, verify DB drift, then close or BLOCKED_WITH_EVIDENCE.",
+  "last_updated": "2026-04-17",
+  "script_level_tests": {
+    "suite": "workflows/tests/di/test_families.py",
+    "families": 13,
+    "required_family_minimum": 10,
+    "tests_total": 650,
+    "required_tests_minimum": 500,
+    "minimum_satisfied": true,
+    "tests_passed": 650,
+    "tests_failed": 0,
+    "results_json": "workflows/tests/di/results/results.json",
+    "results_md": "workflows/tests/di/results/results.md",
+    "family_breakdown": {
+      "input_validation": 50,
+      "happy_path": 50,
+      "invalid_plan": 50,
+      "step_contract_validation": 50,
+      "dependency_ordering": 50,
+      "parallel_dispatch_eligibility": 50,
+      "replay_idempotency": 50,
+      "cross_tenant_isolation": 50,
+      "wf_pl_to_wf_di_handoff": 50,
+      "reporting_and_tooling_contract": 50,
+      "module_registry_resolution": 50,
+      "error_payload_builder": 50,
+      "blueprint_structure": 50
+    }
+  },
+  "live_runtime_proof": {
+    "shell_version": "wf-di-01-source-pack-v1.1-chat-adapter-fix",
+    "workflow_id": "abqYINcXr3JAhGGk",
+    "results": {
+      "V1_happy_path": {"exec_id": "716", "status": "PASS", "terminal_node": "DI_Return_Result", "allowed_next_stage": "WF-ME-01", "dispatch_id": "dispatch:plan-di-v1-happy-001:v1"},
+      "V2_invalid_handoff_input": {"exec_id": "717", "status": "PASS", "terminal_node": "DI_Return_Error", "error_code": "INVALID_HANDOFF_INPUT"},
+      "V3_invalid_plan": {"exec_id": "718", "status": "PASS", "terminal_node": "DI_Return_Error", "error_code": "INVALID_PLAN"},
+      "V4_replay_idempotency": {"exec_id": "719", "status": "PASS", "dispatch_id_matches_v1": true, "deterministic": true},
+      "V5_cross_tenant_isolation": {"exec_id": "720", "status": "PASS", "terminal_node": "DI_Return_Error", "error_code": "CONTEXT_MISMATCH"},
+      "V6_db_drift": {"status": "PASS", "ec_count_pre": 2, "ec_count_post": 2, "ec_hash_pre": "985d6ef34955abe59117ce7d6ff76f12", "ec_hash_post": "985d6ef34955abe59117ce7d6ff76f12"}
+    }
+  },
+  "artifacts_on_disk": {
+    "blueprint_json": [
+      "workflows/WF-DI-01_Dispatcher.json",
+      "workflows/WF-DI-01_blueprint.json"
+    ],
+    "planning_docs": [
+      "workflows/WF-DI-01_NODE_MAP.md",
+      "workflows/WF-DI-01_CONNECTION_MAP.md",
+      "workflows/WF-DI-01_IMPORT_PATCH_PLAN.md"
+    ],
+    "sql": [
+      "workflows/sql/di/01_schema_inspect.sql",
+      "workflows/sql/di/02_load_execution_context.sql",
+      "workflows/sql/di/03_load_plan_by_execution_context.sql",
+      "workflows/sql/di/04_load_module_registry.sql",
+      "workflows/sql/di/10_fixtures_create.sql",
+      "workflows/sql/di/11_fixtures_cleanup.sql",
+      "workflows/sql/di/20_read_path_probe.sql"
+    ],
+    "scripts": [
+      "workflows/scripts/di/di_logic.py"
+    ],
+    "tests": [
+      "workflows/tests/di/test_families.py"
+    ]
+  }
+}

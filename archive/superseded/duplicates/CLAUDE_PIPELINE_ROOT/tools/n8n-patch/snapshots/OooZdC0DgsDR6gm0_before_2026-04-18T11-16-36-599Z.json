@@ -1,0 +1,1233 @@
+{
+  "updatedAt": "2026-04-18T11:16:35.064Z",
+  "createdAt": "2026-04-18T11:07:28.707Z",
+  "id": "OooZdC0DgsDR6gm0",
+  "name": "WF-MO-01 Message Out / Output Gateway",
+  "description": null,
+  "active": true,
+  "isArchived": false,
+  "nodes": [
+    {
+      "id": "1",
+      "name": "MO_Input",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1,
+      "position": [
+        -1600,
+        200
+      ],
+      "parameters": {}
+    },
+    {
+      "id": "2",
+      "name": "MO_Manual_Test_Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -1600,
+        420
+      ],
+      "parameters": {}
+    },
+    {
+      "id": "3",
+      "name": "MO_Validate_Composed_Response_Input",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -1320,
+        300
+      ],
+      "parameters": {
+        "language": "javaScript",
+        "mode": "runOnceForAllItems",
+        "pythonCode": "# TEST MODE — fixture injected for MO-01 V-sweep\nclass _FixtureItem:\n    def __init__(self, j): self.json = j\nitems = [_FixtureItem({})]\n# end test-mode prelude\nVALID_RESPONSE_STATUSES = {\"success\", \"partial\", \"failed\", \"no_action\"}\nVALID_CHANNELS = {\"telegram\", \"whatsapp\"}\nTERMINAL_STAGE = \"MESSAGE_OUT\"\n\ndef canonical_error(code, message, details=None):\n    return {\n        \"status_kind\": \"error\",\n        \"result_type\": \"message_out_error\",\n        \"error\": {\"code\": code, \"message\": message, \"details\": details or {}},\n    }\n\nout = []\nfor item in items:\n    payload = dict(item.json)\n    required = [\"status_kind\",\"result_type\",\"execution_context_id\",\"thread_id\",\"tenant_id\",\n                \"composed_response\",\"output_gateway_allowed\",\"allowed_next_stage\",\n                \"response_generation_allowed\",\"idempotency_key\"]\n    missing = [k for k in required if k not in payload]\n    if missing:\n        res = {\"_valid\": False}\n        res.update(canonical_error(\"INVALID_MESSAGE_OUT_INPUT\",\n                \"Missing required top-level fields.\", {\"missing_fields\": missing}))\n        res[\"payload\"] = payload\n        out.append({\"json\": res})\n        continue\n    flag_errors = {}\n    if payload.get(\"status_kind\") != \"success\": flag_errors[\"status_kind\"] = payload.get(\"status_kind\")\n    if payload.get(\"result_type\") != \"composed_response\": flag_errors[\"result_type\"] = payload.get(\"result_type\")\n    if payload.get(\"allowed_next_stage\") != TERMINAL_STAGE: flag_errors[\"allowed_next_stage\"] = payload.get(\"allowed_next_stage\")\n    if payload.get(\"output_gateway_allowed\") is not True: flag_errors[\"output_gateway_allowed\"] = payload.get(\"output_gateway_allowed\")\n    if payload.get(\"response_generation_allowed\") is not True: flag_errors[\"response_generation_allowed\"] = payload.get(\"response_generation_allowed\")\n    composed = payload.get(\"composed_response\") or {}\n    if not isinstance(composed, dict):\n        flag_errors[\"composed_response\"] = type(composed).__name__\n        composed = {}\n    rs = composed.get(\"response_status\")\n    rt = composed.get(\"response_text\")\n    if rs not in VALID_RESPONSE_STATUSES: flag_errors[\"response_status\"] = rs\n    if not isinstance(rt, str) or not rt.strip(): flag_errors[\"response_text\"] = rt\n    idem = payload.get(\"idempotency_key\")\n    if not isinstance(idem, str) or not idem.strip(): flag_errors[\"idempotency_key\"] = idem\n    ch = composed.get(\"channel\")\n    if ch is not None and ch not in VALID_CHANNELS: flag_errors[\"channel\"] = ch\n    if flag_errors:\n        res = {\"_valid\": False}\n        res.update(canonical_error(\"INVALID_MESSAGE_OUT_INPUT\",\n                \"Conflicting or invalid gateway eligibility fields.\", flag_errors))\n        res[\"payload\"] = payload\n        out.append({\"json\": res})\n    else:\n        res = {\"_valid\": True}\n        res.update(payload)\n        out.append({\"json\": res})\nreturn out",
+        "jsCode": "const VALID_STATUSES = new Set([\"success\",\"partial\",\"failed\",\"no_action\"]);\nconst VALID_CHANNELS = new Set([\"telegram\",\"whatsapp\"]);\nconst TERMINAL_STAGE = \"MESSAGE_OUT\";\n\nfunction canonicalError(code,message,details){\n  return { status_kind:\"error\", result_type:\"message_out_error\",\n           error:{ code, message, details: details || {} } };\n}\n\nconst input = $input.first().json;\nconst payload = input;\nconst required = [\"status_kind\",\"result_type\",\"execution_context_id\",\"thread_id\",\"tenant_id\",\n                  \"composed_response\",\"output_gateway_allowed\",\"allowed_next_stage\",\n                  \"response_generation_allowed\",\"idempotency_key\"];\nconst missing = required.filter(k => !(k in payload));\nif (missing.length){\n  return [{ json: Object.assign({ _valid:false, payload },\n    canonicalError(\"INVALID_MESSAGE_OUT_INPUT\",\"Missing required top-level fields.\",{missing_fields:missing})) }];\n}\n\nconst flags = {};\nif (payload.status_kind !== \"success\") flags.status_kind = payload.status_kind;\nif (payload.result_type !== \"composed_response\") flags.result_type = payload.result_type;\nif (payload.allowed_next_stage !== TERMINAL_STAGE) flags.allowed_next_stage = payload.allowed_next_stage;\nif (payload.output_gateway_allowed !== true) flags.output_gateway_allowed = payload.output_gateway_allowed;\nif (payload.response_generation_allowed !== true) flags.response_generation_allowed = payload.response_generation_allowed;\n\nconst composed = (payload.composed_response && typeof payload.composed_response === \"object\") ? payload.composed_response : {};\nif (!payload.composed_response || typeof payload.composed_response !== \"object\") flags.composed_response = typeof payload.composed_response;\n\nconst rs = composed.response_status;\nconst rt = composed.response_text;\nif (!VALID_STATUSES.has(rs)) flags.response_status = rs;\nif (typeof rt !== \"string\" || !rt.trim()) flags.response_text = rt;\n\nconst idem = payload.idempotency_key;\nif (typeof idem !== \"string\" || !idem.trim()) flags.idempotency_key = idem;\n\nconst ch = composed.channel;\nif (ch != null && !VALID_CHANNELS.has(ch)) flags.channel = ch;\n\nif (Object.keys(flags).length){\n  return [{ json: Object.assign({ _valid:false, payload },\n    canonicalError(\"INVALID_MESSAGE_OUT_INPUT\",\"Conflicting or invalid gateway eligibility fields.\",flags)) }];\n}\n\nreturn [{ json: Object.assign({ _valid: true }, payload) }];"
+      }
+    },
+    {
+      "id": "4",
+      "name": "MO_Route_Valid",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        -1050,
+        300
+      ],
+      "parameters": {
+        "mode": "rules",
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json._valid }}",
+                    "rightValue": true,
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "5",
+      "name": "MO_Load_Execution_Context",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [
+        -780,
+        180
+      ],
+      "alwaysOutputData": true,
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT id, tenant_id, thread_id, status, updated_at FROM public.execution_contexts WHERE id = $1::uuid AND tenant_id = $2::uuid;",
+        "options": {
+          "queryReplacement": "={{ [$json.execution_context_id, $json.tenant_id] }}"
+        }
+      },
+      "credentials": {
+        "postgres": {
+          "id": "qpZLzVs17Zy7HCFB",
+          "name": "Postgres account"
+        }
+      }
+    },
+    {
+      "id": "6",
+      "name": "MO_Load_Thread_Context",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [
+        -780,
+        300
+      ],
+      "alwaysOutputData": true,
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT id, tenant_id, status, last_activity_at FROM public.threads WHERE id = $1::uuid AND tenant_id = $2::uuid;",
+        "options": {
+          "queryReplacement": "={{ [$('MO_Validate_Composed_Response_Input').first().json.thread_id, $('MO_Validate_Composed_Response_Input').first().json.tenant_id] }}"
+        }
+      },
+      "credentials": {
+        "postgres": {
+          "id": "qpZLzVs17Zy7HCFB",
+          "name": "Postgres account"
+        }
+      }
+    },
+    {
+      "id": "7",
+      "name": "MO_Load_Channel_Delivery_Context",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [
+        -780,
+        420
+      ],
+      "alwaysOutputData": true,
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT id AS tenant_id, 'telegram'::text AS channel, (metadata->>'telegram_chat_id')::text AS delivery_target FROM public.tenants WHERE id = $1::uuid;",
+        "options": {
+          "queryReplacement": "={{ [$('MO_Validate_Composed_Response_Input').first().json.tenant_id] }}",
+          "queryBatching": "independently"
+        },
+        "alwaysOutputData": true
+      },
+      "credentials": {
+        "postgres": {
+          "id": "qpZLzVs17Zy7HCFB",
+          "name": "Postgres account"
+        }
+      }
+    },
+    {
+      "id": "8",
+      "name": "MO_Replay_Guard_Probe",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [
+        -780,
+        540
+      ],
+      "alwaysOutputData": true,
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT id, idempotency_key, channel, delivery_status, created_at FROM public.outbound_delivery_ledger_claude_mcp WHERE tenant_id = $1::uuid AND idempotency_key = $2 LIMIT 1;",
+        "options": {
+          "queryReplacement": "={{ [$('MO_Validate_Composed_Response_Input').first().json.tenant_id, $('MO_Validate_Composed_Response_Input').first().json.idempotency_key] }}",
+          "queryBatching": "independently"
+        },
+        "alwaysOutputData": true
+      },
+      "credentials": {
+        "postgres": {
+          "id": "qpZLzVs17Zy7HCFB",
+          "name": "Postgres account"
+        }
+      }
+    },
+    {
+      "id": "9",
+      "name": "MO_Verify_Lineage_And_Replay",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -500,
+        300
+      ],
+      "parameters": {
+        "language": "javaScript",
+        "mode": "runOnceForAllItems",
+        "pythonCode": "import hashlib\n\ndef canonical_error(code, message, details=None):\n    return {\n        \"status_kind\": \"error\",\n        \"result_type\": \"message_out_error\",\n        \"error\": {\"code\": code, \"message\": message, \"details\": details or {}},\n    }\n\nSUPPORTED_CHANNELS = {\"telegram\"}\n\n# payload == validator output (passed through)\npayload = dict(_(\"MO_Validate_Composed_Response_Input\").first().json)\n\n# exec_context_row from MO_Load_Execution_Context\nec_row = None\ntry:\n    ec_node = _(\"MO_Load_Execution_Context\").all()\n    if ec_node:\n        jr = ec_node[0].json\n        if jr and \"id\" in jr:\n            ec_row = dict(jr)\nexcept Exception:\n    ec_row = None\n\n# thread_row from MO_Load_Thread_Context\nthread_row = None\ntry:\n    th_node = _(\"MO_Load_Thread_Context\").all()\n    if th_node:\n        jr = th_node[0].json\n        if jr and \"id\" in jr:\n            thread_row = dict(jr)\nexcept Exception:\n    thread_row = None\n\n# channel_ctx_row from MO_Load_Channel_Delivery_Context\nctx_row = None\ntry:\n    ch_node = _(\"MO_Load_Channel_Delivery_Context\").all()\n    if ch_node:\n        jr = ch_node[0].json\n        if jr and (jr.get(\"delivery_target\") or jr.get(\"channel\")):\n            ctx_row = dict(jr)\nexcept Exception:\n    ctx_row = None\n\n# replay_seen from MO_Replay_Guard_Probe\nreplay_seen = False\ntry:\n    rp_node = _(\"MO_Replay_Guard_Probe\").all()\n    if rp_node:\n        jr = rp_node[0].json\n        if jr and jr.get(\"id\"):\n            replay_seen = True\nexcept Exception:\n    replay_seen = False\n\n# Compose verdict\nif replay_seen:\n    out = {\"_context_ready\": False}\n    out.update(canonical_error(\"REPLAY_BLOCKED\",\n        \"This outbound message has already been processed.\",\n        {\"idempotency_key\": payload.get(\"idempotency_key\")}))\n    return [{\"json\": out}]\n\nif not ec_row:\n    out = {\"_context_ready\": False}\n    out.update(canonical_error(\"LINEAGE_MISMATCH\",\n        \"execution_context row not found.\",\n        {\"execution_context_id\": payload.get(\"execution_context_id\"),\n         \"tenant_id\": payload.get(\"tenant_id\")}))\n    return [{\"json\": out}]\n\nif str(ec_row.get(\"tenant_id\")) != str(payload.get(\"tenant_id\")):\n    out = {\"_context_ready\": False}\n    out.update(canonical_error(\"LINEAGE_MISMATCH\",\n        \"execution_context tenant does not match payload tenant.\",\n        {\"execution_context_id\": payload.get(\"execution_context_id\"),\n         \"tenant_id\": payload.get(\"tenant_id\"),\n         \"row_tenant_id\": ec_row.get(\"tenant_id\")}))\n    return [{\"json\": out}]\n\nif str(ec_row.get(\"thread_id\")) != str(payload.get(\"thread_id\")):\n    out = {\"_context_ready\": False}\n    out.update(canonical_error(\"LINEAGE_MISMATCH\",\n        \"execution_context thread does not match payload thread.\",\n        {\"thread_id\": payload.get(\"thread_id\"),\n         \"row_thread_id\": ec_row.get(\"thread_id\")}))\n    return [{\"json\": out}]\n\nif not thread_row:\n    out = {\"_context_ready\": False}\n    out.update(canonical_error(\"LINEAGE_MISMATCH\",\n        \"thread row not found.\",\n        {\"thread_id\": payload.get(\"thread_id\"),\n         \"tenant_id\": payload.get(\"tenant_id\")}))\n    return [{\"json\": out}]\n\nif str(thread_row.get(\"tenant_id\")) != str(payload.get(\"tenant_id\")):\n    out = {\"_context_ready\": False}\n    out.update(canonical_error(\"LINEAGE_MISMATCH\",\n        \"thread tenant does not match payload tenant.\",\n        {\"thread_id\": payload.get(\"thread_id\"),\n         \"tenant_id\": payload.get(\"tenant_id\"),\n         \"row_tenant_id\": thread_row.get(\"tenant_id\")}))\n    return [{\"json\": out}]\n\ncomposed = payload[\"composed_response\"]\nexplicit_target = composed.get(\"delivery_target\")\nctx_target = (ctx_row or {}).get(\"delivery_target\")\nchannel = composed.get(\"channel\") or (ctx_row or {}).get(\"channel\") or \"telegram\"\n\nif channel not in SUPPORTED_CHANNELS:\n    out = {\"_context_ready\": False}\n    out.update(canonical_error(\"UNSUPPORTED_CHANNEL\",\n        \"Requested delivery channel is not supported by the live gateway.\",\n        {\"channel\": channel}))\n    return [{\"json\": out}]\n\nif not explicit_target and not ctx_target:\n    out = {\"_context_ready\": False}\n    out.update(canonical_error(\"MISSING_DELIVERY_TARGET\",\n        \"No delivery target could be resolved for outbound send.\",\n        {\"channel\": channel}))\n    return [{\"json\": out}]\n\nout = {\n    \"_context_ready\": True,\n    \"channel\": channel,\n    \"delivery_target\": explicit_target or ctx_target,\n    # keep forward payload + row references\n    \"execution_context_id\": payload[\"execution_context_id\"],\n    \"thread_id\": payload[\"thread_id\"],\n    \"tenant_id\": payload[\"tenant_id\"],\n    \"idempotency_key\": payload[\"idempotency_key\"],\n    \"composed_response\": payload[\"composed_response\"],\n}\nreturn [{\"json\": out}]",
+        "jsCode": "function canonicalError(code,message,details){\n  return { status_kind:\"error\", result_type:\"message_out_error\",\n           error:{ code, message, details: details || {} } };\n}\nconst SUPPORTED = new Set([\"telegram\"]);\n\nconst payload = $('MO_Validate_Composed_Response_Input').first().json;\n\n// Pull row results — each is the first output item of the named node\nfunction firstRowOrNull(name){\n  try {\n    const r = $(name).all();\n    if (!r || !r.length) return null;\n    const j = r[0].json;\n    if (!j || typeof j !== \"object\") return null;\n    return j;\n  } catch(e){ return null; }\n}\n\nconst ecRow = firstRowOrNull(\"MO_Load_Execution_Context\");\nconst thRow = firstRowOrNull(\"MO_Load_Thread_Context\");\nconst ctxRow = firstRowOrNull(\"MO_Load_Channel_Delivery_Context\");\nconst replayRow = firstRowOrNull(\"MO_Replay_Guard_Probe\");\n\n// Postgres node returns {} for zero rows with alwaysOutputData — detect by required keys\nconst ecOk = ecRow && ecRow.id;\nconst thOk = thRow && thRow.id;\nconst replaySeen = !!(replayRow && replayRow.id);\n\nif (replaySeen){\n  return [{ json: Object.assign({ _context_ready:false },\n    canonicalError(\"REPLAY_BLOCKED\",\"This outbound message has already been processed.\",\n      { idempotency_key: payload.idempotency_key })) }];\n}\nif (!ecOk){\n  return [{ json: Object.assign({ _context_ready:false },\n    canonicalError(\"LINEAGE_MISMATCH\",\"execution_context row not found.\",\n      { execution_context_id: payload.execution_context_id, tenant_id: payload.tenant_id })) }];\n}\nif (String(ecRow.tenant_id) !== String(payload.tenant_id)){\n  return [{ json: Object.assign({ _context_ready:false },\n    canonicalError(\"LINEAGE_MISMATCH\",\"execution_context tenant does not match payload tenant.\",\n      { execution_context_id: payload.execution_context_id, tenant_id: payload.tenant_id, row_tenant_id: ecRow.tenant_id })) }];\n}\nif (String(ecRow.thread_id) !== String(payload.thread_id)){\n  return [{ json: Object.assign({ _context_ready:false },\n    canonicalError(\"LINEAGE_MISMATCH\",\"execution_context thread does not match payload thread.\",\n      { thread_id: payload.thread_id, row_thread_id: ecRow.thread_id })) }];\n}\nif (!thOk){\n  return [{ json: Object.assign({ _context_ready:false },\n    canonicalError(\"LINEAGE_MISMATCH\",\"thread row not found.\",\n      { thread_id: payload.thread_id, tenant_id: payload.tenant_id })) }];\n}\nif (String(thRow.tenant_id) !== String(payload.tenant_id)){\n  return [{ json: Object.assign({ _context_ready:false },\n    canonicalError(\"LINEAGE_MISMATCH\",\"thread tenant does not match payload tenant.\",\n      { thread_id: payload.thread_id, tenant_id: payload.tenant_id, row_tenant_id: thRow.tenant_id })) }];\n}\n\nconst composed = payload.composed_response;\nconst explicitTarget = composed.delivery_target;\nconst ctxTarget = ctxRow ? ctxRow.delivery_target : null;\nconst channel = composed.channel || (ctxRow && ctxRow.channel) || \"telegram\";\n\nif (!SUPPORTED.has(channel)){\n  return [{ json: Object.assign({ _context_ready:false },\n    canonicalError(\"UNSUPPORTED_CHANNEL\",\"Requested delivery channel is not supported by the live gateway.\",\n      { channel })) }];\n}\nif (!explicitTarget && !ctxTarget){\n  return [{ json: Object.assign({ _context_ready:false },\n    canonicalError(\"MISSING_DELIVERY_TARGET\",\"No delivery target could be resolved for outbound send.\",\n      { channel })) }];\n}\n\nreturn [{ json: {\n  _context_ready: true,\n  channel,\n  delivery_target: explicitTarget || ctxTarget,\n  execution_context_id: payload.execution_context_id,\n  thread_id: payload.thread_id,\n  tenant_id: payload.tenant_id,\n  idempotency_key: payload.idempotency_key,\n  composed_response: payload.composed_response,\n}}];"
+      }
+    },
+    {
+      "id": "10",
+      "name": "MO_Route_Context_Ready",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        -230,
+        300
+      ],
+      "parameters": {
+        "mode": "rules",
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json._context_ready }}",
+                    "rightValue": true,
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "11",
+      "name": "MO_Build_Delivery_Request",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        40,
+        300
+      ],
+      "parameters": {
+        "language": "javaScript",
+        "mode": "runOnceForAllItems",
+        "pythonCode": "import hashlib\n\nitem = items[0]\nv = dict(item.json)  # coming from Verify_Lineage_And_Replay via Route_Context_Ready(ready)\ncomposed = v[\"composed_response\"]\nchannel = v[\"channel\"]\ntarget = v[\"delivery_target\"]\nresponse_text = composed[\"response_text\"]\n\nreq_hash = hashlib.sha256(\n    (\"{}|{}|{}|{}|{}\".format(\n        v[\"execution_context_id\"], v[\"thread_id\"], v[\"tenant_id\"],\n        v[\"idempotency_key\"], response_text)).encode(\"utf-8\")\n).hexdigest()[:12]\n\nresp_hash = hashlib.sha256(response_text.encode(\"utf-8\")).hexdigest()[:16]\n\nout = {\n    \"execution_context_id\": v[\"execution_context_id\"],\n    \"thread_id\": v[\"thread_id\"],\n    \"tenant_id\": v[\"tenant_id\"],\n    \"channel\": channel,\n    \"delivery_target\": target,\n    \"response_text\": response_text,\n    \"response_text_hash\": resp_hash,\n    \"response_status\": composed[\"response_status\"],\n    \"warnings\": composed.get(\"warnings\", []),\n    \"followup_requests\": composed.get(\"followup_requests\", []),\n    \"idempotency_key\": v[\"idempotency_key\"],\n    \"delivery_request_id\": \"deliver:{}:{}\".format(v[\"execution_context_id\"], req_hash),\n}\nreturn [{\"json\": out}]",
+        "jsCode": "const crypto = require('crypto');\nconst v = $input.first().json;\nconst composed = v.composed_response;\nconst channel = v.channel;\nconst target = v.delivery_target;\nconst responseText = composed.response_text;\n\nconst reqKey = [v.execution_context_id, v.thread_id, v.tenant_id, v.idempotency_key, responseText].join(\"|\");\nconst reqHash = crypto.createHash('sha256').update(reqKey).digest('hex').slice(0,12);\nconst respHash = crypto.createHash('sha256').update(responseText).digest('hex').slice(0,16);\n\nreturn [{ json: {\n  execution_context_id: v.execution_context_id,\n  thread_id: v.thread_id,\n  tenant_id: v.tenant_id,\n  channel,\n  delivery_target: target,\n  response_text: responseText,\n  response_text_hash: respHash,\n  response_status: composed.response_status,\n  warnings: composed.warnings || [],\n  followup_requests: composed.followup_requests || [],\n  idempotency_key: v.idempotency_key,\n  delivery_request_id: `deliver:${v.execution_context_id}:${reqHash}`,\n}}];"
+      }
+    },
+    {
+      "id": "12",
+      "name": "MO_Route_Channel",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        300,
+        300
+      ],
+      "parameters": {
+        "mode": "rules",
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.channel }}",
+                    "rightValue": "telegram",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "13",
+      "name": "MO_Send_Channel_PLACEHOLDER",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        560,
+        220
+      ],
+      "parameters": {
+        "text": "={{ $json.response_text }}",
+        "chatId": "={{ $json.delivery_target }}",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "credentials": {
+        "telegramApi": {
+          "id": "Z0ovMbkHwXEC8ZtF",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "id": "14",
+      "name": "MO_Log_Outbound_Message",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [
+        820,
+        220
+      ],
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "INSERT INTO public.outbound_delivery_ledger_claude_mcp (tenant_id, execution_context_id, thread_id, idempotency_key, channel,  delivery_target, response_text_hash, provider_message_ref, delivery_status) VALUES ($1::uuid, $2::uuid, $3::uuid, $4, $5, $6, $7, $8, $9) ON CONFLICT (tenant_id, idempotency_key) DO NOTHING RETURNING id, tenant_id, idempotency_key, channel, delivery_target, provider_message_ref, delivery_status, created_at;",
+        "options": {
+          "queryReplacement": "={{ [$('MO_Build_Delivery_Request').first().json.tenant_id, $('MO_Build_Delivery_Request').first().json.execution_context_id, $('MO_Build_Delivery_Request').first().json.thread_id, $('MO_Build_Delivery_Request').first().json.idempotency_key, $('MO_Build_Delivery_Request').first().json.channel, $('MO_Build_Delivery_Request').first().json.delivery_target, $('MO_Build_Delivery_Request').first().json.response_text_hash, ($('MO_Send_Channel_PLACEHOLDER').first().json.result ?  ('telegram:' + ($('MO_Send_Channel_PLACEHOLDER').first().json.result.chat.id + '')    + ':' + ($('MO_Send_Channel_PLACEHOLDER').first().json.result.message_id + ''))  : null), ($('MO_Send_Channel_PLACEHOLDER').first().json.ok === true ? 'delivered' : 'attempted')] }}"
+        },
+        "alwaysOutputData": true
+      },
+      "credentials": {
+        "postgres": {
+          "id": "qpZLzVs17Zy7HCFB",
+          "name": "Postgres account"
+        }
+      }
+    },
+    {
+      "id": "15",
+      "name": "MO_Build_Delivery_Result",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1080,
+        220
+      ],
+      "parameters": {
+        "language": "javaScript",
+        "mode": "runOnceForAllItems",
+        "pythonCode": "import hashlib\n\n# Entry from MO_Log_Outbound_Message.\n# Provider send output is upstream of log write; read it via named node.\nlog_item = items[0].json if items else {}\n\nprovider = {}\ntry:\n    ps = _(\"MO_Send_Channel_PLACEHOLDER\").first().json\n    # Telegram node returns a dict with result{} on success\n    ok = bool(ps) and (\"result\" in ps or \"message_id\" in ps or \"ok\" in ps)\n    if ok:\n        mref = None\n        r = ps.get(\"result\", ps)\n        if isinstance(r, dict):\n            mid = r.get(\"message_id\")\n            cid = (r.get(\"chat\") or {}).get(\"id\")\n            if mid is not None:\n                mref = \"telegram:{}:{}\".format(cid if cid is not None else \"\", mid)\n        provider = {\n            \"provider_delivery_attempted\": True,\n            \"provider_delivery_succeeded\": True,\n            \"provider_message_ref\": mref,\n            \"provider_error\": None,\n        }\n    else:\n        provider = {\n            \"provider_delivery_attempted\": True,\n            \"provider_delivery_succeeded\": False,\n            \"provider_message_ref\": None,\n            \"provider_error\": \"PROVIDER_SEND_FAILED\",\n        }\nexcept Exception as e:\n    provider = {\n        \"provider_delivery_attempted\": True,\n        \"provider_delivery_succeeded\": False,\n        \"provider_message_ref\": None,\n        \"provider_error\": \"PROVIDER_SEND_FAILED:{}\".format(e),\n    }\n\n# Log write result — Postgres returning a row ⇒ success; empty ⇒ blocked by unique idem\nlog_written = bool(log_item) and bool(log_item.get(\"id\"))\nlog_result = {\n    \"outbound_log_written\": log_written,\n    \"log_error\": None if log_written else \"OUTBOUND_LOG_DUPLICATE_OR_FAILED\",\n}\n\ndr = _(\"MO_Build_Delivery_Request\").first().json\n\napplied, blocked, warnings = [], [], []\nif provider.get(\"provider_delivery_succeeded\"):\n    applied.append(\"provider_delivery\")\nelse:\n    blocked.append(\"provider_delivery\")\n    if provider.get(\"provider_error\"):\n        warnings.append(provider[\"provider_error\"])\n\nif log_result[\"outbound_log_written\"]:\n    applied.append(\"outbound_message_log\")\nelse:\n    blocked.append(\"outbound_message_log\")\n    if log_result.get(\"log_error\"):\n        warnings.append(log_result[\"log_error\"])\n\ncomplete = bool(provider.get(\"provider_delivery_succeeded\") and log_result[\"outbound_log_written\"])\nstatus = \"success\" if complete else \"partial\"\n\nout = {\n    \"status_kind\": \"success\",\n    \"result_type\": \"message_out_result\",\n    \"execution_context_id\": dr[\"execution_context_id\"],\n    \"thread_id\": dr[\"thread_id\"],\n    \"tenant_id\": dr[\"tenant_id\"],\n    \"message_out_result\": {\n        \"status\": status,\n        \"channel\": dr[\"channel\"],\n        \"delivery_target\": dr[\"delivery_target\"],\n        \"provider_message_ref\": provider.get(\"provider_message_ref\"),\n        \"applied_write_classes\": applied,\n        \"blocked_write_classes\": blocked,\n        \"warning_count\": len(warnings),\n        \"warnings\": warnings,\n        \"followup_count\": len(dr.get(\"followup_requests\", [])),\n        \"followup_requests\": dr.get(\"followup_requests\", []),\n        \"response_status\": dr[\"response_status\"],\n        \"response_text_hash\": dr[\"response_text_hash\"],\n    },\n    \"terminal_stage\": True,\n    \"message_out_completed\": complete,\n    \"provider_delivery_attempted\": provider.get(\"provider_delivery_attempted\", False),\n    \"idempotency_key\": dr[\"idempotency_key\"],\n}\nreturn [{\"json\": out}]",
+        "jsCode": "const logItem = $input.first().json || {};\n\nlet provider = { provider_delivery_attempted: true, provider_delivery_succeeded: false,\n                 provider_message_ref: null, provider_error: \"PROVIDER_SEND_FAILED\" };\ntry {\n  const ps = $('MO_Send_Channel_PLACEHOLDER').first().json;\n  if (ps && (ps.ok === true || (ps.result && ps.result.message_id))){\n    const r = ps.result || ps;\n    const mid = r.message_id;\n    const cid = r.chat && r.chat.id;\n    provider = {\n      provider_delivery_attempted: true,\n      provider_delivery_succeeded: true,\n      provider_message_ref: (mid != null) ? `telegram:${cid != null ? cid : ''}:${mid}` : null,\n      provider_error: null,\n    };\n  }\n} catch(e){\n  provider = { provider_delivery_attempted: true, provider_delivery_succeeded: false,\n               provider_message_ref: null, provider_error: `PROVIDER_SEND_FAILED:${e.message||e}` };\n}\n\nconst logWritten = !!(logItem && logItem.id);\nconst logResult = {\n  outbound_log_written: logWritten,\n  log_error: logWritten ? null : \"OUTBOUND_LOG_DUPLICATE_OR_FAILED\",\n};\n\nconst dr = $('MO_Build_Delivery_Request').first().json;\nconst applied = [], blocked = [], warnings = [];\nif (provider.provider_delivery_succeeded) applied.push(\"provider_delivery\");\nelse { blocked.push(\"provider_delivery\"); if (provider.provider_error) warnings.push(provider.provider_error); }\nif (logResult.outbound_log_written) applied.push(\"outbound_message_log\");\nelse { blocked.push(\"outbound_message_log\"); if (logResult.log_error) warnings.push(logResult.log_error); }\n\nconst complete = !!(provider.provider_delivery_succeeded && logResult.outbound_log_written);\nconst status = complete ? \"success\" : \"partial\";\n\nreturn [{ json: {\n  status_kind: \"success\",\n  result_type: \"message_out_result\",\n  execution_context_id: dr.execution_context_id,\n  thread_id: dr.thread_id,\n  tenant_id: dr.tenant_id,\n  message_out_result: {\n    status,\n    channel: dr.channel,\n    delivery_target: dr.delivery_target,\n    provider_message_ref: provider.provider_message_ref,\n    applied_write_classes: applied,\n    blocked_write_classes: blocked,\n    warning_count: warnings.length,\n    warnings,\n    followup_count: (dr.followup_requests || []).length,\n    followup_requests: dr.followup_requests || [],\n    response_status: dr.response_status,\n    response_text_hash: dr.response_text_hash,\n  },\n  terminal_stage: true,\n  message_out_completed: complete,\n  provider_delivery_attempted: provider.provider_delivery_attempted,\n  idempotency_key: dr.idempotency_key,\n}}];"
+      }
+    },
+    {
+      "id": "16",
+      "name": "MO_Return_Result",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1340,
+        220
+      ],
+      "parameters": {
+        "language": "javaScript",
+        "mode": "runOnceForAllItems",
+        "pythonCode": "return [{\"json\": dict(item.json)} for item in items]",
+        "jsCode": "return items.map(i => ({ json: i.json }));"
+      }
+    },
+    {
+      "id": "17",
+      "name": "MO_Return_Error",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -780,
+        620
+      ],
+      "parameters": {
+        "language": "python",
+        "mode": "runOnceForAllItems",
+        "pythonCode": "return [{\"json\": dict(item.json)} for item in items]"
+      }
+    },
+    {
+      "id": "18",
+      "name": "MO_Return_Context_Error",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        40,
+        540
+      ],
+      "parameters": {
+        "language": "python",
+        "mode": "runOnceForAllItems",
+        "pythonCode": "return [{\"json\": dict(item.json)} for item in items]"
+      }
+    }
+  ],
+  "connections": {
+    "MO_Input": {
+      "main": [
+        [
+          {
+            "node": "MO_Validate_Composed_Response_Input",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "MO_Manual_Test_Trigger": {
+      "main": [
+        [
+          {
+            "node": "MO_Validate_Composed_Response_Input",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "MO_Validate_Composed_Response_Input": {
+      "main": [
+        [
+          {
+            "node": "MO_Route_Valid",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "MO_Route_Valid": {
+      "main": [
+        [
+          {
+            "node": "MO_Load_Execution_Context",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "MO_Return_Error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "MO_Load_Execution_Context": {
+      "main": [
+        [
+          {
+            "node": "MO_Load_Thread_Context",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "MO_Load_Thread_Context": {
+      "main": [
+        [
+          {
+            "node": "MO_Load_Channel_Delivery_Context",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "MO_Load_Channel_Delivery_Context": {
+      "main": [
+        [
+          {
+            "node": "MO_Replay_Guard_Probe",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "MO_Replay_Guard_Probe": {
+      "main": [
+        [
+          {
+            "node": "MO_Verify_Lineage_And_Replay",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "MO_Verify_Lineage_And_Replay": {
+      "main": [
+        [
+          {
+            "node": "MO_Route_Context_Ready",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "MO_Route_Context_Ready": {
+      "main": [
+        [
+          {
+            "node": "MO_Build_Delivery_Request",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "MO_Return_Context_Error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "MO_Build_Delivery_Request": {
+      "main": [
+        [
+          {
+            "node": "MO_Route_Channel",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "MO_Route_Channel": {
+      "main": [
+        [
+          {
+            "node": "MO_Send_Channel_PLACEHOLDER",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "MO_Return_Error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "MO_Send_Channel_PLACEHOLDER": {
+      "main": [
+        [
+          {
+            "node": "MO_Log_Outbound_Message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "MO_Log_Outbound_Message": {
+      "main": [
+        [
+          {
+            "node": "MO_Build_Delivery_Result",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "MO_Build_Delivery_Result": {
+      "main": [
+        [
+          {
+            "node": "MO_Return_Result",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "availableInMCP": true,
+    "callerPolicy": "workflowsFromSameOwner"
+  },
+  "staticData": null,
+  "meta": null,
+  "pinData": null,
+  "versionId": "11c1ef5f-5678-4070-abf5-9f47db72c58c",
+  "activeVersionId": "11c1ef5f-5678-4070-abf5-9f47db72c58c",
+  "versionCounter": 57,
+  "triggerCount": 0,
+  "shared": [
+    {
+      "updatedAt": "2026-04-18T11:07:28.707Z",
+      "createdAt": "2026-04-18T11:07:28.707Z",
+      "role": "workflow:owner",
+      "workflowId": "OooZdC0DgsDR6gm0",
+      "projectId": "WIRLhU6IcCuQzkzY",
+      "project": {
+        "updatedAt": "2026-03-27T16:42:52.879Z",
+        "createdAt": "2026-03-26T19:16:39.847Z",
+        "id": "WIRLhU6IcCuQzkzY",
+        "name": "Andrei Cinc <andrei.cinc9@gmail.com>",
+        "type": "personal",
+        "icon": null,
+        "description": null,
+        "creatorId": "68a414fd-cc03-4f02-87bc-9067f976e98a"
+      }
+    }
+  ],
+  "tags": [],
+  "activeVersion": {
+    "updatedAt": "2026-04-18T11:16:35.076Z",
+    "createdAt": "2026-04-18T11:16:35.076Z",
+    "versionId": "11c1ef5f-5678-4070-abf5-9f47db72c58c",
+    "workflowId": "OooZdC0DgsDR6gm0",
+    "nodes": [
+      {
+        "id": "1",
+        "name": "MO_Input",
+        "type": "n8n-nodes-base.executeWorkflowTrigger",
+        "typeVersion": 1,
+        "position": [
+          -1600,
+          200
+        ],
+        "parameters": {}
+      },
+      {
+        "id": "2",
+        "name": "MO_Manual_Test_Trigger",
+        "type": "n8n-nodes-base.manualTrigger",
+        "typeVersion": 1,
+        "position": [
+          -1600,
+          420
+        ],
+        "parameters": {}
+      },
+      {
+        "id": "3",
+        "name": "MO_Validate_Composed_Response_Input",
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2,
+        "position": [
+          -1320,
+          300
+        ],
+        "parameters": {
+          "language": "javaScript",
+          "mode": "runOnceForAllItems",
+          "pythonCode": "# TEST MODE — fixture injected for MO-01 V-sweep\nclass _FixtureItem:\n    def __init__(self, j): self.json = j\nitems = [_FixtureItem({})]\n# end test-mode prelude\nVALID_RESPONSE_STATUSES = {\"success\", \"partial\", \"failed\", \"no_action\"}\nVALID_CHANNELS = {\"telegram\", \"whatsapp\"}\nTERMINAL_STAGE = \"MESSAGE_OUT\"\n\ndef canonical_error(code, message, details=None):\n    return {\n        \"status_kind\": \"error\",\n        \"result_type\": \"message_out_error\",\n        \"error\": {\"code\": code, \"message\": message, \"details\": details or {}},\n    }\n\nout = []\nfor item in items:\n    payload = dict(item.json)\n    required = [\"status_kind\",\"result_type\",\"execution_context_id\",\"thread_id\",\"tenant_id\",\n                \"composed_response\",\"output_gateway_allowed\",\"allowed_next_stage\",\n                \"response_generation_allowed\",\"idempotency_key\"]\n    missing = [k for k in required if k not in payload]\n    if missing:\n        res = {\"_valid\": False}\n        res.update(canonical_error(\"INVALID_MESSAGE_OUT_INPUT\",\n                \"Missing required top-level fields.\", {\"missing_fields\": missing}))\n        res[\"payload\"] = payload\n        out.append({\"json\": res})\n        continue\n    flag_errors = {}\n    if payload.get(\"status_kind\") != \"success\": flag_errors[\"status_kind\"] = payload.get(\"status_kind\")\n    if payload.get(\"result_type\") != \"composed_response\": flag_errors[\"result_type\"] = payload.get(\"result_type\")\n    if payload.get(\"allowed_next_stage\") != TERMINAL_STAGE: flag_errors[\"allowed_next_stage\"] = payload.get(\"allowed_next_stage\")\n    if payload.get(\"output_gateway_allowed\") is not True: flag_errors[\"output_gateway_allowed\"] = payload.get(\"output_gateway_allowed\")\n    if payload.get(\"response_generation_allowed\") is not True: flag_errors[\"response_generation_allowed\"] = payload.get(\"response_generation_allowed\")\n    composed = payload.get(\"composed_response\") or {}\n    if not isinstance(composed, dict):\n        flag_errors[\"composed_response\"] = type(composed).__name__\n        composed = {}\n    rs = composed.get(\"response_status\")\n    rt = composed.get(\"response_text\")\n    if rs not in VALID_RESPONSE_STATUSES: flag_errors[\"response_status\"] = rs\n    if not isinstance(rt, str) or not rt.strip(): flag_errors[\"response_text\"] = rt\n    idem = payload.get(\"idempotency_key\")\n    if not isinstance(idem, str) or not idem.strip(): flag_errors[\"idempotency_key\"] = idem\n    ch = composed.get(\"channel\")\n    if ch is not None and ch not in VALID_CHANNELS: flag_errors[\"channel\"] = ch\n    if flag_errors:\n        res = {\"_valid\": False}\n        res.update(canonical_error(\"INVALID_MESSAGE_OUT_INPUT\",\n                \"Conflicting or invalid gateway eligibility fields.\", flag_errors))\n        res[\"payload\"] = payload\n        out.append({\"json\": res})\n    else:\n        res = {\"_valid\": True}\n        res.update(payload)\n        out.append({\"json\": res})\nreturn out",
+          "jsCode": "const VALID_STATUSES = new Set([\"success\",\"partial\",\"failed\",\"no_action\"]);\nconst VALID_CHANNELS = new Set([\"telegram\",\"whatsapp\"]);\nconst TERMINAL_STAGE = \"MESSAGE_OUT\";\n\nfunction canonicalError(code,message,details){\n  return { status_kind:\"error\", result_type:\"message_out_error\",\n           error:{ code, message, details: details || {} } };\n}\n\nconst input = $input.first().json;\nconst payload = input;\nconst required = [\"status_kind\",\"result_type\",\"execution_context_id\",\"thread_id\",\"tenant_id\",\n                  \"composed_response\",\"output_gateway_allowed\",\"allowed_next_stage\",\n                  \"response_generation_allowed\",\"idempotency_key\"];\nconst missing = required.filter(k => !(k in payload));\nif (missing.length){\n  return [{ json: Object.assign({ _valid:false, payload },\n    canonicalError(\"INVALID_MESSAGE_OUT_INPUT\",\"Missing required top-level fields.\",{missing_fields:missing})) }];\n}\n\nconst flags = {};\nif (payload.status_kind !== \"success\") flags.status_kind = payload.status_kind;\nif (payload.result_type !== \"composed_response\") flags.result_type = payload.result_type;\nif (payload.allowed_next_stage !== TERMINAL_STAGE) flags.allowed_next_stage = payload.allowed_next_stage;\nif (payload.output_gateway_allowed !== true) flags.output_gateway_allowed = payload.output_gateway_allowed;\nif (payload.response_generation_allowed !== true) flags.response_generation_allowed = payload.response_generation_allowed;\n\nconst composed = (payload.composed_response && typeof payload.composed_response === \"object\") ? payload.composed_response : {};\nif (!payload.composed_response || typeof payload.composed_response !== \"object\") flags.composed_response = typeof payload.composed_response;\n\nconst rs = composed.response_status;\nconst rt = composed.response_text;\nif (!VALID_STATUSES.has(rs)) flags.response_status = rs;\nif (typeof rt !== \"string\" || !rt.trim()) flags.response_text = rt;\n\nconst idem = payload.idempotency_key;\nif (typeof idem !== \"string\" || !idem.trim()) flags.idempotency_key = idem;\n\nconst ch = composed.channel;\nif (ch != null && !VALID_CHANNELS.has(ch)) flags.channel = ch;\n\nif (Object.keys(flags).length){\n  return [{ json: Object.assign({ _valid:false, payload },\n    canonicalError(\"INVALID_MESSAGE_OUT_INPUT\",\"Conflicting or invalid gateway eligibility fields.\",flags)) }];\n}\n\nreturn [{ json: Object.assign({ _valid: true }, payload) }];"
+        }
+      },
+      {
+        "id": "4",
+        "name": "MO_Route_Valid",
+        "type": "n8n-nodes-base.switch",
+        "typeVersion": 3.2,
+        "position": [
+          -1050,
+          300
+        ],
+        "parameters": {
+          "mode": "rules",
+          "rules": {
+            "values": [
+              {
+                "conditions": {
+                  "options": {
+                    "caseSensitive": true,
+                    "typeValidation": "strict",
+                    "version": 2
+                  },
+                  "conditions": [
+                    {
+                      "leftValue": "={{ $json._valid }}",
+                      "rightValue": true,
+                      "operator": {
+                        "type": "boolean",
+                        "operation": "true",
+                        "singleValue": true
+                      }
+                    }
+                  ],
+                  "combinator": "and"
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "5",
+        "name": "MO_Load_Execution_Context",
+        "type": "n8n-nodes-base.postgres",
+        "typeVersion": 2.5,
+        "position": [
+          -780,
+          180
+        ],
+        "alwaysOutputData": true,
+        "parameters": {
+          "operation": "executeQuery",
+          "query": "SELECT id, tenant_id, thread_id, status, updated_at FROM public.execution_contexts WHERE id = $1::uuid AND tenant_id = $2::uuid;",
+          "options": {
+            "queryReplacement": "={{ [$json.execution_context_id, $json.tenant_id] }}"
+          }
+        },
+        "credentials": {
+          "postgres": {
+            "id": "qpZLzVs17Zy7HCFB",
+            "name": "Postgres account"
+          }
+        }
+      },
+      {
+        "id": "6",
+        "name": "MO_Load_Thread_Context",
+        "type": "n8n-nodes-base.postgres",
+        "typeVersion": 2.5,
+        "position": [
+          -780,
+          300
+        ],
+        "alwaysOutputData": true,
+        "parameters": {
+          "operation": "executeQuery",
+          "query": "SELECT id, tenant_id, status, last_activity_at FROM public.threads WHERE id = $1::uuid AND tenant_id = $2::uuid;",
+          "options": {
+            "queryReplacement": "={{ [$('MO_Validate_Composed_Response_Input').first().json.thread_id, $('MO_Validate_Composed_Response_Input').first().json.tenant_id] }}"
+          }
+        },
+        "credentials": {
+          "postgres": {
+            "id": "qpZLzVs17Zy7HCFB",
+            "name": "Postgres account"
+          }
+        }
+      },
+      {
+        "id": "7",
+        "name": "MO_Load_Channel_Delivery_Context",
+        "type": "n8n-nodes-base.postgres",
+        "typeVersion": 2.5,
+        "position": [
+          -780,
+          420
+        ],
+        "alwaysOutputData": true,
+        "parameters": {
+          "operation": "executeQuery",
+          "query": "SELECT id AS tenant_id, 'telegram'::text AS channel, (metadata->>'telegram_chat_id')::text AS delivery_target FROM public.tenants WHERE id = $1::uuid;",
+          "options": {
+            "queryReplacement": "={{ [$('MO_Validate_Composed_Response_Input').first().json.tenant_id] }}",
+            "queryBatching": "independently"
+          },
+          "alwaysOutputData": true
+        },
+        "credentials": {
+          "postgres": {
+            "id": "qpZLzVs17Zy7HCFB",
+            "name": "Postgres account"
+          }
+        }
+      },
+      {
+        "id": "8",
+        "name": "MO_Replay_Guard_Probe",
+        "type": "n8n-nodes-base.postgres",
+        "typeVersion": 2.5,
+        "position": [
+          -780,
+          540
+        ],
+        "alwaysOutputData": true,
+        "parameters": {
+          "operation": "executeQuery",
+          "query": "SELECT id, idempotency_key, channel, delivery_status, created_at FROM public.outbound_delivery_ledger_claude_mcp WHERE tenant_id = $1::uuid AND idempotency_key = $2 LIMIT 1;",
+          "options": {
+            "queryReplacement": "={{ [$('MO_Validate_Composed_Response_Input').first().json.tenant_id, $('MO_Validate_Composed_Response_Input').first().json.idempotency_key] }}",
+            "queryBatching": "independently"
+          },
+          "alwaysOutputData": true
+        },
+        "credentials": {
+          "postgres": {
+            "id": "qpZLzVs17Zy7HCFB",
+            "name": "Postgres account"
+          }
+        }
+      },
+      {
+        "id": "9",
+        "name": "MO_Verify_Lineage_And_Replay",
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2,
+        "position": [
+          -500,
+          300
+        ],
+        "parameters": {
+          "language": "javaScript",
+          "mode": "runOnceForAllItems",
+          "pythonCode": "import hashlib\n\ndef canonical_error(code, message, details=None):\n    return {\n        \"status_kind\": \"error\",\n        \"result_type\": \"message_out_error\",\n        \"error\": {\"code\": code, \"message\": message, \"details\": details or {}},\n    }\n\nSUPPORTED_CHANNELS = {\"telegram\"}\n\n# payload == validator output (passed through)\npayload = dict(_(\"MO_Validate_Composed_Response_Input\").first().json)\n\n# exec_context_row from MO_Load_Execution_Context\nec_row = None\ntry:\n    ec_node = _(\"MO_Load_Execution_Context\").all()\n    if ec_node:\n        jr = ec_node[0].json\n        if jr and \"id\" in jr:\n            ec_row = dict(jr)\nexcept Exception:\n    ec_row = None\n\n# thread_row from MO_Load_Thread_Context\nthread_row = None\ntry:\n    th_node = _(\"MO_Load_Thread_Context\").all()\n    if th_node:\n        jr = th_node[0].json\n        if jr and \"id\" in jr:\n            thread_row = dict(jr)\nexcept Exception:\n    thread_row = None\n\n# channel_ctx_row from MO_Load_Channel_Delivery_Context\nctx_row = None\ntry:\n    ch_node = _(\"MO_Load_Channel_Delivery_Context\").all()\n    if ch_node:\n        jr = ch_node[0].json\n        if jr and (jr.get(\"delivery_target\") or jr.get(\"channel\")):\n            ctx_row = dict(jr)\nexcept Exception:\n    ctx_row = None\n\n# replay_seen from MO_Replay_Guard_Probe\nreplay_seen = False\ntry:\n    rp_node = _(\"MO_Replay_Guard_Probe\").all()\n    if rp_node:\n        jr = rp_node[0].json\n        if jr and jr.get(\"id\"):\n            replay_seen = True\nexcept Exception:\n    replay_seen = False\n\n# Compose verdict\nif replay_seen:\n    out = {\"_context_ready\": False}\n    out.update(canonical_error(\"REPLAY_BLOCKED\",\n        \"This outbound message has already been processed.\",\n        {\"idempotency_key\": payload.get(\"idempotency_key\")}))\n    return [{\"json\": out}]\n\nif not ec_row:\n    out = {\"_context_ready\": False}\n    out.update(canonical_error(\"LINEAGE_MISMATCH\",\n        \"execution_context row not found.\",\n        {\"execution_context_id\": payload.get(\"execution_context_id\"),\n         \"tenant_id\": payload.get(\"tenant_id\")}))\n    return [{\"json\": out}]\n\nif str(ec_row.get(\"tenant_id\")) != str(payload.get(\"tenant_id\")):\n    out = {\"_context_ready\": False}\n    out.update(canonical_error(\"LINEAGE_MISMATCH\",\n        \"execution_context tenant does not match payload tenant.\",\n        {\"execution_context_id\": payload.get(\"execution_context_id\"),\n         \"tenant_id\": payload.get(\"tenant_id\"),\n         \"row_tenant_id\": ec_row.get(\"tenant_id\")}))\n    return [{\"json\": out}]\n\nif str(ec_row.get(\"thread_id\")) != str(payload.get(\"thread_id\")):\n    out = {\"_context_ready\": False}\n    out.update(canonical_error(\"LINEAGE_MISMATCH\",\n        \"execution_context thread does not match payload thread.\",\n        {\"thread_id\": payload.get(\"thread_id\"),\n         \"row_thread_id\": ec_row.get(\"thread_id\")}))\n    return [{\"json\": out}]\n\nif not thread_row:\n    out = {\"_context_ready\": False}\n    out.update(canonical_error(\"LINEAGE_MISMATCH\",\n        \"thread row not found.\",\n        {\"thread_id\": payload.get(\"thread_id\"),\n         \"tenant_id\": payload.get(\"tenant_id\")}))\n    return [{\"json\": out}]\n\nif str(thread_row.get(\"tenant_id\")) != str(payload.get(\"tenant_id\")):\n    out = {\"_context_ready\": False}\n    out.update(canonical_error(\"LINEAGE_MISMATCH\",\n        \"thread tenant does not match payload tenant.\",\n        {\"thread_id\": payload.get(\"thread_id\"),\n         \"tenant_id\": payload.get(\"tenant_id\"),\n         \"row_tenant_id\": thread_row.get(\"tenant_id\")}))\n    return [{\"json\": out}]\n\ncomposed = payload[\"composed_response\"]\nexplicit_target = composed.get(\"delivery_target\")\nctx_target = (ctx_row or {}).get(\"delivery_target\")\nchannel = composed.get(\"channel\") or (ctx_row or {}).get(\"channel\") or \"telegram\"\n\nif channel not in SUPPORTED_CHANNELS:\n    out = {\"_context_ready\": False}\n    out.update(canonical_error(\"UNSUPPORTED_CHANNEL\",\n        \"Requested delivery channel is not supported by the live gateway.\",\n        {\"channel\": channel}))\n    return [{\"json\": out}]\n\nif not explicit_target and not ctx_target:\n    out = {\"_context_ready\": False}\n    out.update(canonical_error(\"MISSING_DELIVERY_TARGET\",\n        \"No delivery target could be resolved for outbound send.\",\n        {\"channel\": channel}))\n    return [{\"json\": out}]\n\nout = {\n    \"_context_ready\": True,\n    \"channel\": channel,\n    \"delivery_target\": explicit_target or ctx_target,\n    # keep forward payload + row references\n    \"execution_context_id\": payload[\"execution_context_id\"],\n    \"thread_id\": payload[\"thread_id\"],\n    \"tenant_id\": payload[\"tenant_id\"],\n    \"idempotency_key\": payload[\"idempotency_key\"],\n    \"composed_response\": payload[\"composed_response\"],\n}\nreturn [{\"json\": out}]",
+          "jsCode": "function canonicalError(code,message,details){\n  return { status_kind:\"error\", result_type:\"message_out_error\",\n           error:{ code, message, details: details || {} } };\n}\nconst SUPPORTED = new Set([\"telegram\"]);\n\nconst payload = $('MO_Validate_Composed_Response_Input').first().json;\n\n// Pull row results — each is the first output item of the named node\nfunction firstRowOrNull(name){\n  try {\n    const r = $(name).all();\n    if (!r || !r.length) return null;\n    const j = r[0].json;\n    if (!j || typeof j !== \"object\") return null;\n    return j;\n  } catch(e){ return null; }\n}\n\nconst ecRow = firstRowOrNull(\"MO_Load_Execution_Context\");\nconst thRow = firstRowOrNull(\"MO_Load_Thread_Context\");\nconst ctxRow = firstRowOrNull(\"MO_Load_Channel_Delivery_Context\");\nconst replayRow = firstRowOrNull(\"MO_Replay_Guard_Probe\");\n\n// Postgres node returns {} for zero rows with alwaysOutputData — detect by required keys\nconst ecOk = ecRow && ecRow.id;\nconst thOk = thRow && thRow.id;\nconst replaySeen = !!(replayRow && replayRow.id);\n\nif (replaySeen){\n  return [{ json: Object.assign({ _context_ready:false },\n    canonicalError(\"REPLAY_BLOCKED\",\"This outbound message has already been processed.\",\n      { idempotency_key: payload.idempotency_key })) }];\n}\nif (!ecOk){\n  return [{ json: Object.assign({ _context_ready:false },\n    canonicalError(\"LINEAGE_MISMATCH\",\"execution_context row not found.\",\n      { execution_context_id: payload.execution_context_id, tenant_id: payload.tenant_id })) }];\n}\nif (String(ecRow.tenant_id) !== String(payload.tenant_id)){\n  return [{ json: Object.assign({ _context_ready:false },\n    canonicalError(\"LINEAGE_MISMATCH\",\"execution_context tenant does not match payload tenant.\",\n      { execution_context_id: payload.execution_context_id, tenant_id: payload.tenant_id, row_tenant_id: ecRow.tenant_id })) }];\n}\nif (String(ecRow.thread_id) !== String(payload.thread_id)){\n  return [{ json: Object.assign({ _context_ready:false },\n    canonicalError(\"LINEAGE_MISMATCH\",\"execution_context thread does not match payload thread.\",\n      { thread_id: payload.thread_id, row_thread_id: ecRow.thread_id })) }];\n}\nif (!thOk){\n  return [{ json: Object.assign({ _context_ready:false },\n    canonicalError(\"LINEAGE_MISMATCH\",\"thread row not found.\",\n      { thread_id: payload.thread_id, tenant_id: payload.tenant_id })) }];\n}\nif (String(thRow.tenant_id) !== String(payload.tenant_id)){\n  return [{ json: Object.assign({ _context_ready:false },\n    canonicalError(\"LINEAGE_MISMATCH\",\"thread tenant does not match payload tenant.\",\n      { thread_id: payload.thread_id, tenant_id: payload.tenant_id, row_tenant_id: thRow.tenant_id })) }];\n}\n\nconst composed = payload.composed_response;\nconst explicitTarget = composed.delivery_target;\nconst ctxTarget = ctxRow ? ctxRow.delivery_target : null;\nconst channel = composed.channel || (ctxRow && ctxRow.channel) || \"telegram\";\n\nif (!SUPPORTED.has(channel)){\n  return [{ json: Object.assign({ _context_ready:false },\n    canonicalError(\"UNSUPPORTED_CHANNEL\",\"Requested delivery channel is not supported by the live gateway.\",\n      { channel })) }];\n}\nif (!explicitTarget && !ctxTarget){\n  return [{ json: Object.assign({ _context_ready:false },\n    canonicalError(\"MISSING_DELIVERY_TARGET\",\"No delivery target could be resolved for outbound send.\",\n      { channel })) }];\n}\n\nreturn [{ json: {\n  _context_ready: true,\n  channel,\n  delivery_target: explicitTarget || ctxTarget,\n  execution_context_id: payload.execution_context_id,\n  thread_id: payload.thread_id,\n  tenant_id: payload.tenant_id,\n  idempotency_key: payload.idempotency_key,\n  composed_response: payload.composed_response,\n}}];"
+        }
+      },
+      {
+        "id": "10",
+        "name": "MO_Route_Context_Ready",
+        "type": "n8n-nodes-base.switch",
+        "typeVersion": 3.2,
+        "position": [
+          -230,
+          300
+        ],
+        "parameters": {
+          "mode": "rules",
+          "rules": {
+            "values": [
+              {
+                "conditions": {
+                  "options": {
+                    "caseSensitive": true,
+                    "typeValidation": "strict",
+                    "version": 2
+                  },
+                  "conditions": [
+                    {
+                      "leftValue": "={{ $json._context_ready }}",
+                      "rightValue": true,
+                      "operator": {
+                        "type": "boolean",
+                        "operation": "true",
+                        "singleValue": true
+                      }
+                    }
+                  ],
+                  "combinator": "and"
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "11",
+        "name": "MO_Build_Delivery_Request",
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2,
+        "position": [
+          40,
+          300
+        ],
+        "parameters": {
+          "language": "javaScript",
+          "mode": "runOnceForAllItems",
+          "pythonCode": "import hashlib\n\nitem = items[0]\nv = dict(item.json)  # coming from Verify_Lineage_And_Replay via Route_Context_Ready(ready)\ncomposed = v[\"composed_response\"]\nchannel = v[\"channel\"]\ntarget = v[\"delivery_target\"]\nresponse_text = composed[\"response_text\"]\n\nreq_hash = hashlib.sha256(\n    (\"{}|{}|{}|{}|{}\".format(\n        v[\"execution_context_id\"], v[\"thread_id\"], v[\"tenant_id\"],\n        v[\"idempotency_key\"], response_text)).encode(\"utf-8\")\n).hexdigest()[:12]\n\nresp_hash = hashlib.sha256(response_text.encode(\"utf-8\")).hexdigest()[:16]\n\nout = {\n    \"execution_context_id\": v[\"execution_context_id\"],\n    \"thread_id\": v[\"thread_id\"],\n    \"tenant_id\": v[\"tenant_id\"],\n    \"channel\": channel,\n    \"delivery_target\": target,\n    \"response_text\": response_text,\n    \"response_text_hash\": resp_hash,\n    \"response_status\": composed[\"response_status\"],\n    \"warnings\": composed.get(\"warnings\", []),\n    \"followup_requests\": composed.get(\"followup_requests\", []),\n    \"idempotency_key\": v[\"idempotency_key\"],\n    \"delivery_request_id\": \"deliver:{}:{}\".format(v[\"execution_context_id\"], req_hash),\n}\nreturn [{\"json\": out}]",
+          "jsCode": "const crypto = require('crypto');\nconst v = $input.first().json;\nconst composed = v.composed_response;\nconst channel = v.channel;\nconst target = v.delivery_target;\nconst responseText = composed.response_text;\n\nconst reqKey = [v.execution_context_id, v.thread_id, v.tenant_id, v.idempotency_key, responseText].join(\"|\");\nconst reqHash = crypto.createHash('sha256').update(reqKey).digest('hex').slice(0,12);\nconst respHash = crypto.createHash('sha256').update(responseText).digest('hex').slice(0,16);\n\nreturn [{ json: {\n  execution_context_id: v.execution_context_id,\n  thread_id: v.thread_id,\n  tenant_id: v.tenant_id,\n  channel,\n  delivery_target: target,\n  response_text: responseText,\n  response_text_hash: respHash,\n  response_status: composed.response_status,\n  warnings: composed.warnings || [],\n  followup_requests: composed.followup_requests || [],\n  idempotency_key: v.idempotency_key,\n  delivery_request_id: `deliver:${v.execution_context_id}:${reqHash}`,\n}}];"
+        }
+      },
+      {
+        "id": "12",
+        "name": "MO_Route_Channel",
+        "type": "n8n-nodes-base.switch",
+        "typeVersion": 3.2,
+        "position": [
+          300,
+          300
+        ],
+        "parameters": {
+          "mode": "rules",
+          "rules": {
+            "values": [
+              {
+                "conditions": {
+                  "options": {
+                    "caseSensitive": true,
+                    "typeValidation": "strict",
+                    "version": 2
+                  },
+                  "conditions": [
+                    {
+                      "leftValue": "={{ $json.channel }}",
+                      "rightValue": "telegram",
+                      "operator": {
+                        "type": "string",
+                        "operation": "equals"
+                      }
+                    }
+                  ],
+                  "combinator": "and"
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "13",
+        "name": "MO_Send_Channel_PLACEHOLDER",
+        "type": "n8n-nodes-base.telegram",
+        "typeVersion": 1.2,
+        "position": [
+          560,
+          220
+        ],
+        "parameters": {
+          "text": "={{ $json.response_text }}",
+          "chatId": "={{ $json.delivery_target }}",
+          "additionalFields": {
+            "appendAttribution": false
+          }
+        },
+        "credentials": {
+          "telegramApi": {
+            "id": "Z0ovMbkHwXEC8ZtF",
+            "name": "Telegram account"
+          }
+        }
+      },
+      {
+        "id": "14",
+        "name": "MO_Log_Outbound_Message",
+        "type": "n8n-nodes-base.postgres",
+        "typeVersion": 2.5,
+        "position": [
+          820,
+          220
+        ],
+        "parameters": {
+          "operation": "executeQuery",
+          "query": "INSERT INTO public.outbound_delivery_ledger_claude_mcp (tenant_id, execution_context_id, thread_id, idempotency_key, channel,  delivery_target, response_text_hash, provider_message_ref, delivery_status) VALUES ($1::uuid, $2::uuid, $3::uuid, $4, $5, $6, $7, $8, $9) ON CONFLICT (tenant_id, idempotency_key) DO NOTHING RETURNING id, tenant_id, idempotency_key, channel, delivery_target, provider_message_ref, delivery_status, created_at;",
+          "options": {
+            "queryReplacement": "={{ [$('MO_Build_Delivery_Request').first().json.tenant_id, $('MO_Build_Delivery_Request').first().json.execution_context_id, $('MO_Build_Delivery_Request').first().json.thread_id, $('MO_Build_Delivery_Request').first().json.idempotency_key, $('MO_Build_Delivery_Request').first().json.channel, $('MO_Build_Delivery_Request').first().json.delivery_target, $('MO_Build_Delivery_Request').first().json.response_text_hash, ($('MO_Send_Channel_PLACEHOLDER').first().json.result ?  ('telegram:' + ($('MO_Send_Channel_PLACEHOLDER').first().json.result.chat.id + '')    + ':' + ($('MO_Send_Channel_PLACEHOLDER').first().json.result.message_id + ''))  : null), ($('MO_Send_Channel_PLACEHOLDER').first().json.ok === true ? 'delivered' : 'attempted')] }}"
+          },
+          "alwaysOutputData": true
+        },
+        "credentials": {
+          "postgres": {
+            "id": "qpZLzVs17Zy7HCFB",
+            "name": "Postgres account"
+          }
+        }
+      },
+      {
+        "id": "15",
+        "name": "MO_Build_Delivery_Result",
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2,
+        "position": [
+          1080,
+          220
+        ],
+        "parameters": {
+          "language": "javaScript",
+          "mode": "runOnceForAllItems",
+          "pythonCode": "import hashlib\n\n# Entry from MO_Log_Outbound_Message.\n# Provider send output is upstream of log write; read it via named node.\nlog_item = items[0].json if items else {}\n\nprovider = {}\ntry:\n    ps = _(\"MO_Send_Channel_PLACEHOLDER\").first().json\n    # Telegram node returns a dict with result{} on success\n    ok = bool(ps) and (\"result\" in ps or \"message_id\" in ps or \"ok\" in ps)\n    if ok:\n        mref = None\n        r = ps.get(\"result\", ps)\n        if isinstance(r, dict):\n            mid = r.get(\"message_id\")\n            cid = (r.get(\"chat\") or {}).get(\"id\")\n            if mid is not None:\n                mref = \"telegram:{}:{}\".format(cid if cid is not None else \"\", mid)\n        provider = {\n            \"provider_delivery_attempted\": True,\n            \"provider_delivery_succeeded\": True,\n            \"provider_message_ref\": mref,\n            \"provider_error\": None,\n        }\n    else:\n        provider = {\n            \"provider_delivery_attempted\": True,\n            \"provider_delivery_succeeded\": False,\n            \"provider_message_ref\": None,\n            \"provider_error\": \"PROVIDER_SEND_FAILED\",\n        }\nexcept Exception as e:\n    provider = {\n        \"provider_delivery_attempted\": True,\n        \"provider_delivery_succeeded\": False,\n        \"provider_message_ref\": None,\n        \"provider_error\": \"PROVIDER_SEND_FAILED:{}\".format(e),\n    }\n\n# Log write result — Postgres returning a row ⇒ success; empty ⇒ blocked by unique idem\nlog_written = bool(log_item) and bool(log_item.get(\"id\"))\nlog_result = {\n    \"outbound_log_written\": log_written,\n    \"log_error\": None if log_written else \"OUTBOUND_LOG_DUPLICATE_OR_FAILED\",\n}\n\ndr = _(\"MO_Build_Delivery_Request\").first().json\n\napplied, blocked, warnings = [], [], []\nif provider.get(\"provider_delivery_succeeded\"):\n    applied.append(\"provider_delivery\")\nelse:\n    blocked.append(\"provider_delivery\")\n    if provider.get(\"provider_error\"):\n        warnings.append(provider[\"provider_error\"])\n\nif log_result[\"outbound_log_written\"]:\n    applied.append(\"outbound_message_log\")\nelse:\n    blocked.append(\"outbound_message_log\")\n    if log_result.get(\"log_error\"):\n        warnings.append(log_result[\"log_error\"])\n\ncomplete = bool(provider.get(\"provider_delivery_succeeded\") and log_result[\"outbound_log_written\"])\nstatus = \"success\" if complete else \"partial\"\n\nout = {\n    \"status_kind\": \"success\",\n    \"result_type\": \"message_out_result\",\n    \"execution_context_id\": dr[\"execution_context_id\"],\n    \"thread_id\": dr[\"thread_id\"],\n    \"tenant_id\": dr[\"tenant_id\"],\n    \"message_out_result\": {\n        \"status\": status,\n        \"channel\": dr[\"channel\"],\n        \"delivery_target\": dr[\"delivery_target\"],\n        \"provider_message_ref\": provider.get(\"provider_message_ref\"),\n        \"applied_write_classes\": applied,\n        \"blocked_write_classes\": blocked,\n        \"warning_count\": len(warnings),\n        \"warnings\": warnings,\n        \"followup_count\": len(dr.get(\"followup_requests\", [])),\n        \"followup_requests\": dr.get(\"followup_requests\", []),\n        \"response_status\": dr[\"response_status\"],\n        \"response_text_hash\": dr[\"response_text_hash\"],\n    },\n    \"terminal_stage\": True,\n    \"message_out_completed\": complete,\n    \"provider_delivery_attempted\": provider.get(\"provider_delivery_attempted\", False),\n    \"idempotency_key\": dr[\"idempotency_key\"],\n}\nreturn [{\"json\": out}]",
+          "jsCode": "const logItem = $input.first().json || {};\n\nlet provider = { provider_delivery_attempted: true, provider_delivery_succeeded: false,\n                 provider_message_ref: null, provider_error: \"PROVIDER_SEND_FAILED\" };\ntry {\n  const ps = $('MO_Send_Channel_PLACEHOLDER').first().json;\n  if (ps && (ps.ok === true || (ps.result && ps.result.message_id))){\n    const r = ps.result || ps;\n    const mid = r.message_id;\n    const cid = r.chat && r.chat.id;\n    provider = {\n      provider_delivery_attempted: true,\n      provider_delivery_succeeded: true,\n      provider_message_ref: (mid != null) ? `telegram:${cid != null ? cid : ''}:${mid}` : null,\n      provider_error: null,\n    };\n  }\n} catch(e){\n  provider = { provider_delivery_attempted: true, provider_delivery_succeeded: false,\n               provider_message_ref: null, provider_error: `PROVIDER_SEND_FAILED:${e.message||e}` };\n}\n\nconst logWritten = !!(logItem && logItem.id);\nconst logResult = {\n  outbound_log_written: logWritten,\n  log_error: logWritten ? null : \"OUTBOUND_LOG_DUPLICATE_OR_FAILED\",\n};\n\nconst dr = $('MO_Build_Delivery_Request').first().json;\nconst applied = [], blocked = [], warnings = [];\nif (provider.provider_delivery_succeeded) applied.push(\"provider_delivery\");\nelse { blocked.push(\"provider_delivery\"); if (provider.provider_error) warnings.push(provider.provider_error); }\nif (logResult.outbound_log_written) applied.push(\"outbound_message_log\");\nelse { blocked.push(\"outbound_message_log\"); if (logResult.log_error) warnings.push(logResult.log_error); }\n\nconst complete = !!(provider.provider_delivery_succeeded && logResult.outbound_log_written);\nconst status = complete ? \"success\" : \"partial\";\n\nreturn [{ json: {\n  status_kind: \"success\",\n  result_type: \"message_out_result\",\n  execution_context_id: dr.execution_context_id,\n  thread_id: dr.thread_id,\n  tenant_id: dr.tenant_id,\n  message_out_result: {\n    status,\n    channel: dr.channel,\n    delivery_target: dr.delivery_target,\n    provider_message_ref: provider.provider_message_ref,\n    applied_write_classes: applied,\n    blocked_write_classes: blocked,\n    warning_count: warnings.length,\n    warnings,\n    followup_count: (dr.followup_requests || []).length,\n    followup_requests: dr.followup_requests || [],\n    response_status: dr.response_status,\n    response_text_hash: dr.response_text_hash,\n  },\n  terminal_stage: true,\n  message_out_completed: complete,\n  provider_delivery_attempted: provider.provider_delivery_attempted,\n  idempotency_key: dr.idempotency_key,\n}}];"
+        }
+      },
+      {
+        "id": "16",
+        "name": "MO_Return_Result",
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2,
+        "position": [
+          1340,
+          220
+        ],
+        "parameters": {
+          "language": "javaScript",
+          "mode": "runOnceForAllItems",
+          "pythonCode": "return [{\"json\": dict(item.json)} for item in items]",
+          "jsCode": "return items.map(i => ({ json: i.json }));"
+        }
+      },
+      {
+        "id": "17",
+        "name": "MO_Return_Error",
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2,
+        "position": [
+          -780,
+          620
+        ],
+        "parameters": {
+          "language": "python",
+          "mode": "runOnceForAllItems",
+          "pythonCode": "return [{\"json\": dict(item.json)} for item in items]"
+        }
+      },
+      {
+        "id": "18",
+        "name": "MO_Return_Context_Error",
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2,
+        "position": [
+          40,
+          540
+        ],
+        "parameters": {
+          "language": "python",
+          "mode": "runOnceForAllItems",
+          "pythonCode": "return [{\"json\": dict(item.json)} for item in items]"
+        }
+      }
+    ],
+    "connections": {
+      "MO_Input": {
+        "main": [
+          [
+            {
+              "node": "MO_Validate_Composed_Response_Input",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "MO_Manual_Test_Trigger": {
+        "main": [
+          [
+            {
+              "node": "MO_Validate_Composed_Response_Input",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "MO_Validate_Composed_Response_Input": {
+        "main": [
+          [
+            {
+              "node": "MO_Route_Valid",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "MO_Route_Valid": {
+        "main": [
+          [
+            {
+              "node": "MO_Load_Execution_Context",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          [
+            {
+              "node": "MO_Return_Error",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "MO_Load_Execution_Context": {
+        "main": [
+          [
+            {
+              "node": "MO_Load_Thread_Context",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "MO_Load_Thread_Context": {
+        "main": [
+          [
+            {
+              "node": "MO_Load_Channel_Delivery_Context",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "MO_Load_Channel_Delivery_Context": {
+        "main": [
+          [
+            {
+              "node": "MO_Replay_Guard_Probe",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "MO_Replay_Guard_Probe": {
+        "main": [
+          [
+            {
+              "node": "MO_Verify_Lineage_And_Replay",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "MO_Verify_Lineage_And_Replay": {
+        "main": [
+          [
+            {
+              "node": "MO_Route_Context_Ready",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "MO_Route_Context_Ready": {
+        "main": [
+          [
+            {
+              "node": "MO_Build_Delivery_Request",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          [
+            {
+              "node": "MO_Return_Context_Error",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "MO_Build_Delivery_Request": {
+        "main": [
+          [
+            {
+              "node": "MO_Route_Channel",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "MO_Route_Channel": {
+        "main": [
+          [
+            {
+              "node": "MO_Send_Channel_PLACEHOLDER",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          [
+            {
+              "node": "MO_Return_Error",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "MO_Send_Channel_PLACEHOLDER": {
+        "main": [
+          [
+            {
+              "node": "MO_Log_Outbound_Message",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "MO_Log_Outbound_Message": {
+        "main": [
+          [
+            {
+              "node": "MO_Build_Delivery_Result",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "MO_Build_Delivery_Result": {
+        "main": [
+          [
+            {
+              "node": "MO_Return_Result",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      }
+    },
+    "authors": "Andrei Cinc",
+    "name": null,
+    "description": null,
+    "autosaved": false,
+    "workflowPublishHistory": [
+      {
+        "createdAt": "2026-04-18T11:16:35.273Z",
+        "id": 484,
+        "workflowId": "OooZdC0DgsDR6gm0",
+        "versionId": "11c1ef5f-5678-4070-abf5-9f47db72c58c",
+        "event": "deactivated",
+        "userId": "68a414fd-cc03-4f02-87bc-9067f976e98a"
+      },
+      {
+        "createdAt": "2026-04-18T11:16:35.368Z",
+        "id": 485,
+        "workflowId": "OooZdC0DgsDR6gm0",
+        "versionId": "11c1ef5f-5678-4070-abf5-9f47db72c58c",
+        "event": "activated",
+        "userId": "68a414fd-cc03-4f02-87bc-9067f976e98a"
+      }
+    ]
+  }
+}

@@ -1,0 +1,1528 @@
+{
+  "case_id": "C3-L1-V1",
+  "run_tag": "f240r-2026-04-26",
+  "runtime": {
+    "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+    "message_id": "394e4a2f-37bb-4764-88e2-7b7af993ccf8",
+    "thread_id": "52118bd1-f964-4e5f-8740-3cbe70794ea3",
+    "reply_to_thread_id": null,
+    "idempotency_key": "e2e:f240-2026-04-26:C3-L1-V1",
+    "thread_label": "C3:C3-L1-V1",
+    "ts_iso": "2026-04-26T02:50:47.281Z",
+    "run_tag": "f240-2026-04-26",
+    "thread_context_kind": "seeded-fresh",
+    "fire_iso": "2026-04-26T09:30:18.387Z"
+  },
+  "tr_exec_id": "10211",
+  "chain": {
+    "tr_exec_id": "10211",
+    "hops_str": "TR:10211 → EC:10212 → OR:10213 → PL:10214 → DI:10215 → ME:10216 → RA:10217 → SU:10218 → RC:10219 → MO:10220",
+    "digest": {
+      "TR": {
+        "exec_id": "10211",
+        "status": "success",
+        "finished": true,
+        "started_at": "2026-04-26T09:29:34.742Z",
+        "last_node": "TR_Dispatch_To_EC_01_SUBCALL",
+        "last_node_json": {
+          "_debug_summary": {
+            "execution_context_id": "2744a19e-ae93-4e8f-acaa-bbd786892675",
+            "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+            "thread_id": "52118bd1-f964-4e5f-8740-3cbe70794ea3",
+            "rollup_status": "success",
+            "module_results_count": 1,
+            "returned_step_ids": [
+              "step_01_search_memory"
+            ]
+          }
+        },
+        "sub_calls": [
+          {
+            "via_node": "TR_Dispatch_To_EC_01_SUBCALL",
+            "exec_id": "10212",
+            "target_wf": "EC"
+          }
+        ],
+        "selected_nodes": {
+          "TR_Validate_Input": [
+            {
+              "executed": true,
+              "json": {
+                "_valid": "true",
+                "message_id": "394e4a2f-37bb-4764-88e2-7b7af993ccf8",
+                "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+                "channel": "e2e-rich-matrix",
+                "direction": "inbound",
+                "author_type": "user",
+                "normalized_content": "Ce știi despre Andrei?",
+                "timestamp": "2026-04-26T03:57:00.000Z",
+                "source_message_ref": "e2e:C3-L1-V1:f240r",
+                "author_entity_id": null,
+                "explicit_thread_id": "52118bd1-f964-4e5f-8740-3cbe70794ea3",
+                "reply_to_message_id": null,
+                "reply_to_thread_id": null,
+                "related_entity_ids": [],
+                "metadata": {
+                  "e2e_case_id": "C3-L1-V1",
+                  "e2e_corridor": "C3",
+                  "e2e_run_tag": "f240r-2026-04-26"
+                },
+                "_attach_threshold": null,
+                "_reopen_threshold": null,
+                "_max_candidate_threads": null,
+                "_allow_latent_reopen": true,
+                "_allow_entity_assisted_match": true,
+                "_ambiguity_margin": null,
+                "_idempotency_key": "e2e:f240r-2026-04-26:C3-L1-V1:search"
+              },
+              "error": null
+            }
+          ],
+          "TR_Build_EC_Envelope": [
+            {
+              "executed": true,
+              "json": {
+                "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+                "thread_id": "52118bd1-f964-4e5f-8740-3cbe70794ea3",
+                "trigger_message_id": "394e4a2f-37bb-4764-88e2-7b7af993ccf8",
+                "resolution_method": "explicit_thread_reference",
+                "resolved_at": "2026-04-26T09:29:34.802Z",
+                "idempotency_key": "tr-to-ec:eee0e2e0-0000-0000-0000-000000000001:394e4a2f-37bb-4764-88e2-7b7af993ccf8:v1",
+                "envelope_metadata": {
+                  "e2e_case_id": "C3-L1-V1",
+                  "e2e_corridor": "C3",
+                  "e2e_run_tag": "f240r-2026-04-26"
+                }
+              },
+              "error": null
+            }
+          ],
+          "TR_Dispatch_To_EC_01_SUBCALL": [
+            {
+              "executed": true,
+              "json": {
+                "_debug_summary": {
+                  "execution_context_id": "2744a19e-ae93-4e8f-acaa-bbd786892675",
+                  "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+                  "thread_id": "52118bd1-f964-4e5f-8740-3cbe70794ea3",
+                  "rollup_status": "success",
+                  "module_results_count": 1,
+                  "returned_step_ids": [
+                    "step_01_search_memory"
+                  ]
+                }
+              },
+              "error": null
+            }
+          ]
+        }
+      },
+      "EC": {
+        "exec_id": "10212",
+        "status": "success",
+        "finished": true,
+        "started_at": "2026-04-26T09:29:35.082Z",
+        "last_node": "EC_Dispatch_To_OR_01_SUBCALL",
+        "last_node_json": {
+          "_debug_summary": {
+            "execution_context_id": "2744a19e-ae93-4e8f-acaa-bbd786892675",
+            "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+            "thread_id": "52118bd1-f964-4e5f-8740-3cbe70794ea3",
+            "rollup_status": "success",
+            "module_results_count": 1,
+            "returned_step_ids": [
+              "step_01_search_memory"
+            ]
+          }
+        },
+        "sub_calls": [
+          {
+            "via_node": "EC_Dispatch_To_OR_01_SUBCALL",
+            "exec_id": "10213",
+            "target_wf": "OR"
+          }
+        ],
+        "selected_nodes": {
+          "EC_Dispatch_To_OR_01_SUBCALL": [
+            {
+              "executed": true,
+              "json": {
+                "_debug_summary": {
+                  "execution_context_id": "2744a19e-ae93-4e8f-acaa-bbd786892675",
+                  "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+                  "thread_id": "52118bd1-f964-4e5f-8740-3cbe70794ea3",
+                  "rollup_status": "success",
+                  "module_results_count": 1,
+                  "returned_step_ids": [
+                    "step_01_search_memory"
+                  ]
+                }
+              },
+              "error": null
+            }
+          ]
+        }
+      },
+      "OR": {
+        "exec_id": "10213",
+        "status": "success",
+        "finished": true,
+        "started_at": "2026-04-26T09:29:35.234Z",
+        "last_node": "OR_Dispatch_To_PL_01_SUBCALL",
+        "last_node_json": {
+          "_debug_summary": {
+            "execution_context_id": "2744a19e-ae93-4e8f-acaa-bbd786892675",
+            "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+            "thread_id": "52118bd1-f964-4e5f-8740-3cbe70794ea3",
+            "rollup_status": "success",
+            "module_results_count": 1,
+            "returned_step_ids": [
+              "step_01_search_memory"
+            ]
+          }
+        },
+        "sub_calls": [
+          {
+            "via_node": "OR_Dispatch_To_PL_01_SUBCALL",
+            "exec_id": "10214",
+            "target_wf": "PL"
+          }
+        ],
+        "selected_nodes": {
+          "OR_Build_Handoff_Payload": [
+            {
+              "executed": true,
+              "json": {
+                "status_kind": "success",
+                "result_type": "handoff",
+                "module_name": "orchestrator_input_handoff",
+                "payload": {
+                  "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+                  "thread_id": "52118bd1-f964-4e5f-8740-3cbe70794ea3",
+                  "execution_id": "2744a19e-ae93-4e8f-acaa-bbd786892675",
+                  "trigger_message_id": "394e4a2f-37bb-4764-88e2-7b7af993ccf8",
+                  "idempotency_key": "tr-to-ec:eee0e2e0-0000-0000-0000-000000000001:394e4a2f-37bb-4764-88e2-7b7af993ccf8:v1",
+                  "execution_status": "initialized",
+                  "planning_allowed": true,
+                  "allowed_next_stage": "WF-PL-01",
+                  "orchestrator_input": {
+                    "planning_mode": "plan_only",
+                    "module_execution_allowed": false,
+                    "response_generation_allowed": false,
+                    "domain_writes_allowed": false
+                  },
+                  "planner_context": {
+                    "user_message_text": "Ce știi despre Andrei?",
+                    "primary_intent": "search_memory"
+                  },
+                  "warnings": []
+                }
+              },
+              "error": null
+            }
+          ],
+          "OR_Dispatch_To_PL_01_SUBCALL": [
+            {
+              "executed": true,
+              "json": {
+                "_debug_summary": {
+                  "execution_context_id": "2744a19e-ae93-4e8f-acaa-bbd786892675",
+                  "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+                  "thread_id": "52118bd1-f964-4e5f-8740-3cbe70794ea3",
+                  "rollup_status": "success",
+                  "module_results_count": 1,
+                  "returned_step_ids": [
+                    "step_01_search_memory"
+                  ]
+                }
+              },
+              "error": null
+            }
+          ]
+        }
+      },
+      "PL": {
+        "exec_id": "10214",
+        "status": "success",
+        "finished": true,
+        "started_at": "2026-04-26T09:29:35.391Z",
+        "last_node": "PL_Dispatch_To_DI_01_SUBCALL",
+        "last_node_json": {
+          "_debug_summary": {
+            "execution_context_id": "2744a19e-ae93-4e8f-acaa-bbd786892675",
+            "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+            "thread_id": "52118bd1-f964-4e5f-8740-3cbe70794ea3",
+            "rollup_status": "success",
+            "module_results_count": 1,
+            "returned_step_ids": [
+              "step_01_search_memory"
+            ]
+          }
+        },
+        "sub_calls": [
+          {
+            "via_node": "PL_Dispatch_To_DI_01_SUBCALL",
+            "exec_id": "10215",
+            "target_wf": "DI"
+          }
+        ],
+        "selected_nodes": {
+          "PL_Generate_Plan": [
+            {
+              "executed": true,
+              "json": {
+                "status_kind": "success",
+                "result_type": "plan",
+                "module_name": "plan_generation",
+                "payload": {
+                  "plan_id": "plan:2744a19e-ae93-4e8f-acaa-bbd786892675:v1",
+                  "execution_id": "2744a19e-ae93-4e8f-acaa-bbd786892675",
+                  "thread_id": "52118bd1-f964-4e5f-8740-3cbe70794ea3",
+                  "goal": "Ce știi despre Andrei?",
+                  "primary_intent": "search_memory",
+                  "reasoning_summary": "Generated 1 bounded step(s) from the validated orchestrator handoff.",
+                  "steps": [
+                    {
+                      "step_id": "step_01_search_memory",
+                      "module_name": "memory_module",
+                      "purpose": "Handle intent search_memory",
+                      "inputs": {
+                        "action": "search_memory",
+                        "query": "Ce știi despre Andrei?"
+                      },
+                      "depends_on": [],
+                      "execution_mode": "sequential",
+                      "expected_outputs": [],
+                      "replan_if": [
+                        "failed"
+                      ],
+                      "failure_policy": "continue_with_notice",
+                      "status": "pending"
+                    }
+                  ],
+                  "allowed_next_stage": "WF-DI-01",
+                  "dispatcher_input": {
+                    "dispatch_allowed": true,
+                    "module_execution_started": false,
+                    "response_generation_allowed": false,
+                    "domain_writes_performed": false
+                  },
+                  "warnings": []
+                }
+              },
+              "error": null
+            }
+          ],
+          "PL_Build_DI_Envelope": [
+            {
+              "executed": true,
+              "json": {
+                "status_kind": "success",
+                "result_type": "plan",
+                "module_name": "plan_generation",
+                "payload": {
+                  "plan_id": "plan:2744a19e-ae93-4e8f-acaa-bbd786892675:v1",
+                  "execution_id": "2744a19e-ae93-4e8f-acaa-bbd786892675",
+                  "thread_id": "52118bd1-f964-4e5f-8740-3cbe70794ea3",
+                  "goal": "Ce știi despre Andrei?",
+                  "primary_intent": "search_memory",
+                  "reasoning_summary": "Generated 1 bounded step(s) from the validated orchestrator handoff.",
+                  "steps": [
+                    {
+                      "step_id": "step_01_search_memory",
+                      "module_name": "memory_module",
+                      "purpose": "Handle intent search_memory",
+                      "inputs": {
+                        "action": "search_memory",
+                        "query": "Ce știi despre Andrei?"
+                      },
+                      "depends_on": [],
+                      "execution_mode": "sequential",
+                      "expected_outputs": [],
+                      "replan_if": [
+                        "failed"
+                      ],
+                      "failure_policy": "continue_with_notice",
+                      "status": "pending"
+                    }
+                  ],
+                  "allowed_next_stage": "WF-DI-01",
+                  "dispatcher_input": {
+                    "dispatch_allowed": true,
+                    "module_execution_started": false,
+                    "response_generation_allowed": false,
+                    "domain_writes_performed": false
+                  },
+                  "warnings": [],
+                  "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+                  "trigger_message_id": "394e4a2f-37bb-4764-88e2-7b7af993ccf8",
+                  "idempotency_key": "tr-to-ec:eee0e2e0-0000-0000-0000-000000000001:394e4a2f-37bb-4764-88e2-7b7af993ccf8:v1"
+                }
+              },
+              "error": null
+            }
+          ],
+          "PL_Build_Planner_Input": [
+            {
+              "executed": true,
+              "json": {
+                "_context_ready": "true",
+                "execution_id": "2744a19e-ae93-4e8f-acaa-bbd786892675",
+                "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+                "thread_id": "52118bd1-f964-4e5f-8740-3cbe70794ea3",
+                "trigger_message_id": "394e4a2f-37bb-4764-88e2-7b7af993ccf8",
+                "idempotency_key": "tr-to-ec:eee0e2e0-0000-0000-0000-000000000001:394e4a2f-37bb-4764-88e2-7b7af993ccf8:v1",
+                "goal": "Ce știi despre Andrei?",
+                "primary_intent": "search_memory",
+                "requested_actions": [
+                  {
+                    "action": "search_memory",
+                    "module_name": "memory_module",
+                    "purpose": "Handle intent search_memory",
+                    "inputs": {
+                      "query": "Ce știi despre Andrei?"
+                    }
+                  }
+                ],
+                "module_registry": [
+                  {
+                    "module_name": "task_module",
+                    "module_type": "executor",
+                    "capabilities": [
+                      "create_task",
+                      "list_tasks",
+                      "update_task",
+                      "complete_task",
+                      "delete_task"
+                    ]
+                  },
+                  {
+                    "module_name": "reminder_module",
+                    "module_type": "executor",
+                    "capabilities": [
+                      "create_reminder",
+                      "list_reminders",
+                      "update_reminder",
+                      "cancel_reminder"
+                    ]
+                  },
+                  {
+                    "module_name": "memory_module",
+                    "module_type": "executor",
+                    "capabilities": [
+                      "store_memory",
+                      "search_memory"
+                    ]
+                  },
+                  {
+                    "module_name": "improvement_module",
+                    "module_type": "executor",
+                    "capabilities": [
+                      "capture_feedback"
+                    ]
+                  },
+                  {
+                    "module_name": "watcher_module_basic",
+                    "module_type": "observer",
+                    "capabilities": [
+                      "produce_observation"
+                    ]
+                  }
+                ],
+                "warnings": []
+              },
+              "error": null
+            }
+          ]
+        }
+      },
+      "DI": {
+        "exec_id": "10215",
+        "status": "success",
+        "finished": true,
+        "started_at": "2026-04-26T09:29:35.558Z",
+        "last_node": "DI_Dispatch_To_ME_01_SUBCALL",
+        "last_node_json": {
+          "_debug_summary": {
+            "execution_context_id": "2744a19e-ae93-4e8f-acaa-bbd786892675",
+            "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+            "thread_id": "52118bd1-f964-4e5f-8740-3cbe70794ea3",
+            "rollup_status": "success",
+            "module_results_count": 1,
+            "returned_step_ids": [
+              "step_01_search_memory"
+            ]
+          }
+        },
+        "sub_calls": [],
+        "selected_nodes": {
+          "DI_Build_Dispatch_Payload": [
+            {
+              "executed": true,
+              "json": {
+                "status_kind": "success",
+                "result_type": "dispatch",
+                "module_name": "dispatcher",
+                "payload": {
+                  "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+                  "thread_id": "52118bd1-f964-4e5f-8740-3cbe70794ea3",
+                  "execution_id": "2744a19e-ae93-4e8f-acaa-bbd786892675",
+                  "plan_id": "plan:2744a19e-ae93-4e8f-acaa-bbd786892675:v1",
+                  "dispatch_id": "dispatch:plan:2744a19e-ae93-4e8f-acaa-bbd786892675:v1:v1",
+                  "allowed_next_stage": "WF-ME-01",
+                  "ready_groups": [
+                    {
+                      "group_id": "group:sequential:001",
+                      "execution_mode": "sequential",
+                      "step_ids": [
+                        "step_01_search_memory"
+                      ],
+                      "module_requests": [
+                        {
+                          "execution_context_id": "2744a19e-ae93-4e8f-acaa-bbd786892675",
+                          "thread_id": "52118bd1-f964-4e5f-8740-3cbe70794ea3",
+                          "step_id": "step_01_search_memory",
+                          "module_name": "memory_module",
+                          "purpose": "Handle intent search_memory",
+                          "inputs": {
+                            "action": "search_memory",
+                            "query": "Ce știi despre Andrei?"
+                          },
+                          "idempotency_key": "tr-to-ec:eee0e2e0-0000-0000-0000-000000000001:394e4a2f-37bb-4764-88e2-7b7af993ccf8:v1:step_01_search_memory:dispatch:v1"
+                        }
+                      ]
+                    }
+                  ],
+                  "dispatch_guard": {
+                    "dispatch_allowed": true,
+                    "module_execution_started": false,
+                    "response_generation_allowed": false,
+                    "domain_writes_performed": false
+                  },
+                  "warnings": []
+                }
+              },
+              "error": null
+            }
+          ],
+          "DI_Build_ME_Envelopes": [
+            {
+              "executed": true,
+              "json": {
+                "status_kind": "success",
+                "result_type": "dispatch",
+                "execution_context_id": "2744a19e-ae93-4e8f-acaa-bbd786892675",
+                "thread_id": "52118bd1-f964-4e5f-8740-3cbe70794ea3",
+                "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+                "dispatcher_input": {
+                  "dispatch_allowed": true,
+                  "module_execution_started": false,
+                  "response_generation_allowed": false,
+                  "domain_writes_performed": false,
+                  "step": {
+                    "step_id": "step_01_search_memory",
+                    "module_name": "memory_module",
+                    "purpose": "Handle intent search_memory",
+                    "inputs": {
+                      "action": "search_memory",
+                      "query": "Ce știi despre Andrei?"
+                    },
+                    "execution_mode": "sequential",
+                    "depends_on": [],
+                    "expected_outputs": [],
+                    "replan_if": [],
+                    "failure_policy": "continue_with_notice",
+                    "status": "pending"
+                  }
+                },
+                "idempotency_key": "tr-to-ec:eee0e2e0-0000-0000-0000-000000000001:394e4a2f-37bb-4764-88e2-7b7af993ccf8:v1:step_01_search_memory:dispatch:v1"
+              },
+              "error": null
+            }
+          ],
+          "DI_Dispatch_To_ME_01_SUBCALL": [
+            {
+              "executed": true,
+              "json": {
+                "_debug_summary": {
+                  "execution_context_id": "2744a19e-ae93-4e8f-acaa-bbd786892675",
+                  "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+                  "thread_id": "52118bd1-f964-4e5f-8740-3cbe70794ea3",
+                  "rollup_status": "success",
+                  "module_results_count": 1,
+                  "returned_step_ids": [
+                    "step_01_search_memory"
+                  ]
+                }
+              },
+              "error": null
+            }
+          ]
+        }
+      },
+      "ME": {
+        "exec_id": "10216",
+        "status": "success",
+        "finished": true,
+        "started_at": "2026-04-26T09:29:35.737Z",
+        "last_node": "ME_Dispatch_To_RA_01_SUBCALL",
+        "last_node_json": {
+          "_debug_summary": {
+            "execution_context_id": "2744a19e-ae93-4e8f-acaa-bbd786892675",
+            "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+            "thread_id": "52118bd1-f964-4e5f-8740-3cbe70794ea3",
+            "rollup_status": "success",
+            "module_results_count": 1,
+            "returned_step_ids": [
+              "step_01_search_memory"
+            ]
+          }
+        },
+        "sub_calls": [],
+        "selected_nodes": {
+          "ME_Memory_Search_Result": [
+            {
+              "executed": true,
+              "json": {
+                "status_kind": "success",
+                "result_type": "module_result",
+                "execution_context_id": "2744a19e-ae93-4e8f-acaa-bbd786892675",
+                "thread_id": "52118bd1-f964-4e5f-8740-3cbe70794ea3",
+                "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+                "module_result": {
+                  "module_name": "memory_module",
+                  "step_id": "step_01_search_memory",
+                  "result_type": "analysis",
+                  "status": "success",
+                  "summary": "Memory search completed.",
+                  "observations": [],
+                  "proposals": [],
+                  "actions_executed": [
+                    {
+                      "action": "search_memory",
+                      "details": {
+                        "query": "Ce știi despre Andrei?",
+                        "used_embedding": true,
+                        "embedding_attempted": true,
+                        "embedding_error": null,
+                        "semantic_match_count": 10,
+                        "lexical_match_count": 0,
+                        "recall_results": [
+                          {
+                            "memory_id": "09f39d52-65ff-48a2-b317-52bef63115d9",
+                            "content": "Ce știi despre Andrei",
+                            "memory_type": "fact",
+                            "tier": "recent",
+                            "status": "active",
+                            "category": "general",
+                            "similarity": 0.9631892004315818,
+                            "created_at": "2026-04-26T09:23:23.099Z"
+                          },
+                          {
+                            "memory_id": "1ad91651-e35e-4040-a50a-7affb4b6db87",
+                            "content": "Corectează: Andrei preferă seara, nu dimineața",
+                            "memory_type": "fact",
+                            "tier": "recent",
+                            "status": "active",
+                            "category": "general",
+                            "similarity": 0.5642146991032261,
+                            "created_at": "2026-04-26T09:28:23.874Z"
+                          },
+                          {
+                            "memory_id": "ad8d328e-205b-41c3-8879-e5c55537557e",
+                            "content": "Andrei preferă antrenamente dimineața",
+                            "memory_type": "fact",
+                            "tier": "recent",
+                            "status": "active",
+                            "category": "general",
+                            "similarity": 0.5563749293769674,
+                            "created_at": "2026-04-26T03:21:38.117Z"
+                          },
+                          {
+                            "memory_id": "4f3af17c-a997-456a-bdbf-8e5498bef84c",
+                            "content": "Andrei este partenerul nostru tehnic principal",
+                            "memory_type": "fact",
+                            "tier": "recent",
+                            "status": "active",
+                            "category": "general",
+                            "similarity": 0.5466964809387953,
+                            "created_at": "2026-04-25T19:28:06.178Z"
+                          },
+                          {
+                            "memory_id": "97fa8b63-5f84-4f1e-a960-43150f4ec634",
+                            "content": "prefer întâlnirile online via Google Meet, nu Zoom",
+                            "memory_type": "fact",
+                            "tier": "recent",
+                            "status": "active",
+                            "category": "general",
+                            "similarity": 0.3402856500417317,
+                            "created_at": "2026-04-25T19:27:48.932Z"
+                          },
+                          {
+                            "memory_id": "81b13edd-99f3-4b04-9d35-f579d3164b8a",
+                            "content": "fapta veche cu cea noua (msdg valid)",
+                            "memory_type": "fact",
+                            "tier": "recent",
+                            "status": "active",
+                            "category": "general",
+                            "similarity": 0.28569670437725425,
+                            "created_at": "2026-04-26T02:33:20.028Z"
+                          },
+                          {
+                            "memory_id": "c22d1c1c-1253-4ebe-b3f0-bf8370d80d2f",
+                            "content": "prefer comunicarea prin email pentru clienții importanți",
+                            "memory_type": "fact",
+                            "tier": "recent",
+                            "status": "active",
+                            "category": "general",
+                            "similarity": 0.2779709880713477,
+                            "created_at": "2026-04-25T18:54:20.904Z"
+                          },
+                          {
+                            "memory_id": "4b459e04-7d43-470c-a140-806e4721f39e",
+                            "content": "prefer întâlnirile de dimineață, ideal la ora 9",
+                            "memory_type": "fact",
+                            "tier": "recent",
+                            "status": "active",
+                            "category": "general",
+                            "similarity": 0.27302942903246963,
+                            "created_at": "2026-04-25T14:37:00.497Z"
+                          },
+                          {
+                            "memory_id": "86697b90-58ed-4437-a95f-8761c941c4df",
+                            "content": "adresa noastră de billing este billing@ucenicul.test",
+                            "memory_type": "fact",
+                            "tier": "recent",
+                            "status": "active",
+                            "category": "general",
+                            "similarity": 0.2553200144986395,
+                            "created_at": "2026-04-25T19:38:32.084Z"
+                          },
+                          {
+                            "memory_id": "3b313ac0-93ec-4d7d-90d7-65572dd762dc",
+                            "content": "biroul meu preferat pentru clienți VIP este sala 3",
+                            "memory_type": "fact",
+                            "tier": "recent",
+                            "status": "active",
+                            "category": "general",
+                            "similarity": 0.24970382494557963,
+                            "created_at": "2026-04-25T19:28:32.754Z"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "artifacts": [],
+                  "confidence": 1,
+                  "needs_followup": false,
+                  "followup_requests": []
+                },
+                "module_execution_started": true,
+                "domain_writes_performed": false,
+                "response_generation_allowed": false
+              },
+              "error": null
+            }
+          ],
+          "ME_Build_RA_Envelope": [
+            {
+              "executed": true,
+              "json": {
+                "status_kind": "success",
+                "result_type": "module_batch",
+                "execution_context_id": "2744a19e-ae93-4e8f-acaa-bbd786892675",
+                "thread_id": "52118bd1-f964-4e5f-8740-3cbe70794ea3",
+                "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+                "aggregation_input": {
+                  "aggregation_allowed": true,
+                  "response_generation_allowed": false,
+                  "module_execution_completed": true,
+                  "domain_writes_performed": false,
+                  "module_results": [
+                    {
+                      "module_name": "memory_module",
+                      "step_id": "step_01_search_memory",
+                      "result_type": "analysis",
+                      "status": "success",
+                      "summary": "Memory search completed.",
+                      "observations": [],
+                      "proposals": [],
+                      "actions_executed": [
+                        {
+                          "action": "search_memory",
+                          "details": {
+                            "query": "Ce știi despre Andrei?",
+                            "used_embedding": true,
+                            "embedding_attempted": true,
+                            "embedding_error": null,
+                            "semantic_match_count": 10,
+                            "lexical_match_count": 0,
+                            "recall_results": [
+                              {
+                                "memory_id": "09f39d52-65ff-48a2-b317-52bef63115d9",
+                                "content": "Ce știi despre Andrei",
+                                "memory_type": "fact",
+                                "tier": "recent",
+                                "status": "active",
+                                "category": "general",
+                                "similarity": 0.9631892004315818,
+                                "created_at": "2026-04-26T09:23:23.099Z"
+                              },
+                              {
+                                "memory_id": "1ad91651-e35e-4040-a50a-7affb4b6db87",
+                                "content": "Corectează: Andrei preferă seara, nu dimineața",
+                                "memory_type": "fact",
+                                "tier": "recent",
+                                "status": "active",
+                                "category": "general",
+                                "similarity": 0.5642146991032261,
+                                "created_at": "2026-04-26T09:28:23.874Z"
+                              },
+                              {
+                                "memory_id": "ad8d328e-205b-41c3-8879-e5c55537557e",
+                                "content": "Andrei preferă antrenamente dimineața",
+                                "memory_type": "fact",
+                                "tier": "recent",
+                                "status": "active",
+                                "category": "general",
+                                "similarity": 0.5563749293769674,
+                                "created_at": "2026-04-26T03:21:38.117Z"
+                              },
+                              {
+                                "memory_id": "4f3af17c-a997-456a-bdbf-8e5498bef84c",
+                                "content": "Andrei este partenerul nostru tehnic principal",
+                                "memory_type": "fact",
+                                "tier": "recent",
+                                "status": "active",
+                                "category": "general",
+                                "similarity": 0.5466964809387953,
+                                "created_at": "2026-04-25T19:28:06.178Z"
+                              },
+                              {
+                                "memory_id": "97fa8b63-5f84-4f1e-a960-43150f4ec634",
+                                "content": "prefer întâlnirile online via Google Meet, nu Zoom",
+                                "memory_type": "fact",
+                                "tier": "recent",
+                                "status": "active",
+                                "category": "general",
+                                "similarity": 0.3402856500417317,
+                                "created_at": "2026-04-25T19:27:48.932Z"
+                              },
+                              {
+                                "memory_id": "81b13edd-99f3-4b04-9d35-f579d3164b8a",
+                                "content": "fapta veche cu cea noua (msdg valid)",
+                                "memory_type": "fact",
+                                "tier": "recent",
+                                "status": "active",
+                                "category": "general",
+                                "similarity": 0.28569670437725425,
+                                "created_at": "2026-04-26T02:33:20.028Z"
+                              },
+                              {
+                                "memory_id": "c22d1c1c-1253-4ebe-b3f0-bf8370d80d2f",
+                                "content": "prefer comunicarea prin email pentru clienții importanți",
+                                "memory_type": "fact",
+                                "tier": "recent",
+                                "status": "active",
+                                "category": "general",
+                                "similarity": 0.2779709880713477,
+                                "created_at": "2026-04-25T18:54:20.904Z"
+                              },
+                              {
+                                "memory_id": "4b459e04-7d43-470c-a140-806e4721f39e",
+                                "content": "prefer întâlnirile de dimineață, ideal la ora 9",
+                                "memory_type": "fact",
+                                "tier": "recent",
+                                "status": "active",
+                                "category": "general",
+                                "similarity": 0.27302942903246963,
+                                "created_at": "2026-04-25T14:37:00.497Z"
+                              },
+                              {
+                                "memory_id": "86697b90-58ed-4437-a95f-8761c941c4df",
+                                "content": "adresa noastră de billing este billing@ucenicul.test",
+                                "memory_type": "fact",
+                                "tier": "recent",
+                                "status": "active",
+                                "category": "general",
+                                "similarity": 0.2553200144986395,
+                                "created_at": "2026-04-25T19:38:32.084Z"
+                              },
+                              {
+                                "memory_id": "3b313ac0-93ec-4d7d-90d7-65572dd762dc",
+                                "content": "biroul meu preferat pentru clienți VIP este sala 3",
+                                "memory_type": "fact",
+                                "tier": "recent",
+                                "status": "active",
+                                "category": "general",
+                                "similarity": 0.24970382494557963,
+                                "created_at": "2026-04-25T19:28:32.754Z"
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "artifacts": [],
+                      "confidence": 1,
+                      "needs_followup": false,
+                      "followup_requests": []
+                    }
+                  ],
+                  "expected_step_ids": [
+                    "step_01_search_memory"
+                  ]
+                }
+              },
+              "error": null
+            }
+          ],
+          "ME_Return_Result": [
+            {
+              "executed": true,
+              "json": {
+                "status_kind": "success",
+                "result_type": "module_result",
+                "execution_context_id": "2744a19e-ae93-4e8f-acaa-bbd786892675",
+                "thread_id": "52118bd1-f964-4e5f-8740-3cbe70794ea3",
+                "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+                "allowed_next_stage": "WF-RA-01",
+                "module_result": {
+                  "module_name": "memory_module",
+                  "step_id": "step_01_search_memory",
+                  "result_type": "analysis",
+                  "status": "success",
+                  "summary": "Memory search completed.",
+                  "observations": [],
+                  "proposals": [],
+                  "actions_executed": [
+                    {
+                      "action": "search_memory",
+                      "details": {
+                        "query": "Ce știi despre Andrei?",
+                        "used_embedding": true,
+                        "embedding_attempted": true,
+                        "embedding_error": null,
+                        "semantic_match_count": 10,
+                        "lexical_match_count": 0,
+                        "recall_results": [
+                          {
+                            "memory_id": "09f39d52-65ff-48a2-b317-52bef63115d9",
+                            "content": "Ce știi despre Andrei",
+                            "memory_type": "fact",
+                            "tier": "recent",
+                            "status": "active",
+                            "category": "general",
+                            "similarity": 0.9631892004315818,
+                            "created_at": "2026-04-26T09:23:23.099Z"
+                          },
+                          {
+                            "memory_id": "1ad91651-e35e-4040-a50a-7affb4b6db87",
+                            "content": "Corectează: Andrei preferă seara, nu dimineața",
+                            "memory_type": "fact",
+                            "tier": "recent",
+                            "status": "active",
+                            "category": "general",
+                            "similarity": 0.5642146991032261,
+                            "created_at": "2026-04-26T09:28:23.874Z"
+                          },
+                          {
+                            "memory_id": "ad8d328e-205b-41c3-8879-e5c55537557e",
+                            "content": "Andrei preferă antrenamente dimineața",
+                            "memory_type": "fact",
+                            "tier": "recent",
+                            "status": "active",
+                            "category": "general",
+                            "similarity": 0.5563749293769674,
+                            "created_at": "2026-04-26T03:21:38.117Z"
+                          },
+                          {
+                            "memory_id": "4f3af17c-a997-456a-bdbf-8e5498bef84c",
+                            "content": "Andrei este partenerul nostru tehnic principal",
+                            "memory_type": "fact",
+                            "tier": "recent",
+                            "status": "active",
+                            "category": "general",
+                            "similarity": 0.5466964809387953,
+                            "created_at": "2026-04-25T19:28:06.178Z"
+                          },
+                          {
+                            "memory_id": "97fa8b63-5f84-4f1e-a960-43150f4ec634",
+                            "content": "prefer întâlnirile online via Google Meet, nu Zoom",
+                            "memory_type": "fact",
+                            "tier": "recent",
+                            "status": "active",
+                            "category": "general",
+                            "similarity": 0.3402856500417317,
+                            "created_at": "2026-04-25T19:27:48.932Z"
+                          },
+                          {
+                            "memory_id": "81b13edd-99f3-4b04-9d35-f579d3164b8a",
+                            "content": "fapta veche cu cea noua (msdg valid)",
+                            "memory_type": "fact",
+                            "tier": "recent",
+                            "status": "active",
+                            "category": "general",
+                            "similarity": 0.28569670437725425,
+                            "created_at": "2026-04-26T02:33:20.028Z"
+                          },
+                          {
+                            "memory_id": "c22d1c1c-1253-4ebe-b3f0-bf8370d80d2f",
+                            "content": "prefer comunicarea prin email pentru clienții importanți",
+                            "memory_type": "fact",
+                            "tier": "recent",
+                            "status": "active",
+                            "category": "general",
+                            "similarity": 0.2779709880713477,
+                            "created_at": "2026-04-25T18:54:20.904Z"
+                          },
+                          {
+                            "memory_id": "4b459e04-7d43-470c-a140-806e4721f39e",
+                            "content": "prefer întâlnirile de dimineață, ideal la ora 9",
+                            "memory_type": "fact",
+                            "tier": "recent",
+                            "status": "active",
+                            "category": "general",
+                            "similarity": 0.27302942903246963,
+                            "created_at": "2026-04-25T14:37:00.497Z"
+                          },
+                          {
+                            "memory_id": "86697b90-58ed-4437-a95f-8761c941c4df",
+                            "content": "adresa noastră de billing este billing@ucenicul.test",
+                            "memory_type": "fact",
+                            "tier": "recent",
+                            "status": "active",
+                            "category": "general",
+                            "similarity": 0.2553200144986395,
+                            "created_at": "2026-04-25T19:38:32.084Z"
+                          },
+                          {
+                            "memory_id": "3b313ac0-93ec-4d7d-90d7-65572dd762dc",
+                            "content": "biroul meu preferat pentru clienți VIP este sala 3",
+                            "memory_type": "fact",
+                            "tier": "recent",
+                            "status": "active",
+                            "category": "general",
+                            "similarity": 0.24970382494557963,
+                            "created_at": "2026-04-25T19:28:32.754Z"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "artifacts": [],
+                  "confidence": 1,
+                  "needs_followup": false,
+                  "followup_requests": []
+                },
+                "module_execution_started": true,
+                "domain_writes_performed": false,
+                "response_generation_allowed": false
+              },
+              "error": null
+            }
+          ]
+        }
+      },
+      "RA": {
+        "exec_id": "10217",
+        "status": "success",
+        "finished": true,
+        "started_at": "2026-04-26T09:29:36.338Z",
+        "last_node": "RA_Return_Result",
+        "last_node_json": {
+          "status_kind": "success",
+          "result_type": "aggregated_result",
+          "execution_context_id": "2744a19e-ae93-4e8f-acaa-bbd786892675",
+          "thread_id": "52118bd1-f964-4e5f-8740-3cbe70794ea3",
+          "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+          "aggregated_result": {
+            "status": "success",
+            "summary": "Aggregated 1 module result(s) with rollup status success.",
+            "module_results_count": 1,
+            "module_names": [
+              "memory_module"
+            ],
+            "per_status_counts": {
+              "success": 1,
+              "partial": 0,
+              "failed": 0,
+              "no_action": 0
+            },
+            "actions_executed": [
+              {
+                "action": "search_memory",
+                "details": {
+                  "query": "Ce știi despre Andrei?",
+                  "used_embedding": true,
+                  "embedding_attempted": true,
+                  "embedding_error": null,
+                  "semantic_match_count": 10,
+                  "lexical_match_count": 0,
+                  "recall_results": [
+                    {
+                      "memory_id": "09f39d52-65ff-48a2-b317-52bef63115d9",
+                      "content": "Ce știi despre Andrei",
+                      "memory_type": "fact",
+                      "tier": "recent",
+                      "status": "active",
+                      "category": "general",
+                      "similarity": 0.9631892004315818,
+                      "created_at": "2026-04-26T09:23:23.099Z"
+                    },
+                    {
+                      "memory_id": "1ad91651-e35e-4040-a50a-7affb4b6db87",
+                      "content": "Corectează: Andrei preferă seara, nu dimineața",
+                      "memory_type": "fact",
+                      "tier": "recent",
+                      "status": "active",
+                      "category": "general",
+                      "similarity": 0.5642146991032261,
+                      "created_at": "2026-04-26T09:28:23.874Z"
+                    },
+                    {
+                      "memory_id": "ad8d328e-205b-41c3-8879-e5c55537557e",
+                      "content": "Andrei preferă antrenamente dimineața",
+                      "memory_type": "fact",
+                      "tier": "recent",
+                      "status": "active",
+                      "category": "general",
+                      "similarity": 0.5563749293769674,
+                      "created_at": "2026-04-26T03:21:38.117Z"
+                    },
+                    {
+                      "memory_id": "4f3af17c-a997-456a-bdbf-8e5498bef84c",
+                      "content": "Andrei este partenerul nostru tehnic principal",
+                      "memory_type": "fact",
+                      "tier": "recent",
+                      "status": "active",
+                      "category": "general",
+                      "similarity": 0.5466964809387953,
+                      "created_at": "2026-04-25T19:28:06.178Z"
+                    },
+                    {
+                      "memory_id": "97fa8b63-5f84-4f1e-a960-43150f4ec634",
+                      "content": "prefer întâlnirile online via Google Meet, nu Zoom",
+                      "memory_type": "fact",
+                      "tier": "recent",
+                      "status": "active",
+                      "category": "general",
+                      "similarity": 0.3402856500417317,
+                      "created_at": "2026-04-25T19:27:48.932Z"
+                    },
+                    {
+                      "memory_id": "81b13edd-99f3-4b04-9d35-f579d3164b8a",
+                      "content": "fapta veche cu cea noua (msdg valid)",
+                      "memory_type": "fact",
+                      "tier": "recent",
+                      "status": "active",
+                      "category": "general",
+                      "similarity": 0.28569670437725425,
+                      "created_at": "2026-04-26T02:33:20.028Z"
+                    },
+                    {
+                      "memory_id": "c22d1c1c-1253-4ebe-b3f0-bf8370d80d2f",
+                      "content": "prefer comunicarea prin email pentru clienții importanți",
+                      "memory_type": "fact",
+                      "tier": "recent",
+                      "status": "active",
+                      "category": "general",
+                      "similarity": 0.2779709880713477,
+                      "created_at": "2026-04-25T18:54:20.904Z"
+                    },
+                    {
+                      "memory_id": "4b459e04-7d43-470c-a140-806e4721f39e",
+                      "content": "prefer întâlnirile de dimineață, ideal la ora 9",
+                      "memory_type": "fact",
+                      "tier": "recent",
+                      "status": "active",
+                      "category": "general",
+                      "similarity": 0.27302942903246963,
+                      "created_at": "2026-04-25T14:37:00.497Z"
+                    },
+                    {
+                      "memory_id": "86697b90-58ed-4437-a95f-8761c941c4df",
+                      "content": "adresa noastră de billing este billing@ucenicul.test",
+                      "memory_type": "fact",
+                      "tier": "recent",
+                      "status": "active",
+                      "category": "general",
+                      "similarity": 0.2553200144986395,
+                      "created_at": "2026-04-25T19:38:32.084Z"
+                    },
+                    {
+                      "memory_id": "3b313ac0-93ec-4d7d-90d7-65572dd762dc",
+                      "content": "biroul meu preferat pentru clienți VIP este sala 3",
+                      "memory_type": "fact",
+                      "tier": "recent",
+                      "status": "active",
+                      "category": "general",
+                      "similarity": 0.24970382494557963,
+                      "created_at": "2026-04-25T19:28:32.754Z"
+                    }
+                  ]
+                }
+              }
+            ],
+            "artifacts": [],
+            "observations": [],
+            "proposals": [],
+            "confidence": 1,
+            "needs_followup": false,
+            "followup_requests": [],
+            "expected_step_ids": [
+              "step_01_search_memory"
+            ],
+            "returned_step_ids": [
+              "step_01_search_memory"
+            ]
+          },
+          "state_update_allowed": true,
+          "response_generation_allowed": false,
+          "domain_writes_performed": false,
+          "allowed_next_stage": "WF-SU-01",
+          "idempotency_key": "aggregate:2744a19e-ae93-4e8f-acaa-bbd786892675"
+        },
+        "sub_calls": [],
+        "selected_nodes": {
+          "RA_Build_Downstream_Envelope": [
+            {
+              "executed": true,
+              "json": {
+                "status_kind": "success",
+                "result_type": "aggregated_result",
+                "execution_context_id": "2744a19e-ae93-4e8f-acaa-bbd786892675",
+                "thread_id": "52118bd1-f964-4e5f-8740-3cbe70794ea3",
+                "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+                "aggregated_result": {
+                  "status": "success",
+                  "summary": "Aggregated 1 module result(s) with rollup status success.",
+                  "module_results_count": 1,
+                  "module_names": [
+                    "memory_module"
+                  ],
+                  "per_status_counts": {
+                    "success": 1,
+                    "partial": 0,
+                    "failed": 0,
+                    "no_action": 0
+                  },
+                  "actions_executed": [
+                    {
+                      "action": "search_memory",
+                      "details": {
+                        "query": "Ce știi despre Andrei?",
+                        "used_embedding": true,
+                        "embedding_attempted": true,
+                        "embedding_error": null,
+                        "semantic_match_count": 10,
+                        "lexical_match_count": 0,
+                        "recall_results": [
+                          {
+                            "memory_id": "09f39d52-65ff-48a2-b317-52bef63115d9",
+                            "content": "Ce știi despre Andrei",
+                            "memory_type": "fact",
+                            "tier": "recent",
+                            "status": "active",
+                            "category": "general",
+                            "similarity": 0.9631892004315818,
+                            "created_at": "2026-04-26T09:23:23.099Z"
+                          },
+                          {
+                            "memory_id": "1ad91651-e35e-4040-a50a-7affb4b6db87",
+                            "content": "Corectează: Andrei preferă seara, nu dimineața",
+                            "memory_type": "fact",
+                            "tier": "recent",
+                            "status": "active",
+                            "category": "general",
+                            "similarity": 0.5642146991032261,
+                            "created_at": "2026-04-26T09:28:23.874Z"
+                          },
+                          {
+                            "memory_id": "ad8d328e-205b-41c3-8879-e5c55537557e",
+                            "content": "Andrei preferă antrenamente dimineața",
+                            "memory_type": "fact",
+                            "tier": "recent",
+                            "status": "active",
+                            "category": "general",
+                            "similarity": 0.5563749293769674,
+                            "created_at": "2026-04-26T03:21:38.117Z"
+                          },
+                          {
+                            "memory_id": "4f3af17c-a997-456a-bdbf-8e5498bef84c",
+                            "content": "Andrei este partenerul nostru tehnic principal",
+                            "memory_type": "fact",
+                            "tier": "recent",
+                            "status": "active",
+                            "category": "general",
+                            "similarity": 0.5466964809387953,
+                            "created_at": "2026-04-25T19:28:06.178Z"
+                          },
+                          {
+                            "memory_id": "97fa8b63-5f84-4f1e-a960-43150f4ec634",
+                            "content": "prefer întâlnirile online via Google Meet, nu Zoom",
+                            "memory_type": "fact",
+                            "tier": "recent",
+                            "status": "active",
+                            "category": "general",
+                            "similarity": 0.3402856500417317,
+                            "created_at": "2026-04-25T19:27:48.932Z"
+                          },
+                          {
+                            "memory_id": "81b13edd-99f3-4b04-9d35-f579d3164b8a",
+                            "content": "fapta veche cu cea noua (msdg valid)",
+                            "memory_type": "fact",
+                            "tier": "recent",
+                            "status": "active",
+                            "category": "general",
+                            "similarity": 0.28569670437725425,
+                            "created_at": "2026-04-26T02:33:20.028Z"
+                          },
+                          {
+                            "memory_id": "c22d1c1c-1253-4ebe-b3f0-bf8370d80d2f",
+                            "content": "prefer comunicarea prin email pentru clienții importanți",
+                            "memory_type": "fact",
+                            "tier": "recent",
+                            "status": "active",
+                            "category": "general",
+                            "similarity": 0.2779709880713477,
+                            "created_at": "2026-04-25T18:54:20.904Z"
+                          },
+                          {
+                            "memory_id": "4b459e04-7d43-470c-a140-806e4721f39e",
+                            "content": "prefer întâlnirile de dimineață, ideal la ora 9",
+                            "memory_type": "fact",
+                            "tier": "recent",
+                            "status": "active",
+                            "category": "general",
+                            "similarity": 0.27302942903246963,
+                            "created_at": "2026-04-25T14:37:00.497Z"
+                          },
+                          {
+                            "memory_id": "86697b90-58ed-4437-a95f-8761c941c4df",
+                            "content": "adresa noastră de billing este billing@ucenicul.test",
+                            "memory_type": "fact",
+                            "tier": "recent",
+                            "status": "active",
+                            "category": "general",
+                            "similarity": 0.2553200144986395,
+                            "created_at": "2026-04-25T19:38:32.084Z"
+                          },
+                          {
+                            "memory_id": "3b313ac0-93ec-4d7d-90d7-65572dd762dc",
+                            "content": "biroul meu preferat pentru clienți VIP este sala 3",
+                            "memory_type": "fact",
+                            "tier": "recent",
+                            "status": "active",
+                            "category": "general",
+                            "similarity": 0.24970382494557963,
+                            "created_at": "2026-04-25T19:28:32.754Z"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "artifacts": [],
+                  "observations": [],
+                  "proposals": [],
+                  "confidence": 1,
+                  "needs_followup": false,
+                  "followup_requests": [],
+                  "expected_step_ids": [
+                    "step_01_search_memory"
+                  ],
+                  "returned_step_ids": [
+                    "step_01_search_memory"
+                  ]
+                },
+                "state_update_allowed": true,
+                "response_generation_allowed": false,
+                "domain_writes_performed": false,
+                "allowed_next_stage": "WF-SU-01",
+                "idempotency_key": "aggregate:2744a19e-ae93-4e8f-acaa-bbd786892675"
+              },
+              "error": null
+            }
+          ],
+          "RA_Dispatch_To_SU_01_SUBCALL": [
+            {
+              "executed": true,
+              "json": {
+                "_context_ready": false,
+                "status_kind": "error",
+                "result_type": "message_out_error",
+                "error": {
+                  "code": "MISSING_DELIVERY_TARGET",
+                  "message": "No delivery target could be resolved for outbound send.",
+                  "details": {
+                    "channel": "telegram"
+                  }
+                }
+              },
+              "error": null
+            }
+          ]
+        }
+      },
+      "SU": {
+        "exec_id": "10218",
+        "status": "success",
+        "finished": true,
+        "started_at": "2026-04-26T09:29:36.493Z",
+        "last_node": "SU_Dispatch_To_RC_01_SUBCALL",
+        "last_node_json": {
+          "_context_ready": false,
+          "status_kind": "error",
+          "result_type": "message_out_error",
+          "error": {
+            "code": "MISSING_DELIVERY_TARGET",
+            "message": "No delivery target could be resolved for outbound send.",
+            "details": {
+              "channel": "telegram"
+            }
+          }
+        },
+        "sub_calls": [],
+        "selected_nodes": {
+          "SU_Dispatch_To_RC_01_SUBCALL": [
+            {
+              "executed": true,
+              "json": {
+                "_context_ready": false,
+                "status_kind": "error",
+                "result_type": "message_out_error",
+                "error": {
+                  "code": "MISSING_DELIVERY_TARGET",
+                  "message": "No delivery target could be resolved for outbound send.",
+                  "details": {
+                    "channel": "telegram"
+                  }
+                }
+              },
+              "error": null
+            },
+            {
+              "executed": true,
+              "json": {
+                "_context_ready": false,
+                "status_kind": "error",
+                "result_type": "message_out_error",
+                "error": {
+                  "code": "MISSING_DELIVERY_TARGET",
+                  "message": "No delivery target could be resolved for outbound send.",
+                  "details": {
+                    "channel": "telegram"
+                  }
+                }
+              },
+              "error": null
+            },
+            {
+              "executed": true,
+              "json": {
+                "_context_ready": false,
+                "status_kind": "error",
+                "result_type": "message_out_error",
+                "error": {
+                  "code": "MISSING_DELIVERY_TARGET",
+                  "message": "No delivery target could be resolved for outbound send.",
+                  "details": {
+                    "channel": "telegram"
+                  }
+                }
+              },
+              "error": null
+            }
+          ]
+        }
+      },
+      "RC": {
+        "exec_id": "10219",
+        "status": "success",
+        "finished": true,
+        "started_at": "2026-04-26T09:29:36.725Z",
+        "last_node": "RC_Dispatch_To_MO_01_SUBCALL",
+        "last_node_json": {
+          "_context_ready": false,
+          "status_kind": "error",
+          "result_type": "message_out_error",
+          "error": {
+            "code": "MISSING_DELIVERY_TARGET",
+            "message": "No delivery target could be resolved for outbound send.",
+            "details": {
+              "channel": "telegram"
+            }
+          }
+        },
+        "sub_calls": [],
+        "selected_nodes": {
+          "RC_Build_Output_Envelope": [
+            {
+              "executed": true,
+              "json": {
+                "status_kind": "success",
+                "result_type": "composed_response",
+                "execution_context_id": "2744a19e-ae93-4e8f-acaa-bbd786892675",
+                "thread_id": "52118bd1-f964-4e5f-8740-3cbe70794ea3",
+                "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+                "composed_response": {
+                  "final_response_text": "Am pregătit răspunsul final, dar există și elemente rămase parțiale.\nWF-SU-01 finalized persistence for the aggregated_result envelope.\nAplicat: starea execuției, auditul intern.\nBlocat sau rămas neaplicat: firul de lucru, candidații de memorie.\nAtenționări: [object Object].",
+                  "response_status": "partial",
+                  "includes_followups": false,
+                  "includes_warnings": true,
+                  "followup_count": 0,
+                  "warning_count": 1,
+                  "channel": "telegram",
+                  "locale": "ro"
+                },
+                "output_gateway_allowed": true,
+                "allowed_next_stage": "MESSAGE_OUT",
+                "response_generation_allowed": true,
+                "idempotency_key": "compose:2744a19e-ae93-4e8f-acaa-bbd786892675:c267d4e19f2bcf60"
+              },
+              "error": null
+            }
+          ],
+          "RC_Dispatch_To_MO_01_SUBCALL": [
+            {
+              "executed": true,
+              "json": {
+                "_context_ready": false,
+                "status_kind": "error",
+                "result_type": "message_out_error",
+                "error": {
+                  "code": "MISSING_DELIVERY_TARGET",
+                  "message": "No delivery target could be resolved for outbound send.",
+                  "details": {
+                    "channel": "telegram"
+                  }
+                }
+              },
+              "error": null
+            }
+          ]
+        }
+      },
+      "MO": {
+        "exec_id": "10220",
+        "status": "success",
+        "finished": true,
+        "started_at": "2026-04-26T09:29:36.897Z",
+        "last_node": "MO_Return_Context_Error",
+        "last_node_json": {
+          "_context_ready": false,
+          "status_kind": "error",
+          "result_type": "message_out_error",
+          "error": {
+            "code": "MISSING_DELIVERY_TARGET",
+            "message": "No delivery target could be resolved for outbound send.",
+            "details": {
+              "channel": "telegram"
+            }
+          }
+        },
+        "sub_calls": [],
+        "selected_nodes": {}
+      }
+    }
+  }
+}

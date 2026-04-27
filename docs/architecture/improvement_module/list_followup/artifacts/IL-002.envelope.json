@@ -1,0 +1,19 @@
+{
+  "message_id": "88b80f79-84e0-4dfa-8610-eb434674f385",
+  "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+  "channel": "e2e-rich-matrix",
+  "direction": "inbound",
+  "author_type": "user",
+  "normalized_content": "Show all suggestions.",
+  "timestamp": "2026-04-27T08:23:36.626Z",
+  "source_message_ref": "e2e:IL-002:e2e:il-2026-04-27:IL-002",
+  "author_entity_id": null,
+  "related_entity_ids": [],
+  "metadata": {
+    "e2e_case_id": "IL-002",
+    "e2e_run_tag": "il-2026-04-27",
+    "e2e_intent_test": "list_improvements"
+  },
+  "idempotency_key": "e2e:il-2026-04-27:IL-002",
+  "thread_id": "e2f4da87-9910-4c8b-8956-fd52a67da968"
+}

@@ -1,0 +1,24 @@
+{
+  "executionId": "1381",
+  "workflowId": "uq26nh1grIpnHju0",
+  "action": "recall_memory",
+  "step_id": "mem-smoke-v2f1:s3",
+  "timestamp_started": "2026-04-20T21:50:52.839Z",
+  "timestamp_stopped": "2026-04-20T21:50:55.471Z",
+  "memory_path_verdict": "pass",
+  "module_result": {
+    "status_kind": "success",
+    "module_name": "memory_module",
+    "status": "success",
+    "summary": "Memory recall completed (1 rows).",
+    "confidence": 1
+  },
+  "recall_results_count": 1,
+  "recall_result_memory_id": "a0909481-a0a8-4682-8689-fbe50a6fa919",
+  "downstream_aggregation": {
+    "status": "success",
+    "rollup_status": "success",
+    "returned_step_ids": ["mem-smoke-v2f1:s3"]
+  },
+  "note": "Recall returns the S1 insert — walker-equivalent behaviour."
+}

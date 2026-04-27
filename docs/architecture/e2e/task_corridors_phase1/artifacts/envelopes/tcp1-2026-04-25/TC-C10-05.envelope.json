@@ -1,0 +1,20 @@
+{
+  "message_id": "60d8f37a-b1d9-4f60-8062-034fd03bc8bd",
+  "tenant_id": "eee0e2e0-0000-0000-0000-00000000000a",
+  "channel": "tcp1-task-corridors",
+  "direction": "inbound",
+  "author_type": "user",
+  "normalized_content": "Setează un task pentru clientul tenant-A: oferta tenant-A.",
+  "timestamp": "2026-04-25T13:18:25.281Z",
+  "source_message_ref": "tcp1:TC-C10-05:tmr:tcp1-2026-04-25:TC-C10-05",
+  "author_entity_id": null,
+  "related_entity_ids": [],
+  "metadata": {
+    "tcp1_case_id": "TC-C10-05",
+    "tcp1_run_tag": "tcp1-2026-04-25",
+    "tcp1_priority": "P0"
+  },
+  "idempotency_key": "tmr:tcp1-2026-04-25:TC-C10-05",
+  "thread_id": "cacf4ebe-eb26-47c4-8a33-c4ae62adf356",
+  "reply_to_thread_id": null
+}

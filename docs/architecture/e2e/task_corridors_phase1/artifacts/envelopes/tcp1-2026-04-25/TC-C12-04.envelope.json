@@ -1,0 +1,20 @@
+{
+  "message_id": "cfdaff1d-7570-41ae-8ba3-6643e9d16c48",
+  "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+  "channel": "tcp1-task-corridors",
+  "direction": "inbound",
+  "author_type": "user",
+  "normalized_content": "Listează-mi toate taskurile pe care le am, te rog. Vreau să văd în ce stadiu sunt.",
+  "timestamp": "2026-04-25T13:18:25.281Z",
+  "source_message_ref": "tcp1:TC-C12-04:tmr:tcp1-2026-04-25:TC-C12-04",
+  "author_entity_id": null,
+  "related_entity_ids": [],
+  "metadata": {
+    "tcp1_case_id": "TC-C12-04",
+    "tcp1_run_tag": "tcp1-2026-04-25",
+    "tcp1_priority": "P1"
+  },
+  "idempotency_key": "tmr:tcp1-2026-04-25:TC-C12-04",
+  "thread_id": "c4711604-2ed2-4821-89ae-6e3998002add",
+  "reply_to_thread_id": null
+}

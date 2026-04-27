@@ -1,0 +1,52 @@
+{
+  "workflow_code": "WF-OR-01",
+  "workflow_name": "WF-OR-01 Orchestrator",
+  "tier": "standard",
+  "status": "populated",
+  "posture": "pre_live_ready",
+  "score": null,
+  "closed": false,
+  "advance_allowed": false,
+  "phase": "discover",
+  "closed_at": null,
+  "last_sync": null,
+  "last_verified": "2026-04-19",
+  "live_runs": 0,
+  "owner": "TBD",
+  "canonical": {
+    "implementation": "workflow/WF-OR-01_Orchestrator_Input_Handoff.json",
+    "contracts": null,
+    "status": "state/STATE__WF-OR-01.json"
+  },
+  "evidence_on_disk": {
+    "implementation_present": true,
+    "duplicate_full_blueprint_present": true,
+    "duplicate_full_blueprint_path": "workflow/WF-OR-01_blueprint.json",
+    "contracts_present": false,
+    "sql_present": true,
+    "scripts_present": true,
+    "tests_present": true,
+    "test_results_present": true,
+    "audit_report_present": false,
+    "closure_report_present": false,
+    "fix_log_present": false,
+    "reports_folder_present": false
+  },
+  "missing": [
+    "docs/WF-OR-01_CONTRACTS.md",
+    "docs/WF-OR-01_TEST_MATRIX.md",
+    "reports/ (subtree — AUDIT, BUILD, CLOSURE, FIX_LOG, POST_IMPORT_AUDIT reports absent)",
+    "reports/CLOSURE_REPORT_WF-OR-01.md",
+    "reports/FIX_LOG_WF-OR-01.md",
+    "reports/LIVE_EXECUTIONS__WF-OR-01.md"
+  ],
+  "foreign": [
+    "docs/desktop.ini"
+  ],
+  "duplicate_canonical_bugs": [
+    {"path": "workflow/WF-OR-01_blueprint.json", "kind": "stale_full_duplicate_of_canonical_implementation", "remediation": "future pass should either regenerate a slim blueprint or move this file under workflow/patches/<date>_pre_slim_blueprint.json"}
+  ],
+  "notes": "STATE authored during autonomous run run_2026-04-19_autonomous because no state/ subtree existed. Contracts, reports/, and test-matrix all gaps. Duplicate-full blueprint.json recorded as canonicality bug (standard §5.3) but not slimmed in this pass — delete/slim is a larger refactor out of minimum-touch scope.",
+  "last_updated": "2026-04-19",
+  "run_id": "run_2026-04-19_autonomous"
+}

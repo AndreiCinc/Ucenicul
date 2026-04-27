@@ -1,0 +1,20 @@
+{
+  "message_id": "d82550dd-d051-4106-8a4b-d804e72fa0e3",
+  "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+  "channel": "tcp1-task-corridors",
+  "direction": "inbound",
+  "author_type": "user",
+  "normalized_content": "Creează task: pregătește slide-urile pentru întâlnire mâine.",
+  "timestamp": "2026-04-25T13:18:25.281Z",
+  "source_message_ref": "tcp1:TC-C6-03:tmr:tcp1-2026-04-25:TC-C6-03",
+  "author_entity_id": null,
+  "related_entity_ids": [],
+  "metadata": {
+    "tcp1_case_id": "TC-C6-03",
+    "tcp1_run_tag": "tcp1-2026-04-25",
+    "tcp1_priority": "P1"
+  },
+  "idempotency_key": "tmr:tcp1-2026-04-25:TC-C6-03",
+  "thread_id": "832d6c15-ff7b-4efd-87ce-46c76c37d28b",
+  "reply_to_thread_id": null
+}

@@ -1,0 +1,23 @@
+{
+  "message_id": "9f6ca3c9-be9b-4426-8acc-d957423f4577",
+  "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+  "channel": "e2e-rich-matrix",
+  "direction": "inbound",
+  "author_type": "user",
+  "normalized_content": "Mută programarea aceea, dar nu mai știu exact care era.",
+  "timestamp": "2026-04-26T02:50:47.979Z",
+  "source_message_ref": "e2e:C7-L3-V3:e2e:f240-2026-04-26:C7-L3-V3",
+  "author_entity_id": null,
+  "related_entity_ids": [],
+  "metadata": {
+    "e2e_case_id": "C7-L3-V3",
+    "e2e_corridor": "C7",
+    "e2e_variant": "negative_or_boundary",
+    "e2e_phase": "P3_HARD_CASES",
+    "e2e_priority": "P2",
+    "e2e_locale": "ro",
+    "e2e_run_tag": "f240-2026-04-26"
+  },
+  "idempotency_key": "e2e:f240-2026-04-26:C7-L3-V3",
+  "thread_id": "f8d88abd-595f-4d8a-8421-3bc00d5b7c63"
+}

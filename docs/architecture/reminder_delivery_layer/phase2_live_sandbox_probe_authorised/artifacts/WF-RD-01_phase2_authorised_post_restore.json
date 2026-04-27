@@ -1,0 +1,463 @@
+{
+  "updatedAt": "2026-04-27T09:54:14.128Z",
+  "createdAt": "2026-04-27T09:51:32.720Z",
+  "id": "nc7rTC3hjO9QqbXs",
+  "name": "WF-RD-01_Reminder_Delivery_Scheduler",
+  "description": null,
+  "active": false,
+  "isArchived": false,
+  "nodes": [
+    {
+      "id": "rd-trig-manual-0001-aaaa-aaaaaaaaaaaa",
+      "name": "RD_Manual_Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        240,
+        300
+      ],
+      "parameters": {}
+    },
+    {
+      "id": "rd-trig-schedule-0002-aaaa-aaaaaaaaaaaa",
+      "name": "RD_Schedule_Trigger",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        240,
+        460
+      ],
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "minutes",
+              "minutesInterval": 5
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "rd-mode-0003-aaaa-aaaaaaaaaaaa",
+      "name": "RD_Set_Mode",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        480,
+        380
+      ],
+      "parameters": {
+        "jsCode": "// RD_Set_Mode v1.0\n// Resolves the mode for this run.\n// Inputs accepted from the trigger payload (manual or schedule):\n//   { mode: 'dry_run_no_write' | 'dry_run_audit' | 'live', live_allowed: boolean }\n// Defaults: mode='dry_run_audit', live_allowed=false.\nconst inItems = $input.all();\nconst inJson = inItems.length && inItems[0].json ? inItems[0].json : {};\nconst requested = String(inJson.mode || 'dry_run_audit').toLowerCase();\nconst VALID = new Set(['dry_run_no_write','dry_run_audit','live']);\nconst mode = VALID.has(requested) ? requested : 'dry_run_audit';\nconst live_allowed = mode === 'live' && inJson.live_allowed === true;\nconst effective_mode = live_allowed ? 'live' : (mode === 'live' ? 'dry_run_audit' : mode);\nreturn [{ json: {\n  mode: effective_mode,\n  requested_mode: requested,\n  live_allowed,\n  dry_run: effective_mode !== 'live',\n  run_started_at: new Date().toISOString(),\n  candidate_limit: Math.min(Math.max(parseInt(inJson.candidate_limit, 10) || 50, 1), 200),\n}}];\n"
+      }
+    },
+    {
+      "id": "rd-load-0004-aaaa-aaaaaaaaaaaa",
+      "name": "RD_Load_Candidates",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.4,
+      "position": [
+        720,
+        380
+      ],
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT\n  t.id           AS task_id,\n  t.tenant_id    AS tenant_id,\n  t.title        AS title,\n  t.description  AS description,\n  t.due_at::text AS due_at,\n  to_char(date_trunc('minute', t.due_at AT TIME ZONE 'UTC'), 'YYYY-MM-DD\"T\"HH24:MI:00\"Z\"') AS due_occurrence_iso,\n  (te.metadata->>'telegram_chat_id') AS delivery_target,\n  'telegram'::text AS channel,\n  te.timezone   AS tenant_timezone,\n  (NOW() - t.due_at > INTERVAL '24 hours') AS is_backlog,\n  COALESCE(t.metadata->'reminder_delivery'->>'force_send', 'false') AS force_send\nFROM public.tasks t\nJOIN public.tenants te ON te.id = t.tenant_id AND te.is_active = true\nLEFT JOIN public.task_reminder_deliveries d\n  ON d.tenant_id = t.tenant_id\n AND d.task_id   = t.id\n AND d.due_occurrence_iso = to_char(date_trunc('minute', t.due_at AT TIME ZONE 'UTC'), 'YYYY-MM-DD\"T\"HH24:MI:00\"Z\"')\nWHERE t.status   = 'open'\n  AND t.due_at IS NOT NULL\n  AND t.due_at <= NOW()\n  AND COALESCE(t.metadata->'reminder_delivery'->>'status', 'pending') <> 'sent'\n  AND COALESCE(d.delivery_status, 'pending') NOT IN ('sent','failed_terminal','skipped_missing_target','skipped_backlog')\nORDER BY t.due_at ASC\nLIMIT $1::int;",
+        "options": {
+          "queryReplacement": "={{ [$json.candidate_limit] }}"
+        }
+      },
+      "credentials": {
+        "postgres": {
+          "id": "z9nKgToNWvIW7P8f",
+          "name": "Postgres account 2"
+        }
+      }
+    },
+    {
+      "id": "rd-class-0005-aaaa-aaaaaaaaaaaa",
+      "name": "RD_Classify_And_Build",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        960,
+        380
+      ],
+      "parameters": {
+        "jsCode": "// RD_Classify_And_Build v1.0\n// Per-candidate row coming from RD_Load_Candidates. Builds:\n//   __db      — params for the upsert + body for the Telegram-build step (live only)\n//   outcome   — one of {missing_target, backlog, dry_run, live}\n// All channel/target reads come from the already-joined columns.\nconst crypto = require('crypto');\nconst mode = ($('RD_Set_Mode').first().json || {}).mode || 'dry_run_audit';\nconst live_allowed = !!($('RD_Set_Mode').first().json || {}).live_allowed;\nconst row = $json;\n\nconst tenant_id = String(row.tenant_id);\nconst task_id   = String(row.task_id);\nconst due_iso_minute = String(row.due_occurrence_iso); // computed in SQL via to_char\nconst delivery_key = 'rd:' + tenant_id + ':' + task_id + ':' + due_iso_minute;\nconst idem_hash = crypto.createHash('sha256').update(delivery_key).digest('hex').slice(0, 24);\nconst idempotency_key = 'rd:' + idem_hash;\nconst target = (row.delivery_target == null || String(row.delivery_target).trim() === '') ? null : String(row.delivery_target);\nconst target_status = target ? 'present' : 'missing';\nconst channel = row.channel || 'telegram';\nconst force_send = String(row.force_send || 'false').toLowerCase() === 'true';\nconst is_backlog = !!row.is_backlog;\n\n// Decide outcome\nlet outcome;\nif (target_status === 'missing') outcome = 'missing_target';\nelse if (is_backlog && !force_send) outcome = 'skipped_backlog';\nelse if (mode === 'dry_run_audit') outcome = 'dry_run';\nelse if (mode === 'dry_run_no_write') outcome = 'dry_run_no_write';\nelse if (mode === 'live' && live_allowed) outcome = 'live';\nelse outcome = 'dry_run'; // safety fallback\n\n// Map outcome → final delivery_status for the upsert (live writes 'pending'; rest writes final).\nconst status_for_upsert =\n    outcome === 'missing_target' ? 'skipped_missing_target'\n  : outcome === 'skipped_backlog' ? 'skipped_backlog'\n  : outcome === 'dry_run' ? 'dry_run'\n  : outcome === 'dry_run_no_write' ? null  // skip upsert\n  : 'pending';\n\n// Romanian summary (no raw JSON). Times in UTC; Phase 1.x will localise per tenants.timezone.\nconst dueHuman = (function() {\n  try { return new Date(row.due_at).toISOString().replace('T',' ').slice(0,16) + ' UTC'; }\n  catch (e) { return String(row.due_at); }\n})();\nconst titleSafe = (row.title || '(no title)').toString().slice(0, 200);\nconst reminderText = 'Reminder: ' + titleSafe + ' — scadent: ' + dueHuman + '.';\n\n// runOnceForEachItem requires a single object return (no array wrap).\nreturn {\n  outcome,\n  mode,\n  live_allowed,\n  __db: {\n    tenant_id, task_id, due_occurrence_iso: due_iso_minute,\n    delivery_key, delivery_status: status_for_upsert,\n    channel, delivery_target: target, attempts: 1,\n    last_attempt_at: new Date().toISOString(),\n    idempotency_key,\n  },\n  reminder: { task_id, tenant_id, channel, delivery_target: target, response_text: reminderText },\n  classified_outcome: outcome,\n  target_status,\n  is_backlog,\n  force_send,\n};\n",
+        "mode": "runOnceForEachItem"
+      }
+    },
+    {
+      "id": "rd-upsert-0006-aaaa-aaaaaaaaaaaa",
+      "name": "RD_Upsert_Delivery_Row",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.4,
+      "position": [
+        1200,
+        380
+      ],
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "INSERT INTO public.task_reminder_deliveries\n  (tenant_id, task_id, due_occurrence_iso, delivery_key, delivery_status,\n   channel, delivery_target, attempts, last_attempt_at)\nVALUES\n  ($1::uuid, $2::uuid, $3::text, $4::text, $5::text,\n   $6::text, $7::text, $8::int, $9::timestamptz)\nON CONFLICT (tenant_id, task_id, due_occurrence_iso) DO UPDATE\n   SET delivery_status  = EXCLUDED.delivery_status,\n       delivery_target  = EXCLUDED.delivery_target,\n       attempts         = public.task_reminder_deliveries.attempts + 1,\n       last_attempt_at  = EXCLUDED.last_attempt_at,\n       updated_at       = now()\nRETURNING id, delivery_status, attempts;",
+        "options": {
+          "queryReplacement": "={{ $json && $json.__db && $json.__db.delivery_status ? [$json.__db.tenant_id, $json.__db.task_id, $json.__db.due_occurrence_iso, $json.__db.delivery_key, $json.__db.delivery_status, $json.__db.channel, $json.__db.delivery_target, $json.__db.attempts, $json.__db.last_attempt_at] : [null,null,null,null,null,null,null,0,null] }}"
+        }
+      },
+      "credentials": {
+        "postgres": {
+          "id": "z9nKgToNWvIW7P8f",
+          "name": "Postgres account 2"
+        }
+      }
+    },
+    {
+      "id": "rd-route-0007-aaaa-aaaaaaaaaaaa",
+      "name": "RD_Route_Outcome",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3,
+      "position": [
+        1440,
+        380
+      ],
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "outputKey": "missing_target",
+              "renameOutput": true,
+              "conditions": {
+                "options": {
+                  "version": 2,
+                  "leftValue": "",
+                  "caseSensitive": true,
+                  "typeValidation": "strict"
+                },
+                "combinator": "and",
+                "conditions": [
+                  {
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "leftValue": "={{ $('RD_Classify_And_Build').item.json.classified_outcome }}",
+                    "rightValue": "missing_target"
+                  }
+                ]
+              }
+            },
+            {
+              "outputKey": "skipped_backlog",
+              "renameOutput": true,
+              "conditions": {
+                "options": {
+                  "version": 2,
+                  "leftValue": "",
+                  "caseSensitive": true,
+                  "typeValidation": "strict"
+                },
+                "combinator": "and",
+                "conditions": [
+                  {
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "leftValue": "={{ $('RD_Classify_And_Build').item.json.classified_outcome }}",
+                    "rightValue": "skipped_backlog"
+                  }
+                ]
+              }
+            },
+            {
+              "outputKey": "dry_run",
+              "renameOutput": true,
+              "conditions": {
+                "options": {
+                  "version": 2,
+                  "leftValue": "",
+                  "caseSensitive": true,
+                  "typeValidation": "strict"
+                },
+                "combinator": "and",
+                "conditions": [
+                  {
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "leftValue": "={{ $('RD_Classify_And_Build').item.json.classified_outcome }}",
+                    "rightValue": "dry_run"
+                  }
+                ]
+              }
+            },
+            {
+              "outputKey": "live",
+              "renameOutput": true,
+              "conditions": {
+                "options": {
+                  "version": 2,
+                  "leftValue": "",
+                  "caseSensitive": true,
+                  "typeValidation": "strict"
+                },
+                "combinator": "and",
+                "conditions": [
+                  {
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "leftValue": "={{ $('RD_Classify_And_Build').item.json.classified_outcome }}",
+                    "rightValue": "live"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "options": {
+          "fallbackOutput": "extra"
+        }
+      }
+    },
+    {
+      "id": "rd-live-build-0008-aaaa-aaaaaaaaaaaa",
+      "name": "RD_Live_Build_Body",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1680,
+        220
+      ],
+      "parameters": {
+        "jsCode": "// RD_Live_Build_Body v1.0 — placeholder for the live-send path.\n// Builds the user-safe text. Phase 1 v1 does NOT actually send; the next node\n// is a NoOp standing in for n8n-nodes-base.telegram. A future phase will\n// replace the NoOp with the real Telegram node, gated on tenant onboarding.\nconst r = $json;\nreturn Object.assign({}, r, {\n  live_payload: {\n    chat_id: r.reminder.delivery_target,\n    text: r.reminder.response_text,\n  },\n  live_send_status: 'placeholder_no_send',\n});\n",
+        "mode": "runOnceForEachItem"
+      }
+    },
+    {
+      "id": "rd-live-send-0009-aaaa-aaaaaaaaaaaa",
+      "name": "RD_Live_Send_PLACEHOLDER",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        1920,
+        220
+      ],
+      "parameters": {}
+    },
+    {
+      "id": "rd-live-mark-0010-aaaa-aaaaaaaaaaaa",
+      "name": "RD_Live_Mark_Sent",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.4,
+      "position": [
+        2160,
+        220
+      ],
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "UPDATE public.task_reminder_deliveries\n   SET delivery_status     = $1::text,\n       sent_at             = $2::timestamptz,\n       provider_message_ref= $3::text,\n       last_error          = $4::text,\n       updated_at          = now()\n WHERE tenant_id = $5::uuid\n   AND task_id   = $6::uuid\n   AND due_occurrence_iso = $7::text\nRETURNING id, delivery_status, attempts, sent_at;",
+        "options": {
+          "queryReplacement": "={{ ['sent', new Date().toISOString(), $json.live_payload && $json.live_payload.provider_message_ref || null, null, $json.__db.tenant_id, $json.__db.task_id, $json.__db.due_occurrence_iso] }}"
+        }
+      },
+      "credentials": {
+        "postgres": {
+          "id": "z9nKgToNWvIW7P8f",
+          "name": "Postgres account 2"
+        }
+      }
+    },
+    {
+      "id": "rd-aggr-0011-aaaa-aaaaaaaaaaaa",
+      "name": "RD_Aggregate_Result",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2400,
+        380
+      ],
+      "parameters": {
+        "jsCode": "// RD_Aggregate_Result v1.0\nconst items = $input.all();\nconst counts = { candidates_seen: 0, sent: 0, failed: 0, dry_run: 0, dry_run_no_write: 0, skipped_missing_target: 0, skipped_backlog: 0, errors: 0 };\nconst per_outcome = [];\nfor (const it of items) {\n  const r = (it && it.json) || {};\n  counts.candidates_seen += 1;\n  const o = r.classified_outcome || r.outcome || 'unknown';\n  if (o === 'live') {\n    if (r.live_send_status === 'sent') counts.sent += 1;\n    else counts.failed += 1;\n  } else if (o === 'dry_run') counts.dry_run += 1;\n  else if (o === 'dry_run_no_write') counts.dry_run_no_write += 1;\n  else if (o === 'missing_target') counts.skipped_missing_target += 1;\n  else if (o === 'skipped_backlog') counts.skipped_backlog += 1;\n  else counts.errors += 1;\n  per_outcome.push({ task_id: r.__db && r.__db.task_id, outcome: o });\n}\nconst mode_envelope = ($('RD_Set_Mode').first() && $('RD_Set_Mode').first().json) || {};\nreturn [{ json: {\n  status_kind: 'success',\n  result_type: 'reminder_delivery_summary',\n  workflow_name: 'WF-RD-01_Reminder_Delivery_Scheduler',\n  run_started_at: mode_envelope.run_started_at,\n  mode: mode_envelope.mode,\n  live_allowed: mode_envelope.live_allowed,\n  counts,\n  per_outcome,\n}}];\n"
+      }
+    }
+  ],
+  "connections": {
+    "RD_Manual_Trigger": {
+      "main": [
+        [
+          {
+            "node": "RD_Set_Mode",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "RD_Schedule_Trigger": {
+      "main": [
+        [
+          {
+            "node": "RD_Set_Mode",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "RD_Set_Mode": {
+      "main": [
+        [
+          {
+            "node": "RD_Load_Candidates",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "RD_Load_Candidates": {
+      "main": [
+        [
+          {
+            "node": "RD_Classify_And_Build",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "RD_Classify_And_Build": {
+      "main": [
+        [
+          {
+            "node": "RD_Upsert_Delivery_Row",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "RD_Upsert_Delivery_Row": {
+      "main": [
+        [
+          {
+            "node": "RD_Route_Outcome",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "RD_Route_Outcome": {
+      "main": [
+        [
+          {
+            "node": "RD_Aggregate_Result",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "RD_Aggregate_Result",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "RD_Aggregate_Result",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "RD_Live_Build_Body",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "RD_Aggregate_Result",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "RD_Live_Build_Body": {
+      "main": [
+        [
+          {
+            "node": "RD_Live_Send_PLACEHOLDER",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "RD_Live_Send_PLACEHOLDER": {
+      "main": [
+        [
+          {
+            "node": "RD_Live_Mark_Sent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "RD_Live_Mark_Sent": {
+      "main": [
+        [
+          {
+            "node": "RD_Aggregate_Result",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "saveExecutionProgress": true,
+    "saveDataSuccessExecution": "all",
+    "saveDataErrorExecution": "all",
+    "callerPolicy": "workflowsFromSameOwner",
+    "availableInMCP": true
+  },
+  "staticData": null,
+  "meta": null,
+  "pinData": null,
+  "versionId": "894ad514-7ce7-4b35-90d4-6c5190f01408",
+  "activeVersionId": null,
+  "versionCounter": 5,
+  "triggerCount": 0,
+  "shared": [
+    {
+      "updatedAt": "2026-04-27T09:51:32.720Z",
+      "createdAt": "2026-04-27T09:51:32.720Z",
+      "role": "workflow:owner",
+      "workflowId": "nc7rTC3hjO9QqbXs",
+      "projectId": "WIRLhU6IcCuQzkzY",
+      "project": {
+        "updatedAt": "2026-03-27T16:42:52.879Z",
+        "createdAt": "2026-03-26T19:16:39.847Z",
+        "id": "WIRLhU6IcCuQzkzY",
+        "name": "Andrei Cinc <andrei.cinc9@gmail.com>",
+        "type": "personal",
+        "icon": null,
+        "description": null,
+        "creatorId": "68a414fd-cc03-4f02-87bc-9067f976e98a"
+      }
+    }
+  ],
+  "tags": [],
+  "activeVersion": null
+}

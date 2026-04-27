@@ -1,0 +1,20 @@
+{
+  "message_id": "b0f90146-11fd-47ce-8c53-7e2828b20b3a",
+  "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+  "channel": "tcp1-task-corridors",
+  "direction": "inbound",
+  "author_type": "user",
+  "normalized_content": "Amintește-mi mâine la 9 să sun clientul.",
+  "timestamp": "2026-04-25T13:18:25.281Z",
+  "source_message_ref": "tcp1:TC-RL-01:tmr:tcp1-2026-04-25:TC-RL-01",
+  "author_entity_id": null,
+  "related_entity_ids": [],
+  "metadata": {
+    "tcp1_case_id": "TC-RL-01",
+    "tcp1_run_tag": "tcp1-2026-04-25",
+    "tcp1_priority": "P0"
+  },
+  "idempotency_key": "tmr:tcp1-2026-04-25:TC-RL-01",
+  "thread_id": "1b265c0e-0872-427f-8b20-6873ca077484",
+  "reply_to_thread_id": null
+}

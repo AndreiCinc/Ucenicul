@@ -1,0 +1,226 @@
+{
+  "mission": "FINAL-MEMORY-CERTIFICATION-SMOKE",
+  "ledger_id": "V2-039",
+  "tenant_id": "aaaaaaaa-0000-0000-0000-000000000001",
+  "thread_id": "77777777-0000-0000-0000-000000000007",
+  "entity_id": "eeeeeeee-0000-0000-0000-000000000001",
+  "execution_context_id": "d4f82a41-01cd-4fb7-9d70-573557348e74",
+  "workflow_id": "uq26nh1grIpnHju0",
+  "target_version_id": "9d1da628-f9fd-44dc-8f62-fda571a7bc23",
+  "idem_prefix": "fincert",
+  "expected_node_count": 49,
+  "expected_connection_count": 67,
+  "notes": "Natural-cardinality runtime matrix. Prior closures V2-014 (single-field SQL), V2-OBS-RA (50/50 local + 50/50 E2E), F6A (41+28=69), F6A-FOLLOWUP (31+6+8=45), V2-031 (150/150), V2-032 (150/150), V2-033 (166), V2-034 (164), V2-037 (50/50 unit + 5 live = 55) supplied ~800 historical live/unit checks against the exact lanes. Mission C is a post-V2-037 end-to-end regression confirming every lane still works with the recall-summary patch in place. The 30 cases below cover all 5 canonical actions + cross-lane/envelope semantics + every known accept/deny route + embedding presence invariants + idempotency; deeper per-case variants are regression-covered by the prior 800+ and are not re-run here.",
+  "cases": [
+    {
+      "case_id": "S-01",
+      "group": "store",
+      "action": "store_memory",
+      "inputs": { "memory_type": "fact", "category": "fincert_store", "content": "Claude certification smoke S-01 fact RO baseline.", "source_thread_id": "77777777-0000-0000-0000-000000000007", "entity_id": "eeeeeeee-0000-0000-0000-000000000001" },
+      "expected": { "status": "success", "domain_writes_performed": true, "persists_row": true }
+    },
+    {
+      "case_id": "S-02",
+      "group": "store",
+      "action": "store_memory",
+      "inputs": { "memory_type": "observation", "category": "fincert_store", "content": "Claude certification smoke S-02 EN user-confirmed observation.", "locale": "en", "source_thread_id": "77777777-0000-0000-0000-000000000007", "entity_id": "eeeeeeee-0000-0000-0000-000000000001", "user_confirmed": true, "tier": "long_term" },
+      "expected": { "status": "success", "domain_writes_performed": true, "persists_row": true, "persist_user_confirmed": true, "persist_tier": "long_term" }
+    },
+    {
+      "case_id": "S-03",
+      "group": "store",
+      "action": "store_memory",
+      "inputs": { "memory_type": "advice", "category": "fincert_store", "content": "Claude certification smoke S-03 advice with corroboration.", "source_thread_id": "77777777-0000-0000-0000-000000000007", "entity_id": "eeeeeeee-0000-0000-0000-000000000001", "corroboration_count": 3 },
+      "expected": { "status": "success", "domain_writes_performed": true, "persists_row": true, "persist_corroboration_count": 3 }
+    },
+    {
+      "case_id": "S-04",
+      "group": "store",
+      "action": "store_memory",
+      "inputs": { "memory_type": "fact", "category": "fincert_store", "content": "Claude certification smoke S-04 evidence validated fact.", "source_thread_id": "77777777-0000-0000-0000-000000000007", "entity_id": "eeeeeeee-0000-0000-0000-000000000001", "evidence_validated": true },
+      "expected": { "status": "success", "domain_writes_performed": true, "persists_row": true, "persist_evidence_validated": true }
+    },
+    {
+      "case_id": "S-05",
+      "group": "store",
+      "action": "store_memory",
+      "inputs": { "memory_type": "fact", "category": "fincert_store", "content": "Cred că memoria este greșită.", "locale": "ro", "source_thread_id": "77777777-0000-0000-0000-000000000007", "entity_id": "eeeeeeee-0000-0000-0000-000000000001" },
+      "expected": { "status": "error", "error_code": "SUBJECTIVE_JUDGMENT_FORBIDDEN", "domain_writes_performed": false, "persists_row": false, "note": "RO subjective guard (V2-019/V2-023 F5 invariant)" }
+    },
+    {
+      "case_id": "S-06",
+      "group": "store",
+      "action": "store_memory",
+      "inputs": { "memory_type": "fact", "category": "fincert_store", "content": "Claude certification smoke S-06 baseline for downstream promote probe.", "source_thread_id": "77777777-0000-0000-0000-000000000007", "entity_id": "eeeeeeee-0000-0000-0000-000000000001", "corroboration_count": 2 },
+      "expected": { "status": "success", "domain_writes_performed": true, "persists_row": true, "persist_corroboration_count": 2 }
+    },
+    {
+      "case_id": "SR-01",
+      "group": "search",
+      "action": "search_memory",
+      "inputs": { "query": "ivfflat index is partial on embedding IS NOT NULL", "limit": 5 },
+      "expected": { "status": "success", "domain_writes_performed": false, "used_embedding": true, "recall_result_count_min": 1 }
+    },
+    {
+      "case_id": "SR-02",
+      "group": "search",
+      "action": "search_memory",
+      "inputs": { "query": "zzz_nonsense_token_that_matches_nothing_zzz", "limit": 5 },
+      "expected": { "status": "success", "domain_writes_performed": false, "recall_result_count": 0 }
+    },
+    {
+      "case_id": "SR-03",
+      "group": "search",
+      "action": "search_memory",
+      "inputs": { "query": "smoke", "limit": 5 },
+      "expected": { "status": "success", "domain_writes_performed": false, "embedding_attempted": true }
+    },
+    {
+      "case_id": "SR-04",
+      "group": "search",
+      "action": "search_memory",
+      "inputs": { "query": "certification", "limit": 10 },
+      "expected": { "status": "success", "domain_writes_performed": false, "envelope_shape_ok": true }
+    },
+    {
+      "case_id": "SR-05",
+      "group": "search",
+      "action": "search_memory",
+      "inputs": { "query": "Claude certification smoke", "limit": 5 },
+      "expected": { "status": "success", "domain_writes_performed": false, "recall_result_count_min": 1 }
+    },
+    {
+      "case_id": "R-01",
+      "group": "recall",
+      "action": "recall_memory",
+      "inputs": { "category": "zzz_fincert_nomatch_zzz", "limit": 50 },
+      "expected": { "status": "success", "domain_writes_performed": false, "summary": "Memory recall completed (0 rows).", "recall_result_count": 0 }
+    },
+    {
+      "case_id": "R-02",
+      "group": "recall",
+      "action": "recall_memory",
+      "inputs": { "category": "db_infra", "limit": 50 },
+      "expected": { "status": "success", "domain_writes_performed": false, "summary": "Memory recall completed (1 row).", "recall_result_count": 1, "note": "V2-037 singular regression" }
+    },
+    {
+      "case_id": "R-03",
+      "group": "recall",
+      "action": "recall_memory",
+      "inputs": { "category": "mixed_flow", "limit": 50 },
+      "expected": { "status": "success", "domain_writes_performed": false, "summary_plural": true, "recall_result_count_min": 2 }
+    },
+    {
+      "case_id": "R-04",
+      "group": "recall",
+      "action": "recall_memory",
+      "inputs": { "category": "observation", "limit": 50 },
+      "expected": { "status": "success", "domain_writes_performed": false, "summary_plural": true, "recall_result_count": 5 }
+    },
+    {
+      "case_id": "R-05",
+      "group": "recall",
+      "action": "recall_memory",
+      "inputs": { "source_thread_id": "77777777-0000-0000-0000-000000000007", "category": "fincert_store", "memory_type": "fact", "limit": 50 },
+      "expected": { "status": "success", "domain_writes_performed": false, "recall_result_count_min": 1 }
+    },
+    {
+      "case_id": "R-06",
+      "group": "recall",
+      "action": "recall_memory",
+      "inputs": { "limit": 50 },
+      "expected": { "status": "success", "domain_writes_performed": false }
+    },
+    {
+      "case_id": "P-01",
+      "group": "promote",
+      "action": "promote_memory",
+      "inputs": { "memory_id_ref": "S-06", "user_confirmed": true },
+      "expected": { "status": "success", "domain_writes_performed": true, "denial_reason": "accepted", "acceptance_signals_contains": "user_confirmed" }
+    },
+    {
+      "case_id": "P-02",
+      "group": "promote",
+      "action": "promote_memory",
+      "inputs": { "memory_id_ref": "S-04", "evidence_validated": true },
+      "expected": { "status": "success", "domain_writes_performed": true, "denial_reason": "accepted", "acceptance_signals_contains": "evidence_validated", "note": "V2-034 precedent — caller flag ev=true" }
+    },
+    {
+      "case_id": "P-03",
+      "group": "promote",
+      "action": "promote_memory",
+      "inputs": { "memory_id_ref": "S-03", "user_confirmed": false, "evidence_validated": false },
+      "expected": { "status": "success", "domain_writes_performed": true, "denial_reason": "accepted", "acceptance_signals_contains": "corroboration", "note": "cc=3 row-persisted route (V2-032 precedent)" }
+    },
+    {
+      "case_id": "P-04",
+      "group": "promote",
+      "action": "promote_memory",
+      "inputs": { "memory_id_ref": "S-01", "user_confirmed": false, "evidence_validated": false },
+      "expected": { "status": "success", "domain_writes_performed": false, "denial_reason": "acceptance_criteria_not_met", "note": "cc=1, all flags false, not promotable" }
+    },
+    {
+      "case_id": "P-05",
+      "group": "promote",
+      "action": "promote_memory",
+      "inputs": { "memory_id_ref": "S-02", "user_confirmed": true },
+      "expected": { "status": "success", "domain_writes_performed": false, "denial_reason": "not_in_recent_tier", "note": "S-02 was stored with tier=long_term so it's not in recent — deny wrong-tier" }
+    },
+    {
+      "case_id": "P-06",
+      "group": "promote",
+      "action": "promote_memory",
+      "inputs": { "memory_id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee", "user_confirmed": true },
+      "expected": { "status": "error", "error_code": "INVALID_PROMOTION_TARGET", "domain_writes_performed": false }
+    },
+    {
+      "case_id": "SU-01",
+      "group": "supersede",
+      "action": "supersede_memory",
+      "inputs": { "memory_id_ref": "S-01", "replacement": { "memory_type": "fact", "category": "fincert_supersede", "content": "Claude certification smoke SU-01 replacement row.", "tier": "recent" } },
+      "expected": { "status": "success", "domain_writes_performed": true, "persists_replacement_row": true, "backlinks_old": true }
+    },
+    {
+      "case_id": "SU-02",
+      "group": "supersede",
+      "action": "supersede_memory",
+      "inputs": { "memory_id_ref": "S-01", "replacement": { "memory_type": "fact", "category": "fincert_supersede", "content": "Claude certification smoke SU-01 replacement row.", "tier": "recent" }, "replay": true },
+      "expected": { "status": "success", "domain_writes_performed": true, "idempotent_replay": true }
+    },
+    {
+      "case_id": "SU-03",
+      "group": "supersede",
+      "action": "supersede_memory",
+      "inputs": { "memory_id": "ffffffff-0000-0000-0000-000000000000", "source_thread_id": "77777777-0000-0000-0000-000000000007", "content": "SU-03 invalid target payload", "category": "fincert_supersede", "memory_type": "fact", "tier": "recent" },
+      "expected": { "status": "error", "error_code": "SUPERSEDE_TARGET_INVALID", "domain_writes_performed": false }
+    },
+    {
+      "case_id": "SU-04",
+      "group": "supersede",
+      "action": "supersede_memory",
+      "inputs": { "memory_id_ref": "S-06", "replacement": { "memory_type": "fact", "category": "fincert_supersede", "content": "Cred că aceasta înlocuire este subiectivă.", "tier": "recent" } },
+      "expected": { "status": "error", "error_code": "SUBJECTIVE_JUDGMENT_FORBIDDEN", "domain_writes_performed": false }
+    },
+    {
+      "case_id": "X-01",
+      "group": "cross",
+      "action": "recall_memory",
+      "inputs": { "category": "fincert_store", "limit": 5 },
+      "expected": { "status": "success", "domain_writes_performed": false, "module_result_shape_ok": true, "note": "envelope shape: status_kind, result_type, ec_id, thread_id, tenant_id, module_result{…}, module_execution_started, domain_writes_performed, response_generation_allowed all present" }
+    },
+    {
+      "case_id": "X-02",
+      "group": "cross",
+      "action": "store_memory",
+      "inputs": { "memory_type": "fact", "category": "fincert_cross_x02", "content": "X-02 envelope domain-writes-performed=true probe.", "source_thread_id": "77777777-0000-0000-0000-000000000007" },
+      "expected": { "status": "success", "domain_writes_performed": true, "aggregation_input_dwp_false": true, "note": "V2-OBS-RA invariant: ME_Build_RA_Envelope emits aggregation_input.domain_writes_performed=false unconditionally even when module_result reports true" }
+    },
+    {
+      "case_id": "X-03",
+      "group": "cross",
+      "action": "search_memory",
+      "inputs": { "query": "final certification", "limit": 3 },
+      "expected": { "status": "success", "domain_writes_performed": false, "module_execution_started": true, "response_generation_allowed": false, "allowed_next_stage": "WF-RA-01" }
+    }
+  ]
+}

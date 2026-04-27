@@ -1,0 +1,28 @@
+{
+  "auto_commit": true,
+  "auto_push": false,
+  "default_remote": "origin",
+  "default_branch": "main",
+  "allowed_auto_stage_roots": [
+    ".agent/missions",
+    ".agent/outbox",
+    ".agent/state",
+    "docs/architecture/agent_orchestration"
+  ],
+  "mission_glob": ".agent/missions/*/READY_TO_EXECUTE.json",
+  "done_glob": ".agent/missions/*/EXECUTOR_DONE.json",
+  "github": {
+    "enabled": false,
+    "owner": "",
+    "repo": "",
+    "token_env": "GITHUB_TOKEN",
+    "trigger_phrase": "@ucenicul-bridge execute",
+    "label": "ucenicul-agent",
+    "post_status_comments": false
+  },
+  "executor": {
+    "enabled": false,
+    "command": "",
+    "timeout_seconds": 0
+  }
+}

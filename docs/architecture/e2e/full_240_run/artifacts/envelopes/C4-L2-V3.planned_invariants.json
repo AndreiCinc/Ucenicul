@@ -1,0 +1,32 @@
+{
+  "case_id": "C4-L2-V3",
+  "invariants": [
+    {
+      "name": "assert_supersede_backlink",
+      "sql": "SELECT id, supersedes_memory_id, status FROM memory_items\n          WHERE tenant_id = $1 AND idempotency_key LIKE $2\n          ORDER BY created_at NULLS LAST LIMIT 5",
+      "params": [
+        "eee0e2e0-0000-0000-0000-000000000001",
+        "e2e:f240-2026-04-26:C4-L2-V3%"
+      ],
+      "unknown": false
+    },
+    {
+      "name": "assert_supersede_backlink",
+      "sql": "SELECT id, supersedes_memory_id, status FROM memory_items\n          WHERE tenant_id = $1 AND idempotency_key LIKE $2\n          ORDER BY created_at NULLS LAST LIMIT 5",
+      "params": [
+        "eee0e2e0-0000-0000-0000-000000000001",
+        "e2e:f240-2026-04-26:C4-L2-V3%"
+      ],
+      "unknown": false
+    },
+    {
+      "name": "assert_new_row_active",
+      "sql": "SELECT count(*)::int AS c FROM memory_items WHERE tenant_id = $1 AND idempotency_key LIKE $2 AND status = 'active'",
+      "params": [
+        "eee0e2e0-0000-0000-0000-000000000001",
+        "e2e:f240-2026-04-26:C4-L2-V3%"
+      ],
+      "unknown": false
+    }
+  ]
+}

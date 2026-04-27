@@ -1,0 +1,20 @@
+{
+  "message_id": "ea1dd1f6-c02d-40e8-86dc-dc02c7c53a83",
+  "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+  "channel": "rcp1-rich-matrix",
+  "direction": "inbound",
+  "author_type": "user",
+  "normalized_content": "Caută în memorie pentru orele standard de lucru.",
+  "timestamp": "2026-04-25T19:17:11.983Z",
+  "source_message_ref": "rcp1:RC-C3-02",
+  "author_entity_id": null,
+  "related_entity_ids": [],
+  "metadata": {
+    "rcp1_case_id": "RC-C3-02",
+    "rcp1_corridor": "C3",
+    "rcp1_run_tag": "rcp1-2026-04-25"
+  },
+  "idempotency_key": "rcp1:rcp1-2026-04-25:RC-C3-02",
+  "thread_id": "92e051c1-4d63-4d8a-8739-f715fb695504",
+  "reply_to_thread_id": null
+}

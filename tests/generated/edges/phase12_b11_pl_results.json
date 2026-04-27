@@ -1,0 +1,192 @@
+{
+  "ts": "2026-04-20T15:48:54.706Z",
+  "phase": "phase12",
+  "suite": "b11_pl_extraction",
+  "total": 4,
+  "passed": 4,
+  "results": [
+    {
+      "case": "b11-pl-create_task",
+      "tr_exec_id": "1186",
+      "pl_exec_id": "1189",
+      "pass": true,
+      "step_inputs": {
+        "action": "create_task",
+        "description": "creeaza un task nou pregateste contractul pentru proiect important a pana vineri"
+      },
+      "assertions": [
+        {
+          "name": "pl_generate_plan_ran",
+          "pass": true,
+          "got": "(ran)"
+        },
+        {
+          "name": "step_exists",
+          "pass": true,
+          "got": "(present)"
+        },
+        {
+          "name": "inputs_action_matches",
+          "pass": true,
+          "got": "create_task"
+        },
+        {
+          "name": "step_module_matches",
+          "pass": true,
+          "got": "task_module"
+        },
+        {
+          "name": "inputs.description_present",
+          "pass": true,
+          "got": "creeaza un task nou pregateste contractul pentru proiect important a pana vineri"
+        },
+        {
+          "name": "description_contains_user_content",
+          "pass": true,
+          "got": "creeaza un task nou pregateste contractul pentru proiect important a pana vineri"
+        }
+      ],
+      "failed": []
+    },
+    {
+      "case": "b11-pl-create_reminder",
+      "tr_exec_id": "1200",
+      "pl_exec_id": "1203",
+      "pass": true,
+      "step_inputs": {
+        "action": "create_reminder",
+        "description": "seteaza o reamintire pentru proiect important b la 09:00 maine",
+        "remind_at": "2026-04-21T09:00:00+00:00"
+      },
+      "assertions": [
+        {
+          "name": "pl_generate_plan_ran",
+          "pass": true,
+          "got": "(ran)"
+        },
+        {
+          "name": "step_exists",
+          "pass": true,
+          "got": "(present)"
+        },
+        {
+          "name": "inputs_action_matches",
+          "pass": true,
+          "got": "create_reminder"
+        },
+        {
+          "name": "step_module_matches",
+          "pass": true,
+          "got": "reminder_module"
+        },
+        {
+          "name": "inputs.description_present",
+          "pass": true,
+          "got": "seteaza o reamintire pentru proiect important b la 09:00 maine"
+        },
+        {
+          "name": "inputs.remind_at_present",
+          "pass": true,
+          "got": "2026-04-21T09:00:00+00:00"
+        },
+        {
+          "name": "description_contains_user_content",
+          "pass": true,
+          "got": "seteaza o reamintire pentru proiect important b la 09:00 maine"
+        },
+        {
+          "name": "remind_at_is_iso8601",
+          "pass": true,
+          "got": "2026-04-21T09:00:00+00:00"
+        }
+      ],
+      "failed": []
+    },
+    {
+      "case": "b11-pl-search_memory",
+      "tr_exec_id": "1214",
+      "pl_exec_id": "1217",
+      "pass": true,
+      "step_inputs": {
+        "action": "search_memory",
+        "memory_query": "contractul pentru proiect important a"
+      },
+      "assertions": [
+        {
+          "name": "pl_generate_plan_ran",
+          "pass": true,
+          "got": "(ran)"
+        },
+        {
+          "name": "step_exists",
+          "pass": true,
+          "got": "(present)"
+        },
+        {
+          "name": "inputs_action_matches",
+          "pass": true,
+          "got": "search_memory"
+        },
+        {
+          "name": "step_module_matches",
+          "pass": true,
+          "got": "memory_module"
+        },
+        {
+          "name": "inputs.memory_query_present",
+          "pass": true,
+          "got": "contractul pentru proiect important a"
+        },
+        {
+          "name": "memory_query_contains_user_content",
+          "pass": true,
+          "got": "contractul pentru proiect important a"
+        }
+      ],
+      "failed": []
+    },
+    {
+      "case": "b11-pl-capture_feedback",
+      "tr_exec_id": "1221",
+      "pl_exec_id": "1224",
+      "pass": true,
+      "step_inputs": {
+        "action": "capture_feedback",
+        "feedback_text": "ar fi util daca as putea seta reamintiri prin mesaj vocal"
+      },
+      "assertions": [
+        {
+          "name": "pl_generate_plan_ran",
+          "pass": true,
+          "got": "(ran)"
+        },
+        {
+          "name": "step_exists",
+          "pass": true,
+          "got": "(present)"
+        },
+        {
+          "name": "inputs_action_matches",
+          "pass": true,
+          "got": "capture_feedback"
+        },
+        {
+          "name": "step_module_matches",
+          "pass": true,
+          "got": "improvement_module"
+        },
+        {
+          "name": "inputs.feedback_text_present",
+          "pass": true,
+          "got": "ar fi util daca as putea seta reamintiri prin mesaj vocal"
+        },
+        {
+          "name": "feedback_text_contains_user_content",
+          "pass": true,
+          "got": "ar fi util daca as putea seta reamintiri prin mesaj vocal"
+        }
+      ],
+      "failed": []
+    }
+  ]
+}

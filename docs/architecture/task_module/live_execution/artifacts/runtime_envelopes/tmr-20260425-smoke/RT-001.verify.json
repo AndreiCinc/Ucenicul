@@ -1,0 +1,16 @@
+{
+  "case_id": "RT-001",
+  "group": "create_task",
+  "priority": "P0",
+  "user_input": "Creează task: sună-l pe Andrei.",
+  "expected": {
+    "tasks_delta": 1,
+    "status": "open",
+    "natural_confirmation": true
+  },
+  "expected_intent": "create_task",
+  "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+  "message_id": "cde4fa3f-8f4a-4be8-89ea-82815c250565",
+  "thread_id": "3f8f81b8-42ea-4184-8902-42c21143caba",
+  "idempotency_key": "tmr:tmr-20260425-smoke:RT-001"
+}

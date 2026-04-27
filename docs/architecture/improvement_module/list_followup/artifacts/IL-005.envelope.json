@@ -1,0 +1,19 @@
+{
+  "message_id": "0b5c9e95-e407-4192-8cc0-576184c8f17f",
+  "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+  "channel": "e2e-rich-matrix",
+  "direction": "inbound",
+  "author_type": "user",
+  "normalized_content": "Sugestie: adaugă filtre avansate.",
+  "timestamp": "2026-04-27T08:23:36.626Z",
+  "source_message_ref": "e2e:IL-005:e2e:il-2026-04-27:IL-005",
+  "author_entity_id": null,
+  "related_entity_ids": [],
+  "metadata": {
+    "e2e_case_id": "IL-005",
+    "e2e_run_tag": "il-2026-04-27",
+    "e2e_intent_test": "save_suggestion"
+  },
+  "idempotency_key": "e2e:il-2026-04-27:IL-005",
+  "thread_id": "1648ad9c-d407-4959-8cf5-68009cf146c7"
+}

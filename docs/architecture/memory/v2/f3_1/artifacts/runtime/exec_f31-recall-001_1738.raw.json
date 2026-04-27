@@ -1,0 +1,27 @@
+{
+  "case_id": "f31-recall-001",
+  "execution_id": "1738",
+  "execution_status": "success",
+  "execution_mcp_response": {"executionId": "1738", "status": "success"},
+  "response_envelope": {
+    "status": "success",
+    "applied_filters": ["entity_id", "source_thread_id"],
+    "recall_results": [{}]
+  },
+  "module_result_outer": {
+    "status_kind": "success",
+    "result_type": "module_result",
+    "module_name": "memory_module",
+    "step_id": "mem-f31-f31-recall-001",
+    "summary": "Memory recall completed (1 rows).",
+    "artifacts": [],
+    "domain_writes_performed": false,
+    "response_generation_allowed": false,
+    "notes": "Summary says '1 rows' but recall_results contains an empty object {} — this is the DB node's zero-match placeholder, not a real row. DB intersection (thread=77777777, entity=eeeeeeee-0001) returns 0 rows per direct SQL."
+  },
+  "db_pre": [{"pre_max": "2026-04-21T12:54:40.918Z"}],
+  "db_post": [{"post_max": "2026-04-21T12:54:40.918Z"}],
+  "error": null,
+  "captured_at": "2026-04-21T22:58:30Z",
+  "notes": "Zero-match probe under corrected entity_id. applied_filters echo correct. Envelope shape preserves the [{}] placeholder from ME_Memory_Recall_DB when zero DB rows match. Oracle treats this as PASS since applied_filters + status + ordering all correct; row_count not asserted for this case."
+}

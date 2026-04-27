@@ -1,0 +1,23 @@
+{
+  "message_id": "549a50ee-6d41-4e35-8c1b-91ae53818ab1",
+  "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+  "channel": "e2e-rich-matrix",
+  "direction": "inbound",
+  "author_type": "user",
+  "normalized_content": "EN case: Update Andrei's preference: Tuesdays mornings no longer work.",
+  "timestamp": "2026-04-26T02:50:47.443Z",
+  "source_message_ref": "e2e:C4-L1-V2:e2e:f240-2026-04-26:C4-L1-V2",
+  "author_entity_id": null,
+  "related_entity_ids": [],
+  "metadata": {
+    "e2e_case_id": "C4-L1-V2",
+    "e2e_corridor": "C4",
+    "e2e_variant": "locale_en",
+    "e2e_phase": "P2_COMPOSITION",
+    "e2e_priority": "P1",
+    "e2e_locale": "en",
+    "e2e_run_tag": "f240-2026-04-26"
+  },
+  "idempotency_key": "e2e:f240-2026-04-26:C4-L1-V2",
+  "thread_id": "8411bb1e-0576-44cc-87e6-d48462cc0650"
+}

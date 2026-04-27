@@ -1,0 +1,25 @@
+{
+  "case_id": "C8-L2-V1",
+  "invariants": [
+    {
+      "name": "assert_thread_id_reused",
+      "sql": "SELECT count(DISTINCT thread_id)::int AS c FROM execution_contexts\n          WHERE tenant_id = $1 AND thread_id = $2 AND created_at >= $3",
+      "params": [
+        "eee0e2e0-0000-0000-0000-000000000001",
+        "7987b25d-72a6-4ea3-8c1c-0285bebdd1de",
+        "2026-04-26T02:50:48.106Z"
+      ],
+      "unknown": false
+    },
+    {
+      "name": "assert_thread_id_reused",
+      "sql": "SELECT count(DISTINCT thread_id)::int AS c FROM execution_contexts\n          WHERE tenant_id = $1 AND thread_id = $2 AND created_at >= $3",
+      "params": [
+        "eee0e2e0-0000-0000-0000-000000000001",
+        "7987b25d-72a6-4ea3-8c1c-0285bebdd1de",
+        "2026-04-26T02:50:48.106Z"
+      ],
+      "unknown": false
+    }
+  ]
+}

@@ -1,0 +1,149 @@
+{
+  "name": "WF-PL-01",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "pl-trigger-001",
+      "name": "PL_Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [0, 300]
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForAllItems",
+        "jsCode": "// PL_Validate_Input — validates the OR-01 handoff envelope\n// Reference contract: 06_STAGE_WF-PL-01.md §Input contract\n//\n// Strategy: fail fast on missing top-level / intent / orchestrator_decision fields.\n// Output shape: { ...input, _valid: boolean, _validation_errors: [string] }\n\nconst CANONICAL_MODULES = new Set([\n  'task_module',\n  'reminder_module',\n  'memory_module',\n  'improvement_module',\n  'response_support_module'\n]);\n\nconst items = $input.all();\nconst out = [];\n\nfor (const it of items) {\n  const j = it.json || {};\n  const errors = [];\n\n  if (!j.execution_id) errors.push('missing execution_id');\n  if (!j.tenant_id) errors.push('missing tenant_id');\n  if (!j.thread_id) errors.push('missing thread_id');\n  if (!j.idempotency_key) errors.push('missing idempotency_key');\n\n  const intent = j.intent || {};\n  if (!Array.isArray(intent.required_modules) || intent.required_modules.length === 0) {\n    errors.push('intent.required_modules must be non-empty array');\n  } else {\n    for (const m of intent.required_modules) {\n      if (!CANONICAL_MODULES.has(m)) {\n        errors.push('intent.required_modules contains non-canonical module: ' + m);\n      }\n    }\n  }\n\n  const od = j.orchestrator_decision || {};\n  if (!Array.isArray(od.module_order) || od.module_order.length === 0) {\n    errors.push('orchestrator_decision.module_order must be non-empty array');\n  } else {\n    for (const m of od.module_order) {\n      if (!CANONICAL_MODULES.has(m)) {\n        errors.push('orchestrator_decision.module_order contains non-canonical module: ' + m);\n      }\n    }\n  }\n\n  out.push({\n    json: {\n      ...j,\n      _valid: errors.length === 0,\n      _validation_errors: errors,\n      _validation_stage: 'input'\n    }\n  });\n}\n\nreturn out;"
+      },
+      "id": "pl-validate-input-002",
+      "name": "PL_Validate_Input",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [240, 300]
+    },
+    {
+      "parameters": {
+        "rules": {
+          "rules": [
+            {
+              "value2": true,
+              "output": 0
+            },
+            {
+              "value2": false,
+              "output": 1
+            }
+          ]
+        },
+        "value1": "={{ $json._valid }}",
+        "dataType": "boolean"
+      },
+      "id": "pl-route-valid-003",
+      "name": "PL_Route_Valid",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 2,
+      "position": [480, 300]
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForAllItems",
+        "jsCode": "// PL_Build_Plan_Envelope — deterministic envelope construction\n// Reference: 06_STAGE_WF-PL-01.md §Output contract, §Recommended node layout step 4\n//\n// Strategy:\n//  - walk orchestrator_decision.module_order\n//  - assign stable step_id = `step_<module>_<ordinal>`\n//  - derive expected_side_effect.surface from MODULE_SURFACE_MAP\n//  - copy dependency_graph into per-step depends_on[]\n//  - set status='planned'\n//\n// Pure-logic parity: see workflows/scripts/pl/pl_logic.py::build_plan_envelope()\n\nconst crypto = require('crypto');\n\nconst MODULE_SURFACE_MAP = {\n  task_module: { surface: 'tasks', write_class: 'create' },\n  reminder_module: { surface: 'reminders', write_class: 'create' },\n  memory_module: { surface: 'rag_memories', write_class: 'create' },\n  improvement_module: { surface: 'execution_contexts', write_class: 'update' },\n  response_support_module: { surface: 'none', write_class: 'none' }\n};\n\nconst items = $input.all();\nconst out = [];\n\nfor (const it of items) {\n  const j = it.json || {};\n  const od = j.orchestrator_decision || {};\n  const module_order = od.module_order || [];\n  const dep_graph = od.dependency_graph || {};\n\n  // step_id derivation: stable within plan\n  const ord_counter = {};\n  const module_to_stepid = {};\n  const steps = [];\n\n  for (const mod of module_order) {\n    const ord = (ord_counter[mod] || 0) + 1;\n    ord_counter[mod] = ord;\n    const step_id = 'step_' + mod + '_' + ord;\n    module_to_stepid[mod] = step_id;\n\n    const surface_info = MODULE_SURFACE_MAP[mod] || { surface: 'none', write_class: 'none' };\n\n    steps.push({\n      step_id: step_id,\n      target_module: mod,\n      action_type: (j.intent && j.intent.action_type_hints && j.intent.action_type_hints[mod]) || 'execute',\n      depends_on: [], // resolved below\n      expected_side_effect: {\n        surface: surface_info.surface,\n        write_class: surface_info.write_class,\n        idempotency_key_hint: j.idempotency_key + ':' + step_id\n      },\n      status: 'planned'\n    });\n  }\n\n  // Resolve depends_on: graph maps module -> [dependency modules]\n  for (const step of steps) {\n    const deps = dep_graph[step.target_module] || [];\n    step.depends_on = deps.map((d) => module_to_stepid[d]).filter(Boolean);\n  }\n\n  // plan_id: deterministic from (execution_id, idempotency_key)\n  const plan_id_src = (j.execution_id || '') + ':' + (j.idempotency_key || '');\n  const hash = crypto.createHash('sha256').update(plan_id_src).digest('hex');\n  // Format as UUID-ish (not RFC 4122 strict, but deterministic and unique per input)\n  const plan_id = [hash.slice(0, 8), hash.slice(8, 12), '4' + hash.slice(13, 16), '8' + hash.slice(17, 20), hash.slice(20, 32)].join('-');\n\n  out.push({\n    json: {\n      ...j,\n      _plan_envelope: {\n        plan_id: plan_id,\n        execution_id: j.execution_id,\n        tenant_id: j.tenant_id,\n        thread_id: j.thread_id,\n        status: 'planned',\n        steps: steps,\n        plan_envelope_version: 'pl-01.v1',\n        created_at: new Date().toISOString()\n      }\n    }\n  });\n}\n\nreturn out;"
+      },
+      "id": "pl-build-envelope-004",
+      "name": "PL_Build_Plan_Envelope",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [720, 200]
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForAllItems",
+        "jsCode": "// PL_Validate_Plan_Envelope — structural + graph + privacy checks\n// Reference: 06_STAGE_WF-PL-01.md §Recommended node layout step 5, §V3/V4\n//\n// Strategy: 4 structural checks + populate validation{}\n//   (a) no cycles in dependency graph\n//   (b) every depends_on step_id exists\n//   (c) all target_module values ∈ CANONICAL_MODULES\n//   (d) privacy pre-flight: no response_support_module without upstream producing module\n//\n// Pure-logic parity: workflows/scripts/pl/pl_logic.py::validate_plan_envelope()\n\nconst CANONICAL_MODULES = new Set([\n  'task_module', 'reminder_module', 'memory_module', 'improvement_module', 'response_support_module'\n]);\nconst PRODUCING_MODULES = new Set(['task_module', 'reminder_module', 'memory_module', 'improvement_module']);\n\nfunction hasCycle(steps) {\n  // DFS with coloring: WHITE=0 GRAY=1 BLACK=2\n  const color = {};\n  const byId = {};\n  for (const s of steps) { color[s.step_id] = 0; byId[s.step_id] = s; }\n\n  function dfs(id) {\n    if (color[id] === 1) return true;\n    if (color[id] === 2) return false;\n    color[id] = 1;\n    const s = byId[id];\n    if (s) {\n      for (const dep of (s.depends_on || [])) {\n        if (dfs(dep)) return true;\n      }\n    }\n    color[id] = 2;\n    return false;\n  }\n  for (const s of steps) {\n    if (color[s.step_id] === 0 && dfs(s.step_id)) return true;\n  }\n  return false;\n}\n\nconst items = $input.all();\nconst out = [];\n\nfor (const it of items) {\n  const j = it.json || {};\n  const env = j._plan_envelope || {};\n  const steps = env.steps || [];\n\n  const step_ids = new Set(steps.map((s) => s.step_id));\n  let all_refs_exist = true;\n  for (const s of steps) {\n    for (const d of (s.depends_on || [])) {\n      if (!step_ids.has(d)) { all_refs_exist = false; break; }\n    }\n    if (!all_refs_exist) break;\n  }\n\n  const module_set_permitted = steps.every((s) => CANONICAL_MODULES.has(s.target_module));\n  const no_cycles = !hasCycle(steps);\n\n  // Privacy pre-flight\n  const has_response_support = steps.some((s) => s.target_module === 'response_support_module');\n  const has_producer = steps.some((s) => PRODUCING_MODULES.has(s.target_module));\n  const privacy_preflight_ok = !has_response_support || has_producer;\n\n  const graph_valid = all_refs_exist && no_cycles && module_set_permitted;\n\n  const validation = {\n    graph_valid: graph_valid,\n    no_cycles: no_cycles,\n    module_set_permitted: module_set_permitted,\n    privacy_preflight_ok: privacy_preflight_ok,\n    all_refs_exist: all_refs_exist\n  };\n\n  const envelope_valid = graph_valid && privacy_preflight_ok;\n\n  out.push({\n    json: {\n      ...j,\n      _plan_envelope: { ...env, validation: validation },\n      _envelope_valid: envelope_valid,\n      _envelope_validation_errors: envelope_valid ? [] : [\n        !no_cycles ? 'graph_cycle' : null,\n        !module_set_permitted ? 'module_not_permitted' : null,\n        !all_refs_exist ? 'dangling_dependency' : null,\n        !privacy_preflight_ok ? 'privacy_gate_failed' : null\n      ].filter(Boolean)\n    }\n  });\n}\n\nreturn out;"
+      },
+      "id": "pl-validate-envelope-005",
+      "name": "PL_Validate_Plan_Envelope",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [960, 200]
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "WITH ins AS (INSERT INTO execution_plans (id, tenant_id, execution_id, thread_id, status, steps, validation, plan_envelope_version, idempotency_key) VALUES ($1,$2,$3,$4,$5,$6::jsonb,$7::jsonb,$8,$9) ON CONFLICT (idempotency_key) DO NOTHING RETURNING *, false AS replayed), existing AS (SELECT *, true AS replayed FROM execution_plans WHERE idempotency_key = $9 AND NOT EXISTS (SELECT 1 FROM ins)), both AS (SELECT * FROM ins UNION ALL SELECT * FROM existing), upd AS (UPDATE execution_contexts SET current_plan_ref = (SELECT id FROM both), updated_at = now() WHERE id = $3 RETURNING id) SELECT * FROM both",
+        "options": {
+          "queryParams": "={{ $json._plan_envelope.plan_id }},={{ $json.tenant_id }},={{ $json.execution_id }},={{ $json.thread_id }},={{ $json._plan_envelope.status }},={{ JSON.stringify($json._plan_envelope.steps) }},={{ JSON.stringify($json._plan_envelope.validation) }},={{ $json._plan_envelope.plan_envelope_version }},={{ $json.idempotency_key }}",
+          "alwaysOutputData": true
+        }
+      },
+      "id": "pl-upsert-006",
+      "name": "PL_Upsert_Plan",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2,
+      "position": [1200, 200]
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForAllItems",
+        "jsCode": "// PL_Return_Result — shape the final output contract\n// Reference: 06_STAGE_WF-PL-01.md §Output contract\n//\n// Strategy: combine upsert row + in-memory envelope, set replayed flag\n\nconst items = $input.all();\nconst out = [];\n\nfor (const it of items) {\n  const j = it.json || {};\n  // Upstream Postgres node returned the row as $json (first and only row)\n  const envelope = j._plan_envelope || {};\n  const replayed = (j.replayed === true || j.replayed === 't');\n\n  out.push({\n    json: {\n      plan_id: j.id || envelope.plan_id,\n      execution_id: j.execution_id || envelope.execution_id,\n      tenant_id: j.tenant_id || envelope.tenant_id,\n      thread_id: j.thread_id || envelope.thread_id,\n      status: j.status || envelope.status || 'planned',\n      steps: envelope.steps || (typeof j.steps === 'string' ? JSON.parse(j.steps) : j.steps) || [],\n      validation: envelope.validation || (typeof j.validation === 'string' ? JSON.parse(j.validation) : j.validation) || {},\n      plan_envelope_version: envelope.plan_envelope_version || j.plan_envelope_version || 'pl-01.v1',\n      created_at: j.created_at || envelope.created_at,\n      replayed: replayed\n    }\n  });\n}\n\nreturn out;"
+      },
+      "id": "pl-return-result-007",
+      "name": "PL_Return_Result",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1440, 200]
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForAllItems",
+        "jsCode": "// PL_Return_Error — structured error envelope\n// Reference: 06_STAGE_WF-PL-01.md §Recommended node layout step 7 (PL_Return_Error)\n\nconst items = $input.all();\nconst out = [];\n\nfor (const it of items) {\n  const j = it.json || {};\n  const input_errors = j._validation_errors || [];\n  const envelope_errors = j._envelope_validation_errors || [];\n  const all_errors = [...input_errors, ...envelope_errors];\n\n  let failure_class = 'invalid_input';\n  if (envelope_errors.includes('graph_cycle')) failure_class = 'graph_cycle';\n  else if (envelope_errors.includes('module_not_permitted')) failure_class = 'module_not_permitted';\n  else if (envelope_errors.includes('privacy_gate_failed')) failure_class = 'privacy_gate_failed';\n  else if (envelope_errors.includes('dangling_dependency')) failure_class = 'dangling_dependency';\n\n  out.push({\n    json: {\n      success: false,\n      failure_class: failure_class,\n      errors: all_errors,\n      execution_id: j.execution_id || null,\n      tenant_id: j.tenant_id || null,\n      thread_id: j.thread_id || null,\n      idempotency_key: j.idempotency_key || null,\n      emitted_at: new Date().toISOString()\n    }\n  });\n}\n\nreturn out;"
+      },
+      "id": "pl-return-error-008",
+      "name": "PL_Return_Error",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [720, 420]
+    }
+  ],
+  "connections": {
+    "PL_Trigger": {
+      "main": [
+        [{ "node": "PL_Validate_Input", "type": "main", "index": 0 }]
+      ]
+    },
+    "PL_Validate_Input": {
+      "main": [
+        [{ "node": "PL_Route_Valid", "type": "main", "index": 0 }]
+      ]
+    },
+    "PL_Route_Valid": {
+      "main": [
+        [{ "node": "PL_Build_Plan_Envelope", "type": "main", "index": 0 }],
+        [{ "node": "PL_Return_Error", "type": "main", "index": 0 }]
+      ]
+    },
+    "PL_Build_Plan_Envelope": {
+      "main": [
+        [{ "node": "PL_Validate_Plan_Envelope", "type": "main", "index": 0 }]
+      ]
+    },
+    "PL_Validate_Plan_Envelope": {
+      "main": [
+        [{ "node": "PL_Upsert_Plan", "type": "main", "index": 0 }]
+      ]
+    },
+    "PL_Upsert_Plan": {
+      "main": [
+        [{ "node": "PL_Return_Result", "type": "main", "index": 0 }]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "meta": {
+    "blueprintVersion": "pl-01.v1",
+    "authoredBy": "Claude — scope-expansion prep cycle 2026-04-17",
+    "blueprintType": "n8n-native-JSON-import",
+    "canonicalShapeReference": "BUILD_REPORT.md (EC-01) §3 — typeVersion:2 for code/switch/postgres, no credentials block, queryParams single comma-separated string"
+  }
+}

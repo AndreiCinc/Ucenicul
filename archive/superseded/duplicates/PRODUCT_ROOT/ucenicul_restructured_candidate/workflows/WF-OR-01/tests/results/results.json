@@ -1,0 +1,28 @@
+{
+  "stage": "WF-OR-01",
+  "suite": "workflows/tests/or/test_families.py",
+  "tests_total": 650,
+  "tests_passed": 650,
+  "tests_failed": 0,
+  "return_code": 0,
+  "required_minimum": 500,
+  "minimum_satisfied": true,
+  "families": {
+    "input_validation": 50,
+    "happy_path": 50,
+    "invalid_input": 50,
+    "replay_idempotency": 50,
+    "cross_tenant_isolation": 50,
+    "ec_to_or_handoff": 50,
+    "node_payload_builder": 50,
+    "node_result_formatter": 50,
+    "sql_contract_validation": 50,
+    "reporting_and_tooling_contract": 50,
+    "extract_handoff_input": 50,
+    "error_payload_builder": 50,
+    "blueprint_structure": 50
+  },
+  "family_count": 13,
+  "required_family_count_minimum": 10,
+  "family_count_minimum_satisfied": true
+}

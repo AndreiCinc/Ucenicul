@@ -1,0 +1,20 @@
+{
+  "message_id": "6f1a8ba7-173d-490a-80a2-ce2293797ecb",
+  "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+  "channel": "rcp1-rich-matrix",
+  "direction": "inbound",
+  "author_type": "user",
+  "normalized_content": "Ce știi despre culoarea preferată a echipei?",
+  "timestamp": "2026-04-25T19:17:11.983Z",
+  "source_message_ref": "rcp1:RC-C3-01",
+  "author_entity_id": null,
+  "related_entity_ids": [],
+  "metadata": {
+    "rcp1_case_id": "RC-C3-01",
+    "rcp1_corridor": "C3",
+    "rcp1_run_tag": "rcp1-2026-04-25"
+  },
+  "idempotency_key": "rcp1:rcp1-2026-04-25:RC-C3-01",
+  "thread_id": "44286bbd-63ea-45c4-8221-17cba350ad35",
+  "reply_to_thread_id": null
+}

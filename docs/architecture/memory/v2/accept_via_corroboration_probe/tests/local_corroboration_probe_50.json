@@ -1,0 +1,297 @@
+{
+  "mission": "ACCEPT-VIA-CORROBORATION-PROBE",
+  "category": "local_probe_planning",
+  "minimum_count": 50,
+  "tests": [
+    {
+      "id": "CPU-01",
+      "category": "predicate_cartography",
+      "oracle": "Live promote SQL predicate contains or demonstrably evaluates corroboration_count >= 2 as an acceptance route; no false broadening."
+    },
+    {
+      "id": "CPU-02",
+      "category": "predicate_cartography",
+      "oracle": "Live promote SQL predicate contains or demonstrably evaluates corroboration_count >= 2 as an acceptance route; no false broadening."
+    },
+    {
+      "id": "CPU-03",
+      "category": "predicate_cartography",
+      "oracle": "Live promote SQL predicate contains or demonstrably evaluates corroboration_count >= 2 as an acceptance route; no false broadening."
+    },
+    {
+      "id": "CPU-04",
+      "category": "predicate_cartography",
+      "oracle": "Live promote SQL predicate contains or demonstrably evaluates corroboration_count >= 2 as an acceptance route; no false broadening."
+    },
+    {
+      "id": "CPU-05",
+      "category": "predicate_cartography",
+      "oracle": "Live promote SQL predicate contains or demonstrably evaluates corroboration_count >= 2 as an acceptance route; no false broadening."
+    },
+    {
+      "id": "CPU-06",
+      "category": "predicate_cartography",
+      "oracle": "Live promote SQL predicate contains or demonstrably evaluates corroboration_count >= 2 as an acceptance route; no false broadening."
+    },
+    {
+      "id": "CPU-07",
+      "category": "predicate_cartography",
+      "oracle": "Live promote SQL predicate contains or demonstrably evaluates corroboration_count >= 2 as an acceptance route; no false broadening."
+    },
+    {
+      "id": "CPU-08",
+      "category": "predicate_cartography",
+      "oracle": "Live promote SQL predicate contains or demonstrably evaluates corroboration_count >= 2 as an acceptance route; no false broadening."
+    },
+    {
+      "id": "CPU-09",
+      "category": "predicate_cartography",
+      "oracle": "Live promote SQL predicate contains or demonstrably evaluates corroboration_count >= 2 as an acceptance route; no false broadening."
+    },
+    {
+      "id": "CPU-10",
+      "category": "predicate_cartography",
+      "oracle": "Live promote SQL predicate contains or demonstrably evaluates corroboration_count >= 2 as an acceptance route; no false broadening."
+    },
+    {
+      "id": "CPU-11",
+      "category": "seed_strategy",
+      "scenario": "double-store same content/category/thread variant 11",
+      "oracle": "Probe plan can create/find effective corroboration >=2 without direct DB writes."
+    },
+    {
+      "id": "CPU-12",
+      "category": "seed_strategy",
+      "scenario": "double-store same content/category/thread variant 12",
+      "oracle": "Probe plan can create/find effective corroboration >=2 without direct DB writes."
+    },
+    {
+      "id": "CPU-13",
+      "category": "seed_strategy",
+      "scenario": "double-store same content/category/thread variant 13",
+      "oracle": "Probe plan can create/find effective corroboration >=2 without direct DB writes."
+    },
+    {
+      "id": "CPU-14",
+      "category": "seed_strategy",
+      "scenario": "double-store same content/category/thread variant 14",
+      "oracle": "Probe plan can create/find effective corroboration >=2 without direct DB writes."
+    },
+    {
+      "id": "CPU-15",
+      "category": "seed_strategy",
+      "scenario": "double-store same content/category/thread variant 15",
+      "oracle": "Probe plan can create/find effective corroboration >=2 without direct DB writes."
+    },
+    {
+      "id": "CPU-16",
+      "category": "seed_strategy",
+      "scenario": "double-store same content/category/thread variant 16",
+      "oracle": "Probe plan can create/find effective corroboration >=2 without direct DB writes."
+    },
+    {
+      "id": "CPU-17",
+      "category": "seed_strategy",
+      "scenario": "double-store same content/category/thread variant 17",
+      "oracle": "Probe plan can create/find effective corroboration >=2 without direct DB writes."
+    },
+    {
+      "id": "CPU-18",
+      "category": "seed_strategy",
+      "scenario": "double-store same content/category/thread variant 18",
+      "oracle": "Probe plan can create/find effective corroboration >=2 without direct DB writes."
+    },
+    {
+      "id": "CPU-19",
+      "category": "seed_strategy",
+      "scenario": "double-store same content/category/thread variant 19",
+      "oracle": "Probe plan can create/find effective corroboration >=2 without direct DB writes."
+    },
+    {
+      "id": "CPU-20",
+      "category": "seed_strategy",
+      "scenario": "double-store same content/category/thread variant 20",
+      "oracle": "Probe plan can create/find effective corroboration >=2 without direct DB writes."
+    },
+    {
+      "id": "CPU-21",
+      "category": "deny_controls",
+      "scenario": "corroboration below threshold or wrong tier variant 21",
+      "oracle": "Promote must deny and surface correct denial semantics."
+    },
+    {
+      "id": "CPU-22",
+      "category": "deny_controls",
+      "scenario": "corroboration below threshold or wrong tier variant 22",
+      "oracle": "Promote must deny and surface correct denial semantics."
+    },
+    {
+      "id": "CPU-23",
+      "category": "deny_controls",
+      "scenario": "corroboration below threshold or wrong tier variant 23",
+      "oracle": "Promote must deny and surface correct denial semantics."
+    },
+    {
+      "id": "CPU-24",
+      "category": "deny_controls",
+      "scenario": "corroboration below threshold or wrong tier variant 24",
+      "oracle": "Promote must deny and surface correct denial semantics."
+    },
+    {
+      "id": "CPU-25",
+      "category": "deny_controls",
+      "scenario": "corroboration below threshold or wrong tier variant 25",
+      "oracle": "Promote must deny and surface correct denial semantics."
+    },
+    {
+      "id": "CPU-26",
+      "category": "deny_controls",
+      "scenario": "corroboration below threshold or wrong tier variant 26",
+      "oracle": "Promote must deny and surface correct denial semantics."
+    },
+    {
+      "id": "CPU-27",
+      "category": "deny_controls",
+      "scenario": "corroboration below threshold or wrong tier variant 27",
+      "oracle": "Promote must deny and surface correct denial semantics."
+    },
+    {
+      "id": "CPU-28",
+      "category": "deny_controls",
+      "scenario": "corroboration below threshold or wrong tier variant 28",
+      "oracle": "Promote must deny and surface correct denial semantics."
+    },
+    {
+      "id": "CPU-29",
+      "category": "deny_controls",
+      "scenario": "corroboration below threshold or wrong tier variant 29",
+      "oracle": "Promote must deny and surface correct denial semantics."
+    },
+    {
+      "id": "CPU-30",
+      "category": "deny_controls",
+      "scenario": "corroboration below threshold or wrong tier variant 30",
+      "oracle": "Promote must deny and surface correct denial semantics."
+    },
+    {
+      "id": "CPU-31",
+      "category": "acceptance_signals",
+      "scenario": "accepted row variant 31",
+      "oracle": "Result artifact/acceptance_signals includes corroboration when acceptance source is corroboration."
+    },
+    {
+      "id": "CPU-32",
+      "category": "acceptance_signals",
+      "scenario": "accepted row variant 32",
+      "oracle": "Result artifact/acceptance_signals includes corroboration when acceptance source is corroboration."
+    },
+    {
+      "id": "CPU-33",
+      "category": "acceptance_signals",
+      "scenario": "accepted row variant 33",
+      "oracle": "Result artifact/acceptance_signals includes corroboration when acceptance source is corroboration."
+    },
+    {
+      "id": "CPU-34",
+      "category": "acceptance_signals",
+      "scenario": "accepted row variant 34",
+      "oracle": "Result artifact/acceptance_signals includes corroboration when acceptance source is corroboration."
+    },
+    {
+      "id": "CPU-35",
+      "category": "acceptance_signals",
+      "scenario": "accepted row variant 35",
+      "oracle": "Result artifact/acceptance_signals includes corroboration when acceptance source is corroboration."
+    },
+    {
+      "id": "CPU-36",
+      "category": "acceptance_signals",
+      "scenario": "accepted row variant 36",
+      "oracle": "Result artifact/acceptance_signals includes corroboration when acceptance source is corroboration."
+    },
+    {
+      "id": "CPU-37",
+      "category": "acceptance_signals",
+      "scenario": "accepted row variant 37",
+      "oracle": "Result artifact/acceptance_signals includes corroboration when acceptance source is corroboration."
+    },
+    {
+      "id": "CPU-38",
+      "category": "acceptance_signals",
+      "scenario": "accepted row variant 38",
+      "oracle": "Result artifact/acceptance_signals includes corroboration when acceptance source is corroboration."
+    },
+    {
+      "id": "CPU-39",
+      "category": "acceptance_signals",
+      "scenario": "accepted row variant 39",
+      "oracle": "Result artifact/acceptance_signals includes corroboration when acceptance source is corroboration."
+    },
+    {
+      "id": "CPU-40",
+      "category": "acceptance_signals",
+      "scenario": "accepted row variant 40",
+      "oracle": "Result artifact/acceptance_signals includes corroboration when acceptance source is corroboration."
+    },
+    {
+      "id": "CPU-41",
+      "category": "idempotency_and_isolation",
+      "scenario": "replay/cross-tenant/cross-thread variant 41",
+      "oracle": "No duplicate rows, no tenant/thread leakage, first-write-wins where applicable."
+    },
+    {
+      "id": "CPU-42",
+      "category": "idempotency_and_isolation",
+      "scenario": "replay/cross-tenant/cross-thread variant 42",
+      "oracle": "No duplicate rows, no tenant/thread leakage, first-write-wins where applicable."
+    },
+    {
+      "id": "CPU-43",
+      "category": "idempotency_and_isolation",
+      "scenario": "replay/cross-tenant/cross-thread variant 43",
+      "oracle": "No duplicate rows, no tenant/thread leakage, first-write-wins where applicable."
+    },
+    {
+      "id": "CPU-44",
+      "category": "idempotency_and_isolation",
+      "scenario": "replay/cross-tenant/cross-thread variant 44",
+      "oracle": "No duplicate rows, no tenant/thread leakage, first-write-wins where applicable."
+    },
+    {
+      "id": "CPU-45",
+      "category": "idempotency_and_isolation",
+      "scenario": "replay/cross-tenant/cross-thread variant 45",
+      "oracle": "No duplicate rows, no tenant/thread leakage, first-write-wins where applicable."
+    },
+    {
+      "id": "CPU-46",
+      "category": "idempotency_and_isolation",
+      "scenario": "replay/cross-tenant/cross-thread variant 46",
+      "oracle": "No duplicate rows, no tenant/thread leakage, first-write-wins where applicable."
+    },
+    {
+      "id": "CPU-47",
+      "category": "idempotency_and_isolation",
+      "scenario": "replay/cross-tenant/cross-thread variant 47",
+      "oracle": "No duplicate rows, no tenant/thread leakage, first-write-wins where applicable."
+    },
+    {
+      "id": "CPU-48",
+      "category": "idempotency_and_isolation",
+      "scenario": "replay/cross-tenant/cross-thread variant 48",
+      "oracle": "No duplicate rows, no tenant/thread leakage, first-write-wins where applicable."
+    },
+    {
+      "id": "CPU-49",
+      "category": "idempotency_and_isolation",
+      "scenario": "replay/cross-tenant/cross-thread variant 49",
+      "oracle": "No duplicate rows, no tenant/thread leakage, first-write-wins where applicable."
+    },
+    {
+      "id": "CPU-50",
+      "category": "idempotency_and_isolation",
+      "scenario": "replay/cross-tenant/cross-thread variant 50",
+      "oracle": "No duplicate rows, no tenant/thread leakage, first-write-wins where applicable."
+    }
+  ]
+}

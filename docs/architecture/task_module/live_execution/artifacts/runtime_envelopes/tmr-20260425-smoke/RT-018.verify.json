@@ -1,0 +1,15 @@
+{
+  "case_id": "RT-018",
+  "group": "update_task",
+  "priority": "P0",
+  "user_input": "Mută taskul cu Andrei pe mâine la 10.",
+  "expected": {
+    "updated": true,
+    "tasks_delta": 0
+  },
+  "expected_intent": "update_task",
+  "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+  "message_id": "5c684c8f-578c-46de-8d2c-501a9f362612",
+  "thread_id": "c96869fa-b762-4f7e-8c2c-214f060caa16",
+  "idempotency_key": "tmr:tmr-20260425-smoke:RT-018"
+}

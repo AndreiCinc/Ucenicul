@@ -1,0 +1,8 @@
+
+return [{ json: { module_registry: [
+  { module_name: 'task_module', module_type: 'executor', capabilities: ['create_task','list_tasks','update_task','complete_task','delete_task'] },
+  { module_name: 'reminder_module', module_type: 'executor', capabilities: ['create_reminder','list_reminders','update_reminder','cancel_reminder'] },
+  { module_name: 'memory_module', module_type: 'executor', capabilities: ['store_memory','search_memory'] },
+  { module_name: 'improvement_module', module_type: 'executor', capabilities: ['capture_feedback'] },
+  { module_name: 'watcher_module_basic', module_type: 'observer', capabilities: ['produce_observation'] }
+] } }];

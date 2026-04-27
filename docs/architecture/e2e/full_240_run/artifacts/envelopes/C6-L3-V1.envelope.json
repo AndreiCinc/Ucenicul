@@ -1,0 +1,23 @@
+{
+  "message_id": "1edab8da-8074-47c5-8da3-d87b1185de27",
+  "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+  "channel": "e2e-rich-matrix",
+  "direction": "inbound",
+  "author_type": "user",
+  "normalized_content": "Fă-mi un plan pentru Andrei ținând cont de preferințele lui, dacă le știi.",
+  "timestamp": "2026-04-26T02:50:47.810Z",
+  "source_message_ref": "e2e:C6-L3-V1:e2e:f240-2026-04-26:C6-L3-V1",
+  "author_entity_id": null,
+  "related_entity_ids": [],
+  "metadata": {
+    "e2e_case_id": "C6-L3-V1",
+    "e2e_corridor": "C6",
+    "e2e_variant": "baseline_ro",
+    "e2e_phase": "P2_COMPOSITION",
+    "e2e_priority": "P2",
+    "e2e_locale": "ro",
+    "e2e_run_tag": "f240-2026-04-26"
+  },
+  "idempotency_key": "e2e:f240-2026-04-26:C6-L3-V1",
+  "thread_id": "51d20811-9379-4315-8740-6d58e010655b"
+}

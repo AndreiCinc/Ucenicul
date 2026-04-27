@@ -1,0 +1,74 @@
+{
+  "total_families": 13,
+  "tests_per_family": 50,
+  "total_tests": 600,
+  "passed": 600,
+  "failed": 0,
+  "results": [
+    {
+      "family": "input_validation",
+      "passed": 50,
+      "failed": 0
+    },
+    {
+      "family": "happy_path_delivery",
+      "passed": 50,
+      "failed": 0
+    },
+    {
+      "family": "partial_delivery",
+      "passed": 50,
+      "failed": 0
+    },
+    {
+      "family": "provider_error_fail_closed",
+      "passed": 50,
+      "failed": 0
+    },
+    {
+      "family": "lineage_validation",
+      "passed": 50,
+      "failed": 0
+    },
+    {
+      "family": "replay_guard",
+      "passed": 50,
+      "failed": 0
+    },
+    {
+      "family": "output_gateway_contract",
+      "passed": 50,
+      "failed": 0
+    },
+    {
+      "family": "channel_routing",
+      "passed": 50,
+      "failed": 0
+    },
+    {
+      "family": "delivery_target_resolution",
+      "passed": 50,
+      "failed": 0
+    },
+    {
+      "family": "outbound_log_contract",
+      "passed": 50,
+      "failed": 0
+    },
+    {
+      "family": "wf_rc_to_mo_handoff",
+      "passed": 50,
+      "failed": 0
+    },
+    {
+      "family": "terminal_payload_shape",
+      "passed": 50,
+      "failed": 0
+    },
+    {
+      "family": "reporting_and_tooling_contract",
+      "passed": 0,
+      "failed": 0
+    }
+  ]
+}

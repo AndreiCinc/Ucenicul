@@ -1,0 +1,20 @@
+{
+  "message_id": "a417605d-5b04-4a31-81ab-3cefadcff042",
+  "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+  "channel": "acg-runtime",
+  "direction": "inbound",
+  "author_type": "user",
+  "normalized_content": "Fă chestia aia pentru mine.",
+  "timestamp": "2026-04-25T23:35:41.542Z",
+  "source_message_ref": "acg:ACG-01:acg:acg-2026-04-25:ACG-01",
+  "author_entity_id": null,
+  "related_entity_ids": [],
+  "metadata": {
+    "acg_case_id": "ACG-01",
+    "acg_lane": "task_lane",
+    "acg_run_tag": "acg-2026-04-25"
+  },
+  "idempotency_key": "acg:acg-2026-04-25:ACG-01",
+  "thread_id": "8166dc49-442d-4136-8727-473c30e3796d",
+  "reply_to_thread_id": null
+}

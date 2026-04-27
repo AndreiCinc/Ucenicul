@@ -1,0 +1,23 @@
+{
+  "message_id": "9c61c463-6c2a-4728-8821-21127b17bd69",
+  "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+  "channel": "e2e-rich-matrix",
+  "direction": "inbound",
+  "author_type": "user",
+  "normalized_content": "Am nevoie de o explicație scurtă: obiectiv versus sarcină, cu un exemplu simplu pentru un antrenor.",
+  "timestamp": "2026-04-26T02:50:47.044Z",
+  "source_message_ref": "e2e:C1-L3-V3:e2e:f240-2026-04-26:C1-L3-V3",
+  "author_entity_id": null,
+  "related_entity_ids": [],
+  "metadata": {
+    "e2e_case_id": "C1-L3-V3",
+    "e2e_corridor": "C1",
+    "e2e_variant": "negative_or_boundary",
+    "e2e_phase": "P1_FOUNDATION",
+    "e2e_priority": "P1",
+    "e2e_locale": "ro",
+    "e2e_run_tag": "f240-2026-04-26"
+  },
+  "idempotency_key": "e2e:f240-2026-04-26:C1-L3-V3",
+  "thread_id": "0385b67f-23a1-446e-8f98-b09feb80f1ec"
+}

@@ -1,0 +1,568 @@
+{
+  "name": "WF-TR-01 Thread Resolver",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "tr-trigger-001",
+      "name": "TR_Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        300
+      ],
+      "notes": "MCP-COMPATIBLE TRIGGER NODE (v2.1)\nType: Manual Trigger — required for n8n Instance-level MCP exposure.\nWhen exposed via MCP, the AI client sends the ThreadResolutionRequest\nas the tool input JSON. The Manual Trigger passes this input through\nto TR_Validate_Input, which adapts both nested and flat shapes.\nPrerequisite: workflow must be published (active) in n8n for MCP visibility.\nPrevious trigger: executeWorkflowTrigger (sub-workflow pattern).\nMigration note: sub-workflow callers should be updated to invoke via MCP tool call."
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForAllItems",
+        "jsCode": "// TR_Validate_Input — v2.0 (Remediated)\n// Purpose: Validate and adapt the inbound ThreadResolutionRequest.\n// Supports BOTH nested (user contract) and flat (internal) input shapes.\n// Nested shape: { request: { message: {...}, reply_context: {...}, resolution_policy: {...} }, idempotency_key }\n// Flat shape: { message_id, tenant_id, channel, ... }\n// Output: Validated flat request with _valid='true' or error with _valid='false'.\n\nconst items = $input.all();\nconst raw = items[0].json;\n\n// --- ADAPTER LAYER: detect and normalize input shape ---\nlet req = {};\n\nif (raw.request && raw.request.message) {\n  // Nested (user contract) shape\n  const msg = raw.request.message;\n  const rc = raw.request.reply_context || raw.reply_context || {};\n  const rp = raw.request.resolution_policy || raw.resolution_policy || {};\n  req = {\n    message_id: msg.id,\n    tenant_id: raw.request.tenant_id,\n    channel: msg.channel,\n    direction: msg.direction,\n    author_type: msg.author_type,\n    normalized_content: msg.normalized_content,\n    timestamp: msg.timestamp,\n    source_message_ref: msg.source_message_ref,\n    author_entity_id: msg.author_entity_id || null,\n    thread_id: msg.thread_id || null,\n    reply_to_message_id: rc.reply_to_message_id || null,\n    reply_to_thread_id: rc.reply_to_thread_id || null,\n    related_entity_ids: msg.related_entity_ids || [],\n    metadata: msg.metadata || {},\n    // Resolution policy (per-request thresholds)\n    attach_threshold: rp.attach_threshold || null,\n    reopen_threshold: rp.reopen_threshold || null,\n    max_candidate_threads: rp.max_candidate_threads || null,\n    allow_latent_reopen: rp.allow_latent_reopen !== undefined ? rp.allow_latent_reopen : true,\n    allow_entity_assisted_match: rp.allow_entity_assisted_match !== undefined ? rp.allow_entity_assisted_match : true,\n    ambiguity_margin: rp.ambiguity_margin || null,\n    idempotency_key: raw.request.idempotency_key || raw.idempotency_key || null,\n    // Preserve content variants for Phase 2\n    llm_safe_content: msg.llm_safe_content || null,\n    rag_safe_content: msg.rag_safe_content || null\n  };\n} else {\n  // Flat (internal) shape — backward compatible\n  req = { ...raw };\n  req.reply_to_thread_id = raw.reply_to_thread_id || null;\n  req.attach_threshold = raw.attach_threshold || null;\n  req.reopen_threshold = raw.reopen_threshold || null;\n  req.max_candidate_threads = raw.max_candidate_threads || null;\n  req.allow_latent_reopen = raw.allow_latent_reopen !== undefined ? raw.allow_latent_reopen : true;\n  req.allow_entity_assisted_match = raw.allow_entity_assisted_match !== undefined ? raw.allow_entity_assisted_match : true;\n  req.ambiguity_margin = raw.ambiguity_margin || null;\n  req.idempotency_key = raw.idempotency_key || null;\n}\n\n// --- VALIDATION ---\nconst requiredFields = [\n  'message_id', 'tenant_id', 'channel', 'direction',\n  'author_type', 'normalized_content', 'timestamp', 'source_message_ref'\n];\n\nconst missingFields = requiredFields.filter(f => req[f] === undefined || req[f] === null || req[f] === '');\n\nif (missingFields.length > 0) {\n  return [{\n    json: {\n      _valid: 'false',\n      _error: 'INVALID_INPUT',\n      _missing_fields: missingFields,\n      _request: req\n    }\n  }];\n}\n\nif (typeof req.tenant_id !== 'string' || req.tenant_id.trim().length === 0) {\n  return [{\n    json: {\n      _valid: 'false',\n      _error: 'INVALID_TENANT_ID',\n      _missing_fields: ['tenant_id'],\n      _request: req\n    }\n  }];\n}\n\nconst validDirections = ['inbound', 'outbound'];\nif (!validDirections.includes(req.direction)) {\n  return [{\n    json: {\n      _valid: 'false',\n      _error: 'INVALID_DIRECTION',\n      _missing_fields: ['direction'],\n      _request: req\n    }\n  }];\n}\n\nconst validAuthorTypes = ['user', 'system', 'bot'];\nif (!validAuthorTypes.includes(req.author_type)) {\n  return [{\n    json: {\n      _valid: 'false',\n      _error: 'INVALID_AUTHOR_TYPE',\n      _missing_fields: ['author_type'],\n      _request: req\n    }\n  }];\n}\n\n// Whitespace-only content check\nif (typeof req.normalized_content === 'string' && req.normalized_content.trim().length === 0) {\n  return [{\n    json: {\n      _valid: 'false',\n      _error: 'EMPTY_CONTENT',\n      _missing_fields: ['normalized_content'],\n      _request: req\n    }\n  }];\n}\n\n// Construct validated request with all fields\nreturn [{\n  json: {\n    _valid: 'true',\n    message_id: req.message_id,\n    tenant_id: req.tenant_id,\n    channel: req.channel,\n    direction: req.direction,\n    author_type: req.author_type,\n    normalized_content: req.normalized_content,\n    timestamp: req.timestamp,\n    source_message_ref: req.source_message_ref,\n    author_entity_id: req.author_entity_id || null,\n    explicit_thread_id: req.thread_id || null,\n    reply_to_message_id: req.reply_to_message_id || null,\n    reply_to_thread_id: req.reply_to_thread_id || null,\n    related_entity_ids: req.related_entity_ids || [],\n    metadata: req.metadata || {},\n    // Per-request thresholds (null = use defaults)\n    _attach_threshold: req.attach_threshold || null,\n    _reopen_threshold: req.reopen_threshold || null,\n    _max_candidate_threads: req.max_candidate_threads || null,\n    _allow_latent_reopen: req.allow_latent_reopen,\n    _allow_entity_assisted_match: req.allow_entity_assisted_match,\n    _ambiguity_margin: req.ambiguity_margin || null,\n    _idempotency_key: req.idempotency_key || (req.tenant_id + ':' + req.message_id + ':thread_resolution:v1')\n  }\n}];\n"
+      },
+      "id": "tr-validate-002",
+      "name": "TR_Validate_Input",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        220,
+        300
+      ],
+      "notes": "VALIDATE INPUT NODE — v2.0 (Remediated)\nPurpose: Validates and ADAPTS ThreadResolutionRequest contract fields.\nAdapter: Detects nested vs flat input shape and normalizes to internal representation.\nNew fields supported: reply_to_thread_id, resolution_policy (attach_threshold, reopen_threshold, etc.), idempotency_key.\nValidation: whitespace-only content now rejected.\nOutput: _valid='true' (string) for valid, _valid='false' (string) for invalid.\nNote: _valid is STRING not boolean to ensure n8n switch v3 comparison works correctly."
+    },
+    {
+      "parameters": {
+        "rules": {
+          "rules": [
+            {
+              "outputIndex": 0,
+              "value1": "={{ $json._valid }}",
+              "operation": "equal",
+              "value2": "true"
+            },
+            {
+              "outputIndex": 1,
+              "value1": "={{ $json._valid }}",
+              "operation": "equal",
+              "value2": "false"
+            }
+          ]
+        }
+      },
+      "id": "tr-route-valid-003",
+      "name": "TR_Route_Valid",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 2,
+      "position": [
+        440,
+        300
+      ],
+      "notes": "ROUTE VALID NODE\nPurpose: Routes valid requests to processing, invalid to error.\n_valid is STRING 'true'/'false' — safe for switch v3 string comparison.\nOutput 0: Valid -> TR_Select_Content_Class\nOutput 1: Invalid -> TR_Build_Error_Result"
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForAllItems",
+        "jsCode": "// TR_Select_Content_Class\n// Purpose: Selects the appropriate content class for thread resolution.\n// MVP: normalized_content. Phase 2: llm_safe_content.\n\nconst req = $input.all()[0].json;\nconst contentForResolution = req.normalized_content;\n\nreturn [{\n  json: {\n    ...req,\n    content_for_resolution: contentForResolution,\n    content_class_used: 'normalized_content'\n  }\n}];\n"
+      },
+      "id": "tr-content-class-004",
+      "name": "TR_Select_Content_Class",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        660,
+        200
+      ],
+      "notes": "SELECT CONTENT CLASS NODE\nPurpose: Privacy-contract-aware content class selection.\nMVP: normalized_content. Phase 2: llm_safe_content.\nNever uses raw_content."
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForAllItems",
+        "jsCode": "// TR_Check_Explicit_Refs — v2.0 (Remediated)\n// Priority 1: explicit thread_id in message → shortcircuit\n// Priority 1b: reply_to_thread_id WITHOUT reply_to_message_id → explicit shortcircuit\n// Priority 2a: reply_to_thread_id WITH reply_to_message_id → reply linkage shortcircuit (no DB needed)\n// Priority 2b: reply_to_message_id only → needs DB lookup\n// Priority 3+: candidate scoring\n\nconst req = $input.all()[0].json;\n\n// Priority 1: Explicit thread_id\nif (req.explicit_thread_id) {\n  return [{\n    json: {\n      ...req,\n      _shortcircuit: 'true',\n      _resolution_method: 'explicit_thread_reference',\n      _resolved_thread_id: req.explicit_thread_id,\n      _candidate_scores: [],\n      _ambiguity_detected: false\n    }\n  }];\n}\n\n// Priority 1b/2a: reply_to_thread_id present\nif (req.reply_to_thread_id) {\n  if (req.reply_to_message_id) {\n    // Reply context with known thread → reply_linkage shortcircuit\n    return [{\n      json: {\n        ...req,\n        _shortcircuit: 'true',\n        _resolution_method: 'direct_reply_linkage',\n        _resolved_thread_id: req.reply_to_thread_id,\n        _candidate_scores: [],\n        _ambiguity_detected: false\n      }\n    }];\n  } else {\n    // Thread reference via reply context without specific message → explicit ref\n    return [{\n      json: {\n        ...req,\n        _shortcircuit: 'true',\n        _resolution_method: 'explicit_thread_reference',\n        _resolved_thread_id: req.reply_to_thread_id,\n        _candidate_scores: [],\n        _ambiguity_detected: false\n      }\n    }];\n  }\n}\n\n// Priority 2b: reply_to_message_id only → needs DB lookup\nif (req.reply_to_message_id) {\n  return [{\n    json: {\n      ...req,\n      _shortcircuit: 'false',\n      _check_reply_linkage: true,\n      _resolution_method: null,\n      _resolved_thread_id: null\n    }\n  }];\n}\n\n// No explicit ref → proceed to candidate scoring\nreturn [{\n  json: {\n    ...req,\n    _shortcircuit: 'false',\n    _check_reply_linkage: false,\n    _resolution_method: null,\n    _resolved_thread_id: null\n  }\n}];\n"
+      },
+      "id": "tr-check-explicit-005",
+      "name": "TR_Check_Explicit_Refs",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        880,
+        200
+      ],
+      "notes": "CHECK EXPLICIT REFS NODE — v2.0 (Remediated)\nNow supports reply_to_thread_id for shortcircuit:\n- reply_to_thread_id + reply_to_message_id → direct_reply_linkage (no DB)\n- reply_to_thread_id only → explicit_thread_reference\n- reply_to_message_id only → DB lookup needed\n_shortcircuit is STRING 'true'/'false' for safe switch comparison."
+    },
+    {
+      "parameters": {
+        "rules": {
+          "rules": [
+            {
+              "outputIndex": 0,
+              "value1": "={{ $json._shortcircuit }}",
+              "operation": "equal",
+              "value2": "true"
+            },
+            {
+              "outputIndex": 1,
+              "value1": "={{ $json._shortcircuit }}",
+              "operation": "equal",
+              "value2": "false"
+            }
+          ]
+        }
+      },
+      "id": "tr-route-shortcircuit-006",
+      "name": "TR_Route_Shortcircuit",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 2,
+      "position": [
+        1100,
+        200
+      ],
+      "notes": "ROUTE SHORTCIRCUIT NODE\n_shortcircuit is STRING — safe comparison.\nOutput 0: Shortcircuit → TR_Build_Result\nOutput 1: Continue → TR_Load_Reply_Context"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT m.thread_id FROM messages m WHERE m.id = $1 AND m.tenant_id = $2 AND m.thread_id IS NOT NULL LIMIT 1",
+        "options": {
+          "queryParams": "={{ $json.reply_to_message_id }},={{ $json.tenant_id }}",
+          "alwaysOutputData": true
+        }
+      },
+      "id": "tr-load-reply-007",
+      "name": "TR_Load_Reply_Context",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2,
+      "position": [
+        1320,
+        300
+      ],
+      "notes": "LOAD REPLY CONTEXT NODE\nalwaysOutputData: true (D-15 fix).\nNote: query may run with null reply_to_message_id when _check_reply_linkage is false.\nThis is handled in TR_Process_Reply_Result which checks _check_reply_linkage first."
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForAllItems",
+        "jsCode": "// TR_Process_Reply_Result — v2.0\n// Process reply context lookup. If thread found via reply, shortcircuit.\n\nconst prevNodeItems = $('TR_Load_Reply_Context').all();\nconst request = $('TR_Check_Explicit_Refs').all()[0].json;\n\n// If we weren't checking reply linkage, pass through\nif (!request._check_reply_linkage) {\n  return [{\n    json: {\n      ...request,\n      _shortcircuit: 'false',\n      _resolution_method: null,\n      _resolved_thread_id: null\n    }\n  }];\n}\n\nlet replyThreadId = null;\nif (prevNodeItems.length > 0 && prevNodeItems[0].json && prevNodeItems[0].json.thread_id) {\n  replyThreadId = prevNodeItems[0].json.thread_id;\n}\n\nif (replyThreadId) {\n  return [{\n    json: {\n      ...request,\n      _shortcircuit: 'true',\n      _resolution_method: 'direct_reply_linkage',\n      _resolved_thread_id: replyThreadId,\n      _candidate_scores: [],\n      _ambiguity_detected: false\n    }\n  }];\n}\n\n// No reply linkage found\nreturn [{\n  json: {\n    ...request,\n    _shortcircuit: 'false',\n    _resolution_method: null,\n    _resolved_thread_id: null\n  }\n}];\n"
+      },
+      "id": "tr-process-reply-008",
+      "name": "TR_Process_Reply_Result",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1540,
+        300
+      ],
+      "notes": "PROCESS REPLY RESULT NODE — v2.0\n_shortcircuit output is STRING for safe switch.\nDesign note: reads from TR_Check_Explicit_Refs by name ($('TR_Check_Explicit_Refs')) — documented cross-node reference."
+    },
+    {
+      "parameters": {
+        "rules": {
+          "rules": [
+            {
+              "outputIndex": 0,
+              "value1": "={{ $json._shortcircuit }}",
+              "operation": "equal",
+              "value2": "true"
+            },
+            {
+              "outputIndex": 1,
+              "value1": "={{ $json._shortcircuit }}",
+              "operation": "equal",
+              "value2": "false"
+            }
+          ]
+        }
+      },
+      "id": "tr-route-reply-009",
+      "name": "TR_Route_After_Reply",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 2,
+      "position": [
+        1760,
+        300
+      ],
+      "notes": "ROUTE AFTER REPLY NODE\n_shortcircuit is STRING — safe comparison.\nOutput 0: Reply resolved → TR_Build_Result\nOutput 1: Not resolved → TR_Load_Candidate_Threads"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT id, tenant_id, title, thread_type, status, summary, last_activity_at, primary_entity_id, related_entity_ids, source_channels, created_at FROM threads WHERE tenant_id = $1 AND status IN ('active', 'waiting', 'blocked', 'latent') AND last_activity_at >= NOW() - INTERVAL '30 days' ORDER BY last_activity_at DESC LIMIT 50",
+        "options": {
+          "queryParams": "={{ $json.tenant_id }}",
+          "alwaysOutputData": true
+        }
+      },
+      "id": "tr-load-candidates-010",
+      "name": "TR_Load_Candidate_Threads",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2,
+      "position": [
+        1980,
+        400
+      ],
+      "notes": "LOAD CANDIDATE THREADS NODE\nalwaysOutputData: true (D-15 fix).\nCandidate window: 30 days. Status: active, waiting, blocked, latent. LIMIT 50."
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT id, entity_type, display_name, canonical_name, aliases FROM entities WHERE tenant_id = $1 AND (id = COALESCE(NULLIF($2, ''), NULL) OR id = ANY(CASE WHEN $3 = '{}' THEN ARRAY[]::uuid[] ELSE $3::uuid[] END)) AND status = 'active' LIMIT 20",
+        "options": {
+          "queryParams": "={{ $json.tenant_id }},={{ $json.author_entity_id || '' }},={{ '{' + ($json.related_entity_ids || []).filter(id => /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(id)).join(',') + '}' }}",
+          "alwaysOutputData": true
+        }
+      },
+      "id": "tr-load-entities-011",
+      "name": "TR_Load_Entity_Hints",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2,
+      "position": [
+        2200,
+        400
+      ],
+      "notes": "LOAD ENTITY HINTS NODE — v2.0 (Remediated)\nalwaysOutputData: true (D-15 fix).\nD-10 fix: Uses COALESCE(NULLIF($2,''),NULL) instead of dummy UUID.\nD-14 fix: Related entity IDs validated against UUID regex before array construction."
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForAllItems",
+        "jsCode": "// TR_Score_Candidates — v2.0 (Remediated)\n// Romanian-aware scoring with stemming + trigram hybrid.\n// Fixes D-28 (Jaccard failure), D-29 (artificial fixtures), D-30 (no Romanian morphology).\n//\n// Scoring components:\n//   entity_match_score: 0.0 to 0.30\n//   semantic_match_score: 0.0 to 0.40 (Romanian stem + trigram hybrid)\n//   temporal_proximity_score: 0.0 to 0.20\n//   channel_relevance_score: 0.0 to 0.10\n//   MAX POSSIBLE SCORE: 1.0\n\nconst request = $('TR_Process_Reply_Result').all()[0].json;\nconst candidateItems = $('TR_Load_Candidate_Threads').all();\nconst entityItems = $('TR_Load_Entity_Hints').all();\n\n// Build entity lookup\nconst entities = {};\nfor (const item of entityItems) {\n  if (item.json && item.json.id) {\n    entities[item.json.id] = item.json;\n  }\n}\n\n// If no candidates, return empty\nif (!candidateItems || candidateItems.length === 0 || !candidateItems[0].json || !candidateItems[0].json.id) {\n  return [{\n    json: {\n      ...request,\n      _scored_candidates: [],\n      _has_candidates: false\n    }\n  }];\n}\n\nconst candidates = candidateItems.map(c => c.json).filter(c => c.id);\nconst now = new Date(request.timestamp);\n\n// --- ROMANIAN LANGUAGE TOOLS ---\n\nconst RO_STOPWORDS = new Set([\n  'si', 'cu', 'de', 'pe', 'la', 'in', 'din', 'ca', 'sa', 'nu', 'mai',\n  'dar', 'sau', 'iar', 'este', 'sunt', 'fie', 'era', 'fost', 'care',\n  'ce', 'cine', 'cum', 'cand', 'unde', 'pentru', 'despre', 'spre',\n  'prin', 'intre', 'dupa', 'pana', 'fara', 'inca', 'tot', 'foarte',\n  'acolo', 'aici', 'acum', 'apoi', 'asa', 'atunci', 'doar', 'deja',\n  'ori', 'chiar', 'daca', 'ale', 'cel', 'cei', 'cele', 'lui', 'lor',\n  'meu', 'mea', 'mei', 'tale', 'tau', 'sau', 'nostru', 'noastra',\n  'vostru', 'voastra', 'alt', 'alta', 'alti', 'alte', 'acest',\n  'aceasta', 'acesti', 'aceste', 'acel', 'acea', 'acei', 'acele',\n  'care', 'care', 'unde', 'cat', 'cata', 'cati', 'cate'\n]);\n\nfunction roStem(word) {\n  // Romanian suffix stripping — handles common morphological endings\n  let w = word.toLowerCase().trim();\n  if (w.length <= 3) return w;\n  \n  // Definite article suffixes (longest first)\n  const suffixes = [\n    'urilor', 'urilor', 'iilor', 'elor', 'ilor',\n    'ului', 'ului', 'area', 'erea', 'irea', 'atea',\n    'urile', 'urile',\n    'ului', 'ilor', 'elor',\n    'ata', 'ita', 'uta',\n    'ul', 'ei', 'le', 'ii',\n    'ari', 'eri', 'iri', 'uri',\n    'and', 'ind', 'eza',\n    'esc', 'ste',\n    'at', 'it', 'ut',\n    'a', 'e', 'i'\n  ];\n  \n  for (const suf of suffixes) {\n    if (w.length > suf.length + 2 && w.endsWith(suf)) {\n      return w.slice(0, -suf.length);\n    }\n  }\n  return w;\n}\n\nfunction tokenize(text) {\n  if (!text) return [];\n  return text.toLowerCase()\n    .replace(/[^a-zA-Z0-9\\u00C0-\\u024F\\s]/g, ' ')\n    .split(/\\s+/)\n    .filter(w => w.length > 1 && !RO_STOPWORDS.has(w));\n}\n\nfunction stemmedTokens(text) {\n  return tokenize(text).map(w => roStem(w));\n}\n\nfunction charTrigrams(text) {\n  if (!text) return new Set();\n  const clean = text.toLowerCase().replace(/[^a-zA-Z0-9\\u00C0-\\u024F]/g, '');\n  const trigrams = new Set();\n  for (let i = 0; i <= clean.length - 3; i++) {\n    trigrams.add(clean.substring(i, i + 3));\n  }\n  return trigrams;\n}\n\nfunction jaccardSimilarity(setA, setB) {\n  if (setA.size === 0 || setB.size === 0) return 0;\n  let intersection = 0;\n  for (const item of setA) {\n    if (setB.has(item)) intersection++;\n  }\n  const union = new Set([...setA, ...setB]).size;\n  return union === 0 ? 0 : intersection / union;\n}\n\n// --- SCORING FUNCTIONS ---\n\nfunction entityMatchScore(request, thread) {\n  // Author entity matches thread primary: 0.30 (strong direct signal)\n  if (request.author_entity_id && thread.primary_entity_id &&\n      request.author_entity_id === thread.primary_entity_id) {\n    return 0.30;\n  }\n  // Related entity matches thread primary: 0.30 (message explicitly mentions thread's primary entity)\n  const messageRelated = request.related_entity_ids || [];\n  if (thread.primary_entity_id) {\n    for (const eid of messageRelated) {\n      if (eid === thread.primary_entity_id) return 0.30;\n    }\n  }\n  // Author entity in thread's related entities: 0.15\n  const threadRelated = thread.related_entity_ids || [];\n  if (request.author_entity_id && Array.isArray(threadRelated) && threadRelated.includes(request.author_entity_id)) {\n    return 0.15;\n  }\n  // Any overlap between message related and thread related: 0.15\n  for (const eid of messageRelated) {\n    if (Array.isArray(threadRelated) && threadRelated.includes(eid)) return 0.15;\n  }\n  return 0.0;\n}\n\nfunction semanticMatchScore(messageContent, threadSummary) {\n  // Romanian-aware hybrid: stemmed word Jaccard + character trigram Jaccard\n  if (!messageContent || !threadSummary) return 0.0;\n  \n  // Stemmed word Jaccard\n  const msgStems = new Set(stemmedTokens(messageContent));\n  const sumStems = new Set(stemmedTokens(threadSummary));\n  const stemJaccard = jaccardSimilarity(msgStems, sumStems);\n  \n  // Character trigram Jaccard (captures partial word matches)\n  const msgTrigrams = charTrigrams(messageContent);\n  const sumTrigrams = charTrigrams(threadSummary);\n  const trigramJaccard = jaccardSimilarity(msgTrigrams, sumTrigrams);\n  \n  // Combined: take the max of both approaches, scale to 0-0.40\n  const combined = Math.max(stemJaccard, trigramJaccard);\n  return Math.min(combined * 1.6, 0.40);\n}\n\nfunction temporalProximityScore(messageTimestamp, threadLastActivity) {\n  if (!threadLastActivity) return 0.05;\n  const diffMs = now.getTime() - new Date(threadLastActivity).getTime();\n  const diffHours = diffMs / (1000 * 60 * 60);\n  if (diffHours <= 1) return 0.20;\n  if (diffHours <= 24) return 0.15;\n  if (diffHours <= 168) return 0.10;\n  return 0.05;\n}\n\nfunction channelRelevanceScore(messageChannel, threadSourceChannels) {\n  if (!threadSourceChannels || !Array.isArray(threadSourceChannels)) return 0.0;\n  return threadSourceChannels.includes(messageChannel) ? 0.10 : 0.0;\n}\n\n// --- SCORE ALL CANDIDATES ---\n\nconst scored = candidates.map(thread => {\n  const entScore = entityMatchScore(request, thread);\n  const semScore = semanticMatchScore(request.content_for_resolution, thread.summary);\n  const tempScore = temporalProximityScore(request.timestamp, thread.last_activity_at);\n  const chanScore = channelRelevanceScore(request.channel, thread.source_channels);\n  const totalScore = entScore + semScore + tempScore + chanScore;\n\n  return {\n    thread_id: thread.id,\n    thread_status: thread.status,\n    thread_title: thread.title,\n    score: Math.round(totalScore * 1000) / 1000,\n    entity_match: Math.round(entScore * 1000) / 1000,\n    semantic_match: Math.round(semScore * 1000) / 1000,\n    temporal_proximity: Math.round(tempScore * 1000) / 1000,\n    channel_relevance: Math.round(chanScore * 1000) / 1000\n  };\n});\n\nscored.sort((a, b) => b.score - a.score);\n\nreturn [{\n  json: {\n    ...request,\n    _scored_candidates: scored,\n    _has_candidates: scored.length > 0\n  }\n}];\n"
+      },
+      "id": "tr-score-012",
+      "name": "TR_Score_Candidates",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2420,
+        400
+      ],
+      "notes": "SCORE CANDIDATES NODE — v2.0 (Remediated)\nRomanian-aware scoring: stem normalization + character trigram hybrid.\nEntity weights: author→primary=0.30, related→primary=0.30, overlap=0.15.\nSemantic: max(stemJaccard, trigramJaccard) × 1.6, capped 0.40.\nTemporal: 0.20/0.15/0.10/0.05 decay. Channel: 0.10/0.00.\nCross-node refs: $('TR_Process_Reply_Result'), $('TR_Load_Candidate_Threads'), $('TR_Load_Entity_Hints') — documented."
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForAllItems",
+        "jsCode": "// TR_Apply_Decision_Policy — v2.0 (Remediated)\n// Per-request thresholds from resolution_policy (D-05 fix).\n// Removed dead code catch-all (D-17 fix).\n// Documented ambiguity minimum (D-18 fix).\n// Explicit latent-above-attach → reopen (D-16 fix).\n\nconst req = $input.all()[0].json;\nconst scored = req._scored_candidates || [];\n\n// Per-request thresholds with defaults\nconst STRICT_ATTACH_THRESHOLD = req._attach_threshold || 0.75;\nconst REOPEN_THRESHOLD = req._reopen_threshold || 0.65;\nconst AMBIGUITY_MARGIN = req._ambiguity_margin || 0.05;\nconst AMBIGUITY_MINIMUM = 0.60; // Global minimum score for ambiguity detection\nconst allowLatentReopen = req._allow_latent_reopen !== false;\n\n// No candidates at all\nif (scored.length === 0) {\n  return [{\n    json: {\n      ...req,\n      _resolution_method: 'create_new_thread',\n      _resolved_thread_id: null,\n      _ambiguity_detected: false,\n      _decision_reason: 'no_candidates_found',\n      _confidence: 0.0\n    }\n  }];\n}\n\nconst best = scored[0];\nconst second = scored.length > 1 ? scored[1] : null;\n\n// Ambiguity check: top two within margin AND best >= AMBIGUITY_MINIMUM\n// Note: AMBIGUITY_MINIMUM is deliberately lower than both attach and reopen thresholds.\n// This catches cases where two candidates are plausible but neither dominates.\nconst ambiguityDetected = second !== null &&\n  (best.score - second.score) < AMBIGUITY_MARGIN &&\n  best.score >= AMBIGUITY_MINIMUM;\n\nif (ambiguityDetected) {\n  return [{\n    json: {\n      ...req,\n      _resolution_method: 'create_new_thread',\n      _resolved_thread_id: null,\n      _ambiguity_detected: true,\n      _decision_reason: 'ambiguous_candidates_top_two_within_margin',\n      _confidence: best.score,\n      _best_score: best.score,\n      _second_score: second.score\n    }\n  }];\n}\n\n// Entity-semantic divergence check:\n// If best candidate wins on total due to entity match, but another candidate\n// has HIGHER semantic match by > 0.08, entity may be misleading.\nif (scored.length >= 2) {\n  const secondCand = scored[1];\n  if (best.entity_match > 0 &&\n      secondCand.semantic_match > best.semantic_match &&\n      (secondCand.semantic_match - best.semantic_match) > 0.08) {\n    return [{\n      json: {\n        ...req,\n        _resolution_method: 'create_new_thread',\n        _resolved_thread_id: null,\n        _ambiguity_detected: true,\n        _decision_reason: 'entity_semantic_divergence',\n        _confidence: best.score,\n        _best_score: best.score,\n        _second_score: secondCand.score\n      }\n    }];\n  }\n}\n\n// Active/waiting/blocked thread above attach threshold\nconst activeStatuses = ['active', 'waiting', 'blocked'];\nif (best.score >= STRICT_ATTACH_THRESHOLD && activeStatuses.includes(best.thread_status)) {\n  return [{\n    json: {\n      ...req,\n      _resolution_method: 'attach_existing_thread',\n      _resolved_thread_id: best.thread_id,\n      _ambiguity_detected: false,\n      _decision_reason: 'score_above_attach_threshold',\n      _confidence: best.score,\n      _best_score: best.score\n    }\n  }];\n}\n\n// Latent thread: reopen if above reopen threshold (even if above attach threshold)\n// D-16 fix: latent threads are ALWAYS reopened, never \"attached\"\nif (best.thread_status === 'latent' && best.score >= REOPEN_THRESHOLD && allowLatentReopen) {\n  return [{\n    json: {\n      ...req,\n      _resolution_method: 'reopen_latent_thread',\n      _resolved_thread_id: best.thread_id,\n      _ambiguity_detected: false,\n      _decision_reason: 'latent_thread_above_reopen_threshold',\n      _confidence: best.score,\n      _best_score: best.score\n    }\n  }];\n}\n\n// Below all thresholds → create new thread\nreturn [{\n  json: {\n    ...req,\n    _resolution_method: 'create_new_thread',\n    _resolved_thread_id: null,\n    _ambiguity_detected: false,\n    _decision_reason: 'best_score_below_all_thresholds',\n    _confidence: best.score,\n    _best_score: best.score\n  }\n}];\n"
+      },
+      "id": "tr-decision-013",
+      "name": "TR_Apply_Decision_Policy",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2640,
+        400
+      ],
+      "notes": "APPLY DECISION POLICY NODE — v2.0 (Remediated)\nPer-request thresholds: attach_threshold (default 0.75), reopen_threshold (default 0.65).\nAMBIGUITY_MINIMUM=0.60 (documented, D-18).\nDead code removed (D-17). Latent-above-attach → reopen (D-16).\nNo planning, no response composition — resolver only."
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForAllItems",
+        "jsCode": "// TR_Build_Result — v2.0 (Remediated)\n// Builds both internal and user-facing result fields.\n// D-03 fix: deterministic resolution_id (no Date.now()).\n// D-06 fix: explicit error: null on success.\n// D-11 fix: no non-contract fields in output.\n// D-02 fix: adds user contract fields (module_name, result_type, etc.).\n\nconst req = $input.all()[0].json;\n\n// Deterministic resolution_id: hash of idempotency_key\nfunction simpleHash(str) {\n  let hash = 0;\n  for (let i = 0; i < str.length; i++) {\n    const char = str.charCodeAt(i);\n    hash = ((hash << 5) - hash) + char;\n    hash = hash & hash; // Convert to 32bit integer\n  }\n  return Math.abs(hash).toString(36);\n}\n\nconst idempKey = req._idempotency_key || (req.tenant_id + ':' + req.message_id + ':thread_resolution:v1');\nconst resolutionId = 'tr_' + req.message_id + '_' + simpleHash(idempKey);\n\n// Determine confidence\nconst confidence = req._confidence !== undefined ? req._confidence :\n  (req._resolution_method === 'explicit_thread_reference' || req._resolution_method === 'direct_reply_linkage') ? 1.0 : 0.0;\n\n// Determine winning_reason\nconst winningReason = req._decision_reason || req._resolution_method;\n\n// Build candidate_scores for output (simplified shape for user contract)\nconst candidateScores = (req._scored_candidates || []).slice(0, 10).map(cs => ({\n  thread_id: cs.thread_id,\n  thread_status: cs.thread_status,\n  score: cs.score,\n  entity_match: cs.entity_match,\n  semantic_match: cs.semantic_match,\n  temporal_proximity: cs.temporal_proximity,\n  channel_relevance: cs.channel_relevance\n}));\n\nconst result = {\n  // Internal contract fields (audit/orchestrator)\n  resolution_id: resolutionId,\n  message_id: req.message_id,\n  tenant_id: req.tenant_id,\n  decision: req._resolution_method,\n  resolved_thread_id: req._resolved_thread_id || null,\n  candidate_scores: candidateScores,\n  ambiguity_detected: req._ambiguity_detected || false,\n  content_class_used: req.content_class_used || 'normalized_content',\n  decision_reason: winningReason,\n  timestamp: new Date().toISOString(),\n  error: null,\n  // User contract fields\n  module_name: 'thread_resolver_module',\n  result_type: 'analysis',\n  status: 'success',\n  resolution_action: req._resolution_method,\n  reopened_thread: req._resolution_method === 'reopen_latent_thread',\n  created_thread: req._resolution_method === 'create_new_thread' ? {\n    proposed_title: null,\n    thread_type: 'operational',\n    primary_entity_id: null,\n    initial_summary: null\n  } : null,\n  confidence: Math.round(confidence * 100) / 100,\n  winning_reason: winningReason,\n  needs_followup: false,\n  followup_requests: []\n};\n\nreturn [{ json: result }];\n"
+      },
+      "id": "tr-build-result-014",
+      "name": "TR_Build_Result",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2860,
+        300
+      ],
+      "notes": "BUILD RESULT NODE — v2.0 (Remediated)\nDeterministic resolution_id (D-03). error:null on success (D-06).\nIncludes BOTH internal (decision, decision_reason) AND user-facing (resolution_action, winning_reason, module_name, result_type, status, confidence, reopened_thread, created_thread, needs_followup) fields.\nNo non-contract metadata fields (D-11)."
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForAllItems",
+        "jsCode": "// TR_Build_Error_Result — v2.0 (Remediated)\n// Builds error result with both internal and user-facing fields.\n\nconst errData = $input.all()[0].json;\nconst reqData = errData._request || {};\n\n// Deterministic error resolution_id\nfunction simpleHash(str) {\n  let hash = 0;\n  for (let i = 0; i < str.length; i++) {\n    const char = str.charCodeAt(i);\n    hash = ((hash << 5) - hash) + char;\n    hash = hash & hash;\n  }\n  return Math.abs(hash).toString(36);\n}\n\nconst msgId = reqData.message_id || 'unknown';\nconst tenantId = reqData.tenant_id || 'unknown';\nconst idempKey = reqData._idempotency_key || reqData.idempotency_key || (tenantId + ':' + msgId + ':error:v1');\nconst resolutionId = 'tr_error_' + simpleHash(idempKey);\n\nconst result = {\n  // Internal fields\n  resolution_id: resolutionId,\n  message_id: msgId !== 'unknown' ? msgId : null,\n  tenant_id: tenantId !== 'unknown' ? tenantId : null,\n  decision: 'fail_invalid_input',\n  resolved_thread_id: null,\n  candidate_scores: [],\n  ambiguity_detected: false,\n  content_class_used: 'none',\n  decision_reason: errData._error + ': ' + (errData._missing_fields || []).join(', '),\n  timestamp: new Date().toISOString(),\n  error: {\n    code: errData._error,\n    missing_fields: errData._missing_fields || []\n  },\n  // User contract fields\n  module_name: 'thread_resolver_module',\n  result_type: 'error',\n  status: 'failed',\n  resolution_action: 'fail_invalid_input',\n  reopened_thread: false,\n  created_thread: null,\n  confidence: 0.0,\n  winning_reason: 'missing_required_field_' + (errData._missing_fields || [])[0],\n  needs_followup: true,\n  followup_requests: (errData._missing_fields || []).map(f => ({\n    type: 'invalid_input',\n    field: f,\n    message: f + ' is required'\n  }))\n};\n\nreturn [{ json: result }];\n"
+      },
+      "id": "tr-build-error-015",
+      "name": "TR_Build_Error_Result",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        660,
+        500
+      ],
+      "notes": "BUILD ERROR RESULT NODE — v2.0 (Remediated)\nDeterministic error resolution_id. Includes user contract fields: module_name, result_type, status, needs_followup, followup_requests."
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "INSERT INTO thread_resolution_audit (resolution_id, message_id, tenant_id, decision, resolved_thread_id, candidate_scores, ambiguity_detected, content_class_used, decision_reason, resolved_at) VALUES ($1, $2, $3, $4, $5, $6::jsonb, $7, $8, $9, $10) ON CONFLICT (resolution_id) DO NOTHING",
+        "options": {
+          "queryParams": "={{ $json.resolution_id }},={{ $json.message_id }},={{ $json.tenant_id }},={{ $json.decision }},={{ $json.resolved_thread_id }},={{ JSON.stringify($json.candidate_scores) }},={{ $json.ambiguity_detected }},={{ $json.content_class_used }},={{ $json.decision_reason }},={{ $json.timestamp }}",
+          "alwaysOutputData": true
+        }
+      },
+      "id": "tr-write-audit-016",
+      "name": "TR_Write_Audit",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2,
+      "position": [
+        3080,
+        300
+      ],
+      "notes": "WRITE AUDIT NODE — v2.0 (Remediated)\nalwaysOutputData: true (D-15 fix).\nON CONFLICT DO NOTHING: deterministic resolution_id means re-runs are safe.\nAudit write idempotency is now TRUE (D-03 fix) because resolution_id is deterministic."
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForAllItems",
+        "jsCode": "// TR_Return_Result — v2.0 (Remediated)\n// Returns clean contract output with both internal and user-facing fields.\n// Design note: reads from TR_Build_Result (not $input from TR_Write_Audit)\n// so that audit write failure does not block result return.\n\nconst result = $('TR_Build_Result').all()[0].json;\n\nreturn [{\n  json: {\n    // Internal contract fields\n    resolution_id: result.resolution_id,\n    message_id: result.message_id,\n    tenant_id: result.tenant_id,\n    decision: result.decision,\n    resolved_thread_id: result.resolved_thread_id,\n    candidate_scores: result.candidate_scores,\n    ambiguity_detected: result.ambiguity_detected,\n    content_class_used: result.content_class_used,\n    decision_reason: result.decision_reason,\n    timestamp: result.timestamp,\n    error: result.error,\n    // User contract fields\n    module_name: result.module_name,\n    result_type: result.result_type,\n    status: result.status,\n    resolution_action: result.resolution_action,\n    reopened_thread: result.reopened_thread,\n    created_thread: result.created_thread,\n    confidence: result.confidence,\n    winning_reason: result.winning_reason,\n    needs_followup: result.needs_followup,\n    followup_requests: result.followup_requests\n  }\n}];\n"
+      },
+      "id": "tr-return-017",
+      "name": "TR_Return_Result",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        3300,
+        300
+      ],
+      "notes": "RETURN RESULT NODE — v2.0 (Remediated)\nReads from TR_Build_Result by name (documented cross-node ref, D-13).\nIncludes all user contract fields."
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForAllItems",
+        "jsCode": "// TR_Return_Error — v2.0 (Remediated)\n\nconst result = $('TR_Build_Error_Result').all()[0].json;\n\nreturn [{\n  json: {\n    resolution_id: result.resolution_id,\n    message_id: result.message_id,\n    tenant_id: result.tenant_id,\n    decision: result.decision,\n    resolved_thread_id: null,\n    candidate_scores: [],\n    ambiguity_detected: false,\n    content_class_used: result.content_class_used,\n    decision_reason: result.decision_reason,\n    timestamp: result.timestamp,\n    error: result.error,\n    // User contract fields\n    module_name: result.module_name,\n    result_type: result.result_type,\n    status: result.status,\n    resolution_action: result.resolution_action,\n    reopened_thread: false,\n    created_thread: null,\n    confidence: 0.0,\n    winning_reason: result.winning_reason,\n    needs_followup: result.needs_followup,\n    followup_requests: result.followup_requests\n  }\n}];\n"
+      },
+      "id": "tr-return-error-018",
+      "name": "TR_Return_Error",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1100,
+        600
+      ],
+      "notes": "RETURN ERROR NODE — v2.0 (Remediated)\nNow receives input via TR_Write_Error_Audit (D-07 fix: error path has audit)."
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "INSERT INTO thread_resolution_audit (resolution_id, message_id, tenant_id, decision, resolved_thread_id, candidate_scores, ambiguity_detected, content_class_used, decision_reason, resolved_at) VALUES ($1, $2, $3, $4, $5, $6::jsonb, $7, $8, $9, $10) ON CONFLICT (resolution_id) DO NOTHING",
+        "options": {
+          "queryParams": "={{ $json.resolution_id }},={{ $json.message_id }},={{ $json.tenant_id }},={{ $json.decision }},={{ $json.resolved_thread_id }},={{ JSON.stringify($json.candidate_scores) }},={{ $json.ambiguity_detected }},={{ $json.content_class_used }},={{ $json.decision_reason }},={{ $json.timestamp }}",
+          "alwaysOutputData": true
+        }
+      },
+      "id": "tr-write-error-audit-019",
+      "name": "TR_Write_Error_Audit",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2,
+      "position": [
+        880,
+        600
+      ],
+      "notes": "WRITE ERROR AUDIT NODE — v2.0 (NEW, D-07 fix)\nWrites audit record for error/invalid-input resolutions.\nSame SQL as TR_Write_Audit. alwaysOutputData: true.\nEnsures audit trail exists for ALL resolution decisions including errors."
+    }
+  ],
+  "connections": {
+    "TR_Trigger": {
+      "main": [
+        [
+          {
+            "node": "TR_Validate_Input",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "TR_Validate_Input": {
+      "main": [
+        [
+          {
+            "node": "TR_Route_Valid",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "TR_Route_Valid": {
+      "main": [
+        [
+          {
+            "node": "TR_Select_Content_Class",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "TR_Build_Error_Result",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "TR_Select_Content_Class": {
+      "main": [
+        [
+          {
+            "node": "TR_Check_Explicit_Refs",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "TR_Check_Explicit_Refs": {
+      "main": [
+        [
+          {
+            "node": "TR_Route_Shortcircuit",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "TR_Route_Shortcircuit": {
+      "main": [
+        [
+          {
+            "node": "TR_Build_Result",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "TR_Load_Reply_Context",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "TR_Load_Reply_Context": {
+      "main": [
+        [
+          {
+            "node": "TR_Process_Reply_Result",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "TR_Process_Reply_Result": {
+      "main": [
+        [
+          {
+            "node": "TR_Route_After_Reply",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "TR_Route_After_Reply": {
+      "main": [
+        [
+          {
+            "node": "TR_Build_Result",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "TR_Load_Candidate_Threads",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "TR_Load_Candidate_Threads": {
+      "main": [
+        [
+          {
+            "node": "TR_Load_Entity_Hints",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "TR_Load_Entity_Hints": {
+      "main": [
+        [
+          {
+            "node": "TR_Score_Candidates",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "TR_Score_Candidates": {
+      "main": [
+        [
+          {
+            "node": "TR_Apply_Decision_Policy",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "TR_Apply_Decision_Policy": {
+      "main": [
+        [
+          {
+            "node": "TR_Build_Result",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "TR_Build_Result": {
+      "main": [
+        [
+          {
+            "node": "TR_Write_Audit",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "TR_Write_Audit": {
+      "main": [
+        [
+          {
+            "node": "TR_Return_Result",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "TR_Build_Error_Result": {
+      "main": [
+        [
+          {
+            "node": "TR_Write_Error_Audit",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "TR_Write_Error_Audit": {
+      "main": [
+        [
+          {
+            "node": "TR_Return_Error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "ucenicul-thread-resolver-v2.1-mcp"
+  },
+  "tags": []
+}

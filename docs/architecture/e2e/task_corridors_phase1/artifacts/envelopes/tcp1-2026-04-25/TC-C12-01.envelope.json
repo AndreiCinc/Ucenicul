@@ -1,0 +1,20 @@
+{
+  "message_id": "b8ec97da-c44d-4347-877f-792b996d04f1",
+  "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+  "channel": "tcp1-task-corridors",
+  "direction": "inbound",
+  "author_type": "user",
+  "normalized_content": "Bună, sper că ești bine. Creează task: trimite oferta pentru clientul X mâine la 10. Dacă X nu răspunde, revenim săptămâna viitoare. Mulțumesc!",
+  "timestamp": "2026-04-25T13:18:25.281Z",
+  "source_message_ref": "tcp1:TC-C12-01:tmr:tcp1-2026-04-25:TC-C12-01",
+  "author_entity_id": null,
+  "related_entity_ids": [],
+  "metadata": {
+    "tcp1_case_id": "TC-C12-01",
+    "tcp1_run_tag": "tcp1-2026-04-25",
+    "tcp1_priority": "P0"
+  },
+  "idempotency_key": "tmr:tcp1-2026-04-25:TC-C12-01",
+  "thread_id": "f7e969c8-4b47-4fd1-8411-03d6d5e30c0c",
+  "reply_to_thread_id": null
+}

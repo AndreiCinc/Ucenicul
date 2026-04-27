@@ -1,0 +1,23 @@
+{
+  "message_id": "edce88c7-d293-46e6-8dc1-979d40068e33",
+  "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+  "channel": "e2e-rich-matrix",
+  "direction": "inbound",
+  "author_type": "user",
+  "normalized_content": "Pentru Andrei, ține minte că preferă dimineața, evită cardio lung și răspunde mai bine la exerciții de forță.",
+  "timestamp": "2026-04-26T02:50:47.188Z",
+  "source_message_ref": "e2e:C2-L3-V1:e2e:f240-2026-04-26:C2-L3-V1",
+  "author_entity_id": null,
+  "related_entity_ids": [],
+  "metadata": {
+    "e2e_case_id": "C2-L3-V1",
+    "e2e_corridor": "C2",
+    "e2e_variant": "baseline_ro",
+    "e2e_phase": "P1_FOUNDATION",
+    "e2e_priority": "P1",
+    "e2e_locale": "ro",
+    "e2e_run_tag": "f240-2026-04-26"
+  },
+  "idempotency_key": "e2e:f240-2026-04-26:C2-L3-V1",
+  "thread_id": "1899e6f2-9052-424a-8822-abb6d00f8c1f"
+}

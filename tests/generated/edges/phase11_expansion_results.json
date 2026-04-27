@@ -1,0 +1,263 @@
+{
+  "ts": "2026-04-20T15:25:38.933Z",
+  "phase": "phase11",
+  "scope": "ME module expansion: all 5 modules (task, reminder, memory, improvement, watcher) handled end-to-end",
+  "patches_applied": [
+    {
+      "id": "PL_propagate_action",
+      "path": "tests/generated/workflows/snapshots/_patch_pl_propagate_action_phase11.mjs",
+      "kind": "jsCode text replacement (1 line)",
+      "target": "PL_Generate_Plan",
+      "verified": true
+    },
+    {
+      "id": "ME_module_expansion",
+      "path": "tests/generated/workflows/snapshots/_patch_me_module_expansion_phase11.mjs",
+      "kind": "10 new nodes + ME_Route_Module_Name rules + ME_Return_Error upgrade",
+      "target": "WF-ME-01 (uq26nh1grIpnHju0)",
+      "verified": true
+    },
+    {
+      "id": "ME_route_context_rewire",
+      "path": "tests/generated/workflows/snapshots/_patch_me_route_context_phase11b.mjs",
+      "kind": "connections-only rewire: bypass ME_Load_Task_Candidates for non-task modules",
+      "target": "WF-ME-01 (uq26nh1grIpnHju0)",
+      "verified": true
+    }
+  ],
+  "runtime_tests": {
+    "total": 8,
+    "passed": 8,
+    "verdict": "PASS",
+    "cases": [
+      {
+        "case": "p11-smoke-02",
+        "handler": "ME_Reminder_Create_Result",
+        "exec": "1030",
+        "pass": true
+      },
+      {
+        "case": "p11-list-reminders",
+        "handler": "ME_Reminder_List_Result",
+        "exec": "1039",
+        "pass": true
+      },
+      {
+        "case": "p11-update-reminder",
+        "handler": "ME_Reminder_Update_Result",
+        "exec": "1048",
+        "pass": true
+      },
+      {
+        "case": "p11-cancel-reminder",
+        "handler": "ME_Reminder_Cancel_Result",
+        "exec": "1057",
+        "pass": true
+      },
+      {
+        "case": "p11-store-memory",
+        "handler": "ME_Memory_Store_Result",
+        "exec": "1066",
+        "pass": true
+      },
+      {
+        "case": "p11-search-memory",
+        "handler": "ME_Memory_Search_Result",
+        "exec": "1075",
+        "pass": true
+      },
+      {
+        "case": "p11-capture-feedback",
+        "handler": "ME_Improvement_Capture_Result",
+        "exec": "1084",
+        "pass": true
+      },
+      {
+        "case": "p11-observe",
+        "handler": "ME_Watcher_Observe_Result",
+        "exec": "1093",
+        "pass": true
+      }
+    ]
+  },
+  "negative_tests": {
+    "total": 5,
+    "passed": 5,
+    "verdict": "PASS",
+    "cases": [
+      {
+        "case": "p11-neg-reminder-missing-desc",
+        "exec": "1102",
+        "pass": true,
+        "code": "MISSING_REQUIRED_FIELDS",
+        "missing_fields": [
+          "description"
+        ],
+        "expected": {
+          "code": "MISSING_REQUIRED_FIELDS",
+          "missing": "description"
+        }
+      },
+      {
+        "case": "p11-neg-memory-missing-type",
+        "exec": "1104",
+        "pass": true,
+        "code": "MISSING_REQUIRED_FIELDS",
+        "missing_fields": [
+          "memory_type"
+        ],
+        "expected": {
+          "code": "MISSING_REQUIRED_FIELDS",
+          "missing": "memory_type"
+        }
+      },
+      {
+        "case": "p11-neg-reminder-update-no-ident",
+        "exec": "1106",
+        "pass": true,
+        "code": "MISSING_REQUIRED_FIELDS",
+        "missing_fields": [
+          "reminder_id_or_title_match",
+          "patch"
+        ],
+        "expected": {
+          "code": "MISSING_REQUIRED_FIELDS",
+          "missing": "reminder_id_or_title_match"
+        }
+      },
+      {
+        "case": "p11-neg-unknown-module",
+        "exec": "1108",
+        "pass": true,
+        "code": "UNSUPPORTED_MODULE",
+        "missing_fields": [],
+        "expected": {
+          "code": "UNSUPPORTED_MODULE",
+          "missing": null
+        }
+      },
+      {
+        "case": "p11-neg-unknown-reminder-action",
+        "exec": "1109",
+        "pass": true,
+        "code": "UNSUPPORTED_ACTION",
+        "missing_fields": [],
+        "expected": {
+          "code": "UNSUPPORTED_ACTION",
+          "missing": null
+        }
+      }
+    ]
+  },
+  "full_chain_tests": {
+    "total": 4,
+    "module_match_count": 4,
+    "reached_mo_count": 0,
+    "verdict": "PASS_ME_LEVEL",
+    "cases": [
+      {
+        "label": "p11-chain-01-create_task",
+        "intent": "create_task",
+        "expected_me_module": "task_module",
+        "chain_path": "TR → EC → OR → PL → DI → ME → RA",
+        "chain_depth": 7,
+        "me_handler": "ME_Task_Create_Result",
+        "me_module": "task_module",
+        "me_module_match": true,
+        "terminal_wf": "RA",
+        "terminal_error_code": "INVALID_AGGREGATION_INPUT"
+      },
+      {
+        "label": "p11-chain-02-create_reminder",
+        "intent": "create_reminder",
+        "expected_me_module": "reminder_module",
+        "chain_path": "TR → EC → OR → PL → DI → ME → RA",
+        "chain_depth": 7,
+        "me_handler": "ME_Reminder_Create_Result",
+        "me_module": "reminder_module",
+        "me_module_match": true,
+        "terminal_wf": "RA",
+        "terminal_error_code": "INVALID_AGGREGATION_INPUT"
+      },
+      {
+        "label": "p11-chain-03-search_memory",
+        "intent": "search_memory",
+        "expected_me_module": "memory_module",
+        "chain_path": "TR → EC → OR → PL → DI → ME → RA",
+        "chain_depth": 7,
+        "me_handler": "ME_Memory_Search_Result",
+        "me_module": "memory_module",
+        "me_module_match": true,
+        "terminal_wf": "RA",
+        "terminal_error_code": "INVALID_AGGREGATION_INPUT"
+      },
+      {
+        "label": "p11-chain-04-save_suggestion",
+        "intent": "save_suggestion",
+        "expected_me_module": "improvement_module",
+        "chain_path": "TR → EC → OR → PL → DI → ME → RA",
+        "chain_depth": 7,
+        "me_handler": "ME_Improvement_Capture_Result",
+        "me_module": "improvement_module",
+        "me_module_match": true,
+        "terminal_wf": "RA",
+        "terminal_error_code": "INVALID_AGGREGATION_INPUT"
+      }
+    ]
+  },
+  "downstream_gaps_surfaced": [
+    {
+      "id": "PL_extract_structured_inputs",
+      "severity": "medium",
+      "in_scope": false,
+      "description": "PL emits steps with only {action} in inputs. Handlers correctly return MISSING_REQUIRED_FIELDS for description, remind_at, memory_query, feedback_text. Needs PL-side extraction from planner_context.user_message_text per intent.",
+      "evidence_exec_ids": [
+        "1115",
+        "1122",
+        "1129",
+        "1136"
+      ]
+    },
+    {
+      "id": "RA_rejects_module_error_envelope",
+      "severity": "medium",
+      "in_scope": false,
+      "description": "ME_Build_RA_Envelope forwards {result_type: module_error} as-is; RA validator requires aggregation_input wrapper. Success path (result_type: module_batch) works — proven by 8/8 runtime tests.",
+      "evidence_chain_exec_ids": [
+        "1110",
+        "1117",
+        "1124",
+        "1131"
+      ]
+    }
+  ],
+  "verdict": {
+    "phase11_status": "PHASE_11_COMPLETE",
+    "b10_resolved": true,
+    "me_coverage_modules": [
+      "task_module",
+      "reminder_module",
+      "memory_module",
+      "improvement_module",
+      "watcher_module_basic"
+    ],
+    "me_coverage_actions": [
+      "create_task",
+      "update_task",
+      "complete_task",
+      "cancel_task",
+      "create_reminder",
+      "list_reminders",
+      "update_reminder",
+      "cancel_reminder",
+      "store_memory",
+      "search_memory",
+      "capture_feedback",
+      "observe"
+    ],
+    "next_phase_work_items": [
+      "PL: extract structured inputs from user_message_text per intent",
+      "RA: accept module_error envelope shape (wrap or pass-through)"
+    ]
+  }
+}

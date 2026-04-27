@@ -1,0 +1,28 @@
+{
+  "name": "ME_Memory_Supersede_Embed",
+  "type": "n8n-nodes-base.httpRequest",
+  "typeVersion": 4.2,
+  "position": [
+    2888,
+    1200
+  ],
+  "id": "me-f6af-supersede-embed",
+  "credentials": {
+    "openAiApi": {
+      "id": "svM62oyFwPbaIeX4",
+      "name": "OpenAi account"
+    }
+  },
+  "parameters": {
+    "url": "https://api.openai.com/v1/embeddings",
+    "method": "POST",
+    "options": {
+      "timeout": 30000
+    },
+    "jsonBody": "={{ JSON.stringify({ model: 'text-embedding-3-small', input: $json.__db.content }) }}",
+    "sendBody": true,
+    "specifyBody": "json",
+    "authentication": "predefinedCredentialType",
+    "nodeCredentialType": "openAiApi"
+  }
+}

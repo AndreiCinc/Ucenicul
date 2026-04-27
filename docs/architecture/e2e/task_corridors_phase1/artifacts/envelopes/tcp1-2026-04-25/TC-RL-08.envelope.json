@@ -1,0 +1,20 @@
+{
+  "message_id": "c4e5e18a-c72b-4356-8763-cad2dda19ab2",
+  "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+  "channel": "tcp1-task-corridors",
+  "direction": "inbound",
+  "author_type": "user",
+  "normalized_content": "Amintește-mi mâine la 14:30 să trimit oferta finală pentru clientul Z.",
+  "timestamp": "2026-04-25T13:18:25.281Z",
+  "source_message_ref": "tcp1:TC-RL-08:tmr:tcp1-2026-04-25:TC-RL-08",
+  "author_entity_id": null,
+  "related_entity_ids": [],
+  "metadata": {
+    "tcp1_case_id": "TC-RL-08",
+    "tcp1_run_tag": "tcp1-2026-04-25",
+    "tcp1_priority": "P0"
+  },
+  "idempotency_key": "tmr:tcp1-2026-04-25:TC-RL-08",
+  "thread_id": "8d033207-ab52-4a1b-8156-c9d452730d4f",
+  "reply_to_thread_id": null
+}

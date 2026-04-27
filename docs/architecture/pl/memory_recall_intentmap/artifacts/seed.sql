@@ -1,0 +1,20 @@
+BEGIN;
+INSERT INTO threads (id, tenant_id, title, thread_type, status, source_channels) VALUES
+  ('5d597dcc-0379-4d51-831c-263cf53e2178'::uuid, 'eee0e2e0-0000-0000-0000-000000000001'::uuid, 'e2e:mr-2026-04-27:MR-001', 'operational', 'new', ARRAY['e2e-rich-matrix']::varchar[]),
+  ('cec3f33e-b189-43cd-855f-196af1f7ffb8'::uuid, 'eee0e2e0-0000-0000-0000-000000000001'::uuid, 'e2e:mr-2026-04-27:MR-002', 'operational', 'new', ARRAY['e2e-rich-matrix']::varchar[]),
+  ('d94adc01-8eb0-47c2-86ca-07176c5bc5f6'::uuid, 'eee0e2e0-0000-0000-0000-000000000001'::uuid, 'e2e:mr-2026-04-27:MR-003', 'operational', 'new', ARRAY['e2e-rich-matrix']::varchar[]),
+  ('48596462-3ba9-4d44-8ce9-7912436b2093'::uuid, 'eee0e2e0-0000-0000-0000-00000000000b'::uuid, 'e2e:mr-2026-04-27:MR-004', 'operational', 'new', ARRAY['e2e-rich-matrix']::varchar[]),
+  ('9b93969d-bcd2-4575-8bea-5cd200c24a1d'::uuid, 'eee0e2e0-0000-0000-0000-000000000001'::uuid, 'e2e:mr-2026-04-27:R-1', 'operational', 'new', ARRAY['e2e-rich-matrix']::varchar[]),
+  ('66720778-a1e1-4dd9-84dd-db2ba5be986e'::uuid, 'eee0e2e0-0000-0000-0000-000000000001'::uuid, 'e2e:mr-2026-04-27:R-2', 'operational', 'new', ARRAY['e2e-rich-matrix']::varchar[]),
+  ('fcab04cc-a0b3-4ecb-84f6-7823042820f0'::uuid, 'eee0e2e0-0000-0000-0000-000000000001'::uuid, 'e2e:mr-2026-04-27:R-3', 'operational', 'new', ARRAY['e2e-rich-matrix']::varchar[])
+ON CONFLICT (id) DO NOTHING;
+INSERT INTO messages (id, organization_id, tenant_id, thread_id, direction, author_type, channel, normalized_content, source_message_ref, content, intent, created_at, updated_at) VALUES
+  ('2fbdbbcc-c3b7-469d-8afe-319556c25e5e'::uuid, '38fde66e-3920-4bf3-9d70-ddbca9faf58a'::uuid, 'eee0e2e0-0000-0000-0000-000000000001'::uuid, '5d597dcc-0379-4d51-831c-263cf53e2178'::uuid, 'inbound', 'user', 'e2e-rich-matrix', 'Ce am notat despre preferințe?', 'e2e:MR-001', 'Ce am notat despre preferințe?', 'recall_memory', NOW(), NOW()),
+  ('bea31ec0-c741-4d31-81ac-81319d382e0f'::uuid, '38fde66e-3920-4bf3-9d70-ddbca9faf58a'::uuid, 'eee0e2e0-0000-0000-0000-000000000001'::uuid, 'cec3f33e-b189-43cd-855f-196af1f7ffb8'::uuid, 'inbound', 'user', 'e2e-rich-matrix', 'What did I save about preferences?', 'e2e:MR-002', 'What did I save about preferences?', 'recall_memory', NOW(), NOW()),
+  ('6bc3b782-86ae-4d11-84a4-d3a61d3f6a3a'::uuid, '38fde66e-3920-4bf3-9d70-ddbca9faf58a'::uuid, 'eee0e2e0-0000-0000-0000-000000000001'::uuid, 'd94adc01-8eb0-47c2-86ca-07176c5bc5f6'::uuid, 'inbound', 'user', 'e2e-rich-matrix', 'caută preferințe', 'e2e:MR-003', 'caută preferințe', 'search_memory', NOW(), NOW()),
+  ('2f0583b3-6c1d-4de6-8524-a92c699fd4bc'::uuid, '38fde66e-3920-4bf3-9d70-ddbca9faf58a'::uuid, 'eee0e2e0-0000-0000-0000-00000000000b'::uuid, '48596462-3ba9-4d44-8ce9-7912436b2093'::uuid, 'inbound', 'user', 'e2e-rich-matrix', 'What memories do I have?', 'e2e:MR-004', 'What memories do I have?', 'recall_memory', NOW(), NOW()),
+  ('6c645915-b488-48bf-8bc5-e676d158e417'::uuid, '38fde66e-3920-4bf3-9d70-ddbca9faf58a'::uuid, 'eee0e2e0-0000-0000-0000-000000000001'::uuid, '9b93969d-bcd2-4575-8bea-5cd200c24a1d'::uuid, 'inbound', 'user', 'e2e-rich-matrix', 'Ține minte că folosesc Postgres 16.', 'e2e:R-1', 'Ține minte că folosesc Postgres 16.', 'store_memory', NOW(), NOW()),
+  ('a88b2762-7fa1-4440-80e2-7dae97b38b65'::uuid, '38fde66e-3920-4bf3-9d70-ddbca9faf58a'::uuid, 'eee0e2e0-0000-0000-0000-000000000001'::uuid, '66720778-a1e1-4dd9-84dd-db2ba5be986e'::uuid, 'inbound', 'user', 'e2e-rich-matrix', 'Creează un task: review pull request', 'e2e:R-2', 'Creează un task: review pull request', 'create_task', NOW(), NOW()),
+  ('76b41908-0d51-4990-8952-b216ba982334'::uuid, '38fde66e-3920-4bf3-9d70-ddbca9faf58a'::uuid, 'eee0e2e0-0000-0000-0000-000000000001'::uuid, 'fcab04cc-a0b3-4ecb-84f6-7823042820f0'::uuid, 'inbound', 'user', 'e2e-rich-matrix', 'Sugestie: adaugă export CSV.', 'e2e:R-3', 'Sugestie: adaugă export CSV.', 'save_suggestion', NOW(), NOW())
+ON CONFLICT (id) DO NOTHING;
+COMMIT;

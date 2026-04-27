@@ -1,0 +1,37 @@
+{
+  "case_id": "C1-L1-V1",
+  "run_tag": "plbrf-2026-04-26",
+  "runtime": {
+    "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+    "message_id": "3684992f-dd42-4b73-8dbe-6e1b00c73c85",
+    "thread_id": "adc4c056-1d4b-4690-8284-02d05cd972f7",
+    "reply_to_thread_id": null,
+    "idempotency_key": "e2e:f240-2026-04-26:C1-L1-V1",
+    "thread_label": "C1:C1-L1-V1",
+    "ts_iso": "2026-04-26T02:50:46.944Z",
+    "run_tag": "f240-2026-04-26",
+    "thread_context_kind": "seeded-fresh",
+    "fire_iso": "2026-04-26T03:19:29.255Z"
+  },
+  "invariants": [
+    {
+      "name": "assert_no_memory_write_for_case",
+      "sql": "SELECT count(*)::int AS c FROM memory_items\n          WHERE tenant_id = $1 AND source_thread_id = $2 AND created_at >= $3",
+      "params": [
+        "eee0e2e0-0000-0000-0000-000000000001",
+        "adc4c056-1d4b-4690-8284-02d05cd972f7",
+        "2026-04-26T03:19:29.255Z"
+      ],
+      "unknown": false
+    },
+    {
+      "name": "assert_one_outbound_for_case",
+      "sql": "SELECT count(*)::int AS c FROM outbound_delivery_ledger_claude_mcp\n          WHERE tenant_id = $1 AND idempotency_key = $2",
+      "params": [
+        "eee0e2e0-0000-0000-0000-000000000001",
+        "e2e:f240-2026-04-26:C1-L1-V1"
+      ],
+      "unknown": false
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+{"language": "javaScript", "jsCode": "return items.map(i => ({ json: i.json }));"}

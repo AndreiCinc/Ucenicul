@@ -1,0 +1,71 @@
+{
+  "executionId": "1394",
+  "workflowId": "uq26nh1grIpnHju0",
+  "status": "success",
+  "startedAt": "2026-04-20T22:06:16.540Z",
+  "stoppedAt": "2026-04-20T22:06:19.207Z",
+  "purpose": "Patch A smoke s2a — lexical-hit, expect 2 rows, used_embedding=false, status=partial",
+  "oracle_check": {
+    "used_embedding": false,
+    "status": "partial",
+    "summary_contains_fallback": true,
+    "recall_results_count": 2,
+    "placeholder_row_leaked": false,
+    "all_rows_have_id_uuid": true,
+    "needs_followup": true
+  },
+  "ME_Memory_Search_Result_output": {
+    "status_kind": "success",
+    "result_type": "module_result",
+    "module_result": {
+      "module_name": "memory_module",
+      "step_id": "mem-smoke-v2f1:patchA-s2a",
+      "result_type": "analysis",
+      "status": "partial",
+      "summary": "Memory search degraded to lexical fallback (embedding missing).",
+      "observations": [],
+      "proposals": [],
+      "actions_executed": [
+        {
+          "action": "search_memory",
+          "details": {
+            "query": "Smoke V2 F1",
+            "used_embedding": false,
+            "recall_results": [
+              {
+                "memory_id": "6ceb9437-960e-45b4-a1cf-706116723360",
+                "content": "Smoke V2 F1 — supersede replacement anchor.",
+                "memory_type": "fact",
+                "tier": "recent",
+                "status": "active",
+                "category": "smoke_supersede",
+                "similarity": null,
+                "created_at": "2026-04-20T21:51:51.025Z"
+              },
+              {
+                "memory_id": "a0909481-a0a8-4682-8689-fbe50a6fa919",
+                "content": "Smoke V2 F1 — store path anchor.",
+                "memory_type": "fact",
+                "tier": "recent",
+                "status": "active",
+                "category": "smoke_store",
+                "similarity": null,
+                "created_at": "2026-04-20T21:49:49.439Z"
+              }
+            ]
+          }
+        }
+      ],
+      "artifacts": [],
+      "confidence": 1,
+      "needs_followup": true,
+      "followup_requests": [
+        {
+          "type": "generate_embedding",
+          "target": "search_memory",
+          "query": "Smoke V2 F1"
+        }
+      ]
+    }
+  }
+}

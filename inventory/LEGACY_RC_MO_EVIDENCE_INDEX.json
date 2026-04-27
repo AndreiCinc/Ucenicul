@@ -1,0 +1,304 @@
+{
+  "generated_at": "2026-04-19",
+  "audit_name": "LEGACY_RC_MO_EVIDENCE_INDEX",
+  "scope": "All references to WF-RC-01 / WF-MO-01 / Response Composer / Message Out / Output Gateway in repo docs and in live n8n. Strict read-only.",
+  "mode": "discovery_and_extraction",
+  "field_dictionary": {
+    "canonical_candidate": "WF-RC-01 | WF-MO-01 | DEPRECATED__WF-MO-01_langchain_stub | GENERIC_BOTH — which future workflow folder this evidence belongs to.",
+    "alias": "How this artifact names the concept (Response Composer, response composition, response_module, Message Out, Output Gateway, etc.)",
+    "file_path": "Repo-relative path OR n8n workflow ID for live state.",
+    "evidence_type": "pipeline_stage_diagram | canonical_entrypoint_pointer | hot_context_pointer | canonical_baseline_pointer | module_registry_pointer | task_type_example | db_schema_reference | audit_self_reference | live_n8n_workflow | potential_mount_locked_not_inspected | absent_confirmed",
+    "confidence": "high | medium | low | unknown_unreadable",
+    "notes": "Free-text notes; if mount-locked, explicitly states 'visible by path/stat, unreadable in this session'."
+  },
+  "readable_evidence": [
+    {
+      "canonical_candidate": "GENERIC_BOTH",
+      "alias": "Response Composer / Message Out (as pipeline stages in target-architecture diagram)",
+      "file_path": "README.md",
+      "line_hint": "~32-34",
+      "evidence_type": "pipeline_stage_diagram",
+      "confidence": "high",
+      "notes": "Target-architecture flow: 'Message In -> Thread Resolver -> Execution Context -> Orchestrator Planner -> Dispatcher -> Modules -> Result Aggregator -> Response Composer -> Message Out'. This is the only substantive (i.e., not just a pointer) mention of both stages in the readable corpus. It names both but describes neither. Pipeline-diagram-only; no contract, no inputs/outputs, no nodes, no SQL."
+    },
+    {
+      "canonical_candidate": "WF-RC-01",
+      "alias": "response composer (as task-type example only)",
+      "file_path": "AI_CONTEXT_LOADING_RULES.md",
+      "line_hint": "~40",
+      "evidence_type": "task_type_example",
+      "confidence": "low",
+      "notes": "Verbatim: '\"Implement task_module\", \"write response composer\", etc.' Used as an example of a 'Module implementation task' routing rule. Does not define the composer; only uses it as a naming placeholder to illustrate a context-loading rule."
+    },
+    {
+      "canonical_candidate": "WF-RC-01",
+      "alias": "response module / Module_Spec_Response.md",
+      "file_path": "CANONICAL_ENTRYPOINTS.md",
+      "line_hint": "~47",
+      "evidence_type": "canonical_entrypoint_pointer",
+      "confidence": "medium",
+      "notes": "Row in the canonical-entrypoints table: 'How does the response module work? | docs/architecture/Module_Spec_Response.md'. Establishes Module_Spec_Response.md as the canonical 'what' of response composition. The target doc is mount-locked in this session."
+    },
+    {
+      "canonical_candidate": "GENERIC_BOTH",
+      "alias": "n8n_Workflow_Mapping.md (as the canonical wiring doc)",
+      "file_path": "CANONICAL_ENTRYPOINTS.md",
+      "line_hint": "~61-62, 124",
+      "evidence_type": "canonical_entrypoint_pointer",
+      "confidence": "medium",
+      "notes": "Establishes n8n_Workflow_Mapping.md as the canonical 'how do n8n workflows wire together at execution time' and as the PostgreSQL query policy source (Section 5). This doc, if it is complete, is almost certainly the primary legacy container of RC/MO node-level knowledge — but it is mount-locked in this session."
+    },
+    {
+      "canonical_candidate": "WF-RC-01",
+      "alias": "Module_Spec_Response.md",
+      "file_path": "HOT_CONTEXT_FILES.md",
+      "line_hint": "~46",
+      "evidence_type": "hot_context_pointer",
+      "confidence": "medium",
+      "notes": "Row: 'docs/architecture/Module_Spec_Response.md | Response composition work'. Confirms that the canonical HOT context bundle treats Module_Spec_Response.md as the load-on-demand doc for any response-composition task. The target doc is mount-locked."
+    },
+    {
+      "canonical_candidate": "GENERIC_BOTH",
+      "alias": "n8n_Workflow_Mapping.md (HOT context)",
+      "file_path": "HOT_CONTEXT_FILES.md",
+      "line_hint": "~50, 60",
+      "evidence_type": "hot_context_pointer",
+      "confidence": "medium",
+      "notes": "Rows name n8n_Workflow_Mapping.md as 'always co-loaded with workflow work' and as the source for 'n8n workflow wiring or query policy work'. Confirms wiring-level detail is expected there. Target mount-locked."
+    },
+    {
+      "canonical_candidate": "WF-RC-01",
+      "alias": "Module_Spec_Response.md (canonical baseline roll)",
+      "file_path": "FINAL_CANONICAL_BASELINE.md",
+      "line_hint": "~93",
+      "evidence_type": "canonical_baseline_pointer",
+      "confidence": "medium",
+      "notes": "Module_Spec_Response.md is listed as one of the canonical Level-2 module contracts at baseline. Confirms that at 2026-04-19 closeout, the response module was treated as canonically specified at the module layer — even though the workflow layer (workflows/WF-RC-01_*) was not created."
+    },
+    {
+      "canonical_candidate": "GENERIC_BOTH",
+      "alias": "n8n_Workflow_Mapping.md (canonical baseline roll)",
+      "file_path": "FINAL_CANONICAL_BASELINE.md",
+      "line_hint": "~97",
+      "evidence_type": "canonical_baseline_pointer",
+      "confidence": "medium",
+      "notes": "Listed as canonical Level-2 execution-layout doc at baseline. Same notation: content mount-locked."
+    },
+    {
+      "canonical_candidate": "WF-RC-01",
+      "alias": "response_module / aggregated_results",
+      "file_path": "db/README.md",
+      "line_hint": "~234",
+      "evidence_type": "db_schema_reference",
+      "confidence": "low",
+      "notes": "Table row: 'response_module | aggregated_results, threads | Module results (aggregated) | Detokenization at outbound boundary in Phase 2'. Confirms (a) response_module consumes aggregated_results + threads, (b) detokenization is deferred to Phase 2 at the outbound boundary. Anchored to DB read paths, not to workflow nodes. The 'outbound boundary' phrase plausibly refers to MO-01 but is not explicitly tied to it."
+    },
+    {
+      "canonical_candidate": "GENERIC_BOTH",
+      "alias": "outbound / channel",
+      "file_path": "db/README.md",
+      "line_hint": "~19-20, ~104",
+      "evidence_type": "db_schema_reference",
+      "confidence": "low",
+      "notes": "'direction = inbound / outbound' and 'channel' / 'source_channels' columns. Establishes that the DB layer carries the channel+direction discriminators that MO-01 writes to. Generic, not an RC/MO spec."
+    },
+    {
+      "canonical_candidate": "WF-RC-01",
+      "alias": "Module_Spec_Response.md (filed)",
+      "file_path": "inventory/DOCUMENT_STRUCTURE_DOUBLE_CHECK.md",
+      "line_hint": "~54, 77",
+      "evidence_type": "module_registry_pointer",
+      "confidence": "low",
+      "notes": "Structure-audit table confirms Module_Spec_Response.md is filed under docs/architecture/ and classified as 'architecture (module contract)'. Administrative confirmation of existence, not content."
+    },
+    {
+      "canonical_candidate": "GENERIC_BOTH",
+      "alias": "n8n_Workflow_Mapping.md (filed)",
+      "file_path": "inventory/DOCUMENT_STRUCTURE_DOUBLE_CHECK.md",
+      "line_hint": "~58, 81, 302",
+      "evidence_type": "module_registry_pointer",
+      "confidence": "low",
+      "notes": "Same as above for the wiring doc. Classified as 'architecture (Level 2, execution layout)'."
+    },
+    {
+      "canonical_candidate": "GENERIC_BOTH",
+      "alias": "response composition (as a topic NOT governed by brain_contract.json)",
+      "file_path": "CLAUDE.md",
+      "line_hint": "~42",
+      "evidence_type": "canonical_baseline_pointer",
+      "confidence": "low",
+      "notes": "Row under 'brain_contract.json scope' lists 'Response composition' as a domain explicitly OUT OF scope for brain_contract.json. Indirectly confirms that response composition has its own spec elsewhere."
+    },
+    {
+      "canonical_candidate": "GENERIC_BOTH",
+      "alias": "n8n_Workflow_Mapping.md (as n8n execution layout truth)",
+      "file_path": "CLAUDE.md",
+      "line_hint": "~29, 48",
+      "evidence_type": "canonical_entrypoint_pointer",
+      "confidence": "medium",
+      "notes": "CLAUDE.md authority table names n8n_Workflow_Mapping.md as the canonical source for 'n8n execution layout' and for the PostgreSQL query policy in Section 5."
+    },
+    {
+      "canonical_candidate": "GENERIC_BOTH",
+      "alias": "WF-RC-01 Response Composer / WF-MO-01 Message Out / Output Gateway",
+      "file_path": "inventory/N8N_DOCUMENTATION_ALIGNMENT_AUDIT.md",
+      "line_hint": "D.12, D.13, multiple",
+      "evidence_type": "audit_self_reference",
+      "confidence": "high",
+      "notes": "This audit (generated earlier this session) describes live n8n node layouts for both workflows and explicitly flags both as N8N_ONLY (no repo folder, no repo spec other than README pipeline diagram + Module_Spec_Response.md pointer). Use this as a summary source, but it is an intra-session derivative — not a primary legacy doc."
+    }
+  ],
+  "live_n8n_evidence": [
+    {
+      "canonical_candidate": "WF-RC-01",
+      "alias": "WF-RC-01 Response Composer",
+      "file_path": "n8n://workflow/TClXgmO8H8zsSwMb",
+      "evidence_type": "live_n8n_workflow",
+      "confidence": "high",
+      "notes": "16 nodes, active, updatedAt 2026-04-18. Flow: Validate state_update_input -> Route Valid -> Load EC + Thread Context -> Verify Lineage & Replay -> Build Composition Input -> Compose Response (Romanian/English locale with labels) -> Build Output Envelope (with SHA256 digest) -> Return Result / Error / Context Error. Has DISABLED MO-01 handoff nodes (i.e. RC->MO transition is wired in intent but not invoked in runtime). Emits allowed_next_stage='MESSAGE_OUT'."
+    },
+    {
+      "canonical_candidate": "WF-MO-01",
+      "alias": "WF-MO-01 Message Out / Output Gateway",
+      "file_path": "n8n://workflow/OooZdC0DgsDR6gm0",
+      "evidence_type": "live_n8n_workflow",
+      "confidence": "high",
+      "notes": "18 nodes, active, updatedAt 2026-04-18T11:20:33Z. Flow: MO_Input + Manual Trigger -> Validate Composed Response -> Route Valid -> Load EC / Thread / Channel Delivery Context -> Replay Guard Probe -> Verify Lineage & Replay -> Route Context Ready -> Build Delivery Request -> Route Channel (switch) -> MO_Send_Channel_PLACEHOLDER (Telegram) -> Log Outbound Message -> Build Delivery Result -> Return Result / Error / Context Error. Channel abstraction not finalized (PLACEHOLDER)."
+    },
+    {
+      "canonical_candidate": "DEPRECATED__WF-MO-01_langchain_stub",
+      "alias": "DEPRECATED__WF-MO-01_langchain_stub",
+      "file_path": "n8n://workflow/rooFWDryqC0YDyVa",
+      "evidence_type": "live_n8n_workflow",
+      "confidence": "high",
+      "notes": "4 nodes, INACTIVE, updatedAt 2026-04-18. Manual + Chat triggers -> AI Agent (langchain) + OpenAI gpt-5-mini. Name is explicitly flagged DEPRECATED. Not a runtime path; kept in n8n only as a historical stub."
+    }
+  ],
+  "potential_mount_locked_not_inspected": [
+    {
+      "canonical_candidate": "WF-RC-01",
+      "alias": "Module_Spec_Response.md (Level-2 module contract)",
+      "file_path": "docs/architecture/Module_Spec_Response.md",
+      "evidence_type": "potential_mount_locked_not_inspected",
+      "confidence": "unknown_unreadable",
+      "notes": "Visible by path/stat, unreadable in this session. Multiple readable docs (CANONICAL_ENTRYPOINTS, HOT_CONTEXT_FILES, FINAL_CANONICAL_BASELINE, DOCUMENT_STRUCTURE_DOUBLE_CHECK) identify this as the canonical Response-module contract. If its content is substantive, it is the primary legacy container of WF-RC-01 'what' (contract, locale policy, output envelope shape, digest rules)."
+    },
+    {
+      "canonical_candidate": "GENERIC_BOTH",
+      "alias": "n8n_Workflow_Mapping.md (Level-2 execution layout)",
+      "file_path": "docs/architecture/n8n_Workflow_Mapping.md",
+      "evidence_type": "potential_mount_locked_not_inspected",
+      "confidence": "unknown_unreadable",
+      "notes": "Visible by path/stat (9849 bytes), unreadable in this session. Named by CLAUDE.md, CANONICAL_ENTRYPOINTS, HOT_CONTEXT_FILES, FINAL_CANONICAL_BASELINE as the canonical source for n8n execution layout AND PostgreSQL query policy. If present, it is the single most likely legacy home for node-level RC/MO wiring. Size alone (~10 KB) implies terse or partial mapping, not a full node-by-node bible."
+    },
+    {
+      "canonical_candidate": "GENERIC_BOTH",
+      "alias": "Architecture_Spec_v3_Ucenicul.md",
+      "file_path": "docs/architecture/Architecture_Spec_v3_Ucenicul.md",
+      "evidence_type": "potential_mount_locked_not_inspected",
+      "confidence": "unknown_unreadable",
+      "notes": "Visible by path/stat (36189 bytes), unreadable in this session. Level-1 authority. Almost certainly defines both stages at a conceptual/envelope level; may or may not include node-level wiring."
+    },
+    {
+      "canonical_candidate": "GENERIC_BOTH",
+      "alias": "Module_Registry_Ucenicul.md",
+      "file_path": "docs/architecture/Module_Registry_Ucenicul.md",
+      "evidence_type": "potential_mount_locked_not_inspected",
+      "confidence": "unknown_unreadable",
+      "notes": "Visible by path/stat (7433 bytes), unreadable in this session. Should list 'response' as a module (and possibly describe RC as a stage). Expected to resolve the 'module vs stage' framing ambiguity for response."
+    },
+    {
+      "canonical_candidate": "GENERIC_BOTH",
+      "alias": "Migration_Plan_Ucenicul.md",
+      "file_path": "docs/migration/Migration_Plan_Ucenicul.md",
+      "evidence_type": "potential_mount_locked_not_inspected",
+      "confidence": "unknown_unreadable",
+      "notes": "Visible by path/stat, unreadable. Expected to contain the cutover plan from brain_main_inbound monolith to the modular target pipeline, which necessarily includes where RC-01 and MO-01 land. May also define the DEPRECATED langchain-stub disposition."
+    },
+    {
+      "canonical_candidate": "GENERIC_BOTH",
+      "alias": "Documentation_Verification_Checklist_Ucenicul.md",
+      "file_path": "docs/operations/Documentation_Verification_Checklist_Ucenicul.md",
+      "evidence_type": "potential_mount_locked_not_inspected",
+      "confidence": "unknown_unreadable",
+      "notes": "Visible by path/stat, unreadable. May include RC/MO-specific verification gates."
+    },
+    {
+      "canonical_candidate": "GENERIC_BOTH",
+      "alias": "Thread_Resolution_Spec.md",
+      "file_path": "docs/architecture/Thread_Resolution_Spec.md",
+      "evidence_type": "potential_mount_locked_not_inspected",
+      "confidence": "unknown_unreadable",
+      "notes": "Visible by path/stat, unreadable. Thread-layer spec; may mention RC-01 as a downstream consumer of thread context (consistent with the live n8n 'Load Thread Context' node in both RC-01 and MO-01)."
+    },
+    {
+      "canonical_candidate": "GENERIC_BOTH",
+      "alias": "Memory_Model_Spec.md",
+      "file_path": "docs/architecture/Memory_Model_Spec.md",
+      "evidence_type": "potential_mount_locked_not_inspected",
+      "confidence": "unknown_unreadable",
+      "notes": "Visible by path/stat, unreadable. Possibly irrelevant to RC/MO but noted because it could carry a 'memory -> response' reference."
+    },
+    {
+      "canonical_candidate": "GENERIC_BOTH",
+      "alias": "Module_Spec_Memory.md / Module_Spec_Reminder.md / Module_Spec_Task.md / Module_Spec_Watcher.md",
+      "file_path": "docs/architecture/Module_Spec_{Memory,Reminder,Task,Watcher}.md",
+      "evidence_type": "potential_mount_locked_not_inspected",
+      "confidence": "unknown_unreadable",
+      "notes": "Visible by path/stat, unreadable. Each is a per-module contract. Collectively they define what aggregated_results look like, which is RC-01's input. Low probability of containing RC/MO wiring; medium probability of defining result shapes that RC-01 consumes."
+    },
+    {
+      "canonical_candidate": "WF-RC-01",
+      "alias": "workflows/WF-*-01/README.md (×8)",
+      "file_path": "workflows/WF-{DI,EC,ME,OR,PL,RA,SU,TR}-01_*/README.md",
+      "evidence_type": "potential_mount_locked_not_inspected",
+      "confidence": "unknown_unreadable",
+      "notes": "Visible by path/stat (all 8), unreadable in this session. Each scaffold README may or may not mention handoff to RC/MO. The WF-RA-01 README is especially relevant — RA-01 is the direct upstream of RC-01 in the target pipeline. Same for WF-SU-01 which, per the live n8n, emits allowed_next_stage that feeds RC via state_update_input."
+    },
+    {
+      "canonical_candidate": "GENERIC_BOTH",
+      "alias": "inventory manifests",
+      "file_path": "inventory/{RECONCILIATION_STATE.json,workflow_manifest.json,root_files_manifest.json,final_reorganization_report.md,FINAL_CLOSURE_DELTA.md,FINAL_POLISH_DELTA.md,move_plan.json,relocation_log.json,unified_inventory.json,verification_report*.json,final_consistency_audit*.json,final_cross_check_10pt.json,manifest_sync_diff.json,rescan_diff.json,duplicate_candidates.json,ambiguous_files.json,claude_pipeline_manifest.json,source_root_a_inventory*.json,source_root_b_inventory*.json,README.md}",
+      "evidence_type": "potential_mount_locked_not_inspected",
+      "confidence": "unknown_unreadable",
+      "notes": "Visible by path/stat, unreadable. These are reorganization/reconciliation manifests. Most are unlikely to contain substantive RC/MO content. However, workflow_manifest.json by name could contain direct WF-RC-01/WF-MO-01 entries (or explicit absence), and final_reorganization_report.md / FINAL_CLOSURE_DELTA.md / FINAL_POLISH_DELTA.md may record when/why WF-RC-01 and WF-MO-01 folders were omitted at baseline."
+    },
+    {
+      "canonical_candidate": "GENERIC_BOTH",
+      "alias": "archive/README.md, db/{docs,migrations,queries,schema}/README.md, scripts/README.md",
+      "file_path": "archive/README.md, db/{docs,migrations,queries,schema}/README.md, scripts/README.md",
+      "evidence_type": "potential_mount_locked_not_inspected",
+      "confidence": "unknown_unreadable",
+      "notes": "Visible by path/stat, unreadable. Unlikely to carry primary RC/MO content but listed for completeness. Archive subtrees would be the historical-only source if they exist."
+    }
+  ],
+  "absent_confirmed": [
+    {
+      "canonical_candidate": "WF-RC-01",
+      "alias": "workflows/WF-RC-01_Response_Composer/",
+      "file_path": "workflows/WF-RC-01_Response_Composer/",
+      "evidence_type": "absent_confirmed",
+      "confidence": "high",
+      "notes": "Directory does not exist at path. Not in workflows/README.md active index. Confirmed absence of folder-layer representation in the new workflow layer."
+    },
+    {
+      "canonical_candidate": "WF-MO-01",
+      "alias": "workflows/WF-MO-01_Message_Out/",
+      "file_path": "workflows/WF-MO-01_Message_Out/",
+      "evidence_type": "absent_confirmed",
+      "confidence": "high",
+      "notes": "Directory does not exist at path. Not in workflows/README.md active index. Confirmed absence of folder-layer representation."
+    }
+  ],
+  "summary_counts": {
+    "readable_files_total": 32,
+    "mount_locked_files_total": 52,
+    "readable_hits_RC": 11,
+    "readable_hits_MO": 3,
+    "readable_hits_GENERIC_BOTH": 8,
+    "n8n_hits": 3,
+    "mount_locked_likely_rich_sources": 6,
+    "mount_locked_possibly_relevant_sources": 14,
+    "absent_confirmed_folders": 2
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "message_id": "e8907a5e-9bdb-45ea-8f30-1f4fd9920c13",
+  "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+  "channel": "rcp1-rich-matrix",
+  "direction": "inbound",
+  "author_type": "user",
+  "normalized_content": "Ține minte că our annual planning session is in November.",
+  "timestamp": "2026-04-25T19:17:11.984Z",
+  "source_message_ref": "rcp1:RC-C9-01",
+  "author_entity_id": null,
+  "related_entity_ids": [],
+  "metadata": {
+    "rcp1_case_id": "RC-C9-01",
+    "rcp1_corridor": "C9",
+    "rcp1_run_tag": "rcp1-2026-04-25"
+  },
+  "idempotency_key": "rcp1:rcp1-2026-04-25:RC-C9-01",
+  "thread_id": "20206b61-162b-4fcb-8204-d7160c45f681",
+  "reply_to_thread_id": null
+}

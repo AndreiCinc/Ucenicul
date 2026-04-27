@@ -1,0 +1,67 @@
+F5 APPLY DIFF-SURFACE VERIFICATION
+===================================
+Date: 2026-04-21T12:48:14.411Z UTC
+Apply channel: direct Postgres UPDATE on workflow_entity via mcp__postgres__execute_sql
+Workflow: uq26nh1grIpnHju0 (WF-ME-01 Module Execution)
+
+PRE-APPLY STATE
+---------------
+versionId: fc43f6bc-6f25-4588-afda-edadb55735ff
+updatedAt: 2026-04-21T05:21:53.314Z
+active:    true
+nodeCount: 45  connectionCount: 63
+settings:  {"executionOrder":"v1","binaryMode":"separate","timeSavedMode":"fixed","callerPolicy":"workflowsFromSameOwner","availableInMCP":true}
+ME_Memory_Store_Prep jsCode sha256 (raw):     3c273350a01365a0098ff47345537e62dfebb682d4902ce23e64a35ebf72c2a7  (matches captured v1 baseline)
+ME_Memory_Supersede_Prep jsCode sha256 (raw): 26f9b3f0f19767e6e319f590173e4cdbc833a9005b669439d7cd35b33884eb0d  (matches captured v1 baseline)
+
+POST-APPLY STATE
+----------------
+versionId: b8e2f194-0263-46d9-8306-1534cc7c31fe
+updatedAt: 2026-04-21T12:48:14.411Z
+active:    true
+nodeCount: 45  connectionCount: 63
+settings:  {"binaryMode":"separate","callerPolicy":"workflowsFromSameOwner","executionOrder":"v1"}
+ME_Memory_Store_Prep jsCode sha256 (raw):     65506b00e89bf21009b2a02f7750a2d6b94f27daa6cb6c48d95bb8ea69060cbc  (byte-identical to F5 payload)
+ME_Memory_Supersede_Prep jsCode sha256 (raw): 23f3e95e61e40450b9bc37bc0737e679f7ac061ae3d72206eed98074424b37ff  (byte-identical to F5 payload)
+
+PATCH SURFACE
+-------------
+Changes: exactly the 4 authorized fields:
+  1. nodes[30].parameters.jsCode        ME_Memory_Store_Prep       2624 -> 3362 bytes  (F5 jsCode)
+  2. nodes[40].parameters.jsCode        ME_Memory_Supersede_Prep   2751 -> 3490 bytes  (F5 jsCode)
+  3. settings.availableInMCP            stripped (operator-authorized)
+  4. settings.timeSavedMode             stripped (operator-authorized)
+Plus n8n-intrinsic bookkeeping:
+  5. versionId   fc43f6bc-... -> b8e2f194-...
+  6. updatedAt   2026-04-21T05:21:53.314Z -> 2026-04-21T12:48:14.411Z
+
+SCOPE PRESERVATION (authorized scope NOT breached)
+--------------------------------------------------
+settings kept byte-for-byte: binaryMode="separate", callerPolicy="workflowsFromSameOwner", executionOrder="v1"
+Prep nodes: id / name / type / typeVersion / position / parameters-key-set all PRESERVED (only parameters.jsCode changed)
+connections:  sha256 4d6cac0ac38b6c9f977fba19c93ef025fa2edd37eab283f110e38613540a9502 -> 4d6cac0ac38b6c9f977fba19c93ef025fa2edd37eab283f110e38613540a9502  (byte-identical)
+
+43 NON-PREP NODES
+-----------------
+Structural drift (keys, values, node identity): ZERO  on all 43 nodes (normalizeDeep equality holds for every non-prep node 0..29,31..39,41..44).
+Key-order-only drift: PG jsonb column normalizes internal key order when re-serialized to json (Postgres hash ordering). This is a lossless representation change — n8n parses workflows as unordered JSON objects, so runtime behavior is unchanged. Same phenomenon the canonical CLI round-trip exhibits on any n8n-patch.mjs mutation.
+
+Proof: for every node i in {0..44} \ {30,40}, normalizeDeep(pre.nodes[i]) == normalizeDeep(post.nodes[i]).
+
+APPLY MECHANISM
+---------------
+Single Postgres UPDATE via mcp__postgres__execute_sql:
+  - WHERE clause encoded all preflight invariants (versionId, node names, jsCode lengths, settings keys present).
+  - 0-rows-updated on precondition failure (safe-by-default), verified via RETURNING clause returning 1 row.
+  - `nodes = jsonb_set(jsonb_set(nodes::jsonb, '{30,parameters,jsCode}', to_jsonb(<F5 store>)), '{40,parameters,jsCode}', to_jsonb(<F5 sup>)))::json`
+  - `settings = ((settings::jsonb) - 'availableInMCP' - 'timeSavedMode')::json`
+  - `"versionId" = 'b8e2f194-0263-46d9-8306-1534cc7c31fe'`
+  - `"updatedAt" = (now() AT TIME ZONE 'UTC')`
+New versionId is a fresh UUIDv4 pre-generated before the tx (`b8e2f194-0263-46d9-8306-1534cc7c31fe`).
+
+n8n CACHE COHERENCY
+-------------------
+Post-apply mcp__n8n__verify_workflow returns:
+  nodeCount=45  connectionCount=63  active=true
+  versionId=b8e2f194-0263-46d9-8306-1534cc7c31fe  updatedAt=2026-04-21T12:48:14.411Z
+n8n API reflects new state -> API-layer reads fresh from DB (no stale cache). This is the expected n8n behavior: workflow runtime fetches the row from `workflow_entity` on each execution.

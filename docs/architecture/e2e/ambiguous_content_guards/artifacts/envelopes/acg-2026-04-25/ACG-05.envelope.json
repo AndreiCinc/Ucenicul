@@ -1,0 +1,20 @@
+{
+  "message_id": "6b6c02b8-aeed-4306-8d98-c59b7a770424",
+  "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+  "channel": "acg-runtime",
+  "direction": "inbound",
+  "author_type": "user",
+  "normalized_content": "Ține minte că ACG smoke se rulează din thread positive_lane.",
+  "timestamp": "2026-04-25T23:35:41.571Z",
+  "source_message_ref": "acg:ACG-05:acg:acg-2026-04-25:ACG-05",
+  "author_entity_id": null,
+  "related_entity_ids": [],
+  "metadata": {
+    "acg_case_id": "ACG-05",
+    "acg_lane": "positive_lane",
+    "acg_run_tag": "acg-2026-04-25"
+  },
+  "idempotency_key": "acg:acg-2026-04-25:ACG-05",
+  "thread_id": "0411e127-593c-415f-8332-9794eb7dd0b8",
+  "reply_to_thread_id": null
+}

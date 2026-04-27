@@ -1,0 +1,23 @@
+{
+  "message_id": "9ac4c049-e38c-493a-8b02-01e547b07eb9",
+  "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+  "channel": "e2e-rich-matrix",
+  "direction": "inbound",
+  "author_type": "user",
+  "normalized_content": "Ține minte că prefer email dimineața.",
+  "timestamp": "2026-04-25T11:15:27.631Z",
+  "source_message_ref": "e2e:C11-L1-V1:e2e:p0_v2:C11-L1-V1",
+  "author_entity_id": null,
+  "related_entity_ids": [],
+  "metadata": {
+    "e2e_case_id": "C11-L1-V1",
+    "e2e_corridor": "C11",
+    "e2e_variant": "first_delivery",
+    "e2e_phase": "P1_FOUNDATION_CRITICAL",
+    "e2e_priority": "P0",
+    "e2e_locale": "ro",
+    "e2e_run_tag": "p0_v2"
+  },
+  "idempotency_key": "e2e:p0_v2:C11-L1-V1",
+  "thread_id": "ab4869bb-ecdb-48cd-8ab4-47ba84c28e20"
+}

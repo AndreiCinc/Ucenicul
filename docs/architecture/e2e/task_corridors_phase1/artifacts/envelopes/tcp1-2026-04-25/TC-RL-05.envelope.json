@@ -1,0 +1,20 @@
+{
+  "message_id": "0650a18f-7110-44ca-85f0-e517b5129634",
+  "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+  "channel": "tcp1-task-corridors",
+  "direction": "inbound",
+  "author_type": "user",
+  "normalized_content": "Nu mă lăsa să uit să trimit factura mâine.",
+  "timestamp": "2026-04-25T13:18:25.281Z",
+  "source_message_ref": "tcp1:TC-RL-05:tmr:tcp1-2026-04-25:TC-RL-05",
+  "author_entity_id": null,
+  "related_entity_ids": [],
+  "metadata": {
+    "tcp1_case_id": "TC-RL-05",
+    "tcp1_run_tag": "tcp1-2026-04-25",
+    "tcp1_priority": "P0"
+  },
+  "idempotency_key": "tmr:tcp1-2026-04-25:TC-RL-05",
+  "thread_id": "28fb0bea-ad58-495c-816c-c0b71411116c",
+  "reply_to_thread_id": null
+}

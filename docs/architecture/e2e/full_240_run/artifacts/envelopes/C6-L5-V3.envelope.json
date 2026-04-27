@@ -1,0 +1,23 @@
+{
+  "message_id": "fc6e28e3-1271-4f8a-8c4c-3431dca26c16",
+  "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+  "channel": "e2e-rich-matrix",
+  "direction": "inbound",
+  "author_type": "user",
+  "normalized_content": "Planifică-mi următoarea săptămână pentru follow-up-uri cu clienții importanți. Pentru Andrei ține cont de preferința lui pentru dimineață dacă există în memorie; pentru Maria pregătește doar un mesaj de reactivare, fără să salvezi încă nimic nou. Dacă sunt informații lipsă, marchează-le ca ipoteze sau întrebări, nu crea task-uri definitive fără bază. Vreau un plan structurat, nu un dump tehnic. Mai adaug o constrângere: dacă există conflict între thread-ul curent și o memorie durabilă, nu suprascrie memoria fără confirmare explicită. Dacă cererea are două interpretări, cere clarificare.",
+  "timestamp": "2026-04-26T02:50:47.883Z",
+  "source_message_ref": "e2e:C6-L5-V3:e2e:f240-2026-04-26:C6-L5-V3",
+  "author_entity_id": null,
+  "related_entity_ids": [],
+  "metadata": {
+    "e2e_case_id": "C6-L5-V3",
+    "e2e_corridor": "C6",
+    "e2e_variant": "negative_or_boundary",
+    "e2e_phase": "P2_COMPOSITION",
+    "e2e_priority": "P2",
+    "e2e_locale": "ro",
+    "e2e_run_tag": "f240-2026-04-26"
+  },
+  "idempotency_key": "e2e:f240-2026-04-26:C6-L5-V3",
+  "thread_id": "a46a0c84-0006-4c05-82d0-d53543cb405a"
+}

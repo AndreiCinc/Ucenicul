@@ -1,0 +1,15 @@
+{
+  "exec_id": "1598",
+  "case_id": "F3-supersede-su1-seed",
+  "step_id": "mem-batch-v2c-su1-seed",
+  "action": "store_memory",
+  "purpose": "Seed row to be superseded in SU1",
+  "result_status_kind": "success",
+  "module_result_status": "success",
+  "new_memory_id": "1c2168f0-19ab-4a71-b923-d15860ba088c",
+  "category": "smoke_f3_supersede",
+  "tier": "recent",
+  "status_after": "active",
+  "domain_writes_performed": true,
+  "ra_dispatch_status": "INVALID_AGGREGATION_INPUT (expected — documented F1 boundary)"
+}

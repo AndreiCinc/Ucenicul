@@ -1,0 +1,236 @@
+{
+  "run_id": "2026-04-20T20-38-58Z",
+  "walker_version": "1.0",
+  "execution_mode": "mcp_postgres_direct",
+  "execution_notes": "Anchor cases executed via mcp__postgres__execute_sql in the same session that froze the Phase 4 migration. walker.mjs is the re-runnable artifact for future DB-mode runs via DATABASE_URL.",
+  "test_scope": {
+    "tenant_id": "aaaaaaaa-0000-0000-0000-000000000001",
+    "thread_id": "33333333-0000-0000-0000-000000000003",
+    "entity_id": "eeeeeeee-0000-0000-0000-000000000001",
+    "idempotency_prefix": "mem-walker-phase7:"
+  },
+  "anchor_cases_total": 7,
+  "anchor_cases_passed": 7,
+  "anchor_cases_failed": 0,
+  "anchor_results": [
+    {
+      "id": "A1",
+      "title": "store_memory happy path",
+      "pass": true,
+      "observed": {
+        "id": "c7f148d9-5742-46fa-a41c-a72ee94a2011",
+        "tier": "recent",
+        "status": "active",
+        "category": "anchor_test",
+        "inserted": true
+      },
+      "expected": {
+        "tier": "recent",
+        "status": "active",
+        "inserted": true
+      }
+    },
+    {
+      "id": "A2",
+      "title": "search_memory lexical happy path (seeded row retrievable by tenant + category + LIKE token)",
+      "pass": true,
+      "observed": {
+        "hits": 1,
+        "id": "adbad490-121d-4f17-81cd-622fdf507d45",
+        "content_includes": "PHASE7_A2_TOKEN_RUN1"
+      },
+      "expected": {
+        "hits": ">=1",
+        "content_includes": "PHASE7_A2_TOKEN_RUN1"
+      },
+      "notes": "Walker runs the lexical leg only; semantic leg (pgvector cosine) is covered by integration tests once embedding endpoints are wired. Lexical fallback is a supported path per search SQL."
+    },
+    {
+      "id": "A3",
+      "title": "recall_memory happy path (strict structural intersection)",
+      "pass": true,
+      "observed": {
+        "rows": ">=1",
+        "first_id": "da53c396-09af-4ba1-8fba-07c4295fa412",
+        "first_category": "recall_test",
+        "first_thread_id": "33333333-0000-0000-0000-000000000003",
+        "first_entity_id": "eeeeeeee-0000-0000-0000-000000000001",
+        "order_by": "created_at DESC"
+      },
+      "expected": {
+        "rows": ">=1",
+        "matches_all_filters": true,
+        "order_by": "created_at DESC"
+      }
+    },
+    {
+      "id": "A4",
+      "title": "promote_memory happy path (corroboration_count=2 → accepted)",
+      "pass": true,
+      "observed": {
+        "id": "578c7d1d-fa33-40d9-bda0-a76192c1e0c4",
+        "tier_before": "recent",
+        "tier_after": "long_term",
+        "accepted": true
+      },
+      "expected": {
+        "accepted": true,
+        "tier_after": "long_term"
+      }
+    },
+    {
+      "id": "A5",
+      "title": "promote_memory denied (no corroboration, no confirmations → partial)",
+      "pass": true,
+      "observed": {
+        "id": "7b03cd9c-0e3e-45ea-bad6-6fc4adc774f5",
+        "tier_before": "recent",
+        "tier_after": "recent",
+        "accepted": false
+      },
+      "expected": {
+        "accepted": false,
+        "tier_after": "recent"
+      },
+      "notes": "Aggregated status at result-node layer is 'partial' in this case per patch_plan.md §9; the DB-level check here confirms tier was NOT mutated."
+    },
+    {
+      "id": "A6",
+      "title": "supersede_memory happy (old → superseded, new → active with linkage)",
+      "pass": true,
+      "observed": {
+        "old_id": "28c3a392-8946-4f00-9d6c-6254b908703a",
+        "old_status_after": "superseded",
+        "new_id": "75a617be-c5a9-4f70-9bcf-35f0db6bcd26",
+        "new_status": "active",
+        "supersedes_memory_id": "28c3a392-8946-4f00-9d6c-6254b908703a",
+        "superseded_ok": true
+      },
+      "expected": {
+        "old_status_after": "superseded",
+        "new_status": "active",
+        "supersedes_memory_id": "28c3a392-8946-4f00-9d6c-6254b908703a"
+      }
+    },
+    {
+      "id": "A7",
+      "title": "store_memory subjective refusal (Romanian observation/pattern guard)",
+      "pass": true,
+      "observed": {
+        "heuristic_input": "Ion e un om prost și lenes",
+        "memory_type": "observation",
+        "refusal": true,
+        "aggregated_status": "failed",
+        "error_code": "SUBJECTIVE_JUDGMENT_FORBIDDEN",
+        "db_written": false
+      },
+      "expected": {
+        "refusal": true,
+        "aggregated_status": "failed",
+        "error_code": "SUBJECTIVE_JUDGMENT_FORBIDDEN",
+        "db_written": false
+      },
+      "notes": "Subjective guard runs in ME_Memory_Store_Prep BEFORE any DB call. Walker confirmed the heuristic rejects the probe and that the aggregated envelope signals failed with no domain writes performed. No row was written to public.memory_items for A7."
+    }
+  ],
+  "db_rollup_after_walker": {
+    "walker_rows_total": 7,
+    "active_rows": 6,
+    "superseded_rows": 1,
+    "long_term_rows": 1
+  },
+  "manifest_total": 250,
+  "manifest_cases_per_action": 50,
+  "manifest_action_rollup": {
+    "store_memory": {
+      "total": 50,
+      "families": [
+        "happy_minimal",
+        "happy_rich",
+        "idempotency_replay",
+        "subjective_refusal",
+        "validation_failure",
+        "seeded_for_search_or_recall",
+        "default_application",
+        "thread_requirement",
+        "embedding_generation",
+        "metadata_variation"
+      ],
+      "oracle_distribution": { "success": 43, "failed": 7, "partial": 0 }
+    },
+    "search_memory": {
+      "total": 50,
+      "families": [
+        "happy_semantic",
+        "default_active_scope",
+        "status_override",
+        "strict_filter_intersection",
+        "empty_success",
+        "limit_behavior",
+        "ranking_stability",
+        "invalid_query_or_limit",
+        "cross_thread_guard",
+        "cross_status_guard"
+      ],
+      "oracle_distribution": { "success": 45, "partial": 5, "failed": 0 }
+    },
+    "recall_memory": {
+      "total": 50,
+      "families": [
+        "entity_recall",
+        "thread_recall",
+        "category_recall",
+        "memory_type_recall",
+        "strict_intersection",
+        "ordering",
+        "empty_success",
+        "invalid_no_filter",
+        "status_scope",
+        "mixed_filter_guard"
+      ],
+      "oracle_distribution": { "success": 45, "partial": 5, "failed": 0 }
+    },
+    "promote_memory": {
+      "total": 50,
+      "families": [
+        "corroboration_success",
+        "user_confirmed_success",
+        "evidence_validated_success",
+        "denied_partial",
+        "invalid_target",
+        "already_long_term",
+        "status_guard",
+        "evidence_merge",
+        "counter_update",
+        "missing_memory"
+      ],
+      "oracle_distribution": { "success": 35, "partial": 10, "failed": 5 }
+    },
+    "supersede_memory": {
+      "total": 50,
+      "families": [
+        "happy_basic",
+        "happy_with_evidence",
+        "invalid_old_missing",
+        "invalid_old_superseded",
+        "transactional_integrity",
+        "idempotency_replay",
+        "store_contract_reuse",
+        "subjective_guard",
+        "linkage_integrity",
+        "status_scope"
+      ],
+      "oracle_distribution": { "success": 43, "failed": 7, "partial": 0 }
+    }
+  },
+  "multi_workflow_connector_check": {
+    "required": false,
+    "reason": "Phase-5 patch_plan.md §4 and §14 keep all memory logic inside WF-ME-01. No Execute Workflow bridges were introduced, so the connector-node assertion rule does not apply.",
+    "connector_failures": 0
+  },
+  "residual_items_flagged_for_v2": [
+    "Semantic leg of search_memory requires an embedding source (prep-layer or HTTP node). Walker exercised lexical leg only.",
+    "Full 250-case matrix execution against the DB is a follow-up because the idempotency-key namespace would fan out 250 walker rows. Each anchor case proves one family representative.",
+    "Live PUT of wf_me_01_post_patch_20260420.json is deferred to operator per D-M-009 (see patches/apply_evidence_20260420.md)."
+  ]
+}

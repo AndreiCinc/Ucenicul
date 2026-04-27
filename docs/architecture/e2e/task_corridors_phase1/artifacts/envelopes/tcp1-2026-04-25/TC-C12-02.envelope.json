@@ -1,0 +1,20 @@
+{
+  "message_id": "b737486c-7218-42e0-84b3-b7d99c286487",
+  "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+  "channel": "tcp1-task-corridors",
+  "direction": "inbound",
+  "author_type": "user",
+  "normalized_content": "Hi there. Quick task: prepare the Q3 review for Monday at 11am. If the materials are missing, we will follow up later. Thanks!",
+  "timestamp": "2026-04-25T13:18:25.281Z",
+  "source_message_ref": "tcp1:TC-C12-02:tmr:tcp1-2026-04-25:TC-C12-02",
+  "author_entity_id": null,
+  "related_entity_ids": [],
+  "metadata": {
+    "tcp1_case_id": "TC-C12-02",
+    "tcp1_run_tag": "tcp1-2026-04-25",
+    "tcp1_priority": "P1"
+  },
+  "idempotency_key": "tmr:tcp1-2026-04-25:TC-C12-02",
+  "thread_id": "f9efb91a-124c-433e-8fbb-6caa57a409e3",
+  "reply_to_thread_id": null
+}

@@ -1,0 +1,21 @@
+{
+  "id": "TC-05",
+  "name": "Create new thread",
+  "description": "Message content is completely unrelated to existing threads. All scores below threshold.",
+  "request": {
+    "message_id": "test-msg-005",
+    "tenant_id": "aaaaaaaa-0000-0000-0000-000000000001",
+    "channel": "telegram",
+    "direction": "inbound",
+    "author_type": "user",
+    "normalized_content": "Vreau sa cumpar o masina noua electrica din Germania si sa o transport in Romania",
+    "timestamp": "2026-04-15T12:00:00Z",
+    "source_message_ref": "tg_test_005"
+  },
+  "expected": {
+    "decision": "create_new_thread",
+    "resolved_thread_id": null,
+    "ambiguity_detected": false,
+    "content_class_used": "normalized_content"
+  }
+}

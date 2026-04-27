@@ -1,0 +1,15 @@
+{
+  "case_id": "RT-023",
+  "group": "complete_task",
+  "priority": "P0",
+  "user_input": "Marchează taskul cu Andrei ca făcut.",
+  "expected": {
+    "status_after": "completed_or_done",
+    "completed_at_set_if_exists": true
+  },
+  "expected_intent": "complete_task",
+  "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+  "message_id": "fda5a9ad-5bdc-4aba-895e-28f46209034a",
+  "thread_id": "c2105570-0897-4938-8d6d-a00d73d7ed0e",
+  "idempotency_key": "tmr:tmr-20260425-smoke:RT-023"
+}

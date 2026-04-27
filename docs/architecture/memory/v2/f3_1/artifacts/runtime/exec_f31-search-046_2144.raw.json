@@ -1,0 +1,42 @@
+{
+  "case_id": "f31-search-046",
+  "execution_id": "2144",
+  "execution_status": "success",
+  "execution_mcp_response": {
+    "executionId": "2144",
+    "status": "success"
+  },
+  "response_envelope": {
+    "status": "success",
+    "query": "memorie antica",
+    "used_embedding": false,
+    "embedding_attempted": true,
+    "embedding_error": null,
+    "semantic_match_count": 0,
+    "lexical_match_count": 0,
+    "recall_results": []
+  },
+  "module_result_outer": {
+    "status_kind": "success",
+    "result_type": "module_result",
+    "module_name": "memory_module",
+    "step_id": "mem-f31-f31-search-046",
+    "summary": "Memory search completed.",
+    "artifacts": [],
+    "domain_writes_performed": false,
+    "response_generation_allowed": false
+  },
+  "db_pre": [
+    {
+      "pre_max": "2026-04-21T12:54:40.918Z"
+    }
+  ],
+  "db_post": [
+    {
+      "post_max": "2026-04-21T12:54:40.918Z"
+    }
+  ],
+  "error": null,
+  "captured_at": "2026-04-22T04:51:21.491Z",
+  "notes": "Stage C search lane final batch — query=q5 memory_type=observation override=includeSuperseded"
+}

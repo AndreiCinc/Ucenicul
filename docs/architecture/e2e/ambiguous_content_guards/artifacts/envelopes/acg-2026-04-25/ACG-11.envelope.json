@@ -1,0 +1,21 @@
+{
+  "message_id": "bc85e306-e315-4446-8f3b-0e64aec564c4",
+  "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+  "channel": "acg-runtime",
+  "direction": "inbound",
+  "author_type": "user",
+  "normalized_content": "Creează task: ACG smoke pentru chain post-guard.",
+  "timestamp": "2026-04-25T23:35:41.601Z",
+  "source_message_ref": "acg:ACG-11:acg:acg-2026-04-25:ACG-04",
+  "author_entity_id": null,
+  "related_entity_ids": [],
+  "metadata": {
+    "acg_case_id": "ACG-11",
+    "acg_lane": "positive_lane",
+    "acg_run_tag": "acg-2026-04-25",
+    "acg_replay_of": "ACG-04"
+  },
+  "idempotency_key": "acg:acg-2026-04-25:ACG-04",
+  "thread_id": "0411e127-593c-415f-8332-9794eb7dd0b8",
+  "reply_to_thread_id": null
+}

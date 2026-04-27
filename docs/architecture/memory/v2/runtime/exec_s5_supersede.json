@@ -1,0 +1,22 @@
+{
+  "executionId": "1392",
+  "workflowId": "uq26nh1grIpnHju0",
+  "action": "supersede_memory",
+  "step_id": "mem-smoke-v2f1:s5",
+  "timestamp_started": "2026-04-20T21:51:50.732Z",
+  "timestamp_stopped": "2026-04-20T21:51:51.248Z",
+  "memory_path_verdict": "pass",
+  "old_memory_id": "adbad490-121d-4f17-81cd-622fdf507d45",
+  "new_memory_id": "6ceb9437-960e-45b4-a1cf-706116723360",
+  "idempotency_key": "supersede_memory:d4f82a41-01cd-4fb7-9d70-573557348e74:mem-smoke-v2f1:s5",
+  "module_result": {
+    "status_kind": "success",
+    "status": "success",
+    "summary": "Memory superseded successfully."
+  },
+  "downstream_aggregation": {
+    "status": "expected_error",
+    "error_code": "INVALID_AGGREGATION_INPUT",
+    "note": "Expected — domain_writes_performed=true on supersede; same isolation artefact as S1/S4."
+  }
+}

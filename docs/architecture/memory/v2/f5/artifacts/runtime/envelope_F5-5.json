@@ -1,0 +1,27 @@
+{
+  "status_kind": "success",
+  "result_type": "dispatch",
+  "execution_context_id": "d4f82a41-01cd-4fb7-9d70-573557348e74",
+  "thread_id": "77777777-0000-0000-0000-000000000007",
+  "tenant_id": "aaaaaaaa-0000-0000-0000-000000000001",
+  "dispatcher_input": {
+    "dispatch_allowed": true,
+    "module_execution_started": false,
+    "response_generation_allowed": false,
+    "domain_writes_performed": false,
+    "step": {
+      "step_id": "mem-smoke-v2f5-case5",
+      "module_name": "memory_module",
+      "purpose": "F5 smoke mem-smoke-v2f5-case5",
+      "inputs": {
+        "action": "store_memory",
+        "source_thread_id": "77777777-0000-0000-0000-000000000007",
+        "content": "Este dezgustator.",
+        "memory_type": "pattern",
+        "category": "smoke_f5",
+        "locale": "xx"
+      },
+      "execution_mode": "actual"
+    }
+  }
+}

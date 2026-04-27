@@ -1,0 +1,20 @@
+{
+  "stage": "WF-OR-01",
+  "suite": "workflows/tests/or/test_families.py",
+  "tests_total": 500,
+  "tests_passed": 500,
+  "tests_failed": 0,
+  "return_code": 0,
+  "families": {
+    "input_validation": 50,
+    "malformed_shape": 50,
+    "extract_handoff_input": 50,
+    "context_match": 50,
+    "handoff_payload_builder": 50,
+    "error_payload_builder": 50,
+    "sql_contracts": 50,
+    "blueprint_structure": 50,
+    "replay_stability": 50,
+    "tooling_reporting": 50
+  }
+}

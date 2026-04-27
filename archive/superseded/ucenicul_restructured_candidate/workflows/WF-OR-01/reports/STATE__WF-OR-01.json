@@ -1,0 +1,4 @@
+{
+  "superseded_by": "STATE.json",
+  "note": "This file was an intermediate OR-named draft. After WF-OR-01 activation the canonical machine state lives in STATE.json in this directory. Do not read this file as canonical."
+}

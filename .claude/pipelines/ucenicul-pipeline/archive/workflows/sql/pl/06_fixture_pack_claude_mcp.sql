@@ -1,0 +1,88 @@
+-- 06_fixture_pack_claude_mcp.sql — stage-marked fixture DML for V1–V6
+-- ==========================================================================
+-- NOT EXECUTED DURING THE PREP CYCLE.
+-- Stage markers per 14_TEST_FIXTURE_REGISTRY.md §1:
+--   text marker: 'WF-PL-01_FIXTURE'
+--   idempotency prefix: 'wf_pl_01_fixture_'
+--   descriptive prefix: '[WF-PL-01 TEST]'
+-- All fixtures target the _claude_mcp fallback by default. Change table name
+-- to 'execution_plans' if the canonical path is chosen.
+-- ==========================================================================
+
+-- ============================================================
+-- V3 — happy-path payload
+--   Canonical minimal plan with 2 modules, linear dependency
+-- ============================================================
+-- Payload to send into PL_Trigger (NOT a SQL row — documented here for ops):
+--   {
+--     "execution_id": "a7ae786a-9f64-46b8-b02a-3df62080a8f7",
+--     "tenant_id":    "00000000-0000-0000-0000-000000000001",
+--     "thread_id":    "00000000-0000-0000-0000-000000000101",
+--     "trigger_message_id": "00000000-0000-0000-0000-00000000aaaa",
+--     "idempotency_key": "wf_pl_01_fixture_v3_happy_001",
+--     "intent": {
+--       "primary_goal": "[WF-PL-01 TEST] create task + reminder",
+--       "required_modules": ["task_module", "reminder_module"],
+--       "privacy_class": "low"
+--     },
+--     "orchestrator_decision": {
+--       "module_order": ["task_module", "reminder_module"],
+--       "dependency_graph": { "reminder_module": ["task_module"] },
+--       "fallback_policy": "stop_on_first_failure"
+--     },
+--     "handoff_metadata": {
+--       "orchestrator_version": "or-01.v1",
+--       "decision_confidence": 0.9,
+--       "emitted_at": "2026-04-17T12:00:00Z"
+--     }
+--   }
+
+-- Expected row after insert:
+--   SELECT * FROM execution_plans_claude_mcp
+--   WHERE idempotency_key = 'wf_pl_01_fixture_v3_happy_001';
+--   -> one row, status = 'planned', steps length = 2, steps[1].depends_on = ['step_task_module_1']
+
+-- ============================================================
+-- V4 — replay payload (same keys as V3 — no duplicate row expected)
+-- ============================================================
+-- Same payload as V3. Post-replay assertion:
+--   SELECT count(*) FROM execution_plans_claude_mcp
+--   WHERE idempotency_key = 'wf_pl_01_fixture_v3_happy_001';
+--   -> 1
+
+-- ============================================================
+-- V5 — cross-tenant isolation payload
+--   Same idempotency_key suffix but tenant B
+-- ============================================================
+-- Payload:
+--   idempotency_key: "wf_pl_01_fixture_v5_tenantB_001"
+--   tenant_id:       "00000000-0000-0000-0000-00000000000b"
+--   (rest same shape as V3)
+--
+-- Assertion:
+--   SELECT tenant_id, count(*) FROM execution_plans_claude_mcp
+--   WHERE idempotency_key LIKE 'wf_pl_01_fixture_v5_%'
+--   GROUP BY tenant_id;
+--   -> tenant B only (A's fixture has different idempotency_key)
+
+-- ============================================================
+-- V6 — OR→PL smoke handoff
+--   Uses the TR→EC carry-forward execution_id as the real execution context
+--   and a freshly-emitted OR-01 handoff payload (populated once OR-01 is live).
+-- ============================================================
+-- Payload:
+--   execution_id: <TR->EC carry-forward id> (currently 'a7ae786a-9f64-46b8-b02a-3df62080a8f7')
+--   idempotency_key: 'wf_pl_01_fixture_v6_orpl_smoke_001'
+
+-- ============================================================
+-- Fixture ledger (to be completed at live build time)
+-- ============================================================
+-- | fixture label                             | scope class          | cleanup class              |
+-- | wf_pl_01_fixture_v3_happy_001             | runtime_input        | keep_until_stage_closure   |
+-- | wf_pl_01_fixture_v3_happy_001 (row)       | runtime_expected_row | keep_until_stage_closure   |
+-- | wf_pl_01_fixture_v4_replay (same key)     | idempotency_fixture  | keep_until_stage_closure   |
+-- | wf_pl_01_fixture_v5_tenantB_001           | cross_tenant_fixture | keep_until_stage_closure   |
+-- | wf_pl_01_fixture_v6_orpl_smoke_001        | carry_forward_fixture| keep_for_next_stage        |
+
+-- No DML executed in this file during prep. Live-build operator translates
+-- the payloads above into n8n trigger invocations during V3–V6.

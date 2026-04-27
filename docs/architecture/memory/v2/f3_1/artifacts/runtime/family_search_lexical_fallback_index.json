@@ -1,0 +1,355 @@
+{
+  "family": "search_lexical_fallback",
+  "verdicts": [
+    {
+      "case_id": "f31-search-001",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "search oracle all checks pass",
+      "ts": "2026-04-21T19:51:22.793Z"
+    },
+    {
+      "case_id": "f31-search-002",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "search oracle all checks pass",
+      "ts": "2026-04-21T22:23:14.592Z"
+    },
+    {
+      "case_id": "f31-search-003",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "search oracle all checks pass",
+      "ts": "2026-04-21T22:25:38.068Z"
+    },
+    {
+      "case_id": "f31-search-004",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "search oracle all checks pass",
+      "ts": "2026-04-22T04:43:40.155Z"
+    },
+    {
+      "case_id": "f31-search-005",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "search oracle all checks pass",
+      "ts": "2026-04-22T04:43:40.226Z"
+    },
+    {
+      "case_id": "f31-search-006",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "search oracle all checks pass",
+      "ts": "2026-04-22T04:43:40.292Z"
+    },
+    {
+      "case_id": "f31-search-007",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "search oracle all checks pass",
+      "ts": "2026-04-22T04:43:40.355Z"
+    },
+    {
+      "case_id": "f31-search-008",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "search oracle all checks pass",
+      "ts": "2026-04-22T04:43:40.419Z"
+    },
+    {
+      "case_id": "f31-search-009",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "search oracle all checks pass",
+      "ts": "2026-04-22T04:43:40.488Z"
+    },
+    {
+      "case_id": "f31-search-010",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "search oracle all checks pass",
+      "ts": "2026-04-22T04:43:40.555Z"
+    },
+    {
+      "case_id": "f31-search-011",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "search oracle all checks pass",
+      "ts": "2026-04-22T04:43:40.624Z"
+    },
+    {
+      "case_id": "f31-search-012",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "search oracle all checks pass",
+      "ts": "2026-04-22T04:43:40.693Z"
+    },
+    {
+      "case_id": "f31-search-013",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "search oracle all checks pass",
+      "ts": "2026-04-22T04:43:40.771Z"
+    },
+    {
+      "case_id": "f31-search-014",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "search oracle all checks pass",
+      "ts": "2026-04-22T04:43:40.838Z"
+    },
+    {
+      "case_id": "f31-search-015",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "search oracle all checks pass",
+      "ts": "2026-04-22T04:43:40.904Z"
+    },
+    {
+      "case_id": "f31-search-016",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "search oracle all checks pass",
+      "ts": "2026-04-22T04:43:40.971Z"
+    },
+    {
+      "case_id": "f31-search-017",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "search oracle all checks pass",
+      "ts": "2026-04-22T04:43:41.037Z"
+    },
+    {
+      "case_id": "f31-search-018",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "search oracle all checks pass",
+      "ts": "2026-04-22T04:43:41.103Z"
+    },
+    {
+      "case_id": "f31-search-019",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "search oracle all checks pass",
+      "ts": "2026-04-22T04:43:41.168Z"
+    },
+    {
+      "case_id": "f31-search-020",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "search oracle all checks pass",
+      "ts": "2026-04-22T04:43:41.232Z"
+    },
+    {
+      "case_id": "f31-search-021",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "search oracle all checks pass",
+      "ts": "2026-04-22T04:46:56.242Z"
+    },
+    {
+      "case_id": "f31-search-022",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "search oracle all checks pass",
+      "ts": "2026-04-22T04:46:56.329Z"
+    },
+    {
+      "case_id": "f31-search-023",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "search oracle all checks pass",
+      "ts": "2026-04-22T04:46:56.417Z"
+    },
+    {
+      "case_id": "f31-search-024",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "search oracle all checks pass",
+      "ts": "2026-04-22T04:46:56.505Z"
+    },
+    {
+      "case_id": "f31-search-025",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "search oracle all checks pass",
+      "ts": "2026-04-22T04:46:56.602Z"
+    },
+    {
+      "case_id": "f31-search-026",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "search oracle all checks pass",
+      "ts": "2026-04-22T04:46:56.692Z"
+    },
+    {
+      "case_id": "f31-search-027",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "search oracle all checks pass",
+      "ts": "2026-04-22T04:46:56.772Z"
+    },
+    {
+      "case_id": "f31-search-028",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "search oracle all checks pass",
+      "ts": "2026-04-22T04:46:56.849Z"
+    },
+    {
+      "case_id": "f31-search-029",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "search oracle all checks pass",
+      "ts": "2026-04-22T04:46:56.930Z"
+    },
+    {
+      "case_id": "f31-search-030",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "search oracle all checks pass",
+      "ts": "2026-04-22T04:46:57.010Z"
+    },
+    {
+      "case_id": "f31-search-031",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "search oracle all checks pass",
+      "ts": "2026-04-22T04:51:20.221Z"
+    },
+    {
+      "case_id": "f31-search-032",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "search oracle all checks pass",
+      "ts": "2026-04-22T04:51:20.311Z"
+    },
+    {
+      "case_id": "f31-search-033",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "search oracle all checks pass",
+      "ts": "2026-04-22T04:51:20.404Z"
+    },
+    {
+      "case_id": "f31-search-034",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "search oracle all checks pass",
+      "ts": "2026-04-22T04:51:20.495Z"
+    },
+    {
+      "case_id": "f31-search-035",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "search oracle all checks pass",
+      "ts": "2026-04-22T04:51:20.588Z"
+    },
+    {
+      "case_id": "f31-search-036",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "search oracle all checks pass",
+      "ts": "2026-04-22T04:51:20.672Z"
+    },
+    {
+      "case_id": "f31-search-037",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "search oracle all checks pass",
+      "ts": "2026-04-22T04:51:20.756Z"
+    },
+    {
+      "case_id": "f31-search-038",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "search oracle all checks pass",
+      "ts": "2026-04-22T04:51:20.839Z"
+    },
+    {
+      "case_id": "f31-search-039",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "search oracle all checks pass",
+      "ts": "2026-04-22T04:51:20.928Z"
+    },
+    {
+      "case_id": "f31-search-040",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "search oracle all checks pass",
+      "ts": "2026-04-22T04:51:21.016Z"
+    },
+    {
+      "case_id": "f31-search-041",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "search oracle all checks pass",
+      "ts": "2026-04-22T04:58:53.086Z"
+    },
+    {
+      "case_id": "f31-search-042",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "search oracle all checks pass",
+      "ts": "2026-04-22T05:01:39.759Z"
+    },
+    {
+      "case_id": "f31-search-043",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "search oracle all checks pass",
+      "ts": "2026-04-22T05:02:44.199Z"
+    },
+    {
+      "case_id": "f31-search-044",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "search oracle all checks pass",
+      "ts": "2026-04-22T05:02:44.254Z"
+    },
+    {
+      "case_id": "f31-search-045",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "search oracle all checks pass",
+      "ts": "2026-04-22T05:02:44.302Z"
+    },
+    {
+      "case_id": "f31-search-046",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "search oracle all checks pass",
+      "ts": "2026-04-22T05:02:44.346Z"
+    },
+    {
+      "case_id": "f31-search-047",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "search oracle all checks pass",
+      "ts": "2026-04-22T05:02:44.390Z"
+    },
+    {
+      "case_id": "f31-search-048",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "search oracle all checks pass",
+      "ts": "2026-04-22T05:02:44.436Z"
+    },
+    {
+      "case_id": "f31-search-049",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "search oracle all checks pass",
+      "ts": "2026-04-22T05:01:40.122Z"
+    },
+    {
+      "case_id": "f31-search-050",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "search oracle all checks pass",
+      "ts": "2026-04-22T05:01:40.260Z"
+    }
+  ]
+}

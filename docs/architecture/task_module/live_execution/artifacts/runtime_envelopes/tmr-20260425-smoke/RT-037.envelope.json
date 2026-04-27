@@ -1,0 +1,20 @@
+{
+  "message_id": "5bc37150-1f64-4d06-85b2-1c3eac520375",
+  "tenant_id": "eee0e2e0-0000-0000-0000-00000000000a",
+  "channel": "task-module-user-ready",
+  "direction": "inbound",
+  "author_type": "user",
+  "normalized_content": "Creează task tenant A marker isolation.",
+  "timestamp": "2026-04-25T12:47:21.288Z",
+  "source_message_ref": "tmr:RT-037:tmr:tmr-20260425-smoke:RT-037",
+  "author_entity_id": null,
+  "related_entity_ids": [],
+  "metadata": {
+    "tmr_case_id": "RT-037",
+    "tmr_group": "tenant_isolation",
+    "tmr_run_tag": "tmr-20260425-smoke"
+  },
+  "idempotency_key": "tmr:tmr-20260425-smoke:RT-037",
+  "thread_id": "5fe0ecb4-ede9-4318-8602-dc668c0d2dc3",
+  "reply_to_thread_id": null
+}

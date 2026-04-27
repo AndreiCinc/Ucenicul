@@ -1,0 +1,23 @@
+{
+  "message_id": "d8744b28-0219-43d5-8638-9740ad925990",
+  "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+  "channel": "e2e-rich-matrix",
+  "direction": "inbound",
+  "author_type": "user",
+  "normalized_content": "Mulțumesc pentru ajutorul de mai devreme. A fost util și apreciez că ai ținut cont de context. Nu trebuie să reții nimic din mesajul acesta, doar răspunde natural și scurt.",
+  "timestamp": "2026-04-26T02:50:47.691Z",
+  "source_message_ref": "e2e:C5-L4-V1:e2e:f240-2026-04-26:C5-L4-V1",
+  "author_entity_id": null,
+  "related_entity_ids": [],
+  "metadata": {
+    "e2e_case_id": "C5-L4-V1",
+    "e2e_corridor": "C5",
+    "e2e_variant": "baseline_ro",
+    "e2e_phase": "P2_COMPOSITION",
+    "e2e_priority": "P2",
+    "e2e_locale": "ro",
+    "e2e_run_tag": "f240-2026-04-26"
+  },
+  "idempotency_key": "e2e:f240-2026-04-26:C5-L4-V1",
+  "thread_id": "21770551-3da8-4d57-8e50-9ad68678cd43"
+}

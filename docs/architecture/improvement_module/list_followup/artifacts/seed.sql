@@ -1,0 +1,20 @@
+BEGIN;
+INSERT INTO threads (id, tenant_id, title, thread_type, status, source_channels) VALUES
+  ('83ce3154-737b-4a96-88e6-5e349875d94a'::uuid, 'eee0e2e0-0000-0000-0000-000000000001'::uuid, 'e2e:il-2026-04-27:IL-001', 'operational', 'new', ARRAY['e2e-rich-matrix']::varchar[]),
+  ('e2f4da87-9910-4c8b-8956-fd52a67da968'::uuid, 'eee0e2e0-0000-0000-0000-000000000001'::uuid, 'e2e:il-2026-04-27:IL-002', 'operational', 'new', ARRAY['e2e-rich-matrix']::varchar[]),
+  ('609e6ba6-72f3-4e84-8faa-82c9ef483d93'::uuid, 'eee0e2e0-0000-0000-0000-000000000001'::uuid, 'e2e:il-2026-04-27:IL-003', 'operational', 'new', ARRAY['e2e-rich-matrix']::varchar[]),
+  ('af2e535e-5db4-476c-8c3f-7830939113be'::uuid, 'eee0e2e0-0000-0000-0000-00000000000b'::uuid, 'e2e:il-2026-04-27:IL-004', 'operational', 'new', ARRAY['e2e-rich-matrix']::varchar[]),
+  ('1648ad9c-d407-4959-8cf5-68009cf146c7'::uuid, 'eee0e2e0-0000-0000-0000-000000000001'::uuid, 'e2e:il-2026-04-27:IL-005', 'operational', 'new', ARRAY['e2e-rich-matrix']::varchar[]),
+  ('9ee8a9d2-f66d-4cd7-8446-db90e3686a71'::uuid, 'eee0e2e0-0000-0000-0000-000000000001'::uuid, 'e2e:il-2026-04-27:IL-R-task', 'operational', 'new', ARRAY['e2e-rich-matrix']::varchar[]),
+  ('83485a49-3358-4b69-8805-d96f94e65fb0'::uuid, 'eee0e2e0-0000-0000-0000-000000000001'::uuid, 'e2e:il-2026-04-27:IL-R-store', 'operational', 'new', ARRAY['e2e-rich-matrix']::varchar[])
+ON CONFLICT (id) DO NOTHING;
+INSERT INTO messages (id, organization_id, tenant_id, thread_id, direction, author_type, channel, normalized_content, source_message_ref, content, intent, created_at, updated_at) VALUES
+  ('003ba241-a790-4790-8870-8308b749326f'::uuid, '38fde66e-3920-4bf3-9d70-ddbca9faf58a'::uuid, 'eee0e2e0-0000-0000-0000-000000000001'::uuid, '83ce3154-737b-4a96-88e6-5e349875d94a'::uuid, 'inbound', 'user', 'e2e-rich-matrix', 'Listează sugestiile.', 'e2e:IL-001', 'Listează sugestiile.', 'list_improvements', NOW(), NOW()),
+  ('88b80f79-84e0-4dfa-8610-eb434674f385'::uuid, '38fde66e-3920-4bf3-9d70-ddbca9faf58a'::uuid, 'eee0e2e0-0000-0000-0000-000000000001'::uuid, 'e2f4da87-9910-4c8b-8956-fd52a67da968'::uuid, 'inbound', 'user', 'e2e-rich-matrix', 'Show all suggestions.', 'e2e:IL-002', 'Show all suggestions.', 'list_improvements', NOW(), NOW()),
+  ('bf69bd06-674c-4277-8a69-1896783587cd'::uuid, '38fde66e-3920-4bf3-9d70-ddbca9faf58a'::uuid, 'eee0e2e0-0000-0000-0000-000000000001'::uuid, '609e6ba6-72f3-4e84-8faa-82c9ef483d93'::uuid, 'inbound', 'user', 'e2e-rich-matrix', 'Listează sugestiile cu status pending.', 'e2e:IL-003', 'Listează sugestiile cu status pending.', 'list_improvements', NOW(), NOW()),
+  ('12a35b70-ac40-4ec9-835e-4ae0d467a01e'::uuid, '38fde66e-3920-4bf3-9d70-ddbca9faf58a'::uuid, 'eee0e2e0-0000-0000-0000-00000000000b'::uuid, 'af2e535e-5db4-476c-8c3f-7830939113be'::uuid, 'inbound', 'user', 'e2e-rich-matrix', 'List my suggestions.', 'e2e:IL-004', 'List my suggestions.', 'list_improvements', NOW(), NOW()),
+  ('0b5c9e95-e407-4192-8cc0-576184c8f17f'::uuid, '38fde66e-3920-4bf3-9d70-ddbca9faf58a'::uuid, 'eee0e2e0-0000-0000-0000-000000000001'::uuid, '1648ad9c-d407-4959-8cf5-68009cf146c7'::uuid, 'inbound', 'user', 'e2e-rich-matrix', 'Sugestie: adaugă filtre avansate.', 'e2e:IL-005', 'Sugestie: adaugă filtre avansate.', 'save_suggestion', NOW(), NOW()),
+  ('75f2e862-7458-4cc7-8ebd-8b41db44a0a1'::uuid, '38fde66e-3920-4bf3-9d70-ddbca9faf58a'::uuid, 'eee0e2e0-0000-0000-0000-000000000001'::uuid, '9ee8a9d2-f66d-4cd7-8446-db90e3686a71'::uuid, 'inbound', 'user', 'e2e-rich-matrix', 'Creează task: scrie raportul', 'e2e:IL-R-task', 'Creează task: scrie raportul', 'create_task', NOW(), NOW()),
+  ('694b4b7a-b212-483d-8ff1-5dd11f24a836'::uuid, '38fde66e-3920-4bf3-9d70-ddbca9faf58a'::uuid, 'eee0e2e0-0000-0000-0000-000000000001'::uuid, '83485a49-3358-4b69-8805-d96f94e65fb0'::uuid, 'inbound', 'user', 'e2e-rich-matrix', 'Ține minte că folosesc Node 22.', 'e2e:IL-R-store', 'Ține minte că folosesc Node 22.', 'store_memory', NOW(), NOW())
+ON CONFLICT (id) DO NOTHING;
+COMMIT;

@@ -1,0 +1,34 @@
+{
+  "id": "uq26nh1grIpnHju0",
+  "name": "WF-ME-01 Module Execution",
+  "nodeCount": 45,
+  "connectionCount": 63,
+  "active": true,
+  "updatedAt": "2026-04-22T15:24:08.723Z",
+  "versionId": "279a8628-5df6-4b38-86b0-8cc51989629b",
+  "node_excerpt": {
+    "id": "me-phase5mem-promote-db",
+    "name": "ME_Memory_Promote_DB",
+    "type": "n8n-nodes-base.postgres",
+    "position": [
+      3008,
+      1250
+    ],
+    "parameters": {
+      "query": "WITH target AS (\n  SELECT * FROM public.memory_items\n  WHERE id = $1::uuid AND tenant_id = $2::uuid\n  FOR UPDATE\n),\naccept AS (\n  SELECT id,\n         (corroboration_count >= $3::int\n            OR ($4::boolean IS TRUE)\n            OR ($5::boolean IS TRUE)\n            OR (user_confirmed IS TRUE)\n            OR (evidence_validated IS TRUE)) AS ok,\n         tier\n  FROM target\n),\npromoted AS (\n  UPDATE public.memory_items m\n  SET tier = 'long_term',\n      last_reconfirmed_at = now(),\n      user_confirmed     = (m.user_confirmed     OR $4::boolean),\n      evidence_validated = (m.evidence_validated OR $5::boolean)\n  FROM accept\n  WHERE m.id = accept.id AND accept.ok AND accept.tier = 'recent'\n  RETURNING m.*, TRUE AS promoted, 'accepted'::text AS denial_reason\n)\nSELECT * FROM promoted\nUNION ALL\nSELECT t.*, FALSE AS promoted,\n       CASE\n         WHEN t.tier <> 'recent' THEN 'not_in_recent_tier'\n         ELSE 'acceptance_criteria_not_met'\n       END AS denial_reason\n  FROM target t\n WHERE NOT EXISTS (SELECT 1 FROM promoted)\nLIMIT 1;",
+      "options": {
+        "queryReplacement": "={{ $json._error ? [null,null,2,false,false] : [$json.__db.memory_id, $json.__db.tenant_id, $json.__db.corroboration_threshold, $json.__db.user_confirmed, $json.__db.evidence_validated] }}"
+      },
+      "operation": "executeQuery"
+    },
+    "credentials": {
+      "postgres": {
+        "id": "z9nKgToNWvIW7P8f",
+        "name": "Postgres account 2"
+      }
+    },
+    "typeVersion": 2.4,
+    "continueOnFail": true,
+    "alwaysOutputData": true
+  }
+}

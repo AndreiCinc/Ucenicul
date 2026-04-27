@@ -1,0 +1,23 @@
+{
+  "message_id": "b6d2b4cb-4b0c-48b7-8a1b-7cb25c3de523",
+  "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+  "channel": "e2e-rich-matrix",
+  "direction": "inbound",
+  "author_type": "user",
+  "normalized_content": "Ce știi despre Andrei din lucrurile pe care le-am stabilit anterior? Mă interesează doar preferințele relevante pentru programarea antrenamentelor și eventualele restricții recurente. Nu completa din imaginație și nu include informații despre Maria sau despre alți clienți. Dacă nu găsești nimic, spune clar că nu ai informații.",
+  "timestamp": "2026-04-26T02:50:47.389Z",
+  "source_message_ref": "e2e:C3-L4-V3:e2e:f240-2026-04-26:C3-L4-V3",
+  "author_entity_id": null,
+  "related_entity_ids": [],
+  "metadata": {
+    "e2e_case_id": "C3-L4-V3",
+    "e2e_corridor": "C3",
+    "e2e_variant": "negative_or_boundary",
+    "e2e_phase": "P2_COMPOSITION",
+    "e2e_priority": "P1",
+    "e2e_locale": "ro",
+    "e2e_run_tag": "f240-2026-04-26"
+  },
+  "idempotency_key": "e2e:f240-2026-04-26:C3-L4-V3",
+  "thread_id": "28120169-86d7-4899-8a34-f3dd83703754"
+}

@@ -1,0 +1,5068 @@
+{
+  "suite": "memory_module_v2.F3_1.cases_150",
+  "generated_at": "2026-04-22T05:02:34.699Z",
+  "frozen_constants": {
+    "workflow_id": "uq26nh1grIpnHju0",
+    "version_id": "b8e2f194-0263-46d9-8306-1534cc7c31fe",
+    "tenant_id": "aaaaaaaa-0000-0000-0000-000000000001",
+    "execution_context_id": "d4f82a41-01cd-4fb7-9d70-573557348e74",
+    "source_thread_id_default": "77777777-0000-0000-0000-000000000007",
+    "source_thread_id_alt": "33333333-0000-0000-0000-000000000003",
+    "entity_id_default": "eeeeeeee-0000-0000-0000-000000000001",
+    "entity_id_alt": "eeeeeeee-0000-0000-0000-000000000002",
+    "idem_prefix": "mem-f31"
+  },
+  "counts_by_family": {
+    "search_lexical_fallback": 50,
+    "recall_intersection": 50,
+    "promote_denial_vocabulary": 25,
+    "supersede_idempotency": 25,
+    "total": 150
+  },
+  "cases": [
+    {
+      "case_id": "f31-search-001",
+      "family": "search_lexical_fallback",
+      "action": "search_memory",
+      "inputs": {
+        "query": "raspunde dimineata",
+        "filters": {
+          "memory_type": "fact"
+        },
+        "limit": 10
+      },
+      "preconditions": {
+        "seed_cases": [],
+        "notes": "read-only against existing baseline"
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "used_embedding": false,
+        "embedding_attempted": true,
+        "embedding_error": null,
+        "recall": 0
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": null,
+      "notes": "query=q1 memory_type=fact override=defaultActive"
+    },
+    {
+      "case_id": "f31-search-002",
+      "family": "search_lexical_fallback",
+      "action": "search_memory",
+      "inputs": {
+        "query": "raspunde dimineata",
+        "filters": {
+          "memory_type": "fact",
+          "statuses": [
+            "active",
+            "superseded"
+          ]
+        },
+        "limit": 10
+      },
+      "preconditions": {
+        "seed_cases": [],
+        "notes": "read-only against existing baseline"
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "used_embedding": false,
+        "embedding_attempted": true,
+        "embedding_error": null,
+        "recall": 0
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": null,
+      "notes": "query=q1 memory_type=fact override=includeSuperseded"
+    },
+    {
+      "case_id": "f31-search-003",
+      "family": "search_lexical_fallback",
+      "action": "search_memory",
+      "inputs": {
+        "query": "raspunde dimineata",
+        "filters": {
+          "memory_type": "preference"
+        },
+        "limit": 10
+      },
+      "preconditions": {
+        "seed_cases": [],
+        "notes": "read-only against existing baseline"
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "used_embedding": false,
+        "embedding_attempted": true,
+        "embedding_error": null,
+        "recall": 0
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": null,
+      "notes": "query=q1 memory_type=preference override=defaultActive"
+    },
+    {
+      "case_id": "f31-search-004",
+      "family": "search_lexical_fallback",
+      "action": "search_memory",
+      "inputs": {
+        "query": "raspunde dimineata",
+        "filters": {
+          "memory_type": "preference",
+          "statuses": [
+            "active",
+            "superseded"
+          ]
+        },
+        "limit": 10
+      },
+      "preconditions": {
+        "seed_cases": [],
+        "notes": "read-only against existing baseline"
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "used_embedding": false,
+        "embedding_attempted": true,
+        "embedding_error": null,
+        "recall": 0
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": null,
+      "notes": "query=q1 memory_type=preference override=includeSuperseded"
+    },
+    {
+      "case_id": "f31-search-005",
+      "family": "search_lexical_fallback",
+      "action": "search_memory",
+      "inputs": {
+        "query": "raspunde dimineata",
+        "filters": {
+          "memory_type": "observation"
+        },
+        "limit": 10
+      },
+      "preconditions": {
+        "seed_cases": [],
+        "notes": "read-only against existing baseline"
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "used_embedding": false,
+        "embedding_attempted": true,
+        "embedding_error": null,
+        "recall": 0
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": null,
+      "notes": "query=q1 memory_type=observation override=defaultActive"
+    },
+    {
+      "case_id": "f31-search-006",
+      "family": "search_lexical_fallback",
+      "action": "search_memory",
+      "inputs": {
+        "query": "raspunde dimineata",
+        "filters": {
+          "memory_type": "observation",
+          "statuses": [
+            "active",
+            "superseded"
+          ]
+        },
+        "limit": 10
+      },
+      "preconditions": {
+        "seed_cases": [],
+        "notes": "read-only against existing baseline"
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "used_embedding": false,
+        "embedding_attempted": true,
+        "embedding_error": null,
+        "recall": 0
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": null,
+      "notes": "query=q1 memory_type=observation override=includeSuperseded"
+    },
+    {
+      "case_id": "f31-search-007",
+      "family": "search_lexical_fallback",
+      "action": "search_memory",
+      "inputs": {
+        "query": "raspunde dimineata",
+        "filters": {
+          "memory_type": "constraint"
+        },
+        "limit": 10
+      },
+      "preconditions": {
+        "seed_cases": [],
+        "notes": "read-only against existing baseline"
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "used_embedding": false,
+        "embedding_attempted": true,
+        "embedding_error": null,
+        "recall": 0
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": null,
+      "notes": "query=q1 memory_type=constraint override=defaultActive"
+    },
+    {
+      "case_id": "f31-search-008",
+      "family": "search_lexical_fallback",
+      "action": "search_memory",
+      "inputs": {
+        "query": "raspunde dimineata",
+        "filters": {
+          "memory_type": "constraint",
+          "statuses": [
+            "active",
+            "superseded"
+          ]
+        },
+        "limit": 10
+      },
+      "preconditions": {
+        "seed_cases": [],
+        "notes": "read-only against existing baseline"
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "used_embedding": false,
+        "embedding_attempted": true,
+        "embedding_error": null,
+        "recall": 0
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": null,
+      "notes": "query=q1 memory_type=constraint override=includeSuperseded"
+    },
+    {
+      "case_id": "f31-search-009",
+      "family": "search_lexical_fallback",
+      "action": "search_memory",
+      "inputs": {
+        "query": "raspunde dimineata",
+        "filters": {},
+        "limit": 10
+      },
+      "preconditions": {
+        "seed_cases": [],
+        "notes": "read-only against existing baseline"
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "used_embedding": false,
+        "embedding_attempted": true,
+        "embedding_error": null,
+        "recall": 0
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": null,
+      "notes": "query=q1 memory_type=null override=defaultActive"
+    },
+    {
+      "case_id": "f31-search-010",
+      "family": "search_lexical_fallback",
+      "action": "search_memory",
+      "inputs": {
+        "query": "raspunde dimineata",
+        "filters": {
+          "statuses": [
+            "active",
+            "superseded"
+          ]
+        },
+        "limit": 10
+      },
+      "preconditions": {
+        "seed_cases": [],
+        "notes": "read-only against existing baseline"
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "used_embedding": false,
+        "embedding_attempted": true,
+        "embedding_error": null,
+        "recall": 0
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": null,
+      "notes": "query=q1 memory_type=null override=includeSuperseded"
+    },
+    {
+      "case_id": "f31-search-011",
+      "family": "search_lexical_fallback",
+      "action": "search_memory",
+      "inputs": {
+        "query": "prefera whatsapp",
+        "filters": {
+          "memory_type": "fact"
+        },
+        "limit": 10
+      },
+      "preconditions": {
+        "seed_cases": [],
+        "notes": "read-only against existing baseline"
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "used_embedding": false,
+        "embedding_attempted": true,
+        "embedding_error": null,
+        "recall": 0
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": null,
+      "notes": "query=q2 memory_type=fact override=defaultActive"
+    },
+    {
+      "case_id": "f31-search-012",
+      "family": "search_lexical_fallback",
+      "action": "search_memory",
+      "inputs": {
+        "query": "prefera whatsapp",
+        "filters": {
+          "memory_type": "fact",
+          "statuses": [
+            "active",
+            "superseded"
+          ]
+        },
+        "limit": 10
+      },
+      "preconditions": {
+        "seed_cases": [],
+        "notes": "read-only against existing baseline"
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "used_embedding": false,
+        "embedding_attempted": true,
+        "embedding_error": null,
+        "recall": 0
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": null,
+      "notes": "query=q2 memory_type=fact override=includeSuperseded"
+    },
+    {
+      "case_id": "f31-search-013",
+      "family": "search_lexical_fallback",
+      "action": "search_memory",
+      "inputs": {
+        "query": "prefera whatsapp",
+        "filters": {
+          "memory_type": "preference"
+        },
+        "limit": 10
+      },
+      "preconditions": {
+        "seed_cases": [],
+        "notes": "read-only against existing baseline"
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "used_embedding": false,
+        "embedding_attempted": true,
+        "embedding_error": null,
+        "recall": 0
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": null,
+      "notes": "query=q2 memory_type=preference override=defaultActive"
+    },
+    {
+      "case_id": "f31-search-014",
+      "family": "search_lexical_fallback",
+      "action": "search_memory",
+      "inputs": {
+        "query": "prefera whatsapp",
+        "filters": {
+          "memory_type": "preference",
+          "statuses": [
+            "active",
+            "superseded"
+          ]
+        },
+        "limit": 10
+      },
+      "preconditions": {
+        "seed_cases": [],
+        "notes": "read-only against existing baseline"
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "used_embedding": false,
+        "embedding_attempted": true,
+        "embedding_error": null,
+        "recall": 0
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": null,
+      "notes": "query=q2 memory_type=preference override=includeSuperseded"
+    },
+    {
+      "case_id": "f31-search-015",
+      "family": "search_lexical_fallback",
+      "action": "search_memory",
+      "inputs": {
+        "query": "prefera whatsapp",
+        "filters": {
+          "memory_type": "observation"
+        },
+        "limit": 10
+      },
+      "preconditions": {
+        "seed_cases": [],
+        "notes": "read-only against existing baseline"
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "used_embedding": false,
+        "embedding_attempted": true,
+        "embedding_error": null,
+        "recall": 0
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": null,
+      "notes": "query=q2 memory_type=observation override=defaultActive"
+    },
+    {
+      "case_id": "f31-search-016",
+      "family": "search_lexical_fallback",
+      "action": "search_memory",
+      "inputs": {
+        "query": "prefera whatsapp",
+        "filters": {
+          "memory_type": "observation",
+          "statuses": [
+            "active",
+            "superseded"
+          ]
+        },
+        "limit": 10
+      },
+      "preconditions": {
+        "seed_cases": [],
+        "notes": "read-only against existing baseline"
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "used_embedding": false,
+        "embedding_attempted": true,
+        "embedding_error": null,
+        "recall": 0
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": null,
+      "notes": "query=q2 memory_type=observation override=includeSuperseded"
+    },
+    {
+      "case_id": "f31-search-017",
+      "family": "search_lexical_fallback",
+      "action": "search_memory",
+      "inputs": {
+        "query": "prefera whatsapp",
+        "filters": {
+          "memory_type": "constraint"
+        },
+        "limit": 10
+      },
+      "preconditions": {
+        "seed_cases": [],
+        "notes": "read-only against existing baseline"
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "used_embedding": false,
+        "embedding_attempted": true,
+        "embedding_error": null,
+        "recall": 0
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": null,
+      "notes": "query=q2 memory_type=constraint override=defaultActive"
+    },
+    {
+      "case_id": "f31-search-018",
+      "family": "search_lexical_fallback",
+      "action": "search_memory",
+      "inputs": {
+        "query": "prefera whatsapp",
+        "filters": {
+          "memory_type": "constraint",
+          "statuses": [
+            "active",
+            "superseded"
+          ]
+        },
+        "limit": 10
+      },
+      "preconditions": {
+        "seed_cases": [],
+        "notes": "read-only against existing baseline"
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "used_embedding": false,
+        "embedding_attempted": true,
+        "embedding_error": null,
+        "recall": 0
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": null,
+      "notes": "query=q2 memory_type=constraint override=includeSuperseded"
+    },
+    {
+      "case_id": "f31-search-019",
+      "family": "search_lexical_fallback",
+      "action": "search_memory",
+      "inputs": {
+        "query": "prefera whatsapp",
+        "filters": {},
+        "limit": 10
+      },
+      "preconditions": {
+        "seed_cases": [],
+        "notes": "read-only against existing baseline"
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "used_embedding": false,
+        "embedding_attempted": true,
+        "embedding_error": null,
+        "recall": 0
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": null,
+      "notes": "query=q2 memory_type=null override=defaultActive"
+    },
+    {
+      "case_id": "f31-search-020",
+      "family": "search_lexical_fallback",
+      "action": "search_memory",
+      "inputs": {
+        "query": "prefera whatsapp",
+        "filters": {
+          "statuses": [
+            "active",
+            "superseded"
+          ]
+        },
+        "limit": 10
+      },
+      "preconditions": {
+        "seed_cases": [],
+        "notes": "read-only against existing baseline"
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "used_embedding": false,
+        "embedding_attempted": true,
+        "embedding_error": null,
+        "recall": 0
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": null,
+      "notes": "query=q2 memory_type=null override=includeSuperseded"
+    },
+    {
+      "case_id": "f31-search-021",
+      "family": "search_lexical_fallback",
+      "action": "search_memory",
+      "inputs": {
+        "query": "buget lunar",
+        "filters": {
+          "memory_type": "fact"
+        },
+        "limit": 10
+      },
+      "preconditions": {
+        "seed_cases": [],
+        "notes": "read-only against existing baseline"
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "used_embedding": false,
+        "embedding_attempted": true,
+        "embedding_error": null,
+        "recall": 0
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": null,
+      "notes": "query=q3 memory_type=fact override=defaultActive"
+    },
+    {
+      "case_id": "f31-search-022",
+      "family": "search_lexical_fallback",
+      "action": "search_memory",
+      "inputs": {
+        "query": "buget lunar",
+        "filters": {
+          "memory_type": "fact",
+          "statuses": [
+            "active",
+            "superseded"
+          ]
+        },
+        "limit": 10
+      },
+      "preconditions": {
+        "seed_cases": [],
+        "notes": "read-only against existing baseline"
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "used_embedding": false,
+        "embedding_attempted": true,
+        "embedding_error": null,
+        "recall": 0
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": null,
+      "notes": "query=q3 memory_type=fact override=includeSuperseded"
+    },
+    {
+      "case_id": "f31-search-023",
+      "family": "search_lexical_fallback",
+      "action": "search_memory",
+      "inputs": {
+        "query": "buget lunar",
+        "filters": {
+          "memory_type": "preference"
+        },
+        "limit": 10
+      },
+      "preconditions": {
+        "seed_cases": [],
+        "notes": "read-only against existing baseline"
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "used_embedding": false,
+        "embedding_attempted": true,
+        "embedding_error": null,
+        "recall": 0
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": null,
+      "notes": "query=q3 memory_type=preference override=defaultActive"
+    },
+    {
+      "case_id": "f31-search-024",
+      "family": "search_lexical_fallback",
+      "action": "search_memory",
+      "inputs": {
+        "query": "buget lunar",
+        "filters": {
+          "memory_type": "preference",
+          "statuses": [
+            "active",
+            "superseded"
+          ]
+        },
+        "limit": 10
+      },
+      "preconditions": {
+        "seed_cases": [],
+        "notes": "read-only against existing baseline"
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "used_embedding": false,
+        "embedding_attempted": true,
+        "embedding_error": null,
+        "recall": 0
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": null,
+      "notes": "query=q3 memory_type=preference override=includeSuperseded"
+    },
+    {
+      "case_id": "f31-search-025",
+      "family": "search_lexical_fallback",
+      "action": "search_memory",
+      "inputs": {
+        "query": "buget lunar",
+        "filters": {
+          "memory_type": "observation"
+        },
+        "limit": 10
+      },
+      "preconditions": {
+        "seed_cases": [],
+        "notes": "read-only against existing baseline"
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "used_embedding": false,
+        "embedding_attempted": true,
+        "embedding_error": null,
+        "recall": 0
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": null,
+      "notes": "query=q3 memory_type=observation override=defaultActive"
+    },
+    {
+      "case_id": "f31-search-026",
+      "family": "search_lexical_fallback",
+      "action": "search_memory",
+      "inputs": {
+        "query": "buget lunar",
+        "filters": {
+          "memory_type": "observation",
+          "statuses": [
+            "active",
+            "superseded"
+          ]
+        },
+        "limit": 10
+      },
+      "preconditions": {
+        "seed_cases": [],
+        "notes": "read-only against existing baseline"
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "used_embedding": false,
+        "embedding_attempted": true,
+        "embedding_error": null,
+        "recall": 0
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": null,
+      "notes": "query=q3 memory_type=observation override=includeSuperseded"
+    },
+    {
+      "case_id": "f31-search-027",
+      "family": "search_lexical_fallback",
+      "action": "search_memory",
+      "inputs": {
+        "query": "buget lunar",
+        "filters": {
+          "memory_type": "constraint"
+        },
+        "limit": 10
+      },
+      "preconditions": {
+        "seed_cases": [],
+        "notes": "read-only against existing baseline"
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "used_embedding": false,
+        "embedding_attempted": true,
+        "embedding_error": null,
+        "recall": 0
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": null,
+      "notes": "query=q3 memory_type=constraint override=defaultActive"
+    },
+    {
+      "case_id": "f31-search-028",
+      "family": "search_lexical_fallback",
+      "action": "search_memory",
+      "inputs": {
+        "query": "buget lunar",
+        "filters": {
+          "memory_type": "constraint",
+          "statuses": [
+            "active",
+            "superseded"
+          ]
+        },
+        "limit": 10
+      },
+      "preconditions": {
+        "seed_cases": [],
+        "notes": "read-only against existing baseline"
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "used_embedding": false,
+        "embedding_attempted": true,
+        "embedding_error": null,
+        "recall": 0
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": null,
+      "notes": "query=q3 memory_type=constraint override=includeSuperseded"
+    },
+    {
+      "case_id": "f31-search-029",
+      "family": "search_lexical_fallback",
+      "action": "search_memory",
+      "inputs": {
+        "query": "buget lunar",
+        "filters": {},
+        "limit": 10
+      },
+      "preconditions": {
+        "seed_cases": [],
+        "notes": "read-only against existing baseline"
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "used_embedding": false,
+        "embedding_attempted": true,
+        "embedding_error": null,
+        "recall": 0
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": null,
+      "notes": "query=q3 memory_type=null override=defaultActive"
+    },
+    {
+      "case_id": "f31-search-030",
+      "family": "search_lexical_fallback",
+      "action": "search_memory",
+      "inputs": {
+        "query": "buget lunar",
+        "filters": {
+          "statuses": [
+            "active",
+            "superseded"
+          ]
+        },
+        "limit": 10
+      },
+      "preconditions": {
+        "seed_cases": [],
+        "notes": "read-only against existing baseline"
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "used_embedding": false,
+        "embedding_attempted": true,
+        "embedding_error": null,
+        "recall": 0
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": null,
+      "notes": "query=q3 memory_type=null override=includeSuperseded"
+    },
+    {
+      "case_id": "f31-search-031",
+      "family": "search_lexical_fallback",
+      "action": "search_memory",
+      "inputs": {
+        "query": "obiectie pret",
+        "filters": {
+          "memory_type": "fact"
+        },
+        "limit": 10
+      },
+      "preconditions": {
+        "seed_cases": [],
+        "notes": "read-only against existing baseline"
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "used_embedding": false,
+        "embedding_attempted": true,
+        "embedding_error": null,
+        "recall": 0
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": null,
+      "notes": "query=q4 memory_type=fact override=defaultActive"
+    },
+    {
+      "case_id": "f31-search-032",
+      "family": "search_lexical_fallback",
+      "action": "search_memory",
+      "inputs": {
+        "query": "obiectie pret",
+        "filters": {
+          "memory_type": "fact",
+          "statuses": [
+            "active",
+            "superseded"
+          ]
+        },
+        "limit": 10
+      },
+      "preconditions": {
+        "seed_cases": [],
+        "notes": "read-only against existing baseline"
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "used_embedding": false,
+        "embedding_attempted": true,
+        "embedding_error": null,
+        "recall": 0
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": null,
+      "notes": "query=q4 memory_type=fact override=includeSuperseded"
+    },
+    {
+      "case_id": "f31-search-033",
+      "family": "search_lexical_fallback",
+      "action": "search_memory",
+      "inputs": {
+        "query": "obiectie pret",
+        "filters": {
+          "memory_type": "preference"
+        },
+        "limit": 10
+      },
+      "preconditions": {
+        "seed_cases": [],
+        "notes": "read-only against existing baseline"
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "used_embedding": false,
+        "embedding_attempted": true,
+        "embedding_error": null,
+        "recall": 0
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": null,
+      "notes": "query=q4 memory_type=preference override=defaultActive"
+    },
+    {
+      "case_id": "f31-search-034",
+      "family": "search_lexical_fallback",
+      "action": "search_memory",
+      "inputs": {
+        "query": "obiectie pret",
+        "filters": {
+          "memory_type": "preference",
+          "statuses": [
+            "active",
+            "superseded"
+          ]
+        },
+        "limit": 10
+      },
+      "preconditions": {
+        "seed_cases": [],
+        "notes": "read-only against existing baseline"
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "used_embedding": false,
+        "embedding_attempted": true,
+        "embedding_error": null,
+        "recall": 0
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": null,
+      "notes": "query=q4 memory_type=preference override=includeSuperseded"
+    },
+    {
+      "case_id": "f31-search-035",
+      "family": "search_lexical_fallback",
+      "action": "search_memory",
+      "inputs": {
+        "query": "obiectie pret",
+        "filters": {
+          "memory_type": "observation"
+        },
+        "limit": 10
+      },
+      "preconditions": {
+        "seed_cases": [],
+        "notes": "read-only against existing baseline"
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "used_embedding": false,
+        "embedding_attempted": true,
+        "embedding_error": null,
+        "recall": 0
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": null,
+      "notes": "query=q4 memory_type=observation override=defaultActive"
+    },
+    {
+      "case_id": "f31-search-036",
+      "family": "search_lexical_fallback",
+      "action": "search_memory",
+      "inputs": {
+        "query": "obiectie pret",
+        "filters": {
+          "memory_type": "observation",
+          "statuses": [
+            "active",
+            "superseded"
+          ]
+        },
+        "limit": 10
+      },
+      "preconditions": {
+        "seed_cases": [],
+        "notes": "read-only against existing baseline"
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "used_embedding": false,
+        "embedding_attempted": true,
+        "embedding_error": null,
+        "recall": 0
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": null,
+      "notes": "query=q4 memory_type=observation override=includeSuperseded"
+    },
+    {
+      "case_id": "f31-search-037",
+      "family": "search_lexical_fallback",
+      "action": "search_memory",
+      "inputs": {
+        "query": "obiectie pret",
+        "filters": {
+          "memory_type": "constraint"
+        },
+        "limit": 10
+      },
+      "preconditions": {
+        "seed_cases": [],
+        "notes": "read-only against existing baseline"
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "used_embedding": false,
+        "embedding_attempted": true,
+        "embedding_error": null,
+        "recall": 0
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": null,
+      "notes": "query=q4 memory_type=constraint override=defaultActive"
+    },
+    {
+      "case_id": "f31-search-038",
+      "family": "search_lexical_fallback",
+      "action": "search_memory",
+      "inputs": {
+        "query": "obiectie pret",
+        "filters": {
+          "memory_type": "constraint",
+          "statuses": [
+            "active",
+            "superseded"
+          ]
+        },
+        "limit": 10
+      },
+      "preconditions": {
+        "seed_cases": [],
+        "notes": "read-only against existing baseline"
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "used_embedding": false,
+        "embedding_attempted": true,
+        "embedding_error": null,
+        "recall": 0
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": null,
+      "notes": "query=q4 memory_type=constraint override=includeSuperseded"
+    },
+    {
+      "case_id": "f31-search-039",
+      "family": "search_lexical_fallback",
+      "action": "search_memory",
+      "inputs": {
+        "query": "obiectie pret",
+        "filters": {},
+        "limit": 10
+      },
+      "preconditions": {
+        "seed_cases": [],
+        "notes": "read-only against existing baseline"
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "used_embedding": false,
+        "embedding_attempted": true,
+        "embedding_error": null,
+        "recall": 0
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": null,
+      "notes": "query=q4 memory_type=null override=defaultActive"
+    },
+    {
+      "case_id": "f31-search-040",
+      "family": "search_lexical_fallback",
+      "action": "search_memory",
+      "inputs": {
+        "query": "obiectie pret",
+        "filters": {
+          "statuses": [
+            "active",
+            "superseded"
+          ]
+        },
+        "limit": 10
+      },
+      "preconditions": {
+        "seed_cases": [],
+        "notes": "read-only against existing baseline"
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "used_embedding": false,
+        "embedding_attempted": true,
+        "embedding_error": null,
+        "recall": 0
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": null,
+      "notes": "query=q4 memory_type=null override=includeSuperseded"
+    },
+    {
+      "case_id": "f31-search-041",
+      "family": "search_lexical_fallback",
+      "action": "search_memory",
+      "inputs": {
+        "query": "Phase7 anchor",
+        "filters": {
+          "memory_type": "fact"
+        },
+        "limit": 10
+      },
+      "preconditions": {
+        "seed_cases": [],
+        "notes": "read-only against existing baseline"
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "used_embedding": false,
+        "embedding_attempted": true,
+        "embedding_error": null,
+        "recall_min": 3
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": null,
+      "notes": "query=q5 memory_type=fact override=defaultActive"
+    },
+    {
+      "case_id": "f31-search-042",
+      "family": "search_lexical_fallback",
+      "action": "search_memory",
+      "inputs": {
+        "query": "Phase7 anchor",
+        "filters": {
+          "memory_type": "fact",
+          "statuses": [
+            "active",
+            "superseded"
+          ]
+        },
+        "limit": 10
+      },
+      "preconditions": {
+        "seed_cases": [],
+        "notes": "read-only against existing baseline"
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "used_embedding": false,
+        "embedding_attempted": true,
+        "embedding_error": null,
+        "recall_min": 3
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": null,
+      "notes": "query=q5 memory_type=fact override=includeSuperseded"
+    },
+    {
+      "case_id": "f31-search-043",
+      "family": "search_lexical_fallback",
+      "action": "search_memory",
+      "inputs": {
+        "query": "Phase7 anchor",
+        "filters": {
+          "memory_type": "preference"
+        },
+        "limit": 10
+      },
+      "preconditions": {
+        "seed_cases": [],
+        "notes": "read-only against existing baseline"
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "used_embedding": false,
+        "embedding_attempted": true,
+        "embedding_error": null,
+        "recall": 0
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": null,
+      "notes": "query=q5 memory_type=preference override=defaultActive"
+    },
+    {
+      "case_id": "f31-search-044",
+      "family": "search_lexical_fallback",
+      "action": "search_memory",
+      "inputs": {
+        "query": "Phase7 anchor",
+        "filters": {
+          "memory_type": "preference",
+          "statuses": [
+            "active",
+            "superseded"
+          ]
+        },
+        "limit": 10
+      },
+      "preconditions": {
+        "seed_cases": [],
+        "notes": "read-only against existing baseline"
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "used_embedding": false,
+        "embedding_attempted": true,
+        "embedding_error": null,
+        "recall": 0
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": null,
+      "notes": "query=q5 memory_type=preference override=includeSuperseded"
+    },
+    {
+      "case_id": "f31-search-045",
+      "family": "search_lexical_fallback",
+      "action": "search_memory",
+      "inputs": {
+        "query": "Phase7 anchor",
+        "filters": {
+          "memory_type": "observation"
+        },
+        "limit": 10
+      },
+      "preconditions": {
+        "seed_cases": [],
+        "notes": "read-only against existing baseline"
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "used_embedding": false,
+        "embedding_attempted": true,
+        "embedding_error": null,
+        "recall": 0
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": null,
+      "notes": "query=q5 memory_type=observation override=defaultActive"
+    },
+    {
+      "case_id": "f31-search-046",
+      "family": "search_lexical_fallback",
+      "action": "search_memory",
+      "inputs": {
+        "query": "Phase7 anchor",
+        "filters": {
+          "memory_type": "observation",
+          "statuses": [
+            "active",
+            "superseded"
+          ]
+        },
+        "limit": 10
+      },
+      "preconditions": {
+        "seed_cases": [],
+        "notes": "read-only against existing baseline"
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "used_embedding": false,
+        "embedding_attempted": true,
+        "embedding_error": null,
+        "recall": 0
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": null,
+      "notes": "query=q5 memory_type=observation override=includeSuperseded"
+    },
+    {
+      "case_id": "f31-search-047",
+      "family": "search_lexical_fallback",
+      "action": "search_memory",
+      "inputs": {
+        "query": "Phase7 anchor",
+        "filters": {
+          "memory_type": "constraint"
+        },
+        "limit": 10
+      },
+      "preconditions": {
+        "seed_cases": [],
+        "notes": "read-only against existing baseline"
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "used_embedding": false,
+        "embedding_attempted": true,
+        "embedding_error": null,
+        "recall": 0
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": null,
+      "notes": "query=q5 memory_type=constraint override=defaultActive"
+    },
+    {
+      "case_id": "f31-search-048",
+      "family": "search_lexical_fallback",
+      "action": "search_memory",
+      "inputs": {
+        "query": "Phase7 anchor",
+        "filters": {
+          "memory_type": "constraint",
+          "statuses": [
+            "active",
+            "superseded"
+          ]
+        },
+        "limit": 10
+      },
+      "preconditions": {
+        "seed_cases": [],
+        "notes": "read-only against existing baseline"
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "used_embedding": false,
+        "embedding_attempted": true,
+        "embedding_error": null,
+        "recall": 0
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": null,
+      "notes": "query=q5 memory_type=constraint override=includeSuperseded"
+    },
+    {
+      "case_id": "f31-search-049",
+      "family": "search_lexical_fallback",
+      "action": "search_memory",
+      "inputs": {
+        "query": "Phase7 anchor",
+        "filters": {},
+        "limit": 10
+      },
+      "preconditions": {
+        "seed_cases": [],
+        "notes": "read-only against existing baseline"
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "used_embedding": false,
+        "embedding_attempted": true,
+        "embedding_error": null,
+        "recall_min": 3
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": null,
+      "notes": "query=q5 memory_type=null override=defaultActive"
+    },
+    {
+      "case_id": "f31-search-050",
+      "family": "search_lexical_fallback",
+      "action": "search_memory",
+      "inputs": {
+        "query": "Phase7 anchor",
+        "filters": {
+          "statuses": [
+            "active",
+            "superseded"
+          ]
+        },
+        "limit": 10
+      },
+      "preconditions": {
+        "seed_cases": [],
+        "notes": "read-only against existing baseline"
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "used_embedding": false,
+        "embedding_attempted": true,
+        "embedding_error": null,
+        "recall_min": 3
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": null,
+      "notes": "query=q5 memory_type=null override=includeSuperseded"
+    },
+    {
+      "case_id": "f31-recall-001",
+      "family": "recall_intersection",
+      "action": "recall_memory",
+      "inputs": {
+        "filters": {
+          "source_thread_id": "77777777-0000-0000-0000-000000000007",
+          "entity_id": "eeeeeeee-0000-0000-0000-000000000001"
+        },
+        "limit": 50
+      },
+      "preconditions": {
+        "seed_cases": [],
+        "notes": "read-only against existing baseline"
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "applied_filters_match": [
+          "source_thread_id",
+          "entity_id"
+        ],
+        "default_status_filter_applied": true,
+        "order_by": "created_at DESC"
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": null,
+      "notes": "thread=0007 entity=0001 cat=null mt=null"
+    },
+    {
+      "case_id": "f31-recall-002",
+      "family": "recall_intersection",
+      "action": "recall_memory",
+      "inputs": {
+        "filters": {
+          "source_thread_id": "77777777-0000-0000-0000-000000000007",
+          "entity_id": "eeeeeeee-0000-0000-0000-000000000001",
+          "memory_type": "fact"
+        },
+        "limit": 50
+      },
+      "preconditions": {
+        "seed_cases": [],
+        "notes": "read-only against existing baseline"
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "applied_filters_match": [
+          "source_thread_id",
+          "entity_id",
+          "memory_type"
+        ],
+        "default_status_filter_applied": true,
+        "order_by": "created_at DESC"
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": null,
+      "notes": "thread=0007 entity=0001 cat=null mt=fact"
+    },
+    {
+      "case_id": "f31-recall-003",
+      "family": "recall_intersection",
+      "action": "recall_memory",
+      "inputs": {
+        "filters": {
+          "source_thread_id": "77777777-0000-0000-0000-000000000007",
+          "entity_id": "eeeeeeee-0000-0000-0000-000000000001",
+          "memory_type": "preference"
+        },
+        "limit": 50
+      },
+      "preconditions": {
+        "seed_cases": [],
+        "notes": "read-only against existing baseline"
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "applied_filters_match": [
+          "source_thread_id",
+          "entity_id",
+          "memory_type"
+        ],
+        "default_status_filter_applied": true,
+        "order_by": "created_at DESC"
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": null,
+      "notes": "thread=0007 entity=0001 cat=null mt=preference"
+    },
+    {
+      "case_id": "f31-recall-004",
+      "family": "recall_intersection",
+      "action": "recall_memory",
+      "inputs": {
+        "filters": {
+          "source_thread_id": "77777777-0000-0000-0000-000000000007",
+          "entity_id": "eeeeeeee-0000-0000-0000-000000000001",
+          "memory_type": "observation"
+        },
+        "limit": 50
+      },
+      "preconditions": {
+        "seed_cases": [],
+        "notes": "read-only against existing baseline"
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "applied_filters_match": [
+          "source_thread_id",
+          "entity_id",
+          "memory_type"
+        ],
+        "default_status_filter_applied": true,
+        "order_by": "created_at DESC"
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": null,
+      "notes": "thread=0007 entity=0001 cat=null mt=observation"
+    },
+    {
+      "case_id": "f31-recall-005",
+      "family": "recall_intersection",
+      "action": "recall_memory",
+      "inputs": {
+        "filters": {
+          "source_thread_id": "77777777-0000-0000-0000-000000000007",
+          "entity_id": "eeeeeeee-0000-0000-0000-000000000001",
+          "category": "anchor_test"
+        },
+        "limit": 50
+      },
+      "preconditions": {
+        "seed_cases": [],
+        "notes": "read-only against existing baseline"
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "applied_filters_match": [
+          "source_thread_id",
+          "entity_id",
+          "category"
+        ],
+        "default_status_filter_applied": true,
+        "order_by": "created_at DESC"
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": null,
+      "notes": "thread=0007 entity=0001 cat=anchor_test mt=null"
+    },
+    {
+      "case_id": "f31-recall-006",
+      "family": "recall_intersection",
+      "action": "recall_memory",
+      "inputs": {
+        "filters": {
+          "source_thread_id": "77777777-0000-0000-0000-000000000007",
+          "entity_id": "eeeeeeee-0000-0000-0000-000000000001",
+          "category": "anchor_test",
+          "memory_type": "fact"
+        },
+        "limit": 50
+      },
+      "preconditions": {
+        "seed_cases": [],
+        "notes": "read-only against existing baseline"
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "applied_filters_match": [
+          "source_thread_id",
+          "entity_id",
+          "category",
+          "memory_type"
+        ],
+        "default_status_filter_applied": true,
+        "order_by": "created_at DESC"
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": null,
+      "notes": "thread=0007 entity=0001 cat=anchor_test mt=fact"
+    },
+    {
+      "case_id": "f31-recall-007",
+      "family": "recall_intersection",
+      "action": "recall_memory",
+      "inputs": {
+        "filters": {
+          "source_thread_id": "77777777-0000-0000-0000-000000000007",
+          "entity_id": "eeeeeeee-0000-0000-0000-000000000001",
+          "category": "anchor_test",
+          "memory_type": "preference"
+        },
+        "limit": 50
+      },
+      "preconditions": {
+        "seed_cases": [],
+        "notes": "read-only against existing baseline"
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "applied_filters_match": [
+          "source_thread_id",
+          "entity_id",
+          "category",
+          "memory_type"
+        ],
+        "default_status_filter_applied": true,
+        "order_by": "created_at DESC"
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": null,
+      "notes": "thread=0007 entity=0001 cat=anchor_test mt=preference"
+    },
+    {
+      "case_id": "f31-recall-008",
+      "family": "recall_intersection",
+      "action": "recall_memory",
+      "inputs": {
+        "filters": {
+          "source_thread_id": "77777777-0000-0000-0000-000000000007",
+          "entity_id": "eeeeeeee-0000-0000-0000-000000000001",
+          "category": "anchor_test",
+          "memory_type": "observation"
+        },
+        "limit": 50
+      },
+      "preconditions": {
+        "seed_cases": [],
+        "notes": "read-only against existing baseline"
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "applied_filters_match": [
+          "source_thread_id",
+          "entity_id",
+          "category",
+          "memory_type"
+        ],
+        "default_status_filter_applied": true,
+        "order_by": "created_at DESC"
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": null,
+      "notes": "thread=0007 entity=0001 cat=anchor_test mt=observation"
+    },
+    {
+      "case_id": "f31-recall-009",
+      "family": "recall_intersection",
+      "action": "recall_memory",
+      "inputs": {
+        "filters": {
+          "source_thread_id": "77777777-0000-0000-0000-000000000007",
+          "entity_id": "eeeeeeee-0000-0000-0000-000000000001",
+          "category": "recall_test"
+        },
+        "limit": 50
+      },
+      "preconditions": {
+        "seed_cases": [],
+        "notes": "read-only against existing baseline"
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "applied_filters_match": [
+          "source_thread_id",
+          "entity_id",
+          "category"
+        ],
+        "default_status_filter_applied": true,
+        "order_by": "created_at DESC"
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": null,
+      "notes": "thread=0007 entity=0001 cat=recall_test mt=null"
+    },
+    {
+      "case_id": "f31-recall-010",
+      "family": "recall_intersection",
+      "action": "recall_memory",
+      "inputs": {
+        "filters": {
+          "source_thread_id": "77777777-0000-0000-0000-000000000007",
+          "entity_id": "eeeeeeee-0000-0000-0000-000000000001",
+          "category": "recall_test",
+          "memory_type": "fact"
+        },
+        "limit": 50
+      },
+      "preconditions": {
+        "seed_cases": [],
+        "notes": "read-only against existing baseline"
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "applied_filters_match": [
+          "source_thread_id",
+          "entity_id",
+          "category",
+          "memory_type"
+        ],
+        "default_status_filter_applied": true,
+        "order_by": "created_at DESC"
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": null,
+      "notes": "thread=0007 entity=0001 cat=recall_test mt=fact"
+    },
+    {
+      "case_id": "f31-recall-011",
+      "family": "recall_intersection",
+      "action": "recall_memory",
+      "inputs": {
+        "filters": {
+          "source_thread_id": "77777777-0000-0000-0000-000000000007",
+          "entity_id": "eeeeeeee-0000-0000-0000-000000000001",
+          "category": "recall_test",
+          "memory_type": "preference"
+        },
+        "limit": 50
+      },
+      "preconditions": {
+        "seed_cases": [],
+        "notes": "read-only against existing baseline"
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "applied_filters_match": [
+          "source_thread_id",
+          "entity_id",
+          "category",
+          "memory_type"
+        ],
+        "default_status_filter_applied": true,
+        "order_by": "created_at DESC"
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": null,
+      "notes": "thread=0007 entity=0001 cat=recall_test mt=preference"
+    },
+    {
+      "case_id": "f31-recall-012",
+      "family": "recall_intersection",
+      "action": "recall_memory",
+      "inputs": {
+        "filters": {
+          "source_thread_id": "77777777-0000-0000-0000-000000000007",
+          "entity_id": "eeeeeeee-0000-0000-0000-000000000001",
+          "category": "recall_test",
+          "memory_type": "observation"
+        },
+        "limit": 50
+      },
+      "preconditions": {
+        "seed_cases": [],
+        "notes": "read-only against existing baseline"
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "applied_filters_match": [
+          "source_thread_id",
+          "entity_id",
+          "category",
+          "memory_type"
+        ],
+        "default_status_filter_applied": true,
+        "order_by": "created_at DESC"
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": null,
+      "notes": "thread=0007 entity=0001 cat=recall_test mt=observation"
+    },
+    {
+      "case_id": "f31-recall-013",
+      "family": "recall_intersection",
+      "action": "recall_memory",
+      "inputs": {
+        "filters": {
+          "source_thread_id": "77777777-0000-0000-0000-000000000007",
+          "entity_id": "eeeeeeee-0000-0000-0000-000000000001",
+          "category": "smoke_store"
+        },
+        "limit": 50
+      },
+      "preconditions": {
+        "seed_cases": [],
+        "notes": "read-only against existing baseline"
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "applied_filters_match": [
+          "source_thread_id",
+          "entity_id",
+          "category"
+        ],
+        "default_status_filter_applied": true,
+        "order_by": "created_at DESC"
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": null,
+      "notes": "thread=0007 entity=0001 cat=smoke_store mt=null"
+    },
+    {
+      "case_id": "f31-recall-014",
+      "family": "recall_intersection",
+      "action": "recall_memory",
+      "inputs": {
+        "filters": {
+          "source_thread_id": "77777777-0000-0000-0000-000000000007",
+          "entity_id": "eeeeeeee-0000-0000-0000-000000000001",
+          "category": "smoke_store",
+          "memory_type": "fact"
+        },
+        "limit": 50
+      },
+      "preconditions": {
+        "seed_cases": [],
+        "notes": "read-only against existing baseline"
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "applied_filters_match": [
+          "source_thread_id",
+          "entity_id",
+          "category",
+          "memory_type"
+        ],
+        "default_status_filter_applied": true,
+        "order_by": "created_at DESC"
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": null,
+      "notes": "thread=0007 entity=0001 cat=smoke_store mt=fact"
+    },
+    {
+      "case_id": "f31-recall-015",
+      "family": "recall_intersection",
+      "action": "recall_memory",
+      "inputs": {
+        "filters": {
+          "source_thread_id": "77777777-0000-0000-0000-000000000007",
+          "entity_id": "eeeeeeee-0000-0000-0000-000000000001",
+          "category": "smoke_store",
+          "memory_type": "preference"
+        },
+        "limit": 50
+      },
+      "preconditions": {
+        "seed_cases": [],
+        "notes": "read-only against existing baseline"
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "applied_filters_match": [
+          "source_thread_id",
+          "entity_id",
+          "category",
+          "memory_type"
+        ],
+        "default_status_filter_applied": true,
+        "order_by": "created_at DESC"
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": null,
+      "notes": "thread=0007 entity=0001 cat=smoke_store mt=preference"
+    },
+    {
+      "case_id": "f31-recall-016",
+      "family": "recall_intersection",
+      "action": "recall_memory",
+      "inputs": {
+        "filters": {
+          "source_thread_id": "77777777-0000-0000-0000-000000000007",
+          "entity_id": "eeeeeeee-0000-0000-0000-000000000001",
+          "category": "smoke_store",
+          "memory_type": "observation"
+        },
+        "limit": 50
+      },
+      "preconditions": {
+        "seed_cases": [],
+        "notes": "read-only against existing baseline"
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "applied_filters_match": [
+          "source_thread_id",
+          "entity_id",
+          "category",
+          "memory_type"
+        ],
+        "default_status_filter_applied": true,
+        "order_by": "created_at DESC"
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": null,
+      "notes": "thread=0007 entity=0001 cat=smoke_store mt=observation"
+    },
+    {
+      "case_id": "f31-recall-017",
+      "family": "recall_intersection",
+      "action": "recall_memory",
+      "inputs": {
+        "filters": {
+          "source_thread_id": "77777777-0000-0000-0000-000000000007",
+          "entity_id": "eeeeeeee-0000-0000-0000-000000000002"
+        },
+        "limit": 50
+      },
+      "preconditions": {
+        "seed_cases": [],
+        "notes": "read-only against existing baseline"
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "applied_filters_match": [
+          "source_thread_id",
+          "entity_id"
+        ],
+        "default_status_filter_applied": true,
+        "order_by": "created_at DESC"
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": null,
+      "notes": "thread=0007 entity=0002 cat=null mt=null"
+    },
+    {
+      "case_id": "f31-recall-018",
+      "family": "recall_intersection",
+      "action": "recall_memory",
+      "inputs": {
+        "filters": {
+          "source_thread_id": "77777777-0000-0000-0000-000000000007",
+          "entity_id": "eeeeeeee-0000-0000-0000-000000000002",
+          "memory_type": "fact"
+        },
+        "limit": 50
+      },
+      "preconditions": {
+        "seed_cases": [],
+        "notes": "read-only against existing baseline"
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "applied_filters_match": [
+          "source_thread_id",
+          "entity_id",
+          "memory_type"
+        ],
+        "default_status_filter_applied": true,
+        "order_by": "created_at DESC"
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": null,
+      "notes": "thread=0007 entity=0002 cat=null mt=fact"
+    },
+    {
+      "case_id": "f31-recall-019",
+      "family": "recall_intersection",
+      "action": "recall_memory",
+      "inputs": {
+        "filters": {
+          "source_thread_id": "77777777-0000-0000-0000-000000000007",
+          "entity_id": "eeeeeeee-0000-0000-0000-000000000002",
+          "memory_type": "preference"
+        },
+        "limit": 50
+      },
+      "preconditions": {
+        "seed_cases": [],
+        "notes": "read-only against existing baseline"
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "applied_filters_match": [
+          "source_thread_id",
+          "entity_id",
+          "memory_type"
+        ],
+        "default_status_filter_applied": true,
+        "order_by": "created_at DESC"
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": null,
+      "notes": "thread=0007 entity=0002 cat=null mt=preference"
+    },
+    {
+      "case_id": "f31-recall-020",
+      "family": "recall_intersection",
+      "action": "recall_memory",
+      "inputs": {
+        "filters": {
+          "source_thread_id": "77777777-0000-0000-0000-000000000007",
+          "entity_id": "eeeeeeee-0000-0000-0000-000000000002",
+          "memory_type": "observation"
+        },
+        "limit": 50
+      },
+      "preconditions": {
+        "seed_cases": [],
+        "notes": "read-only against existing baseline"
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "applied_filters_match": [
+          "source_thread_id",
+          "entity_id",
+          "memory_type"
+        ],
+        "default_status_filter_applied": true,
+        "order_by": "created_at DESC"
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": null,
+      "notes": "thread=0007 entity=0002 cat=null mt=observation"
+    },
+    {
+      "case_id": "f31-recall-021",
+      "family": "recall_intersection",
+      "action": "recall_memory",
+      "inputs": {
+        "filters": {
+          "source_thread_id": "77777777-0000-0000-0000-000000000007",
+          "entity_id": "eeeeeeee-0000-0000-0000-000000000002",
+          "category": "anchor_test"
+        },
+        "limit": 50
+      },
+      "preconditions": {
+        "seed_cases": [],
+        "notes": "read-only against existing baseline"
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "applied_filters_match": [
+          "source_thread_id",
+          "entity_id",
+          "category"
+        ],
+        "default_status_filter_applied": true,
+        "order_by": "created_at DESC"
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": null,
+      "notes": "thread=0007 entity=0002 cat=anchor_test mt=null"
+    },
+    {
+      "case_id": "f31-recall-022",
+      "family": "recall_intersection",
+      "action": "recall_memory",
+      "inputs": {
+        "filters": {
+          "source_thread_id": "77777777-0000-0000-0000-000000000007",
+          "entity_id": "eeeeeeee-0000-0000-0000-000000000002",
+          "category": "anchor_test",
+          "memory_type": "fact"
+        },
+        "limit": 50
+      },
+      "preconditions": {
+        "seed_cases": [],
+        "notes": "read-only against existing baseline"
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "applied_filters_match": [
+          "source_thread_id",
+          "entity_id",
+          "category",
+          "memory_type"
+        ],
+        "default_status_filter_applied": true,
+        "order_by": "created_at DESC"
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": null,
+      "notes": "thread=0007 entity=0002 cat=anchor_test mt=fact"
+    },
+    {
+      "case_id": "f31-recall-023",
+      "family": "recall_intersection",
+      "action": "recall_memory",
+      "inputs": {
+        "filters": {
+          "source_thread_id": "77777777-0000-0000-0000-000000000007",
+          "entity_id": "eeeeeeee-0000-0000-0000-000000000002",
+          "category": "anchor_test",
+          "memory_type": "preference"
+        },
+        "limit": 50
+      },
+      "preconditions": {
+        "seed_cases": [],
+        "notes": "read-only against existing baseline"
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "applied_filters_match": [
+          "source_thread_id",
+          "entity_id",
+          "category",
+          "memory_type"
+        ],
+        "default_status_filter_applied": true,
+        "order_by": "created_at DESC"
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": null,
+      "notes": "thread=0007 entity=0002 cat=anchor_test mt=preference"
+    },
+    {
+      "case_id": "f31-recall-024",
+      "family": "recall_intersection",
+      "action": "recall_memory",
+      "inputs": {
+        "filters": {
+          "source_thread_id": "77777777-0000-0000-0000-000000000007",
+          "entity_id": "eeeeeeee-0000-0000-0000-000000000002",
+          "category": "anchor_test",
+          "memory_type": "observation"
+        },
+        "limit": 50
+      },
+      "preconditions": {
+        "seed_cases": [],
+        "notes": "read-only against existing baseline"
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "applied_filters_match": [
+          "source_thread_id",
+          "entity_id",
+          "category",
+          "memory_type"
+        ],
+        "default_status_filter_applied": true,
+        "order_by": "created_at DESC"
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": null,
+      "notes": "thread=0007 entity=0002 cat=anchor_test mt=observation"
+    },
+    {
+      "case_id": "f31-recall-025",
+      "family": "recall_intersection",
+      "action": "recall_memory",
+      "inputs": {
+        "filters": {
+          "source_thread_id": "77777777-0000-0000-0000-000000000007",
+          "entity_id": "eeeeeeee-0000-0000-0000-000000000002",
+          "category": "recall_test"
+        },
+        "limit": 50
+      },
+      "preconditions": {
+        "seed_cases": [],
+        "notes": "read-only against existing baseline"
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "applied_filters_match": [
+          "source_thread_id",
+          "entity_id",
+          "category"
+        ],
+        "default_status_filter_applied": true,
+        "order_by": "created_at DESC"
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": null,
+      "notes": "thread=0007 entity=0002 cat=recall_test mt=null"
+    },
+    {
+      "case_id": "f31-recall-026",
+      "family": "recall_intersection",
+      "action": "recall_memory",
+      "inputs": {
+        "filters": {
+          "source_thread_id": "77777777-0000-0000-0000-000000000007",
+          "entity_id": "eeeeeeee-0000-0000-0000-000000000002",
+          "category": "recall_test",
+          "memory_type": "fact"
+        },
+        "limit": 50
+      },
+      "preconditions": {
+        "seed_cases": [],
+        "notes": "read-only against existing baseline"
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "applied_filters_match": [
+          "source_thread_id",
+          "entity_id",
+          "category",
+          "memory_type"
+        ],
+        "default_status_filter_applied": true,
+        "order_by": "created_at DESC"
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": null,
+      "notes": "thread=0007 entity=0002 cat=recall_test mt=fact"
+    },
+    {
+      "case_id": "f31-recall-027",
+      "family": "recall_intersection",
+      "action": "recall_memory",
+      "inputs": {
+        "filters": {
+          "source_thread_id": "77777777-0000-0000-0000-000000000007",
+          "entity_id": "eeeeeeee-0000-0000-0000-000000000002",
+          "category": "recall_test",
+          "memory_type": "preference"
+        },
+        "limit": 50
+      },
+      "preconditions": {
+        "seed_cases": [],
+        "notes": "read-only against existing baseline"
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "applied_filters_match": [
+          "source_thread_id",
+          "entity_id",
+          "category",
+          "memory_type"
+        ],
+        "default_status_filter_applied": true,
+        "order_by": "created_at DESC"
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": null,
+      "notes": "thread=0007 entity=0002 cat=recall_test mt=preference"
+    },
+    {
+      "case_id": "f31-recall-028",
+      "family": "recall_intersection",
+      "action": "recall_memory",
+      "inputs": {
+        "filters": {
+          "source_thread_id": "77777777-0000-0000-0000-000000000007",
+          "entity_id": "eeeeeeee-0000-0000-0000-000000000002",
+          "category": "recall_test",
+          "memory_type": "observation"
+        },
+        "limit": 50
+      },
+      "preconditions": {
+        "seed_cases": [],
+        "notes": "read-only against existing baseline"
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "applied_filters_match": [
+          "source_thread_id",
+          "entity_id",
+          "category",
+          "memory_type"
+        ],
+        "default_status_filter_applied": true,
+        "order_by": "created_at DESC"
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": null,
+      "notes": "thread=0007 entity=0002 cat=recall_test mt=observation"
+    },
+    {
+      "case_id": "f31-recall-029",
+      "family": "recall_intersection",
+      "action": "recall_memory",
+      "inputs": {
+        "filters": {
+          "source_thread_id": "77777777-0000-0000-0000-000000000007",
+          "entity_id": "eeeeeeee-0000-0000-0000-000000000002",
+          "category": "smoke_store"
+        },
+        "limit": 50
+      },
+      "preconditions": {
+        "seed_cases": [],
+        "notes": "read-only against existing baseline"
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "applied_filters_match": [
+          "source_thread_id",
+          "entity_id",
+          "category"
+        ],
+        "default_status_filter_applied": true,
+        "order_by": "created_at DESC"
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": null,
+      "notes": "thread=0007 entity=0002 cat=smoke_store mt=null"
+    },
+    {
+      "case_id": "f31-recall-030",
+      "family": "recall_intersection",
+      "action": "recall_memory",
+      "inputs": {
+        "filters": {
+          "source_thread_id": "77777777-0000-0000-0000-000000000007",
+          "entity_id": "eeeeeeee-0000-0000-0000-000000000002",
+          "category": "smoke_store",
+          "memory_type": "fact"
+        },
+        "limit": 50
+      },
+      "preconditions": {
+        "seed_cases": [],
+        "notes": "read-only against existing baseline"
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "applied_filters_match": [
+          "source_thread_id",
+          "entity_id",
+          "category",
+          "memory_type"
+        ],
+        "default_status_filter_applied": true,
+        "order_by": "created_at DESC"
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": null,
+      "notes": "thread=0007 entity=0002 cat=smoke_store mt=fact"
+    },
+    {
+      "case_id": "f31-recall-031",
+      "family": "recall_intersection",
+      "action": "recall_memory",
+      "inputs": {
+        "filters": {
+          "source_thread_id": "77777777-0000-0000-0000-000000000007",
+          "entity_id": "eeeeeeee-0000-0000-0000-000000000002",
+          "category": "smoke_store",
+          "memory_type": "preference"
+        },
+        "limit": 50
+      },
+      "preconditions": {
+        "seed_cases": [],
+        "notes": "read-only against existing baseline"
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "applied_filters_match": [
+          "source_thread_id",
+          "entity_id",
+          "category",
+          "memory_type"
+        ],
+        "default_status_filter_applied": true,
+        "order_by": "created_at DESC"
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": null,
+      "notes": "thread=0007 entity=0002 cat=smoke_store mt=preference"
+    },
+    {
+      "case_id": "f31-recall-032",
+      "family": "recall_intersection",
+      "action": "recall_memory",
+      "inputs": {
+        "filters": {
+          "source_thread_id": "77777777-0000-0000-0000-000000000007",
+          "entity_id": "eeeeeeee-0000-0000-0000-000000000002",
+          "category": "smoke_store",
+          "memory_type": "observation"
+        },
+        "limit": 50
+      },
+      "preconditions": {
+        "seed_cases": [],
+        "notes": "read-only against existing baseline"
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "applied_filters_match": [
+          "source_thread_id",
+          "entity_id",
+          "category",
+          "memory_type"
+        ],
+        "default_status_filter_applied": true,
+        "order_by": "created_at DESC"
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": null,
+      "notes": "thread=0007 entity=0002 cat=smoke_store mt=observation"
+    },
+    {
+      "case_id": "f31-recall-033",
+      "family": "recall_intersection",
+      "action": "recall_memory",
+      "inputs": {
+        "filters": {
+          "source_thread_id": "33333333-0000-0000-0000-000000000003",
+          "entity_id": "eeeeeeee-0000-0000-0000-000000000001"
+        },
+        "limit": 50
+      },
+      "preconditions": {
+        "seed_cases": [],
+        "notes": "read-only against existing baseline"
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "applied_filters_match": [
+          "source_thread_id",
+          "entity_id"
+        ],
+        "default_status_filter_applied": true,
+        "order_by": "created_at DESC"
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": null,
+      "notes": "thread=0003 entity=0001 cat=null mt=null"
+    },
+    {
+      "case_id": "f31-recall-034",
+      "family": "recall_intersection",
+      "action": "recall_memory",
+      "inputs": {
+        "filters": {
+          "source_thread_id": "33333333-0000-0000-0000-000000000003",
+          "entity_id": "eeeeeeee-0000-0000-0000-000000000001",
+          "memory_type": "fact"
+        },
+        "limit": 50
+      },
+      "preconditions": {
+        "seed_cases": [],
+        "notes": "read-only against existing baseline"
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "applied_filters_match": [
+          "source_thread_id",
+          "entity_id",
+          "memory_type"
+        ],
+        "default_status_filter_applied": true,
+        "order_by": "created_at DESC"
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": null,
+      "notes": "thread=0003 entity=0001 cat=null mt=fact"
+    },
+    {
+      "case_id": "f31-recall-035",
+      "family": "recall_intersection",
+      "action": "recall_memory",
+      "inputs": {
+        "filters": {
+          "source_thread_id": "33333333-0000-0000-0000-000000000003",
+          "entity_id": "eeeeeeee-0000-0000-0000-000000000001",
+          "memory_type": "preference"
+        },
+        "limit": 50
+      },
+      "preconditions": {
+        "seed_cases": [],
+        "notes": "read-only against existing baseline"
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "applied_filters_match": [
+          "source_thread_id",
+          "entity_id",
+          "memory_type"
+        ],
+        "default_status_filter_applied": true,
+        "order_by": "created_at DESC"
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": null,
+      "notes": "thread=0003 entity=0001 cat=null mt=preference"
+    },
+    {
+      "case_id": "f31-recall-036",
+      "family": "recall_intersection",
+      "action": "recall_memory",
+      "inputs": {
+        "filters": {
+          "source_thread_id": "33333333-0000-0000-0000-000000000003",
+          "entity_id": "eeeeeeee-0000-0000-0000-000000000001",
+          "memory_type": "observation"
+        },
+        "limit": 50
+      },
+      "preconditions": {
+        "seed_cases": [],
+        "notes": "read-only against existing baseline"
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "applied_filters_match": [
+          "source_thread_id",
+          "entity_id",
+          "memory_type"
+        ],
+        "default_status_filter_applied": true,
+        "order_by": "created_at DESC"
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": null,
+      "notes": "thread=0003 entity=0001 cat=null mt=observation"
+    },
+    {
+      "case_id": "f31-recall-037",
+      "family": "recall_intersection",
+      "action": "recall_memory",
+      "inputs": {
+        "filters": {
+          "source_thread_id": "33333333-0000-0000-0000-000000000003",
+          "entity_id": "eeeeeeee-0000-0000-0000-000000000001",
+          "category": "anchor_test"
+        },
+        "limit": 50
+      },
+      "preconditions": {
+        "seed_cases": [],
+        "notes": "read-only against existing baseline"
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "applied_filters_match": [
+          "source_thread_id",
+          "entity_id",
+          "category"
+        ],
+        "default_status_filter_applied": true,
+        "order_by": "created_at DESC"
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": null,
+      "notes": "thread=0003 entity=0001 cat=anchor_test mt=null"
+    },
+    {
+      "case_id": "f31-recall-038",
+      "family": "recall_intersection",
+      "action": "recall_memory",
+      "inputs": {
+        "filters": {
+          "source_thread_id": "33333333-0000-0000-0000-000000000003",
+          "entity_id": "eeeeeeee-0000-0000-0000-000000000001",
+          "category": "anchor_test",
+          "memory_type": "fact"
+        },
+        "limit": 50
+      },
+      "preconditions": {
+        "seed_cases": [],
+        "notes": "read-only against existing baseline"
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "applied_filters_match": [
+          "source_thread_id",
+          "entity_id",
+          "category",
+          "memory_type"
+        ],
+        "default_status_filter_applied": true,
+        "order_by": "created_at DESC"
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": null,
+      "notes": "thread=0003 entity=0001 cat=anchor_test mt=fact"
+    },
+    {
+      "case_id": "f31-recall-039",
+      "family": "recall_intersection",
+      "action": "recall_memory",
+      "inputs": {
+        "filters": {
+          "source_thread_id": "33333333-0000-0000-0000-000000000003",
+          "entity_id": "eeeeeeee-0000-0000-0000-000000000001",
+          "category": "anchor_test",
+          "memory_type": "preference"
+        },
+        "limit": 50
+      },
+      "preconditions": {
+        "seed_cases": [],
+        "notes": "read-only against existing baseline"
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "applied_filters_match": [
+          "source_thread_id",
+          "entity_id",
+          "category",
+          "memory_type"
+        ],
+        "default_status_filter_applied": true,
+        "order_by": "created_at DESC"
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": null,
+      "notes": "thread=0003 entity=0001 cat=anchor_test mt=preference"
+    },
+    {
+      "case_id": "f31-recall-040",
+      "family": "recall_intersection",
+      "action": "recall_memory",
+      "inputs": {
+        "filters": {
+          "source_thread_id": "33333333-0000-0000-0000-000000000003",
+          "entity_id": "eeeeeeee-0000-0000-0000-000000000001",
+          "category": "anchor_test",
+          "memory_type": "observation"
+        },
+        "limit": 50
+      },
+      "preconditions": {
+        "seed_cases": [],
+        "notes": "read-only against existing baseline"
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "applied_filters_match": [
+          "source_thread_id",
+          "entity_id",
+          "category",
+          "memory_type"
+        ],
+        "default_status_filter_applied": true,
+        "order_by": "created_at DESC"
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": null,
+      "notes": "thread=0003 entity=0001 cat=anchor_test mt=observation"
+    },
+    {
+      "case_id": "f31-recall-041",
+      "family": "recall_intersection",
+      "action": "recall_memory",
+      "inputs": {
+        "filters": {
+          "source_thread_id": "33333333-0000-0000-0000-000000000003",
+          "entity_id": "eeeeeeee-0000-0000-0000-000000000001",
+          "category": "recall_test"
+        },
+        "limit": 50
+      },
+      "preconditions": {
+        "seed_cases": [],
+        "notes": "read-only against existing baseline"
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "applied_filters_match": [
+          "source_thread_id",
+          "entity_id",
+          "category"
+        ],
+        "default_status_filter_applied": true,
+        "order_by": "created_at DESC"
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": null,
+      "notes": "thread=0003 entity=0001 cat=recall_test mt=null"
+    },
+    {
+      "case_id": "f31-recall-042",
+      "family": "recall_intersection",
+      "action": "recall_memory",
+      "inputs": {
+        "filters": {
+          "source_thread_id": "33333333-0000-0000-0000-000000000003",
+          "entity_id": "eeeeeeee-0000-0000-0000-000000000001",
+          "category": "recall_test",
+          "memory_type": "fact"
+        },
+        "limit": 50
+      },
+      "preconditions": {
+        "seed_cases": [],
+        "notes": "read-only against existing baseline"
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "applied_filters_match": [
+          "source_thread_id",
+          "entity_id",
+          "category",
+          "memory_type"
+        ],
+        "default_status_filter_applied": true,
+        "order_by": "created_at DESC"
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": null,
+      "notes": "thread=0003 entity=0001 cat=recall_test mt=fact"
+    },
+    {
+      "case_id": "f31-recall-043",
+      "family": "recall_intersection",
+      "action": "recall_memory",
+      "inputs": {
+        "filters": {
+          "source_thread_id": "33333333-0000-0000-0000-000000000003",
+          "entity_id": "eeeeeeee-0000-0000-0000-000000000001",
+          "category": "recall_test",
+          "memory_type": "preference"
+        },
+        "limit": 50
+      },
+      "preconditions": {
+        "seed_cases": [],
+        "notes": "read-only against existing baseline"
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "applied_filters_match": [
+          "source_thread_id",
+          "entity_id",
+          "category",
+          "memory_type"
+        ],
+        "default_status_filter_applied": true,
+        "order_by": "created_at DESC"
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": null,
+      "notes": "thread=0003 entity=0001 cat=recall_test mt=preference"
+    },
+    {
+      "case_id": "f31-recall-044",
+      "family": "recall_intersection",
+      "action": "recall_memory",
+      "inputs": {
+        "filters": {
+          "source_thread_id": "33333333-0000-0000-0000-000000000003",
+          "entity_id": "eeeeeeee-0000-0000-0000-000000000001",
+          "category": "recall_test",
+          "memory_type": "observation"
+        },
+        "limit": 50
+      },
+      "preconditions": {
+        "seed_cases": [],
+        "notes": "read-only against existing baseline"
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "applied_filters_match": [
+          "source_thread_id",
+          "entity_id",
+          "category",
+          "memory_type"
+        ],
+        "default_status_filter_applied": true,
+        "order_by": "created_at DESC"
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": null,
+      "notes": "thread=0003 entity=0001 cat=recall_test mt=observation"
+    },
+    {
+      "case_id": "f31-recall-045",
+      "family": "recall_intersection",
+      "action": "recall_memory",
+      "inputs": {
+        "filters": {
+          "source_thread_id": "33333333-0000-0000-0000-000000000003",
+          "entity_id": "eeeeeeee-0000-0000-0000-000000000001",
+          "category": "smoke_store"
+        },
+        "limit": 50
+      },
+      "preconditions": {
+        "seed_cases": [],
+        "notes": "read-only against existing baseline"
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "applied_filters_match": [
+          "source_thread_id",
+          "entity_id",
+          "category"
+        ],
+        "default_status_filter_applied": true,
+        "order_by": "created_at DESC"
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": null,
+      "notes": "thread=0003 entity=0001 cat=smoke_store mt=null"
+    },
+    {
+      "case_id": "f31-recall-046",
+      "family": "recall_intersection",
+      "action": "recall_memory",
+      "inputs": {
+        "filters": {
+          "source_thread_id": "33333333-0000-0000-0000-000000000003",
+          "entity_id": "eeeeeeee-0000-0000-0000-000000000001",
+          "category": "smoke_store",
+          "memory_type": "fact"
+        },
+        "limit": 50
+      },
+      "preconditions": {
+        "seed_cases": [],
+        "notes": "read-only against existing baseline"
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "applied_filters_match": [
+          "source_thread_id",
+          "entity_id",
+          "category",
+          "memory_type"
+        ],
+        "default_status_filter_applied": true,
+        "order_by": "created_at DESC"
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": null,
+      "notes": "thread=0003 entity=0001 cat=smoke_store mt=fact"
+    },
+    {
+      "case_id": "f31-recall-047",
+      "family": "recall_intersection",
+      "action": "recall_memory",
+      "inputs": {
+        "filters": {
+          "source_thread_id": "33333333-0000-0000-0000-000000000003",
+          "entity_id": "eeeeeeee-0000-0000-0000-000000000001",
+          "category": "smoke_store",
+          "memory_type": "preference"
+        },
+        "limit": 50
+      },
+      "preconditions": {
+        "seed_cases": [],
+        "notes": "read-only against existing baseline"
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "applied_filters_match": [
+          "source_thread_id",
+          "entity_id",
+          "category",
+          "memory_type"
+        ],
+        "default_status_filter_applied": true,
+        "order_by": "created_at DESC"
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": null,
+      "notes": "thread=0003 entity=0001 cat=smoke_store mt=preference"
+    },
+    {
+      "case_id": "f31-recall-048",
+      "family": "recall_intersection",
+      "action": "recall_memory",
+      "inputs": {
+        "filters": {
+          "source_thread_id": "33333333-0000-0000-0000-000000000003",
+          "entity_id": "eeeeeeee-0000-0000-0000-000000000001",
+          "category": "smoke_store",
+          "memory_type": "observation"
+        },
+        "limit": 50
+      },
+      "preconditions": {
+        "seed_cases": [],
+        "notes": "read-only against existing baseline"
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "applied_filters_match": [
+          "source_thread_id",
+          "entity_id",
+          "category",
+          "memory_type"
+        ],
+        "default_status_filter_applied": true,
+        "order_by": "created_at DESC"
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": null,
+      "notes": "thread=0003 entity=0001 cat=smoke_store mt=observation"
+    },
+    {
+      "case_id": "f31-recall-049",
+      "family": "recall_intersection",
+      "action": "recall_memory",
+      "inputs": {
+        "filters": {
+          "source_thread_id": "33333333-0000-0000-0000-000000000003",
+          "entity_id": "eeeeeeee-0000-0000-0000-000000000002"
+        },
+        "limit": 50
+      },
+      "preconditions": {
+        "seed_cases": [],
+        "notes": "read-only against existing baseline"
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "applied_filters_match": [
+          "source_thread_id",
+          "entity_id"
+        ],
+        "default_status_filter_applied": true,
+        "order_by": "created_at DESC"
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": null,
+      "notes": "thread=0003 entity=0002 cat=null mt=null"
+    },
+    {
+      "case_id": "f31-recall-050",
+      "family": "recall_intersection",
+      "action": "recall_memory",
+      "inputs": {
+        "filters": {
+          "source_thread_id": "33333333-0000-0000-0000-000000000003",
+          "entity_id": "eeeeeeee-0000-0000-0000-000000000002",
+          "memory_type": "fact"
+        },
+        "limit": 50
+      },
+      "preconditions": {
+        "seed_cases": [],
+        "notes": "read-only against existing baseline"
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "applied_filters_match": [
+          "source_thread_id",
+          "entity_id",
+          "memory_type"
+        ],
+        "default_status_filter_applied": true,
+        "order_by": "created_at DESC"
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": null,
+      "notes": "thread=0003 entity=0002 cat=null mt=fact"
+    },
+    {
+      "case_id": "f31-promote-001",
+      "family": "promote_denial_vocabulary",
+      "action": "promote_memory",
+      "inputs": {
+        "memory_id": "__RESOLVED_FROM_SEED__f31-promote-001-seed",
+        "user_confirmed": false,
+        "evidence_validated": false
+      },
+      "preconditions": {
+        "seed_cases": [
+          "f31-promote-001-seed"
+        ],
+        "seed_params": {
+          "category": "smoke_f31_promote",
+          "tier": "recent",
+          "user_confirmed": false,
+          "corroboration_count": 1
+        },
+        "replay": false,
+        "notes": ""
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "denial_reason": "acceptance_criteria_not_met",
+        "acceptance_signals": []
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": null,
+      "notes": "den-cm-none corr=none cuc=false cev=false rpuc=false tier=recent replay=false"
+    },
+    {
+      "case_id": "f31-promote-002",
+      "family": "promote_denial_vocabulary",
+      "action": "promote_memory",
+      "inputs": {
+        "memory_id": "__RESOLVED_FROM_SEED__f31-promote-002-seed",
+        "user_confirmed": false,
+        "evidence_validated": false
+      },
+      "preconditions": {
+        "seed_cases": [
+          "f31-promote-002-seed"
+        ],
+        "seed_params": {
+          "category": "smoke_f31_promote",
+          "tier": "recent",
+          "user_confirmed": false,
+          "corroboration_count": 1
+        },
+        "replay": false,
+        "notes": ""
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "denial_reason": "acceptance_criteria_not_met",
+        "acceptance_signals": []
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": null,
+      "notes": "den-cm-one corr=one_only cuc=false cev=false rpuc=false tier=recent replay=false"
+    },
+    {
+      "case_id": "f31-promote-003",
+      "family": "promote_denial_vocabulary",
+      "action": "promote_memory",
+      "inputs": {
+        "memory_id": "__RESOLVED_FROM_SEED__f31-promote-003-seed",
+        "user_confirmed": false,
+        "evidence_validated": false
+      },
+      "preconditions": {
+        "seed_cases": [
+          "f31-promote-003-seed"
+        ],
+        "seed_params": {
+          "category": "smoke_f31_promote",
+          "tier": "long_term",
+          "user_confirmed": false,
+          "corroboration_count": 2
+        },
+        "replay": false,
+        "notes": ""
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "denial_reason": "not_in_recent_tier",
+        "acceptance_signals": []
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": null,
+      "notes": "den-cm-already-lt corr=already_long_term cuc=false cev=false rpuc=false tier=long_term replay=false"
+    },
+    {
+      "case_id": "f31-promote-004",
+      "family": "promote_denial_vocabulary",
+      "action": "promote_memory",
+      "inputs": {
+        "memory_id": "__RESOLVED_FROM_SEED__f31-promote-004-seed",
+        "user_confirmed": true,
+        "evidence_validated": false
+      },
+      "preconditions": {
+        "seed_cases": [
+          "f31-promote-004-seed"
+        ],
+        "seed_params": {
+          "category": "smoke_f31_promote",
+          "tier": "long_term",
+          "user_confirmed": false,
+          "corroboration_count": 1
+        },
+        "replay": false,
+        "notes": ""
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "denial_reason": "not_in_recent_tier",
+        "acceptance_signals": []
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": null,
+      "notes": "den-cuc-true-but-lt corr=none cuc=true cev=false rpuc=false tier=long_term replay=false"
+    },
+    {
+      "case_id": "f31-promote-005",
+      "family": "promote_denial_vocabulary",
+      "action": "promote_memory",
+      "inputs": {
+        "memory_id": "__RESOLVED_FROM_SEED__f31-promote-005-seed",
+        "user_confirmed": false,
+        "evidence_validated": true
+      },
+      "preconditions": {
+        "seed_cases": [
+          "f31-promote-005-seed"
+        ],
+        "seed_params": {
+          "category": "smoke_f31_promote",
+          "tier": "long_term",
+          "user_confirmed": false,
+          "corroboration_count": 1
+        },
+        "replay": false,
+        "notes": ""
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "denial_reason": "not_in_recent_tier",
+        "acceptance_signals": []
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": null,
+      "notes": "den-cev-true-but-lt corr=none cuc=false cev=true rpuc=false tier=long_term replay=false"
+    },
+    {
+      "case_id": "f31-promote-006",
+      "family": "promote_denial_vocabulary",
+      "action": "promote_memory",
+      "inputs": {
+        "memory_id": "__RESOLVED_FROM_SEED__f31-promote-006-seed",
+        "user_confirmed": false,
+        "evidence_validated": false
+      },
+      "preconditions": {
+        "seed_cases": [
+          "f31-promote-006-seed"
+        ],
+        "seed_params": {
+          "category": "smoke_f31_promote",
+          "tier": "long_term",
+          "user_confirmed": true,
+          "corroboration_count": 1
+        },
+        "replay": false,
+        "notes": ""
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "denial_reason": "not_in_recent_tier",
+        "acceptance_signals": []
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": null,
+      "notes": "den-row-uc-but-lt corr=none cuc=false cev=false rpuc=true tier=long_term replay=false"
+    },
+    {
+      "case_id": "f31-promote-007",
+      "family": "promote_denial_vocabulary",
+      "action": "promote_memory",
+      "inputs": {
+        "memory_id": "__RESOLVED_FROM_SEED__f31-promote-007-seed",
+        "user_confirmed": false,
+        "evidence_validated": false
+      },
+      "preconditions": {
+        "seed_cases": [
+          "f31-promote-007-seed"
+        ],
+        "seed_params": {
+          "category": "smoke_f31_promote",
+          "tier": "long_term",
+          "user_confirmed": false,
+          "corroboration_count": 2
+        },
+        "replay": false,
+        "notes": ""
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "denial_reason": "not_in_recent_tier",
+        "acceptance_signals": []
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": null,
+      "notes": "den-corr2plus-but-lt corr=two_plus cuc=false cev=false rpuc=false tier=long_term replay=false"
+    },
+    {
+      "case_id": "f31-promote-008",
+      "family": "promote_denial_vocabulary",
+      "action": "promote_memory",
+      "inputs": {
+        "memory_id": "__RESOLVED_FROM_SEED__f31-promote-008-seed",
+        "user_confirmed": false,
+        "evidence_validated": false
+      },
+      "preconditions": {
+        "seed_cases": [
+          "f31-promote-008-seed"
+        ],
+        "seed_params": {
+          "category": "smoke_f31_promote",
+          "tier": "recent",
+          "user_confirmed": false,
+          "corroboration_count": 1
+        },
+        "replay": false,
+        "notes": ""
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "denial_reason": "acceptance_criteria_not_met",
+        "acceptance_signals": []
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": null,
+      "notes": "den-all-false-recent corr=none cuc=false cev=false rpuc=false tier=recent replay=false"
+    },
+    {
+      "case_id": "f31-promote-009",
+      "family": "promote_denial_vocabulary",
+      "action": "promote_memory",
+      "inputs": {
+        "memory_id": "__RESOLVED_FROM_SEED__f31-promote-009-seed",
+        "user_confirmed": false,
+        "evidence_validated": false
+      },
+      "preconditions": {
+        "seed_cases": [
+          "f31-promote-009-seed"
+        ],
+        "seed_params": {
+          "category": "smoke_f31_promote",
+          "tier": "recent",
+          "user_confirmed": false,
+          "corroboration_count": 1
+        },
+        "replay": false,
+        "notes": ""
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "denial_reason": "acceptance_criteria_not_met",
+        "acceptance_signals": []
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": null,
+      "notes": "den-cm-one-row-uc-false corr=one_only cuc=false cev=false rpuc=false tier=recent replay=false"
+    },
+    {
+      "case_id": "f31-promote-010",
+      "family": "promote_denial_vocabulary",
+      "action": "promote_memory",
+      "inputs": {
+        "memory_id": "__RESOLVED_FROM_SEED__f31-promote-010-seed",
+        "user_confirmed": false,
+        "evidence_validated": false
+      },
+      "preconditions": {
+        "seed_cases": [
+          "f31-promote-010-seed"
+        ],
+        "seed_params": {
+          "category": "smoke_f31_promote",
+          "tier": "recent",
+          "user_confirmed": false,
+          "corroboration_count": 1
+        },
+        "replay": true,
+        "notes": "second call after deny — should still deny"
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "denial_reason": "acceptance_criteria_not_met",
+        "acceptance_signals": []
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": null,
+      "notes": "den-replay-after-deny corr=none cuc=false cev=false rpuc=false tier=recent replay=true"
+    },
+    {
+      "case_id": "f31-promote-011",
+      "family": "promote_denial_vocabulary",
+      "action": "promote_memory",
+      "inputs": {
+        "memory_id": "__RESOLVED_FROM_SEED__f31-promote-011-seed",
+        "user_confirmed": true,
+        "evidence_validated": false
+      },
+      "preconditions": {
+        "seed_cases": [
+          "f31-promote-011-seed"
+        ],
+        "seed_params": {
+          "category": "smoke_f31_promote",
+          "tier": "recent",
+          "user_confirmed": false,
+          "corroboration_count": 1
+        },
+        "replay": false,
+        "notes": ""
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "denial_reason": "accepted",
+        "acceptance_signals": [
+          "user_confirmed"
+        ]
+      },
+      "expected_db_effect": {
+        "mutates": true,
+        "row_delta": {
+          "tier": "recent → long_term"
+        }
+      },
+      "expected_error_code": null,
+      "notes": "acc-cuc-caller-true corr=none cuc=true cev=false rpuc=false tier=recent replay=false"
+    },
+    {
+      "case_id": "f31-promote-012",
+      "family": "promote_denial_vocabulary",
+      "action": "promote_memory",
+      "inputs": {
+        "memory_id": "__RESOLVED_FROM_SEED__f31-promote-012-seed",
+        "user_confirmed": false,
+        "evidence_validated": false
+      },
+      "preconditions": {
+        "seed_cases": [
+          "f31-promote-012-seed"
+        ],
+        "seed_params": {
+          "category": "smoke_f31_promote",
+          "tier": "recent",
+          "user_confirmed": true,
+          "corroboration_count": 1
+        },
+        "replay": false,
+        "notes": ""
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "denial_reason": "accepted",
+        "acceptance_signals": [
+          "user_confirmed"
+        ]
+      },
+      "expected_db_effect": {
+        "mutates": true,
+        "row_delta": {
+          "tier": "recent → long_term"
+        }
+      },
+      "expected_error_code": null,
+      "notes": "acc-cuc-row-true corr=none cuc=false cev=false rpuc=true tier=recent replay=false"
+    },
+    {
+      "case_id": "f31-promote-013",
+      "family": "promote_denial_vocabulary",
+      "action": "promote_memory",
+      "inputs": {
+        "memory_id": "__RESOLVED_FROM_SEED__f31-promote-013-seed",
+        "user_confirmed": true,
+        "evidence_validated": false
+      },
+      "preconditions": {
+        "seed_cases": [
+          "f31-promote-013-seed"
+        ],
+        "seed_params": {
+          "category": "smoke_f31_promote",
+          "tier": "recent",
+          "user_confirmed": true,
+          "corroboration_count": 1
+        },
+        "replay": false,
+        "notes": ""
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "denial_reason": "accepted",
+        "acceptance_signals": [
+          "user_confirmed"
+        ]
+      },
+      "expected_db_effect": {
+        "mutates": true,
+        "row_delta": {
+          "tier": "recent → long_term"
+        }
+      },
+      "expected_error_code": null,
+      "notes": "acc-cuc-caller-and-row corr=none cuc=true cev=false rpuc=true tier=recent replay=false"
+    },
+    {
+      "case_id": "f31-promote-014",
+      "family": "promote_denial_vocabulary",
+      "action": "promote_memory",
+      "inputs": {
+        "memory_id": "__RESOLVED_FROM_SEED__f31-promote-014-seed",
+        "user_confirmed": false,
+        "evidence_validated": true
+      },
+      "preconditions": {
+        "seed_cases": [
+          "f31-promote-014-seed"
+        ],
+        "seed_params": {
+          "category": "smoke_f31_promote",
+          "tier": "recent",
+          "user_confirmed": false,
+          "corroboration_count": 1
+        },
+        "replay": false,
+        "notes": ""
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "denial_reason": "accepted",
+        "acceptance_signals": [
+          "evidence_validated"
+        ]
+      },
+      "expected_db_effect": {
+        "mutates": true,
+        "row_delta": {
+          "tier": "recent → long_term"
+        }
+      },
+      "expected_error_code": null,
+      "notes": "acc-cev-caller-true corr=none cuc=false cev=true rpuc=false tier=recent replay=false"
+    },
+    {
+      "case_id": "f31-promote-015",
+      "family": "promote_denial_vocabulary",
+      "action": "promote_memory",
+      "inputs": {
+        "memory_id": "__RESOLVED_FROM_SEED__f31-promote-015-seed",
+        "user_confirmed": false,
+        "evidence_validated": true
+      },
+      "preconditions": {
+        "seed_cases": [
+          "f31-promote-015-seed"
+        ],
+        "seed_params": {
+          "category": "smoke_f31_promote",
+          "tier": "recent",
+          "user_confirmed": false,
+          "corroboration_count": 1
+        },
+        "replay": false,
+        "notes": ""
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "denial_reason": "accepted",
+        "acceptance_signals": [
+          "evidence_validated"
+        ]
+      },
+      "expected_db_effect": {
+        "mutates": true,
+        "row_delta": {
+          "tier": "recent → long_term"
+        }
+      },
+      "expected_error_code": null,
+      "notes": "acc-cev-caller-true-uc-ign corr=one_only cuc=false cev=true rpuc=false tier=recent replay=false"
+    },
+    {
+      "case_id": "f31-promote-016",
+      "family": "promote_denial_vocabulary",
+      "action": "promote_memory",
+      "inputs": {
+        "memory_id": "__RESOLVED_FROM_SEED__f31-promote-016-seed",
+        "user_confirmed": false,
+        "evidence_validated": false
+      },
+      "preconditions": {
+        "seed_cases": [
+          "f31-promote-016-seed"
+        ],
+        "seed_params": {
+          "category": "smoke_f31_promote",
+          "tier": "recent",
+          "user_confirmed": false,
+          "corroboration_count": 2
+        },
+        "replay": false,
+        "notes": ""
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "denial_reason": "accepted",
+        "acceptance_signals": [
+          "corroboration"
+        ]
+      },
+      "expected_db_effect": {
+        "mutates": true,
+        "row_delta": {
+          "tier": "recent → long_term"
+        }
+      },
+      "expected_error_code": null,
+      "notes": "acc-corr2plus-only corr=two_plus cuc=false cev=false rpuc=false tier=recent replay=false"
+    },
+    {
+      "case_id": "f31-promote-017",
+      "family": "promote_denial_vocabulary",
+      "action": "promote_memory",
+      "inputs": {
+        "memory_id": "__RESOLVED_FROM_SEED__f31-promote-017-seed",
+        "user_confirmed": false,
+        "evidence_validated": false
+      },
+      "preconditions": {
+        "seed_cases": [
+          "f31-promote-017-seed"
+        ],
+        "seed_params": {
+          "category": "smoke_f31_promote",
+          "tier": "recent",
+          "user_confirmed": false,
+          "corroboration_count": 2
+        },
+        "replay": false,
+        "notes": ""
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "denial_reason": "accepted",
+        "acceptance_signals": [
+          "corroboration"
+        ]
+      },
+      "expected_db_effect": {
+        "mutates": true,
+        "row_delta": {
+          "tier": "recent → long_term"
+        }
+      },
+      "expected_error_code": null,
+      "notes": "acc-corr2plus-with-uc-false corr=two_plus cuc=false cev=false rpuc=false tier=recent replay=false"
+    },
+    {
+      "case_id": "f31-promote-018",
+      "family": "promote_denial_vocabulary",
+      "action": "promote_memory",
+      "inputs": {
+        "memory_id": "__RESOLVED_FROM_SEED__f31-promote-018-seed",
+        "user_confirmed": false,
+        "evidence_validated": false
+      },
+      "preconditions": {
+        "seed_cases": [
+          "f31-promote-018-seed"
+        ],
+        "seed_params": {
+          "category": "smoke_f31_promote",
+          "tier": "recent",
+          "user_confirmed": false,
+          "corroboration_count": 2
+        },
+        "replay": false,
+        "notes": ""
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "denial_reason": "accepted",
+        "acceptance_signals": [
+          "corroboration"
+        ]
+      },
+      "expected_db_effect": {
+        "mutates": true,
+        "row_delta": {
+          "tier": "recent → long_term"
+        }
+      },
+      "expected_error_code": null,
+      "notes": "acc-corr2plus-with-cev-false corr=two_plus cuc=false cev=false rpuc=false tier=recent replay=false"
+    },
+    {
+      "case_id": "f31-promote-019",
+      "family": "promote_denial_vocabulary",
+      "action": "promote_memory",
+      "inputs": {
+        "memory_id": "__RESOLVED_FROM_SEED__f31-promote-019-seed",
+        "user_confirmed": true,
+        "evidence_validated": true
+      },
+      "preconditions": {
+        "seed_cases": [
+          "f31-promote-019-seed"
+        ],
+        "seed_params": {
+          "category": "smoke_f31_promote",
+          "tier": "recent",
+          "user_confirmed": false,
+          "corroboration_count": 1
+        },
+        "replay": false,
+        "notes": ""
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "denial_reason": "accepted",
+        "acceptance_signals": [
+          "user_confirmed",
+          "evidence_validated"
+        ]
+      },
+      "expected_db_effect": {
+        "mutates": true,
+        "row_delta": {
+          "tier": "recent → long_term"
+        }
+      },
+      "expected_error_code": null,
+      "notes": "acc-multi-cuc-cev corr=none cuc=true cev=true rpuc=false tier=recent replay=false"
+    },
+    {
+      "case_id": "f31-promote-020",
+      "family": "promote_denial_vocabulary",
+      "action": "promote_memory",
+      "inputs": {
+        "memory_id": "__RESOLVED_FROM_SEED__f31-promote-020-seed",
+        "user_confirmed": true,
+        "evidence_validated": false
+      },
+      "preconditions": {
+        "seed_cases": [
+          "f31-promote-020-seed"
+        ],
+        "seed_params": {
+          "category": "smoke_f31_promote",
+          "tier": "recent",
+          "user_confirmed": false,
+          "corroboration_count": 2
+        },
+        "replay": false,
+        "notes": ""
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "denial_reason": "accepted",
+        "acceptance_signals": [
+          "user_confirmed",
+          "corroboration"
+        ]
+      },
+      "expected_db_effect": {
+        "mutates": true,
+        "row_delta": {
+          "tier": "recent → long_term"
+        }
+      },
+      "expected_error_code": null,
+      "notes": "acc-multi-cuc-corr corr=two_plus cuc=true cev=false rpuc=false tier=recent replay=false"
+    },
+    {
+      "case_id": "f31-promote-021",
+      "family": "promote_denial_vocabulary",
+      "action": "promote_memory",
+      "inputs": {
+        "memory_id": "__RESOLVED_FROM_SEED__f31-promote-021-seed",
+        "user_confirmed": false,
+        "evidence_validated": true
+      },
+      "preconditions": {
+        "seed_cases": [
+          "f31-promote-021-seed"
+        ],
+        "seed_params": {
+          "category": "smoke_f31_promote",
+          "tier": "recent",
+          "user_confirmed": false,
+          "corroboration_count": 2
+        },
+        "replay": false,
+        "notes": ""
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "denial_reason": "accepted",
+        "acceptance_signals": [
+          "evidence_validated",
+          "corroboration"
+        ]
+      },
+      "expected_db_effect": {
+        "mutates": true,
+        "row_delta": {
+          "tier": "recent → long_term"
+        }
+      },
+      "expected_error_code": null,
+      "notes": "acc-multi-cev-corr corr=two_plus cuc=false cev=true rpuc=false tier=recent replay=false"
+    },
+    {
+      "case_id": "f31-promote-022",
+      "family": "promote_denial_vocabulary",
+      "action": "promote_memory",
+      "inputs": {
+        "memory_id": "__RESOLVED_FROM_SEED__f31-promote-022-seed",
+        "user_confirmed": true,
+        "evidence_validated": false
+      },
+      "preconditions": {
+        "seed_cases": [
+          "f31-promote-022-seed"
+        ],
+        "seed_params": {
+          "category": "smoke_f31_promote",
+          "tier": "recent",
+          "user_confirmed": false,
+          "corroboration_count": 1
+        },
+        "replay": true,
+        "notes": "replay after accept — row is now long_term"
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "denial_reason": "not_in_recent_tier",
+        "acceptance_signals": []
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": null,
+      "notes": "acc-cuc-then-replay corr=none cuc=true cev=false rpuc=false tier=recent replay=true"
+    },
+    {
+      "case_id": "f31-promote-023",
+      "family": "promote_denial_vocabulary",
+      "action": "promote_memory",
+      "inputs": {
+        "memory_id": "__RESOLVED_FROM_SEED__f31-promote-023-seed",
+        "user_confirmed": false,
+        "evidence_validated": true
+      },
+      "preconditions": {
+        "seed_cases": [
+          "f31-promote-023-seed"
+        ],
+        "seed_params": {
+          "category": "smoke_f31_promote",
+          "tier": "recent",
+          "user_confirmed": false,
+          "corroboration_count": 1
+        },
+        "replay": true,
+        "notes": ""
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "denial_reason": "not_in_recent_tier",
+        "acceptance_signals": []
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": null,
+      "notes": "acc-cev-then-replay corr=none cuc=false cev=true rpuc=false tier=recent replay=true"
+    },
+    {
+      "case_id": "f31-promote-024",
+      "family": "promote_denial_vocabulary",
+      "action": "promote_memory",
+      "inputs": {
+        "memory_id": "__RESOLVED_FROM_SEED__f31-promote-024-seed",
+        "user_confirmed": false,
+        "evidence_validated": false
+      },
+      "preconditions": {
+        "seed_cases": [
+          "f31-promote-024-seed"
+        ],
+        "seed_params": {
+          "category": "smoke_f31_promote",
+          "tier": "recent",
+          "user_confirmed": false,
+          "corroboration_count": 1
+        },
+        "replay": false,
+        "notes": "evidence_refs=[] — should still deny not error"
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "denial_reason": "acceptance_criteria_not_met",
+        "acceptance_signals": []
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": null,
+      "notes": "den-empty-evidence-refs corr=none cuc=false cev=false rpuc=false tier=recent replay=false"
+    },
+    {
+      "case_id": "f31-promote-025",
+      "family": "promote_denial_vocabulary",
+      "action": "promote_memory",
+      "inputs": {
+        "memory_id": "__RESOLVED_FROM_SEED__f31-promote-025-seed",
+        "user_confirmed": false,
+        "evidence_validated": true
+      },
+      "preconditions": {
+        "seed_cases": [
+          "f31-promote-025-seed"
+        ],
+        "seed_params": {
+          "category": "smoke_f31_promote",
+          "tier": "recent",
+          "user_confirmed": false,
+          "corroboration_count": 1
+        },
+        "replay": false,
+        "notes": "caller flag trumps empty refs per V2-009"
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "denial_reason": "accepted",
+        "acceptance_signals": [
+          "evidence_validated"
+        ]
+      },
+      "expected_db_effect": {
+        "mutates": true,
+        "row_delta": {
+          "tier": "recent → long_term"
+        }
+      },
+      "expected_error_code": null,
+      "notes": "acc-cev-empty-evidence corr=none cuc=false cev=true rpuc=false tier=recent replay=false"
+    },
+    {
+      "case_id": "f31-supersede-001",
+      "family": "supersede_idempotency",
+      "action": "supersede_memory",
+      "inputs": {
+        "memory_id": "__RESOLVED_FROM_SEED__f31-supersede-001-seed",
+        "replacement": {
+          "content": "F3.1 supersede f31-supersede-001 replacement",
+          "category": "smoke_store",
+          "memory_type": "fact",
+          "tier": "recent"
+        },
+        "idempotency_scope": "fresh"
+      },
+      "preconditions": {
+        "seed_cases": [
+          "f31-supersede-001-seed"
+        ],
+        "seed_params": {
+          "category": "smoke_store",
+          "memory_type": "fact",
+          "tier": "recent",
+          "status": "active"
+        },
+        "notes": ""
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "idempotency_reused": false,
+        "new_insert": true
+      },
+      "expected_db_effect": {
+        "mutates": true,
+        "row_delta": {
+          "old": "active → superseded",
+          "new": "inserted"
+        }
+      },
+      "expected_error_code": null,
+      "notes": "happy-active-recent target_state=active tier=recent scope=fresh cat=smoke_store mt=fact"
+    },
+    {
+      "case_id": "f31-supersede-002",
+      "family": "supersede_idempotency",
+      "action": "supersede_memory",
+      "inputs": {
+        "memory_id": "__RESOLVED_FROM_SEED__f31-supersede-002-seed",
+        "replacement": {
+          "content": "F3.1 supersede f31-supersede-002 replacement",
+          "category": "smoke_store",
+          "memory_type": "fact",
+          "tier": "recent"
+        },
+        "idempotency_scope": "reused_after_accept"
+      },
+      "preconditions": {
+        "seed_cases": [
+          "f31-supersede-002-seed"
+        ],
+        "seed_params": {
+          "category": "smoke_store",
+          "memory_type": "fact",
+          "tier": "recent",
+          "status": "active"
+        },
+        "notes": "SU2 parity"
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "idempotency_reused": true,
+        "new_insert": false
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": null,
+      "notes": "replay-accept-same-step target_state=active tier=recent scope=reused_after_accept cat=smoke_store mt=fact"
+    },
+    {
+      "case_id": "f31-supersede-003",
+      "family": "supersede_idempotency",
+      "action": "supersede_memory",
+      "inputs": {
+        "memory_id": "__RESOLVED_FROM_SEED__f31-supersede-003-seed",
+        "replacement": {
+          "content": "F3.1 supersede f31-supersede-003 replacement",
+          "category": "smoke_store",
+          "memory_type": "observation",
+          "tier": "recent"
+        },
+        "idempotency_scope": "fresh"
+      },
+      "preconditions": {
+        "seed_cases": [
+          "f31-supersede-003-seed"
+        ],
+        "seed_params": {
+          "category": "smoke_store",
+          "memory_type": "observation",
+          "tier": "recent",
+          "status": "active"
+        },
+        "notes": ""
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "idempotency_reused": false,
+        "new_insert": true
+      },
+      "expected_db_effect": {
+        "mutates": true,
+        "row_delta": {
+          "old": "active → superseded",
+          "new": "inserted"
+        }
+      },
+      "expected_error_code": null,
+      "notes": "happy-active-recent-obs target_state=active tier=recent scope=fresh cat=smoke_store mt=observation"
+    },
+    {
+      "case_id": "f31-supersede-004",
+      "family": "supersede_idempotency",
+      "action": "supersede_memory",
+      "inputs": {
+        "memory_id": "__RESOLVED_FROM_SEED__f31-supersede-004-seed",
+        "replacement": {
+          "content": "F3.1 supersede f31-supersede-004 replacement",
+          "category": "pricing",
+          "memory_type": "fact",
+          "tier": "recent"
+        },
+        "idempotency_scope": "fresh"
+      },
+      "preconditions": {
+        "seed_cases": [
+          "f31-supersede-004-seed"
+        ],
+        "seed_params": {
+          "category": "pricing",
+          "memory_type": "fact",
+          "tier": "recent",
+          "status": "active"
+        },
+        "notes": ""
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "idempotency_reused": false,
+        "new_insert": true
+      },
+      "expected_db_effect": {
+        "mutates": true,
+        "row_delta": {
+          "old": "active → superseded",
+          "new": "inserted"
+        }
+      },
+      "expected_error_code": null,
+      "notes": "happy-active-recent-pricing target_state=active tier=recent scope=fresh cat=pricing mt=fact"
+    },
+    {
+      "case_id": "f31-supersede-005",
+      "family": "supersede_idempotency",
+      "action": "supersede_memory",
+      "inputs": {
+        "memory_id": "__RESOLVED_FROM_SEED__f31-supersede-005-seed",
+        "replacement": {
+          "content": "F3.1 supersede f31-supersede-005 replacement",
+          "category": "pricing",
+          "memory_type": "preference",
+          "tier": "recent"
+        },
+        "idempotency_scope": "fresh"
+      },
+      "preconditions": {
+        "seed_cases": [
+          "f31-supersede-005-seed"
+        ],
+        "seed_params": {
+          "category": "pricing",
+          "memory_type": "preference",
+          "tier": "recent",
+          "status": "active"
+        },
+        "notes": ""
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "idempotency_reused": false,
+        "new_insert": true
+      },
+      "expected_db_effect": {
+        "mutates": true,
+        "row_delta": {
+          "old": "active → superseded",
+          "new": "inserted"
+        }
+      },
+      "expected_error_code": null,
+      "notes": "happy-active-recent-pref target_state=active tier=recent scope=fresh cat=pricing mt=preference"
+    },
+    {
+      "case_id": "f31-supersede-006",
+      "family": "supersede_idempotency",
+      "action": "supersede_memory",
+      "inputs": {
+        "memory_id": "__RESOLVED_FROM_SEED__f31-supersede-006-seed",
+        "replacement": {
+          "content": "F3.1 supersede f31-supersede-006 replacement",
+          "category": "smoke_store",
+          "memory_type": "fact",
+          "tier": "long_term"
+        },
+        "idempotency_scope": "fresh"
+      },
+      "preconditions": {
+        "seed_cases": [
+          "f31-supersede-006-seed"
+        ],
+        "seed_params": {
+          "category": "smoke_store",
+          "memory_type": "fact",
+          "tier": "long_term",
+          "status": "active"
+        },
+        "notes": "direct-to-long-term replacement"
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "idempotency_reused": false,
+        "new_insert": true
+      },
+      "expected_db_effect": {
+        "mutates": true,
+        "row_delta": {
+          "old": "active → superseded",
+          "new": "inserted"
+        }
+      },
+      "expected_error_code": null,
+      "notes": "happy-active-longterm target_state=active tier=long_term scope=fresh cat=smoke_store mt=fact"
+    },
+    {
+      "case_id": "f31-supersede-007",
+      "family": "supersede_idempotency",
+      "action": "supersede_memory",
+      "inputs": {
+        "memory_id": "__RESOLVED_FROM_SEED__f31-supersede-007-seed",
+        "replacement": {
+          "content": "F3.1 supersede f31-supersede-007 replacement",
+          "category": "smoke_store",
+          "memory_type": "fact",
+          "tier": "long_term"
+        },
+        "idempotency_scope": "reused_after_accept"
+      },
+      "preconditions": {
+        "seed_cases": [
+          "f31-supersede-007-seed"
+        ],
+        "seed_params": {
+          "category": "smoke_store",
+          "memory_type": "fact",
+          "tier": "long_term",
+          "status": "active"
+        },
+        "notes": ""
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "idempotency_reused": true,
+        "new_insert": false
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": null,
+      "notes": "replay-longterm target_state=active tier=long_term scope=reused_after_accept cat=smoke_store mt=fact"
+    },
+    {
+      "case_id": "f31-supersede-008",
+      "family": "supersede_idempotency",
+      "action": "supersede_memory",
+      "inputs": {
+        "memory_id": "__RESOLVED_FROM_SEED__f31-supersede-008-seed",
+        "replacement": {
+          "content": "F3.1 supersede f31-supersede-008 replacement",
+          "category": "smoke_store",
+          "memory_type": "observation",
+          "tier": "long_term"
+        },
+        "idempotency_scope": "fresh"
+      },
+      "preconditions": {
+        "seed_cases": [
+          "f31-supersede-008-seed"
+        ],
+        "seed_params": {
+          "category": "smoke_store",
+          "memory_type": "observation",
+          "tier": "long_term",
+          "status": "active"
+        },
+        "notes": ""
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "idempotency_reused": false,
+        "new_insert": true
+      },
+      "expected_db_effect": {
+        "mutates": true,
+        "row_delta": {
+          "old": "active → superseded",
+          "new": "inserted"
+        }
+      },
+      "expected_error_code": null,
+      "notes": "happy-longterm-obs target_state=active tier=long_term scope=fresh cat=smoke_store mt=observation"
+    },
+    {
+      "case_id": "f31-supersede-009",
+      "family": "supersede_idempotency",
+      "action": "supersede_memory",
+      "inputs": {
+        "memory_id": "__RESOLVED_FROM_SEED__f31-supersede-009-seed",
+        "replacement": {
+          "content": "F3.1 supersede f31-supersede-009 replacement",
+          "category": "smoke_store",
+          "memory_type": "fact",
+          "tier": "recent"
+        },
+        "idempotency_scope": "fresh"
+      },
+      "preconditions": {
+        "seed_cases": [
+          "f31-supersede-009-seed"
+        ],
+        "seed_params": {
+          "category": "smoke_store",
+          "memory_type": "fact",
+          "tier": "recent",
+          "status": "supersede_first"
+        },
+        "notes": ""
+      },
+      "expected_runtime_status": "failure",
+      "expected_result_envelope": {
+        "error_code": "SUPERSEDE_TARGET_INVALID"
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": "SUPERSEDE_TARGET_INVALID",
+      "notes": "already-super-recent target_state=superseded tier=recent scope=fresh cat=smoke_store mt=fact"
+    },
+    {
+      "case_id": "f31-supersede-010",
+      "family": "supersede_idempotency",
+      "action": "supersede_memory",
+      "inputs": {
+        "memory_id": "__RESOLVED_FROM_SEED__f31-supersede-010-seed",
+        "replacement": {
+          "content": "F3.1 supersede f31-supersede-010 replacement",
+          "category": "smoke_store",
+          "memory_type": "observation",
+          "tier": "recent"
+        },
+        "idempotency_scope": "fresh"
+      },
+      "preconditions": {
+        "seed_cases": [
+          "f31-supersede-010-seed"
+        ],
+        "seed_params": {
+          "category": "smoke_store",
+          "memory_type": "observation",
+          "tier": "recent",
+          "status": "supersede_first"
+        },
+        "notes": ""
+      },
+      "expected_runtime_status": "failure",
+      "expected_result_envelope": {
+        "error_code": "SUPERSEDE_TARGET_INVALID"
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": "SUPERSEDE_TARGET_INVALID",
+      "notes": "already-super-recent-obs target_state=superseded tier=recent scope=fresh cat=smoke_store mt=observation"
+    },
+    {
+      "case_id": "f31-supersede-011",
+      "family": "supersede_idempotency",
+      "action": "supersede_memory",
+      "inputs": {
+        "memory_id": "__RESOLVED_FROM_SEED__f31-supersede-011-seed",
+        "replacement": {
+          "content": "F3.1 supersede f31-supersede-011 replacement",
+          "category": "pricing",
+          "memory_type": "fact",
+          "tier": "recent"
+        },
+        "idempotency_scope": "fresh"
+      },
+      "preconditions": {
+        "seed_cases": [
+          "f31-supersede-011-seed"
+        ],
+        "seed_params": {
+          "category": "pricing",
+          "memory_type": "fact",
+          "tier": "recent",
+          "status": "supersede_first"
+        },
+        "notes": ""
+      },
+      "expected_runtime_status": "failure",
+      "expected_result_envelope": {
+        "error_code": "SUPERSEDE_TARGET_INVALID"
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": "SUPERSEDE_TARGET_INVALID",
+      "notes": "already-super-recent-pricing target_state=superseded tier=recent scope=fresh cat=pricing mt=fact"
+    },
+    {
+      "case_id": "f31-supersede-012",
+      "family": "supersede_idempotency",
+      "action": "supersede_memory",
+      "inputs": {
+        "memory_id": "__RESOLVED_FROM_SEED__f31-supersede-012-seed",
+        "replacement": {
+          "content": "F3.1 supersede f31-supersede-012 replacement",
+          "category": "smoke_store",
+          "memory_type": "fact",
+          "tier": "recent"
+        },
+        "idempotency_scope": "reused_after_error"
+      },
+      "preconditions": {
+        "seed_cases": [
+          "f31-supersede-012-seed"
+        ],
+        "seed_params": {
+          "category": "smoke_store",
+          "memory_type": "fact",
+          "tier": "recent",
+          "status": "supersede_first"
+        },
+        "notes": "replay same step on already-denied target"
+      },
+      "expected_runtime_status": "failure",
+      "expected_result_envelope": {
+        "error_code": "SUPERSEDE_TARGET_INVALID"
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": "SUPERSEDE_TARGET_INVALID",
+      "notes": "already-super-replay-error target_state=superseded tier=recent scope=reused_after_error cat=smoke_store mt=fact"
+    },
+    {
+      "case_id": "f31-supersede-013",
+      "family": "supersede_idempotency",
+      "action": "supersede_memory",
+      "inputs": {
+        "memory_id": "ffffffff-ffff-ffff-ffff-ffffffffffff",
+        "replacement": {
+          "content": "F3.1 supersede f31-supersede-013 replacement",
+          "category": "smoke_store",
+          "memory_type": "fact",
+          "tier": "recent"
+        },
+        "idempotency_scope": "fresh"
+      },
+      "preconditions": {
+        "seed_cases": [],
+        "seed_params": null,
+        "notes": ""
+      },
+      "expected_runtime_status": "failure",
+      "expected_result_envelope": {
+        "error_code": "SUPERSEDE_TARGET_INVALID"
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": "SUPERSEDE_TARGET_INVALID",
+      "notes": "missing-target-1 target_state=missing tier=recent scope=fresh cat=smoke_store mt=fact"
+    },
+    {
+      "case_id": "f31-supersede-014",
+      "family": "supersede_idempotency",
+      "action": "supersede_memory",
+      "inputs": {
+        "memory_id": "ffffffff-ffff-ffff-ffff-ffffffffffff",
+        "replacement": {
+          "content": "F3.1 supersede f31-supersede-014 replacement",
+          "category": "smoke_store",
+          "memory_type": "observation",
+          "tier": "recent"
+        },
+        "idempotency_scope": "fresh"
+      },
+      "preconditions": {
+        "seed_cases": [],
+        "seed_params": null,
+        "notes": ""
+      },
+      "expected_runtime_status": "failure",
+      "expected_result_envelope": {
+        "error_code": "SUPERSEDE_TARGET_INVALID"
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": "SUPERSEDE_TARGET_INVALID",
+      "notes": "missing-target-2 target_state=missing tier=recent scope=fresh cat=smoke_store mt=observation"
+    },
+    {
+      "case_id": "f31-supersede-015",
+      "family": "supersede_idempotency",
+      "action": "supersede_memory",
+      "inputs": {
+        "memory_id": "ffffffff-ffff-ffff-ffff-ffffffffffff",
+        "replacement": {
+          "content": "F3.1 supersede f31-supersede-015 replacement",
+          "category": "pricing",
+          "memory_type": "fact",
+          "tier": "recent"
+        },
+        "idempotency_scope": "fresh"
+      },
+      "preconditions": {
+        "seed_cases": [],
+        "seed_params": null,
+        "notes": ""
+      },
+      "expected_runtime_status": "failure",
+      "expected_result_envelope": {
+        "error_code": "SUPERSEDE_TARGET_INVALID"
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": "SUPERSEDE_TARGET_INVALID",
+      "notes": "missing-target-pricing target_state=missing tier=recent scope=fresh cat=pricing mt=fact"
+    },
+    {
+      "case_id": "f31-supersede-016",
+      "family": "supersede_idempotency",
+      "action": "supersede_memory",
+      "inputs": {
+        "memory_id": "ffffffff-ffff-ffff-ffff-ffffffffffff",
+        "replacement": {
+          "content": "F3.1 supersede f31-supersede-016 replacement",
+          "category": "smoke_store",
+          "memory_type": "fact",
+          "tier": "recent"
+        },
+        "idempotency_scope": "reused_after_error"
+      },
+      "preconditions": {
+        "seed_cases": [],
+        "seed_params": null,
+        "notes": ""
+      },
+      "expected_runtime_status": "failure",
+      "expected_result_envelope": {
+        "error_code": "SUPERSEDE_TARGET_INVALID"
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": "SUPERSEDE_TARGET_INVALID",
+      "notes": "missing-target-replay target_state=missing tier=recent scope=reused_after_error cat=smoke_store mt=fact"
+    },
+    {
+      "case_id": "f31-supersede-017",
+      "family": "supersede_idempotency",
+      "action": "supersede_memory",
+      "inputs": {
+        "memory_id": "__CROSS_TENANT_SENTINEL__",
+        "replacement": {
+          "content": "F3.1 supersede f31-supersede-017 replacement",
+          "category": "smoke_store",
+          "memory_type": "fact",
+          "tier": "recent"
+        },
+        "idempotency_scope": "fresh"
+      },
+      "preconditions": {
+        "seed_cases": [],
+        "seed_params": null,
+        "notes": "tenant A tries to supersede tenant B row — UPDATE WHERE tenant_id scopes out"
+      },
+      "expected_runtime_status": "failure",
+      "expected_result_envelope": {
+        "error_code": "SUPERSEDE_TARGET_INVALID"
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": "SUPERSEDE_TARGET_INVALID",
+      "notes": "cross-tenant-active target_state=cross_tenant tier=recent scope=fresh cat=smoke_store mt=fact"
+    },
+    {
+      "case_id": "f31-supersede-018",
+      "family": "supersede_idempotency",
+      "action": "supersede_memory",
+      "inputs": {
+        "memory_id": "__CROSS_TENANT_SENTINEL__",
+        "replacement": {
+          "content": "F3.1 supersede f31-supersede-018 replacement",
+          "category": "smoke_store",
+          "memory_type": "observation",
+          "tier": "recent"
+        },
+        "idempotency_scope": "fresh"
+      },
+      "preconditions": {
+        "seed_cases": [],
+        "seed_params": null,
+        "notes": ""
+      },
+      "expected_runtime_status": "failure",
+      "expected_result_envelope": {
+        "error_code": "SUPERSEDE_TARGET_INVALID"
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": "SUPERSEDE_TARGET_INVALID",
+      "notes": "cross-tenant-active-obs target_state=cross_tenant tier=recent scope=fresh cat=smoke_store mt=observation"
+    },
+    {
+      "case_id": "f31-supersede-019",
+      "family": "supersede_idempotency",
+      "action": "supersede_memory",
+      "inputs": {
+        "memory_id": "__CROSS_TENANT_SENTINEL__",
+        "replacement": {
+          "content": "F3.1 supersede f31-supersede-019 replacement",
+          "category": "smoke_store",
+          "memory_type": "fact",
+          "tier": "long_term"
+        },
+        "idempotency_scope": "fresh"
+      },
+      "preconditions": {
+        "seed_cases": [],
+        "seed_params": null,
+        "notes": ""
+      },
+      "expected_runtime_status": "failure",
+      "expected_result_envelope": {
+        "error_code": "SUPERSEDE_TARGET_INVALID"
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": "SUPERSEDE_TARGET_INVALID",
+      "notes": "cross-tenant-longterm target_state=cross_tenant tier=long_term scope=fresh cat=smoke_store mt=fact"
+    },
+    {
+      "case_id": "f31-supersede-020",
+      "family": "supersede_idempotency",
+      "action": "supersede_memory",
+      "inputs": {
+        "memory_id": "__CROSS_TENANT_SENTINEL__",
+        "replacement": {
+          "content": "F3.1 supersede f31-supersede-020 replacement",
+          "category": "smoke_store",
+          "memory_type": "fact",
+          "tier": "recent"
+        },
+        "idempotency_scope": "reused_after_error"
+      },
+      "preconditions": {
+        "seed_cases": [],
+        "seed_params": null,
+        "notes": ""
+      },
+      "expected_runtime_status": "failure",
+      "expected_result_envelope": {
+        "error_code": "SUPERSEDE_TARGET_INVALID"
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": "SUPERSEDE_TARGET_INVALID",
+      "notes": "cross-tenant-replay target_state=cross_tenant tier=recent scope=reused_after_error cat=smoke_store mt=fact"
+    },
+    {
+      "case_id": "f31-supersede-021",
+      "family": "supersede_idempotency",
+      "action": "supersede_memory",
+      "inputs": {
+        "memory_id": "__RESOLVED_FROM_SEED__f31-supersede-021-seed",
+        "replacement": {
+          "content": "F3.1 supersede f31-supersede-021 replacement",
+          "category": "smoke_store",
+          "memory_type": "fact",
+          "tier": "recent"
+        },
+        "idempotency_scope": "fresh"
+      },
+      "preconditions": {
+        "seed_cases": [
+          "f31-supersede-021-seed"
+        ],
+        "seed_params": {
+          "category": "smoke_store",
+          "memory_type": "fact",
+          "tier": "recent",
+          "status": "active"
+        },
+        "notes": "happy baseline for edge-group"
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "idempotency_reused": false,
+        "new_insert": true
+      },
+      "expected_db_effect": {
+        "mutates": true,
+        "row_delta": {
+          "old": "active → superseded",
+          "new": "inserted"
+        }
+      },
+      "expected_error_code": null,
+      "notes": "self-target target_state=active tier=recent scope=fresh cat=smoke_store mt=fact"
+    },
+    {
+      "case_id": "f31-supersede-022",
+      "family": "supersede_idempotency",
+      "action": "supersede_memory",
+      "inputs": {
+        "memory_id": "__RESOLVED_FROM_SEED__f31-supersede-022-seed",
+        "replacement": {
+          "content": "F3.1 supersede f31-supersede-022 replacement",
+          "category": "smoke_store",
+          "memory_type": "fact",
+          "tier": "recent"
+        },
+        "idempotency_scope": "fresh"
+      },
+      "preconditions": {
+        "seed_cases": [
+          "f31-supersede-022-seed"
+        ],
+        "seed_params": {
+          "category": "smoke_store",
+          "memory_type": "fact",
+          "tier": "recent",
+          "status": "active"
+        },
+        "notes": "chain A → A' (then leave A' for human)"
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "idempotency_reused": false,
+        "new_insert": true
+      },
+      "expected_db_effect": {
+        "mutates": true,
+        "row_delta": {
+          "old": "active → superseded",
+          "new": "inserted"
+        }
+      },
+      "expected_error_code": null,
+      "notes": "happy-then-second-super-chain target_state=active tier=recent scope=fresh cat=smoke_store mt=fact"
+    },
+    {
+      "case_id": "f31-supersede-023",
+      "family": "supersede_idempotency",
+      "action": "supersede_memory",
+      "inputs": {
+        "memory_id": "__RESOLVED_FROM_SEED__f31-supersede-023-seed",
+        "replacement": {
+          "content": "F3.1 supersede f31-supersede-023 replacement",
+          "category": "pricing",
+          "memory_type": "preference",
+          "tier": "long_term"
+        },
+        "idempotency_scope": "fresh"
+      },
+      "preconditions": {
+        "seed_cases": [
+          "f31-supersede-023-seed"
+        ],
+        "seed_params": {
+          "category": "pricing",
+          "memory_type": "preference",
+          "tier": "long_term",
+          "status": "active"
+        },
+        "notes": ""
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "idempotency_reused": false,
+        "new_insert": true
+      },
+      "expected_db_effect": {
+        "mutates": true,
+        "row_delta": {
+          "old": "active → superseded",
+          "new": "inserted"
+        }
+      },
+      "expected_error_code": null,
+      "notes": "happy-longterm-pref target_state=active tier=long_term scope=fresh cat=pricing mt=preference"
+    },
+    {
+      "case_id": "f31-supersede-024",
+      "family": "supersede_idempotency",
+      "action": "supersede_memory",
+      "inputs": {
+        "memory_id": "__RESOLVED_FROM_SEED__f31-supersede-024-seed",
+        "replacement": {
+          "content": "F3.1 supersede f31-supersede-024 replacement",
+          "category": "smoke_store",
+          "memory_type": "constraint",
+          "tier": "recent"
+        },
+        "idempotency_scope": "fresh"
+      },
+      "preconditions": {
+        "seed_cases": [
+          "f31-supersede-024-seed"
+        ],
+        "seed_params": {
+          "category": "smoke_store",
+          "memory_type": "constraint",
+          "tier": "recent",
+          "status": "active"
+        },
+        "notes": ""
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "idempotency_reused": false,
+        "new_insert": true
+      },
+      "expected_db_effect": {
+        "mutates": true,
+        "row_delta": {
+          "old": "active → superseded",
+          "new": "inserted"
+        }
+      },
+      "expected_error_code": null,
+      "notes": "happy-recent-constraint target_state=active tier=recent scope=fresh cat=smoke_store mt=constraint"
+    },
+    {
+      "case_id": "f31-supersede-025",
+      "family": "supersede_idempotency",
+      "action": "supersede_memory",
+      "inputs": {
+        "memory_id": "__RESOLVED_FROM_SEED__f31-supersede-025-seed",
+        "replacement": {
+          "content": "F3.1 supersede f31-supersede-025 replacement",
+          "category": "pricing",
+          "memory_type": "fact",
+          "tier": "recent"
+        },
+        "idempotency_scope": "reused_after_accept"
+      },
+      "preconditions": {
+        "seed_cases": [
+          "f31-supersede-025-seed"
+        ],
+        "seed_params": {
+          "category": "pricing",
+          "memory_type": "fact",
+          "tier": "recent",
+          "status": "active"
+        },
+        "notes": ""
+      },
+      "expected_runtime_status": "success",
+      "expected_result_envelope": {
+        "idempotency_reused": true,
+        "new_insert": false
+      },
+      "expected_db_effect": {
+        "mutates": false,
+        "row_delta": {}
+      },
+      "expected_error_code": null,
+      "notes": "replay-fresh-never-happened target_state=active tier=recent scope=reused_after_accept cat=pricing mt=fact"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "message_id": "6e299e1f-42fc-4bd5-890a-a32d12fbbe24",
+  "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+  "channel": "tcp1-task-corridors",
+  "direction": "inbound",
+  "author_type": "user",
+  "normalized_content": "Listează doar taskurile completate săptămâna asta.",
+  "timestamp": "2026-04-25T13:18:25.281Z",
+  "source_message_ref": "tcp1:TC-C12-10:tmr:tcp1-2026-04-25:TC-C12-10",
+  "author_entity_id": null,
+  "related_entity_ids": [],
+  "metadata": {
+    "tcp1_case_id": "TC-C12-10",
+    "tcp1_run_tag": "tcp1-2026-04-25",
+    "tcp1_priority": "P1"
+  },
+  "idempotency_key": "tmr:tcp1-2026-04-25:TC-C12-10",
+  "thread_id": "262bde68-44d0-4793-8179-f205d0cb6e08",
+  "reply_to_thread_id": null
+}

@@ -1,0 +1,5 @@
+- Preferă sursele mai puternice.
+- Nu inventa adevărul.
+- Nu cere utilizatorului input pentru cazuri standard.
+- Nu lăsa un workflow fără verdict.
+- Nu include secrete în package.

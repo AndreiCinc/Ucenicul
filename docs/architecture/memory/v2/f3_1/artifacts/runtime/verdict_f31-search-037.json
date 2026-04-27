@@ -1,0 +1,16 @@
+{
+  "verdict": "PASS",
+  "bucket": null,
+  "reason": "search oracle all checks pass",
+  "observed": {
+    "status": "success",
+    "used_embedding": false,
+    "embedding_attempted": true,
+    "embedding_error": null,
+    "recall": 0,
+    "pre_max": "2026-04-21T12:54:40.918Z",
+    "post_max": "2026-04-21T12:54:40.918Z"
+  },
+  "artifact": "exec_f31-search-037_2063.raw.json",
+  "ts": "2026-04-22T04:51:20.752Z"
+}

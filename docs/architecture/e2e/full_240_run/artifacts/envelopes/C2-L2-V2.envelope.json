@@ -1,0 +1,23 @@
+{
+  "message_id": "2f2e9d17-4db7-4864-8406-9dbfce2d26b2",
+  "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+  "channel": "e2e-rich-matrix",
+  "direction": "inbound",
+  "author_type": "user",
+  "normalized_content": "EN case: Remember that Andrei prefers morning training sessions.",
+  "timestamp": "2026-04-26T02:50:47.165Z",
+  "source_message_ref": "e2e:C2-L2-V2:e2e:f240-2026-04-26:C2-L2-V2",
+  "author_entity_id": null,
+  "related_entity_ids": [],
+  "metadata": {
+    "e2e_case_id": "C2-L2-V2",
+    "e2e_corridor": "C2",
+    "e2e_variant": "locale_en",
+    "e2e_phase": "P1_FOUNDATION",
+    "e2e_priority": "P1",
+    "e2e_locale": "en",
+    "e2e_run_tag": "f240-2026-04-26"
+  },
+  "idempotency_key": "e2e:f240-2026-04-26:C2-L2-V2",
+  "thread_id": "939dd3d3-5a45-403c-8aec-44e2ed9955df"
+}

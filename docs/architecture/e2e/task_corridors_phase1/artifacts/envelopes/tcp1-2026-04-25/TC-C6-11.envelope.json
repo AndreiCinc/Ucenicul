@@ -1,0 +1,20 @@
+{
+  "message_id": "df01ebe5-b827-4a48-8747-02b29c07306f",
+  "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+  "channel": "tcp1-task-corridors",
+  "direction": "inbound",
+  "author_type": "user",
+  "normalized_content": "Anulează taskul cu site-ul de mentenanță.",
+  "timestamp": "2026-04-25T13:18:25.281Z",
+  "source_message_ref": "tcp1:TC-C6-11:tmr:tcp1-2026-04-25:TC-C6-11",
+  "author_entity_id": null,
+  "related_entity_ids": [],
+  "metadata": {
+    "tcp1_case_id": "TC-C6-11",
+    "tcp1_run_tag": "tcp1-2026-04-25",
+    "tcp1_priority": "P1"
+  },
+  "idempotency_key": "tmr:tcp1-2026-04-25:TC-C6-11",
+  "thread_id": "dd419d14-d9a1-48d1-86b2-1ea6853e64eb",
+  "reply_to_thread_id": null
+}

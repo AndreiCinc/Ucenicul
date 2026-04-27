@@ -1,0 +1,23 @@
+{
+  "message_id": "2fdede7b-9a10-45a4-8827-28cb41e81020",
+  "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+  "channel": "e2e-rich-matrix",
+  "direction": "inbound",
+  "author_type": "user",
+  "normalized_content": "Îmi amintești ce preferințe are Andrei pentru antrenamente?",
+  "timestamp": "2026-04-26T02:50:47.327Z",
+  "source_message_ref": "e2e:C3-L2-V3:e2e:f240-2026-04-26:C3-L2-V3",
+  "author_entity_id": null,
+  "related_entity_ids": [],
+  "metadata": {
+    "e2e_case_id": "C3-L2-V3",
+    "e2e_corridor": "C3",
+    "e2e_variant": "negative_or_boundary",
+    "e2e_phase": "P2_COMPOSITION",
+    "e2e_priority": "P1",
+    "e2e_locale": "ro",
+    "e2e_run_tag": "f240-2026-04-26"
+  },
+  "idempotency_key": "e2e:f240-2026-04-26:C3-L2-V3",
+  "thread_id": "03c700ce-1739-4c3c-8e9c-3970ba63bae3"
+}

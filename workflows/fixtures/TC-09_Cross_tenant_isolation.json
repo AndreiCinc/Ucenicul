@@ -1,0 +1,22 @@
+{
+  "id": "TC-09",
+  "name": "Cross-tenant isolation",
+  "description": "Different tenant (TENANT_B) has no threads. Must create new even with same entity.",
+  "request": {
+    "message_id": "test-msg-009",
+    "tenant_id": "bbbbbbbb-0000-0000-0000-000000000002",
+    "channel": "telegram",
+    "direction": "inbound",
+    "author_type": "user",
+    "normalized_content": "Vreau sa vorbesc cu Ion despre apartamentul din centru",
+    "timestamp": "2026-04-15T12:00:00Z",
+    "source_message_ref": "tg_test_009",
+    "author_entity_id": "eeeeeeee-0000-0000-0000-000000000001"
+  },
+  "expected": {
+    "decision": "create_new_thread",
+    "resolved_thread_id": null,
+    "ambiguity_detected": false,
+    "content_class_used": "normalized_content"
+  }
+}

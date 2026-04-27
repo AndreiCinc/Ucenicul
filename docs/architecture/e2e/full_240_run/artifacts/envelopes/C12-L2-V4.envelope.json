@@ -1,0 +1,23 @@
+{
+  "message_id": "a7925bf6-7455-424a-8fe6-f14748794ce3",
+  "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+  "channel": "e2e-rich-matrix",
+  "direction": "inbound",
+  "author_type": "user",
+  "normalized_content": "Andrei preferă dimineața. Maria vrea reactivare. Fă-mi un răspuns scurt.",
+  "timestamp": "2026-04-26T02:50:48.843Z",
+  "source_message_ref": "e2e:C12-L2-V4:e2e:f240-2026-04-26:C12-L2-V4",
+  "author_entity_id": null,
+  "related_entity_ids": [],
+  "metadata": {
+    "e2e_case_id": "C12-L2-V4",
+    "e2e_corridor": "C12",
+    "e2e_variant": "retry_or_isolation",
+    "e2e_phase": "P3_HARD_CASES",
+    "e2e_priority": "P1",
+    "e2e_locale": "ro",
+    "e2e_run_tag": "f240-2026-04-26"
+  },
+  "idempotency_key": "e2e:f240-2026-04-26:C12-L2-V4",
+  "thread_id": "c450a404-22c2-46ed-8821-c9cdf19b60e8"
+}

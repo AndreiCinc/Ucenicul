@@ -1,0 +1,19 @@
+{
+  "message_id": "003ba241-a790-4790-8870-8308b749326f",
+  "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+  "channel": "e2e-rich-matrix",
+  "direction": "inbound",
+  "author_type": "user",
+  "normalized_content": "Listează sugestiile.",
+  "timestamp": "2026-04-27T08:23:36.626Z",
+  "source_message_ref": "e2e:IL-001:e2e:il-2026-04-27:IL-001",
+  "author_entity_id": null,
+  "related_entity_ids": [],
+  "metadata": {
+    "e2e_case_id": "IL-001",
+    "e2e_run_tag": "il-2026-04-27",
+    "e2e_intent_test": "list_improvements"
+  },
+  "idempotency_key": "e2e:il-2026-04-27:IL-001",
+  "thread_id": "83ce3154-737b-4a96-88e6-5e349875d94a"
+}

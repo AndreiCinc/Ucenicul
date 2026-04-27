@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-DI-01_Dispatcher/tests/test_families.py", line 275, in <module>
+    results = run_suite()
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-DI-01_Dispatcher/tests/test_families.py", line 267, in run_suite
+    fn()
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-DI-01_Dispatcher/tests/test_families.py", line 212, in family_reporting_and_tooling_contract
+    assert_true(stage_path.exists(), 'stage file missing')
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-DI-01_Dispatcher/tests/test_families.py", line 91, in assert_true
+    raise AssertionError(msg)
+AssertionError: stage file missing

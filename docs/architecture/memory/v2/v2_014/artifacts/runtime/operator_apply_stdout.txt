@@ -1,0 +1,8 @@
+{
+  "id": "uq26nh1grIpnHju0",
+  "name": "WF-ME-01 Module Execution",
+  "patched": "ME_Memory_Promote_DB",
+  "keys": [
+    "query"
+  ]
+}

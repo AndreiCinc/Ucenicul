@@ -1,0 +1,42 @@
+{
+  "workflow_name": "WF-MO-01 Message Out / Output Gateway",
+  "stage_code": "WF-MO-01",
+  "node_count": 18,
+  "connection_count": 18,
+  "triggers": [
+    "MO_Input",
+    "MO_Manual_Test_Trigger"
+  ],
+  "switches": [
+    "MO_Route_Valid",
+    "MO_Route_Context_Ready",
+    "MO_Route_Channel"
+  ],
+  "postgres_nodes": [
+    "MO_Load_Execution_Context",
+    "MO_Load_Thread_Context",
+    "MO_Load_Channel_Delivery_Context",
+    "MO_Replay_Guard_Probe",
+    "MO_Log_Outbound_Message"
+  ],
+  "code_nodes": [
+    "MO_Validate_Composed_Response_Input",
+    "MO_Verify_Lineage_And_Replay",
+    "MO_Build_Delivery_Request",
+    "MO_Build_Delivery_Result",
+    "MO_Return_Result",
+    "MO_Return_Error",
+    "MO_Return_Context_Error"
+  ],
+  "provider_send_node": "MO_Send_Channel_PLACEHOLDER",
+  "terminal_stage": true,
+  "upstream_contract": {
+    "result_type": "composed_response",
+    "allowed_next_stage": "MESSAGE_OUT",
+    "output_gateway_allowed": true
+  },
+  "downstream_contract": {
+    "result_type": "message_out_result",
+    "terminal_stage": true
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "message_id": "1c0eaf9d-bfdd-4966-8ab7-5d37cb76568f",
+  "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+  "channel": "tcp1-task-corridors",
+  "direction": "inbound",
+  "author_type": "user",
+  "normalized_content": "Compose: pregătește slide-urile pentru investitori, planifică call mâine la 15, urmărește feedbackul lui Andrei.",
+  "timestamp": "2026-04-25T13:18:25.281Z",
+  "source_message_ref": "tcp1:TC-C12-05:tmr:tcp1-2026-04-25:TC-C12-05",
+  "author_entity_id": null,
+  "related_entity_ids": [],
+  "metadata": {
+    "tcp1_case_id": "TC-C12-05",
+    "tcp1_run_tag": "tcp1-2026-04-25",
+    "tcp1_priority": "P0"
+  },
+  "idempotency_key": "tmr:tcp1-2026-04-25:TC-C12-05",
+  "thread_id": "2123af47-6801-40a5-8da4-e66bbe3df29d",
+  "reply_to_thread_id": null
+}

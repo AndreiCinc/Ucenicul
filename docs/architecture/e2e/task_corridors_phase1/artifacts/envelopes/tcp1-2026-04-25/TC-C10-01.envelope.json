@@ -1,0 +1,20 @@
+{
+  "message_id": "6432b241-da6b-41cc-82a1-b754c09d34df",
+  "tenant_id": "eee0e2e0-0000-0000-0000-00000000000a",
+  "channel": "tcp1-task-corridors",
+  "direction": "inbound",
+  "author_type": "user",
+  "normalized_content": "Creează task tenant-A: scope_isolation_marker_A1.",
+  "timestamp": "2026-04-25T13:18:25.281Z",
+  "source_message_ref": "tcp1:TC-C10-01:tmr:tcp1-2026-04-25:TC-C10-01",
+  "author_entity_id": null,
+  "related_entity_ids": [],
+  "metadata": {
+    "tcp1_case_id": "TC-C10-01",
+    "tcp1_run_tag": "tcp1-2026-04-25",
+    "tcp1_priority": "P0"
+  },
+  "idempotency_key": "tmr:tcp1-2026-04-25:TC-C10-01",
+  "thread_id": "c2d67334-a1e2-4a1d-862e-6f8bdfb34cc9",
+  "reply_to_thread_id": null
+}

@@ -1,0 +1,186 @@
+{
+  "current_stage": "WF-PL-01",
+  "current_stage_file": "07_STAGE_WF-PL-01.md",
+  "status": "closed",
+  "phase": "live_v1_1_reimport_reverified_v1_v4_v5_v6_all_pass",
+  "score": 10.0,
+  "score_previous": 8.5,
+  "score_cap_reason": "None. Live re-import of v1.1 patched JSON succeeded and the four required re-runs (V1, V4, V5, V6) all PASS with the correct last-node / error-code / DB-drift outcomes. Full score unlocked.",
+  "fallback_mode_active": false,
+  "failed_path_label": null,
+  "current_path_label": "closed_at_10_10",
+  "next_path_label": "activate_wf_di_01",
+  "retry_count": 1,
+  "banned_strategy_labels": [
+    "sdk_update_workflow_code",
+    "mcp__n8n__patch_workflow_nodes"
+  ],
+  "hard_blockers": [],
+  "soft_blockers": [],
+  "carry_forward_tool_limitations": [
+    "mcp__n8n__patch_workflow_nodes: PUT-schema mismatch; unsafe for in-place mutation of existing shells.",
+    "SDK update_workflow(code): banned for shell-preserving mutation.",
+    "Shell-preserving workflow mutation for JS-body patches requires user re-import: Claude patches source JSON, user imports, Claude verifies live.",
+    "Live graphs with linear chains that pass state through non-pass-through nodes: $input.all() inside downstream code nodes does NOT retrieve upstream siblings \u2014 it only retrieves the immediate previous node's output. Always resolve upstream state by explicit $('NodeName').first() when a non-pass-through node sits between state producer and state consumer."
+  ],
+  "latest_evidence_level": "source_pack_complete_plus_script_level_tests_passed_plus_sql_contracts_defined_plus_live_v1_1_re_verified_all_required_runs_pass",
+  "live_runtime_proof": {
+    "workflow_id": "RwToPLa1ErHl2tUi",
+    "shell_version_tested": "0493521e-0820-4b63-b7e1-041f44b49a31",
+    "shell_version_previous_defective": "86760174-c627-4805-b9a0-177c89668554",
+    "v1_happy_path": {
+      "execution_id": "712",
+      "outcome": "PASS",
+      "observed_last_node": "PL_Return_Result",
+      "observed_status_kind": "success",
+      "observed_result_type": "plan",
+      "observed_allowed_next_stage": "WF-DI-01",
+      "observed_dispatcher_input_present": true,
+      "note": "Full happy path executed end-to-end through validate -> route_valid -> extract -> load_execution_context -> verify (_verified=true) -> load_module_registry -> build_planner_input (_context_ready=true) -> route_context_ready -> generate_plan -> return_result. plan_id: plan:0000ec01-0000-0000-0000-000000000001:v1."
+    },
+    "v1_first_run_invalid_envelope": {
+      "execution_id": "711",
+      "outcome": "CORRECTLY_REJECTED",
+      "observed_last_node": "PL_Return_Error",
+      "observed_error_code": "INVALID_HANDOFF_INPUT",
+      "note": "Initial run at 19:23:03 used a partial envelope lacking top-level status_kind/result_type. PL_Validate_OR_Handoff correctly rejected it before reaching any downstream node \u2014 this is the expected contract, not a defect. V1 was then re-executed (712) with the full OR handoff envelope and PASSed."
+    },
+    "v4_context_mismatch_missing_execution_context": {
+      "execution_id": "713",
+      "outcome": "PASS",
+      "observed_last_node": "PL_Return_Error",
+      "observed_error_code": "CONTEXT_MISMATCH",
+      "observed_missing_fields": ["execution_context"],
+      "note": "Non-existent execution_id ddddeeee-0000-0000-0000-000000000999 correctly produced CONTEXT_MISMATCH (previously masked as INSUFFICIENT_PLANNING_CONTEXT in v1.0)."
+    },
+    "v5_cross_tenant_isolation": {
+      "execution_id": "714",
+      "outcome": "PASS",
+      "observed_last_node": "PL_Return_Error",
+      "observed_error_code": "CONTEXT_MISMATCH",
+      "observed_missing_fields": ["execution_context"],
+      "note": "Wrong tenant aaaaaa01-0000-0000-0000-000000000099 with valid execution_id produced zero SQL rows, correctly escalated to CONTEXT_MISMATCH (previously masked as INSUFFICIENT_PLANNING_CONTEXT in v1.0)."
+    },
+    "v6_db_drift": {
+      "outcome": "PASS",
+      "pre_run_rows": 2,
+      "post_run_rows": 2,
+      "tables_inspected": ["public.execution_contexts"],
+      "note": "WF-PL-01 is read-only with respect to execution_contexts; zero drift observed after V1/V4/V5."
+    }
+  },
+  "live_v1_1_patch": {
+    "json_on_disk": "workflows/WF-PL-01_Plan_Generation.json",
+    "version_id": "wf-pl-01-source-pack-v1.1-live-fix",
+    "live_shell_versionId_after_import": "0493521e-0820-4b63-b7e1-041f44b49a31",
+    "patch_scope": "smallest_possible",
+    "nodes_patched": ["PL_Build_Planner_Input"],
+    "nodes_unchanged": [
+      "When clicking 'Execute workflow'",
+      "When chat message received",
+      "PL_Validate_OR_Handoff",
+      "PL_Route_Valid",
+      "PL_Extract_Planning_Input",
+      "PL_Load_Execution_Context",
+      "PL_Verify_Context_Match",
+      "PL_Load_Module_Registry",
+      "PL_Route_Context_Ready",
+      "PL_Generate_Plan",
+      "PL_Return_Result",
+      "PL_Return_Error"
+    ],
+    "graph_changes": "none (13 nodes, 13 connections unchanged)",
+    "fix_summary": "Resolve upstream state (verify context + planner_context) via explicit $('PL_Verify_Context_Match').first() and $('PL_Extract_Planning_Input').first() references with a safeNode() helper. Fail-close FIRST on verify._verified==='false' to preserve the original error_code (CONTEXT_MISMATCH). Only after verify passes do we evaluate planner_context; missing goal or missing requested_actions emit INSUFFICIENT_PLANNING_CONTEXT (true planning defect, not a masked context mismatch).",
+    "error_code_discrimination": {
+      "CONTEXT_MISMATCH": "emitted when execution_context row is missing or does not match tenant / thread (propagated from PL_Verify_Context_Match) \u2014 verified live in V4 (exec 713) and V5 (exec 714)",
+      "INSUFFICIENT_PLANNING_CONTEXT": "emitted only when verify passed but planner_context.goal is empty OR no requested_actions / mappable primary_intent are available"
+    },
+    "shell_preserved_fields": [
+      "13 nodes",
+      "13 connections",
+      "two triggers",
+      "PL_Route_Valid / PL_Route_Context_Ready routing strings (_valid / _context_ready)",
+      "PL_Load_Execution_Context credential binding (Postgres account 2)",
+      "alwaysOutputData: true on PL_Load_Execution_Context"
+    ],
+    "banned_tools_touched": "none"
+  },
+  "upstream_stage": {
+    "stage": "WF-OR-01",
+    "status": "closed",
+    "score": 10,
+    "carry_forward_evidence_available": true
+  },
+  "pl_stage_scope_decision": {
+    "label": "or_handoff_to_plan_only",
+    "includes": [
+      "validated OR handoff input",
+      "planner-context validation",
+      "module registry loading",
+      "bounded plan generation"
+    ],
+    "excludes": [
+      "dispatcher execution",
+      "module execution",
+      "result aggregation",
+      "response composition"
+    ]
+  },
+  "script_level_tests": {
+    "suite": "workflows/tests/pl/test_families.py",
+    "families": 13,
+    "required_family_minimum": 10,
+    "tests_total": 650,
+    "required_tests_minimum": 500,
+    "minimum_satisfied": true,
+    "tests_passed": 650,
+    "tests_failed": 0,
+    "results_json": "workflows/tests/pl/results/results.json",
+    "results_md": "workflows/tests/pl/results/results.md",
+    "family_breakdown": {
+      "input_validation": 50,
+      "happy_path": 50,
+      "invalid_input": 50,
+      "replay_idempotency": 50,
+      "cross_tenant_isolation": 50,
+      "or_to_pl_handoff": 50,
+      "node_payload_builder": 50,
+      "node_result_formatter": 50,
+      "sql_contract_validation": 50,
+      "reporting_and_tooling_contract": 50,
+      "extract_planning_input": 50,
+      "error_payload_builder": 50,
+      "blueprint_structure": 50
+    },
+    "note": "Script-level tests PASS, and after the v1.1 live fix the script and live behavior now agree. The autonomous-executor divergence pattern (script PASS \u2260 live PASS) was observed and resolved in Cycle 2; Cycle 3 confirms live PASS."
+  },
+  "artifacts_on_disk": {
+    "blueprint_json": [
+      "workflows/WF-PL-01_Plan_Generation.json",
+      "workflows/WF-PL-01_blueprint.json"
+    ],
+    "planning_docs": [
+      "workflows/WF-PL-01_NODE_MAP.md",
+      "workflows/WF-PL-01_CONNECTION_MAP.md",
+      "workflows/WF-PL-01_IMPORT_PATCH_PLAN.md"
+    ],
+    "sql": [
+      "workflows/sql/pl/01_schema_inspect.sql",
+      "workflows/sql/pl/02_load_execution_context.sql",
+      "workflows/sql/pl/03_load_execution_context_by_idempotency.sql",
+      "workflows/sql/pl/10_fixtures_create.sql",
+      "workflows/sql/pl/11_fixtures_cleanup.sql",
+      "workflows/sql/pl/20_read_path_probe.sql"
+    ],
+    "scripts": [
+      "workflows/scripts/pl/pl_logic.py"
+    ],
+    "tests": [
+      "workflows/tests/pl/test_families.py"
+    ]
+  },
+  "advance_allowed": true,
+  "advance_gate": "Open. WF-PL-01 closed at 10 / 10. WF-DI-01 may now advance to ACTIVE once the user signals readiness.",
+  "next_action": "Advance WF-DI-01 from PLANNED_NEXT to ACTIVE and begin Dispatcher stage preparation.",
+  "last_updated": "2026-04-17"
+}

@@ -1,0 +1,1107 @@
+{
+  "mission": "ACCEPT-VIA-EVIDENCE-VALIDATED-PROBE",
+  "category": "live_e2e",
+  "count": 50,
+  "cases": [
+    {
+      "id": "EVP-E-01",
+      "family": "accept",
+      "seed": {
+        "call": "store_memory",
+        "content": "Probe E2E evidence 1",
+        "evidence_validated": true,
+        "tier": "recent",
+        "category": "ev_probe_e2e"
+      },
+      "promote": {
+        "call": "promote_memory",
+        "promotion_target": "$stored_id",
+        "user_confirmed": false,
+        "evidence_validated": false
+      },
+      "expected_e2e": {
+        "acceptance_signals_contains": "evidence_validated"
+      }
+    },
+    {
+      "id": "EVP-E-02",
+      "family": "accept",
+      "seed": {
+        "call": "store_memory",
+        "content": "Probe E2E evidence 2",
+        "evidence_validated": true,
+        "tier": "recent",
+        "category": "ev_probe_e2e"
+      },
+      "promote": {
+        "call": "promote_memory",
+        "promotion_target": "$stored_id",
+        "user_confirmed": false,
+        "evidence_validated": false
+      },
+      "expected_e2e": {
+        "acceptance_signals_contains": "evidence_validated"
+      }
+    },
+    {
+      "id": "EVP-E-03",
+      "family": "accept",
+      "seed": {
+        "call": "store_memory",
+        "content": "Probe E2E evidence 3",
+        "evidence_validated": true,
+        "tier": "recent",
+        "category": "ev_probe_e2e"
+      },
+      "promote": {
+        "call": "promote_memory",
+        "promotion_target": "$stored_id",
+        "user_confirmed": false,
+        "evidence_validated": false
+      },
+      "expected_e2e": {
+        "acceptance_signals_contains": "evidence_validated"
+      }
+    },
+    {
+      "id": "EVP-E-04",
+      "family": "accept",
+      "seed": {
+        "call": "store_memory",
+        "content": "Probe E2E evidence 4",
+        "evidence_validated": true,
+        "tier": "recent",
+        "category": "ev_probe_e2e"
+      },
+      "promote": {
+        "call": "promote_memory",
+        "promotion_target": "$stored_id",
+        "user_confirmed": false,
+        "evidence_validated": false
+      },
+      "expected_e2e": {
+        "acceptance_signals_contains": "evidence_validated"
+      }
+    },
+    {
+      "id": "EVP-E-05",
+      "family": "accept",
+      "seed": {
+        "call": "store_memory",
+        "content": "Probe E2E evidence 5",
+        "evidence_validated": true,
+        "tier": "recent",
+        "category": "ev_probe_e2e"
+      },
+      "promote": {
+        "call": "promote_memory",
+        "promotion_target": "$stored_id",
+        "user_confirmed": false,
+        "evidence_validated": false
+      },
+      "expected_e2e": {
+        "acceptance_signals_contains": "evidence_validated"
+      }
+    },
+    {
+      "id": "EVP-E-06",
+      "family": "accept",
+      "seed": {
+        "call": "store_memory",
+        "content": "Probe E2E evidence 6",
+        "evidence_validated": true,
+        "tier": "recent",
+        "category": "ev_probe_e2e"
+      },
+      "promote": {
+        "call": "promote_memory",
+        "promotion_target": "$stored_id",
+        "user_confirmed": false,
+        "evidence_validated": false
+      },
+      "expected_e2e": {
+        "acceptance_signals_contains": "evidence_validated"
+      }
+    },
+    {
+      "id": "EVP-E-07",
+      "family": "accept",
+      "seed": {
+        "call": "store_memory",
+        "content": "Probe E2E evidence 7",
+        "evidence_validated": true,
+        "tier": "recent",
+        "category": "ev_probe_e2e"
+      },
+      "promote": {
+        "call": "promote_memory",
+        "promotion_target": "$stored_id",
+        "user_confirmed": false,
+        "evidence_validated": false
+      },
+      "expected_e2e": {
+        "acceptance_signals_contains": "evidence_validated"
+      }
+    },
+    {
+      "id": "EVP-E-08",
+      "family": "accept",
+      "seed": {
+        "call": "store_memory",
+        "content": "Probe E2E evidence 8",
+        "evidence_validated": true,
+        "tier": "recent",
+        "category": "ev_probe_e2e"
+      },
+      "promote": {
+        "call": "promote_memory",
+        "promotion_target": "$stored_id",
+        "user_confirmed": false,
+        "evidence_validated": false
+      },
+      "expected_e2e": {
+        "acceptance_signals_contains": "evidence_validated"
+      }
+    },
+    {
+      "id": "EVP-E-09",
+      "family": "accept",
+      "seed": {
+        "call": "store_memory",
+        "content": "Probe E2E evidence 9",
+        "evidence_validated": true,
+        "tier": "recent",
+        "category": "ev_probe_e2e"
+      },
+      "promote": {
+        "call": "promote_memory",
+        "promotion_target": "$stored_id",
+        "user_confirmed": false,
+        "evidence_validated": false
+      },
+      "expected_e2e": {
+        "acceptance_signals_contains": "evidence_validated"
+      }
+    },
+    {
+      "id": "EVP-E-10",
+      "family": "accept",
+      "seed": {
+        "call": "store_memory",
+        "content": "Probe E2E evidence 10",
+        "evidence_validated": true,
+        "tier": "recent",
+        "category": "ev_probe_e2e"
+      },
+      "promote": {
+        "call": "promote_memory",
+        "promotion_target": "$stored_id",
+        "user_confirmed": false,
+        "evidence_validated": false
+      },
+      "expected_e2e": {
+        "acceptance_signals_contains": "evidence_validated"
+      }
+    },
+    {
+      "id": "EVP-E-11",
+      "family": "accept",
+      "seed": {
+        "call": "store_memory",
+        "content": "Probe E2E evidence 11",
+        "evidence_validated": true,
+        "tier": "recent",
+        "category": "ev_probe_e2e"
+      },
+      "promote": {
+        "call": "promote_memory",
+        "promotion_target": "$stored_id",
+        "user_confirmed": false,
+        "evidence_validated": false
+      },
+      "expected_e2e": {
+        "acceptance_signals_contains": "evidence_validated"
+      }
+    },
+    {
+      "id": "EVP-E-12",
+      "family": "accept",
+      "seed": {
+        "call": "store_memory",
+        "content": "Probe E2E evidence 12",
+        "evidence_validated": true,
+        "tier": "recent",
+        "category": "ev_probe_e2e"
+      },
+      "promote": {
+        "call": "promote_memory",
+        "promotion_target": "$stored_id",
+        "user_confirmed": false,
+        "evidence_validated": false
+      },
+      "expected_e2e": {
+        "acceptance_signals_contains": "evidence_validated"
+      }
+    },
+    {
+      "id": "EVP-E-13",
+      "family": "accept",
+      "seed": {
+        "call": "store_memory",
+        "content": "Probe E2E evidence 13",
+        "evidence_validated": true,
+        "tier": "recent",
+        "category": "ev_probe_e2e"
+      },
+      "promote": {
+        "call": "promote_memory",
+        "promotion_target": "$stored_id",
+        "user_confirmed": false,
+        "evidence_validated": false
+      },
+      "expected_e2e": {
+        "acceptance_signals_contains": "evidence_validated"
+      }
+    },
+    {
+      "id": "EVP-E-14",
+      "family": "accept",
+      "seed": {
+        "call": "store_memory",
+        "content": "Probe E2E evidence 14",
+        "evidence_validated": true,
+        "tier": "recent",
+        "category": "ev_probe_e2e"
+      },
+      "promote": {
+        "call": "promote_memory",
+        "promotion_target": "$stored_id",
+        "user_confirmed": false,
+        "evidence_validated": false
+      },
+      "expected_e2e": {
+        "acceptance_signals_contains": "evidence_validated"
+      }
+    },
+    {
+      "id": "EVP-E-15",
+      "family": "accept",
+      "seed": {
+        "call": "store_memory",
+        "content": "Probe E2E evidence 15",
+        "evidence_validated": true,
+        "tier": "recent",
+        "category": "ev_probe_e2e"
+      },
+      "promote": {
+        "call": "promote_memory",
+        "promotion_target": "$stored_id",
+        "user_confirmed": false,
+        "evidence_validated": false
+      },
+      "expected_e2e": {
+        "acceptance_signals_contains": "evidence_validated"
+      }
+    },
+    {
+      "id": "EVP-E-16",
+      "family": "accept",
+      "seed": {
+        "call": "store_memory",
+        "content": "Probe E2E evidence 16",
+        "evidence_validated": true,
+        "tier": "recent",
+        "category": "ev_probe_e2e"
+      },
+      "promote": {
+        "call": "promote_memory",
+        "promotion_target": "$stored_id",
+        "user_confirmed": false,
+        "evidence_validated": false
+      },
+      "expected_e2e": {
+        "acceptance_signals_contains": "evidence_validated"
+      }
+    },
+    {
+      "id": "EVP-E-17",
+      "family": "accept",
+      "seed": {
+        "call": "store_memory",
+        "content": "Probe E2E evidence 17",
+        "evidence_validated": true,
+        "tier": "recent",
+        "category": "ev_probe_e2e"
+      },
+      "promote": {
+        "call": "promote_memory",
+        "promotion_target": "$stored_id",
+        "user_confirmed": false,
+        "evidence_validated": false
+      },
+      "expected_e2e": {
+        "acceptance_signals_contains": "evidence_validated"
+      }
+    },
+    {
+      "id": "EVP-E-18",
+      "family": "accept",
+      "seed": {
+        "call": "store_memory",
+        "content": "Probe E2E evidence 18",
+        "evidence_validated": true,
+        "tier": "recent",
+        "category": "ev_probe_e2e"
+      },
+      "promote": {
+        "call": "promote_memory",
+        "promotion_target": "$stored_id",
+        "user_confirmed": false,
+        "evidence_validated": false
+      },
+      "expected_e2e": {
+        "acceptance_signals_contains": "evidence_validated"
+      }
+    },
+    {
+      "id": "EVP-E-19",
+      "family": "accept",
+      "seed": {
+        "call": "store_memory",
+        "content": "Probe E2E evidence 19",
+        "evidence_validated": true,
+        "tier": "recent",
+        "category": "ev_probe_e2e"
+      },
+      "promote": {
+        "call": "promote_memory",
+        "promotion_target": "$stored_id",
+        "user_confirmed": false,
+        "evidence_validated": false
+      },
+      "expected_e2e": {
+        "acceptance_signals_contains": "evidence_validated"
+      }
+    },
+    {
+      "id": "EVP-E-20",
+      "family": "accept",
+      "seed": {
+        "call": "store_memory",
+        "content": "Probe E2E evidence 20",
+        "evidence_validated": true,
+        "tier": "recent",
+        "category": "ev_probe_e2e"
+      },
+      "promote": {
+        "call": "promote_memory",
+        "promotion_target": "$stored_id",
+        "user_confirmed": false,
+        "evidence_validated": false
+      },
+      "expected_e2e": {
+        "acceptance_signals_contains": "evidence_validated"
+      }
+    },
+    {
+      "id": "EVP-E-21",
+      "family": "deny_false",
+      "seed": {
+        "call": "store_memory",
+        "content": "Probe E2E evidence 21",
+        "evidence_validated": false,
+        "tier": "recent",
+        "category": "ev_probe_e2e"
+      },
+      "promote": {
+        "call": "promote_memory",
+        "promotion_target": "$stored_id",
+        "user_confirmed": false,
+        "evidence_validated": false
+      },
+      "expected_e2e": {
+        "denial_reason_in": [
+          "acceptance_criteria_not_met",
+          "not_in_recent_tier",
+          "INVALID_PROMOTION_TARGET"
+        ]
+      }
+    },
+    {
+      "id": "EVP-E-22",
+      "family": "deny_false",
+      "seed": {
+        "call": "store_memory",
+        "content": "Probe E2E evidence 22",
+        "evidence_validated": false,
+        "tier": "recent",
+        "category": "ev_probe_e2e"
+      },
+      "promote": {
+        "call": "promote_memory",
+        "promotion_target": "$stored_id",
+        "user_confirmed": false,
+        "evidence_validated": false
+      },
+      "expected_e2e": {
+        "denial_reason_in": [
+          "acceptance_criteria_not_met",
+          "not_in_recent_tier",
+          "INVALID_PROMOTION_TARGET"
+        ]
+      }
+    },
+    {
+      "id": "EVP-E-23",
+      "family": "deny_false",
+      "seed": {
+        "call": "store_memory",
+        "content": "Probe E2E evidence 23",
+        "evidence_validated": false,
+        "tier": "recent",
+        "category": "ev_probe_e2e"
+      },
+      "promote": {
+        "call": "promote_memory",
+        "promotion_target": "$stored_id",
+        "user_confirmed": false,
+        "evidence_validated": false
+      },
+      "expected_e2e": {
+        "denial_reason_in": [
+          "acceptance_criteria_not_met",
+          "not_in_recent_tier",
+          "INVALID_PROMOTION_TARGET"
+        ]
+      }
+    },
+    {
+      "id": "EVP-E-24",
+      "family": "deny_false",
+      "seed": {
+        "call": "store_memory",
+        "content": "Probe E2E evidence 24",
+        "evidence_validated": false,
+        "tier": "recent",
+        "category": "ev_probe_e2e"
+      },
+      "promote": {
+        "call": "promote_memory",
+        "promotion_target": "$stored_id",
+        "user_confirmed": false,
+        "evidence_validated": false
+      },
+      "expected_e2e": {
+        "denial_reason_in": [
+          "acceptance_criteria_not_met",
+          "not_in_recent_tier",
+          "INVALID_PROMOTION_TARGET"
+        ]
+      }
+    },
+    {
+      "id": "EVP-E-25",
+      "family": "deny_false",
+      "seed": {
+        "call": "store_memory",
+        "content": "Probe E2E evidence 25",
+        "evidence_validated": false,
+        "tier": "recent",
+        "category": "ev_probe_e2e"
+      },
+      "promote": {
+        "call": "promote_memory",
+        "promotion_target": "$stored_id",
+        "user_confirmed": false,
+        "evidence_validated": false
+      },
+      "expected_e2e": {
+        "denial_reason_in": [
+          "acceptance_criteria_not_met",
+          "not_in_recent_tier",
+          "INVALID_PROMOTION_TARGET"
+        ]
+      }
+    },
+    {
+      "id": "EVP-E-26",
+      "family": "deny_false",
+      "seed": {
+        "call": "store_memory",
+        "content": "Probe E2E evidence 26",
+        "evidence_validated": false,
+        "tier": "recent",
+        "category": "ev_probe_e2e"
+      },
+      "promote": {
+        "call": "promote_memory",
+        "promotion_target": "$stored_id",
+        "user_confirmed": false,
+        "evidence_validated": false
+      },
+      "expected_e2e": {
+        "denial_reason_in": [
+          "acceptance_criteria_not_met",
+          "not_in_recent_tier",
+          "INVALID_PROMOTION_TARGET"
+        ]
+      }
+    },
+    {
+      "id": "EVP-E-27",
+      "family": "deny_false",
+      "seed": {
+        "call": "store_memory",
+        "content": "Probe E2E evidence 27",
+        "evidence_validated": false,
+        "tier": "recent",
+        "category": "ev_probe_e2e"
+      },
+      "promote": {
+        "call": "promote_memory",
+        "promotion_target": "$stored_id",
+        "user_confirmed": false,
+        "evidence_validated": false
+      },
+      "expected_e2e": {
+        "denial_reason_in": [
+          "acceptance_criteria_not_met",
+          "not_in_recent_tier",
+          "INVALID_PROMOTION_TARGET"
+        ]
+      }
+    },
+    {
+      "id": "EVP-E-28",
+      "family": "deny_false",
+      "seed": {
+        "call": "store_memory",
+        "content": "Probe E2E evidence 28",
+        "evidence_validated": false,
+        "tier": "recent",
+        "category": "ev_probe_e2e"
+      },
+      "promote": {
+        "call": "promote_memory",
+        "promotion_target": "$stored_id",
+        "user_confirmed": false,
+        "evidence_validated": false
+      },
+      "expected_e2e": {
+        "denial_reason_in": [
+          "acceptance_criteria_not_met",
+          "not_in_recent_tier",
+          "INVALID_PROMOTION_TARGET"
+        ]
+      }
+    },
+    {
+      "id": "EVP-E-29",
+      "family": "deny_false",
+      "seed": {
+        "call": "store_memory",
+        "content": "Probe E2E evidence 29",
+        "evidence_validated": false,
+        "tier": "recent",
+        "category": "ev_probe_e2e"
+      },
+      "promote": {
+        "call": "promote_memory",
+        "promotion_target": "$stored_id",
+        "user_confirmed": false,
+        "evidence_validated": false
+      },
+      "expected_e2e": {
+        "denial_reason_in": [
+          "acceptance_criteria_not_met",
+          "not_in_recent_tier",
+          "INVALID_PROMOTION_TARGET"
+        ]
+      }
+    },
+    {
+      "id": "EVP-E-30",
+      "family": "deny_false",
+      "seed": {
+        "call": "store_memory",
+        "content": "Probe E2E evidence 30",
+        "evidence_validated": false,
+        "tier": "recent",
+        "category": "ev_probe_e2e"
+      },
+      "promote": {
+        "call": "promote_memory",
+        "promotion_target": "$stored_id",
+        "user_confirmed": false,
+        "evidence_validated": false
+      },
+      "expected_e2e": {
+        "denial_reason_in": [
+          "acceptance_criteria_not_met",
+          "not_in_recent_tier",
+          "INVALID_PROMOTION_TARGET"
+        ]
+      }
+    },
+    {
+      "id": "EVP-E-31",
+      "family": "deny_false",
+      "seed": {
+        "call": "store_memory",
+        "content": "Probe E2E evidence 31",
+        "evidence_validated": false,
+        "tier": "recent",
+        "category": "ev_probe_e2e"
+      },
+      "promote": {
+        "call": "promote_memory",
+        "promotion_target": "$stored_id",
+        "user_confirmed": false,
+        "evidence_validated": false
+      },
+      "expected_e2e": {
+        "denial_reason_in": [
+          "acceptance_criteria_not_met",
+          "not_in_recent_tier",
+          "INVALID_PROMOTION_TARGET"
+        ]
+      }
+    },
+    {
+      "id": "EVP-E-32",
+      "family": "deny_false",
+      "seed": {
+        "call": "store_memory",
+        "content": "Probe E2E evidence 32",
+        "evidence_validated": false,
+        "tier": "recent",
+        "category": "ev_probe_e2e"
+      },
+      "promote": {
+        "call": "promote_memory",
+        "promotion_target": "$stored_id",
+        "user_confirmed": false,
+        "evidence_validated": false
+      },
+      "expected_e2e": {
+        "denial_reason_in": [
+          "acceptance_criteria_not_met",
+          "not_in_recent_tier",
+          "INVALID_PROMOTION_TARGET"
+        ]
+      }
+    },
+    {
+      "id": "EVP-E-33",
+      "family": "deny_false",
+      "seed": {
+        "call": "store_memory",
+        "content": "Probe E2E evidence 33",
+        "evidence_validated": false,
+        "tier": "recent",
+        "category": "ev_probe_e2e"
+      },
+      "promote": {
+        "call": "promote_memory",
+        "promotion_target": "$stored_id",
+        "user_confirmed": false,
+        "evidence_validated": false
+      },
+      "expected_e2e": {
+        "denial_reason_in": [
+          "acceptance_criteria_not_met",
+          "not_in_recent_tier",
+          "INVALID_PROMOTION_TARGET"
+        ]
+      }
+    },
+    {
+      "id": "EVP-E-34",
+      "family": "deny_false",
+      "seed": {
+        "call": "store_memory",
+        "content": "Probe E2E evidence 34",
+        "evidence_validated": false,
+        "tier": "recent",
+        "category": "ev_probe_e2e"
+      },
+      "promote": {
+        "call": "promote_memory",
+        "promotion_target": "$stored_id",
+        "user_confirmed": false,
+        "evidence_validated": false
+      },
+      "expected_e2e": {
+        "denial_reason_in": [
+          "acceptance_criteria_not_met",
+          "not_in_recent_tier",
+          "INVALID_PROMOTION_TARGET"
+        ]
+      }
+    },
+    {
+      "id": "EVP-E-35",
+      "family": "deny_false",
+      "seed": {
+        "call": "store_memory",
+        "content": "Probe E2E evidence 35",
+        "evidence_validated": false,
+        "tier": "recent",
+        "category": "ev_probe_e2e"
+      },
+      "promote": {
+        "call": "promote_memory",
+        "promotion_target": "$stored_id",
+        "user_confirmed": false,
+        "evidence_validated": false
+      },
+      "expected_e2e": {
+        "denial_reason_in": [
+          "acceptance_criteria_not_met",
+          "not_in_recent_tier",
+          "INVALID_PROMOTION_TARGET"
+        ]
+      }
+    },
+    {
+      "id": "EVP-E-36",
+      "family": "deny_wrong_tier_or_invalid",
+      "seed": {
+        "call": "store_memory",
+        "content": "Probe E2E evidence 36",
+        "evidence_validated": false,
+        "tier": "long_term",
+        "category": "ev_probe_e2e"
+      },
+      "promote": {
+        "call": "promote_memory",
+        "promotion_target": "$stored_id",
+        "user_confirmed": false,
+        "evidence_validated": false
+      },
+      "expected_e2e": {
+        "denial_reason_in": [
+          "acceptance_criteria_not_met",
+          "not_in_recent_tier",
+          "INVALID_PROMOTION_TARGET"
+        ]
+      }
+    },
+    {
+      "id": "EVP-E-37",
+      "family": "deny_wrong_tier_or_invalid",
+      "seed": {
+        "call": "store_memory",
+        "content": "Probe E2E evidence 37",
+        "evidence_validated": false,
+        "tier": "long_term",
+        "category": "ev_probe_e2e"
+      },
+      "promote": {
+        "call": "promote_memory",
+        "promotion_target": "$stored_id",
+        "user_confirmed": false,
+        "evidence_validated": false
+      },
+      "expected_e2e": {
+        "denial_reason_in": [
+          "acceptance_criteria_not_met",
+          "not_in_recent_tier",
+          "INVALID_PROMOTION_TARGET"
+        ]
+      }
+    },
+    {
+      "id": "EVP-E-38",
+      "family": "deny_wrong_tier_or_invalid",
+      "seed": {
+        "call": "store_memory",
+        "content": "Probe E2E evidence 38",
+        "evidence_validated": false,
+        "tier": "long_term",
+        "category": "ev_probe_e2e"
+      },
+      "promote": {
+        "call": "promote_memory",
+        "promotion_target": "$stored_id",
+        "user_confirmed": false,
+        "evidence_validated": false
+      },
+      "expected_e2e": {
+        "denial_reason_in": [
+          "acceptance_criteria_not_met",
+          "not_in_recent_tier",
+          "INVALID_PROMOTION_TARGET"
+        ]
+      }
+    },
+    {
+      "id": "EVP-E-39",
+      "family": "deny_wrong_tier_or_invalid",
+      "seed": {
+        "call": "store_memory",
+        "content": "Probe E2E evidence 39",
+        "evidence_validated": false,
+        "tier": "long_term",
+        "category": "ev_probe_e2e"
+      },
+      "promote": {
+        "call": "promote_memory",
+        "promotion_target": "$stored_id",
+        "user_confirmed": false,
+        "evidence_validated": false
+      },
+      "expected_e2e": {
+        "denial_reason_in": [
+          "acceptance_criteria_not_met",
+          "not_in_recent_tier",
+          "INVALID_PROMOTION_TARGET"
+        ]
+      }
+    },
+    {
+      "id": "EVP-E-40",
+      "family": "deny_wrong_tier_or_invalid",
+      "seed": {
+        "call": "store_memory",
+        "content": "Probe E2E evidence 40",
+        "evidence_validated": false,
+        "tier": "long_term",
+        "category": "ev_probe_e2e"
+      },
+      "promote": {
+        "call": "promote_memory",
+        "promotion_target": "$stored_id",
+        "user_confirmed": false,
+        "evidence_validated": false
+      },
+      "expected_e2e": {
+        "denial_reason_in": [
+          "acceptance_criteria_not_met",
+          "not_in_recent_tier",
+          "INVALID_PROMOTION_TARGET"
+        ]
+      }
+    },
+    {
+      "id": "EVP-E-41",
+      "family": "deny_wrong_tier_or_invalid",
+      "seed": {
+        "call": "store_memory",
+        "content": "Probe E2E evidence 41",
+        "evidence_validated": false,
+        "tier": "recent",
+        "category": "ev_probe_e2e"
+      },
+      "promote": {
+        "call": "promote_memory",
+        "promotion_target": "$stored_id",
+        "user_confirmed": false,
+        "evidence_validated": false
+      },
+      "expected_e2e": {
+        "denial_reason_in": [
+          "acceptance_criteria_not_met",
+          "not_in_recent_tier",
+          "INVALID_PROMOTION_TARGET"
+        ]
+      }
+    },
+    {
+      "id": "EVP-E-42",
+      "family": "deny_wrong_tier_or_invalid",
+      "seed": {
+        "call": "store_memory",
+        "content": "Probe E2E evidence 42",
+        "evidence_validated": false,
+        "tier": "recent",
+        "category": "ev_probe_e2e"
+      },
+      "promote": {
+        "call": "promote_memory",
+        "promotion_target": "$stored_id",
+        "user_confirmed": false,
+        "evidence_validated": false
+      },
+      "expected_e2e": {
+        "denial_reason_in": [
+          "acceptance_criteria_not_met",
+          "not_in_recent_tier",
+          "INVALID_PROMOTION_TARGET"
+        ]
+      }
+    },
+    {
+      "id": "EVP-E-43",
+      "family": "deny_wrong_tier_or_invalid",
+      "seed": {
+        "call": "store_memory",
+        "content": "Probe E2E evidence 43",
+        "evidence_validated": false,
+        "tier": "recent",
+        "category": "ev_probe_e2e"
+      },
+      "promote": {
+        "call": "promote_memory",
+        "promotion_target": "$stored_id",
+        "user_confirmed": false,
+        "evidence_validated": false
+      },
+      "expected_e2e": {
+        "denial_reason_in": [
+          "acceptance_criteria_not_met",
+          "not_in_recent_tier",
+          "INVALID_PROMOTION_TARGET"
+        ]
+      }
+    },
+    {
+      "id": "EVP-E-44",
+      "family": "deny_wrong_tier_or_invalid",
+      "seed": {
+        "call": "store_memory",
+        "content": "Probe E2E evidence 44",
+        "evidence_validated": false,
+        "tier": "recent",
+        "category": "ev_probe_e2e"
+      },
+      "promote": {
+        "call": "promote_memory",
+        "promotion_target": "$stored_id",
+        "user_confirmed": false,
+        "evidence_validated": false
+      },
+      "expected_e2e": {
+        "denial_reason_in": [
+          "acceptance_criteria_not_met",
+          "not_in_recent_tier",
+          "INVALID_PROMOTION_TARGET"
+        ]
+      }
+    },
+    {
+      "id": "EVP-E-45",
+      "family": "deny_wrong_tier_or_invalid",
+      "seed": {
+        "call": "store_memory",
+        "content": "Probe E2E evidence 45",
+        "evidence_validated": false,
+        "tier": "recent",
+        "category": "ev_probe_e2e"
+      },
+      "promote": {
+        "call": "promote_memory",
+        "promotion_target": "$stored_id",
+        "user_confirmed": false,
+        "evidence_validated": false
+      },
+      "expected_e2e": {
+        "denial_reason_in": [
+          "acceptance_criteria_not_met",
+          "not_in_recent_tier",
+          "INVALID_PROMOTION_TARGET"
+        ]
+      }
+    },
+    {
+      "id": "EVP-E-46",
+      "family": "regression",
+      "seed": {
+        "call": "store_memory",
+        "content": "Probe E2E evidence 46",
+        "evidence_validated": true,
+        "tier": "recent",
+        "category": "ev_probe_e2e"
+      },
+      "promote": {
+        "call": "promote_memory",
+        "promotion_target": "$stored_id",
+        "user_confirmed": false,
+        "evidence_validated": false
+      },
+      "expected_e2e": {
+        "no_regression": true
+      }
+    },
+    {
+      "id": "EVP-E-47",
+      "family": "regression",
+      "seed": {
+        "call": "store_memory",
+        "content": "Probe E2E evidence 47",
+        "evidence_validated": false,
+        "tier": "recent",
+        "category": "ev_probe_e2e"
+      },
+      "promote": {
+        "call": "promote_memory",
+        "promotion_target": "$stored_id",
+        "user_confirmed": false,
+        "evidence_validated": false
+      },
+      "expected_e2e": {
+        "no_regression": true
+      }
+    },
+    {
+      "id": "EVP-E-48",
+      "family": "regression",
+      "seed": {
+        "call": "store_memory",
+        "content": "Probe E2E evidence 48",
+        "evidence_validated": true,
+        "tier": "recent",
+        "category": "ev_probe_e2e"
+      },
+      "promote": {
+        "call": "promote_memory",
+        "promotion_target": "$stored_id",
+        "user_confirmed": false,
+        "evidence_validated": false
+      },
+      "expected_e2e": {
+        "no_regression": true
+      }
+    },
+    {
+      "id": "EVP-E-49",
+      "family": "regression",
+      "seed": {
+        "call": "store_memory",
+        "content": "Probe E2E evidence 49",
+        "evidence_validated": false,
+        "tier": "recent",
+        "category": "ev_probe_e2e"
+      },
+      "promote": {
+        "call": "promote_memory",
+        "promotion_target": "$stored_id",
+        "user_confirmed": false,
+        "evidence_validated": false
+      },
+      "expected_e2e": {
+        "no_regression": true
+      }
+    },
+    {
+      "id": "EVP-E-50",
+      "family": "regression",
+      "seed": {
+        "call": "store_memory",
+        "content": "Probe E2E evidence 50",
+        "evidence_validated": true,
+        "tier": "recent",
+        "category": "ev_probe_e2e"
+      },
+      "promote": {
+        "call": "promote_memory",
+        "promotion_target": "$stored_id",
+        "user_confirmed": false,
+        "evidence_validated": false
+      },
+      "expected_e2e": {
+        "no_regression": true
+      }
+    }
+  ]
+}

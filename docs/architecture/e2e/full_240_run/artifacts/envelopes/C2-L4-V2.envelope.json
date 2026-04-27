@@ -1,0 +1,23 @@
+{
+  "message_id": "2ddcb3d0-6e10-472f-8650-3e26c6521578",
+  "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+  "channel": "e2e-rich-matrix",
+  "direction": "inbound",
+  "author_type": "user",
+  "normalized_content": "Please handle this as an English equivalent: Ține minte următoarele despre Andrei: preferă antrenamentele dimineața, evită cardio lung pentru că îl plictisește, acceptă intervale scurte dacă sunt integrate într-un circuit și are tendința să exagereze cu greutățile când se simte bine. Nu transforma observația de azi că era obosit într-o regulă permanentă; aceea a fost probabil o situație temporară.",
+  "timestamp": "2026-04-26T02:50:47.227Z",
+  "source_message_ref": "e2e:C2-L4-V2:e2e:f240-2026-04-26:C2-L4-V2",
+  "author_entity_id": null,
+  "related_entity_ids": [],
+  "metadata": {
+    "e2e_case_id": "C2-L4-V2",
+    "e2e_corridor": "C2",
+    "e2e_variant": "locale_en",
+    "e2e_phase": "P1_FOUNDATION",
+    "e2e_priority": "P1",
+    "e2e_locale": "en",
+    "e2e_run_tag": "f240-2026-04-26"
+  },
+  "idempotency_key": "e2e:f240-2026-04-26:C2-L4-V2",
+  "thread_id": "1c45cd6e-e14f-49fe-8a7f-302f2d77379d"
+}

@@ -1,0 +1,1 @@
+{"mode": "rules", "rules": {"values": [{"conditions": {"options": {"caseSensitive": true, "typeValidation": "strict", "version": 2}, "conditions": [{"leftValue": "={{ $json.channel }}", "rightValue": "telegram", "operator": {"type": "string", "operation": "equals"}}], "combinator": "and"}}]}, "options": {"fallbackOutput": "extra"}}

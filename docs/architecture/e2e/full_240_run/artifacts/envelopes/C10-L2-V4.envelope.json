@@ -1,0 +1,23 @@
+{
+  "message_id": "bdc6f4fa-279d-4085-889b-a692fbde6465",
+  "tenant_id": "eee0e2e0-0000-0000-0000-00000000000b",
+  "channel": "e2e-rich-matrix",
+  "direction": "inbound",
+  "author_type": "user",
+  "normalized_content": "Ce știi despre preferința mea de program?",
+  "timestamp": "2026-04-26T02:50:48.493Z",
+  "source_message_ref": "e2e:C10-L2-V4:e2e:f240-2026-04-26:C10-L2-V4",
+  "author_entity_id": null,
+  "related_entity_ids": [],
+  "metadata": {
+    "e2e_case_id": "C10-L2-V4",
+    "e2e_corridor": "C10",
+    "e2e_variant": "tenant_B_cross_leak_probe",
+    "e2e_phase": "P1_FOUNDATION_CRITICAL",
+    "e2e_priority": "P0",
+    "e2e_locale": "ro",
+    "e2e_run_tag": "f240-2026-04-26"
+  },
+  "idempotency_key": "e2e:f240-2026-04-26:C10-L2-V4",
+  "thread_id": "0065e508-0ac6-4723-8566-a6b4a3e6887c"
+}

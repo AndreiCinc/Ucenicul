@@ -1,0 +1,24 @@
+{
+  "case_id": "C6-L1-V1",
+  "run_tag": "plbrf-2026-04-26",
+  "runtime": {
+    "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+    "message_id": "ffa74efd-bcb7-4fac-8924-03c5a4745b20",
+    "thread_id": "ceab7362-5b3a-42af-8077-c550bc6e5e53",
+    "reply_to_thread_id": null,
+    "idempotency_key": "e2e:f240-2026-04-26:C6-L1-V1",
+    "thread_label": "C6:C6-L1-V1",
+    "ts_iso": "2026-04-26T02:50:47.751Z",
+    "run_tag": "f240-2026-04-26",
+    "thread_context_kind": "seeded-fresh",
+    "fire_iso": "2026-04-26T03:21:53.638Z"
+  },
+  "invariants": [
+    {
+      "name": "assert_planned_side_effects_match_user_intent",
+      "sql": "SELECT 1 WHERE 1=0",
+      "params": [],
+      "unknown": false
+    }
+  ]
+}

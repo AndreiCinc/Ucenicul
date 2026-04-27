@@ -1,0 +1,44 @@
+{
+  "case_id": "f31-recall-011",
+  "execution_id": "2784",
+  "execution_status": "success",
+  "execution_mcp_response": {
+    "executionId": "2784",
+    "status": "success"
+  },
+  "response_envelope": {
+    "status": "success",
+    "applied_filters": [
+      "entity_id",
+      "source_thread_id",
+      "category",
+      "memory_type"
+    ],
+    "recall_results": [
+      {}
+    ]
+  },
+  "module_result_outer": {
+    "status_kind": "success",
+    "result_type": "module_result",
+    "module_name": "memory_module",
+    "step_id": "mem-f31-f31-recall-011",
+    "summary": "Memory recall completed (1 rows).",
+    "artifacts": [],
+    "domain_writes_performed": false,
+    "response_generation_allowed": false
+  },
+  "db_pre": [
+    {
+      "pre_max": "2026-04-21T12:54:40.918Z"
+    }
+  ],
+  "db_post": [
+    {
+      "post_max": "2026-04-21T12:54:40.918Z"
+    }
+  ],
+  "error": null,
+  "captured_at": "2026-04-22T05:43:36.403Z",
+  "notes": "Stage C recall rerun F31-FIX-003"
+}

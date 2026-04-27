@@ -1,0 +1,23 @@
+{
+  "message_id": "e6743ade-ded7-461b-87fe-8d31d6cf54ec",
+  "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+  "channel": "e2e-rich-matrix",
+  "direction": "inbound",
+  "author_type": "user",
+  "normalized_content": "Please handle this as an English equivalent: Tratează acest mesaj ca pe un mesaj care poate fi retrimis de webhook. Ține minte că preferința de comunicare pentru clientul test este email dimineața, dar dacă primești exact același mesaj de trei ori, nu crea trei memorii, trei task-uri sau trei mesaje outbound. Prima execuție poate produce side-effect-ul corect; reluările trebuie să fie idempotente. Răspunsul pentru user trebuie să apară o singură dată logic, chiar dacă transportul a făcut retry. Mai adaug o constrângere: dacă există conflict între thread-ul curent și o memorie durabilă, nu suprascrie memoria fără confirmare explicită. Dacă cererea are două interpretări, cere clarificare.",
+  "timestamp": "2026-04-26T02:50:48.762Z",
+  "source_message_ref": "e2e:C11-L5-V2:e2e:f240-2026-04-26:C11-L5-replay",
+  "author_entity_id": null,
+  "related_entity_ids": [],
+  "metadata": {
+    "e2e_case_id": "C11-L5-V2",
+    "e2e_corridor": "C11",
+    "e2e_variant": "duplicate_delivery_1",
+    "e2e_phase": "P1_FOUNDATION_CRITICAL",
+    "e2e_priority": "P0",
+    "e2e_locale": "en",
+    "e2e_run_tag": "f240-2026-04-26"
+  },
+  "idempotency_key": "e2e:f240-2026-04-26:C11-L5-replay",
+  "thread_id": "a3d12a01-07dd-4c28-872d-99762eac02e7"
+}

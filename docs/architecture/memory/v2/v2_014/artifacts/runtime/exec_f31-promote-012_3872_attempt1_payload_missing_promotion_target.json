@@ -1,0 +1,14 @@
+{
+  "case_id": "f31-promote-012",
+  "attempt": 1,
+  "execution_id": "3872",
+  "execution_status": "success_workflow_but_module_error",
+  "module_outcome": {
+    "code": "INVALID_PROMOTION_TARGET",
+    "message": "promote_memory requires memory_id and promotion_target=long_term.",
+    "missing_fields": ["promotion_target"]
+  },
+  "db_pre": {"tier":"recent","user_confirmed":true,"evidence_validated":false,"corroboration_count":1,"last_reconfirmed_at":null},
+  "db_post":{"tier":"recent","user_confirmed":true,"evidence_validated":false,"corroboration_count":1,"last_reconfirmed_at":null},
+  "verdict": "INVALID — payload missing promotion_target; logged as V2-014-FIX-001"
+}

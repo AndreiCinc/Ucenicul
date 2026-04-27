@@ -1,0 +1,54 @@
+{
+  "workflow_code": "WF-DI-01",
+  "workflow_name": "WF-DI-01 Dispatcher",
+  "tier": "standard",
+  "status": "closed",
+  "posture": "live",
+  "score": 10,
+  "closed": true,
+  "advance_allowed": true,
+  "phase": "closed_live_v1_v6_passed_zero_db_drift",
+  "next_action": "Activate WF-ME-01",
+  "closed_at": null,
+  "last_sync": null,
+  "last_verified": "2026-04-19",
+  "live_runs": null,
+  "owner": "TBD",
+  "canonical": {
+    "implementation": "workflow/WF-DI-01_Dispatcher.json",
+    "contracts": null,
+    "status": "state/STATE__WF-DI-01.json"
+  },
+  "evidence_on_disk": {
+    "implementation_present": true,
+    "duplicate_full_blueprint_present": true,
+    "duplicate_full_blueprint_path": "workflow/WF-DI-01_blueprint.json",
+    "contracts_present": false,
+    "sql_present": true,
+    "scripts_present": true,
+    "tests_present": true,
+    "test_results_present": true,
+    "audit_report_present": true,
+    "build_report_present": true,
+    "closure_report_present": true,
+    "current_stage_present": true,
+    "fix_log_present": true,
+    "legacy_state_json_present_in_reports": true,
+    "stage_lock_present": true
+  },
+  "missing": [
+    "docs/WF-DI-01_CONTRACTS.md",
+    "docs/WF-DI-01_TEST_MATRIX.md",
+    "reports/LIVE_EXECUTIONS__WF-DI-01.md"
+  ],
+  "foreign": [
+    "docs/desktop.ini"
+  ],
+  "duplicate_canonical_bugs": [
+    {"path": "workflow/WF-DI-01_blueprint.json", "kind": "stale_full_duplicate_of_canonical_implementation", "remediation": "future pass should either regenerate a slim blueprint or move to workflow/patches/"}
+  ],
+  "provenance": "Seed derived from reports/STATE__WF-DI-01.json (legacy state file); STATE authored during autonomous run run_2026-04-19_autonomous.",
+  "notes": "WF-DI-01 is closed live with V1 and V6 passing and zero DB drift per legacy STATE. Stage lock present at docs/17_STAGE_LOCK__WF-DI-01.md.",
+  "last_updated": "2026-04-19",
+  "run_id": "run_2026-04-19_autonomous"
+}

@@ -1,0 +1,20 @@
+{
+  "message_id": "5878f2c3-7275-49dc-8af7-a8aefe9fee3d",
+  "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+  "channel": "acg-runtime",
+  "direction": "inbound",
+  "author_type": "user",
+  "normalized_content": "Amintește-mi mâine la 11 să verific ACG runtime smoke.",
+  "timestamp": "2026-04-25T23:35:41.576Z",
+  "source_message_ref": "acg:ACG-06:acg:acg-2026-04-25:ACG-06",
+  "author_entity_id": null,
+  "related_entity_ids": [],
+  "metadata": {
+    "acg_case_id": "ACG-06",
+    "acg_lane": "positive_lane",
+    "acg_run_tag": "acg-2026-04-25"
+  },
+  "idempotency_key": "acg:acg-2026-04-25:ACG-06",
+  "thread_id": "0411e127-593c-415f-8332-9794eb7dd0b8",
+  "reply_to_thread_id": null
+}

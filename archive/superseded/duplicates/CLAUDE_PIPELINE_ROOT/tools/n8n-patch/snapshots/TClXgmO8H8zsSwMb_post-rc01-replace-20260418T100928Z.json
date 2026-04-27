@@ -1,0 +1,879 @@
+{
+  "updatedAt": "2026-04-18T10:09:07.674Z",
+  "createdAt": "2026-04-18T08:57:23.936Z",
+  "id": "TClXgmO8H8zsSwMb",
+  "name": "WF-RC-01 Response Composer",
+  "description": null,
+  "active": true,
+  "isArchived": false,
+  "nodes": [
+    {
+      "id": "rc-input",
+      "name": "RC_Input",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1,
+      "position": [
+        260,
+        260
+      ],
+      "parameters": {}
+    },
+    {
+      "id": "rc-manual",
+      "name": "RC_Manual_Test_Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        260,
+        460
+      ],
+      "parameters": {}
+    },
+    {
+      "id": "rc-validate",
+      "name": "RC_Validate_State_Update_Input",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        520,
+        360
+      ],
+      "parameters": {
+        "language": "javaScript",
+        "jsCode": "const input = $json || {};\nconst required = ['status_kind','result_type','execution_context_id','thread_id','tenant_id','state_update_result','allowed_next_stage','response_generation_allowed'];\nconst missing = required.filter(k => !(k in input));\nif (missing.length) {\n  return [{ json: {\n    status_kind: 'error',\n    result_type: 'composition_error',\n    error: {\n      code: 'INVALID_RESPONSE_COMPOSITION_INPUT',\n      message: 'Missing required top-level field(s) for response composition.',\n      missing_fields: missing,\n      details: { received_keys: Object.keys(input).sort() }\n    },\n    _valid: false\n  }}];\n}\nif (input.status_kind !== 'success' || input.result_type !== 'state_update_result') {\n  return [{ json: {\n    status_kind: 'error',\n    result_type: 'composition_error',\n    error: {\n      code: 'INVALID_RESPONSE_COMPOSITION_INPUT',\n      message: 'Unsupported envelope for RC.',\n      missing_fields: [],\n      details: { status_kind: input.status_kind, result_type: input.result_type }\n    },\n    _valid: false\n  }}];\n}\nif (input.allowed_next_stage !== 'WF-RC-01' || input.response_generation_allowed !== true) {\n  return [{ json: {\n    status_kind: 'error',\n    result_type: 'composition_error',\n    error: {\n      code: 'COMPOSITION_NOT_ALLOWED',\n      message: 'RC is not allowed to compose for this envelope.',\n      missing_fields: [],\n      details: { allowed_next_stage: input.allowed_next_stage, response_generation_allowed: input.response_generation_allowed }\n    },\n    _valid: false\n  }}];\n}\nconst sur = input.state_update_result || {};\nif (!sur.status || !sur.summary) {\n  return [{ json: {\n    status_kind: 'error',\n    result_type: 'composition_error',\n    error: {\n      code: 'INVALID_RESPONSE_COMPOSITION_INPUT',\n      message: 'state_update_result is incomplete.',\n      missing_fields: [],\n      details: { state_update_result: sur }\n    },\n    _valid: false\n  }}];\n}\nreturn [{ json: {\n  ...input,\n  channel: input.channel || 'telegram',\n  locale: input.locale || 'ro',\n  _valid: true\n}}];"
+      }
+    },
+    {
+      "id": "rc-route-valid",
+      "name": "RC_Route_Valid",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        760,
+        360
+      ],
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "typeValidation": "strict"
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json._valid }}",
+                    "rightValue": true,
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "equals"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "options": {
+          "fallbackOutput": "extra"
+        }
+      }
+    },
+    {
+      "id": "rc-load-ec",
+      "name": "RC_Load_Execution_Context",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [
+        1020,
+        260
+      ],
+      "alwaysOutputData": true,
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "-- Load execution context for RC lineage verification (read-only, tenant-scoped)\nSELECT id, tenant_id, thread_id, status, current_plan_ref, updated_at\nFROM public.execution_contexts\nWHERE id = $1::uuid\n  AND tenant_id = $2::uuid\nLIMIT 1;\n",
+        "options": {
+          "queryReplacement": "={{ [$json.execution_context_id, $json.tenant_id] }}"
+        }
+      },
+      "credentials": {
+        "postgres": {
+          "id": "CREDENTIAL_PLACEHOLDER",
+          "name": "CREDENTIAL_PLACEHOLDER"
+        }
+      }
+    },
+    {
+      "id": "rc-load-thread",
+      "name": "RC_Load_Thread_Context",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [
+        1260,
+        260
+      ],
+      "alwaysOutputData": true,
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "-- Load thread context for RC composition (read-only, tenant-scoped)\nSELECT id, tenant_id, title, summary, status, last_activity_at\nFROM public.threads\nWHERE id = $1::uuid\n  AND tenant_id = $2::uuid\nLIMIT 1;\n",
+        "options": {
+          "queryReplacement": "={{ [$('RC_Validate_State_Update_Input').first().json.thread_id, $('RC_Validate_State_Update_Input').first().json.tenant_id] }}"
+        }
+      },
+      "credentials": {
+        "postgres": {
+          "id": "CREDENTIAL_PLACEHOLDER",
+          "name": "CREDENTIAL_PLACEHOLDER"
+        }
+      }
+    },
+    {
+      "id": "rc-verify",
+      "name": "RC_Verify_Lineage",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1500,
+        260
+      ],
+      "parameters": {
+        "language": "javaScript",
+        "jsCode": "const env = $('RC_Validate_State_Update_Input').first().json;\nconst ecRow = $items('RC_Load_Execution_Context', 0, 0)?.[0]?.json || {};\nconst thRow = $items('RC_Load_Thread_Context', 0, 0)?.[0]?.json || {};\nif (!ecRow.id) {\n  return [{ json: {\n    status_kind: 'error',\n    result_type: 'composition_error',\n    error: {\n      code: 'LINEAGE_MISMATCH',\n      message: 'execution_context row not found.',\n      missing_fields: [],\n      details: {\n        execution_context_id: env.execution_context_id,\n        tenant_id: env.tenant_id\n      }\n    },\n    _context_ready: false\n  }}];\n}\nif (ecRow.tenant_id !== env.tenant_id || ecRow.thread_id !== env.thread_id) {\n  return [{ json: {\n    status_kind: 'error',\n    result_type: 'composition_error',\n    error: {\n      code: 'LINEAGE_MISMATCH',\n      message: 'execution_context lineage mismatch.',\n      missing_fields: [],\n      details: {\n        execution_context_id: env.execution_context_id,\n        tenant_id: env.tenant_id,\n        row_tenant_id: ecRow.tenant_id,\n        thread_id: env.thread_id,\n        row_thread_id: ecRow.thread_id\n      }\n    },\n    _context_ready: false\n  }}];\n}\nif (thRow.id && (thRow.id !== env.thread_id || thRow.tenant_id !== env.tenant_id)) {\n  return [{ json: {\n    status_kind: 'error',\n    result_type: 'composition_error',\n    error: {\n      code: 'LINEAGE_MISMATCH',\n      message: 'thread lineage mismatch.',\n      missing_fields: [],\n      details: {\n        thread_id: env.thread_id,\n        row_id: thRow.id,\n        tenant_id: env.tenant_id,\n        row_tenant_id: thRow.tenant_id\n      }\n    },\n    _context_ready: false\n  }}];\n}\nreturn [{ json: { ...env, _context_ready: true, _thread_row: thRow } }];"
+      }
+    },
+    {
+      "id": "rc-route-context",
+      "name": "RC_Route_Context_Ready",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        1740,
+        260
+      ],
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "typeValidation": "strict"
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json._context_ready }}",
+                    "rightValue": true,
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "equals"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "options": {
+          "fallbackOutput": "extra"
+        }
+      }
+    },
+    {
+      "id": "rc-build-input",
+      "name": "RC_Build_Composition_Input",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1980,
+        180
+      ],
+      "parameters": {
+        "language": "javaScript",
+        "jsCode": "const env = $json;\nconst sur = env.state_update_result || {};\nconst threadRow = env._thread_row || {};\nreturn [{ json: {\n  execution_context_id: env.execution_context_id,\n  thread_id: env.thread_id,\n  tenant_id: env.tenant_id,\n  channel: env.channel || 'telegram',\n  locale: env.locale || 'ro',\n  status: sur.status,\n  summary: sur.summary,\n  applied_write_classes: sur.applied_write_classes || [],\n  blocked_write_classes: sur.blocked_write_classes || [],\n  warnings: sur.warnings || [],\n  followup_requests: sur.followup_requests || [],\n  user_visible_facts: sur.user_visible_facts || [],\n  actions_acknowledged: sur.actions_acknowledged || [],\n  thread_title: threadRow.title || null,\n  thread_summary: threadRow.summary || null\n}}];"
+      }
+    },
+    {
+      "id": "rc-compose",
+      "name": "RC_Compose_Response",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2220,
+        180
+      ],
+      "parameters": {
+        "language": "javaScript",
+        "jsCode": "const labelsRo = {\n  execution_state_update: 'starea execuției',\n  thread_state_update: 'firul de lucru',\n  memory_candidate_persistence: 'candidații de memorie',\n  audit_persistence: 'auditul intern',\n  domain_event_write: 'scriere de eveniment de domeniu'\n};\nconst labelsEn = {\n  execution_state_update: 'execution state',\n  thread_state_update: 'thread context',\n  memory_candidate_persistence: 'memory candidates',\n  audit_persistence: 'audit trail',\n  domain_event_write: 'domain event write'\n};\nconst comp = $json;\nconst locale = comp.locale || 'ro';\nconst labels = locale === 'ro' ? labelsRo : labelsEn;\nconst labelize = (arr=[]) => arr.map(x => labels[x] || x);\nconst warn = (x) => {\n  if (x && typeof x === 'object') {\n    if (x.code && x.message) return `${x.code}: ${x.message}`;\n    if (x.message) return String(x.message);\n  }\n  return String(x);\n};\nconst applied = labelize(comp.applied_write_classes || []);\nconst blocked = labelize(comp.blocked_write_classes || []);\nconst warnings = (comp.warnings || []).map(warn);\nconst followups = (comp.followup_requests || []).map(warn);\nconst facts = (comp.user_visible_facts || []).map(String).filter(Boolean);\nconst actions = (comp.actions_acknowledged || []).map(String).filter(Boolean);\nconst lines = [];\nif (locale === 'ro') {\n  if (comp.status === 'success') lines.push('Am pregătit răspunsul final pe baza rezultatului confirmat.');\n  else if (comp.status === 'partial') lines.push('Am pregătit răspunsul final, dar există și elemente rămase parțiale.');\n  else if (comp.status === 'failed') lines.push('Nu am putut pregăti complet răspunsul final.');\n  else lines.push('Am verificat rezultatul și nu a fost necesară nicio acțiune suplimentară.');\n  lines.push(comp.summary);\n  if (actions.length) lines.push(`Acțiuni confirmate: ${actions.join('; ')}.`);\n  if (applied.length) lines.push(`Aplicat: ${applied.join(', ')}.`);\n  if (blocked.length) lines.push(`Blocat sau rămas neaplicat: ${blocked.join(', ')}.`);\n  if (facts.length) lines.push(`Context util: ${facts.join('; ')}.`);\n  if (warnings.length) lines.push(`Atenționări: ${warnings.join('; ')}.`);\n  if (followups.length) lines.push(`Mai am nevoie de clarificări pentru: ${followups.join('; ')}.`);\n} else {\n  if (comp.status === 'success') lines.push('I prepared the final response from the confirmed result.');\n  else if (comp.status === 'partial') lines.push('I prepared the final response, but some elements remain partial.');\n  else if (comp.status === 'failed') lines.push('I could not fully prepare the final response.');\n  else lines.push('I reviewed the result and no additional action was required.');\n  lines.push(comp.summary);\n  if (actions.length) lines.push(`Confirmed actions: ${actions.join('; ')}.`);\n  if (applied.length) lines.push(`Applied: ${applied.join(', ')}.`);\n  if (blocked.length) lines.push(`Blocked or not applied: ${blocked.join(', ')}.`);\n  if (facts.length) lines.push(`Useful context: ${facts.join('; ')}.`);\n  if (warnings.length) lines.push(`Warnings: ${warnings.join('; ')}.`);\n  if (followups.length) lines.push(`I still need clarification for: ${followups.join('; ')}.`);\n}\nreturn [{ json: {\n  final_response_text: lines.filter(Boolean).join('\\n'),\n  response_status: comp.status,\n  includes_followups: followups.length > 0,\n  includes_warnings: warnings.length > 0,\n  followup_count: followups.length,\n  warning_count: warnings.length,\n  channel: comp.channel,\n  locale\n}}];"
+      }
+    },
+    {
+      "id": "rc-build-output",
+      "name": "RC_Build_Output_Envelope",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2460,
+        180
+      ],
+      "parameters": {
+        "language": "javaScript",
+        "jsCode": "const crypto = require('crypto');\nconst env = $('RC_Validate_State_Update_Input').first().json;\nconst composed = $json;\nconst digest = crypto.createHash('sha256')\n  .update([\n    env.execution_context_id,\n    env.thread_id,\n    env.tenant_id,\n    composed.response_status,\n    composed.final_response_text\n  ].join('|'))\n  .digest('hex')\n  .slice(0, 16);\nreturn [{ json: {\n  status_kind: 'success',\n  result_type: 'composed_response',\n  execution_context_id: env.execution_context_id,\n  thread_id: env.thread_id,\n  tenant_id: env.tenant_id,\n  composed_response: composed,\n  output_gateway_allowed: true,\n  allowed_next_stage: 'MESSAGE_OUT',\n  response_generation_allowed: true,\n  idempotency_key: `compose:${env.execution_context_id}:${digest}`\n}}];"
+      }
+    },
+    {
+      "id": "rc-return-result",
+      "name": "RC_Return_Result",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2700,
+        180
+      ],
+      "parameters": {
+        "language": "javaScript",
+        "jsCode": "return [{ json: $json }];"
+      }
+    },
+    {
+      "id": "rc-return-error",
+      "name": "RC_Return_Error",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1020,
+        520
+      ],
+      "parameters": {
+        "language": "javaScript",
+        "jsCode": "return [{ json: $json }];"
+      }
+    },
+    {
+      "id": "rc-return-context-error",
+      "name": "RC_Return_Context_Error",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1980,
+        520
+      ],
+      "parameters": {
+        "language": "javaScript",
+        "jsCode": "return [{ json: $json }];"
+      }
+    }
+  ],
+  "connections": {
+    "RC_Input": {
+      "main": [
+        [
+          {
+            "node": "RC_Validate_State_Update_Input",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "RC_Manual_Test_Trigger": {
+      "main": [
+        [
+          {
+            "node": "RC_Validate_State_Update_Input",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "RC_Validate_State_Update_Input": {
+      "main": [
+        [
+          {
+            "node": "RC_Route_Valid",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "RC_Route_Valid": {
+      "main": [
+        [
+          {
+            "node": "RC_Load_Execution_Context",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "RC_Return_Error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "RC_Load_Execution_Context": {
+      "main": [
+        [
+          {
+            "node": "RC_Load_Thread_Context",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "RC_Load_Thread_Context": {
+      "main": [
+        [
+          {
+            "node": "RC_Verify_Lineage",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "RC_Verify_Lineage": {
+      "main": [
+        [
+          {
+            "node": "RC_Route_Context_Ready",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "RC_Route_Context_Ready": {
+      "main": [
+        [
+          {
+            "node": "RC_Build_Composition_Input",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "RC_Return_Context_Error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "RC_Build_Composition_Input": {
+      "main": [
+        [
+          {
+            "node": "RC_Compose_Response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "RC_Compose_Response": {
+      "main": [
+        [
+          {
+            "node": "RC_Build_Output_Envelope",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "RC_Build_Output_Envelope": {
+      "main": [
+        [
+          {
+            "node": "RC_Return_Result",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "timeSavedMode": "fixed",
+    "callerPolicy": "workflowsFromSameOwner",
+    "availableInMCP": false
+  },
+  "staticData": null,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "pinData": {},
+  "versionId": "b798ca0a-836f-4291-8961-708ee6529c50",
+  "activeVersionId": "b798ca0a-836f-4291-8961-708ee6529c50",
+  "versionCounter": 32,
+  "triggerCount": 0,
+  "shared": [
+    {
+      "updatedAt": "2026-04-18T08:57:23.936Z",
+      "createdAt": "2026-04-18T08:57:23.936Z",
+      "role": "workflow:owner",
+      "workflowId": "TClXgmO8H8zsSwMb",
+      "projectId": "WIRLhU6IcCuQzkzY",
+      "project": {
+        "updatedAt": "2026-03-27T16:42:52.879Z",
+        "createdAt": "2026-03-26T19:16:39.847Z",
+        "id": "WIRLhU6IcCuQzkzY",
+        "name": "Andrei Cinc <andrei.cinc9@gmail.com>",
+        "type": "personal",
+        "icon": null,
+        "description": null,
+        "creatorId": "68a414fd-cc03-4f02-87bc-9067f976e98a"
+      }
+    }
+  ],
+  "tags": [],
+  "activeVersion": {
+    "updatedAt": "2026-04-18T10:09:07.687Z",
+    "createdAt": "2026-04-18T10:09:07.687Z",
+    "versionId": "b798ca0a-836f-4291-8961-708ee6529c50",
+    "workflowId": "TClXgmO8H8zsSwMb",
+    "nodes": [
+      {
+        "id": "rc-input",
+        "name": "RC_Input",
+        "type": "n8n-nodes-base.executeWorkflowTrigger",
+        "typeVersion": 1,
+        "position": [
+          260,
+          260
+        ],
+        "parameters": {}
+      },
+      {
+        "id": "rc-manual",
+        "name": "RC_Manual_Test_Trigger",
+        "type": "n8n-nodes-base.manualTrigger",
+        "typeVersion": 1,
+        "position": [
+          260,
+          460
+        ],
+        "parameters": {}
+      },
+      {
+        "id": "rc-validate",
+        "name": "RC_Validate_State_Update_Input",
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2,
+        "position": [
+          520,
+          360
+        ],
+        "parameters": {
+          "language": "javaScript",
+          "jsCode": "const input = $json || {};\nconst required = ['status_kind','result_type','execution_context_id','thread_id','tenant_id','state_update_result','allowed_next_stage','response_generation_allowed'];\nconst missing = required.filter(k => !(k in input));\nif (missing.length) {\n  return [{ json: {\n    status_kind: 'error',\n    result_type: 'composition_error',\n    error: {\n      code: 'INVALID_RESPONSE_COMPOSITION_INPUT',\n      message: 'Missing required top-level field(s) for response composition.',\n      missing_fields: missing,\n      details: { received_keys: Object.keys(input).sort() }\n    },\n    _valid: false\n  }}];\n}\nif (input.status_kind !== 'success' || input.result_type !== 'state_update_result') {\n  return [{ json: {\n    status_kind: 'error',\n    result_type: 'composition_error',\n    error: {\n      code: 'INVALID_RESPONSE_COMPOSITION_INPUT',\n      message: 'Unsupported envelope for RC.',\n      missing_fields: [],\n      details: { status_kind: input.status_kind, result_type: input.result_type }\n    },\n    _valid: false\n  }}];\n}\nif (input.allowed_next_stage !== 'WF-RC-01' || input.response_generation_allowed !== true) {\n  return [{ json: {\n    status_kind: 'error',\n    result_type: 'composition_error',\n    error: {\n      code: 'COMPOSITION_NOT_ALLOWED',\n      message: 'RC is not allowed to compose for this envelope.',\n      missing_fields: [],\n      details: { allowed_next_stage: input.allowed_next_stage, response_generation_allowed: input.response_generation_allowed }\n    },\n    _valid: false\n  }}];\n}\nconst sur = input.state_update_result || {};\nif (!sur.status || !sur.summary) {\n  return [{ json: {\n    status_kind: 'error',\n    result_type: 'composition_error',\n    error: {\n      code: 'INVALID_RESPONSE_COMPOSITION_INPUT',\n      message: 'state_update_result is incomplete.',\n      missing_fields: [],\n      details: { state_update_result: sur }\n    },\n    _valid: false\n  }}];\n}\nreturn [{ json: {\n  ...input,\n  channel: input.channel || 'telegram',\n  locale: input.locale || 'ro',\n  _valid: true\n}}];"
+        }
+      },
+      {
+        "id": "rc-route-valid",
+        "name": "RC_Route_Valid",
+        "type": "n8n-nodes-base.switch",
+        "typeVersion": 3.2,
+        "position": [
+          760,
+          360
+        ],
+        "parameters": {
+          "rules": {
+            "values": [
+              {
+                "conditions": {
+                  "options": {
+                    "caseSensitive": true,
+                    "typeValidation": "strict"
+                  },
+                  "conditions": [
+                    {
+                      "leftValue": "={{ $json._valid }}",
+                      "rightValue": true,
+                      "operator": {
+                        "type": "boolean",
+                        "operation": "equals"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "options": {
+            "fallbackOutput": "extra"
+          }
+        }
+      },
+      {
+        "id": "rc-load-ec",
+        "name": "RC_Load_Execution_Context",
+        "type": "n8n-nodes-base.postgres",
+        "typeVersion": 2.5,
+        "position": [
+          1020,
+          260
+        ],
+        "alwaysOutputData": true,
+        "parameters": {
+          "operation": "executeQuery",
+          "query": "-- Load execution context for RC lineage verification (read-only, tenant-scoped)\nSELECT id, tenant_id, thread_id, status, current_plan_ref, updated_at\nFROM public.execution_contexts\nWHERE id = $1::uuid\n  AND tenant_id = $2::uuid\nLIMIT 1;\n",
+          "options": {
+            "queryReplacement": "={{ [$json.execution_context_id, $json.tenant_id] }}"
+          }
+        },
+        "credentials": {
+          "postgres": {
+            "id": "CREDENTIAL_PLACEHOLDER",
+            "name": "CREDENTIAL_PLACEHOLDER"
+          }
+        }
+      },
+      {
+        "id": "rc-load-thread",
+        "name": "RC_Load_Thread_Context",
+        "type": "n8n-nodes-base.postgres",
+        "typeVersion": 2.5,
+        "position": [
+          1260,
+          260
+        ],
+        "alwaysOutputData": true,
+        "parameters": {
+          "operation": "executeQuery",
+          "query": "-- Load thread context for RC composition (read-only, tenant-scoped)\nSELECT id, tenant_id, title, summary, status, last_activity_at\nFROM public.threads\nWHERE id = $1::uuid\n  AND tenant_id = $2::uuid\nLIMIT 1;\n",
+          "options": {
+            "queryReplacement": "={{ [$('RC_Validate_State_Update_Input').first().json.thread_id, $('RC_Validate_State_Update_Input').first().json.tenant_id] }}"
+          }
+        },
+        "credentials": {
+          "postgres": {
+            "id": "CREDENTIAL_PLACEHOLDER",
+            "name": "CREDENTIAL_PLACEHOLDER"
+          }
+        }
+      },
+      {
+        "id": "rc-verify",
+        "name": "RC_Verify_Lineage",
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2,
+        "position": [
+          1500,
+          260
+        ],
+        "parameters": {
+          "language": "javaScript",
+          "jsCode": "const env = $('RC_Validate_State_Update_Input').first().json;\nconst ecRow = $items('RC_Load_Execution_Context', 0, 0)?.[0]?.json || {};\nconst thRow = $items('RC_Load_Thread_Context', 0, 0)?.[0]?.json || {};\nif (!ecRow.id) {\n  return [{ json: {\n    status_kind: 'error',\n    result_type: 'composition_error',\n    error: {\n      code: 'LINEAGE_MISMATCH',\n      message: 'execution_context row not found.',\n      missing_fields: [],\n      details: {\n        execution_context_id: env.execution_context_id,\n        tenant_id: env.tenant_id\n      }\n    },\n    _context_ready: false\n  }}];\n}\nif (ecRow.tenant_id !== env.tenant_id || ecRow.thread_id !== env.thread_id) {\n  return [{ json: {\n    status_kind: 'error',\n    result_type: 'composition_error',\n    error: {\n      code: 'LINEAGE_MISMATCH',\n      message: 'execution_context lineage mismatch.',\n      missing_fields: [],\n      details: {\n        execution_context_id: env.execution_context_id,\n        tenant_id: env.tenant_id,\n        row_tenant_id: ecRow.tenant_id,\n        thread_id: env.thread_id,\n        row_thread_id: ecRow.thread_id\n      }\n    },\n    _context_ready: false\n  }}];\n}\nif (thRow.id && (thRow.id !== env.thread_id || thRow.tenant_id !== env.tenant_id)) {\n  return [{ json: {\n    status_kind: 'error',\n    result_type: 'composition_error',\n    error: {\n      code: 'LINEAGE_MISMATCH',\n      message: 'thread lineage mismatch.',\n      missing_fields: [],\n      details: {\n        thread_id: env.thread_id,\n        row_id: thRow.id,\n        tenant_id: env.tenant_id,\n        row_tenant_id: thRow.tenant_id\n      }\n    },\n    _context_ready: false\n  }}];\n}\nreturn [{ json: { ...env, _context_ready: true, _thread_row: thRow } }];"
+        }
+      },
+      {
+        "id": "rc-route-context",
+        "name": "RC_Route_Context_Ready",
+        "type": "n8n-nodes-base.switch",
+        "typeVersion": 3.2,
+        "position": [
+          1740,
+          260
+        ],
+        "parameters": {
+          "rules": {
+            "values": [
+              {
+                "conditions": {
+                  "options": {
+                    "caseSensitive": true,
+                    "typeValidation": "strict"
+                  },
+                  "conditions": [
+                    {
+                      "leftValue": "={{ $json._context_ready }}",
+                      "rightValue": true,
+                      "operator": {
+                        "type": "boolean",
+                        "operation": "equals"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "options": {
+            "fallbackOutput": "extra"
+          }
+        }
+      },
+      {
+        "id": "rc-build-input",
+        "name": "RC_Build_Composition_Input",
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2,
+        "position": [
+          1980,
+          180
+        ],
+        "parameters": {
+          "language": "javaScript",
+          "jsCode": "const env = $json;\nconst sur = env.state_update_result || {};\nconst threadRow = env._thread_row || {};\nreturn [{ json: {\n  execution_context_id: env.execution_context_id,\n  thread_id: env.thread_id,\n  tenant_id: env.tenant_id,\n  channel: env.channel || 'telegram',\n  locale: env.locale || 'ro',\n  status: sur.status,\n  summary: sur.summary,\n  applied_write_classes: sur.applied_write_classes || [],\n  blocked_write_classes: sur.blocked_write_classes || [],\n  warnings: sur.warnings || [],\n  followup_requests: sur.followup_requests || [],\n  user_visible_facts: sur.user_visible_facts || [],\n  actions_acknowledged: sur.actions_acknowledged || [],\n  thread_title: threadRow.title || null,\n  thread_summary: threadRow.summary || null\n}}];"
+        }
+      },
+      {
+        "id": "rc-compose",
+        "name": "RC_Compose_Response",
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2,
+        "position": [
+          2220,
+          180
+        ],
+        "parameters": {
+          "language": "javaScript",
+          "jsCode": "const labelsRo = {\n  execution_state_update: 'starea execuției',\n  thread_state_update: 'firul de lucru',\n  memory_candidate_persistence: 'candidații de memorie',\n  audit_persistence: 'auditul intern',\n  domain_event_write: 'scriere de eveniment de domeniu'\n};\nconst labelsEn = {\n  execution_state_update: 'execution state',\n  thread_state_update: 'thread context',\n  memory_candidate_persistence: 'memory candidates',\n  audit_persistence: 'audit trail',\n  domain_event_write: 'domain event write'\n};\nconst comp = $json;\nconst locale = comp.locale || 'ro';\nconst labels = locale === 'ro' ? labelsRo : labelsEn;\nconst labelize = (arr=[]) => arr.map(x => labels[x] || x);\nconst warn = (x) => {\n  if (x && typeof x === 'object') {\n    if (x.code && x.message) return `${x.code}: ${x.message}`;\n    if (x.message) return String(x.message);\n  }\n  return String(x);\n};\nconst applied = labelize(comp.applied_write_classes || []);\nconst blocked = labelize(comp.blocked_write_classes || []);\nconst warnings = (comp.warnings || []).map(warn);\nconst followups = (comp.followup_requests || []).map(warn);\nconst facts = (comp.user_visible_facts || []).map(String).filter(Boolean);\nconst actions = (comp.actions_acknowledged || []).map(String).filter(Boolean);\nconst lines = [];\nif (locale === 'ro') {\n  if (comp.status === 'success') lines.push('Am pregătit răspunsul final pe baza rezultatului confirmat.');\n  else if (comp.status === 'partial') lines.push('Am pregătit răspunsul final, dar există și elemente rămase parțiale.');\n  else if (comp.status === 'failed') lines.push('Nu am putut pregăti complet răspunsul final.');\n  else lines.push('Am verificat rezultatul și nu a fost necesară nicio acțiune suplimentară.');\n  lines.push(comp.summary);\n  if (actions.length) lines.push(`Acțiuni confirmate: ${actions.join('; ')}.`);\n  if (applied.length) lines.push(`Aplicat: ${applied.join(', ')}.`);\n  if (blocked.length) lines.push(`Blocat sau rămas neaplicat: ${blocked.join(', ')}.`);\n  if (facts.length) lines.push(`Context util: ${facts.join('; ')}.`);\n  if (warnings.length) lines.push(`Atenționări: ${warnings.join('; ')}.`);\n  if (followups.length) lines.push(`Mai am nevoie de clarificări pentru: ${followups.join('; ')}.`);\n} else {\n  if (comp.status === 'success') lines.push('I prepared the final response from the confirmed result.');\n  else if (comp.status === 'partial') lines.push('I prepared the final response, but some elements remain partial.');\n  else if (comp.status === 'failed') lines.push('I could not fully prepare the final response.');\n  else lines.push('I reviewed the result and no additional action was required.');\n  lines.push(comp.summary);\n  if (actions.length) lines.push(`Confirmed actions: ${actions.join('; ')}.`);\n  if (applied.length) lines.push(`Applied: ${applied.join(', ')}.`);\n  if (blocked.length) lines.push(`Blocked or not applied: ${blocked.join(', ')}.`);\n  if (facts.length) lines.push(`Useful context: ${facts.join('; ')}.`);\n  if (warnings.length) lines.push(`Warnings: ${warnings.join('; ')}.`);\n  if (followups.length) lines.push(`I still need clarification for: ${followups.join('; ')}.`);\n}\nreturn [{ json: {\n  final_response_text: lines.filter(Boolean).join('\\n'),\n  response_status: comp.status,\n  includes_followups: followups.length > 0,\n  includes_warnings: warnings.length > 0,\n  followup_count: followups.length,\n  warning_count: warnings.length,\n  channel: comp.channel,\n  locale\n}}];"
+        }
+      },
+      {
+        "id": "rc-build-output",
+        "name": "RC_Build_Output_Envelope",
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2,
+        "position": [
+          2460,
+          180
+        ],
+        "parameters": {
+          "language": "javaScript",
+          "jsCode": "const crypto = require('crypto');\nconst env = $('RC_Validate_State_Update_Input').first().json;\nconst composed = $json;\nconst digest = crypto.createHash('sha256')\n  .update([\n    env.execution_context_id,\n    env.thread_id,\n    env.tenant_id,\n    composed.response_status,\n    composed.final_response_text\n  ].join('|'))\n  .digest('hex')\n  .slice(0, 16);\nreturn [{ json: {\n  status_kind: 'success',\n  result_type: 'composed_response',\n  execution_context_id: env.execution_context_id,\n  thread_id: env.thread_id,\n  tenant_id: env.tenant_id,\n  composed_response: composed,\n  output_gateway_allowed: true,\n  allowed_next_stage: 'MESSAGE_OUT',\n  response_generation_allowed: true,\n  idempotency_key: `compose:${env.execution_context_id}:${digest}`\n}}];"
+        }
+      },
+      {
+        "id": "rc-return-result",
+        "name": "RC_Return_Result",
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2,
+        "position": [
+          2700,
+          180
+        ],
+        "parameters": {
+          "language": "javaScript",
+          "jsCode": "return [{ json: $json }];"
+        }
+      },
+      {
+        "id": "rc-return-error",
+        "name": "RC_Return_Error",
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2,
+        "position": [
+          1020,
+          520
+        ],
+        "parameters": {
+          "language": "javaScript",
+          "jsCode": "return [{ json: $json }];"
+        }
+      },
+      {
+        "id": "rc-return-context-error",
+        "name": "RC_Return_Context_Error",
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2,
+        "position": [
+          1980,
+          520
+        ],
+        "parameters": {
+          "language": "javaScript",
+          "jsCode": "return [{ json: $json }];"
+        }
+      }
+    ],
+    "connections": {
+      "RC_Input": {
+        "main": [
+          [
+            {
+              "node": "RC_Validate_State_Update_Input",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "RC_Manual_Test_Trigger": {
+        "main": [
+          [
+            {
+              "node": "RC_Validate_State_Update_Input",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "RC_Validate_State_Update_Input": {
+        "main": [
+          [
+            {
+              "node": "RC_Route_Valid",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "RC_Route_Valid": {
+        "main": [
+          [
+            {
+              "node": "RC_Load_Execution_Context",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          [
+            {
+              "node": "RC_Return_Error",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "RC_Load_Execution_Context": {
+        "main": [
+          [
+            {
+              "node": "RC_Load_Thread_Context",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "RC_Load_Thread_Context": {
+        "main": [
+          [
+            {
+              "node": "RC_Verify_Lineage",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "RC_Verify_Lineage": {
+        "main": [
+          [
+            {
+              "node": "RC_Route_Context_Ready",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "RC_Route_Context_Ready": {
+        "main": [
+          [
+            {
+              "node": "RC_Build_Composition_Input",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          [
+            {
+              "node": "RC_Return_Context_Error",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "RC_Build_Composition_Input": {
+        "main": [
+          [
+            {
+              "node": "RC_Compose_Response",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "RC_Compose_Response": {
+        "main": [
+          [
+            {
+              "node": "RC_Build_Output_Envelope",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "RC_Build_Output_Envelope": {
+        "main": [
+          [
+            {
+              "node": "RC_Return_Result",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      }
+    },
+    "authors": "Andrei Cinc",
+    "name": null,
+    "description": null,
+    "autosaved": false,
+    "workflowPublishHistory": [
+      {
+        "createdAt": "2026-04-18T10:09:08.076Z",
+        "id": 408,
+        "workflowId": "TClXgmO8H8zsSwMb",
+        "versionId": "b798ca0a-836f-4291-8961-708ee6529c50",
+        "event": "deactivated",
+        "userId": "68a414fd-cc03-4f02-87bc-9067f976e98a"
+      },
+      {
+        "createdAt": "2026-04-18T10:09:08.174Z",
+        "id": 409,
+        "workflowId": "TClXgmO8H8zsSwMb",
+        "versionId": "b798ca0a-836f-4291-8961-708ee6529c50",
+        "event": "activated",
+        "userId": "68a414fd-cc03-4f02-87bc-9067f976e98a"
+      },
+      {
+        "createdAt": "2026-04-18T10:09:08.568Z",
+        "id": 410,
+        "workflowId": "TClXgmO8H8zsSwMb",
+        "versionId": "b798ca0a-836f-4291-8961-708ee6529c50",
+        "event": "deactivated",
+        "userId": "68a414fd-cc03-4f02-87bc-9067f976e98a"
+      },
+      {
+        "createdAt": "2026-04-18T10:09:10.077Z",
+        "id": 411,
+        "workflowId": "TClXgmO8H8zsSwMb",
+        "versionId": "b798ca0a-836f-4291-8961-708ee6529c50",
+        "event": "activated",
+        "userId": "68a414fd-cc03-4f02-87bc-9067f976e98a"
+      }
+    ]
+  }
+}

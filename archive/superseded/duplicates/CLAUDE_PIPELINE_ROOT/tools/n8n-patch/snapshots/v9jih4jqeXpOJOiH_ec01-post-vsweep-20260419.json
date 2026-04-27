@@ -1,0 +1,647 @@
+{
+  "updatedAt": "2026-04-18T21:08:18.063Z",
+  "createdAt": "2026-04-16T20:26:39.400Z",
+  "id": "v9jih4jqeXpOJOiH",
+  "name": "WF-EC-01",
+  "description": "Workflow pornit de Manual Trigger sau Chat Trigger care trimit datele spre un nod Code JavaScript ce adauga un timestamp pe fiecare item.",
+  "active": true,
+  "isArchived": false,
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "ec01-input-ewt-20260419",
+      "name": "EC_Input",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1,
+      "position": [
+        368,
+        -416
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "404799b4-a72c-4a36-8dc4-73eb28236cfb",
+      "name": "When chat message received",
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.4,
+      "position": [
+        368,
+        -96
+      ],
+      "webhookId": "ab2cd394-8f14-40f4-8d80-743058c0055d",
+      "disabled": true
+    },
+    {
+      "parameters": {},
+      "id": "544c4616-f57f-4e3e-bfed-eab4b3aca6e6",
+      "name": "When clicking 'Execute workflow'",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        368,
+        -256
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// EC_Validate_Input — v1.0\n// Purpose: Validate and adapt the inbound ExecutionContextInitRequest.\n// Accepts both flat and nested shapes.\n// Nested: { request: { tenant_id, thread_id, trigger_message_id, resolution_method, resolved_at, idempotency_key } }\n// Flat:   { tenant_id, thread_id, trigger_message_id, resolution_method, resolved_at, idempotency_key }\n// Output: validated request with _valid='true' (string) or _valid='false' with _error.\n\nconst items = $input.all();\nconst raw = (items[0] && items[0].json) || {};\n\n// Adapter: detect nested vs flat\nlet req;\nif (raw.request && typeof raw.request === 'object') {\n  req = {\n    tenant_id: raw.request.tenant_id,\n    thread_id: raw.request.thread_id,\n    trigger_message_id: raw.request.trigger_message_id,\n    resolution_method: raw.request.resolution_method,\n    resolved_at: raw.request.resolved_at,\n    idempotency_key: raw.request.idempotency_key || raw.idempotency_key || null\n  };\n} else {\n  req = {\n    tenant_id: raw.tenant_id,\n    thread_id: raw.thread_id,\n    trigger_message_id: raw.trigger_message_id,\n    resolution_method: raw.resolution_method || null,\n    resolved_at: raw.resolved_at || null,\n    idempotency_key: raw.idempotency_key || null\n  };\n}\n\n// UUID v4/any-variant permissive regex (aligned with PostgreSQL uuid cast)\nconst UUID_RE = /^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$/;\n\nfunction invalid(code, missing) {\n  return [{\n    json: {\n      _valid: 'false',\n      _error: code,\n      _missing_fields: missing || [],\n      _request: req\n    }\n  }];\n}\n\nconst required = ['tenant_id', 'thread_id', 'trigger_message_id'];\nconst missing = required.filter(f => req[f] === undefined || req[f] === null || req[f] === '');\nif (missing.length > 0) {\n  return invalid('INVALID_INPUT', missing);\n}\n\nfor (const f of required) {\n  if (typeof req[f] !== 'string' || !UUID_RE.test(req[f])) {\n    return invalid('INVALID_UUID', [f]);\n  }\n}\n\n// Optional resolved_at: if provided, must be valid ISO 8601-ish\nif (req.resolved_at && isNaN(Date.parse(req.resolved_at))) {\n  return invalid('INVALID_RESOLVED_AT', ['resolved_at']);\n}\n\n// Derive idempotency_key deterministically if not provided\nconst idemp = req.idempotency_key && String(req.idempotency_key).trim().length > 0\n  ? String(req.idempotency_key)\n  : (req.tenant_id + ':' + req.trigger_message_id + ':exec_ctx:v1');\n\n// Guard VARCHAR(300) upper bound on idempotency_key\nif (idemp.length > 300) {\n  return invalid('IDEMPOTENCY_KEY_TOO_LONG', ['idempotency_key']);\n}\n\nreturn [{\n  json: {\n    _valid: 'true',\n    tenant_id: req.tenant_id,\n    thread_id: req.thread_id,\n    trigger_message_id: req.trigger_message_id,\n    resolution_method: req.resolution_method || null,\n    resolved_at: req.resolved_at || null,\n    _idempotency_key: idemp\n  }\n}];\n"
+      },
+      "id": "50872365-1d17-4ecd-9084-0a0de8050620",
+      "name": "EC_Validate_Input",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        736,
+        -160
+      ],
+      "notes": "VALIDATE INPUT NODE — v1.0\nValidates required UUIDs (tenant_id, thread_id, trigger_message_id) with a permissive UUID regex.\nDerives deterministic idempotency_key if absent: '<tenant_id>:<trigger_message_id>:exec_ctx:v1'.\nOutputs _valid='true'|'false' as STRING (safe for switch v2/v3).\nNon-UUID tenant_id/thread_id/trigger_message_id → INVALID_UUID.\nUnparseable resolved_at → INVALID_RESOLVED_AT.\nOversized idempotency_key (>300) → IDEMPOTENCY_KEY_TOO_LONG."
+    },
+    {
+      "parameters": {
+        "dataType": "boolean",
+        "value1": "={{ $json._valid }}",
+        "rules": {
+          "rules": [
+            {
+              "value2": "true"
+            },
+            {
+              "value2": "false"
+            }
+          ]
+        }
+      },
+      "id": "334b759d-332f-4dfa-8d79-39457f132456",
+      "name": "EC_Route_Valid",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 2,
+      "position": [
+        960,
+        -160
+      ],
+      "notes": "ROUTE VALID NODE\n_valid is STRING 'true'/'false' — safe for switch v2 dataType=boolean with value1 coerced.\nOutput 0: valid → EC_Build_Init_Payload\nOutput 1: invalid → EC_Return_Error"
+    },
+    {
+      "parameters": {
+        "jsCode": "// EC_Build_Init_Payload — v1.0\n// Builds the exact insert payload for execution_contexts.\n// Guarantees live-schema alignment:\n//   status = 'initialized'\n//   pending_steps = []\n//   completed_steps = []\n//   expires_at = now + 15 minutes (TTL)\n\nconst req = $input.all()[0].json;\nconst nowIso = new Date().toISOString();\nconst ttlMs = 15 * 60 * 1000; // 15 minutes\nconst expiresIso = new Date(Date.now() + ttlMs).toISOString();\n\nreturn [{\n  json: {\n    tenant_id: req.tenant_id,\n    thread_id: req.thread_id,\n    trigger_message_id: req.trigger_message_id,\n    status: 'initialized',\n    pending_steps: [],\n    completed_steps: [],\n    idempotency_key: req._idempotency_key,\n    expires_at: expiresIso,\n    // Passthrough for downstream observability\n    resolution_method: req.resolution_method || null,\n    resolved_at: req.resolved_at || null,\n    _now: nowIso\n  }\n}];\n"
+      },
+      "id": "38ddac15-922a-4415-9aae-065704562a23",
+      "name": "EC_Build_Init_Payload",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1168,
+        -256
+      ],
+      "notes": "BUILD INIT PAYLOAD NODE — v1.0\nMaterializes the exact row to be upserted.\nALL fields align with live public.execution_contexts schema.\nexpires_at = NOW() + 15 minutes; can be made tenant-configurable later."
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "INSERT INTO execution_contexts (tenant_id, thread_id, trigger_message_id, status, pending_steps, completed_steps, idempotency_key, expires_at) VALUES ($1::uuid, $2::uuid, $3::uuid, $4, $5::jsonb, $6::jsonb, $7, $8::timestamptz) ON CONFLICT (idempotency_key) DO NOTHING RETURNING id, tenant_id, thread_id, trigger_message_id, status, current_goal, current_plan_ref, pending_steps, completed_steps, idempotency_key, expires_at, created_at, updated_at",
+        "options": {
+          "queryReplacement": "={{ $json.tenant_id }}, {{ $json.thread_id }}, {{ $json.trigger_message_id }}, {{ $json.status }}, {{ JSON.stringify($json.pending_steps) }}, {{ JSON.stringify($json.completed_steps) }}, {{ $json.idempotency_key }}, {{ $json.expires_at }}"
+        }
+      },
+      "id": "391d5c13-6705-4f02-a4b2-1deb512d72b9",
+      "name": "EC_Upsert_Context",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2,
+      "position": [
+        1408,
+        -256
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "postgres": {
+          "id": "z9nKgToNWvIW7P8f",
+          "name": "Postgres account 2"
+        }
+      },
+      "notes": "UPSERT CONTEXT NODE — v1.0\nINSERT ... ON CONFLICT (idempotency_key) DO NOTHING RETURNING *.\nalwaysOutputData MUST be set true so downstream EC_Load_Existing_Context always fires,\nincluding the replay case where 0 rows are returned.\nParameters bound via queryReplacement ($1..$8).\nAlignment: ALL column names match live schema.\nFallback on CONFLICT handled by EC_Load_Existing_Context (idempotent read)."
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT id, tenant_id, thread_id, trigger_message_id, status, current_goal, current_plan_ref, pending_steps, completed_steps, idempotency_key, expires_at, created_at, updated_at FROM execution_contexts WHERE idempotency_key = $1 AND tenant_id = $2::uuid LIMIT 1",
+        "options": {
+          "queryReplacement": "={{ $('EC_Build_Init_Payload').all()[0].json.idempotency_key }}, {{ $('EC_Build_Init_Payload').all()[0].json.tenant_id }}"
+        }
+      },
+      "id": "e8ba503a-a4a2-47b6-8b06-9b6f7859ca84",
+      "name": "EC_Load_Existing_Context",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2,
+      "position": [
+        1648,
+        -256
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "postgres": {
+          "id": "z9nKgToNWvIW7P8f",
+          "name": "Postgres account 2"
+        }
+      },
+      "notes": "LOAD EXISTING CONTEXT NODE — v1.0\nDeterministic idempotent read by (idempotency_key, tenant_id).\nCross-tenant safety: tenant_id is part of the WHERE clause even though idempotency_key is globally unique.\nThis ensures both fresh-insert and replay paths return the canonical row.\nalwaysOutputData = true so downstream EC_Return_Result can classify 0-row as INTERNAL_LOAD_FAILED."
+    },
+    {
+      "parameters": {
+        "jsCode": "// EC_Return_Result — v1.0\n// Reads the canonical row from EC_Load_Existing_Context and shapes the canonical\n// ExecutionContext output contract.\n// Note: reads via $('EC_Load_Existing_Context') to avoid coupling to upstream\n// branching semantics. Classifies empty row as INTERNAL_LOAD_FAILED.\n\nconst loaded = $('EC_Load_Existing_Context').all();\nconst src = (loaded[0] && loaded[0].json) || null;\n\nif (!src || !src.id) {\n  return [{\n    json: {\n      id: null,\n      tenant_id: null,\n      thread_id: null,\n      trigger_message_id: null,\n      status: 'failed',\n      current_goal: null,\n      current_plan_ref: null,\n      pending_steps: [],\n      completed_steps: [],\n      created_at: null,\n      updated_at: null,\n      error: {\n        code: 'INTERNAL_LOAD_FAILED',\n        message: 'Execution context could not be loaded after upsert'\n      },\n      module_name: 'execution_context_init',\n      result_type: 'error',\n      status_kind: 'failed'\n    }\n  }];\n}\n\nreturn [{\n  json: {\n    id: src.id,\n    tenant_id: src.tenant_id,\n    thread_id: src.thread_id,\n    trigger_message_id: src.trigger_message_id,\n    status: src.status,\n    current_goal: src.current_goal === undefined ? null : src.current_goal,\n    current_plan_ref: src.current_plan_ref === undefined ? null : src.current_plan_ref,\n    pending_steps: src.pending_steps || [],\n    completed_steps: src.completed_steps || [],\n    created_at: src.created_at,\n    updated_at: src.updated_at,\n    error: null,\n    module_name: 'execution_context_init',\n    result_type: 'state',\n    status_kind: 'success'\n  }\n}];\n"
+      },
+      "id": "550d8c27-aaac-4a09-b297-9fc1732e1f05",
+      "name": "EC_Return_Result",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1888,
+        -256
+      ],
+      "notes": "RETURN RESULT NODE — v1.0\nMaps the loaded DB row to the canonical ExecutionContext output contract.\nSource-of-truth binding: $('EC_Load_Existing_Context') (NOT the upsert output) so that\nreplay and fresh-insert paths return an identical shape."
+    },
+    {
+      "parameters": {
+        "jsCode": "// EC_Return_Error — v1.0\n// Error-shaped output for invalid-input path.\n\nconst errItem = $input.all()[0] && $input.all()[0].json || {};\nconst req = errItem._request || {};\n\nreturn [{\n  json: {\n    id: null,\n    tenant_id: req.tenant_id || null,\n    thread_id: req.thread_id || null,\n    trigger_message_id: req.trigger_message_id || null,\n    status: 'failed',\n    current_goal: null,\n    current_plan_ref: null,\n    pending_steps: [],\n    completed_steps: [],\n    created_at: null,\n    updated_at: null,\n    error: {\n      code: errItem._error || 'INVALID_INPUT',\n      missing_fields: errItem._missing_fields || []\n    },\n    module_name: 'execution_context_init',\n    result_type: 'error',\n    status_kind: 'failed'\n  }\n}];\n"
+      },
+      "id": "bd1494ba-e025-4f27-af68-f6d9114e4444",
+      "name": "EC_Return_Error",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1168,
+        -32
+      ],
+      "notes": "RETURN ERROR NODE — v1.0\nReturns a schema-compatible shape with error classification.\nNever writes to DB."
+    }
+  ],
+  "connections": {
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "EC_Validate_Input",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When clicking 'Execute workflow'": {
+      "main": [
+        [
+          {
+            "node": "EC_Validate_Input",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "EC_Validate_Input": {
+      "main": [
+        [
+          {
+            "node": "EC_Route_Valid",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "EC_Route_Valid": {
+      "main": [
+        [
+          {
+            "node": "EC_Build_Init_Payload",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "EC_Return_Error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "EC_Build_Init_Payload": {
+      "main": [
+        [
+          {
+            "node": "EC_Upsert_Context",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "EC_Upsert_Context": {
+      "main": [
+        [
+          {
+            "node": "EC_Load_Existing_Context",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "EC_Load_Existing_Context": {
+      "main": [
+        [
+          {
+            "node": "EC_Return_Result",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "EC_Input": {
+      "main": [
+        [
+          {
+            "node": "EC_Validate_Input",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "timeSavedMode": "fixed",
+    "callerPolicy": "workflowsFromSameOwner",
+    "availableInMCP": true
+  },
+  "staticData": null,
+  "meta": {
+    "aiBuilderAssisted": true,
+    "templateCredsSetupCompleted": true
+  },
+  "pinData": {
+    "When clicking 'Execute workflow'": [
+      {
+        "json": {
+          "tenant_id": "aaaaaaaa-0000-0000-0000-000000000001",
+          "thread_id": "11111111-0000-0000-0000-00000000ec01",
+          "trigger_message_id": "eeeeeeec-0100-0000-0000-000000000001",
+          "resolution_method": "tr_fixture",
+          "idempotency_key": "wfec01_test_e2e_happy_v1"
+        }
+      }
+    ],
+    "When chat message received": [
+      {
+        "json": {
+          "tenant_id": "aaaaaaaa-0000-0000-0000-000000000001",
+          "thread_id": "11111111-0000-0000-0000-00000000ec01",
+          "trigger_message_id": "eeeeeeec-0100-0000-0000-000000000001",
+          "resolution_method": "tr_fixture",
+          "idempotency_key": "wfec01_test_e2e_happy_v1"
+        }
+      }
+    ]
+  },
+  "versionId": "b5252c2c-f16a-46d1-a464-d47d757c0fd0",
+  "activeVersionId": "b5252c2c-f16a-46d1-a464-d47d757c0fd0",
+  "versionCounter": 44,
+  "triggerCount": 0,
+  "shared": [
+    {
+      "updatedAt": "2026-04-16T20:26:39.400Z",
+      "createdAt": "2026-04-16T20:26:39.400Z",
+      "role": "workflow:owner",
+      "workflowId": "v9jih4jqeXpOJOiH",
+      "projectId": "WIRLhU6IcCuQzkzY",
+      "project": {
+        "updatedAt": "2026-03-27T16:42:52.879Z",
+        "createdAt": "2026-03-26T19:16:39.847Z",
+        "id": "WIRLhU6IcCuQzkzY",
+        "name": "Andrei Cinc <andrei.cinc9@gmail.com>",
+        "type": "personal",
+        "icon": null,
+        "description": null,
+        "creatorId": "68a414fd-cc03-4f02-87bc-9067f976e98a"
+      }
+    }
+  ],
+  "tags": [],
+  "activeVersion": {
+    "updatedAt": "2026-04-18T21:08:18.075Z",
+    "createdAt": "2026-04-18T21:08:18.075Z",
+    "versionId": "b5252c2c-f16a-46d1-a464-d47d757c0fd0",
+    "workflowId": "v9jih4jqeXpOJOiH",
+    "nodes": [
+      {
+        "parameters": {},
+        "id": "ec01-input-ewt-20260419",
+        "name": "EC_Input",
+        "type": "n8n-nodes-base.executeWorkflowTrigger",
+        "typeVersion": 1,
+        "position": [
+          368,
+          -416
+        ]
+      },
+      {
+        "parameters": {
+          "options": {}
+        },
+        "id": "404799b4-a72c-4a36-8dc4-73eb28236cfb",
+        "name": "When chat message received",
+        "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+        "typeVersion": 1.4,
+        "position": [
+          368,
+          -96
+        ],
+        "webhookId": "ab2cd394-8f14-40f4-8d80-743058c0055d",
+        "disabled": true
+      },
+      {
+        "parameters": {},
+        "id": "544c4616-f57f-4e3e-bfed-eab4b3aca6e6",
+        "name": "When clicking 'Execute workflow'",
+        "type": "n8n-nodes-base.manualTrigger",
+        "typeVersion": 1,
+        "position": [
+          368,
+          -256
+        ]
+      },
+      {
+        "parameters": {
+          "jsCode": "// EC_Validate_Input — v1.0\n// Purpose: Validate and adapt the inbound ExecutionContextInitRequest.\n// Accepts both flat and nested shapes.\n// Nested: { request: { tenant_id, thread_id, trigger_message_id, resolution_method, resolved_at, idempotency_key } }\n// Flat:   { tenant_id, thread_id, trigger_message_id, resolution_method, resolved_at, idempotency_key }\n// Output: validated request with _valid='true' (string) or _valid='false' with _error.\n\nconst items = $input.all();\nconst raw = (items[0] && items[0].json) || {};\n\n// Adapter: detect nested vs flat\nlet req;\nif (raw.request && typeof raw.request === 'object') {\n  req = {\n    tenant_id: raw.request.tenant_id,\n    thread_id: raw.request.thread_id,\n    trigger_message_id: raw.request.trigger_message_id,\n    resolution_method: raw.request.resolution_method,\n    resolved_at: raw.request.resolved_at,\n    idempotency_key: raw.request.idempotency_key || raw.idempotency_key || null\n  };\n} else {\n  req = {\n    tenant_id: raw.tenant_id,\n    thread_id: raw.thread_id,\n    trigger_message_id: raw.trigger_message_id,\n    resolution_method: raw.resolution_method || null,\n    resolved_at: raw.resolved_at || null,\n    idempotency_key: raw.idempotency_key || null\n  };\n}\n\n// UUID v4/any-variant permissive regex (aligned with PostgreSQL uuid cast)\nconst UUID_RE = /^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$/;\n\nfunction invalid(code, missing) {\n  return [{\n    json: {\n      _valid: 'false',\n      _error: code,\n      _missing_fields: missing || [],\n      _request: req\n    }\n  }];\n}\n\nconst required = ['tenant_id', 'thread_id', 'trigger_message_id'];\nconst missing = required.filter(f => req[f] === undefined || req[f] === null || req[f] === '');\nif (missing.length > 0) {\n  return invalid('INVALID_INPUT', missing);\n}\n\nfor (const f of required) {\n  if (typeof req[f] !== 'string' || !UUID_RE.test(req[f])) {\n    return invalid('INVALID_UUID', [f]);\n  }\n}\n\n// Optional resolved_at: if provided, must be valid ISO 8601-ish\nif (req.resolved_at && isNaN(Date.parse(req.resolved_at))) {\n  return invalid('INVALID_RESOLVED_AT', ['resolved_at']);\n}\n\n// Derive idempotency_key deterministically if not provided\nconst idemp = req.idempotency_key && String(req.idempotency_key).trim().length > 0\n  ? String(req.idempotency_key)\n  : (req.tenant_id + ':' + req.trigger_message_id + ':exec_ctx:v1');\n\n// Guard VARCHAR(300) upper bound on idempotency_key\nif (idemp.length > 300) {\n  return invalid('IDEMPOTENCY_KEY_TOO_LONG', ['idempotency_key']);\n}\n\nreturn [{\n  json: {\n    _valid: 'true',\n    tenant_id: req.tenant_id,\n    thread_id: req.thread_id,\n    trigger_message_id: req.trigger_message_id,\n    resolution_method: req.resolution_method || null,\n    resolved_at: req.resolved_at || null,\n    _idempotency_key: idemp\n  }\n}];\n"
+        },
+        "id": "50872365-1d17-4ecd-9084-0a0de8050620",
+        "name": "EC_Validate_Input",
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2,
+        "position": [
+          736,
+          -160
+        ],
+        "notes": "VALIDATE INPUT NODE — v1.0\nValidates required UUIDs (tenant_id, thread_id, trigger_message_id) with a permissive UUID regex.\nDerives deterministic idempotency_key if absent: '<tenant_id>:<trigger_message_id>:exec_ctx:v1'.\nOutputs _valid='true'|'false' as STRING (safe for switch v2/v3).\nNon-UUID tenant_id/thread_id/trigger_message_id → INVALID_UUID.\nUnparseable resolved_at → INVALID_RESOLVED_AT.\nOversized idempotency_key (>300) → IDEMPOTENCY_KEY_TOO_LONG."
+      },
+      {
+        "parameters": {
+          "dataType": "boolean",
+          "value1": "={{ $json._valid }}",
+          "rules": {
+            "rules": [
+              {
+                "value2": "true"
+              },
+              {
+                "value2": "false"
+              }
+            ]
+          }
+        },
+        "id": "334b759d-332f-4dfa-8d79-39457f132456",
+        "name": "EC_Route_Valid",
+        "type": "n8n-nodes-base.switch",
+        "typeVersion": 2,
+        "position": [
+          960,
+          -160
+        ],
+        "notes": "ROUTE VALID NODE\n_valid is STRING 'true'/'false' — safe for switch v2 dataType=boolean with value1 coerced.\nOutput 0: valid → EC_Build_Init_Payload\nOutput 1: invalid → EC_Return_Error"
+      },
+      {
+        "parameters": {
+          "jsCode": "// EC_Build_Init_Payload — v1.0\n// Builds the exact insert payload for execution_contexts.\n// Guarantees live-schema alignment:\n//   status = 'initialized'\n//   pending_steps = []\n//   completed_steps = []\n//   expires_at = now + 15 minutes (TTL)\n\nconst req = $input.all()[0].json;\nconst nowIso = new Date().toISOString();\nconst ttlMs = 15 * 60 * 1000; // 15 minutes\nconst expiresIso = new Date(Date.now() + ttlMs).toISOString();\n\nreturn [{\n  json: {\n    tenant_id: req.tenant_id,\n    thread_id: req.thread_id,\n    trigger_message_id: req.trigger_message_id,\n    status: 'initialized',\n    pending_steps: [],\n    completed_steps: [],\n    idempotency_key: req._idempotency_key,\n    expires_at: expiresIso,\n    // Passthrough for downstream observability\n    resolution_method: req.resolution_method || null,\n    resolved_at: req.resolved_at || null,\n    _now: nowIso\n  }\n}];\n"
+        },
+        "id": "38ddac15-922a-4415-9aae-065704562a23",
+        "name": "EC_Build_Init_Payload",
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2,
+        "position": [
+          1168,
+          -256
+        ],
+        "notes": "BUILD INIT PAYLOAD NODE — v1.0\nMaterializes the exact row to be upserted.\nALL fields align with live public.execution_contexts schema.\nexpires_at = NOW() + 15 minutes; can be made tenant-configurable later."
+      },
+      {
+        "parameters": {
+          "operation": "executeQuery",
+          "query": "INSERT INTO execution_contexts (tenant_id, thread_id, trigger_message_id, status, pending_steps, completed_steps, idempotency_key, expires_at) VALUES ($1::uuid, $2::uuid, $3::uuid, $4, $5::jsonb, $6::jsonb, $7, $8::timestamptz) ON CONFLICT (idempotency_key) DO NOTHING RETURNING id, tenant_id, thread_id, trigger_message_id, status, current_goal, current_plan_ref, pending_steps, completed_steps, idempotency_key, expires_at, created_at, updated_at",
+          "options": {
+            "queryReplacement": "={{ $json.tenant_id }}, {{ $json.thread_id }}, {{ $json.trigger_message_id }}, {{ $json.status }}, {{ JSON.stringify($json.pending_steps) }}, {{ JSON.stringify($json.completed_steps) }}, {{ $json.idempotency_key }}, {{ $json.expires_at }}"
+          }
+        },
+        "id": "391d5c13-6705-4f02-a4b2-1deb512d72b9",
+        "name": "EC_Upsert_Context",
+        "type": "n8n-nodes-base.postgres",
+        "typeVersion": 2,
+        "position": [
+          1408,
+          -256
+        ],
+        "alwaysOutputData": true,
+        "credentials": {
+          "postgres": {
+            "id": "z9nKgToNWvIW7P8f",
+            "name": "Postgres account 2"
+          }
+        },
+        "notes": "UPSERT CONTEXT NODE — v1.0\nINSERT ... ON CONFLICT (idempotency_key) DO NOTHING RETURNING *.\nalwaysOutputData MUST be set true so downstream EC_Load_Existing_Context always fires,\nincluding the replay case where 0 rows are returned.\nParameters bound via queryReplacement ($1..$8).\nAlignment: ALL column names match live schema.\nFallback on CONFLICT handled by EC_Load_Existing_Context (idempotent read)."
+      },
+      {
+        "parameters": {
+          "operation": "executeQuery",
+          "query": "SELECT id, tenant_id, thread_id, trigger_message_id, status, current_goal, current_plan_ref, pending_steps, completed_steps, idempotency_key, expires_at, created_at, updated_at FROM execution_contexts WHERE idempotency_key = $1 AND tenant_id = $2::uuid LIMIT 1",
+          "options": {
+            "queryReplacement": "={{ $('EC_Build_Init_Payload').all()[0].json.idempotency_key }}, {{ $('EC_Build_Init_Payload').all()[0].json.tenant_id }}"
+          }
+        },
+        "id": "e8ba503a-a4a2-47b6-8b06-9b6f7859ca84",
+        "name": "EC_Load_Existing_Context",
+        "type": "n8n-nodes-base.postgres",
+        "typeVersion": 2,
+        "position": [
+          1648,
+          -256
+        ],
+        "alwaysOutputData": true,
+        "credentials": {
+          "postgres": {
+            "id": "z9nKgToNWvIW7P8f",
+            "name": "Postgres account 2"
+          }
+        },
+        "notes": "LOAD EXISTING CONTEXT NODE — v1.0\nDeterministic idempotent read by (idempotency_key, tenant_id).\nCross-tenant safety: tenant_id is part of the WHERE clause even though idempotency_key is globally unique.\nThis ensures both fresh-insert and replay paths return the canonical row.\nalwaysOutputData = true so downstream EC_Return_Result can classify 0-row as INTERNAL_LOAD_FAILED."
+      },
+      {
+        "parameters": {
+          "jsCode": "// EC_Return_Result — v1.0\n// Reads the canonical row from EC_Load_Existing_Context and shapes the canonical\n// ExecutionContext output contract.\n// Note: reads via $('EC_Load_Existing_Context') to avoid coupling to upstream\n// branching semantics. Classifies empty row as INTERNAL_LOAD_FAILED.\n\nconst loaded = $('EC_Load_Existing_Context').all();\nconst src = (loaded[0] && loaded[0].json) || null;\n\nif (!src || !src.id) {\n  return [{\n    json: {\n      id: null,\n      tenant_id: null,\n      thread_id: null,\n      trigger_message_id: null,\n      status: 'failed',\n      current_goal: null,\n      current_plan_ref: null,\n      pending_steps: [],\n      completed_steps: [],\n      created_at: null,\n      updated_at: null,\n      error: {\n        code: 'INTERNAL_LOAD_FAILED',\n        message: 'Execution context could not be loaded after upsert'\n      },\n      module_name: 'execution_context_init',\n      result_type: 'error',\n      status_kind: 'failed'\n    }\n  }];\n}\n\nreturn [{\n  json: {\n    id: src.id,\n    tenant_id: src.tenant_id,\n    thread_id: src.thread_id,\n    trigger_message_id: src.trigger_message_id,\n    status: src.status,\n    current_goal: src.current_goal === undefined ? null : src.current_goal,\n    current_plan_ref: src.current_plan_ref === undefined ? null : src.current_plan_ref,\n    pending_steps: src.pending_steps || [],\n    completed_steps: src.completed_steps || [],\n    created_at: src.created_at,\n    updated_at: src.updated_at,\n    error: null,\n    module_name: 'execution_context_init',\n    result_type: 'state',\n    status_kind: 'success'\n  }\n}];\n"
+        },
+        "id": "550d8c27-aaac-4a09-b297-9fc1732e1f05",
+        "name": "EC_Return_Result",
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2,
+        "position": [
+          1888,
+          -256
+        ],
+        "notes": "RETURN RESULT NODE — v1.0\nMaps the loaded DB row to the canonical ExecutionContext output contract.\nSource-of-truth binding: $('EC_Load_Existing_Context') (NOT the upsert output) so that\nreplay and fresh-insert paths return an identical shape."
+      },
+      {
+        "parameters": {
+          "jsCode": "// EC_Return_Error — v1.0\n// Error-shaped output for invalid-input path.\n\nconst errItem = $input.all()[0] && $input.all()[0].json || {};\nconst req = errItem._request || {};\n\nreturn [{\n  json: {\n    id: null,\n    tenant_id: req.tenant_id || null,\n    thread_id: req.thread_id || null,\n    trigger_message_id: req.trigger_message_id || null,\n    status: 'failed',\n    current_goal: null,\n    current_plan_ref: null,\n    pending_steps: [],\n    completed_steps: [],\n    created_at: null,\n    updated_at: null,\n    error: {\n      code: errItem._error || 'INVALID_INPUT',\n      missing_fields: errItem._missing_fields || []\n    },\n    module_name: 'execution_context_init',\n    result_type: 'error',\n    status_kind: 'failed'\n  }\n}];\n"
+        },
+        "id": "bd1494ba-e025-4f27-af68-f6d9114e4444",
+        "name": "EC_Return_Error",
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2,
+        "position": [
+          1168,
+          -32
+        ],
+        "notes": "RETURN ERROR NODE — v1.0\nReturns a schema-compatible shape with error classification.\nNever writes to DB."
+      }
+    ],
+    "connections": {
+      "When chat message received": {
+        "main": [
+          [
+            {
+              "node": "EC_Validate_Input",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "When clicking 'Execute workflow'": {
+        "main": [
+          [
+            {
+              "node": "EC_Validate_Input",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "EC_Validate_Input": {
+        "main": [
+          [
+            {
+              "node": "EC_Route_Valid",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "EC_Route_Valid": {
+        "main": [
+          [
+            {
+              "node": "EC_Build_Init_Payload",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          [
+            {
+              "node": "EC_Return_Error",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "EC_Build_Init_Payload": {
+        "main": [
+          [
+            {
+              "node": "EC_Upsert_Context",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "EC_Upsert_Context": {
+        "main": [
+          [
+            {
+              "node": "EC_Load_Existing_Context",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "EC_Load_Existing_Context": {
+        "main": [
+          [
+            {
+              "node": "EC_Return_Result",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "EC_Input": {
+        "main": [
+          [
+            {
+              "node": "EC_Validate_Input",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      }
+    },
+    "authors": "Andrei Cinc",
+    "name": null,
+    "description": null,
+    "autosaved": false,
+    "workflowPublishHistory": [
+      {
+        "createdAt": "2026-04-18T21:08:18.474Z",
+        "id": 547,
+        "workflowId": "v9jih4jqeXpOJOiH",
+        "versionId": "b5252c2c-f16a-46d1-a464-d47d757c0fd0",
+        "event": "deactivated",
+        "userId": "68a414fd-cc03-4f02-87bc-9067f976e98a"
+      },
+      {
+        "createdAt": "2026-04-18T21:08:18.564Z",
+        "id": 548,
+        "workflowId": "v9jih4jqeXpOJOiH",
+        "versionId": "b5252c2c-f16a-46d1-a464-d47d757c0fd0",
+        "event": "activated",
+        "userId": "68a414fd-cc03-4f02-87bc-9067f976e98a"
+      },
+      {
+        "createdAt": "2026-04-18T21:08:19.000Z",
+        "id": 549,
+        "workflowId": "v9jih4jqeXpOJOiH",
+        "versionId": "b5252c2c-f16a-46d1-a464-d47d757c0fd0",
+        "event": "deactivated",
+        "userId": "68a414fd-cc03-4f02-87bc-9067f976e98a"
+      },
+      {
+        "createdAt": "2026-04-18T21:08:20.492Z",
+        "id": 550,
+        "workflowId": "v9jih4jqeXpOJOiH",
+        "versionId": "b5252c2c-f16a-46d1-a464-d47d757c0fd0",
+        "event": "activated",
+        "userId": "68a414fd-cc03-4f02-87bc-9067f976e98a"
+      }
+    ]
+  }
+}

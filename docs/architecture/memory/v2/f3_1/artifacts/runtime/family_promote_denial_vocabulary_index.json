@@ -1,0 +1,180 @@
+{
+  "family": "promote_denial_vocabulary",
+  "verdicts": [
+    {
+      "case_id": "f31-promote-001",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "promote oracle all checks pass",
+      "ts": "2026-04-22T13:43:17.531Z"
+    },
+    {
+      "case_id": "f31-promote-002",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "promote oracle all checks pass",
+      "ts": "2026-04-22T13:43:17.599Z"
+    },
+    {
+      "case_id": "f31-promote-003",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "promote oracle all checks pass",
+      "ts": "2026-04-22T13:43:17.674Z"
+    },
+    {
+      "case_id": "f31-promote-004",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "promote oracle all checks pass",
+      "ts": "2026-04-22T13:43:17.740Z"
+    },
+    {
+      "case_id": "f31-promote-005",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "promote oracle all checks pass",
+      "ts": "2026-04-22T13:43:17.809Z"
+    },
+    {
+      "case_id": "f31-promote-006",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "promote oracle all checks pass",
+      "ts": "2026-04-22T13:43:17.877Z"
+    },
+    {
+      "case_id": "f31-promote-007",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "promote oracle all checks pass",
+      "ts": "2026-04-22T13:43:17.944Z"
+    },
+    {
+      "case_id": "f31-promote-008",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "promote oracle all checks pass",
+      "ts": "2026-04-22T13:43:18.005Z"
+    },
+    {
+      "case_id": "f31-promote-009",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "promote oracle all checks pass",
+      "ts": "2026-04-22T13:43:18.068Z"
+    },
+    {
+      "case_id": "f31-promote-010",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "promote oracle all checks pass",
+      "ts": "2026-04-22T13:43:18.130Z"
+    },
+    {
+      "case_id": "f31-promote-011",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "promote oracle all checks pass",
+      "ts": "2026-04-22T13:43:18.193Z"
+    },
+    {
+      "case_id": "f31-promote-012",
+      "verdict": "FAIL",
+      "bucket": "BAD_TEST_DEFINITION",
+      "reason": "V2-014 (row-persisted user_confirmed OR caller) is DEFERRED; runtime correctly denies per current SQL. Matrix expectation premature.",
+      "ts": "2026-04-22T13:43:18.256Z"
+    },
+    {
+      "case_id": "f31-promote-013",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "promote oracle all checks pass",
+      "ts": "2026-04-22T13:43:18.317Z"
+    },
+    {
+      "case_id": "f31-promote-014",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "promote oracle all checks pass",
+      "ts": "2026-04-22T13:43:18.377Z"
+    },
+    {
+      "case_id": "f31-promote-015",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "promote oracle all checks pass",
+      "ts": "2026-04-22T13:43:18.439Z"
+    },
+    {
+      "case_id": "f31-promote-016",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "promote oracle all checks pass",
+      "ts": "2026-04-22T13:43:18.503Z"
+    },
+    {
+      "case_id": "f31-promote-017",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "promote oracle all checks pass",
+      "ts": "2026-04-22T13:43:18.570Z"
+    },
+    {
+      "case_id": "f31-promote-018",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "promote oracle all checks pass",
+      "ts": "2026-04-22T13:43:18.633Z"
+    },
+    {
+      "case_id": "f31-promote-019",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "promote oracle all checks pass",
+      "ts": "2026-04-22T13:43:18.694Z"
+    },
+    {
+      "case_id": "f31-promote-020",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "promote oracle all checks pass",
+      "ts": "2026-04-22T13:43:18.757Z"
+    },
+    {
+      "case_id": "f31-promote-021",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "promote oracle all checks pass",
+      "ts": "2026-04-22T13:43:18.818Z"
+    },
+    {
+      "case_id": "f31-promote-022",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "promote oracle all checks pass",
+      "ts": "2026-04-22T13:43:18.884Z"
+    },
+    {
+      "case_id": "f31-promote-023",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "promote oracle all checks pass",
+      "ts": "2026-04-22T13:43:18.945Z"
+    },
+    {
+      "case_id": "f31-promote-024",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "promote oracle all checks pass",
+      "ts": "2026-04-22T13:43:19.006Z"
+    },
+    {
+      "case_id": "f31-promote-025",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "promote oracle all checks pass",
+      "ts": "2026-04-22T13:43:19.066Z"
+    }
+  ]
+}

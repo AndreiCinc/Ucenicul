@@ -1,0 +1,899 @@
+{
+  "mission": "ACCEPT-VIA-EVIDENCE-VALIDATED-PROBE",
+  "category": "local_probe",
+  "count": 50,
+  "cases": [
+    {
+      "id": "EVP-L-01",
+      "family": "accept_via_row_evidence",
+      "seed_row": {
+        "evidence_validated": true,
+        "tier": "recent",
+        "user_confirmed": false,
+        "corroboration_count": 1
+      },
+      "promote_call": {
+        "user_confirmed": false,
+        "evidence_validated": false
+      },
+      "expected": {
+        "accept": true,
+        "acceptance_signals_contains": "evidence_validated"
+      }
+    },
+    {
+      "id": "EVP-L-02",
+      "family": "accept_via_row_evidence",
+      "seed_row": {
+        "evidence_validated": true,
+        "tier": "recent",
+        "user_confirmed": false,
+        "corroboration_count": 1
+      },
+      "promote_call": {
+        "user_confirmed": false,
+        "evidence_validated": false
+      },
+      "expected": {
+        "accept": true,
+        "acceptance_signals_contains": "evidence_validated"
+      }
+    },
+    {
+      "id": "EVP-L-03",
+      "family": "accept_via_row_evidence",
+      "seed_row": {
+        "evidence_validated": true,
+        "tier": "recent",
+        "user_confirmed": false,
+        "corroboration_count": 1
+      },
+      "promote_call": {
+        "user_confirmed": false,
+        "evidence_validated": false
+      },
+      "expected": {
+        "accept": true,
+        "acceptance_signals_contains": "evidence_validated"
+      }
+    },
+    {
+      "id": "EVP-L-04",
+      "family": "accept_via_row_evidence",
+      "seed_row": {
+        "evidence_validated": true,
+        "tier": "recent",
+        "user_confirmed": false,
+        "corroboration_count": 1
+      },
+      "promote_call": {
+        "user_confirmed": false,
+        "evidence_validated": false
+      },
+      "expected": {
+        "accept": true,
+        "acceptance_signals_contains": "evidence_validated"
+      }
+    },
+    {
+      "id": "EVP-L-05",
+      "family": "accept_via_row_evidence",
+      "seed_row": {
+        "evidence_validated": true,
+        "tier": "recent",
+        "user_confirmed": false,
+        "corroboration_count": 1
+      },
+      "promote_call": {
+        "user_confirmed": false,
+        "evidence_validated": false
+      },
+      "expected": {
+        "accept": true,
+        "acceptance_signals_contains": "evidence_validated"
+      }
+    },
+    {
+      "id": "EVP-L-06",
+      "family": "accept_via_row_evidence",
+      "seed_row": {
+        "evidence_validated": true,
+        "tier": "recent",
+        "user_confirmed": false,
+        "corroboration_count": 1
+      },
+      "promote_call": {
+        "user_confirmed": false,
+        "evidence_validated": false
+      },
+      "expected": {
+        "accept": true,
+        "acceptance_signals_contains": "evidence_validated"
+      }
+    },
+    {
+      "id": "EVP-L-07",
+      "family": "accept_via_row_evidence",
+      "seed_row": {
+        "evidence_validated": true,
+        "tier": "recent",
+        "user_confirmed": false,
+        "corroboration_count": 1
+      },
+      "promote_call": {
+        "user_confirmed": false,
+        "evidence_validated": false
+      },
+      "expected": {
+        "accept": true,
+        "acceptance_signals_contains": "evidence_validated"
+      }
+    },
+    {
+      "id": "EVP-L-08",
+      "family": "accept_via_row_evidence",
+      "seed_row": {
+        "evidence_validated": true,
+        "tier": "recent",
+        "user_confirmed": false,
+        "corroboration_count": 1
+      },
+      "promote_call": {
+        "user_confirmed": false,
+        "evidence_validated": false
+      },
+      "expected": {
+        "accept": true,
+        "acceptance_signals_contains": "evidence_validated"
+      }
+    },
+    {
+      "id": "EVP-L-09",
+      "family": "accept_via_row_evidence",
+      "seed_row": {
+        "evidence_validated": true,
+        "tier": "recent",
+        "user_confirmed": false,
+        "corroboration_count": 1
+      },
+      "promote_call": {
+        "user_confirmed": false,
+        "evidence_validated": false
+      },
+      "expected": {
+        "accept": true,
+        "acceptance_signals_contains": "evidence_validated"
+      }
+    },
+    {
+      "id": "EVP-L-10",
+      "family": "accept_via_row_evidence",
+      "seed_row": {
+        "evidence_validated": true,
+        "tier": "recent",
+        "user_confirmed": false,
+        "corroboration_count": 1
+      },
+      "promote_call": {
+        "user_confirmed": false,
+        "evidence_validated": false
+      },
+      "expected": {
+        "accept": true,
+        "acceptance_signals_contains": "evidence_validated"
+      }
+    },
+    {
+      "id": "EVP-L-11",
+      "family": "accept_via_row_evidence",
+      "seed_row": {
+        "evidence_validated": true,
+        "tier": "recent",
+        "user_confirmed": false,
+        "corroboration_count": 1
+      },
+      "promote_call": {
+        "user_confirmed": false,
+        "evidence_validated": false
+      },
+      "expected": {
+        "accept": true,
+        "acceptance_signals_contains": "evidence_validated"
+      }
+    },
+    {
+      "id": "EVP-L-12",
+      "family": "accept_via_row_evidence",
+      "seed_row": {
+        "evidence_validated": true,
+        "tier": "recent",
+        "user_confirmed": false,
+        "corroboration_count": 1
+      },
+      "promote_call": {
+        "user_confirmed": false,
+        "evidence_validated": false
+      },
+      "expected": {
+        "accept": true,
+        "acceptance_signals_contains": "evidence_validated"
+      }
+    },
+    {
+      "id": "EVP-L-13",
+      "family": "accept_via_row_evidence",
+      "seed_row": {
+        "evidence_validated": true,
+        "tier": "recent",
+        "user_confirmed": false,
+        "corroboration_count": 1
+      },
+      "promote_call": {
+        "user_confirmed": false,
+        "evidence_validated": false
+      },
+      "expected": {
+        "accept": true,
+        "acceptance_signals_contains": "evidence_validated"
+      }
+    },
+    {
+      "id": "EVP-L-14",
+      "family": "accept_via_row_evidence",
+      "seed_row": {
+        "evidence_validated": true,
+        "tier": "recent",
+        "user_confirmed": false,
+        "corroboration_count": 1
+      },
+      "promote_call": {
+        "user_confirmed": false,
+        "evidence_validated": false
+      },
+      "expected": {
+        "accept": true,
+        "acceptance_signals_contains": "evidence_validated"
+      }
+    },
+    {
+      "id": "EVP-L-15",
+      "family": "accept_via_row_evidence",
+      "seed_row": {
+        "evidence_validated": true,
+        "tier": "recent",
+        "user_confirmed": false,
+        "corroboration_count": 1
+      },
+      "promote_call": {
+        "user_confirmed": false,
+        "evidence_validated": false
+      },
+      "expected": {
+        "accept": true,
+        "acceptance_signals_contains": "evidence_validated"
+      }
+    },
+    {
+      "id": "EVP-L-16",
+      "family": "accept_via_row_evidence",
+      "seed_row": {
+        "evidence_validated": true,
+        "tier": "recent",
+        "user_confirmed": false,
+        "corroboration_count": 1
+      },
+      "promote_call": {
+        "user_confirmed": false,
+        "evidence_validated": false
+      },
+      "expected": {
+        "accept": true,
+        "acceptance_signals_contains": "evidence_validated"
+      }
+    },
+    {
+      "id": "EVP-L-17",
+      "family": "accept_via_row_evidence",
+      "seed_row": {
+        "evidence_validated": true,
+        "tier": "recent",
+        "user_confirmed": false,
+        "corroboration_count": 1
+      },
+      "promote_call": {
+        "user_confirmed": false,
+        "evidence_validated": false
+      },
+      "expected": {
+        "accept": true,
+        "acceptance_signals_contains": "evidence_validated"
+      }
+    },
+    {
+      "id": "EVP-L-18",
+      "family": "accept_via_row_evidence",
+      "seed_row": {
+        "evidence_validated": true,
+        "tier": "recent",
+        "user_confirmed": false,
+        "corroboration_count": 1
+      },
+      "promote_call": {
+        "user_confirmed": false,
+        "evidence_validated": false
+      },
+      "expected": {
+        "accept": true,
+        "acceptance_signals_contains": "evidence_validated"
+      }
+    },
+    {
+      "id": "EVP-L-19",
+      "family": "accept_via_row_evidence",
+      "seed_row": {
+        "evidence_validated": true,
+        "tier": "recent",
+        "user_confirmed": false,
+        "corroboration_count": 1
+      },
+      "promote_call": {
+        "user_confirmed": false,
+        "evidence_validated": false
+      },
+      "expected": {
+        "accept": true,
+        "acceptance_signals_contains": "evidence_validated"
+      }
+    },
+    {
+      "id": "EVP-L-20",
+      "family": "accept_via_row_evidence",
+      "seed_row": {
+        "evidence_validated": true,
+        "tier": "recent",
+        "user_confirmed": false,
+        "corroboration_count": 1
+      },
+      "promote_call": {
+        "user_confirmed": false,
+        "evidence_validated": false
+      },
+      "expected": {
+        "accept": true,
+        "acceptance_signals_contains": "evidence_validated"
+      }
+    },
+    {
+      "id": "EVP-L-21",
+      "family": "deny_without_signal",
+      "seed_row": {
+        "evidence_validated": false,
+        "tier": "recent",
+        "user_confirmed": false,
+        "corroboration_count": 1
+      },
+      "promote_call": {
+        "user_confirmed": false,
+        "evidence_validated": false
+      },
+      "expected": {
+        "accept": false,
+        "denial_reason": "acceptance_criteria_not_met"
+      }
+    },
+    {
+      "id": "EVP-L-22",
+      "family": "deny_without_signal",
+      "seed_row": {
+        "evidence_validated": false,
+        "tier": "recent",
+        "user_confirmed": false,
+        "corroboration_count": 1
+      },
+      "promote_call": {
+        "user_confirmed": false,
+        "evidence_validated": false
+      },
+      "expected": {
+        "accept": false,
+        "denial_reason": "acceptance_criteria_not_met"
+      }
+    },
+    {
+      "id": "EVP-L-23",
+      "family": "deny_without_signal",
+      "seed_row": {
+        "evidence_validated": false,
+        "tier": "recent",
+        "user_confirmed": false,
+        "corroboration_count": 1
+      },
+      "promote_call": {
+        "user_confirmed": false,
+        "evidence_validated": false
+      },
+      "expected": {
+        "accept": false,
+        "denial_reason": "acceptance_criteria_not_met"
+      }
+    },
+    {
+      "id": "EVP-L-24",
+      "family": "deny_without_signal",
+      "seed_row": {
+        "evidence_validated": false,
+        "tier": "recent",
+        "user_confirmed": false,
+        "corroboration_count": 1
+      },
+      "promote_call": {
+        "user_confirmed": false,
+        "evidence_validated": false
+      },
+      "expected": {
+        "accept": false,
+        "denial_reason": "acceptance_criteria_not_met"
+      }
+    },
+    {
+      "id": "EVP-L-25",
+      "family": "deny_without_signal",
+      "seed_row": {
+        "evidence_validated": false,
+        "tier": "recent",
+        "user_confirmed": false,
+        "corroboration_count": 1
+      },
+      "promote_call": {
+        "user_confirmed": false,
+        "evidence_validated": false
+      },
+      "expected": {
+        "accept": false,
+        "denial_reason": "acceptance_criteria_not_met"
+      }
+    },
+    {
+      "id": "EVP-L-26",
+      "family": "deny_without_signal",
+      "seed_row": {
+        "evidence_validated": false,
+        "tier": "recent",
+        "user_confirmed": false,
+        "corroboration_count": 1
+      },
+      "promote_call": {
+        "user_confirmed": false,
+        "evidence_validated": false
+      },
+      "expected": {
+        "accept": false,
+        "denial_reason": "acceptance_criteria_not_met"
+      }
+    },
+    {
+      "id": "EVP-L-27",
+      "family": "deny_without_signal",
+      "seed_row": {
+        "evidence_validated": false,
+        "tier": "recent",
+        "user_confirmed": false,
+        "corroboration_count": 1
+      },
+      "promote_call": {
+        "user_confirmed": false,
+        "evidence_validated": false
+      },
+      "expected": {
+        "accept": false,
+        "denial_reason": "acceptance_criteria_not_met"
+      }
+    },
+    {
+      "id": "EVP-L-28",
+      "family": "deny_without_signal",
+      "seed_row": {
+        "evidence_validated": false,
+        "tier": "recent",
+        "user_confirmed": false,
+        "corroboration_count": 1
+      },
+      "promote_call": {
+        "user_confirmed": false,
+        "evidence_validated": false
+      },
+      "expected": {
+        "accept": false,
+        "denial_reason": "acceptance_criteria_not_met"
+      }
+    },
+    {
+      "id": "EVP-L-29",
+      "family": "deny_without_signal",
+      "seed_row": {
+        "evidence_validated": false,
+        "tier": "recent",
+        "user_confirmed": false,
+        "corroboration_count": 1
+      },
+      "promote_call": {
+        "user_confirmed": false,
+        "evidence_validated": false
+      },
+      "expected": {
+        "accept": false,
+        "denial_reason": "acceptance_criteria_not_met"
+      }
+    },
+    {
+      "id": "EVP-L-30",
+      "family": "deny_without_signal",
+      "seed_row": {
+        "evidence_validated": false,
+        "tier": "recent",
+        "user_confirmed": false,
+        "corroboration_count": 1
+      },
+      "promote_call": {
+        "user_confirmed": false,
+        "evidence_validated": false
+      },
+      "expected": {
+        "accept": false,
+        "denial_reason": "acceptance_criteria_not_met"
+      }
+    },
+    {
+      "id": "EVP-L-31",
+      "family": "deny_without_signal",
+      "seed_row": {
+        "evidence_validated": false,
+        "tier": "recent",
+        "user_confirmed": false,
+        "corroboration_count": 1
+      },
+      "promote_call": {
+        "user_confirmed": false,
+        "evidence_validated": false
+      },
+      "expected": {
+        "accept": false,
+        "denial_reason": "acceptance_criteria_not_met"
+      }
+    },
+    {
+      "id": "EVP-L-32",
+      "family": "deny_without_signal",
+      "seed_row": {
+        "evidence_validated": false,
+        "tier": "recent",
+        "user_confirmed": false,
+        "corroboration_count": 1
+      },
+      "promote_call": {
+        "user_confirmed": false,
+        "evidence_validated": false
+      },
+      "expected": {
+        "accept": false,
+        "denial_reason": "acceptance_criteria_not_met"
+      }
+    },
+    {
+      "id": "EVP-L-33",
+      "family": "deny_without_signal",
+      "seed_row": {
+        "evidence_validated": false,
+        "tier": "recent",
+        "user_confirmed": false,
+        "corroboration_count": 1
+      },
+      "promote_call": {
+        "user_confirmed": false,
+        "evidence_validated": false
+      },
+      "expected": {
+        "accept": false,
+        "denial_reason": "acceptance_criteria_not_met"
+      }
+    },
+    {
+      "id": "EVP-L-34",
+      "family": "deny_without_signal",
+      "seed_row": {
+        "evidence_validated": false,
+        "tier": "recent",
+        "user_confirmed": false,
+        "corroboration_count": 1
+      },
+      "promote_call": {
+        "user_confirmed": false,
+        "evidence_validated": false
+      },
+      "expected": {
+        "accept": false,
+        "denial_reason": "acceptance_criteria_not_met"
+      }
+    },
+    {
+      "id": "EVP-L-35",
+      "family": "deny_without_signal",
+      "seed_row": {
+        "evidence_validated": false,
+        "tier": "recent",
+        "user_confirmed": false,
+        "corroboration_count": 1
+      },
+      "promote_call": {
+        "user_confirmed": false,
+        "evidence_validated": false
+      },
+      "expected": {
+        "accept": false,
+        "denial_reason": "acceptance_criteria_not_met"
+      }
+    },
+    {
+      "id": "EVP-L-36",
+      "family": "deny_wrong_tier",
+      "seed_row": {
+        "evidence_validated": true,
+        "tier": "long_term",
+        "user_confirmed": false,
+        "corroboration_count": 1
+      },
+      "promote_call": {
+        "user_confirmed": false,
+        "evidence_validated": false
+      },
+      "expected": {
+        "accept": false,
+        "denial_reason": "not_in_recent_tier"
+      }
+    },
+    {
+      "id": "EVP-L-37",
+      "family": "deny_wrong_tier",
+      "seed_row": {
+        "evidence_validated": true,
+        "tier": "long_term",
+        "user_confirmed": false,
+        "corroboration_count": 1
+      },
+      "promote_call": {
+        "user_confirmed": false,
+        "evidence_validated": false
+      },
+      "expected": {
+        "accept": false,
+        "denial_reason": "not_in_recent_tier"
+      }
+    },
+    {
+      "id": "EVP-L-38",
+      "family": "deny_wrong_tier",
+      "seed_row": {
+        "evidence_validated": true,
+        "tier": "long_term",
+        "user_confirmed": false,
+        "corroboration_count": 1
+      },
+      "promote_call": {
+        "user_confirmed": false,
+        "evidence_validated": false
+      },
+      "expected": {
+        "accept": false,
+        "denial_reason": "not_in_recent_tier"
+      }
+    },
+    {
+      "id": "EVP-L-39",
+      "family": "deny_wrong_tier",
+      "seed_row": {
+        "evidence_validated": true,
+        "tier": "long_term",
+        "user_confirmed": false,
+        "corroboration_count": 1
+      },
+      "promote_call": {
+        "user_confirmed": false,
+        "evidence_validated": false
+      },
+      "expected": {
+        "accept": false,
+        "denial_reason": "not_in_recent_tier"
+      }
+    },
+    {
+      "id": "EVP-L-40",
+      "family": "deny_wrong_tier",
+      "seed_row": {
+        "evidence_validated": true,
+        "tier": "long_term",
+        "user_confirmed": false,
+        "corroboration_count": 1
+      },
+      "promote_call": {
+        "user_confirmed": false,
+        "evidence_validated": false
+      },
+      "expected": {
+        "accept": false,
+        "denial_reason": "not_in_recent_tier"
+      }
+    },
+    {
+      "id": "EVP-L-41",
+      "family": "deny_wrong_tier",
+      "seed_row": {
+        "evidence_validated": true,
+        "tier": "long_term",
+        "user_confirmed": false,
+        "corroboration_count": 1
+      },
+      "promote_call": {
+        "user_confirmed": false,
+        "evidence_validated": false
+      },
+      "expected": {
+        "accept": false,
+        "denial_reason": "not_in_recent_tier"
+      }
+    },
+    {
+      "id": "EVP-L-42",
+      "family": "deny_wrong_tier",
+      "seed_row": {
+        "evidence_validated": true,
+        "tier": "long_term",
+        "user_confirmed": false,
+        "corroboration_count": 1
+      },
+      "promote_call": {
+        "user_confirmed": false,
+        "evidence_validated": false
+      },
+      "expected": {
+        "accept": false,
+        "denial_reason": "not_in_recent_tier"
+      }
+    },
+    {
+      "id": "EVP-L-43",
+      "family": "regression_signal_precedence",
+      "seed_row": {
+        "evidence_validated": false,
+        "tier": "recent",
+        "user_confirmed": true,
+        "corroboration_count": 1
+      },
+      "promote_call": {
+        "user_confirmed": false,
+        "evidence_validated": false
+      },
+      "expected": {
+        "no_false_broadening": true
+      }
+    },
+    {
+      "id": "EVP-L-44",
+      "family": "regression_signal_precedence",
+      "seed_row": {
+        "evidence_validated": true,
+        "tier": "recent",
+        "user_confirmed": false,
+        "corroboration_count": 1
+      },
+      "promote_call": {
+        "user_confirmed": false,
+        "evidence_validated": false
+      },
+      "expected": {
+        "no_false_broadening": true
+      }
+    },
+    {
+      "id": "EVP-L-45",
+      "family": "regression_signal_precedence",
+      "seed_row": {
+        "evidence_validated": false,
+        "tier": "recent",
+        "user_confirmed": true,
+        "corroboration_count": 2
+      },
+      "promote_call": {
+        "user_confirmed": false,
+        "evidence_validated": false
+      },
+      "expected": {
+        "no_false_broadening": true
+      }
+    },
+    {
+      "id": "EVP-L-46",
+      "family": "regression_signal_precedence",
+      "seed_row": {
+        "evidence_validated": true,
+        "tier": "recent",
+        "user_confirmed": false,
+        "corroboration_count": 1
+      },
+      "promote_call": {
+        "user_confirmed": false,
+        "evidence_validated": false
+      },
+      "expected": {
+        "no_false_broadening": true
+      }
+    },
+    {
+      "id": "EVP-L-47",
+      "family": "regression_signal_precedence",
+      "seed_row": {
+        "evidence_validated": false,
+        "tier": "recent",
+        "user_confirmed": true,
+        "corroboration_count": 1
+      },
+      "promote_call": {
+        "user_confirmed": false,
+        "evidence_validated": false
+      },
+      "expected": {
+        "no_false_broadening": true
+      }
+    },
+    {
+      "id": "EVP-L-48",
+      "family": "regression_signal_precedence",
+      "seed_row": {
+        "evidence_validated": true,
+        "tier": "recent",
+        "user_confirmed": false,
+        "corroboration_count": 2
+      },
+      "promote_call": {
+        "user_confirmed": false,
+        "evidence_validated": false
+      },
+      "expected": {
+        "no_false_broadening": true
+      }
+    },
+    {
+      "id": "EVP-L-49",
+      "family": "regression_signal_precedence",
+      "seed_row": {
+        "evidence_validated": false,
+        "tier": "recent",
+        "user_confirmed": true,
+        "corroboration_count": 1
+      },
+      "promote_call": {
+        "user_confirmed": false,
+        "evidence_validated": false
+      },
+      "expected": {
+        "no_false_broadening": true
+      }
+    },
+    {
+      "id": "EVP-L-50",
+      "family": "regression_signal_precedence",
+      "seed_row": {
+        "evidence_validated": true,
+        "tier": "recent",
+        "user_confirmed": false,
+        "corroboration_count": 1
+      },
+      "promote_call": {
+        "user_confirmed": false,
+        "evidence_validated": false
+      },
+      "expected": {
+        "no_false_broadening": true
+      }
+    }
+  ]
+}

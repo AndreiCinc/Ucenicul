@@ -1,0 +1,11 @@
+{
+  "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+  "message_id": "07cee8bb-df75-4f0e-8b9e-4d3d7feab1ad",
+  "thread_id": "91c0e30b-356f-4c07-8e53-63d7529a2350",
+  "reply_to_thread_id": null,
+  "idempotency_key": "e2e:f240-2026-04-26:C7-L2-V4",
+  "thread_label": "C7:C7-L2-V4",
+  "ts_iso": "2026-04-26T02:50:47.955Z",
+  "run_tag": "f240-2026-04-26",
+  "thread_context_kind": "seeded-fresh"
+}

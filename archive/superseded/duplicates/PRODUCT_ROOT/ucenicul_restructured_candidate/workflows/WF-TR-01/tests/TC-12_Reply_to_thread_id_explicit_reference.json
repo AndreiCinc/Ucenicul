@@ -1,0 +1,24 @@
+{
+  "id": "TC-12",
+  "name": "Reply-to-thread-id explicit reference",
+  "description": "Message has explicit thread reference in reply context (priority 2 shortcircuit).",
+  "request": {
+    "message_id": "test-msg-012",
+    "tenant_id": "aaaaaaaa-0000-0000-0000-000000000001",
+    "channel": "telegram",
+    "direction": "inbound",
+    "author_type": "user",
+    "normalized_content": "Sunt de acord cu decizia",
+    "timestamp": "2026-04-15T12:00:00Z",
+    "source_message_ref": "tg_test_012",
+    "reply_to_message_id": "mmmmmmmm-0000-0000-0000-000000000001"
+  },
+  "expected": {
+    "decision": "attach_existing_thread",
+    "resolved_thread_id": "tttttttt-0000-0000-0000-000000000001",
+    "ambiguity_detected": false,
+    "candidate_scores_empty": true,
+    "content_class_used": "normalized_content"
+  },
+  "note": "Tests the reply_to_message_id → thread lookup (priority 2) shortcircuit path."
+}

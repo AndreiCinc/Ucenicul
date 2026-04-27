@@ -1,0 +1,20 @@
+{
+  "message_id": "71f9a220-4919-46c8-8bf3-0859afdb1e5a",
+  "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+  "channel": "task-module-user-ready",
+  "direction": "inbound",
+  "author_type": "user",
+  "normalized_content": "Creează task: verifică plata E2E retry.",
+  "timestamp": "2026-04-25T12:47:21.278Z",
+  "source_message_ref": "tmr:RT-032:tmr:tmr-20260425-smoke:RT-032",
+  "author_entity_id": null,
+  "related_entity_ids": [],
+  "metadata": {
+    "tmr_case_id": "RT-032",
+    "tmr_group": "idempotency_retry",
+    "tmr_run_tag": "tmr-20260425-smoke"
+  },
+  "idempotency_key": "tmr:tmr-20260425-smoke:RT-032",
+  "thread_id": "7615bcbb-f9ae-4086-87f4-81ef0b155ade",
+  "reply_to_thread_id": null
+}

@@ -1,0 +1,486 @@
+{
+  "name": "WF-DI-01",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "1e0eb2ab-f3e0-442b-a749-a07714f7962b",
+      "name": "When clicking 'Execute workflow'",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -1536,
+        768
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "dac2ef31-e680-4c36-96fe-c2b759916011",
+      "name": "When chat message received",
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -1536,
+        960
+      ],
+      "webhookId": "4ad586da-c0be-47b7-b081-9156bf1f4bdb"
+    },
+    {
+      "parameters": {
+        "jsCode": "\nconst input = $json;\nlet candidate = input;\nif (input && typeof input.chatInput === 'string' && !input.payload && !input.status_kind) {\n  try { candidate = JSON.parse(input.chatInput); } catch (e) { candidate = input; }\n}\nfunction invalid(code, message, missing) {\n  return [{ json: { _valid: 'false', error_code: code, error_message: message, missing_fields: missing || [] } }];\n}\nif (!candidate || typeof candidate !== 'object' || Array.isArray(candidate)) {\n  return invalid('INVALID_HANDOFF_INPUT', 'Input is not a JSON object.', ['root']);\n}\nconst requiredTop = ['status_kind', 'result_type', 'payload'];\nconst missingTop = requiredTop.filter(k => !(k in candidate));\nif (missingTop.length) return invalid('INVALID_HANDOFF_INPUT', 'Required plan fields are missing.', missingTop);\nconst payload = candidate.payload;\nif (!payload || typeof payload !== 'object' || Array.isArray(payload)) return invalid('INVALID_HANDOFF_INPUT', 'payload must be an object.', ['payload']);\nconst requiredPayload = ['tenant_id','thread_id','execution_id','trigger_message_id','idempotency_key','plan_id','goal','primary_intent','steps','dispatcher_input'];\nconst missingPayload = requiredPayload.filter(k => !(k in payload)).map(k => `payload.${k}`);\nif (missingPayload.length) return invalid('INVALID_HANDOFF_INPUT', 'Required plan payload fields are missing.', missingPayload);\nif (candidate.status_kind !== 'success') return invalid('INVALID_HANDOFF_INPUT', 'status_kind must be success.', ['status_kind']);\nif (candidate.result_type !== 'plan') return invalid('INVALID_HANDOFF_INPUT', 'result_type must be plan.', ['result_type']);\nif (!Array.isArray(payload.steps) || !payload.steps.length) return invalid('INVALID_PLAN', 'steps must be a non-empty array.', ['payload.steps']);\nconst guard = payload.dispatcher_input || {};\nif (guard.dispatch_allowed !== true) return invalid('INVALID_PLAN', 'dispatch_allowed must be true.', ['payload.dispatcher_input.dispatch_allowed']);\nif (guard.module_execution_started !== false) return invalid('INVALID_PLAN', 'module_execution_started must be false.', ['payload.dispatcher_input.module_execution_started']);\nif (guard.response_generation_allowed !== false) return invalid('INVALID_PLAN', 'response_generation_allowed must be false.', ['payload.dispatcher_input.response_generation_allowed']);\nif (guard.domain_writes_performed !== false) return invalid('INVALID_PLAN', 'domain_writes_performed must be false.', ['payload.dispatcher_input.domain_writes_performed']);\nfor (let i = 0; i < payload.steps.length; i++) {\n  const step = payload.steps[i];\n  const req = ['step_id','module_name','purpose','inputs','depends_on','execution_mode','expected_outputs','replan_if','failure_policy','status'];\n  const miss = req.filter(k => !(k in step)).map(k => `payload.steps[${i}].${k}`);\n  if (miss.length) return invalid('INVALID_PLAN', `Step ${i} is missing required fields.`, miss);\n  if (step.status !== 'pending') return invalid('INVALID_PLAN', `Step ${i} status must be pending.`, [`payload.steps[${i}].status`]);\n  if (!['sequential','parallel'].includes(step.execution_mode)) return invalid('INVALID_PLAN', `Step ${i} execution_mode invalid.`, [`payload.steps[${i}].execution_mode`]);\n}\nreturn [{ json: { _valid: 'true', _normalized_plan_result: { status_kind: 'success', result_type: 'plan', module_name: candidate.module_name || 'plan_generation', payload: payload } } }];\n"
+      },
+      "id": "b85ab1b9-7456-4f93-ae3b-3425cab4ea56",
+      "name": "DI_Validate_Plan_Result",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -1312,
+        848
+      ]
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json._valid }}",
+                    "rightValue": "true",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "valid"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json._valid }}",
+                    "rightValue": "false",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "invalid"
+            }
+          ]
+        },
+        "options": {
+          "fallbackOutput": "extra"
+        }
+      },
+      "id": "6149fd6b-b694-492f-be04-8d8d5f94296e",
+      "name": "DI_Route_Valid",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        -1104,
+        848
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\nconst p = $json._normalized_plan_result.payload;\nreturn [{ json: {\n  tenant_id: String(p.tenant_id),\n  thread_id: String(p.thread_id),\n  execution_id: String(p.execution_id),\n  trigger_message_id: String(p.trigger_message_id),\n  idempotency_key: String(p.idempotency_key),\n  plan_id: String(p.plan_id),\n  goal: String(p.goal),\n  primary_intent: String(p.primary_intent),\n  steps: p.steps,\n  dispatcher_input: p.dispatcher_input,\n  warnings: Array.isArray(p.warnings) ? p.warnings : []\n}}];\n"
+      },
+      "id": "88bb0fb9-29c1-4f92-b13d-76542611ca90",
+      "name": "DI_Extract_Dispatch_Input",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -864,
+        752
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "\nSELECT\n  ec.id::text AS execution_id,\n  ec.tenant_id::text AS tenant_id,\n  ec.thread_id::text AS thread_id,\n  ec.trigger_message_id::text AS trigger_message_id,\n  ec.idempotency_key,\n  ec.status\nFROM public.execution_contexts ec\nWHERE ec.id = '{{ $(\"DI_Extract_Dispatch_Input\").first().json.execution_id }}'::uuid\n  AND ec.tenant_id = '{{ $(\"DI_Extract_Dispatch_Input\").first().json.tenant_id }}'::uuid\n  AND ec.thread_id = '{{ $(\"DI_Extract_Dispatch_Input\").first().json.thread_id }}'::uuid\nLIMIT 1;\n",
+        "options": {}
+      },
+      "id": "619e5a0f-1ea8-498c-afb7-4966ca3fb639",
+      "name": "DI_Load_Execution_Context",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [
+        -640,
+        752
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "postgres": {
+          "id": "z9nKgToNWvIW7P8f",
+          "name": "Postgres account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "\nconst row = $json;\nconst source = $('DI_Extract_Dispatch_Input').first().json;\nif (!row || !row.execution_id) {\n  return [{ json: { _context_ready: 'false', error_code: 'CONTEXT_MISMATCH', error_message: 'Execution context row was not found or is incomplete.', missing_fields: ['execution_context'] } }];\n}\nfor (const field of ['execution_id','tenant_id','thread_id']) {\n  if (String(row[field] || '') !== String(source[field] || '')) {\n    return [{ json: { _context_ready: 'false', error_code: 'CONTEXT_MISMATCH', error_message: `${field} does not match canonical execution context.`, missing_fields: [field] } }];\n  }\n}\nif (String(row.status || '') !== 'initialized') {\n  return [{ json: { _context_ready: 'false', error_code: 'CONTEXT_MISMATCH', error_message: 'Execution context is not initialized.', missing_fields: ['status'] } }];\n}\nreturn [{ json: { _context_ready: 'true', warnings: [] } }];\n"
+      },
+      "id": "40079ecd-53eb-49ee-ac3b-c215015f8d25",
+      "name": "DI_Verify_Context_Match",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -416,
+        752
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\nreturn [{ json: { module_registry: [\n  { module_name: 'task_module', module_type: 'executor', capabilities: ['create_task','list_tasks','update_task','complete_task','delete_task'] },\n  { module_name: 'reminder_module', module_type: 'executor', capabilities: ['create_reminder','list_reminders','update_reminder','cancel_reminder'] },\n  { module_name: 'memory_module', module_type: 'executor', capabilities: ['store_memory','search_memory'] },\n  { module_name: 'improvement_module', module_type: 'executor', capabilities: ['capture_feedback'] },\n  { module_name: 'watcher_module_basic', module_type: 'observer', capabilities: ['produce_observation'] }\n] } }];\n"
+      },
+      "id": "bc567f22-85f1-4e07-97d9-91984d1939ea",
+      "name": "DI_Load_Module_Registry",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -192,
+        752
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\nconst verify = $('DI_Verify_Context_Match').first().json;\nif (verify._context_ready === 'false') {\n  return [{ json: verify }];\n}\nconst source = $('DI_Extract_Dispatch_Input').first().json;\nconst registry = ($json.module_registry || []);\nconst registryMap = Object.fromEntries(registry.map(item => [item.module_name, item]));\nconst stepIds = new Set((source.steps || []).map(step => step.step_id));\nconst readyParallel = [];\nconst readySequential = [];\nfor (const step of (source.steps || [])) {\n  if (!registryMap[step.module_name]) {\n    return [{ json: { _context_ready: 'false', error_code: 'UNKNOWN_MODULE', error_message: `Module ${step.module_name} is not present in the capability registry.`, missing_fields: [`module_registry.${step.module_name}`] } }];\n  }\n  const unknownDeps = (step.depends_on || []).filter(dep => !stepIds.has(dep));\n  if (unknownDeps.length) {\n    return [{ json: { _context_ready: 'false', error_code: 'INVALID_PLAN', error_message: `Step ${step.step_id} depends on unknown steps.`, missing_fields: unknownDeps.map(dep => `depends_on.${dep}`) } }];\n  }\n  const request = {\n    execution_context_id: source.execution_id,\n    thread_id: source.thread_id,\n    step_id: step.step_id,\n    module_name: step.module_name,\n    purpose: step.purpose,\n    inputs: step.inputs || {},\n    idempotency_key: `${source.idempotency_key}:${step.step_id}:dispatch:v1`\n  };\n  const item = { step_id: step.step_id, execution_mode: step.execution_mode, depends_on: step.depends_on || [], module_request: request };\n  if (step.execution_mode === 'parallel' && (!step.depends_on || !step.depends_on.length)) readyParallel.push(item); else readySequential.push(item);\n}\nconst groups = [];\nif (readyParallel.length) {\n  groups.push({ group_id: 'group:parallel:001', execution_mode: 'parallel', step_ids: readyParallel.map(x => x.step_id), module_requests: readyParallel.map(x => x.module_request) });\n}\nreadySequential.forEach((item, index) => {\n  groups.push({ group_id: `group:sequential:${String(index + 1).padStart(3,'0')}`, execution_mode: 'sequential', step_ids: [item.step_id], module_requests: [item.module_request] });\n});\nreturn [{ json: { _context_ready: 'true', dispatch_input: source, ready_groups: groups, warnings: source.warnings || [] } }];\n"
+      },
+      "id": "67e50b12-1a3f-436b-810b-22f9b0591b1d",
+      "name": "DI_Build_Ready_Steps",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        32,
+        752
+      ]
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json._context_ready }}",
+                    "rightValue": "true",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "ready"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json._context_ready }}",
+                    "rightValue": "false",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "blocked"
+            }
+          ]
+        },
+        "options": {
+          "fallbackOutput": "extra"
+        }
+      },
+      "id": "8dff4ae3-85ec-4db0-a986-02360c46abf0",
+      "name": "DI_Route_Context_Ready",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        256,
+        752
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\nconst data = $json;\nconst source = data.dispatch_input;\nconst dispatchId = `dispatch:${source.plan_id}:v1`;\nreturn [{ json: {\n  status_kind: 'success',\n  result_type: 'dispatch',\n  module_name: 'dispatcher',\n  payload: {\n    tenant_id: String(source.tenant_id),\n    thread_id: String(source.thread_id),\n    execution_id: String(source.execution_id),\n    plan_id: String(source.plan_id),\n    dispatch_id: dispatchId,\n    allowed_next_stage: 'WF-ME-01',\n    ready_groups: data.ready_groups || [],\n    dispatch_guard: {\n      dispatch_allowed: true,\n      module_execution_started: false,\n      response_generation_allowed: false,\n      domain_writes_performed: false\n    },\n    warnings: Array.isArray(data.warnings) ? data.warnings : []\n  }\n}}];\n"
+      },
+      "id": "4104858c-54da-4823-be1d-90d88ebe3de9",
+      "name": "DI_Build_Dispatch_Payload",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        464,
+        688
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "return items;"
+      },
+      "id": "0badcc5b-5621-4704-9b99-252e2bcc07b7",
+      "name": "DI_Return_Result",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        688,
+        688
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\nreturn [{ json: {\n  status_kind: 'failed',\n  result_type: 'error',\n  module_name: 'dispatcher',\n  error: {\n    code: $json.error_code || 'INVALID_PLAN',\n    message: $json.error_message || 'Dispatcher error.',\n    missing_fields: Array.isArray($json.missing_fields) ? $json.missing_fields : []\n  }\n}}];\n"
+      },
+      "id": "9d514a9e-e932-468b-ad6c-0d8d65647335",
+      "name": "DI_Return_Error",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        464,
+        896
+      ]
+    },
+    {
+      "id": "di-dispatch-to-me-01-subcall",
+      "name": "DI_Dispatch_To_ME_01_SUBCALL",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        948,
+        688
+      ],
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "uq26nh1grIpnHju0",
+          "mode": "list",
+          "cachedResultName": "WF-ME-01 Module Execution"
+        },
+        "mode": "each",
+        "options": {
+          "waitForSubWorkflow": true
+        }
+      }
+    },
+    {
+      "id": "di-build-me-envelopes",
+      "name": "DI_Build_ME_Envelopes",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        948,
+        828
+      ],
+      "parameters": {
+        "language": "javaScript",
+        "jsCode": "// Split DI dispatch envelope into per-step envelopes shaped for ME-01 input.\nconst src = $json;\nif (!src || src.status_kind !== 'success' || src.result_type !== 'dispatch') {\n  // Propagate errors unchanged so ME-01 can reject them cleanly.\n  return [{ json: src }];\n}\nconst p = src.payload || {};\nconst guard = p.dispatch_guard || {};\nconst out = [];\nfor (const group of (p.ready_groups || [])) {\n  for (const req of (group.module_requests || [])) {\n    const step = {\n      step_id: req.step_id,\n      module_name: req.module_name,\n      purpose: req.purpose,\n      inputs: req.inputs || {},\n      execution_mode: group.execution_mode || 'sequential',\n      depends_on: req.depends_on || [],\n      expected_outputs: req.expected_outputs || [],\n      replan_if: req.replan_if || [],\n      failure_policy: req.failure_policy || 'continue_with_notice',\n      status: 'pending'\n    };\n    out.push({ json: {\n      status_kind: 'success',\n      result_type: 'dispatch',\n      execution_context_id: p.execution_id,\n      thread_id: p.thread_id,\n      tenant_id: p.tenant_id,\n      dispatcher_input: {\n        dispatch_allowed: true,\n        module_execution_started: false,\n        response_generation_allowed: false,\n        domain_writes_performed: false,\n        step\n      },\n      idempotency_key: req.idempotency_key || `dispatch:${p.dispatch_id}:${step.step_id}`\n    }});\n  }\n}\nif (!out.length) {\n  return [{ json: { status_kind: 'failed', result_type: 'error', module_name: 'dispatcher', error: { code: 'EMPTY_DISPATCH', message: 'No ready steps to dispatch.', missing_fields: [] } } }];\n}\nreturn out;"
+      }
+    }
+  ],
+  "connections": {
+    "When clicking 'Execute workflow'": {
+      "main": [
+        [
+          {
+            "node": "DI_Validate_Plan_Result",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "DI_Validate_Plan_Result",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "DI_Validate_Plan_Result": {
+      "main": [
+        [
+          {
+            "node": "DI_Route_Valid",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "DI_Route_Valid": {
+      "main": [
+        [
+          {
+            "node": "DI_Extract_Dispatch_Input",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "DI_Return_Error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "DI_Extract_Dispatch_Input": {
+      "main": [
+        [
+          {
+            "node": "DI_Load_Execution_Context",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "DI_Load_Execution_Context": {
+      "main": [
+        [
+          {
+            "node": "DI_Verify_Context_Match",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "DI_Verify_Context_Match": {
+      "main": [
+        [
+          {
+            "node": "DI_Load_Module_Registry",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "DI_Load_Module_Registry": {
+      "main": [
+        [
+          {
+            "node": "DI_Build_Ready_Steps",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "DI_Build_Ready_Steps": {
+      "main": [
+        [
+          {
+            "node": "DI_Route_Context_Ready",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "DI_Route_Context_Ready": {
+      "main": [
+        [
+          {
+            "node": "DI_Build_Dispatch_Payload",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "DI_Return_Error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "DI_Build_Dispatch_Payload": {
+      "main": [
+        [
+          {
+            "node": "DI_Return_Result",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "DI_Return_Result": {
+      "main": [
+        [
+          {
+            "node": "DI_Build_ME_Envelopes",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "DI_Build_ME_Envelopes": {
+      "main": [
+        [
+          {
+            "node": "DI_Dispatch_To_ME_01_SUBCALL",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "callerPolicy": "workflowsFromSameOwner",
+    "availableInMCP": true
+  }
+}

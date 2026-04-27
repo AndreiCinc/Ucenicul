@@ -1,0 +1,20 @@
+{
+  "message_id": "f42d32fc-9d07-411a-8f2c-ce82f78db1c5",
+  "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+  "channel": "rcp1-rich-matrix",
+  "direction": "inbound",
+  "author_type": "user",
+  "normalized_content": "Tot ce știi despre programul nostru de revisit.",
+  "timestamp": "2026-04-25T19:17:11.983Z",
+  "source_message_ref": "rcp1:RC-C3-07",
+  "author_entity_id": null,
+  "related_entity_ids": [],
+  "metadata": {
+    "rcp1_case_id": "RC-C3-07",
+    "rcp1_corridor": "C3",
+    "rcp1_run_tag": "rcp1-2026-04-25"
+  },
+  "idempotency_key": "rcp1:rcp1-2026-04-25:RC-C3-07",
+  "thread_id": "d55341ef-653b-423c-8e77-c6e818b40102",
+  "reply_to_thread_id": null
+}

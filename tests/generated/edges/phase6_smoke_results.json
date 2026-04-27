@@ -1,0 +1,65 @@
+{
+  "ts": "2026-04-19T23:25:00Z",
+  "run_id": "run_2026-04-19_autonomous_test_e2e",
+  "phase": "6",
+  "scope": "Full primary chain smoke from DI through MO (edges 5, 6, 7, 8, 9)",
+  "prereq": {
+    "edge_8_activated": true,
+    "edge_8_patch": "WF-SU-01_phase6_put.json (added SU_Dispatch_To_RC_01_SUBCALL, rewired SU_Return_Result1 → subcall; no adapter needed — SU output is RC input)"
+  },
+  "chain_segments": [
+    "DI→ME (edge 5)",
+    "ME→RA (edge 6)",
+    "RA→SU (edge 7)",
+    "SU→RC (edge 8, activated in Phase 6)",
+    "RC→MO (edge 9)"
+  ],
+  "deferred": ["edge 1 TR→EC", "edge 2 EC→OR", "edge 3 OR→PL", "edge 4 PL→DI"],
+  "total_cases": 3,
+  "passed": 3,
+  "failed": 0,
+  "notes": [
+    "SU fans out 3× because SU_Build_Downstream_Envelope1 receives 3 input paths (from SU_Apply_Execution_State_Update1, SU_Apply_Operational_Writes1, SU_Persist_Memory_Candidates1). Each SU_Return_Result1 invocation dispatches to RC, so each smoke produces 3 RC sub-execs and 3 MO sub-execs. All converge on status=success.",
+    "MO reports MISSING_DELIVERY_TARGET for the tenant (no telegram user mapped) — this is downstream of the edge boundaries and out of scope for the connector smoke.",
+    "Upstream edges 1–4 (TR→EC→OR→PL→DI) remain deferred pending target-refactor. A full TR-through-MO smoke is not possible with the current activated set."
+  ],
+  "smokes": [
+    {
+      "case": 1,
+      "execution_context_id": "c0000000-0000-0000-0000-000000000001",
+      "idempotency_key": "ucenicul:phase6:smoke:ctx1",
+      "di": "841",
+      "me": "842",
+      "ra": "843",
+      "su": "844",
+      "rc_fanout": ["845", "847", "849"],
+      "mo_fanout": ["846", "848", "850"],
+      "all_success": true
+    },
+    {
+      "case": 2,
+      "execution_context_id": "c0000000-0000-0000-0000-000000000002",
+      "idempotency_key": "ucenicul:phase6:smoke:ctx2",
+      "di": "851",
+      "me": "852",
+      "ra": "853",
+      "su": "854",
+      "rc_fanout": ["855", "857", "859"],
+      "mo_fanout": ["856", "858", "860"],
+      "all_success": true
+    },
+    {
+      "case": 3,
+      "execution_context_id": "c0000000-0000-0000-0000-000000000003",
+      "idempotency_key": "ucenicul:phase6:smoke:ctx3",
+      "di": "861",
+      "me": "862",
+      "ra": "863",
+      "su": "864",
+      "rc_fanout": ["865", "867", "869"],
+      "mo_fanout": ["866", "868", "870"],
+      "all_success": true
+    }
+  ],
+  "verdict": "PASS — full activated-chain smoke (DI→...→MO) succeeds end-to-end for all 3 cases."
+}

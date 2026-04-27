@@ -1,0 +1,24 @@
+{
+  "case_id": "C11-L5-V4",
+  "invariants": [
+    {
+      "name": "assert_idempotency_unique",
+      "sql": "SELECT 'memory'::text AS tbl, count(*)::int AS c FROM memory_items WHERE tenant_id=$1 AND idempotency_key LIKE $2\n          UNION ALL\n          SELECT 'tasks', count(*)::int FROM tasks WHERE tenant_id=$1 AND created_at >= $3\n          UNION ALL\n          SELECT 'reminders', count(*)::int FROM reminders WHERE tenant_id=$1 AND created_at >= $3\n          UNION ALL\n          SELECT 'outbound', count(*)::int FROM messages WHERE tenant_id=$1 AND direction='outbound' AND created_at >= $3",
+      "params": [
+        "eee0e2e0-0000-0000-0000-000000000001",
+        "e2e:f240-2026-04-26:C11-L5-replay%",
+        "2026-04-26T02:50:48.778Z"
+      ],
+      "unknown": false
+    },
+    {
+      "name": "assert_one_outbound_for_case",
+      "sql": "SELECT count(*)::int AS c FROM outbound_delivery_ledger_claude_mcp\n          WHERE tenant_id = $1 AND idempotency_key = $2",
+      "params": [
+        "eee0e2e0-0000-0000-0000-000000000001",
+        "e2e:f240-2026-04-26:C11-L5-replay"
+      ],
+      "unknown": false
+    }
+  ]
+}

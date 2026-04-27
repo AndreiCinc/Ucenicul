@@ -1,0 +1,579 @@
+{
+  "name": "WF-MO-01 Message Out / Output Gateway",
+  "nodes": [
+    {
+      "id": "1",
+      "name": "MO_Input",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1,
+      "position": [
+        -1600,
+        200
+      ],
+      "parameters": {}
+    },
+    {
+      "id": "2",
+      "name": "MO_Manual_Test_Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -1600,
+        420
+      ],
+      "parameters": {}
+    },
+    {
+      "id": "3",
+      "name": "MO_Validate_Composed_Response_Input",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -1320,
+        300
+      ],
+      "parameters": {
+        "language": "python",
+        "mode": "runOnceForAllItems",
+        "pythonCode": "# Placeholder shell only. Replace with canonical logic from workflows/scripts/mo/mo_logic.py\nreturn items"
+      }
+    },
+    {
+      "id": "4",
+      "name": "MO_Route_Valid",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        -1050,
+        300
+      ],
+      "parameters": {
+        "mode": "rules",
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json._valid }}",
+                    "rightValue": true,
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "5",
+      "name": "MO_Load_Execution_Context",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [
+        -780,
+        180
+      ],
+      "alwaysOutputData": true,
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT id, tenant_id, thread_id, status, updated_at FROM public.execution_contexts WHERE id = $1::uuid AND tenant_id = $2::uuid;",
+        "options": {
+          "queryReplacement": "={{ [$json.execution_context_id, $json.tenant_id] }}"
+        }
+      },
+      "credentials": {
+        "postgres": {
+          "id": "qpZLzVs17Zy7HCFB",
+          "name": "Postgres account"
+        }
+      }
+    },
+    {
+      "id": "6",
+      "name": "MO_Load_Thread_Context",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [
+        -780,
+        300
+      ],
+      "alwaysOutputData": true,
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT id, tenant_id, status, last_activity_at FROM public.threads WHERE id = $1::uuid AND tenant_id = $2::uuid;",
+        "options": {
+          "queryReplacement": "={{ [$('MO_Validate_Composed_Response_Input').first().json.thread_id, $('MO_Validate_Composed_Response_Input').first().json.tenant_id] }}"
+        }
+      },
+      "credentials": {
+        "postgres": {
+          "id": "qpZLzVs17Zy7HCFB",
+          "name": "Postgres account"
+        }
+      }
+    },
+    {
+      "id": "7",
+      "name": "MO_Load_Channel_Delivery_Context",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [
+        -780,
+        420
+      ],
+      "alwaysOutputData": true,
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT id AS tenant_id, 'telegram'::text AS channel, (metadata->>'telegram_chat_id')::text AS delivery_target FROM public.tenants WHERE id = $1::uuid;",
+        "options": {
+          "queryReplacement": "={{ [$('MO_Validate_Composed_Response_Input').first().json.tenant_id] }}"
+        }
+      },
+      "credentials": {
+        "postgres": {
+          "id": "qpZLzVs17Zy7HCFB",
+          "name": "Postgres account"
+        }
+      }
+    },
+    {
+      "id": "8",
+      "name": "MO_Replay_Guard_Probe",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [
+        -780,
+        540
+      ],
+      "alwaysOutputData": true,
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT id, idempotency_key, channel, delivery_status, created_at FROM public.outbound_delivery_ledger_claude_mcp WHERE tenant_id = $1::uuid AND idempotency_key = $2 LIMIT 1;",
+        "options": {
+          "queryReplacement": "={{ [$('MO_Validate_Composed_Response_Input').first().json.tenant_id, $('MO_Validate_Composed_Response_Input').first().json.composed_response.response_text] }}"
+        }
+      },
+      "credentials": {
+        "postgres": {
+          "id": "qpZLzVs17Zy7HCFB",
+          "name": "Postgres account"
+        }
+      }
+    },
+    {
+      "id": "9",
+      "name": "MO_Verify_Lineage_And_Replay",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -500,
+        300
+      ],
+      "parameters": {
+        "language": "python",
+        "mode": "runOnceForAllItems",
+        "pythonCode": "# Placeholder shell only. Replace with canonical logic from workflows/scripts/mo/mo_logic.py\nreturn items"
+      }
+    },
+    {
+      "id": "10",
+      "name": "MO_Route_Context_Ready",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        -230,
+        300
+      ],
+      "parameters": {
+        "mode": "rules",
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json._context_ready }}",
+                    "rightValue": true,
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "true",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "11",
+      "name": "MO_Build_Delivery_Request",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        40,
+        300
+      ],
+      "parameters": {
+        "language": "python",
+        "mode": "runOnceForAllItems",
+        "pythonCode": "# Placeholder shell only. Replace with canonical logic from workflows/scripts/mo/mo_logic.py\nreturn items"
+      }
+    },
+    {
+      "id": "12",
+      "name": "MO_Route_Channel",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        300,
+        300
+      ],
+      "parameters": {
+        "mode": "rules",
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.channel }}",
+                    "rightValue": "telegram",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "13",
+      "name": "MO_Send_Channel_PLACEHOLDER",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        560,
+        220
+      ],
+      "parameters": {
+        "text": "={{ $json.response_text }}",
+        "chatId": "={{ $json.delivery_target }}",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "credentials": {
+        "telegramApi": {
+          "id": "Z0ovMbkHwXEC8ZtF",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "id": "14",
+      "name": "MO_Log_Outbound_Message",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [
+        820,
+        220
+      ],
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "INSERT INTO public.outbound_delivery_ledger_claude_mcp (tenant_id, execution_context_id, thread_id, idempotency_key, channel,  delivery_target, response_text_hash, provider_message_ref, delivery_status) VALUES ($1::uuid, $2::uuid, $3::uuid, $4, $5, $6, $7, $8, $9) ON CONFLICT (tenant_id, idempotency_key) DO NOTHING RETURNING id, tenant_id, idempotency_key, channel, delivery_target, provider_message_ref, delivery_status, created_at;",
+        "options": {
+          "queryReplacement": "={{ [$('MO_Build_Delivery_Request').first().json.tenant_id, $('MO_Build_Delivery_Request').first().json.channel, $('MO_Build_Delivery_Request').first().json.response_text] }}"
+        }
+      },
+      "credentials": {
+        "postgres": {
+          "id": "qpZLzVs17Zy7HCFB",
+          "name": "Postgres account"
+        }
+      }
+    },
+    {
+      "id": "15",
+      "name": "MO_Build_Delivery_Result",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1080,
+        220
+      ],
+      "parameters": {
+        "language": "python",
+        "mode": "runOnceForAllItems",
+        "pythonCode": "# Placeholder shell only. Replace with canonical logic from workflows/scripts/mo/mo_logic.py\nreturn items"
+      }
+    },
+    {
+      "id": "16",
+      "name": "MO_Return_Result",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1340,
+        220
+      ],
+      "parameters": {
+        "language": "python",
+        "mode": "runOnceForEachItem",
+        "pythonCode": "return [{\"json\": item.json} for item in items]"
+      }
+    },
+    {
+      "id": "17",
+      "name": "MO_Return_Error",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -780,
+        620
+      ],
+      "parameters": {
+        "language": "python",
+        "mode": "runOnceForEachItem",
+        "pythonCode": "return [{\"json\": item.json} for item in items]"
+      }
+    },
+    {
+      "id": "18",
+      "name": "MO_Return_Context_Error",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        40,
+        540
+      ],
+      "parameters": {
+        "language": "python",
+        "mode": "runOnceForEachItem",
+        "pythonCode": "return [{\"json\": item.json} for item in items]"
+      }
+    }
+  ],
+  "connections": {
+    "MO_Input": {
+      "main": [
+        [
+          {
+            "node": "MO_Validate_Composed_Response_Input",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "MO_Manual_Test_Trigger": {
+      "main": [
+        [
+          {
+            "node": "MO_Validate_Composed_Response_Input",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "MO_Validate_Composed_Response_Input": {
+      "main": [
+        [
+          {
+            "node": "MO_Route_Valid",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "MO_Route_Valid": {
+      "main": [
+        [
+          {
+            "node": "MO_Load_Execution_Context",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "MO_Return_Error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "MO_Load_Execution_Context": {
+      "main": [
+        [
+          {
+            "node": "MO_Load_Thread_Context",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "MO_Load_Thread_Context": {
+      "main": [
+        [
+          {
+            "node": "MO_Load_Channel_Delivery_Context",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "MO_Load_Channel_Delivery_Context": {
+      "main": [
+        [
+          {
+            "node": "MO_Replay_Guard_Probe",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "MO_Replay_Guard_Probe": {
+      "main": [
+        [
+          {
+            "node": "MO_Verify_Lineage_And_Replay",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "MO_Verify_Lineage_And_Replay": {
+      "main": [
+        [
+          {
+            "node": "MO_Route_Context_Ready",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "MO_Route_Context_Ready": {
+      "main": [
+        [
+          {
+            "node": "MO_Build_Delivery_Request",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "MO_Return_Context_Error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "MO_Build_Delivery_Request": {
+      "main": [
+        [
+          {
+            "node": "MO_Route_Channel",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "MO_Route_Channel": {
+      "main": [
+        [
+          {
+            "node": "MO_Send_Channel_PLACEHOLDER",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "MO_Return_Error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "MO_Send_Channel_PLACEHOLDER": {
+      "main": [
+        [
+          {
+            "node": "MO_Log_Outbound_Message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "MO_Log_Outbound_Message": {
+      "main": [
+        [
+          {
+            "node": "MO_Build_Delivery_Result",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "MO_Build_Delivery_Result": {
+      "main": [
+        [
+          {
+            "node": "MO_Return_Result",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "availableInMCP": true
+  }
+}

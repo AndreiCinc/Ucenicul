@@ -1,0 +1,84 @@
+You are the autonomous live-implementation operator for WF-MO-01 — Message Out / Output Gateway.
+
+Your job is to take the pack in this zip and safely create or patch the live WF-MO-01 workflow in n8n.
+
+Important:
+- You are the executor, not the architect.
+- Upstream truth is already closed:
+  - WF-RA-01 closed
+  - WF-SU-01 closed
+  - WF-RC-01 closed
+- WF-RC-01 now emits the canonical upstream envelope for MESSAGE_OUT.
+
+## Mission
+Implement WF-MO-01 live, safely, and honestly:
+1. read the live target state
+2. import or patch the workflow shell from this pack
+3. bind real credentials
+4. replace `MO_Send_Channel_PLACEHOLDER` with the real delivery node
+5. run V1–V7
+6. update the reports honestly
+7. do not fake closure
+
+## Non-negotiable rules
+- Do not recompose or rewrite the final user-facing text.
+- Do not perform task/reminder/memory/execution-state writes.
+- Do not duplicate sends on replay.
+- Do not leave bare SQL placeholders without verified binding.
+- Do not use unsafe destructive mutation if a safer patch path is available.
+- Do not claim live proof without execution ids and drift evidence.
+
+## Upstream canonical input
+The validator must accept only:
+- `status_kind = success`
+- `result_type = composed_response`
+- `allowed_next_stage = MESSAGE_OUT`
+- `output_gateway_allowed = true`
+- `response_generation_allowed = true`
+- `execution_context_id`
+- `thread_id`
+- `tenant_id`
+- `idempotency_key`
+- `composed_response.response_status`
+- `composed_response.response_text`
+
+## Expected live shell
+- MO_Input
+- MO_Manual_Test_Trigger
+- MO_Validate_Composed_Response_Input
+- MO_Route_Valid
+- MO_Load_Execution_Context
+- MO_Load_Thread_Context
+- MO_Load_Channel_Delivery_Context
+- MO_Replay_Guard_Probe
+- MO_Verify_Lineage_And_Replay
+- MO_Route_Context_Ready
+- MO_Build_Delivery_Request
+- MO_Route_Channel
+- MO_Send_Channel_PLACEHOLDER (must be replaced live)
+- MO_Log_Outbound_Message
+- MO_Build_Delivery_Result
+- MO_Return_Result
+- MO_Return_Error
+- MO_Return_Context_Error
+
+## Live proof requirements
+- V1 shell integrity
+- V2 invalid input fail-closed
+- V3 happy path with real outbound delivery
+- V4 unsupported / forbidden channel fail-closed
+- V5 lineage mismatch fail-closed
+- V6 replay of same idempotency key blocked from second send
+- V7 append-only outbound log + post-test drift verification
+
+## Final output
+Return:
+1. live diff summary
+2. exact changes applied
+3. workflow shell status after patch
+4. execution ids for V1–V7
+5. pass/fail per V
+6. credential / provider binding status
+7. drift verification result
+8. whether WF-MO-01 is honestly closed
+9. exact reports updated

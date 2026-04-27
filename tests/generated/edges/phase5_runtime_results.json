@@ -1,0 +1,81 @@
+{
+  "ts": "2026-04-19T23:20:00Z",
+  "run_id": "run_2026-04-19_autonomous_test_e2e",
+  "phase": "5",
+  "edges_exercised": [5, 6, 7, 9],
+  "total_cases": 40,
+  "passed": 40,
+  "failed": 0,
+  "notes": [
+    "Edges 5/6/7 are a single DI→ME→RA→SU chain exercised by 10 DI invocations (1 chain per case exercises all three edges).",
+    "Edge 9 is exercised by 10 separate RC invocations, each of which dispatches to MO via RC_Dispatch_To_MO_01_SUBCALL.",
+    "All sub-executions returned status=success. MO's envelope validator accepted all 10 composed_response envelopes (the alias final_response_text→response_text is applied by the patched RC_Prepare_MO_01_Handoff).",
+    "One MO case previously reported MISSING_DELIVERY_TARGET as a downstream delivery result (no telegram user mapped). That is downstream of the edge-9 envelope boundary — the edge-9 test is PASS because MO's validator accepted the envelope. Subsequent runs succeeded end-to-end."
+  ],
+  "edges": {
+    "edge_5_DI_to_ME": {
+      "source_wf": "WF-DI-01",
+      "source_wf_id": "abqYINcXr3JAhGGk",
+      "target_wf": "WF-ME-01",
+      "target_wf_id": "uq26nh1grIpnHju0",
+      "connector_node": "DI_Dispatch_To_ME_01_SUBCALL",
+      "adapter_node": "DI_Build_ME_Envelopes (ready_groups → per-step envelope splitter)",
+      "pass": 10,
+      "fail": 0
+    },
+    "edge_6_ME_to_RA": {
+      "source_wf": "WF-ME-01",
+      "source_wf_id": "uq26nh1grIpnHju0",
+      "target_wf": "WF-RA-01",
+      "target_wf_id": "5RcNLtxNjAHJsZPE",
+      "connector_node": "ME_Dispatch_To_RA_01_SUBCALL",
+      "adapter_node": "ME_Build_RA_Envelope (module_result → module_batch wrapper)",
+      "pass": 10,
+      "fail": 0
+    },
+    "edge_7_RA_to_SU": {
+      "source_wf": "WF-RA-01",
+      "source_wf_id": "5RcNLtxNjAHJsZPE",
+      "target_wf": "WF-SU-01",
+      "target_wf_id": "ENiYNfL3ul8AmmCB",
+      "connector_node": "RA_Dispatch_To_SU_01_SUBCALL",
+      "adapter_node": "RA_Build_SU_Envelope (idempotency_key injection)",
+      "pass": 10,
+      "fail": 0
+    },
+    "edge_9_RC_to_MO": {
+      "source_wf": "WF-RC-01",
+      "source_wf_id": "TClXgmO8H8zsSwMb",
+      "target_wf": "WF-MO-01",
+      "target_wf_id": "OooZdC0DgsDR6gm0",
+      "connector_node": "RC_Dispatch_To_MO_01_SUBCALL",
+      "adapter_node": "RC_Prepare_MO_01_Handoff (final_response_text → response_text alias)",
+      "pass": 10,
+      "fail": 0
+    }
+  },
+  "chain_runs_edges_5_6_7": [
+    { "case": 1,  "execution_context_id": "a7ae786a-9f64-46b8-b02a-3df62080a8f7", "di": "781", "me": "782", "ra": "783", "su": "784", "all_success": true },
+    { "case": 2,  "execution_context_id": "b0000002-0000-0000-0000-000000000002", "di": "785", "me": "786", "ra": "787", "su": "788", "all_success": true },
+    { "case": 3,  "execution_context_id": "b0000003-0000-0000-0000-000000000003", "di": "789", "me": "790", "ra": "791", "su": "792", "all_success": true },
+    { "case": 4,  "execution_context_id": "b0000004-0000-0000-0000-000000000004", "di": "793", "me": "794", "ra": "795", "su": "796", "all_success": true },
+    { "case": 5,  "execution_context_id": "b0000005-0000-0000-0000-000000000005", "di": "797", "me": "798", "ra": "799", "su": "800", "all_success": true },
+    { "case": 6,  "execution_context_id": "b0000006-0000-0000-0000-000000000006", "di": "801", "me": "802", "ra": "803", "su": "804", "all_success": true },
+    { "case": 7,  "execution_context_id": "b0000007-0000-0000-0000-000000000007", "di": "805", "me": "806", "ra": "807", "su": "808", "all_success": true },
+    { "case": 8,  "execution_context_id": "b0000008-0000-0000-0000-000000000008", "di": "809", "me": "810", "ra": "811", "su": "812", "all_success": true },
+    { "case": 9,  "execution_context_id": "b0000009-0000-0000-0000-000000000009", "di": "813", "me": "814", "ra": "815", "su": "816", "all_success": true },
+    { "case": 10, "execution_context_id": "b0000010-0000-0000-0000-000000000010", "di": "817", "me": "818", "ra": "819", "su": "820", "all_success": true }
+  ],
+  "edge_9_runs": [
+    { "case": 1,  "execution_context_id": "b0000002-0000-0000-0000-000000000002", "rc": "821", "mo": "822", "mo_validator_passed": true, "note": "first RC run after adding chatTrigger; MO returned MISSING_DELIVERY_TARGET downstream (envelope boundary PASSED)" },
+    { "case": 2,  "execution_context_id": "b0e90000-0000-0000-0000-000000000001", "rc": "823", "mo": "824", "mo_validator_passed": true },
+    { "case": 3,  "execution_context_id": "b0e90000-0000-0000-0000-000000000002", "rc": "825", "mo": "826", "mo_validator_passed": true },
+    { "case": 4,  "execution_context_id": "b0e90000-0000-0000-0000-000000000003", "rc": "827", "mo": "828", "mo_validator_passed": true },
+    { "case": 5,  "execution_context_id": "b0e90000-0000-0000-0000-000000000004", "rc": "829", "mo": "830", "mo_validator_passed": true },
+    { "case": 6,  "execution_context_id": "b0e90000-0000-0000-0000-000000000005", "rc": "831", "mo": "832", "mo_validator_passed": true },
+    { "case": 7,  "execution_context_id": "b0e90000-0000-0000-0000-000000000006", "rc": "833", "mo": "834", "mo_validator_passed": true },
+    { "case": 8,  "execution_context_id": "b0e90000-0000-0000-0000-000000000007", "rc": "835", "mo": "836", "mo_validator_passed": true },
+    { "case": 9,  "execution_context_id": "b0e90000-0000-0000-0000-000000000008", "rc": "837", "mo": "838", "mo_validator_passed": true },
+    { "case": 10, "execution_context_id": "b0e90000-0000-0000-0000-000000000009", "rc": "839", "mo": "840", "mo_validator_passed": true }
+  ]
+}

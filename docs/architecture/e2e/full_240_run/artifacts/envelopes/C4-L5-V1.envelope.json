@@ -1,0 +1,23 @@
+{
+  "message_id": "fee3e340-e10c-4c01-87db-211eb2877e1e",
+  "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+  "channel": "e2e-rich-matrix",
+  "direction": "inbound",
+  "author_type": "user",
+  "normalized_content": "Corectează informația despre Andrei: nu mai este corect că preferă doar seara. Realitatea actuală este că preferă dimineața în majoritatea zilelor, dar marțea nu poate dimineața din cauza ședințelor. Dacă există o memorie veche care spune simplu că preferă seara, înlocuiește-o cu varianta nuanțată; dacă există mai multe memorii similare, nu alege arbitrar fără clarificare. Mai adaug o constrângere: dacă există conflict între thread-ul curent și o memorie durabilă, nu suprascrie memoria fără confirmare explicită. Dacă cererea are două interpretări, cere clarificare.",
+  "timestamp": "2026-04-26T02:50:47.564Z",
+  "source_message_ref": "e2e:C4-L5-V1:e2e:f240-2026-04-26:C4-L5-V1",
+  "author_entity_id": null,
+  "related_entity_ids": [],
+  "metadata": {
+    "e2e_case_id": "C4-L5-V1",
+    "e2e_corridor": "C4",
+    "e2e_variant": "baseline_ro",
+    "e2e_phase": "P2_COMPOSITION",
+    "e2e_priority": "P1",
+    "e2e_locale": "ro",
+    "e2e_run_tag": "f240-2026-04-26"
+  },
+  "idempotency_key": "e2e:f240-2026-04-26:C4-L5-V1",
+  "thread_id": "92eb0b83-dc42-4e64-8a47-dc9685975d21"
+}

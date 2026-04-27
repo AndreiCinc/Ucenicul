@@ -1,0 +1,214 @@
+{
+  "totals": {
+    "total": 41,
+    "pass": 41,
+    "fail": 0
+  },
+  "results": [
+    {
+      "id": "L1.1",
+      "status": "PASS",
+      "description": "design shape — axis 0"
+    },
+    {
+      "id": "L1.2",
+      "status": "PASS",
+      "description": "design shape — axis 1"
+    },
+    {
+      "id": "L1.3",
+      "status": "PASS",
+      "description": "design shape — axis 2"
+    },
+    {
+      "id": "L1.4",
+      "status": "PASS",
+      "description": "design shape — axis 3"
+    },
+    {
+      "id": "L1.5",
+      "status": "PASS",
+      "description": "design shape — axis 4"
+    },
+    {
+      "id": "L2.1",
+      "status": "PASS",
+      "description": "happy path — axis 5 — full embedding"
+    },
+    {
+      "id": "L2.2",
+      "status": "PASS",
+      "description": "happy path — axis 6 — full embedding"
+    },
+    {
+      "id": "L2.3",
+      "status": "PASS",
+      "description": "happy path — axis 7 — full embedding"
+    },
+    {
+      "id": "L2.4",
+      "status": "PASS",
+      "description": "happy path — axis 8 — full embedding"
+    },
+    {
+      "id": "L2.5",
+      "status": "PASS",
+      "description": "happy path — axis 9 — full embedding"
+    },
+    {
+      "id": "L3.1",
+      "status": "PASS",
+      "description": "pure-function replay — axis 5"
+    },
+    {
+      "id": "L3.2",
+      "status": "PASS",
+      "description": "pure-function replay — axis 6"
+    },
+    {
+      "id": "L3.3",
+      "status": "PASS",
+      "description": "pure-function replay — axis 7"
+    },
+    {
+      "id": "L3.4",
+      "status": "PASS",
+      "description": "pure-function replay — axis 8"
+    },
+    {
+      "id": "L3.5",
+      "status": "PASS",
+      "description": "pure-function replay — axis 9"
+    },
+    {
+      "id": "L3b.1",
+      "status": "PASS",
+      "description": "ON CONFLICT DO NOTHING — axis 5"
+    },
+    {
+      "id": "L3b.2",
+      "status": "PASS",
+      "description": "ON CONFLICT DO NOTHING — axis 6"
+    },
+    {
+      "id": "L3b.3",
+      "status": "PASS",
+      "description": "ON CONFLICT DO NOTHING — axis 7"
+    },
+    {
+      "id": "L3b.4",
+      "status": "PASS",
+      "description": "ON CONFLICT DO NOTHING — axis 8"
+    },
+    {
+      "id": "L3b.5",
+      "status": "PASS",
+      "description": "ON CONFLICT DO NOTHING — axis 9"
+    },
+    {
+      "id": "L4.1",
+      "status": "PASS",
+      "description": "semantic top-1 match — axis 10"
+    },
+    {
+      "id": "L4.2",
+      "status": "PASS",
+      "description": "semantic top-1 match — axis 11"
+    },
+    {
+      "id": "L4.3",
+      "status": "PASS",
+      "description": "semantic top-1 match — axis 12"
+    },
+    {
+      "id": "L4.4",
+      "status": "PASS",
+      "description": "semantic top-1 match — axis 13"
+    },
+    {
+      "id": "L4.5",
+      "status": "PASS",
+      "description": "semantic top-1 match — axis 14"
+    },
+    {
+      "id": "L5.1",
+      "status": "PASS",
+      "description": "lexical fallback — seed L5.1"
+    },
+    {
+      "id": "L5.2",
+      "status": "PASS",
+      "description": "lexical fallback — seed L5.2"
+    },
+    {
+      "id": "L5.3",
+      "status": "PASS",
+      "description": "lexical fallback — seed L5.3"
+    },
+    {
+      "id": "L5.4",
+      "status": "PASS",
+      "description": "lexical fallback — seed L5.4"
+    },
+    {
+      "id": "L5.5",
+      "status": "PASS",
+      "description": "lexical fallback — seed L5.5"
+    },
+    {
+      "id": "L6.1",
+      "status": "PASS",
+      "description": "failure — HTTP 429"
+    },
+    {
+      "id": "L6.2",
+      "status": "PASS",
+      "description": "failure — HTTP 500"
+    },
+    {
+      "id": "L6.3",
+      "status": "PASS",
+      "description": "failure — malformed 200 empty data"
+    },
+    {
+      "id": "L6.4",
+      "status": "PASS",
+      "description": "failure — wrong dim 1200"
+    },
+    {
+      "id": "L6.5",
+      "status": "PASS",
+      "description": "failure — exception shape"
+    },
+    {
+      "id": "L7.1",
+      "status": "PASS",
+      "description": "search_memory — bypasses Merge"
+    },
+    {
+      "id": "L7.2",
+      "status": "PASS",
+      "description": "recall_memory — bypasses Merge"
+    },
+    {
+      "id": "L7.3",
+      "status": "PASS",
+      "description": "promote_memory — bypasses Merge"
+    },
+    {
+      "id": "L7.4",
+      "status": "PASS",
+      "description": "supersede_memory — bypasses Merge"
+    },
+    {
+      "id": "L7.5",
+      "status": "PASS",
+      "description": "RA envelope — bypasses Merge"
+    },
+    {
+      "id": "L7.6",
+      "status": "PASS",
+      "description": "store_memory — Prep _error short-circuits"
+    }
+  ]
+}

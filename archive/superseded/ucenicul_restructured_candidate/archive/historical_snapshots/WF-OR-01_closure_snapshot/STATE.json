@@ -1,0 +1,180 @@
+{
+  "current_stage": "WF-OR-01",
+  "current_stage_file": "06_STAGE_WF-OR-01.md",
+  "status": "active_with_next_action",
+  "phase": "live_proof_blocked_by_V5_cross_tenant_isolation_gap",
+  "score": 8.5,
+  "score_previous": 10,
+  "score_cap_reason": "V1-V4 + V6-equivalent PASS on live engine; V5 cross-tenant isolation FAILED on live engine because OR_Build_Handoff_Payload ignored the _valid flag emitted by OR_Verify_Context_Match. Source JSON patched (fail-closed); live re-import by user is required before V5 can re-run and the stage can close at 10/10.",
+  "fallback_mode_active": false,
+  "failed_path_label": "v5_cross_tenant_isolation_silent_success_on_live_engine",
+  "current_path_label": "source_fix_applied_awaiting_user_reimport",
+  "next_path_label": "user_reimports_patched_json_then_rerun_V5_and_post_test_db_check",
+  "retry_count": 0,
+  "banned_strategy_labels": [
+    "sdk_update_workflow_code",
+    "mcp__n8n__patch_workflow_nodes"
+  ],
+  "hard_blockers": [
+    "V5 live re-run is pending. Cannot close at 10/10 until the user re-imports the patched WF-OR-01 JSON and V5 cross-tenant isolation PASSES on the live engine."
+  ],
+  "soft_blockers": [],
+  "carry_forward_tool_limitations": [
+    "mcp__n8n__patch_workflow_nodes: PUT-schema mismatch; unsafe for in-place mutation of existing shells until disproven by new live evidence.",
+    "mcp__f2e8be41-…__execute_workflow in manual mode pins empty JSON to manualTrigger and ignores chatInput; production mode routes through the registered chat trigger correctly.",
+    "Chat trigger emits {sessionId, action, chatInput}; the validator's existing chatInput-parse branch handles this correctly."
+  ],
+  "latest_evidence_level": "live_engine_V1_V2_V3_V4_V6_equivalent_PASS_plus_V5_live_FAIL_plus_post_test_db_no_drift_plus_patched_source_ready_for_reimport",
+  "live_runtime_evidence": {
+    "workflow_id": "KhGmNpi0ZDmrnz8W",
+    "version_id_tested": "868e5017-0018-4d96-bee5-b06b92902b56",
+    "executions": {
+      "V1_shell_integrity": {
+        "status": "PASS",
+        "method": "live_read_of_workflow_graph_post_import",
+        "notes": "10 nodes, 9 edges, both triggers present, credentials attached, alwaysOutputData on Load, Switch v3.2 _valid routing intact."
+      },
+      "V2_invalid_input": {
+        "status": "PASS",
+        "execution_id": "700",
+        "mode": "manual_manualTrigger_pinned_empty_json",
+        "final_node": "OR_Return_Error",
+        "envelope": "status_kind=failed, result_type=error, error.code=INVALID_HANDOFF_INPUT, missing_fields=[payload or flat-identifier fields]"
+      },
+      "V3_happy_path": {
+        "status": "PASS",
+        "execution_id": "701",
+        "mode": "production_chat_trigger",
+        "final_node": "OR_Return_Result",
+        "envelope": "status_kind=success, result_type=handoff, allowed_next_stage=WF-PL-01, module_execution_allowed=false, response_generation_allowed=false, domain_writes_allowed=false",
+        "db_row_used": "execution_id=a7ae786a-9f64-46b8-b02a-3df62080a8f7 tenant=aaaaaaaa-0000-0000-0000-000000000001 thread=11111111-0000-0000-0000-000000000001 trigger=aaaabbbb-0000-0000-0000-000000000010 status=initialized ttl=900"
+      },
+      "V4_replay_stability": {
+        "status": "PASS",
+        "execution_id": "702",
+        "mode": "production_chat_trigger",
+        "output_equals_v3": true,
+        "notes": "Byte-identical output; zero new rows in execution_contexts."
+      },
+      "V5_cross_tenant_isolation": {
+        "status": "FAIL_on_live_engine",
+        "execution_id": "703",
+        "mode": "production_chat_trigger",
+        "probe": "real execution_id with wrong tenant_id (bbbbbbbb-0000-0000-0000-000000000002)",
+        "db_path": "0 rows returned as expected",
+        "graph_breach": "OR_Verify_Context_Match correctly emitted _valid=false + error_code=CONTEXT_MISMATCH, but OR_Build_Handoff_Payload ignored _valid and produced status_kind=success/result_type=handoff with 'undefined' strings in tenant_id/thread_id/execution_id/trigger_message_id/idempotency_key and planning_allowed=true/allowed_next_stage=WF-PL-01.",
+        "remediation_applied_in_source": "OR_Build_Handoff_Payload.jsCode hardened to short-circuit on _valid==='false' into status_kind=failed/result_type=error/error.code=CONTEXT_MISMATCH.",
+        "live_remediation_status": "awaiting_user_reimport"
+      },
+      "V6_upstream_smoke_handoff": {
+        "status": "PASS_by_equivalence",
+        "notes": "V3 input already matches the live WF-EC-01 EC_Return_Result FLAT shape exactly; V6 is the same contract."
+      }
+    },
+    "post_test_db_drift_check": {
+      "tables_checked": ["public.execution_contexts"],
+      "tenants_scanned": ["aaaaaaaa-0000-0000-0000-000000000001", "bbbbbbbb-0000-0000-0000-000000000002"],
+      "rows_before": 1,
+      "rows_after": 1,
+      "new_rows_from_wf_or_01": 0,
+      "no_drift": true,
+      "interpretation": "WF-OR-01 is live-confirmed read-only on execution_contexts; V5 failure is a payload-shape breach only, not a DB breach."
+    }
+  },
+  "upstream_stage": {
+    "stage": "WF-EC-01",
+    "status": "closed",
+    "score": 10,
+    "closure_gate": "passed",
+    "carry_forward_evidence_available": true
+  },
+  "or_stage_scope_decision": {
+    "label": "ec_to_or_adapter_only",
+    "includes": [
+      "validated EC success input",
+      "execution-envelope normalization",
+      "orchestrator-ready handoff payload"
+    ],
+    "excludes": [
+      "plan generation",
+      "module dispatch",
+      "module execution",
+      "final response composition"
+    ]
+  },
+  "first_live_surface_action": "User re-imports the patched workflows/WF-OR-01_Orchestrator_Input_Handoff.json into the existing WF-OR-01 shell (id KhGmNpi0ZDmrnz8W) and confirms OR_Build_Handoff_Payload contains the v1.2 fail-closed guard.",
+  "advance_allowed": false,
+  "advance_gate": "LOCKED — WF-PL-01 may not begin until WF-OR-01 V5 PASSES on live engine and the stage reaches 10/10 closure.",
+  "next_action": "Wait for user to re-import patched JSON, then re-run V5 on live engine, then if V5 PASS: re-run V4 replay for regression, post-test DB drift check, then close at 10/10.",
+  "last_updated": "2026-04-17",
+  "notes": [
+    "V1-V4 and V6-equivalent PASSED on the live engine with real DB read-path.",
+    "V5 FAILED on the live engine due to a node-graph contract gap in OR_Build_Handoff_Payload that the script-level harness did not catch (the Python port's run_full_pipeline already routes CONTEXT_MISMATCH to build_error_payload; the live n8n build-node did not mirror that guard).",
+    "Source JSON at workflows/WF-OR-01_Orchestrator_Input_Handoff.json has been patched to v1.2 fail-closed; 650/650 script tests still PASS.",
+    "Per user directive, the user handles workflow imports; Claude will re-run V5 and close-out steps autonomously once the re-import is confirmed."
+  ],
+  "script_level_tests": {
+    "suite": "workflows/tests/or/test_families.py",
+    "families": 13,
+    "required_family_minimum": 10,
+    "tests_total": 650,
+    "required_tests_minimum": 500,
+    "minimum_satisfied": true,
+    "tests_passed": 650,
+    "tests_failed": 0,
+    "results_json": "workflows/tests/or/results/results.json",
+    "results_md": "workflows/tests/or/results/results.md",
+    "family_breakdown": {
+      "input_validation": 50,
+      "happy_path": 50,
+      "invalid_input": 50,
+      "replay_idempotency": 50,
+      "cross_tenant_isolation": 50,
+      "ec_to_or_handoff": 50,
+      "node_payload_builder": 50,
+      "node_result_formatter": 50,
+      "sql_contract_validation": 50,
+      "reporting_and_tooling_contract": 50,
+      "extract_handoff_input": 50,
+      "error_payload_builder": 50,
+      "blueprint_structure": 50
+    },
+    "required_families_present": [
+      "input_validation",
+      "happy_path",
+      "invalid_input",
+      "replay_idempotency",
+      "cross_tenant_isolation",
+      "ec_to_or_handoff",
+      "node_payload_builder",
+      "node_result_formatter",
+      "sql_contract_validation",
+      "reporting_and_tooling_contract"
+    ]
+  },
+  "artifacts_on_disk": {
+    "blueprint_json": [
+      "workflows/WF-OR-01_Orchestrator_Input_Handoff.json",
+      "workflows/WF-OR-01_blueprint.json"
+    ],
+    "planning_docs": [
+      "workflows/WF-OR-01_NODE_MAP.md",
+      "workflows/WF-OR-01_CONNECTION_MAP.md",
+      "workflows/WF-OR-01_IMPORT_PATCH_PLAN.md"
+    ],
+    "sql": [
+      "workflows/sql/or/01_schema_inspect.sql",
+      "workflows/sql/or/02_load_execution_context.sql",
+      "workflows/sql/or/03_load_execution_context_by_idempotency.sql",
+      "workflows/sql/or/10_fixtures_create.sql",
+      "workflows/sql/or/11_fixtures_cleanup.sql",
+      "workflows/sql/or/20_read_path_probe.sql"
+    ],
+    "scripts": [
+      "workflows/scripts/or/or_logic.py"
+    ],
+    "tests": [
+      "workflows/tests/or/test_families.py"
+    ]
+  }
+}

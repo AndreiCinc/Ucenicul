@@ -1,0 +1,34 @@
+{
+  "executionId": "1542",
+  "step_id": "f4-t3",
+  "status": "success",
+  "db_row_post_update": {
+    "id": "cc0dc5c2-ef0d-41f7-84ec-9b919a2a9671",
+    "tier": "long_term", "status": "active",
+    "corroboration_count": 1, "user_confirmed": true, "evidence_validated": false,
+    "last_reconfirmed_at":"2026-04-21T05:23:52.686Z",
+    "promoted": true, "denial_reason": "accepted"
+  },
+  "prep_db": { "user_confirmed": true, "evidence_validated": false, "corroboration_threshold": 2 },
+  "module_result": {
+    "status": "success",
+    "summary": "Memory promoted to long_term.",
+    "actions_executed": [{"action":"promote_memory","details":{
+      "memory_id":"cc0dc5c2-ef0d-41f7-84ec-9b919a2a9671","tier":"long_term","status":"active",
+      "last_reconfirmed_at":"2026-04-21T05:23:52.686Z",
+      "denial_reason":"accepted","acceptance_signals":["user_confirmed"]
+    }}],
+    "artifacts": [
+      {"type":"memory_id","value":"cc0dc5c2-ef0d-41f7-84ec-9b919a2a9671"},
+      {"type":"denial_reason","value":"accepted","promoted":true},
+      {"type":"acceptance_signals","value":["user_confirmed"]}
+    ],
+    "needs_followup": false,
+    "followup_requests":[],
+    "domain_writes_performed": true
+  },
+  "downstream_aggregation": {
+    "status": "expected_error",
+    "note": "INVALID_AGGREGATION_INPUT at WF-RA-01 on domain_writes_performed=true — known F1 runtime boundary (see MEMORY_V2_BUG_LEDGER §Runtime boundaries observed during F1). Not a memory_module defect."
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "message_id": "5d74771f-318f-4d4f-8e31-fb6bfec9d8fc",
+  "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+  "channel": "rcp1-rich-matrix",
+  "direction": "inbound",
+  "author_type": "user",
+  "normalized_content": "Ce știi despre planificarea anuală?",
+  "timestamp": "2026-04-25T19:17:11.984Z",
+  "source_message_ref": "rcp1:RC-C9-03",
+  "author_entity_id": null,
+  "related_entity_ids": [],
+  "metadata": {
+    "rcp1_case_id": "RC-C9-03",
+    "rcp1_corridor": "C9",
+    "rcp1_run_tag": "rcp1-2026-04-25"
+  },
+  "idempotency_key": "rcp1:rcp1-2026-04-25:RC-C9-03",
+  "thread_id": "5b9dd734-8351-46b2-8f63-f53eca449505",
+  "reply_to_thread_id": null
+}

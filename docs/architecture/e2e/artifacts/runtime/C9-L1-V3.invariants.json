@@ -1,0 +1,44 @@
+{
+  "case_id": "C9-L1-V3",
+  "run_tag": "p0_v2",
+  "runtime": {
+    "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+    "message_id": "66976505-3e9e-4b30-8b9a-2b452760922a",
+    "thread_id": "63a9f9c8-3d77-4486-8354-ac9df35c4be4",
+    "reply_to_thread_id": null,
+    "idempotency_key": "e2e:p0_v2:C9-L1-V3",
+    "thread_label": "C9:B",
+    "ts_iso": "2026-04-25T11:15:27.618Z",
+    "run_tag": "p0_v2",
+    "thread_context_kind": "seeded-fresh",
+    "fire_iso": "2026-04-25T11:16:59.089Z"
+  },
+  "invariants": [
+    {
+      "name": "assert_new_thread_id",
+      "sql": "SELECT count(*)::int AS c FROM threads WHERE tenant_id = $1\n            AND id IN (SELECT thread_id FROM execution_contexts WHERE tenant_id=$1 AND idempotency_key LIKE $2)",
+      "params": [
+        "eee0e2e0-0000-0000-0000-000000000001",
+        "e2e:p0_v2:C9-L1-V3%"
+      ],
+      "unknown": false
+    },
+    {
+      "name": "assert_tenant_filtered_results",
+      "sql": "SELECT tenant_id, count(*)::int AS c FROM memory_items\n          WHERE idempotency_key LIKE $1\n          GROUP BY tenant_id",
+      "params": [
+        "e2e:p0_v2:C9-L1-V3%"
+      ],
+      "unknown": false
+    },
+    {
+      "name": "assert_no_cross_thread_execution_state_resume",
+      "sql": "SELECT count(*)::int AS c FROM execution_contexts\n          WHERE tenant_id = $1 AND idempotency_key LIKE $2",
+      "params": [
+        "eee0e2e0-0000-0000-0000-000000000001",
+        "e2e:p0_v2:C9-L1-V3%"
+      ],
+      "unknown": false
+    }
+  ]
+}

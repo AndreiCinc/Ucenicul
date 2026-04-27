@@ -1,0 +1,32 @@
+{
+  "case_id": "f31-recall-033",
+  "execution_id": "1729",
+  "execution_status": "success",
+  "execution_mcp_response": {"executionId": "1729", "status": "success"},
+  "response_envelope": {
+    "status": "success",
+    "applied_filters": ["entity_id", "source_thread_id"],
+    "recall_results": [
+      {"memory_id": "75a617be-c5a9-4f70-9bcf-35f0db6bcd26", "created_at": "2026-04-20T20:39:39.520Z", "tier": "recent", "status": "active", "category": "supersede_test"},
+      {"memory_id": "7b03cd9c-0e3e-45ea-bad6-6fc4adc774f5", "created_at": "2026-04-20T20:39:17.249Z", "tier": "long_term", "status": "active", "category": "promote_test"},
+      {"memory_id": "578c7d1d-fa33-40d9-bda0-a76192c1e0c4", "created_at": "2026-04-20T20:39:09.176Z", "tier": "long_term", "status": "active", "category": "promote_test"},
+      {"memory_id": "da53c396-09af-4ba1-8fba-07c4295fa412", "created_at": "2026-04-20T20:38:58.028Z", "tier": "recent", "status": "active", "category": "recall_test"},
+      {"memory_id": "c7f148d9-5742-46fa-a41c-a72ee94a2011", "created_at": "2026-04-20T20:38:19.705Z", "tier": "recent", "status": "active", "category": "anchor_test"}
+    ]
+  },
+  "module_result_outer": {
+    "status_kind": "success",
+    "result_type": "module_result",
+    "module_name": "memory_module",
+    "step_id": "mem-f31-f31-recall-033",
+    "summary": "Memory recall completed (5 rows).",
+    "artifacts": [],
+    "domain_writes_performed": false,
+    "response_generation_allowed": false
+  },
+  "db_pre": [{"pre_max": "2026-04-21T12:54:40.918Z"}],
+  "db_post": [{"post_max": "2026-04-21T12:54:40.918Z"}],
+  "error": null,
+  "captured_at": "2026-04-21T22:57:30Z",
+  "notes": "Positive-match probe: thread=33333333 + entity=eeeeeeee-0001 returns 5 active rows. created_at DESC verified. applied_filters echo matches expectation."
+}

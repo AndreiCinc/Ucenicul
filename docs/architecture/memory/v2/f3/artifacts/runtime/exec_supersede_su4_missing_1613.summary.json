@@ -1,0 +1,17 @@
+{
+  "exec_id": "1613",
+  "case_id": "F3-supersede-su4-missing-target",
+  "step_id": "mem-batch-v2c-su4",
+  "action": "supersede_memory",
+  "purpose": "Attempt to supersede a non-existent memory id → expect failed",
+  "inputs": {
+    "supersedes_memory_id": "ffffffff-ffff-ffff-ffff-ffffffffffff (does not exist)"
+  },
+  "result_status_kind": "error",
+  "error_code": "SUPERSEDE_TARGET_INVALID",
+  "error_message": "Old memory not found or already superseded.",
+  "db_nodes_observed": "Same {success:true} placeholder → Result node maps to error",
+  "domain_writes_performed": false,
+  "no_new_row_created": true,
+  "oracle": "Contract §5: old target missing → failed with SUPERSEDE_TARGET_INVALID (shared taxonomy with already-superseded) — pass"
+}

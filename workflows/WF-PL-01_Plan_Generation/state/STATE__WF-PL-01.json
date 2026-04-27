@@ -1,0 +1,63 @@
+{
+  "workflow_code": "WF-PL-01",
+  "workflow_name": "WF-PL-01 Plan Generation",
+  "tier": "standard",
+  "status": "closed",
+  "posture": "live",
+  "score": 10.0,
+  "score_previous": 8.5,
+  "closed": true,
+  "advance_allowed": true,
+  "phase": "live_v1_1_reimport_reverified_v1_v4_v5_v6_all_pass",
+  "current_path_label": "closed_at_10_10",
+  "next_path_label": "activate_wf_di_01",
+  "closed_at": null,
+  "last_sync": null,
+  "last_verified": "2026-04-19",
+  "live_runs": 4,
+  "live_runtime_proof_summary": {
+    "workflow_id": "RwToPLa1ErHl2tUi",
+    "execution_ids_passed": ["712", "713", "714"],
+    "execution_id_correctly_rejected": "711",
+    "runs_covered": ["V1", "V4", "V5", "V6"],
+    "all_required_runs_pass": true,
+    "detailed_source": "reports/STATE__WF-PL-01.json → live_runtime_proof"
+  },
+  "owner": "TBD",
+  "canonical": {
+    "implementation": "workflow/WF-PL-01_Plan_Generation.json",
+    "contracts": null,
+    "status": "state/STATE__WF-PL-01.json"
+  },
+  "evidence_on_disk": {
+    "implementation_present": true,
+    "duplicate_full_blueprint_present": true,
+    "duplicate_full_blueprint_path": "workflow/WF-PL-01_blueprint.json",
+    "contracts_present": false,
+    "sql_present": true,
+    "scripts_present": true,
+    "tests_present": true,
+    "test_results_present": true,
+    "audit_report_present": true,
+    "build_report_present": true,
+    "closure_report_present": true,
+    "current_stage_present": true,
+    "fix_log_present": true,
+    "legacy_state_json_present_in_reports": true
+  },
+  "missing": [
+    "docs/WF-PL-01_CONTRACTS.md",
+    "docs/WF-PL-01_TEST_MATRIX.md",
+    "reports/LIVE_EXECUTIONS__WF-PL-01.md"
+  ],
+  "foreign": [
+    "docs/desktop.ini"
+  ],
+  "duplicate_canonical_bugs": [
+    {"path": "workflow/WF-PL-01_blueprint.json", "kind": "stale_full_duplicate_of_canonical_implementation", "remediation": "future pass should either regenerate a slim blueprint or move to workflow/patches/"}
+  ],
+  "provenance": "Seed derived from reports/STATE__WF-PL-01.json (legacy state file); STATE authored during autonomous run run_2026-04-19_autonomous. Historical state preserved at reports/STATE__WF-PL-01.json.",
+  "notes": "WF-PL-01 is closed at 10/10 with live re-verification of V1/V4/V5/V6 per embedded live_runtime_proof in legacy STATE. Banned strategies recorded in legacy STATE (sdk_update_workflow_code, mcp__n8n__patch_workflow_nodes) continue to apply but are not duplicated here.",
+  "last_updated": "2026-04-19",
+  "run_id": "run_2026-04-19_autonomous"
+}

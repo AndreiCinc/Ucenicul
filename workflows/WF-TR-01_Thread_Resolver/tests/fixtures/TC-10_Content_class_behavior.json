@@ -1,0 +1,19 @@
+{
+  "id": "TC-10",
+  "name": "Content class behavior",
+  "description": "Verify that content_class_used is always normalized_content in MVP phase.",
+  "request": {
+    "message_id": "test-msg-010",
+    "tenant_id": "aaaaaaaa-0000-0000-0000-000000000001",
+    "channel": "telegram",
+    "direction": "inbound",
+    "author_type": "user",
+    "normalized_content": "Test content class behavior field",
+    "timestamp": "2026-04-15T12:00:00Z",
+    "source_message_ref": "tg_test_010"
+  },
+  "expected": {
+    "content_class_used": "normalized_content",
+    "decision": "create_new_thread"
+  }
+}

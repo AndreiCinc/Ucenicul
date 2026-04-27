@@ -1,0 +1,1 @@
+{"mode": "rules", "rules": {"values": [{"conditions": {"options": {"caseSensitive": true, "typeValidation": "strict", "version": 2}, "conditions": [{"leftValue": "={{ $json._context_ready }}", "rightValue": true, "operator": {"type": "boolean", "operation": "true", "singleValue": true}}], "combinator": "and"}}]}, "options": {"fallbackOutput": "extra"}}

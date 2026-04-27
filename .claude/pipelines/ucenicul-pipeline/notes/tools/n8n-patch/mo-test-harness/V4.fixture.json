@@ -1,0 +1,17 @@
+{
+  "status_kind": "success",
+  "result_type": "composed_response",
+  "execution_context_id": "33333333-3333-3333-3333-333333333333",
+  "thread_id": "55555555-5555-5555-5555-555555555555",
+  "tenant_id": "44444444-4444-4444-4444-444444444444",
+  "composed_response": {
+    "response_status": "success",
+    "response_text": "V4 unsupported channel test",
+    "channel": "whatsapp",
+    "locale": "ro"
+  },
+  "output_gateway_allowed": true,
+  "allowed_next_stage": "MESSAGE_OUT",
+  "response_generation_allowed": true,
+  "idempotency_key": "mo-v4-test-20260418-104500-002"
+}

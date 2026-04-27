@@ -1,0 +1,34 @@
+{
+  "executionId": "1372",
+  "workflowId": "uq26nh1grIpnHju0",
+  "action": "search_memory",
+  "step_id": "mem-smoke-v2f1:s2",
+  "timestamp_started": "2026-04-20T21:50:20.168Z",
+  "timestamp_stopped": "2026-04-20T21:50:23.008Z",
+  "memory_path_verdict": "pass_with_anomalies",
+  "module_result": {
+    "status_kind": "success",
+    "module_name": "memory_module",
+    "status": "success",
+    "summary": "Memory search completed.",
+    "confidence": 1
+  },
+  "downstream_aggregation": {
+    "status": "success",
+    "rollup_status": "success"
+  },
+  "anomalies": [
+    {
+      "id": "ME_Memory_Search_DB_empty_envelope",
+      "symptom": "ME_Memory_Search_DB emitted only {\"success\":true} — no rows and no recall_results array. Expected at minimum an empty array under results/recall.",
+      "impact": "Downstream Result node fabricates recall_results:[{similarity:null}] regardless of what DB returned. Oracle verification unsound — cannot confirm S1 row was returned.",
+      "scope": "memory_module search leg (search_db + search_result)"
+    },
+    {
+      "id": "ME_Memory_Search_Result_used_embedding_mismatch",
+      "symptom": "Result.actions_executed[0].details.used_embedding=true, but passthrough.used_embedding=false (no embedding was provided).",
+      "impact": "Emitted envelope misrepresents the execution path taken.",
+      "scope": "memory_module search_result node"
+    }
+  ]
+}

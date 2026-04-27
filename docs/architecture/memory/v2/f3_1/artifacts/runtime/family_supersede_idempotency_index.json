@@ -1,0 +1,180 @@
+{
+  "family": "supersede_idempotency",
+  "verdicts": [
+    {
+      "case_id": "f31-supersede-001",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "supersede oracle all checks pass",
+      "ts": "2026-04-22T14:20:48.361Z"
+    },
+    {
+      "case_id": "f31-supersede-002",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "supersede oracle all checks pass",
+      "ts": "2026-04-22T14:20:48.408Z"
+    },
+    {
+      "case_id": "f31-supersede-003",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "supersede oracle all checks pass",
+      "ts": "2026-04-22T14:20:48.453Z"
+    },
+    {
+      "case_id": "f31-supersede-004",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "supersede oracle all checks pass",
+      "ts": "2026-04-22T14:20:48.503Z"
+    },
+    {
+      "case_id": "f31-supersede-005",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "supersede oracle all checks pass",
+      "ts": "2026-04-22T14:20:48.549Z"
+    },
+    {
+      "case_id": "f31-supersede-006",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "supersede oracle all checks pass",
+      "ts": "2026-04-22T14:20:48.591Z"
+    },
+    {
+      "case_id": "f31-supersede-007",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "supersede oracle all checks pass",
+      "ts": "2026-04-22T14:20:48.645Z"
+    },
+    {
+      "case_id": "f31-supersede-008",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "supersede oracle all checks pass",
+      "ts": "2026-04-22T14:20:48.701Z"
+    },
+    {
+      "case_id": "f31-supersede-009",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "supersede oracle all checks pass",
+      "ts": "2026-04-22T14:20:48.747Z"
+    },
+    {
+      "case_id": "f31-supersede-010",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "supersede oracle all checks pass",
+      "ts": "2026-04-22T14:20:48.796Z"
+    },
+    {
+      "case_id": "f31-supersede-011",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "supersede oracle all checks pass",
+      "ts": "2026-04-22T14:20:48.839Z"
+    },
+    {
+      "case_id": "f31-supersede-012",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "supersede oracle all checks pass",
+      "ts": "2026-04-22T14:20:48.883Z"
+    },
+    {
+      "case_id": "f31-supersede-013",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "supersede oracle all checks pass",
+      "ts": "2026-04-22T14:20:48.933Z"
+    },
+    {
+      "case_id": "f31-supersede-014",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "supersede oracle all checks pass",
+      "ts": "2026-04-22T14:20:48.986Z"
+    },
+    {
+      "case_id": "f31-supersede-015",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "supersede oracle all checks pass",
+      "ts": "2026-04-22T14:20:49.036Z"
+    },
+    {
+      "case_id": "f31-supersede-016",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "supersede oracle all checks pass",
+      "ts": "2026-04-22T14:20:49.078Z"
+    },
+    {
+      "case_id": "f31-supersede-017",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "supersede oracle all checks pass",
+      "ts": "2026-04-22T14:20:49.125Z"
+    },
+    {
+      "case_id": "f31-supersede-018",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "supersede oracle all checks pass",
+      "ts": "2026-04-22T14:20:49.172Z"
+    },
+    {
+      "case_id": "f31-supersede-019",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "supersede oracle all checks pass",
+      "ts": "2026-04-22T14:20:49.215Z"
+    },
+    {
+      "case_id": "f31-supersede-020",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "supersede oracle all checks pass",
+      "ts": "2026-04-22T14:20:49.257Z"
+    },
+    {
+      "case_id": "f31-supersede-021",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "supersede oracle all checks pass",
+      "ts": "2026-04-22T14:20:49.303Z"
+    },
+    {
+      "case_id": "f31-supersede-022",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "supersede oracle all checks pass",
+      "ts": "2026-04-22T14:20:49.347Z"
+    },
+    {
+      "case_id": "f31-supersede-023",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "supersede oracle all checks pass",
+      "ts": "2026-04-22T14:20:49.394Z"
+    },
+    {
+      "case_id": "f31-supersede-024",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "supersede oracle all checks pass",
+      "ts": "2026-04-22T14:20:49.436Z"
+    },
+    {
+      "case_id": "f31-supersede-025",
+      "verdict": "PASS",
+      "bucket": null,
+      "reason": "supersede oracle all checks pass",
+      "ts": "2026-04-22T14:20:49.481Z"
+    }
+  ]
+}

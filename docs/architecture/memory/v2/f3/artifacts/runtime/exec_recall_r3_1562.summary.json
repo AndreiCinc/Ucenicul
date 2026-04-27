@@ -1,0 +1,24 @@
+{
+  "exec_id": "1562",
+  "case_id": "F3-recall-r3",
+  "step_id": "mem-batch-v2c-recall-r3",
+  "action": "recall_memory",
+  "inputs": {
+    "entity_id": "eeeeeeee-0000-0000-0000-000000000001",
+    "limit": 25
+  },
+  "applied_filters": ["entity_id"],
+  "result_status_kind": "success",
+  "module_result_status": "success",
+  "row_count": 5,
+  "row_ids_in_order": [
+    "75a617be-c5a9-4f70-9bcf-35f0db6bcd26",
+    "7b03cd9c-0e3e-45ea-bad6-6fc4adc774f5",
+    "578c7d1d-fa33-40d9-bda0-a76192c1e0c4",
+    "da53c396-09af-4ba1-8fba-07c4295fa412",
+    "c7f148d9-5742-46fa-a41c-a72ee94a2011"
+  ],
+  "oracle": "5 active anchor rows (all share entity_id=eeee...0001). Identical row set to R1, confirming anchor entity_id binding. created_at DESC — pass",
+  "domain_writes_performed": false,
+  "ra_dispatch_status": "success"
+}

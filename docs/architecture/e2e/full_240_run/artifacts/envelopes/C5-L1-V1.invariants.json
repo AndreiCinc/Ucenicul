@@ -1,0 +1,28 @@
+{
+  "case_id": "C5-L1-V1",
+  "run_tag": "plbrf-2026-04-26",
+  "runtime": {
+    "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+    "message_id": "d3135f7c-9278-44f6-827a-63f006b3bc0b",
+    "thread_id": "a3e8e93e-c694-4c84-810c-872f61843477",
+    "reply_to_thread_id": null,
+    "idempotency_key": "e2e:f240-2026-04-26:C5-L1-V1",
+    "thread_label": "C5:C5-L1-V1",
+    "ts_iso": "2026-04-26T02:50:47.596Z",
+    "run_tag": "f240-2026-04-26",
+    "thread_context_kind": "seeded-fresh",
+    "fire_iso": "2026-04-26T03:20:50.982Z"
+  },
+  "invariants": [
+    {
+      "name": "assert_no_domain_write",
+      "sql": "SELECT\n            (SELECT count(*) FROM tasks       WHERE tenant_id=$1 AND created_at >= $2)::int AS tasks,\n            (SELECT count(*) FROM reminders   WHERE tenant_id=$1 AND created_at >= $2)::int AS reminders,\n            (SELECT count(*) FROM memory_items WHERE tenant_id=$1 AND source_thread_id=$3 AND created_at >= $2)::int AS memory_items",
+      "params": [
+        "eee0e2e0-0000-0000-0000-000000000001",
+        "2026-04-26T03:20:50.982Z",
+        "a3e8e93e-c694-4c84-810c-872f61843477"
+      ],
+      "unknown": false
+    }
+  ]
+}

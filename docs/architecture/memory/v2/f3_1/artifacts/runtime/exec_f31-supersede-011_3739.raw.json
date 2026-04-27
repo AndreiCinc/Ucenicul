@@ -1,0 +1,49 @@
+{
+  "case_id": "f31-supersede-011",
+  "execution_id": "3739",
+  "execution_status": "success",
+  "execution_mcp_response": {
+    "executionId": "3739",
+    "status": "success"
+  },
+  "response_envelope": {
+    "status": "error",
+    "error_code": "SUPERSEDE_TARGET_INVALID",
+    "idempotency_reused": null,
+    "new_insert": null,
+    "superseded_memory_id": "d9a94120-8965-40b5-a8fc-087fb3290a85",
+    "new_memory_id": null
+  },
+  "module_result_outer": {
+    "status_kind": "error",
+    "result_type": "module_error",
+    "module_name": "module_execution",
+    "step_id": "mem-f31-f31-supersede-011",
+    "summary": "Old memory not found or already superseded.",
+    "artifacts": [],
+    "domain_writes_performed": false,
+    "response_generation_allowed": false
+  },
+  "db_pre": [
+    {
+      "case_id": "f31-supersede-011",
+      "memory_id": "d9a94120-8965-40b5-a8fc-087fb3290a85",
+      "tenant_id": "aaaaaaaa-0000-0000-0000-000000000001",
+      "tier": "recent",
+      "status": "superseded"
+    }
+  ],
+  "db_post": [
+    {
+      "id": "d9a94120-8965-40b5-a8fc-087fb3290a85",
+      "tenant_id": "aaaaaaaa-0000-0000-0000-000000000001",
+      "tier": "recent",
+      "status": "superseded",
+      "supersedes_memory_id": null,
+      "idempotency_key": "store_memory:d4f82a41-01cd-4fb7-9d70-573557348e74:mem-f31-f31-supersede-011-seed"
+    }
+  ],
+  "error": null,
+  "captured_at": "2026-04-22T14:20:40.426Z",
+  "notes": "Stage C lane 4 synthesized raw. Evidence: summary_success=false idem_true=false idem_false=false target_invalid=true. Downstream n8n-level 'failed' is aggregation_error (INVALID_AGGREGATION_INPUT) that fires after module resolution; module_result.status is authoritative for F3.1."
+}

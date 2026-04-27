@@ -1,0 +1,65 @@
+[
+  {
+    "case_id": "MR-001",
+    "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+    "intent": "recall_memory",
+    "user_input": "Ce am notat despre preferințe?",
+    "message_id": "2fbdbbcc-c3b7-469d-8afe-319556c25e5e",
+    "thread_id": "5d597dcc-0379-4d51-831c-263cf53e2178",
+    "idempotency_key": "e2e:mr-2026-04-27:MR-001"
+  },
+  {
+    "case_id": "MR-002",
+    "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+    "intent": "recall_memory",
+    "user_input": "What did I save about preferences?",
+    "message_id": "bea31ec0-c741-4d31-81ac-81319d382e0f",
+    "thread_id": "cec3f33e-b189-43cd-855f-196af1f7ffb8",
+    "idempotency_key": "e2e:mr-2026-04-27:MR-002"
+  },
+  {
+    "case_id": "MR-003",
+    "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+    "intent": "search_memory",
+    "user_input": "caută preferințe",
+    "message_id": "6bc3b782-86ae-4d11-84a4-d3a61d3f6a3a",
+    "thread_id": "d94adc01-8eb0-47c2-86ca-07176c5bc5f6",
+    "idempotency_key": "e2e:mr-2026-04-27:MR-003"
+  },
+  {
+    "case_id": "MR-004",
+    "tenant_id": "eee0e2e0-0000-0000-0000-00000000000b",
+    "intent": "recall_memory",
+    "user_input": "What memories do I have?",
+    "message_id": "2f0583b3-6c1d-4de6-8524-a92c699fd4bc",
+    "thread_id": "48596462-3ba9-4d44-8ce9-7912436b2093",
+    "idempotency_key": "e2e:mr-2026-04-27:MR-004"
+  },
+  {
+    "case_id": "R-1",
+    "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+    "intent": "store_memory",
+    "user_input": "Ține minte că folosesc Postgres 16.",
+    "message_id": "6c645915-b488-48bf-8bc5-e676d158e417",
+    "thread_id": "9b93969d-bcd2-4575-8bea-5cd200c24a1d",
+    "idempotency_key": "e2e:mr-2026-04-27:R-1"
+  },
+  {
+    "case_id": "R-2",
+    "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+    "intent": "create_task",
+    "user_input": "Creează un task: review pull request",
+    "message_id": "a88b2762-7fa1-4440-80e2-7dae97b38b65",
+    "thread_id": "66720778-a1e1-4dd9-84dd-db2ba5be986e",
+    "idempotency_key": "e2e:mr-2026-04-27:R-2"
+  },
+  {
+    "case_id": "R-3",
+    "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+    "intent": "save_suggestion",
+    "user_input": "Sugestie: adaugă export CSV.",
+    "message_id": "76b41908-0d51-4990-8952-b216ba982334",
+    "thread_id": "fcab04cc-a0b3-4ecb-84f6-7823042820f0",
+    "idempotency_key": "e2e:mr-2026-04-27:R-3"
+  }
+]

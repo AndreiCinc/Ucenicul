@@ -1,0 +1,8 @@
+{
+  "case_id": "L2.4",
+  "family": "L2",
+  "verdict": "PASS",
+  "fail_reason": null,
+  "crashed": null,
+  "ra_gate_ok": true
+}

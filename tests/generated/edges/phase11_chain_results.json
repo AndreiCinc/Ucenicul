@@ -1,0 +1,754 @@
+{
+  "ts": "2026-04-20T15:23:36.725Z",
+  "phase": "phase11",
+  "scope": "TR-originated full primary chain after Phase-11 PL action-propagation + ME module-expansion",
+  "cases": 4,
+  "wf_by_id": {
+    "wI8hpSROxQI0zC9f": "TR",
+    "v9jih4jqeXpOJOiH": "EC",
+    "KhGmNpi0ZDmrnz8W": "OR",
+    "RwToPLa1ErHl2tUi": "PL",
+    "abqYINcXr3JAhGGk": "DI",
+    "uq26nh1grIpnHju0": "ME",
+    "5RcNLtxNjAHJsZPE": "RA",
+    "ENiYNfL3ul8AmmCB": "SU",
+    "TClXgmO8H8zsSwMb": "RC",
+    "OooZdC0DgsDR6gm0": "MO"
+  },
+  "per_case": [
+    {
+      "label": "p11-chain-01-create_task",
+      "thread_id": "44444444-0000-0000-0000-000000000004",
+      "expected_intent": "create_task",
+      "expected_me_module": "task_module",
+      "start_exec_id": "1110",
+      "chain_depth": 7,
+      "chain_path": "TR → EC → OR → PL → DI → ME → RA",
+      "terminal_wf": "RA",
+      "terminal_status_kind": "error",
+      "terminal_error_code": "INVALID_AGGREGATION_INPUT",
+      "me_handler": "ME_Task_Create_Result",
+      "me_module": "task_module",
+      "me_action": null,
+      "me_status_kind": "error",
+      "me_module_match": true
+    },
+    {
+      "label": "p11-chain-02-create_reminder",
+      "thread_id": "55555555-0000-0000-0000-000000000005",
+      "expected_intent": "create_reminder",
+      "expected_me_module": "reminder_module",
+      "start_exec_id": "1117",
+      "chain_depth": 7,
+      "chain_path": "TR → EC → OR → PL → DI → ME → RA",
+      "terminal_wf": "RA",
+      "terminal_status_kind": "error",
+      "terminal_error_code": "INVALID_AGGREGATION_INPUT",
+      "me_handler": "ME_Reminder_Create_Result",
+      "me_module": "reminder_module",
+      "me_action": null,
+      "me_status_kind": "error",
+      "me_module_match": true
+    },
+    {
+      "label": "p11-chain-03-search_memory",
+      "thread_id": "77777777-0000-0000-0000-000000000007",
+      "expected_intent": "search_memory",
+      "expected_me_module": "memory_module",
+      "start_exec_id": "1124",
+      "chain_depth": 7,
+      "chain_path": "TR → EC → OR → PL → DI → ME → RA",
+      "terminal_wf": "RA",
+      "terminal_status_kind": "error",
+      "terminal_error_code": "INVALID_AGGREGATION_INPUT",
+      "me_handler": "ME_Memory_Search_Result",
+      "me_module": "memory_module",
+      "me_action": null,
+      "me_status_kind": "error",
+      "me_module_match": true
+    },
+    {
+      "label": "p11-chain-04-save_suggestion",
+      "thread_id": "88888888-0000-0000-0000-000000000008",
+      "expected_intent": "save_suggestion",
+      "expected_me_module": "improvement_module",
+      "start_exec_id": "1131",
+      "chain_depth": 7,
+      "chain_path": "TR → EC → OR → PL → DI → ME → RA",
+      "terminal_wf": "RA",
+      "terminal_status_kind": "error",
+      "terminal_error_code": "INVALID_AGGREGATION_INPUT",
+      "me_handler": "ME_Improvement_Capture_Result",
+      "me_module": "improvement_module",
+      "me_action": null,
+      "me_status_kind": "error",
+      "me_module_match": true
+    }
+  ],
+  "details": [
+    {
+      "label": "p11-chain-01-create_task",
+      "start_exec_id": "1110",
+      "chain": [
+        {
+          "depth": 0,
+          "exec_id": "1110",
+          "wf_id": "wI8hpSROxQI0zC9f",
+          "wf_acronym": "TR",
+          "last_node": "TR_Dispatch_To_EC_01_SUBCALL",
+          "terminal_status_kind": "error",
+          "terminal_result_type": "aggregation_error",
+          "terminal_module": null,
+          "terminal_error_code": "INVALID_AGGREGATION_INPUT",
+          "terminal_error_message": "Aggregation envelope missing required top-level fields.",
+          "me_handler": null,
+          "me_module": null,
+          "me_action": null,
+          "me_status_kind": null,
+          "me_artifacts": null,
+          "sub_execs": [
+            {
+              "node": "TR_Dispatch_To_EC_01_SUBCALL",
+              "exec_id": "1111",
+              "wf_acronym": "EC"
+            }
+          ]
+        },
+        {
+          "depth": 1,
+          "exec_id": "1111",
+          "wf_id": "v9jih4jqeXpOJOiH",
+          "wf_acronym": "EC",
+          "last_node": "EC_Dispatch_To_OR_01_SUBCALL",
+          "terminal_status_kind": "error",
+          "terminal_result_type": "aggregation_error",
+          "terminal_module": null,
+          "terminal_error_code": "INVALID_AGGREGATION_INPUT",
+          "terminal_error_message": "Aggregation envelope missing required top-level fields.",
+          "me_handler": null,
+          "me_module": null,
+          "me_action": null,
+          "me_status_kind": null,
+          "me_artifacts": null,
+          "sub_execs": [
+            {
+              "node": "EC_Dispatch_To_OR_01_SUBCALL",
+              "exec_id": "1112",
+              "wf_acronym": "OR"
+            }
+          ]
+        },
+        {
+          "depth": 2,
+          "exec_id": "1112",
+          "wf_id": "KhGmNpi0ZDmrnz8W",
+          "wf_acronym": "OR",
+          "last_node": "OR_Dispatch_To_PL_01_SUBCALL",
+          "terminal_status_kind": "error",
+          "terminal_result_type": "aggregation_error",
+          "terminal_module": null,
+          "terminal_error_code": "INVALID_AGGREGATION_INPUT",
+          "terminal_error_message": "Aggregation envelope missing required top-level fields.",
+          "me_handler": null,
+          "me_module": null,
+          "me_action": null,
+          "me_status_kind": null,
+          "me_artifacts": null,
+          "sub_execs": [
+            {
+              "node": "OR_Dispatch_To_PL_01_SUBCALL",
+              "exec_id": "1113",
+              "wf_acronym": "PL"
+            }
+          ]
+        },
+        {
+          "depth": 3,
+          "exec_id": "1113",
+          "wf_id": "RwToPLa1ErHl2tUi",
+          "wf_acronym": "PL",
+          "last_node": "PL_Dispatch_To_DI_01_SUBCALL",
+          "terminal_status_kind": "error",
+          "terminal_result_type": "aggregation_error",
+          "terminal_module": null,
+          "terminal_error_code": "INVALID_AGGREGATION_INPUT",
+          "terminal_error_message": "Aggregation envelope missing required top-level fields.",
+          "me_handler": null,
+          "me_module": null,
+          "me_action": null,
+          "me_status_kind": null,
+          "me_artifacts": null,
+          "sub_execs": [
+            {
+              "node": "PL_Dispatch_To_DI_01_SUBCALL",
+              "exec_id": "1114",
+              "wf_acronym": "DI"
+            }
+          ]
+        },
+        {
+          "depth": 4,
+          "exec_id": "1114",
+          "wf_id": "abqYINcXr3JAhGGk",
+          "wf_acronym": "DI",
+          "last_node": "DI_Dispatch_To_ME_01_SUBCALL",
+          "terminal_status_kind": "error",
+          "terminal_result_type": "aggregation_error",
+          "terminal_module": null,
+          "terminal_error_code": "INVALID_AGGREGATION_INPUT",
+          "terminal_error_message": "Aggregation envelope missing required top-level fields.",
+          "me_handler": null,
+          "me_module": null,
+          "me_action": null,
+          "me_status_kind": null,
+          "me_artifacts": null,
+          "sub_execs": []
+        },
+        {
+          "depth": 5,
+          "exec_id": "1115",
+          "wf_id": "uq26nh1grIpnHju0",
+          "wf_acronym": "ME",
+          "last_node": "ME_Dispatch_To_RA_01_SUBCALL",
+          "terminal_status_kind": "error",
+          "terminal_result_type": "aggregation_error",
+          "terminal_module": null,
+          "terminal_error_code": "INVALID_AGGREGATION_INPUT",
+          "terminal_error_message": "Aggregation envelope missing required top-level fields.",
+          "me_handler": "ME_Task_Create_Result",
+          "me_module": "task_module",
+          "me_action": null,
+          "me_status_kind": "error",
+          "me_artifacts": [],
+          "sub_execs": [
+            {
+              "node": "ME_Dispatch_To_RA_01_SUBCALL",
+              "exec_id": "1116",
+              "wf_acronym": "RA"
+            }
+          ]
+        },
+        {
+          "depth": 6,
+          "exec_id": "1116",
+          "wf_id": "5RcNLtxNjAHJsZPE",
+          "wf_acronym": "RA",
+          "last_node": "RA_Return_Error",
+          "terminal_status_kind": "error",
+          "terminal_result_type": "aggregation_error",
+          "terminal_module": null,
+          "terminal_error_code": "INVALID_AGGREGATION_INPUT",
+          "terminal_error_message": "Aggregation envelope missing required top-level fields.",
+          "me_handler": null,
+          "me_module": null,
+          "me_action": null,
+          "me_status_kind": null,
+          "me_artifacts": null,
+          "sub_execs": []
+        }
+      ],
+      "depth_reached": 7,
+      "thread_id": "44444444-0000-0000-0000-000000000004",
+      "expected_intent": "create_task",
+      "expected_me_module": "task_module"
+    },
+    {
+      "label": "p11-chain-02-create_reminder",
+      "start_exec_id": "1117",
+      "chain": [
+        {
+          "depth": 0,
+          "exec_id": "1117",
+          "wf_id": "wI8hpSROxQI0zC9f",
+          "wf_acronym": "TR",
+          "last_node": "TR_Dispatch_To_EC_01_SUBCALL",
+          "terminal_status_kind": "error",
+          "terminal_result_type": "aggregation_error",
+          "terminal_module": null,
+          "terminal_error_code": "INVALID_AGGREGATION_INPUT",
+          "terminal_error_message": "Aggregation envelope missing required top-level fields.",
+          "me_handler": null,
+          "me_module": null,
+          "me_action": null,
+          "me_status_kind": null,
+          "me_artifacts": null,
+          "sub_execs": [
+            {
+              "node": "TR_Dispatch_To_EC_01_SUBCALL",
+              "exec_id": "1118",
+              "wf_acronym": "EC"
+            }
+          ]
+        },
+        {
+          "depth": 1,
+          "exec_id": "1118",
+          "wf_id": "v9jih4jqeXpOJOiH",
+          "wf_acronym": "EC",
+          "last_node": "EC_Dispatch_To_OR_01_SUBCALL",
+          "terminal_status_kind": "error",
+          "terminal_result_type": "aggregation_error",
+          "terminal_module": null,
+          "terminal_error_code": "INVALID_AGGREGATION_INPUT",
+          "terminal_error_message": "Aggregation envelope missing required top-level fields.",
+          "me_handler": null,
+          "me_module": null,
+          "me_action": null,
+          "me_status_kind": null,
+          "me_artifacts": null,
+          "sub_execs": [
+            {
+              "node": "EC_Dispatch_To_OR_01_SUBCALL",
+              "exec_id": "1119",
+              "wf_acronym": "OR"
+            }
+          ]
+        },
+        {
+          "depth": 2,
+          "exec_id": "1119",
+          "wf_id": "KhGmNpi0ZDmrnz8W",
+          "wf_acronym": "OR",
+          "last_node": "OR_Dispatch_To_PL_01_SUBCALL",
+          "terminal_status_kind": "error",
+          "terminal_result_type": "aggregation_error",
+          "terminal_module": null,
+          "terminal_error_code": "INVALID_AGGREGATION_INPUT",
+          "terminal_error_message": "Aggregation envelope missing required top-level fields.",
+          "me_handler": null,
+          "me_module": null,
+          "me_action": null,
+          "me_status_kind": null,
+          "me_artifacts": null,
+          "sub_execs": [
+            {
+              "node": "OR_Dispatch_To_PL_01_SUBCALL",
+              "exec_id": "1120",
+              "wf_acronym": "PL"
+            }
+          ]
+        },
+        {
+          "depth": 3,
+          "exec_id": "1120",
+          "wf_id": "RwToPLa1ErHl2tUi",
+          "wf_acronym": "PL",
+          "last_node": "PL_Dispatch_To_DI_01_SUBCALL",
+          "terminal_status_kind": "error",
+          "terminal_result_type": "aggregation_error",
+          "terminal_module": null,
+          "terminal_error_code": "INVALID_AGGREGATION_INPUT",
+          "terminal_error_message": "Aggregation envelope missing required top-level fields.",
+          "me_handler": null,
+          "me_module": null,
+          "me_action": null,
+          "me_status_kind": null,
+          "me_artifacts": null,
+          "sub_execs": [
+            {
+              "node": "PL_Dispatch_To_DI_01_SUBCALL",
+              "exec_id": "1121",
+              "wf_acronym": "DI"
+            }
+          ]
+        },
+        {
+          "depth": 4,
+          "exec_id": "1121",
+          "wf_id": "abqYINcXr3JAhGGk",
+          "wf_acronym": "DI",
+          "last_node": "DI_Dispatch_To_ME_01_SUBCALL",
+          "terminal_status_kind": "error",
+          "terminal_result_type": "aggregation_error",
+          "terminal_module": null,
+          "terminal_error_code": "INVALID_AGGREGATION_INPUT",
+          "terminal_error_message": "Aggregation envelope missing required top-level fields.",
+          "me_handler": null,
+          "me_module": null,
+          "me_action": null,
+          "me_status_kind": null,
+          "me_artifacts": null,
+          "sub_execs": []
+        },
+        {
+          "depth": 5,
+          "exec_id": "1122",
+          "wf_id": "uq26nh1grIpnHju0",
+          "wf_acronym": "ME",
+          "last_node": "ME_Dispatch_To_RA_01_SUBCALL",
+          "terminal_status_kind": "error",
+          "terminal_result_type": "aggregation_error",
+          "terminal_module": null,
+          "terminal_error_code": "INVALID_AGGREGATION_INPUT",
+          "terminal_error_message": "Aggregation envelope missing required top-level fields.",
+          "me_handler": "ME_Reminder_Create_Result",
+          "me_module": "reminder_module",
+          "me_action": null,
+          "me_status_kind": "error",
+          "me_artifacts": [],
+          "sub_execs": [
+            {
+              "node": "ME_Dispatch_To_RA_01_SUBCALL",
+              "exec_id": "1123",
+              "wf_acronym": "RA"
+            }
+          ]
+        },
+        {
+          "depth": 6,
+          "exec_id": "1123",
+          "wf_id": "5RcNLtxNjAHJsZPE",
+          "wf_acronym": "RA",
+          "last_node": "RA_Return_Error",
+          "terminal_status_kind": "error",
+          "terminal_result_type": "aggregation_error",
+          "terminal_module": null,
+          "terminal_error_code": "INVALID_AGGREGATION_INPUT",
+          "terminal_error_message": "Aggregation envelope missing required top-level fields.",
+          "me_handler": null,
+          "me_module": null,
+          "me_action": null,
+          "me_status_kind": null,
+          "me_artifacts": null,
+          "sub_execs": []
+        }
+      ],
+      "depth_reached": 7,
+      "thread_id": "55555555-0000-0000-0000-000000000005",
+      "expected_intent": "create_reminder",
+      "expected_me_module": "reminder_module"
+    },
+    {
+      "label": "p11-chain-03-search_memory",
+      "start_exec_id": "1124",
+      "chain": [
+        {
+          "depth": 0,
+          "exec_id": "1124",
+          "wf_id": "wI8hpSROxQI0zC9f",
+          "wf_acronym": "TR",
+          "last_node": "TR_Dispatch_To_EC_01_SUBCALL",
+          "terminal_status_kind": "error",
+          "terminal_result_type": "aggregation_error",
+          "terminal_module": null,
+          "terminal_error_code": "INVALID_AGGREGATION_INPUT",
+          "terminal_error_message": "Aggregation envelope missing required top-level fields.",
+          "me_handler": null,
+          "me_module": null,
+          "me_action": null,
+          "me_status_kind": null,
+          "me_artifacts": null,
+          "sub_execs": [
+            {
+              "node": "TR_Dispatch_To_EC_01_SUBCALL",
+              "exec_id": "1125",
+              "wf_acronym": "EC"
+            }
+          ]
+        },
+        {
+          "depth": 1,
+          "exec_id": "1125",
+          "wf_id": "v9jih4jqeXpOJOiH",
+          "wf_acronym": "EC",
+          "last_node": "EC_Dispatch_To_OR_01_SUBCALL",
+          "terminal_status_kind": "error",
+          "terminal_result_type": "aggregation_error",
+          "terminal_module": null,
+          "terminal_error_code": "INVALID_AGGREGATION_INPUT",
+          "terminal_error_message": "Aggregation envelope missing required top-level fields.",
+          "me_handler": null,
+          "me_module": null,
+          "me_action": null,
+          "me_status_kind": null,
+          "me_artifacts": null,
+          "sub_execs": [
+            {
+              "node": "EC_Dispatch_To_OR_01_SUBCALL",
+              "exec_id": "1126",
+              "wf_acronym": "OR"
+            }
+          ]
+        },
+        {
+          "depth": 2,
+          "exec_id": "1126",
+          "wf_id": "KhGmNpi0ZDmrnz8W",
+          "wf_acronym": "OR",
+          "last_node": "OR_Dispatch_To_PL_01_SUBCALL",
+          "terminal_status_kind": "error",
+          "terminal_result_type": "aggregation_error",
+          "terminal_module": null,
+          "terminal_error_code": "INVALID_AGGREGATION_INPUT",
+          "terminal_error_message": "Aggregation envelope missing required top-level fields.",
+          "me_handler": null,
+          "me_module": null,
+          "me_action": null,
+          "me_status_kind": null,
+          "me_artifacts": null,
+          "sub_execs": [
+            {
+              "node": "OR_Dispatch_To_PL_01_SUBCALL",
+              "exec_id": "1127",
+              "wf_acronym": "PL"
+            }
+          ]
+        },
+        {
+          "depth": 3,
+          "exec_id": "1127",
+          "wf_id": "RwToPLa1ErHl2tUi",
+          "wf_acronym": "PL",
+          "last_node": "PL_Dispatch_To_DI_01_SUBCALL",
+          "terminal_status_kind": "error",
+          "terminal_result_type": "aggregation_error",
+          "terminal_module": null,
+          "terminal_error_code": "INVALID_AGGREGATION_INPUT",
+          "terminal_error_message": "Aggregation envelope missing required top-level fields.",
+          "me_handler": null,
+          "me_module": null,
+          "me_action": null,
+          "me_status_kind": null,
+          "me_artifacts": null,
+          "sub_execs": [
+            {
+              "node": "PL_Dispatch_To_DI_01_SUBCALL",
+              "exec_id": "1128",
+              "wf_acronym": "DI"
+            }
+          ]
+        },
+        {
+          "depth": 4,
+          "exec_id": "1128",
+          "wf_id": "abqYINcXr3JAhGGk",
+          "wf_acronym": "DI",
+          "last_node": "DI_Dispatch_To_ME_01_SUBCALL",
+          "terminal_status_kind": "error",
+          "terminal_result_type": "aggregation_error",
+          "terminal_module": null,
+          "terminal_error_code": "INVALID_AGGREGATION_INPUT",
+          "terminal_error_message": "Aggregation envelope missing required top-level fields.",
+          "me_handler": null,
+          "me_module": null,
+          "me_action": null,
+          "me_status_kind": null,
+          "me_artifacts": null,
+          "sub_execs": []
+        },
+        {
+          "depth": 5,
+          "exec_id": "1129",
+          "wf_id": "uq26nh1grIpnHju0",
+          "wf_acronym": "ME",
+          "last_node": "ME_Dispatch_To_RA_01_SUBCALL",
+          "terminal_status_kind": "error",
+          "terminal_result_type": "aggregation_error",
+          "terminal_module": null,
+          "terminal_error_code": "INVALID_AGGREGATION_INPUT",
+          "terminal_error_message": "Aggregation envelope missing required top-level fields.",
+          "me_handler": "ME_Memory_Search_Result",
+          "me_module": "memory_module",
+          "me_action": null,
+          "me_status_kind": "error",
+          "me_artifacts": [],
+          "sub_execs": [
+            {
+              "node": "ME_Dispatch_To_RA_01_SUBCALL",
+              "exec_id": "1130",
+              "wf_acronym": "RA"
+            }
+          ]
+        },
+        {
+          "depth": 6,
+          "exec_id": "1130",
+          "wf_id": "5RcNLtxNjAHJsZPE",
+          "wf_acronym": "RA",
+          "last_node": "RA_Return_Error",
+          "terminal_status_kind": "error",
+          "terminal_result_type": "aggregation_error",
+          "terminal_module": null,
+          "terminal_error_code": "INVALID_AGGREGATION_INPUT",
+          "terminal_error_message": "Aggregation envelope missing required top-level fields.",
+          "me_handler": null,
+          "me_module": null,
+          "me_action": null,
+          "me_status_kind": null,
+          "me_artifacts": null,
+          "sub_execs": []
+        }
+      ],
+      "depth_reached": 7,
+      "thread_id": "77777777-0000-0000-0000-000000000007",
+      "expected_intent": "search_memory",
+      "expected_me_module": "memory_module"
+    },
+    {
+      "label": "p11-chain-04-save_suggestion",
+      "start_exec_id": "1131",
+      "chain": [
+        {
+          "depth": 0,
+          "exec_id": "1131",
+          "wf_id": "wI8hpSROxQI0zC9f",
+          "wf_acronym": "TR",
+          "last_node": "TR_Dispatch_To_EC_01_SUBCALL",
+          "terminal_status_kind": "error",
+          "terminal_result_type": "aggregation_error",
+          "terminal_module": null,
+          "terminal_error_code": "INVALID_AGGREGATION_INPUT",
+          "terminal_error_message": "Aggregation envelope missing required top-level fields.",
+          "me_handler": null,
+          "me_module": null,
+          "me_action": null,
+          "me_status_kind": null,
+          "me_artifacts": null,
+          "sub_execs": [
+            {
+              "node": "TR_Dispatch_To_EC_01_SUBCALL",
+              "exec_id": "1132",
+              "wf_acronym": "EC"
+            }
+          ]
+        },
+        {
+          "depth": 1,
+          "exec_id": "1132",
+          "wf_id": "v9jih4jqeXpOJOiH",
+          "wf_acronym": "EC",
+          "last_node": "EC_Dispatch_To_OR_01_SUBCALL",
+          "terminal_status_kind": "error",
+          "terminal_result_type": "aggregation_error",
+          "terminal_module": null,
+          "terminal_error_code": "INVALID_AGGREGATION_INPUT",
+          "terminal_error_message": "Aggregation envelope missing required top-level fields.",
+          "me_handler": null,
+          "me_module": null,
+          "me_action": null,
+          "me_status_kind": null,
+          "me_artifacts": null,
+          "sub_execs": [
+            {
+              "node": "EC_Dispatch_To_OR_01_SUBCALL",
+              "exec_id": "1133",
+              "wf_acronym": "OR"
+            }
+          ]
+        },
+        {
+          "depth": 2,
+          "exec_id": "1133",
+          "wf_id": "KhGmNpi0ZDmrnz8W",
+          "wf_acronym": "OR",
+          "last_node": "OR_Dispatch_To_PL_01_SUBCALL",
+          "terminal_status_kind": "error",
+          "terminal_result_type": "aggregation_error",
+          "terminal_module": null,
+          "terminal_error_code": "INVALID_AGGREGATION_INPUT",
+          "terminal_error_message": "Aggregation envelope missing required top-level fields.",
+          "me_handler": null,
+          "me_module": null,
+          "me_action": null,
+          "me_status_kind": null,
+          "me_artifacts": null,
+          "sub_execs": [
+            {
+              "node": "OR_Dispatch_To_PL_01_SUBCALL",
+              "exec_id": "1134",
+              "wf_acronym": "PL"
+            }
+          ]
+        },
+        {
+          "depth": 3,
+          "exec_id": "1134",
+          "wf_id": "RwToPLa1ErHl2tUi",
+          "wf_acronym": "PL",
+          "last_node": "PL_Dispatch_To_DI_01_SUBCALL",
+          "terminal_status_kind": "error",
+          "terminal_result_type": "aggregation_error",
+          "terminal_module": null,
+          "terminal_error_code": "INVALID_AGGREGATION_INPUT",
+          "terminal_error_message": "Aggregation envelope missing required top-level fields.",
+          "me_handler": null,
+          "me_module": null,
+          "me_action": null,
+          "me_status_kind": null,
+          "me_artifacts": null,
+          "sub_execs": [
+            {
+              "node": "PL_Dispatch_To_DI_01_SUBCALL",
+              "exec_id": "1135",
+              "wf_acronym": "DI"
+            }
+          ]
+        },
+        {
+          "depth": 4,
+          "exec_id": "1135",
+          "wf_id": "abqYINcXr3JAhGGk",
+          "wf_acronym": "DI",
+          "last_node": "DI_Dispatch_To_ME_01_SUBCALL",
+          "terminal_status_kind": "error",
+          "terminal_result_type": "aggregation_error",
+          "terminal_module": null,
+          "terminal_error_code": "INVALID_AGGREGATION_INPUT",
+          "terminal_error_message": "Aggregation envelope missing required top-level fields.",
+          "me_handler": null,
+          "me_module": null,
+          "me_action": null,
+          "me_status_kind": null,
+          "me_artifacts": null,
+          "sub_execs": []
+        },
+        {
+          "depth": 5,
+          "exec_id": "1136",
+          "wf_id": "uq26nh1grIpnHju0",
+          "wf_acronym": "ME",
+          "last_node": "ME_Dispatch_To_RA_01_SUBCALL",
+          "terminal_status_kind": "error",
+          "terminal_result_type": "aggregation_error",
+          "terminal_module": null,
+          "terminal_error_code": "INVALID_AGGREGATION_INPUT",
+          "terminal_error_message": "Aggregation envelope missing required top-level fields.",
+          "me_handler": "ME_Improvement_Capture_Result",
+          "me_module": "improvement_module",
+          "me_action": null,
+          "me_status_kind": "error",
+          "me_artifacts": [],
+          "sub_execs": [
+            {
+              "node": "ME_Dispatch_To_RA_01_SUBCALL",
+              "exec_id": "1137",
+              "wf_acronym": "RA"
+            }
+          ]
+        },
+        {
+          "depth": 6,
+          "exec_id": "1137",
+          "wf_id": "5RcNLtxNjAHJsZPE",
+          "wf_acronym": "RA",
+          "last_node": "RA_Return_Error",
+          "terminal_status_kind": "error",
+          "terminal_result_type": "aggregation_error",
+          "terminal_module": null,
+          "terminal_error_code": "INVALID_AGGREGATION_INPUT",
+          "terminal_error_message": "Aggregation envelope missing required top-level fields.",
+          "me_handler": null,
+          "me_module": null,
+          "me_action": null,
+          "me_status_kind": null,
+          "me_artifacts": null,
+          "sub_execs": []
+        }
+      ],
+      "depth_reached": 7,
+      "thread_id": "88888888-0000-0000-0000-000000000008",
+      "expected_intent": "save_suggestion",
+      "expected_me_module": "improvement_module"
+    }
+  ]
+}

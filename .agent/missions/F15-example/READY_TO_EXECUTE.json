@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0",
+  "mission_id": "F15-example",
+  "status": "ready_to_execute",
+  "created_by": "chatgpt_planner",
+  "branch": "agent/F15-example",
+  "mission_files": [
+    "MASTER_BRIEF.md",
+    "TEST_MATRIX.json"
+  ],
+  "acceptance_files": [
+    "ACCEPTANCE.md"
+  ],
+  "allowed_mutation_roots": [
+    ".agent/missions/F15-example",
+    "docs/architecture/agent_orchestration"
+  ],
+  "forbidden_mutation_roots": [
+    "workflows",
+    "credentials",
+    "database/migrations"
+  ],
+  "evidence_required": [
+    "EVIDENCE.md",
+    "EXECUTOR_DONE.json"
+  ],
+  "human_gates": [
+    "schema_migration",
+    "production_destructive_change",
+    "workflow_activation_change"
+  ],
+  "trigger": {
+    "mode": "local_bridge"
+  },
+  "notes": "Example mission for bridge smoke test."
+}

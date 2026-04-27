@@ -1,0 +1,19 @@
+{
+  "message_id": "6c645915-b488-48bf-8bc5-e676d158e417",
+  "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+  "channel": "e2e-rich-matrix",
+  "direction": "inbound",
+  "author_type": "user",
+  "normalized_content": "Ține minte că folosesc Postgres 16.",
+  "timestamp": "2026-04-27T08:12:27.515Z",
+  "source_message_ref": "e2e:R-1:e2e:mr-2026-04-27:R-1",
+  "author_entity_id": null,
+  "related_entity_ids": [],
+  "metadata": {
+    "e2e_case_id": "R-1",
+    "e2e_run_tag": "mr-2026-04-27",
+    "e2e_intent_test": "store_memory"
+  },
+  "idempotency_key": "e2e:mr-2026-04-27:R-1",
+  "thread_id": "9b93969d-bcd2-4575-8bea-5cd200c24a1d"
+}

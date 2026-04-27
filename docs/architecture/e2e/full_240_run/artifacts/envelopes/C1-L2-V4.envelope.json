@@ -1,0 +1,23 @@
+{
+  "message_id": "888ac67f-e8b3-46d0-86c7-21bcde6016c8",
+  "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+  "channel": "e2e-rich-matrix",
+  "direction": "inbound",
+  "author_type": "user",
+  "normalized_content": "Explică-mi în două fraze ce înseamnă un obiectiv față de o sarcină. Nu trebuie să reții nimic.",
+  "timestamp": "2026-04-26T02:50:47.020Z",
+  "source_message_ref": "e2e:C1-L2-V4:e2e:f240-2026-04-26:C1-L2-V4",
+  "author_entity_id": null,
+  "related_entity_ids": [],
+  "metadata": {
+    "e2e_case_id": "C1-L2-V4",
+    "e2e_corridor": "C1",
+    "e2e_variant": "retry_or_isolation",
+    "e2e_phase": "P1_FOUNDATION",
+    "e2e_priority": "P1",
+    "e2e_locale": "ro",
+    "e2e_run_tag": "f240-2026-04-26"
+  },
+  "idempotency_key": "e2e:f240-2026-04-26:C1-L2-V4",
+  "thread_id": "2a755220-3d13-4e2b-8cef-4523f87d6952"
+}

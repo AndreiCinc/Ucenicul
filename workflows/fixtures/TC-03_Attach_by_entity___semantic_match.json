@@ -1,0 +1,34 @@
+{
+  "id": "TC-03",
+  "name": "Attach by entity + semantic match",
+  "description": "Natural language: author discusses apartment price with Ion. Entity + content match triggers attach. Scoring path test.",
+  "request": {
+    "message_id": "test-msg-003",
+    "tenant_id": "aaaaaaaa-0000-0000-0000-000000000001",
+    "channel": "telegram",
+    "direction": "inbound",
+    "author_type": "user",
+    "normalized_content": "Vreau sa vorbesc cu Ion despre apartamentul din centru, sa vedem pretul",
+    "timestamp": "2026-04-15T12:00:00Z",
+    "source_message_ref": "tg_test_003",
+    "author_entity_id": "eeeeeeee-0000-0000-0000-000000000001"
+  },
+  "expected": {
+    "decision": "attach_existing_thread",
+    "resolved_thread_id": "tttttttt-0000-0000-0000-000000000001",
+    "ambiguity_detected": false,
+    "content_class_used": "normalized_content"
+  },
+  "candidate_threads_fixture": [
+    {
+      "thread_id": "tttttttt-0000-0000-0000-000000000001",
+      "thread_status": "active",
+      "thread_title": "Apartament centru Ion",
+      "score": 0.78,
+      "entity_match": 0.3,
+      "semantic_match": 0.28,
+      "temporal_proximity": 0.15,
+      "channel_relevance": 0.05
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "workflow_code": "WF-EC-01",
+  "workflow_name": "WF-EC-01 Execution Context",
+  "tier": "standard",
+  "status": "closed",
+  "posture": "live",
+  "score": 10,
+  "closed": true,
+  "advance_allowed": true,
+  "phase": "closed",
+  "closed_at": "2026-04-19T00:15:00Z",
+  "last_sync": null,
+  "last_verified": "2026-04-19",
+  "live_runs": null,
+  "owner": "TBD",
+  "canonical": {
+    "implementation": "workflow/WF-EC-01_Execution_Context.json",
+    "contracts": "docs/WF-EC-01_CLOSURE_CONTRACT.md",
+    "status": "state/STATE__WF-EC-01.json"
+  },
+  "evidence_on_disk": {
+    "implementation_present": true,
+    "contracts_present": true,
+    "sql_present": true,
+    "scripts_present": true,
+    "tests_present": true,
+    "test_results_present": true,
+    "audit_report_present": true,
+    "closure_report_present": true,
+    "fix_log_present": true
+  },
+  "missing": [
+    "docs/WF-EC-01_TEST_MATRIX.md"
+  ],
+  "foreign": [
+    "docs/desktop.ini"
+  ],
+  "notes": "Seed from reports/CLOSURE_REPORT_WF-EC-01.md — status=CLOSED, score=10, closed_at=2026-04-19T00:15:00Z. STATE authored during autonomous run run_2026-04-19_autonomous because no state/ subtree existed. live_workflow_id not recorded on disk in a structured location and is therefore null here; authoritative runtime linkage lives in the n8n environment.",
+  "last_updated": "2026-04-19",
+  "run_id": "run_2026-04-19_autonomous"
+}

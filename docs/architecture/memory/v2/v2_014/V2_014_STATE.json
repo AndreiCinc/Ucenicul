@@ -1,0 +1,64 @@
+{
+  "mission": "V2-014",
+  "opened_at": "2026-04-22",
+  "closed_at": "2026-04-22T15:30:00Z",
+  "verdict": "SUCCESS",
+  "phase": 9,
+  "phase_name": "closeout_and_writeback_done",
+  "target": {
+    "workflow_id": "uq26nh1grIpnHju0",
+    "workflow_name": "WF-ME-01 Module Execution",
+    "node_id": "me-phase5mem-promote-db",
+    "node_name": "ME_Memory_Promote_DB",
+    "field_path": "parameters.query",
+    "scope_class": "single-node SQL patch",
+    "channel": "operator-run CLI (n8n-patch.mjs patch-node) — V2-025 canonical"
+  },
+  "versionId": {
+    "pre": "b8e2f194-0263-46d9-8306-1534cc7c31fe",
+    "post": "279a8628-5df6-4b38-86b0-8cc51989629b"
+  },
+  "primary_proof": {
+    "case": "f31-promote-012",
+    "memory_id": "8fb20b75-b0fc-4c65-a65b-3eaa940b5b09",
+    "expected_post_patch_verdict": "PASS",
+    "pre_patch_verdict": "FAIL (BAD_TEST_DEFINITION deferred to V2-014)",
+    "post_patch_verdict": "PASS",
+    "execution_id": "3881"
+  },
+  "safety_reruns": [
+    {
+      "label": "deny (no false broadening)",
+      "case": "v2014-safety-deny-001",
+      "execution_id": "3883",
+      "verdict": "PASS"
+    },
+    {
+      "label": "caller-driven accept (no regression)",
+      "case": "v2014-safety-caller-001",
+      "execution_id": "3892",
+      "verdict": "PASS"
+    }
+  ],
+  "bugs_fixed": [
+    "V2-014-FIX-001 — V2-014 rerun payload missing promotion_target field (own payload omission, not workflow defect)"
+  ],
+  "blockers": [],
+  "deferred_followups": [
+    "V2-OBS-RA-AGGREGATION-DOMAIN-WRITE-GATE — downstream RA aggregation rejects domain-write batches (same behavior pre/post V2-014; out of memory_module scope)"
+  ],
+  "pointers": {
+    "mission_brief": "V2_014_MISSION_BRIEF.md",
+    "execution_plan": "V2_014_EXECUTION_PLAN.md",
+    "testing_strategy": "V2_014_TESTING_STRATEGY.md",
+    "current_stage": "V2_014_CURRENT_STAGE.md",
+    "fix_log": "V2_014_FIX_LOG.md",
+    "blocker_register": "V2_014_BLOCKER_REGISTER.md",
+    "dispatch_log": "V2_014_DISPATCH_LOG.md",
+    "design_freeze": "V2_014_DESIGN_FREEZE.md",
+    "build_script": "artifacts/build_patch_v2_014.mjs",
+    "params_payload": "artifacts/patchV2_014_params.json",
+    "apply_command": "V2_014_APPLY_COMMAND.md",
+    "final_status": "V2_014_FINAL_STATUS.md"
+  }
+}

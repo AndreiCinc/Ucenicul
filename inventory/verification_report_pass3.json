@@ -1,0 +1,55 @@
+{
+  "generated_at": "2026-04-19T13:09:11.056119+00:00",
+  "pass": 3,
+  "checks": {
+    "A_provenance_complete": {
+      "passed": 920,
+      "failed": []
+    },
+    "B_pipeline_not_leaking_to_product": {
+      "passed": 333,
+      "failed": []
+    },
+    "C_product_not_leaking_to_pipeline": {
+      "passed": 587,
+      "failed": []
+    },
+    "D_ambiguous_role_absent": {
+      "passed": true,
+      "instances": []
+    },
+    "E_pipeline_layout_complete": {
+      "passed": true,
+      "missing": []
+    },
+    "F_workflow_folders_present": {
+      "passed": true,
+      "missing": []
+    },
+    "G_no_collisions": {
+      "passed": true,
+      "found": []
+    },
+    "H_archive_unresolved_empty": {
+      "passed": true,
+      "content": []
+    },
+    "I_zip_placed_canonically": {
+      "passed": true,
+      "details": "archive/snapshots/wf-ra-01_full_source_pack_2026-04-17.zip exists; old placement absent"
+    },
+    "J_cross_link_present": {
+      "passed": true,
+      "details": "both canonical (TR-01) and cross-link (EC-01) present"
+    },
+    "K_manual_adjustments_complete": {
+      "passed": 10,
+      "failed": []
+    },
+    "L_source_root_immutable": {
+      "passed": true,
+      "details": "Phase 1R rescan: 0 discrepancies — sources unchanged"
+    }
+  },
+  "overall_passed": true
+}

@@ -1,0 +1,16 @@
+{
+  "case_id": "RT-037",
+  "group": "tenant_isolation",
+  "priority": "P0",
+  "user_input": "Creează task tenant A marker isolation.",
+  "expected": {
+    "tenant_A_only": true,
+    "tenant_B_unchanged": true,
+    "no_cross_tenant_leak": true
+  },
+  "expected_intent": "create_task",
+  "tenant_id": "eee0e2e0-0000-0000-0000-00000000000a",
+  "message_id": "5bc37150-1f64-4d06-85b2-1c3eac520375",
+  "thread_id": "5fe0ecb4-ede9-4318-8602-dc668c0d2dc3",
+  "idempotency_key": "tmr:tmr-20260425-smoke:RT-037"
+}

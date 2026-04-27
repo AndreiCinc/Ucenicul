@@ -1,0 +1,23 @@
+{
+  "message_id": "bdb05d21-c033-4ddc-82b5-03576a8167b9",
+  "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+  "channel": "e2e-rich-matrix",
+  "direction": "inbound",
+  "author_type": "user",
+  "normalized_content": "Planifică-mi următoarea săptămână pentru follow-up-uri cu clienții importanți. Pentru Andrei ține cont de preferința lui pentru dimineață dacă există în memorie; pentru Maria pregătește doar un mesaj de reactivare, fără să salvezi încă nimic nou. Dacă sunt informații lipsă, marchează-le ca ipoteze sau întrebări, nu crea task-uri definitive fără bază. Vreau un plan structurat, nu un dump tehnic.",
+  "timestamp": "2026-04-26T02:50:47.838Z",
+  "source_message_ref": "e2e:C6-L4-V1:e2e:f240-2026-04-26:C6-L4-V1",
+  "author_entity_id": null,
+  "related_entity_ids": [],
+  "metadata": {
+    "e2e_case_id": "C6-L4-V1",
+    "e2e_corridor": "C6",
+    "e2e_variant": "baseline_ro",
+    "e2e_phase": "P2_COMPOSITION",
+    "e2e_priority": "P2",
+    "e2e_locale": "ro",
+    "e2e_run_tag": "f240-2026-04-26"
+  },
+  "idempotency_key": "e2e:f240-2026-04-26:C6-L4-V1",
+  "thread_id": "47d65c00-6e34-4421-8838-415259c52b86"
+}

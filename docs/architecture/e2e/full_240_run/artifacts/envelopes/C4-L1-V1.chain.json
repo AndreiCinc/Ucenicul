@@ -1,0 +1,1031 @@
+{
+  "case_id": "C4-L1-V1",
+  "run_tag": "f240r-2026-04-26",
+  "runtime": {
+    "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+    "message_id": "3dccbc17-61dd-4ee6-896c-d211db2c87b4",
+    "thread_id": "15279bf5-149c-419d-8cd2-0be143631a32",
+    "reply_to_thread_id": null,
+    "idempotency_key": "e2e:f240-2026-04-26:C4-L1-V1",
+    "thread_label": "C4:C4-L1-V1",
+    "ts_iso": "2026-04-26T02:50:47.436Z",
+    "run_tag": "f240-2026-04-26",
+    "thread_context_kind": "seeded-fresh",
+    "fire_iso": "2026-04-26T09:28:41.901Z"
+  },
+  "tr_exec_id": "10169",
+  "chain": {
+    "tr_exec_id": "10169",
+    "hops_str": "TR:10169 → EC:10170 → OR:10171 → PL:10172 → DI:10173 → ME:10174 → RA:10175 → SU:10176 → RC:10177 → MO:10178",
+    "digest": {
+      "TR": {
+        "exec_id": "10169",
+        "status": "success",
+        "finished": true,
+        "started_at": "2026-04-26T09:28:22.547Z",
+        "last_node": "TR_Dispatch_To_EC_01_SUBCALL",
+        "last_node_json": {
+          "_debug_summary": {
+            "execution_context_id": "4e138c9b-cc0f-4f0e-bf7b-1d177bc2d15d",
+            "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+            "thread_id": "15279bf5-149c-419d-8cd2-0be143631a32",
+            "rollup_status": "success",
+            "module_results_count": 1,
+            "returned_step_ids": [
+              "step_01_supersede_memory"
+            ]
+          }
+        },
+        "sub_calls": [
+          {
+            "via_node": "TR_Dispatch_To_EC_01_SUBCALL",
+            "exec_id": "10170",
+            "target_wf": "EC"
+          }
+        ],
+        "selected_nodes": {
+          "TR_Validate_Input": [
+            {
+              "executed": true,
+              "json": {
+                "_valid": "true",
+                "message_id": "3dccbc17-61dd-4ee6-896c-d211db2c87b4",
+                "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+                "channel": "e2e-rich-matrix",
+                "direction": "inbound",
+                "author_type": "user",
+                "normalized_content": "Corectează: Andrei preferă seara, nu dimineața.",
+                "timestamp": "2026-04-26T03:50:00.000Z",
+                "source_message_ref": "e2e:C4-L1-V1:f240r-supersede",
+                "author_entity_id": null,
+                "explicit_thread_id": "15279bf5-149c-419d-8cd2-0be143631a32",
+                "reply_to_message_id": null,
+                "reply_to_thread_id": null,
+                "related_entity_ids": [],
+                "metadata": {
+                  "e2e_case_id": "C4-L1-V1",
+                  "e2e_corridor": "C4",
+                  "e2e_run_tag": "f240r-2026-04-26",
+                  "memory_id": "c4f24026-aaaa-4bbb-8ccc-000000000001"
+                },
+                "_attach_threshold": null,
+                "_reopen_threshold": null,
+                "_max_candidate_threads": null,
+                "_allow_latent_reopen": true,
+                "_allow_entity_assisted_match": true,
+                "_ambiguity_margin": null,
+                "_idempotency_key": "e2e:f240r-2026-04-26:C4-L1-V1:supersede"
+              },
+              "error": null
+            }
+          ],
+          "TR_Build_EC_Envelope": [
+            {
+              "executed": true,
+              "json": {
+                "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+                "thread_id": "15279bf5-149c-419d-8cd2-0be143631a32",
+                "trigger_message_id": "3dccbc17-61dd-4ee6-896c-d211db2c87b4",
+                "resolution_method": "explicit_thread_reference",
+                "resolved_at": "2026-04-26T09:28:22.601Z",
+                "idempotency_key": "tr-to-ec:eee0e2e0-0000-0000-0000-000000000001:3dccbc17-61dd-4ee6-896c-d211db2c87b4:v1",
+                "envelope_metadata": {
+                  "e2e_case_id": "C4-L1-V1",
+                  "e2e_corridor": "C4",
+                  "e2e_run_tag": "f240r-2026-04-26",
+                  "memory_id": "c4f24026-aaaa-4bbb-8ccc-000000000001"
+                }
+              },
+              "error": null
+            }
+          ],
+          "TR_Dispatch_To_EC_01_SUBCALL": [
+            {
+              "executed": true,
+              "json": {
+                "_debug_summary": {
+                  "execution_context_id": "4e138c9b-cc0f-4f0e-bf7b-1d177bc2d15d",
+                  "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+                  "thread_id": "15279bf5-149c-419d-8cd2-0be143631a32",
+                  "rollup_status": "success",
+                  "module_results_count": 1,
+                  "returned_step_ids": [
+                    "step_01_supersede_memory"
+                  ]
+                }
+              },
+              "error": null
+            }
+          ]
+        }
+      },
+      "EC": {
+        "exec_id": "10170",
+        "status": "success",
+        "finished": true,
+        "started_at": "2026-04-26T09:28:22.742Z",
+        "last_node": "EC_Dispatch_To_OR_01_SUBCALL",
+        "last_node_json": {
+          "_debug_summary": {
+            "execution_context_id": "4e138c9b-cc0f-4f0e-bf7b-1d177bc2d15d",
+            "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+            "thread_id": "15279bf5-149c-419d-8cd2-0be143631a32",
+            "rollup_status": "success",
+            "module_results_count": 1,
+            "returned_step_ids": [
+              "step_01_supersede_memory"
+            ]
+          }
+        },
+        "sub_calls": [
+          {
+            "via_node": "EC_Dispatch_To_OR_01_SUBCALL",
+            "exec_id": "10171",
+            "target_wf": "OR"
+          }
+        ],
+        "selected_nodes": {
+          "EC_Dispatch_To_OR_01_SUBCALL": [
+            {
+              "executed": true,
+              "json": {
+                "_debug_summary": {
+                  "execution_context_id": "4e138c9b-cc0f-4f0e-bf7b-1d177bc2d15d",
+                  "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+                  "thread_id": "15279bf5-149c-419d-8cd2-0be143631a32",
+                  "rollup_status": "success",
+                  "module_results_count": 1,
+                  "returned_step_ids": [
+                    "step_01_supersede_memory"
+                  ]
+                }
+              },
+              "error": null
+            }
+          ]
+        }
+      },
+      "OR": {
+        "exec_id": "10171",
+        "status": "success",
+        "finished": true,
+        "started_at": "2026-04-26T09:28:22.896Z",
+        "last_node": "OR_Dispatch_To_PL_01_SUBCALL",
+        "last_node_json": {
+          "_debug_summary": {
+            "execution_context_id": "4e138c9b-cc0f-4f0e-bf7b-1d177bc2d15d",
+            "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+            "thread_id": "15279bf5-149c-419d-8cd2-0be143631a32",
+            "rollup_status": "success",
+            "module_results_count": 1,
+            "returned_step_ids": [
+              "step_01_supersede_memory"
+            ]
+          }
+        },
+        "sub_calls": [
+          {
+            "via_node": "OR_Dispatch_To_PL_01_SUBCALL",
+            "exec_id": "10172",
+            "target_wf": "PL"
+          }
+        ],
+        "selected_nodes": {
+          "OR_Build_Handoff_Payload": [
+            {
+              "executed": true,
+              "json": {
+                "status_kind": "success",
+                "result_type": "handoff",
+                "module_name": "orchestrator_input_handoff",
+                "payload": {
+                  "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+                  "thread_id": "15279bf5-149c-419d-8cd2-0be143631a32",
+                  "execution_id": "4e138c9b-cc0f-4f0e-bf7b-1d177bc2d15d",
+                  "trigger_message_id": "3dccbc17-61dd-4ee6-896c-d211db2c87b4",
+                  "idempotency_key": "tr-to-ec:eee0e2e0-0000-0000-0000-000000000001:3dccbc17-61dd-4ee6-896c-d211db2c87b4:v1",
+                  "execution_status": "initialized",
+                  "planning_allowed": true,
+                  "allowed_next_stage": "WF-PL-01",
+                  "orchestrator_input": {
+                    "planning_mode": "plan_only",
+                    "module_execution_allowed": false,
+                    "response_generation_allowed": false,
+                    "domain_writes_allowed": false
+                  },
+                  "planner_context": {
+                    "user_message_text": "Corectează: Andrei preferă seara, nu dimineața.",
+                    "primary_intent": "supersede_memory",
+                    "inputs": {
+                      "memory_id": "c4f24026-aaaa-4bbb-8ccc-000000000001"
+                    }
+                  },
+                  "warnings": []
+                }
+              },
+              "error": null
+            }
+          ],
+          "OR_Dispatch_To_PL_01_SUBCALL": [
+            {
+              "executed": true,
+              "json": {
+                "_debug_summary": {
+                  "execution_context_id": "4e138c9b-cc0f-4f0e-bf7b-1d177bc2d15d",
+                  "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+                  "thread_id": "15279bf5-149c-419d-8cd2-0be143631a32",
+                  "rollup_status": "success",
+                  "module_results_count": 1,
+                  "returned_step_ids": [
+                    "step_01_supersede_memory"
+                  ]
+                }
+              },
+              "error": null
+            }
+          ]
+        }
+      },
+      "PL": {
+        "exec_id": "10172",
+        "status": "success",
+        "finished": true,
+        "started_at": "2026-04-26T09:28:23.098Z",
+        "last_node": "PL_Dispatch_To_DI_01_SUBCALL",
+        "last_node_json": {
+          "_debug_summary": {
+            "execution_context_id": "4e138c9b-cc0f-4f0e-bf7b-1d177bc2d15d",
+            "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+            "thread_id": "15279bf5-149c-419d-8cd2-0be143631a32",
+            "rollup_status": "success",
+            "module_results_count": 1,
+            "returned_step_ids": [
+              "step_01_supersede_memory"
+            ]
+          }
+        },
+        "sub_calls": [
+          {
+            "via_node": "PL_Dispatch_To_DI_01_SUBCALL",
+            "exec_id": "10173",
+            "target_wf": "DI"
+          }
+        ],
+        "selected_nodes": {
+          "PL_Generate_Plan": [
+            {
+              "executed": true,
+              "json": {
+                "status_kind": "success",
+                "result_type": "plan",
+                "module_name": "plan_generation",
+                "payload": {
+                  "plan_id": "plan:4e138c9b-cc0f-4f0e-bf7b-1d177bc2d15d:v1",
+                  "execution_id": "4e138c9b-cc0f-4f0e-bf7b-1d177bc2d15d",
+                  "thread_id": "15279bf5-149c-419d-8cd2-0be143631a32",
+                  "goal": "Corectează: Andrei preferă seara, nu dimineața.",
+                  "primary_intent": "supersede_memory",
+                  "reasoning_summary": "Generated 1 bounded step(s) from the validated orchestrator handoff.",
+                  "steps": [
+                    {
+                      "step_id": "step_01_supersede_memory",
+                      "module_name": "memory_module",
+                      "purpose": "Handle intent supersede_memory",
+                      "inputs": {
+                        "action": "supersede_memory",
+                        "content": "Corectează: Andrei preferă seara, nu dimineața",
+                        "memory_type": "fact",
+                        "category": "general",
+                        "memory_id": "c4f24026-aaaa-4bbb-8ccc-000000000001",
+                        "supersedes_memory_id": "c4f24026-aaaa-4bbb-8ccc-000000000001",
+                        "source_thread_id": "15279bf5-149c-419d-8cd2-0be143631a32",
+                        "source_message_id": "3dccbc17-61dd-4ee6-896c-d211db2c87b4"
+                      },
+                      "depends_on": [],
+                      "execution_mode": "sequential",
+                      "expected_outputs": [],
+                      "replan_if": [
+                        "failed"
+                      ],
+                      "failure_policy": "continue_with_notice",
+                      "status": "pending"
+                    }
+                  ],
+                  "allowed_next_stage": "WF-DI-01",
+                  "dispatcher_input": {
+                    "dispatch_allowed": true,
+                    "module_execution_started": false,
+                    "response_generation_allowed": false,
+                    "domain_writes_performed": false
+                  },
+                  "warnings": []
+                }
+              },
+              "error": null
+            }
+          ],
+          "PL_Build_DI_Envelope": [
+            {
+              "executed": true,
+              "json": {
+                "status_kind": "success",
+                "result_type": "plan",
+                "module_name": "plan_generation",
+                "payload": {
+                  "plan_id": "plan:4e138c9b-cc0f-4f0e-bf7b-1d177bc2d15d:v1",
+                  "execution_id": "4e138c9b-cc0f-4f0e-bf7b-1d177bc2d15d",
+                  "thread_id": "15279bf5-149c-419d-8cd2-0be143631a32",
+                  "goal": "Corectează: Andrei preferă seara, nu dimineața.",
+                  "primary_intent": "supersede_memory",
+                  "reasoning_summary": "Generated 1 bounded step(s) from the validated orchestrator handoff.",
+                  "steps": [
+                    {
+                      "step_id": "step_01_supersede_memory",
+                      "module_name": "memory_module",
+                      "purpose": "Handle intent supersede_memory",
+                      "inputs": {
+                        "action": "supersede_memory",
+                        "content": "Corectează: Andrei preferă seara, nu dimineața",
+                        "memory_type": "fact",
+                        "category": "general",
+                        "memory_id": "c4f24026-aaaa-4bbb-8ccc-000000000001",
+                        "supersedes_memory_id": "c4f24026-aaaa-4bbb-8ccc-000000000001",
+                        "source_thread_id": "15279bf5-149c-419d-8cd2-0be143631a32",
+                        "source_message_id": "3dccbc17-61dd-4ee6-896c-d211db2c87b4"
+                      },
+                      "depends_on": [],
+                      "execution_mode": "sequential",
+                      "expected_outputs": [],
+                      "replan_if": [
+                        "failed"
+                      ],
+                      "failure_policy": "continue_with_notice",
+                      "status": "pending"
+                    }
+                  ],
+                  "allowed_next_stage": "WF-DI-01",
+                  "dispatcher_input": {
+                    "dispatch_allowed": true,
+                    "module_execution_started": false,
+                    "response_generation_allowed": false,
+                    "domain_writes_performed": false
+                  },
+                  "warnings": [],
+                  "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+                  "trigger_message_id": "3dccbc17-61dd-4ee6-896c-d211db2c87b4",
+                  "idempotency_key": "tr-to-ec:eee0e2e0-0000-0000-0000-000000000001:3dccbc17-61dd-4ee6-896c-d211db2c87b4:v1"
+                }
+              },
+              "error": null
+            }
+          ],
+          "PL_Build_Planner_Input": [
+            {
+              "executed": true,
+              "json": {
+                "_context_ready": "true",
+                "execution_id": "4e138c9b-cc0f-4f0e-bf7b-1d177bc2d15d",
+                "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+                "thread_id": "15279bf5-149c-419d-8cd2-0be143631a32",
+                "trigger_message_id": "3dccbc17-61dd-4ee6-896c-d211db2c87b4",
+                "idempotency_key": "tr-to-ec:eee0e2e0-0000-0000-0000-000000000001:3dccbc17-61dd-4ee6-896c-d211db2c87b4:v1",
+                "goal": "Corectează: Andrei preferă seara, nu dimineața.",
+                "primary_intent": "supersede_memory",
+                "requested_actions": [
+                  {
+                    "action": "supersede_memory",
+                    "module_name": "memory_module",
+                    "purpose": "Handle intent supersede_memory",
+                    "inputs": {
+                      "content": "Corectează: Andrei preferă seara, nu dimineața",
+                      "memory_type": "fact",
+                      "category": "general",
+                      "memory_id": "c4f24026-aaaa-4bbb-8ccc-000000000001",
+                      "supersedes_memory_id": "c4f24026-aaaa-4bbb-8ccc-000000000001",
+                      "source_thread_id": "15279bf5-149c-419d-8cd2-0be143631a32",
+                      "source_message_id": "3dccbc17-61dd-4ee6-896c-d211db2c87b4"
+                    }
+                  }
+                ],
+                "module_registry": [
+                  {
+                    "module_name": "task_module",
+                    "module_type": "executor",
+                    "capabilities": [
+                      "create_task",
+                      "list_tasks",
+                      "update_task",
+                      "complete_task",
+                      "delete_task"
+                    ]
+                  },
+                  {
+                    "module_name": "reminder_module",
+                    "module_type": "executor",
+                    "capabilities": [
+                      "create_reminder",
+                      "list_reminders",
+                      "update_reminder",
+                      "cancel_reminder"
+                    ]
+                  },
+                  {
+                    "module_name": "memory_module",
+                    "module_type": "executor",
+                    "capabilities": [
+                      "store_memory",
+                      "search_memory"
+                    ]
+                  },
+                  {
+                    "module_name": "improvement_module",
+                    "module_type": "executor",
+                    "capabilities": [
+                      "capture_feedback"
+                    ]
+                  },
+                  {
+                    "module_name": "watcher_module_basic",
+                    "module_type": "observer",
+                    "capabilities": [
+                      "produce_observation"
+                    ]
+                  }
+                ],
+                "warnings": []
+              },
+              "error": null
+            }
+          ]
+        }
+      },
+      "DI": {
+        "exec_id": "10173",
+        "status": "success",
+        "finished": true,
+        "started_at": "2026-04-26T09:28:23.284Z",
+        "last_node": "DI_Dispatch_To_ME_01_SUBCALL",
+        "last_node_json": {
+          "_debug_summary": {
+            "execution_context_id": "4e138c9b-cc0f-4f0e-bf7b-1d177bc2d15d",
+            "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+            "thread_id": "15279bf5-149c-419d-8cd2-0be143631a32",
+            "rollup_status": "success",
+            "module_results_count": 1,
+            "returned_step_ids": [
+              "step_01_supersede_memory"
+            ]
+          }
+        },
+        "sub_calls": [],
+        "selected_nodes": {
+          "DI_Build_Dispatch_Payload": [
+            {
+              "executed": true,
+              "json": {
+                "status_kind": "success",
+                "result_type": "dispatch",
+                "module_name": "dispatcher",
+                "payload": {
+                  "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+                  "thread_id": "15279bf5-149c-419d-8cd2-0be143631a32",
+                  "execution_id": "4e138c9b-cc0f-4f0e-bf7b-1d177bc2d15d",
+                  "plan_id": "plan:4e138c9b-cc0f-4f0e-bf7b-1d177bc2d15d:v1",
+                  "dispatch_id": "dispatch:plan:4e138c9b-cc0f-4f0e-bf7b-1d177bc2d15d:v1:v1",
+                  "allowed_next_stage": "WF-ME-01",
+                  "ready_groups": [
+                    {
+                      "group_id": "group:sequential:001",
+                      "execution_mode": "sequential",
+                      "step_ids": [
+                        "step_01_supersede_memory"
+                      ],
+                      "module_requests": [
+                        {
+                          "execution_context_id": "4e138c9b-cc0f-4f0e-bf7b-1d177bc2d15d",
+                          "thread_id": "15279bf5-149c-419d-8cd2-0be143631a32",
+                          "step_id": "step_01_supersede_memory",
+                          "module_name": "memory_module",
+                          "purpose": "Handle intent supersede_memory",
+                          "inputs": {
+                            "action": "supersede_memory",
+                            "content": "Corectează: Andrei preferă seara, nu dimineața",
+                            "memory_type": "fact",
+                            "category": "general",
+                            "memory_id": "c4f24026-aaaa-4bbb-8ccc-000000000001",
+                            "supersedes_memory_id": "c4f24026-aaaa-4bbb-8ccc-000000000001",
+                            "source_thread_id": "15279bf5-149c-419d-8cd2-0be143631a32",
+                            "source_message_id": "3dccbc17-61dd-4ee6-896c-d211db2c87b4"
+                          },
+                          "idempotency_key": "tr-to-ec:eee0e2e0-0000-0000-0000-000000000001:3dccbc17-61dd-4ee6-896c-d211db2c87b4:v1:step_01_supersede_memory:dispatch:v1"
+                        }
+                      ]
+                    }
+                  ],
+                  "dispatch_guard": {
+                    "dispatch_allowed": true,
+                    "module_execution_started": false,
+                    "response_generation_allowed": false,
+                    "domain_writes_performed": false
+                  },
+                  "warnings": []
+                }
+              },
+              "error": null
+            }
+          ],
+          "DI_Build_ME_Envelopes": [
+            {
+              "executed": true,
+              "json": {
+                "status_kind": "success",
+                "result_type": "dispatch",
+                "execution_context_id": "4e138c9b-cc0f-4f0e-bf7b-1d177bc2d15d",
+                "thread_id": "15279bf5-149c-419d-8cd2-0be143631a32",
+                "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+                "dispatcher_input": {
+                  "dispatch_allowed": true,
+                  "module_execution_started": false,
+                  "response_generation_allowed": false,
+                  "domain_writes_performed": false,
+                  "step": {
+                    "step_id": "step_01_supersede_memory",
+                    "module_name": "memory_module",
+                    "purpose": "Handle intent supersede_memory",
+                    "inputs": {
+                      "action": "supersede_memory",
+                      "content": "Corectează: Andrei preferă seara, nu dimineața",
+                      "memory_type": "fact",
+                      "category": "general",
+                      "memory_id": "c4f24026-aaaa-4bbb-8ccc-000000000001",
+                      "supersedes_memory_id": "c4f24026-aaaa-4bbb-8ccc-000000000001",
+                      "source_thread_id": "15279bf5-149c-419d-8cd2-0be143631a32",
+                      "source_message_id": "3dccbc17-61dd-4ee6-896c-d211db2c87b4"
+                    },
+                    "execution_mode": "sequential",
+                    "depends_on": [],
+                    "expected_outputs": [],
+                    "replan_if": [],
+                    "failure_policy": "continue_with_notice",
+                    "status": "pending"
+                  }
+                },
+                "idempotency_key": "tr-to-ec:eee0e2e0-0000-0000-0000-000000000001:3dccbc17-61dd-4ee6-896c-d211db2c87b4:v1:step_01_supersede_memory:dispatch:v1"
+              },
+              "error": null
+            }
+          ],
+          "DI_Dispatch_To_ME_01_SUBCALL": [
+            {
+              "executed": true,
+              "json": {
+                "_debug_summary": {
+                  "execution_context_id": "4e138c9b-cc0f-4f0e-bf7b-1d177bc2d15d",
+                  "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+                  "thread_id": "15279bf5-149c-419d-8cd2-0be143631a32",
+                  "rollup_status": "success",
+                  "module_results_count": 1,
+                  "returned_step_ids": [
+                    "step_01_supersede_memory"
+                  ]
+                }
+              },
+              "error": null
+            }
+          ]
+        }
+      },
+      "ME": {
+        "exec_id": "10174",
+        "status": "success",
+        "finished": true,
+        "started_at": "2026-04-26T09:28:23.474Z",
+        "last_node": "ME_Dispatch_To_RA_01_SUBCALL",
+        "last_node_json": {
+          "_debug_summary": {
+            "execution_context_id": "4e138c9b-cc0f-4f0e-bf7b-1d177bc2d15d",
+            "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+            "thread_id": "15279bf5-149c-419d-8cd2-0be143631a32",
+            "rollup_status": "success",
+            "module_results_count": 1,
+            "returned_step_ids": [
+              "step_01_supersede_memory"
+            ]
+          }
+        },
+        "sub_calls": [],
+        "selected_nodes": {
+          "ME_Build_RA_Envelope": [
+            {
+              "executed": true,
+              "json": {
+                "status_kind": "success",
+                "result_type": "module_batch",
+                "execution_context_id": "4e138c9b-cc0f-4f0e-bf7b-1d177bc2d15d",
+                "thread_id": "15279bf5-149c-419d-8cd2-0be143631a32",
+                "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+                "aggregation_input": {
+                  "aggregation_allowed": true,
+                  "response_generation_allowed": false,
+                  "module_execution_completed": true,
+                  "domain_writes_performed": false,
+                  "module_results": [
+                    {
+                      "module_name": "memory_module",
+                      "step_id": "step_01_supersede_memory",
+                      "result_type": "execution",
+                      "status": "success",
+                      "summary": "Memory superseded successfully.",
+                      "observations": [],
+                      "proposals": [],
+                      "actions_executed": [
+                        {
+                          "action": "supersede_memory",
+                          "details": {
+                            "old_memory_id": "c4f24026-aaaa-4bbb-8ccc-000000000001",
+                            "new_memory_id": "1ad91651-e35e-4040-a50a-7affb4b6db87",
+                            "tier": "recent",
+                            "status": "active",
+                            "created_at": "2026-04-26T09:28:23.874Z",
+                            "idempotency_reused": false
+                          }
+                        }
+                      ],
+                      "artifacts": [
+                        {
+                          "type": "memory_id",
+                          "value": "1ad91651-e35e-4040-a50a-7affb4b6db87"
+                        }
+                      ],
+                      "confidence": 1,
+                      "needs_followup": false,
+                      "followup_requests": []
+                    }
+                  ],
+                  "expected_step_ids": [
+                    "step_01_supersede_memory"
+                  ]
+                }
+              },
+              "error": null
+            }
+          ],
+          "ME_Return_Result": [
+            {
+              "executed": true,
+              "json": {
+                "status_kind": "success",
+                "result_type": "module_result",
+                "execution_context_id": "4e138c9b-cc0f-4f0e-bf7b-1d177bc2d15d",
+                "thread_id": "15279bf5-149c-419d-8cd2-0be143631a32",
+                "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+                "allowed_next_stage": "WF-RA-01",
+                "module_result": {
+                  "module_name": "memory_module",
+                  "step_id": "step_01_supersede_memory",
+                  "result_type": "execution",
+                  "status": "success",
+                  "summary": "Memory superseded successfully.",
+                  "observations": [],
+                  "proposals": [],
+                  "actions_executed": [
+                    {
+                      "action": "supersede_memory",
+                      "details": {
+                        "old_memory_id": "c4f24026-aaaa-4bbb-8ccc-000000000001",
+                        "new_memory_id": "1ad91651-e35e-4040-a50a-7affb4b6db87",
+                        "tier": "recent",
+                        "status": "active",
+                        "created_at": "2026-04-26T09:28:23.874Z",
+                        "idempotency_reused": false
+                      }
+                    }
+                  ],
+                  "artifacts": [
+                    {
+                      "type": "memory_id",
+                      "value": "1ad91651-e35e-4040-a50a-7affb4b6db87"
+                    }
+                  ],
+                  "confidence": 1,
+                  "needs_followup": false,
+                  "followup_requests": []
+                },
+                "module_execution_started": true,
+                "domain_writes_performed": true,
+                "response_generation_allowed": false
+              },
+              "error": null
+            }
+          ]
+        }
+      },
+      "RA": {
+        "exec_id": "10175",
+        "status": "success",
+        "finished": true,
+        "started_at": "2026-04-26T09:28:24.018Z",
+        "last_node": "RA_Return_Result",
+        "last_node_json": {
+          "status_kind": "success",
+          "result_type": "aggregated_result",
+          "execution_context_id": "4e138c9b-cc0f-4f0e-bf7b-1d177bc2d15d",
+          "thread_id": "15279bf5-149c-419d-8cd2-0be143631a32",
+          "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+          "aggregated_result": {
+            "status": "success",
+            "summary": "Aggregated 1 module result(s) with rollup status success.",
+            "module_results_count": 1,
+            "module_names": [
+              "memory_module"
+            ],
+            "per_status_counts": {
+              "success": 1,
+              "partial": 0,
+              "failed": 0,
+              "no_action": 0
+            },
+            "actions_executed": [
+              {
+                "action": "supersede_memory",
+                "details": {
+                  "old_memory_id": "c4f24026-aaaa-4bbb-8ccc-000000000001",
+                  "new_memory_id": "1ad91651-e35e-4040-a50a-7affb4b6db87",
+                  "tier": "recent",
+                  "status": "active",
+                  "created_at": "2026-04-26T09:28:23.874Z",
+                  "idempotency_reused": false
+                }
+              }
+            ],
+            "artifacts": [
+              {
+                "type": "memory_id",
+                "value": "1ad91651-e35e-4040-a50a-7affb4b6db87"
+              }
+            ],
+            "observations": [],
+            "proposals": [],
+            "confidence": 1,
+            "needs_followup": false,
+            "followup_requests": [],
+            "expected_step_ids": [
+              "step_01_supersede_memory"
+            ],
+            "returned_step_ids": [
+              "step_01_supersede_memory"
+            ]
+          },
+          "state_update_allowed": true,
+          "response_generation_allowed": false,
+          "domain_writes_performed": false,
+          "allowed_next_stage": "WF-SU-01",
+          "idempotency_key": "aggregate:4e138c9b-cc0f-4f0e-bf7b-1d177bc2d15d"
+        },
+        "sub_calls": [],
+        "selected_nodes": {
+          "RA_Build_Downstream_Envelope": [
+            {
+              "executed": true,
+              "json": {
+                "status_kind": "success",
+                "result_type": "aggregated_result",
+                "execution_context_id": "4e138c9b-cc0f-4f0e-bf7b-1d177bc2d15d",
+                "thread_id": "15279bf5-149c-419d-8cd2-0be143631a32",
+                "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+                "aggregated_result": {
+                  "status": "success",
+                  "summary": "Aggregated 1 module result(s) with rollup status success.",
+                  "module_results_count": 1,
+                  "module_names": [
+                    "memory_module"
+                  ],
+                  "per_status_counts": {
+                    "success": 1,
+                    "partial": 0,
+                    "failed": 0,
+                    "no_action": 0
+                  },
+                  "actions_executed": [
+                    {
+                      "action": "supersede_memory",
+                      "details": {
+                        "old_memory_id": "c4f24026-aaaa-4bbb-8ccc-000000000001",
+                        "new_memory_id": "1ad91651-e35e-4040-a50a-7affb4b6db87",
+                        "tier": "recent",
+                        "status": "active",
+                        "created_at": "2026-04-26T09:28:23.874Z",
+                        "idempotency_reused": false
+                      }
+                    }
+                  ],
+                  "artifacts": [
+                    {
+                      "type": "memory_id",
+                      "value": "1ad91651-e35e-4040-a50a-7affb4b6db87"
+                    }
+                  ],
+                  "observations": [],
+                  "proposals": [],
+                  "confidence": 1,
+                  "needs_followup": false,
+                  "followup_requests": [],
+                  "expected_step_ids": [
+                    "step_01_supersede_memory"
+                  ],
+                  "returned_step_ids": [
+                    "step_01_supersede_memory"
+                  ]
+                },
+                "state_update_allowed": true,
+                "response_generation_allowed": false,
+                "domain_writes_performed": false,
+                "allowed_next_stage": "WF-SU-01",
+                "idempotency_key": "aggregate:4e138c9b-cc0f-4f0e-bf7b-1d177bc2d15d"
+              },
+              "error": null
+            }
+          ],
+          "RA_Dispatch_To_SU_01_SUBCALL": [
+            {
+              "executed": true,
+              "json": {
+                "_context_ready": false,
+                "status_kind": "error",
+                "result_type": "message_out_error",
+                "error": {
+                  "code": "MISSING_DELIVERY_TARGET",
+                  "message": "No delivery target could be resolved for outbound send.",
+                  "details": {
+                    "channel": "telegram"
+                  }
+                }
+              },
+              "error": null
+            }
+          ]
+        }
+      },
+      "SU": {
+        "exec_id": "10176",
+        "status": "success",
+        "finished": true,
+        "started_at": "2026-04-26T09:28:24.200Z",
+        "last_node": "SU_Dispatch_To_RC_01_SUBCALL",
+        "last_node_json": {
+          "_context_ready": false,
+          "status_kind": "error",
+          "result_type": "message_out_error",
+          "error": {
+            "code": "MISSING_DELIVERY_TARGET",
+            "message": "No delivery target could be resolved for outbound send.",
+            "details": {
+              "channel": "telegram"
+            }
+          }
+        },
+        "sub_calls": [],
+        "selected_nodes": {
+          "SU_Dispatch_To_RC_01_SUBCALL": [
+            {
+              "executed": true,
+              "json": {
+                "_context_ready": false,
+                "status_kind": "error",
+                "result_type": "message_out_error",
+                "error": {
+                  "code": "MISSING_DELIVERY_TARGET",
+                  "message": "No delivery target could be resolved for outbound send.",
+                  "details": {
+                    "channel": "telegram"
+                  }
+                }
+              },
+              "error": null
+            },
+            {
+              "executed": true,
+              "json": {
+                "_context_ready": false,
+                "status_kind": "error",
+                "result_type": "message_out_error",
+                "error": {
+                  "code": "MISSING_DELIVERY_TARGET",
+                  "message": "No delivery target could be resolved for outbound send.",
+                  "details": {
+                    "channel": "telegram"
+                  }
+                }
+              },
+              "error": null
+            },
+            {
+              "executed": true,
+              "json": {
+                "_context_ready": false,
+                "status_kind": "error",
+                "result_type": "message_out_error",
+                "error": {
+                  "code": "MISSING_DELIVERY_TARGET",
+                  "message": "No delivery target could be resolved for outbound send.",
+                  "details": {
+                    "channel": "telegram"
+                  }
+                }
+              },
+              "error": null
+            }
+          ]
+        }
+      },
+      "RC": {
+        "exec_id": "10177",
+        "status": "success",
+        "finished": true,
+        "started_at": "2026-04-26T09:28:24.673Z",
+        "last_node": "RC_Dispatch_To_MO_01_SUBCALL",
+        "last_node_json": {
+          "_context_ready": false,
+          "status_kind": "error",
+          "result_type": "message_out_error",
+          "error": {
+            "code": "MISSING_DELIVERY_TARGET",
+            "message": "No delivery target could be resolved for outbound send.",
+            "details": {
+              "channel": "telegram"
+            }
+          }
+        },
+        "sub_calls": [],
+        "selected_nodes": {
+          "RC_Build_Output_Envelope": [
+            {
+              "executed": true,
+              "json": {
+                "status_kind": "success",
+                "result_type": "composed_response",
+                "execution_context_id": "4e138c9b-cc0f-4f0e-bf7b-1d177bc2d15d",
+                "thread_id": "15279bf5-149c-419d-8cd2-0be143631a32",
+                "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+                "composed_response": {
+                  "final_response_text": "Am pregătit răspunsul final, dar există și elemente rămase parțiale.\nWF-SU-01 finalized persistence for the aggregated_result envelope.\nAplicat: starea execuției, auditul intern.\nBlocat sau rămas neaplicat: firul de lucru, candidații de memorie.\nAtenționări: [object Object].",
+                  "response_status": "partial",
+                  "includes_followups": false,
+                  "includes_warnings": true,
+                  "followup_count": 0,
+                  "warning_count": 1,
+                  "channel": "telegram",
+                  "locale": "ro"
+                },
+                "output_gateway_allowed": true,
+                "allowed_next_stage": "MESSAGE_OUT",
+                "response_generation_allowed": true,
+                "idempotency_key": "compose:4e138c9b-cc0f-4f0e-bf7b-1d177bc2d15d:70f848aa520528fc"
+              },
+              "error": null
+            }
+          ],
+          "RC_Dispatch_To_MO_01_SUBCALL": [
+            {
+              "executed": true,
+              "json": {
+                "_context_ready": false,
+                "status_kind": "error",
+                "result_type": "message_out_error",
+                "error": {
+                  "code": "MISSING_DELIVERY_TARGET",
+                  "message": "No delivery target could be resolved for outbound send.",
+                  "details": {
+                    "channel": "telegram"
+                  }
+                }
+              },
+              "error": null
+            }
+          ]
+        }
+      },
+      "MO": {
+        "exec_id": "10178",
+        "status": "success",
+        "finished": true,
+        "started_at": "2026-04-26T09:28:24.866Z",
+        "last_node": "MO_Return_Context_Error",
+        "last_node_json": {
+          "_context_ready": false,
+          "status_kind": "error",
+          "result_type": "message_out_error",
+          "error": {
+            "code": "MISSING_DELIVERY_TARGET",
+            "message": "No delivery target could be resolved for outbound send.",
+            "details": {
+              "channel": "telegram"
+            }
+          }
+        },
+        "sub_calls": [],
+        "selected_nodes": {}
+      }
+    }
+  }
+}

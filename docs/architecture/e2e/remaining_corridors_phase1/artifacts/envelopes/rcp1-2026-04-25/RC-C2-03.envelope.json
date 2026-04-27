@@ -1,0 +1,20 @@
+{
+  "message_id": "cdf5370b-8d7a-41fc-8d62-bee7553bcd6a",
+  "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+  "channel": "rcp1-rich-matrix",
+  "direction": "inbound",
+  "author_type": "user",
+  "normalized_content": "Remember that our quarterly review meeting is on Mondays at 9am.",
+  "timestamp": "2026-04-25T19:17:11.983Z",
+  "source_message_ref": "rcp1:RC-C2-03",
+  "author_entity_id": null,
+  "related_entity_ids": [],
+  "metadata": {
+    "rcp1_case_id": "RC-C2-03",
+    "rcp1_corridor": "C2",
+    "rcp1_run_tag": "rcp1-2026-04-25"
+  },
+  "idempotency_key": "rcp1:rcp1-2026-04-25:RC-C2-03",
+  "thread_id": "1a69ecfd-c357-4e25-8d44-d1ea3a460a38",
+  "reply_to_thread_id": null
+}

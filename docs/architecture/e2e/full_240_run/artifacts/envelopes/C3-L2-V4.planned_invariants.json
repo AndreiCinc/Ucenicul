@@ -1,0 +1,23 @@
+{
+  "case_id": "C3-L2-V4",
+  "invariants": [
+    {
+      "name": "assert_no_domain_write",
+      "sql": "SELECT\n            (SELECT count(*) FROM tasks       WHERE tenant_id=$1 AND created_at >= $2)::int AS tasks,\n            (SELECT count(*) FROM reminders   WHERE tenant_id=$1 AND created_at >= $2)::int AS reminders,\n            (SELECT count(*) FROM memory_items WHERE tenant_id=$1 AND source_thread_id=$3 AND created_at >= $2)::int AS memory_items",
+      "params": [
+        "eee0e2e0-0000-0000-0000-000000000001",
+        "2026-04-26T02:50:47.337Z",
+        "a738b84d-dc59-4931-8efa-4a04dafc3353"
+      ],
+      "unknown": false
+    },
+    {
+      "name": "assert_tenant_filtered_results",
+      "sql": "SELECT tenant_id, count(*)::int AS c FROM memory_items\n          WHERE idempotency_key LIKE $1\n          GROUP BY tenant_id",
+      "params": [
+        "e2e:f240-2026-04-26:C3-L2-V4%"
+      ],
+      "unknown": false
+    }
+  ]
+}

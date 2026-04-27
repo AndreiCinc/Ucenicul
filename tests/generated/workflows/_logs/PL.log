@@ -1,0 +1,2655 @@
+test_000 (__main__.BlueprintStructureFamily) ... ERROR
+test_001 (__main__.BlueprintStructureFamily) ... ERROR
+test_002 (__main__.BlueprintStructureFamily) ... ERROR
+test_003 (__main__.BlueprintStructureFamily) ... ERROR
+test_004 (__main__.BlueprintStructureFamily) ... ERROR
+test_005 (__main__.BlueprintStructureFamily) ... ERROR
+test_006 (__main__.BlueprintStructureFamily) ... ERROR
+test_007 (__main__.BlueprintStructureFamily) ... ERROR
+test_008 (__main__.BlueprintStructureFamily) ... ERROR
+test_009 (__main__.BlueprintStructureFamily) ... ERROR
+test_010 (__main__.BlueprintStructureFamily) ... ERROR
+test_011 (__main__.BlueprintStructureFamily) ... ERROR
+test_012 (__main__.BlueprintStructureFamily) ... ERROR
+test_013 (__main__.BlueprintStructureFamily) ... ERROR
+test_014 (__main__.BlueprintStructureFamily) ... ERROR
+test_015 (__main__.BlueprintStructureFamily) ... ERROR
+test_016 (__main__.BlueprintStructureFamily) ... ERROR
+test_017 (__main__.BlueprintStructureFamily) ... ERROR
+test_018 (__main__.BlueprintStructureFamily) ... ERROR
+test_019 (__main__.BlueprintStructureFamily) ... ERROR
+test_020 (__main__.BlueprintStructureFamily) ... ERROR
+test_021 (__main__.BlueprintStructureFamily) ... ERROR
+test_022 (__main__.BlueprintStructureFamily) ... ERROR
+test_023 (__main__.BlueprintStructureFamily) ... ERROR
+test_024 (__main__.BlueprintStructureFamily) ... ERROR
+test_025 (__main__.BlueprintStructureFamily) ... ERROR
+test_026 (__main__.BlueprintStructureFamily) ... ERROR
+test_027 (__main__.BlueprintStructureFamily) ... ERROR
+test_028 (__main__.BlueprintStructureFamily) ... ERROR
+test_029 (__main__.BlueprintStructureFamily) ... ERROR
+test_030 (__main__.BlueprintStructureFamily) ... ERROR
+test_031 (__main__.BlueprintStructureFamily) ... ERROR
+test_032 (__main__.BlueprintStructureFamily) ... ERROR
+test_033 (__main__.BlueprintStructureFamily) ... ERROR
+test_034 (__main__.BlueprintStructureFamily) ... ERROR
+test_035 (__main__.BlueprintStructureFamily) ... ERROR
+test_036 (__main__.BlueprintStructureFamily) ... ERROR
+test_037 (__main__.BlueprintStructureFamily) ... ERROR
+test_038 (__main__.BlueprintStructureFamily) ... ERROR
+test_039 (__main__.BlueprintStructureFamily) ... ERROR
+test_040 (__main__.BlueprintStructureFamily) ... ERROR
+test_041 (__main__.BlueprintStructureFamily) ... ERROR
+test_042 (__main__.BlueprintStructureFamily) ... ERROR
+test_043 (__main__.BlueprintStructureFamily) ... ERROR
+test_044 (__main__.BlueprintStructureFamily) ... ERROR
+test_045 (__main__.BlueprintStructureFamily) ... ERROR
+test_046 (__main__.BlueprintStructureFamily) ... ERROR
+test_047 (__main__.BlueprintStructureFamily) ... ERROR
+test_048 (__main__.BlueprintStructureFamily) ... ERROR
+test_049 (__main__.BlueprintStructureFamily) ... ERROR
+test_000 (__main__.CrossTenantIsolationFamily) ... ok
+test_001 (__main__.CrossTenantIsolationFamily) ... ok
+test_002 (__main__.CrossTenantIsolationFamily) ... ok
+test_003 (__main__.CrossTenantIsolationFamily) ... ok
+test_004 (__main__.CrossTenantIsolationFamily) ... ok
+test_005 (__main__.CrossTenantIsolationFamily) ... ok
+test_006 (__main__.CrossTenantIsolationFamily) ... ok
+test_007 (__main__.CrossTenantIsolationFamily) ... ok
+test_008 (__main__.CrossTenantIsolationFamily) ... ok
+test_009 (__main__.CrossTenantIsolationFamily) ... ok
+test_010 (__main__.CrossTenantIsolationFamily) ... ok
+test_011 (__main__.CrossTenantIsolationFamily) ... ok
+test_012 (__main__.CrossTenantIsolationFamily) ... ok
+test_013 (__main__.CrossTenantIsolationFamily) ... ok
+test_014 (__main__.CrossTenantIsolationFamily) ... ok
+test_015 (__main__.CrossTenantIsolationFamily) ... ok
+test_016 (__main__.CrossTenantIsolationFamily) ... ok
+test_017 (__main__.CrossTenantIsolationFamily) ... ok
+test_018 (__main__.CrossTenantIsolationFamily) ... ok
+test_019 (__main__.CrossTenantIsolationFamily) ... ok
+test_020 (__main__.CrossTenantIsolationFamily) ... ok
+test_021 (__main__.CrossTenantIsolationFamily) ... ok
+test_022 (__main__.CrossTenantIsolationFamily) ... ok
+test_023 (__main__.CrossTenantIsolationFamily) ... ok
+test_024 (__main__.CrossTenantIsolationFamily) ... ok
+test_025 (__main__.CrossTenantIsolationFamily) ... ok
+test_026 (__main__.CrossTenantIsolationFamily) ... ok
+test_027 (__main__.CrossTenantIsolationFamily) ... ok
+test_028 (__main__.CrossTenantIsolationFamily) ... ok
+test_029 (__main__.CrossTenantIsolationFamily) ... ok
+test_030 (__main__.CrossTenantIsolationFamily) ... ok
+test_031 (__main__.CrossTenantIsolationFamily) ... ok
+test_032 (__main__.CrossTenantIsolationFamily) ... ok
+test_033 (__main__.CrossTenantIsolationFamily) ... ok
+test_034 (__main__.CrossTenantIsolationFamily) ... ok
+test_035 (__main__.CrossTenantIsolationFamily) ... ok
+test_036 (__main__.CrossTenantIsolationFamily) ... ok
+test_037 (__main__.CrossTenantIsolationFamily) ... ok
+test_038 (__main__.CrossTenantIsolationFamily) ... ok
+test_039 (__main__.CrossTenantIsolationFamily) ... ok
+test_040 (__main__.CrossTenantIsolationFamily) ... ok
+test_041 (__main__.CrossTenantIsolationFamily) ... ok
+test_042 (__main__.CrossTenantIsolationFamily) ... ok
+test_043 (__main__.CrossTenantIsolationFamily) ... ok
+test_044 (__main__.CrossTenantIsolationFamily) ... ok
+test_045 (__main__.CrossTenantIsolationFamily) ... ok
+test_046 (__main__.CrossTenantIsolationFamily) ... ok
+test_047 (__main__.CrossTenantIsolationFamily) ... ok
+test_048 (__main__.CrossTenantIsolationFamily) ... ok
+test_049 (__main__.CrossTenantIsolationFamily) ... ok
+test_000 (__main__.ErrorPayloadBuilderFamily) ... ok
+test_001 (__main__.ErrorPayloadBuilderFamily) ... ok
+test_002 (__main__.ErrorPayloadBuilderFamily) ... ok
+test_003 (__main__.ErrorPayloadBuilderFamily) ... ok
+test_004 (__main__.ErrorPayloadBuilderFamily) ... ok
+test_005 (__main__.ErrorPayloadBuilderFamily) ... ok
+test_006 (__main__.ErrorPayloadBuilderFamily) ... ok
+test_007 (__main__.ErrorPayloadBuilderFamily) ... ok
+test_008 (__main__.ErrorPayloadBuilderFamily) ... ok
+test_009 (__main__.ErrorPayloadBuilderFamily) ... ok
+test_010 (__main__.ErrorPayloadBuilderFamily) ... ok
+test_011 (__main__.ErrorPayloadBuilderFamily) ... ok
+test_012 (__main__.ErrorPayloadBuilderFamily) ... ok
+test_013 (__main__.ErrorPayloadBuilderFamily) ... ok
+test_014 (__main__.ErrorPayloadBuilderFamily) ... ok
+test_015 (__main__.ErrorPayloadBuilderFamily) ... ok
+test_016 (__main__.ErrorPayloadBuilderFamily) ... ok
+test_017 (__main__.ErrorPayloadBuilderFamily) ... ok
+test_018 (__main__.ErrorPayloadBuilderFamily) ... ok
+test_019 (__main__.ErrorPayloadBuilderFamily) ... ok
+test_020 (__main__.ErrorPayloadBuilderFamily) ... ok
+test_021 (__main__.ErrorPayloadBuilderFamily) ... ok
+test_022 (__main__.ErrorPayloadBuilderFamily) ... ok
+test_023 (__main__.ErrorPayloadBuilderFamily) ... ok
+test_024 (__main__.ErrorPayloadBuilderFamily) ... ok
+test_025 (__main__.ErrorPayloadBuilderFamily) ... ok
+test_026 (__main__.ErrorPayloadBuilderFamily) ... ok
+test_027 (__main__.ErrorPayloadBuilderFamily) ... ok
+test_028 (__main__.ErrorPayloadBuilderFamily) ... ok
+test_029 (__main__.ErrorPayloadBuilderFamily) ... ok
+test_030 (__main__.ErrorPayloadBuilderFamily) ... ok
+test_031 (__main__.ErrorPayloadBuilderFamily) ... ok
+test_032 (__main__.ErrorPayloadBuilderFamily) ... ok
+test_033 (__main__.ErrorPayloadBuilderFamily) ... ok
+test_034 (__main__.ErrorPayloadBuilderFamily) ... ok
+test_035 (__main__.ErrorPayloadBuilderFamily) ... ok
+test_036 (__main__.ErrorPayloadBuilderFamily) ... ok
+test_037 (__main__.ErrorPayloadBuilderFamily) ... ok
+test_038 (__main__.ErrorPayloadBuilderFamily) ... ok
+test_039 (__main__.ErrorPayloadBuilderFamily) ... ok
+test_040 (__main__.ErrorPayloadBuilderFamily) ... ok
+test_041 (__main__.ErrorPayloadBuilderFamily) ... ok
+test_042 (__main__.ErrorPayloadBuilderFamily) ... ok
+test_043 (__main__.ErrorPayloadBuilderFamily) ... ok
+test_044 (__main__.ErrorPayloadBuilderFamily) ... ok
+test_045 (__main__.ErrorPayloadBuilderFamily) ... ok
+test_046 (__main__.ErrorPayloadBuilderFamily) ... ok
+test_047 (__main__.ErrorPayloadBuilderFamily) ... ok
+test_048 (__main__.ErrorPayloadBuilderFamily) ... ok
+test_049 (__main__.ErrorPayloadBuilderFamily) ... ok
+test_000 (__main__.ExtractPlanningInputFamily) ... ok
+test_001 (__main__.ExtractPlanningInputFamily) ... ok
+test_002 (__main__.ExtractPlanningInputFamily) ... ok
+test_003 (__main__.ExtractPlanningInputFamily) ... ok
+test_004 (__main__.ExtractPlanningInputFamily) ... ok
+test_005 (__main__.ExtractPlanningInputFamily) ... ok
+test_006 (__main__.ExtractPlanningInputFamily) ... ok
+test_007 (__main__.ExtractPlanningInputFamily) ... ok
+test_008 (__main__.ExtractPlanningInputFamily) ... ok
+test_009 (__main__.ExtractPlanningInputFamily) ... ok
+test_010 (__main__.ExtractPlanningInputFamily) ... ok
+test_011 (__main__.ExtractPlanningInputFamily) ... ok
+test_012 (__main__.ExtractPlanningInputFamily) ... ok
+test_013 (__main__.ExtractPlanningInputFamily) ... ok
+test_014 (__main__.ExtractPlanningInputFamily) ... ok
+test_015 (__main__.ExtractPlanningInputFamily) ... ok
+test_016 (__main__.ExtractPlanningInputFamily) ... ok
+test_017 (__main__.ExtractPlanningInputFamily) ... ok
+test_018 (__main__.ExtractPlanningInputFamily) ... ok
+test_019 (__main__.ExtractPlanningInputFamily) ... ok
+test_020 (__main__.ExtractPlanningInputFamily) ... ok
+test_021 (__main__.ExtractPlanningInputFamily) ... ok
+test_022 (__main__.ExtractPlanningInputFamily) ... ok
+test_023 (__main__.ExtractPlanningInputFamily) ... ok
+test_024 (__main__.ExtractPlanningInputFamily) ... ok
+test_025 (__main__.ExtractPlanningInputFamily) ... ok
+test_026 (__main__.ExtractPlanningInputFamily) ... ok
+test_027 (__main__.ExtractPlanningInputFamily) ... ok
+test_028 (__main__.ExtractPlanningInputFamily) ... ok
+test_029 (__main__.ExtractPlanningInputFamily) ... ok
+test_030 (__main__.ExtractPlanningInputFamily) ... ok
+test_031 (__main__.ExtractPlanningInputFamily) ... ok
+test_032 (__main__.ExtractPlanningInputFamily) ... ok
+test_033 (__main__.ExtractPlanningInputFamily) ... ok
+test_034 (__main__.ExtractPlanningInputFamily) ... ok
+test_035 (__main__.ExtractPlanningInputFamily) ... ok
+test_036 (__main__.ExtractPlanningInputFamily) ... ok
+test_037 (__main__.ExtractPlanningInputFamily) ... ok
+test_038 (__main__.ExtractPlanningInputFamily) ... ok
+test_039 (__main__.ExtractPlanningInputFamily) ... ok
+test_040 (__main__.ExtractPlanningInputFamily) ... ok
+test_041 (__main__.ExtractPlanningInputFamily) ... ok
+test_042 (__main__.ExtractPlanningInputFamily) ... ok
+test_043 (__main__.ExtractPlanningInputFamily) ... ok
+test_044 (__main__.ExtractPlanningInputFamily) ... ok
+test_045 (__main__.ExtractPlanningInputFamily) ... ok
+test_046 (__main__.ExtractPlanningInputFamily) ... ok
+test_047 (__main__.ExtractPlanningInputFamily) ... ok
+test_048 (__main__.ExtractPlanningInputFamily) ... ok
+test_049 (__main__.ExtractPlanningInputFamily) ... ok
+test_000 (__main__.HappyPathFamily) ... ok
+test_001 (__main__.HappyPathFamily) ... ok
+test_002 (__main__.HappyPathFamily) ... ok
+test_003 (__main__.HappyPathFamily) ... ok
+test_004 (__main__.HappyPathFamily) ... ok
+test_005 (__main__.HappyPathFamily) ... ok
+test_006 (__main__.HappyPathFamily) ... ok
+test_007 (__main__.HappyPathFamily) ... ok
+test_008 (__main__.HappyPathFamily) ... ok
+test_009 (__main__.HappyPathFamily) ... ok
+test_010 (__main__.HappyPathFamily) ... ok
+test_011 (__main__.HappyPathFamily) ... ok
+test_012 (__main__.HappyPathFamily) ... ok
+test_013 (__main__.HappyPathFamily) ... ok
+test_014 (__main__.HappyPathFamily) ... ok
+test_015 (__main__.HappyPathFamily) ... ok
+test_016 (__main__.HappyPathFamily) ... ok
+test_017 (__main__.HappyPathFamily) ... ok
+test_018 (__main__.HappyPathFamily) ... ok
+test_019 (__main__.HappyPathFamily) ... ok
+test_020 (__main__.HappyPathFamily) ... ok
+test_021 (__main__.HappyPathFamily) ... ok
+test_022 (__main__.HappyPathFamily) ... ok
+test_023 (__main__.HappyPathFamily) ... ok
+test_024 (__main__.HappyPathFamily) ... ok
+test_025 (__main__.HappyPathFamily) ... ok
+test_026 (__main__.HappyPathFamily) ... ok
+test_027 (__main__.HappyPathFamily) ... ok
+test_028 (__main__.HappyPathFamily) ... ok
+test_029 (__main__.HappyPathFamily) ... ok
+test_030 (__main__.HappyPathFamily) ... ok
+test_031 (__main__.HappyPathFamily) ... ok
+test_032 (__main__.HappyPathFamily) ... ok
+test_033 (__main__.HappyPathFamily) ... ok
+test_034 (__main__.HappyPathFamily) ... ok
+test_035 (__main__.HappyPathFamily) ... ok
+test_036 (__main__.HappyPathFamily) ... ok
+test_037 (__main__.HappyPathFamily) ... ok
+test_038 (__main__.HappyPathFamily) ... ok
+test_039 (__main__.HappyPathFamily) ... ok
+test_040 (__main__.HappyPathFamily) ... ok
+test_041 (__main__.HappyPathFamily) ... ok
+test_042 (__main__.HappyPathFamily) ... ok
+test_043 (__main__.HappyPathFamily) ... ok
+test_044 (__main__.HappyPathFamily) ... ok
+test_045 (__main__.HappyPathFamily) ... ok
+test_046 (__main__.HappyPathFamily) ... ok
+test_047 (__main__.HappyPathFamily) ... ok
+test_048 (__main__.HappyPathFamily) ... ok
+test_049 (__main__.HappyPathFamily) ... ok
+test_000 (__main__.InputValidationFamily) ... ok
+test_001 (__main__.InputValidationFamily) ... ok
+test_002 (__main__.InputValidationFamily) ... ok
+test_003 (__main__.InputValidationFamily) ... ok
+test_004 (__main__.InputValidationFamily) ... ok
+test_005 (__main__.InputValidationFamily) ... ok
+test_006 (__main__.InputValidationFamily) ... ok
+test_007 (__main__.InputValidationFamily) ... ok
+test_008 (__main__.InputValidationFamily) ... ok
+test_009 (__main__.InputValidationFamily) ... ok
+test_010 (__main__.InputValidationFamily) ... ok
+test_011 (__main__.InputValidationFamily) ... ok
+test_012 (__main__.InputValidationFamily) ... ok
+test_013 (__main__.InputValidationFamily) ... ok
+test_014 (__main__.InputValidationFamily) ... ok
+test_015 (__main__.InputValidationFamily) ... ok
+test_016 (__main__.InputValidationFamily) ... ok
+test_017 (__main__.InputValidationFamily) ... ok
+test_018 (__main__.InputValidationFamily) ... ok
+test_019 (__main__.InputValidationFamily) ... ok
+test_020 (__main__.InputValidationFamily) ... ok
+test_021 (__main__.InputValidationFamily) ... ok
+test_022 (__main__.InputValidationFamily) ... ok
+test_023 (__main__.InputValidationFamily) ... ok
+test_024 (__main__.InputValidationFamily) ... ok
+test_025 (__main__.InputValidationFamily) ... ok
+test_026 (__main__.InputValidationFamily) ... ok
+test_027 (__main__.InputValidationFamily) ... ok
+test_028 (__main__.InputValidationFamily) ... ok
+test_029 (__main__.InputValidationFamily) ... ok
+test_030 (__main__.InputValidationFamily) ... ok
+test_031 (__main__.InputValidationFamily) ... ok
+test_032 (__main__.InputValidationFamily) ... ok
+test_033 (__main__.InputValidationFamily) ... ok
+test_034 (__main__.InputValidationFamily) ... ok
+test_035 (__main__.InputValidationFamily) ... ok
+test_036 (__main__.InputValidationFamily) ... ok
+test_037 (__main__.InputValidationFamily) ... ok
+test_038 (__main__.InputValidationFamily) ... ok
+test_039 (__main__.InputValidationFamily) ... ok
+test_040 (__main__.InputValidationFamily) ... ok
+test_041 (__main__.InputValidationFamily) ... ok
+test_042 (__main__.InputValidationFamily) ... ok
+test_043 (__main__.InputValidationFamily) ... ok
+test_044 (__main__.InputValidationFamily) ... ok
+test_045 (__main__.InputValidationFamily) ... ok
+test_046 (__main__.InputValidationFamily) ... ok
+test_047 (__main__.InputValidationFamily) ... ok
+test_048 (__main__.InputValidationFamily) ... ok
+test_049 (__main__.InputValidationFamily) ... ok
+test_000 (__main__.InvalidInputFamily) ... ok
+test_001 (__main__.InvalidInputFamily) ... ok
+test_002 (__main__.InvalidInputFamily) ... ok
+test_003 (__main__.InvalidInputFamily) ... ok
+test_004 (__main__.InvalidInputFamily) ... ok
+test_005 (__main__.InvalidInputFamily) ... ok
+test_006 (__main__.InvalidInputFamily) ... ok
+test_007 (__main__.InvalidInputFamily) ... ok
+test_008 (__main__.InvalidInputFamily) ... ok
+test_009 (__main__.InvalidInputFamily) ... ok
+test_010 (__main__.InvalidInputFamily) ... ok
+test_011 (__main__.InvalidInputFamily) ... ok
+test_012 (__main__.InvalidInputFamily) ... ok
+test_013 (__main__.InvalidInputFamily) ... ok
+test_014 (__main__.InvalidInputFamily) ... ok
+test_015 (__main__.InvalidInputFamily) ... ok
+test_016 (__main__.InvalidInputFamily) ... ok
+test_017 (__main__.InvalidInputFamily) ... ok
+test_018 (__main__.InvalidInputFamily) ... ok
+test_019 (__main__.InvalidInputFamily) ... ok
+test_020 (__main__.InvalidInputFamily) ... ok
+test_021 (__main__.InvalidInputFamily) ... ok
+test_022 (__main__.InvalidInputFamily) ... ok
+test_023 (__main__.InvalidInputFamily) ... ok
+test_024 (__main__.InvalidInputFamily) ... ok
+test_025 (__main__.InvalidInputFamily) ... ok
+test_026 (__main__.InvalidInputFamily) ... ok
+test_027 (__main__.InvalidInputFamily) ... ok
+test_028 (__main__.InvalidInputFamily) ... ok
+test_029 (__main__.InvalidInputFamily) ... ok
+test_030 (__main__.InvalidInputFamily) ... ok
+test_031 (__main__.InvalidInputFamily) ... ok
+test_032 (__main__.InvalidInputFamily) ... ok
+test_033 (__main__.InvalidInputFamily) ... ok
+test_034 (__main__.InvalidInputFamily) ... ok
+test_035 (__main__.InvalidInputFamily) ... ok
+test_036 (__main__.InvalidInputFamily) ... ok
+test_037 (__main__.InvalidInputFamily) ... ok
+test_038 (__main__.InvalidInputFamily) ... ok
+test_039 (__main__.InvalidInputFamily) ... ok
+test_040 (__main__.InvalidInputFamily) ... ok
+test_041 (__main__.InvalidInputFamily) ... ok
+test_042 (__main__.InvalidInputFamily) ... ok
+test_043 (__main__.InvalidInputFamily) ... ok
+test_044 (__main__.InvalidInputFamily) ... ok
+test_045 (__main__.InvalidInputFamily) ... ok
+test_046 (__main__.InvalidInputFamily) ... ok
+test_047 (__main__.InvalidInputFamily) ... ok
+test_048 (__main__.InvalidInputFamily) ... ok
+test_049 (__main__.InvalidInputFamily) ... ok
+test_000 (__main__.NodePayloadBuilderFamily) ... ok
+test_001 (__main__.NodePayloadBuilderFamily) ... ok
+test_002 (__main__.NodePayloadBuilderFamily) ... ok
+test_003 (__main__.NodePayloadBuilderFamily) ... ok
+test_004 (__main__.NodePayloadBuilderFamily) ... ok
+test_005 (__main__.NodePayloadBuilderFamily) ... ok
+test_006 (__main__.NodePayloadBuilderFamily) ... ok
+test_007 (__main__.NodePayloadBuilderFamily) ... ok
+test_008 (__main__.NodePayloadBuilderFamily) ... ok
+test_009 (__main__.NodePayloadBuilderFamily) ... ok
+test_010 (__main__.NodePayloadBuilderFamily) ... ok
+test_011 (__main__.NodePayloadBuilderFamily) ... ok
+test_012 (__main__.NodePayloadBuilderFamily) ... ok
+test_013 (__main__.NodePayloadBuilderFamily) ... ok
+test_014 (__main__.NodePayloadBuilderFamily) ... ok
+test_015 (__main__.NodePayloadBuilderFamily) ... ok
+test_016 (__main__.NodePayloadBuilderFamily) ... ok
+test_017 (__main__.NodePayloadBuilderFamily) ... ok
+test_018 (__main__.NodePayloadBuilderFamily) ... ok
+test_019 (__main__.NodePayloadBuilderFamily) ... ok
+test_020 (__main__.NodePayloadBuilderFamily) ... ok
+test_021 (__main__.NodePayloadBuilderFamily) ... ok
+test_022 (__main__.NodePayloadBuilderFamily) ... ok
+test_023 (__main__.NodePayloadBuilderFamily) ... ok
+test_024 (__main__.NodePayloadBuilderFamily) ... ok
+test_025 (__main__.NodePayloadBuilderFamily) ... ok
+test_026 (__main__.NodePayloadBuilderFamily) ... ok
+test_027 (__main__.NodePayloadBuilderFamily) ... ok
+test_028 (__main__.NodePayloadBuilderFamily) ... ok
+test_029 (__main__.NodePayloadBuilderFamily) ... ok
+test_030 (__main__.NodePayloadBuilderFamily) ... ok
+test_031 (__main__.NodePayloadBuilderFamily) ... ok
+test_032 (__main__.NodePayloadBuilderFamily) ... ok
+test_033 (__main__.NodePayloadBuilderFamily) ... ok
+test_034 (__main__.NodePayloadBuilderFamily) ... ok
+test_035 (__main__.NodePayloadBuilderFamily) ... ok
+test_036 (__main__.NodePayloadBuilderFamily) ... ok
+test_037 (__main__.NodePayloadBuilderFamily) ... ok
+test_038 (__main__.NodePayloadBuilderFamily) ... ok
+test_039 (__main__.NodePayloadBuilderFamily) ... ok
+test_040 (__main__.NodePayloadBuilderFamily) ... ok
+test_041 (__main__.NodePayloadBuilderFamily) ... ok
+test_042 (__main__.NodePayloadBuilderFamily) ... ok
+test_043 (__main__.NodePayloadBuilderFamily) ... ok
+test_044 (__main__.NodePayloadBuilderFamily) ... ok
+test_045 (__main__.NodePayloadBuilderFamily) ... ok
+test_046 (__main__.NodePayloadBuilderFamily) ... ok
+test_047 (__main__.NodePayloadBuilderFamily) ... ok
+test_048 (__main__.NodePayloadBuilderFamily) ... ok
+test_049 (__main__.NodePayloadBuilderFamily) ... ok
+test_000 (__main__.NodeResultFormatterFamily) ... ok
+test_001 (__main__.NodeResultFormatterFamily) ... ok
+test_002 (__main__.NodeResultFormatterFamily) ... ok
+test_003 (__main__.NodeResultFormatterFamily) ... ok
+test_004 (__main__.NodeResultFormatterFamily) ... ok
+test_005 (__main__.NodeResultFormatterFamily) ... ok
+test_006 (__main__.NodeResultFormatterFamily) ... ok
+test_007 (__main__.NodeResultFormatterFamily) ... ok
+test_008 (__main__.NodeResultFormatterFamily) ... ok
+test_009 (__main__.NodeResultFormatterFamily) ... ok
+test_010 (__main__.NodeResultFormatterFamily) ... ok
+test_011 (__main__.NodeResultFormatterFamily) ... ok
+test_012 (__main__.NodeResultFormatterFamily) ... ok
+test_013 (__main__.NodeResultFormatterFamily) ... ok
+test_014 (__main__.NodeResultFormatterFamily) ... ok
+test_015 (__main__.NodeResultFormatterFamily) ... ok
+test_016 (__main__.NodeResultFormatterFamily) ... ok
+test_017 (__main__.NodeResultFormatterFamily) ... ok
+test_018 (__main__.NodeResultFormatterFamily) ... ok
+test_019 (__main__.NodeResultFormatterFamily) ... ok
+test_020 (__main__.NodeResultFormatterFamily) ... ok
+test_021 (__main__.NodeResultFormatterFamily) ... ok
+test_022 (__main__.NodeResultFormatterFamily) ... ok
+test_023 (__main__.NodeResultFormatterFamily) ... ok
+test_024 (__main__.NodeResultFormatterFamily) ... ok
+test_025 (__main__.NodeResultFormatterFamily) ... ok
+test_026 (__main__.NodeResultFormatterFamily) ... ok
+test_027 (__main__.NodeResultFormatterFamily) ... ok
+test_028 (__main__.NodeResultFormatterFamily) ... ok
+test_029 (__main__.NodeResultFormatterFamily) ... ok
+test_030 (__main__.NodeResultFormatterFamily) ... ok
+test_031 (__main__.NodeResultFormatterFamily) ... ok
+test_032 (__main__.NodeResultFormatterFamily) ... ok
+test_033 (__main__.NodeResultFormatterFamily) ... ok
+test_034 (__main__.NodeResultFormatterFamily) ... ok
+test_035 (__main__.NodeResultFormatterFamily) ... ok
+test_036 (__main__.NodeResultFormatterFamily) ... ok
+test_037 (__main__.NodeResultFormatterFamily) ... ok
+test_038 (__main__.NodeResultFormatterFamily) ... ok
+test_039 (__main__.NodeResultFormatterFamily) ... ok
+test_040 (__main__.NodeResultFormatterFamily) ... ok
+test_041 (__main__.NodeResultFormatterFamily) ... ok
+test_042 (__main__.NodeResultFormatterFamily) ... ok
+test_043 (__main__.NodeResultFormatterFamily) ... ok
+test_044 (__main__.NodeResultFormatterFamily) ... ok
+test_045 (__main__.NodeResultFormatterFamily) ... ok
+test_046 (__main__.NodeResultFormatterFamily) ... ok
+test_047 (__main__.NodeResultFormatterFamily) ... ok
+test_048 (__main__.NodeResultFormatterFamily) ... ok
+test_049 (__main__.NodeResultFormatterFamily) ... ok
+test_000 (__main__.ORToPLHandoffFamily) ... ok
+test_001 (__main__.ORToPLHandoffFamily) ... ok
+test_002 (__main__.ORToPLHandoffFamily) ... ok
+test_003 (__main__.ORToPLHandoffFamily) ... ok
+test_004 (__main__.ORToPLHandoffFamily) ... ok
+test_005 (__main__.ORToPLHandoffFamily) ... ok
+test_006 (__main__.ORToPLHandoffFamily) ... ok
+test_007 (__main__.ORToPLHandoffFamily) ... ok
+test_008 (__main__.ORToPLHandoffFamily) ... ok
+test_009 (__main__.ORToPLHandoffFamily) ... ok
+test_010 (__main__.ORToPLHandoffFamily) ... ok
+test_011 (__main__.ORToPLHandoffFamily) ... ok
+test_012 (__main__.ORToPLHandoffFamily) ... ok
+test_013 (__main__.ORToPLHandoffFamily) ... ok
+test_014 (__main__.ORToPLHandoffFamily) ... ok
+test_015 (__main__.ORToPLHandoffFamily) ... ok
+test_016 (__main__.ORToPLHandoffFamily) ... ok
+test_017 (__main__.ORToPLHandoffFamily) ... ok
+test_018 (__main__.ORToPLHandoffFamily) ... ok
+test_019 (__main__.ORToPLHandoffFamily) ... ok
+test_020 (__main__.ORToPLHandoffFamily) ... ok
+test_021 (__main__.ORToPLHandoffFamily) ... ok
+test_022 (__main__.ORToPLHandoffFamily) ... ok
+test_023 (__main__.ORToPLHandoffFamily) ... ok
+test_024 (__main__.ORToPLHandoffFamily) ... ok
+test_025 (__main__.ORToPLHandoffFamily) ... ok
+test_026 (__main__.ORToPLHandoffFamily) ... ok
+test_027 (__main__.ORToPLHandoffFamily) ... ok
+test_028 (__main__.ORToPLHandoffFamily) ... ok
+test_029 (__main__.ORToPLHandoffFamily) ... ok
+test_030 (__main__.ORToPLHandoffFamily) ... ok
+test_031 (__main__.ORToPLHandoffFamily) ... ok
+test_032 (__main__.ORToPLHandoffFamily) ... ok
+test_033 (__main__.ORToPLHandoffFamily) ... ok
+test_034 (__main__.ORToPLHandoffFamily) ... ok
+test_035 (__main__.ORToPLHandoffFamily) ... ok
+test_036 (__main__.ORToPLHandoffFamily) ... ok
+test_037 (__main__.ORToPLHandoffFamily) ... ok
+test_038 (__main__.ORToPLHandoffFamily) ... ok
+test_039 (__main__.ORToPLHandoffFamily) ... ok
+test_040 (__main__.ORToPLHandoffFamily) ... ok
+test_041 (__main__.ORToPLHandoffFamily) ... ok
+test_042 (__main__.ORToPLHandoffFamily) ... ok
+test_043 (__main__.ORToPLHandoffFamily) ... ok
+test_044 (__main__.ORToPLHandoffFamily) ... ok
+test_045 (__main__.ORToPLHandoffFamily) ... ok
+test_046 (__main__.ORToPLHandoffFamily) ... ok
+test_047 (__main__.ORToPLHandoffFamily) ... ok
+test_048 (__main__.ORToPLHandoffFamily) ... ok
+test_049 (__main__.ORToPLHandoffFamily) ... ok
+test_000 (__main__.ReplayIdempotencyFamily) ... ok
+test_001 (__main__.ReplayIdempotencyFamily) ... ok
+test_002 (__main__.ReplayIdempotencyFamily) ... ok
+test_003 (__main__.ReplayIdempotencyFamily) ... ok
+test_004 (__main__.ReplayIdempotencyFamily) ... ok
+test_005 (__main__.ReplayIdempotencyFamily) ... ok
+test_006 (__main__.ReplayIdempotencyFamily) ... ok
+test_007 (__main__.ReplayIdempotencyFamily) ... ok
+test_008 (__main__.ReplayIdempotencyFamily) ... ok
+test_009 (__main__.ReplayIdempotencyFamily) ... ok
+test_010 (__main__.ReplayIdempotencyFamily) ... ok
+test_011 (__main__.ReplayIdempotencyFamily) ... ok
+test_012 (__main__.ReplayIdempotencyFamily) ... ok
+test_013 (__main__.ReplayIdempotencyFamily) ... ok
+test_014 (__main__.ReplayIdempotencyFamily) ... ok
+test_015 (__main__.ReplayIdempotencyFamily) ... ok
+test_016 (__main__.ReplayIdempotencyFamily) ... ok
+test_017 (__main__.ReplayIdempotencyFamily) ... ok
+test_018 (__main__.ReplayIdempotencyFamily) ... ok
+test_019 (__main__.ReplayIdempotencyFamily) ... ok
+test_020 (__main__.ReplayIdempotencyFamily) ... ok
+test_021 (__main__.ReplayIdempotencyFamily) ... ok
+test_022 (__main__.ReplayIdempotencyFamily) ... ok
+test_023 (__main__.ReplayIdempotencyFamily) ... ok
+test_024 (__main__.ReplayIdempotencyFamily) ... ok
+test_025 (__main__.ReplayIdempotencyFamily) ... ok
+test_026 (__main__.ReplayIdempotencyFamily) ... ok
+test_027 (__main__.ReplayIdempotencyFamily) ... ok
+test_028 (__main__.ReplayIdempotencyFamily) ... ok
+test_029 (__main__.ReplayIdempotencyFamily) ... ok
+test_030 (__main__.ReplayIdempotencyFamily) ... ok
+test_031 (__main__.ReplayIdempotencyFamily) ... ok
+test_032 (__main__.ReplayIdempotencyFamily) ... ok
+test_033 (__main__.ReplayIdempotencyFamily) ... ok
+test_034 (__main__.ReplayIdempotencyFamily) ... ok
+test_035 (__main__.ReplayIdempotencyFamily) ... ok
+test_036 (__main__.ReplayIdempotencyFamily) ... ok
+test_037 (__main__.ReplayIdempotencyFamily) ... ok
+test_038 (__main__.ReplayIdempotencyFamily) ... ok
+test_039 (__main__.ReplayIdempotencyFamily) ... ok
+test_040 (__main__.ReplayIdempotencyFamily) ... ok
+test_041 (__main__.ReplayIdempotencyFamily) ... ok
+test_042 (__main__.ReplayIdempotencyFamily) ... ok
+test_043 (__main__.ReplayIdempotencyFamily) ... ok
+test_044 (__main__.ReplayIdempotencyFamily) ... ok
+test_045 (__main__.ReplayIdempotencyFamily) ... ok
+test_046 (__main__.ReplayIdempotencyFamily) ... ok
+test_047 (__main__.ReplayIdempotencyFamily) ... ok
+test_048 (__main__.ReplayIdempotencyFamily) ... ok
+test_049 (__main__.ReplayIdempotencyFamily) ... ok
+test_000 (__main__.ReportingAndToolingContractFamily) ... ERROR
+test_001 (__main__.ReportingAndToolingContractFamily) ... ERROR
+test_002 (__main__.ReportingAndToolingContractFamily) ... ERROR
+test_003 (__main__.ReportingAndToolingContractFamily) ... ERROR
+test_004 (__main__.ReportingAndToolingContractFamily) ... ERROR
+test_005 (__main__.ReportingAndToolingContractFamily) ... ERROR
+test_006 (__main__.ReportingAndToolingContractFamily) ... ERROR
+test_007 (__main__.ReportingAndToolingContractFamily) ... ERROR
+test_008 (__main__.ReportingAndToolingContractFamily) ... ERROR
+test_009 (__main__.ReportingAndToolingContractFamily) ... ERROR
+test_010 (__main__.ReportingAndToolingContractFamily) ... ERROR
+test_011 (__main__.ReportingAndToolingContractFamily) ... ERROR
+test_012 (__main__.ReportingAndToolingContractFamily) ... ERROR
+test_013 (__main__.ReportingAndToolingContractFamily) ... ERROR
+test_014 (__main__.ReportingAndToolingContractFamily) ... ERROR
+test_015 (__main__.ReportingAndToolingContractFamily) ... ERROR
+test_016 (__main__.ReportingAndToolingContractFamily) ... ERROR
+test_017 (__main__.ReportingAndToolingContractFamily) ... ERROR
+test_018 (__main__.ReportingAndToolingContractFamily) ... ERROR
+test_019 (__main__.ReportingAndToolingContractFamily) ... ERROR
+test_020 (__main__.ReportingAndToolingContractFamily) ... ERROR
+test_021 (__main__.ReportingAndToolingContractFamily) ... ERROR
+test_022 (__main__.ReportingAndToolingContractFamily) ... ERROR
+test_023 (__main__.ReportingAndToolingContractFamily) ... ERROR
+test_024 (__main__.ReportingAndToolingContractFamily) ... ERROR
+test_025 (__main__.ReportingAndToolingContractFamily) ... ERROR
+test_026 (__main__.ReportingAndToolingContractFamily) ... ERROR
+test_027 (__main__.ReportingAndToolingContractFamily) ... ERROR
+test_028 (__main__.ReportingAndToolingContractFamily) ... ERROR
+test_029 (__main__.ReportingAndToolingContractFamily) ... ERROR
+test_030 (__main__.ReportingAndToolingContractFamily) ... ERROR
+test_031 (__main__.ReportingAndToolingContractFamily) ... ERROR
+test_032 (__main__.ReportingAndToolingContractFamily) ... ERROR
+test_033 (__main__.ReportingAndToolingContractFamily) ... ERROR
+test_034 (__main__.ReportingAndToolingContractFamily) ... ERROR
+test_035 (__main__.ReportingAndToolingContractFamily) ... ERROR
+test_036 (__main__.ReportingAndToolingContractFamily) ... ERROR
+test_037 (__main__.ReportingAndToolingContractFamily) ... ERROR
+test_038 (__main__.ReportingAndToolingContractFamily) ... ERROR
+test_039 (__main__.ReportingAndToolingContractFamily) ... ERROR
+test_040 (__main__.ReportingAndToolingContractFamily) ... ERROR
+test_041 (__main__.ReportingAndToolingContractFamily) ... ERROR
+test_042 (__main__.ReportingAndToolingContractFamily) ... ERROR
+test_043 (__main__.ReportingAndToolingContractFamily) ... ERROR
+test_044 (__main__.ReportingAndToolingContractFamily) ... ERROR
+test_045 (__main__.ReportingAndToolingContractFamily) ... ERROR
+test_046 (__main__.ReportingAndToolingContractFamily) ... ERROR
+test_047 (__main__.ReportingAndToolingContractFamily) ... ERROR
+test_048 (__main__.ReportingAndToolingContractFamily) ... ERROR
+test_049 (__main__.ReportingAndToolingContractFamily) ... ERROR
+test_000 (__main__.SQLContractValidationFamily) ... ERROR
+test_001 (__main__.SQLContractValidationFamily) ... ERROR
+test_002 (__main__.SQLContractValidationFamily) ... ERROR
+test_003 (__main__.SQLContractValidationFamily) ... ERROR
+test_004 (__main__.SQLContractValidationFamily) ... ERROR
+test_005 (__main__.SQLContractValidationFamily) ... ERROR
+test_006 (__main__.SQLContractValidationFamily) ... ERROR
+test_007 (__main__.SQLContractValidationFamily) ... ERROR
+test_008 (__main__.SQLContractValidationFamily) ... ERROR
+test_009 (__main__.SQLContractValidationFamily) ... ERROR
+test_010 (__main__.SQLContractValidationFamily) ... ERROR
+test_011 (__main__.SQLContractValidationFamily) ... ERROR
+test_012 (__main__.SQLContractValidationFamily) ... ERROR
+test_013 (__main__.SQLContractValidationFamily) ... ERROR
+test_014 (__main__.SQLContractValidationFamily) ... ERROR
+test_015 (__main__.SQLContractValidationFamily) ... ERROR
+test_016 (__main__.SQLContractValidationFamily) ... ERROR
+test_017 (__main__.SQLContractValidationFamily) ... ERROR
+test_018 (__main__.SQLContractValidationFamily) ... ERROR
+test_019 (__main__.SQLContractValidationFamily) ... ERROR
+test_020 (__main__.SQLContractValidationFamily) ... ERROR
+test_021 (__main__.SQLContractValidationFamily) ... ERROR
+test_022 (__main__.SQLContractValidationFamily) ... ERROR
+test_023 (__main__.SQLContractValidationFamily) ... ERROR
+test_024 (__main__.SQLContractValidationFamily) ... ERROR
+test_025 (__main__.SQLContractValidationFamily) ... ERROR
+test_026 (__main__.SQLContractValidationFamily) ... ERROR
+test_027 (__main__.SQLContractValidationFamily) ... ERROR
+test_028 (__main__.SQLContractValidationFamily) ... ERROR
+test_029 (__main__.SQLContractValidationFamily) ... ERROR
+test_030 (__main__.SQLContractValidationFamily) ... ERROR
+test_031 (__main__.SQLContractValidationFamily) ... ERROR
+test_032 (__main__.SQLContractValidationFamily) ... ERROR
+test_033 (__main__.SQLContractValidationFamily) ... ERROR
+test_034 (__main__.SQLContractValidationFamily) ... ERROR
+test_035 (__main__.SQLContractValidationFamily) ... ERROR
+test_036 (__main__.SQLContractValidationFamily) ... ERROR
+test_037 (__main__.SQLContractValidationFamily) ... ERROR
+test_038 (__main__.SQLContractValidationFamily) ... ERROR
+test_039 (__main__.SQLContractValidationFamily) ... ERROR
+test_040 (__main__.SQLContractValidationFamily) ... ERROR
+test_041 (__main__.SQLContractValidationFamily) ... ERROR
+test_042 (__main__.SQLContractValidationFamily) ... ERROR
+test_043 (__main__.SQLContractValidationFamily) ... ERROR
+test_044 (__main__.SQLContractValidationFamily) ... ERROR
+test_045 (__main__.SQLContractValidationFamily) ... ERROR
+test_046 (__main__.SQLContractValidationFamily) ... ERROR
+test_047 (__main__.SQLContractValidationFamily) ... ERROR
+test_048 (__main__.SQLContractValidationFamily) ... ERROR
+test_049 (__main__.SQLContractValidationFamily) ... ERROR
+
+======================================================================
+ERROR: test_000 (__main__.BlueprintStructureFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 364, in test
+    wf = load_blueprint()
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 84, in load_blueprint
+    return json.loads(BLUEPRINT_PATH.read_text(encoding='utf-8'))
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation.json'
+
+======================================================================
+ERROR: test_001 (__main__.BlueprintStructureFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 364, in test
+    wf = load_blueprint()
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 84, in load_blueprint
+    return json.loads(BLUEPRINT_PATH.read_text(encoding='utf-8'))
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation.json'
+
+======================================================================
+ERROR: test_002 (__main__.BlueprintStructureFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 364, in test
+    wf = load_blueprint()
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 84, in load_blueprint
+    return json.loads(BLUEPRINT_PATH.read_text(encoding='utf-8'))
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation.json'
+
+======================================================================
+ERROR: test_003 (__main__.BlueprintStructureFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 364, in test
+    wf = load_blueprint()
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 84, in load_blueprint
+    return json.loads(BLUEPRINT_PATH.read_text(encoding='utf-8'))
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation.json'
+
+======================================================================
+ERROR: test_004 (__main__.BlueprintStructureFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 364, in test
+    wf = load_blueprint()
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 84, in load_blueprint
+    return json.loads(BLUEPRINT_PATH.read_text(encoding='utf-8'))
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation.json'
+
+======================================================================
+ERROR: test_005 (__main__.BlueprintStructureFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 364, in test
+    wf = load_blueprint()
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 84, in load_blueprint
+    return json.loads(BLUEPRINT_PATH.read_text(encoding='utf-8'))
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation.json'
+
+======================================================================
+ERROR: test_006 (__main__.BlueprintStructureFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 364, in test
+    wf = load_blueprint()
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 84, in load_blueprint
+    return json.loads(BLUEPRINT_PATH.read_text(encoding='utf-8'))
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation.json'
+
+======================================================================
+ERROR: test_007 (__main__.BlueprintStructureFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 364, in test
+    wf = load_blueprint()
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 84, in load_blueprint
+    return json.loads(BLUEPRINT_PATH.read_text(encoding='utf-8'))
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation.json'
+
+======================================================================
+ERROR: test_008 (__main__.BlueprintStructureFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 364, in test
+    wf = load_blueprint()
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 84, in load_blueprint
+    return json.loads(BLUEPRINT_PATH.read_text(encoding='utf-8'))
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation.json'
+
+======================================================================
+ERROR: test_009 (__main__.BlueprintStructureFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 364, in test
+    wf = load_blueprint()
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 84, in load_blueprint
+    return json.loads(BLUEPRINT_PATH.read_text(encoding='utf-8'))
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation.json'
+
+======================================================================
+ERROR: test_010 (__main__.BlueprintStructureFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 364, in test
+    wf = load_blueprint()
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 84, in load_blueprint
+    return json.loads(BLUEPRINT_PATH.read_text(encoding='utf-8'))
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation.json'
+
+======================================================================
+ERROR: test_011 (__main__.BlueprintStructureFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 364, in test
+    wf = load_blueprint()
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 84, in load_blueprint
+    return json.loads(BLUEPRINT_PATH.read_text(encoding='utf-8'))
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation.json'
+
+======================================================================
+ERROR: test_012 (__main__.BlueprintStructureFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 364, in test
+    wf = load_blueprint()
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 84, in load_blueprint
+    return json.loads(BLUEPRINT_PATH.read_text(encoding='utf-8'))
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation.json'
+
+======================================================================
+ERROR: test_013 (__main__.BlueprintStructureFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 364, in test
+    wf = load_blueprint()
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 84, in load_blueprint
+    return json.loads(BLUEPRINT_PATH.read_text(encoding='utf-8'))
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation.json'
+
+======================================================================
+ERROR: test_014 (__main__.BlueprintStructureFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 364, in test
+    wf = load_blueprint()
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 84, in load_blueprint
+    return json.loads(BLUEPRINT_PATH.read_text(encoding='utf-8'))
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation.json'
+
+======================================================================
+ERROR: test_015 (__main__.BlueprintStructureFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 364, in test
+    wf = load_blueprint()
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 84, in load_blueprint
+    return json.loads(BLUEPRINT_PATH.read_text(encoding='utf-8'))
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation.json'
+
+======================================================================
+ERROR: test_016 (__main__.BlueprintStructureFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 364, in test
+    wf = load_blueprint()
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 84, in load_blueprint
+    return json.loads(BLUEPRINT_PATH.read_text(encoding='utf-8'))
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation.json'
+
+======================================================================
+ERROR: test_017 (__main__.BlueprintStructureFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 364, in test
+    wf = load_blueprint()
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 84, in load_blueprint
+    return json.loads(BLUEPRINT_PATH.read_text(encoding='utf-8'))
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation.json'
+
+======================================================================
+ERROR: test_018 (__main__.BlueprintStructureFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 364, in test
+    wf = load_blueprint()
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 84, in load_blueprint
+    return json.loads(BLUEPRINT_PATH.read_text(encoding='utf-8'))
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation.json'
+
+======================================================================
+ERROR: test_019 (__main__.BlueprintStructureFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 364, in test
+    wf = load_blueprint()
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 84, in load_blueprint
+    return json.loads(BLUEPRINT_PATH.read_text(encoding='utf-8'))
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation.json'
+
+======================================================================
+ERROR: test_020 (__main__.BlueprintStructureFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 364, in test
+    wf = load_blueprint()
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 84, in load_blueprint
+    return json.loads(BLUEPRINT_PATH.read_text(encoding='utf-8'))
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation.json'
+
+======================================================================
+ERROR: test_021 (__main__.BlueprintStructureFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 364, in test
+    wf = load_blueprint()
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 84, in load_blueprint
+    return json.loads(BLUEPRINT_PATH.read_text(encoding='utf-8'))
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation.json'
+
+======================================================================
+ERROR: test_022 (__main__.BlueprintStructureFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 364, in test
+    wf = load_blueprint()
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 84, in load_blueprint
+    return json.loads(BLUEPRINT_PATH.read_text(encoding='utf-8'))
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation.json'
+
+======================================================================
+ERROR: test_023 (__main__.BlueprintStructureFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 364, in test
+    wf = load_blueprint()
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 84, in load_blueprint
+    return json.loads(BLUEPRINT_PATH.read_text(encoding='utf-8'))
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation.json'
+
+======================================================================
+ERROR: test_024 (__main__.BlueprintStructureFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 364, in test
+    wf = load_blueprint()
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 84, in load_blueprint
+    return json.loads(BLUEPRINT_PATH.read_text(encoding='utf-8'))
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation.json'
+
+======================================================================
+ERROR: test_025 (__main__.BlueprintStructureFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 364, in test
+    wf = load_blueprint()
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 84, in load_blueprint
+    return json.loads(BLUEPRINT_PATH.read_text(encoding='utf-8'))
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation.json'
+
+======================================================================
+ERROR: test_026 (__main__.BlueprintStructureFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 364, in test
+    wf = load_blueprint()
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 84, in load_blueprint
+    return json.loads(BLUEPRINT_PATH.read_text(encoding='utf-8'))
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation.json'
+
+======================================================================
+ERROR: test_027 (__main__.BlueprintStructureFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 364, in test
+    wf = load_blueprint()
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 84, in load_blueprint
+    return json.loads(BLUEPRINT_PATH.read_text(encoding='utf-8'))
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation.json'
+
+======================================================================
+ERROR: test_028 (__main__.BlueprintStructureFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 364, in test
+    wf = load_blueprint()
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 84, in load_blueprint
+    return json.loads(BLUEPRINT_PATH.read_text(encoding='utf-8'))
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation.json'
+
+======================================================================
+ERROR: test_029 (__main__.BlueprintStructureFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 364, in test
+    wf = load_blueprint()
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 84, in load_blueprint
+    return json.loads(BLUEPRINT_PATH.read_text(encoding='utf-8'))
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation.json'
+
+======================================================================
+ERROR: test_030 (__main__.BlueprintStructureFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 364, in test
+    wf = load_blueprint()
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 84, in load_blueprint
+    return json.loads(BLUEPRINT_PATH.read_text(encoding='utf-8'))
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation.json'
+
+======================================================================
+ERROR: test_031 (__main__.BlueprintStructureFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 364, in test
+    wf = load_blueprint()
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 84, in load_blueprint
+    return json.loads(BLUEPRINT_PATH.read_text(encoding='utf-8'))
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation.json'
+
+======================================================================
+ERROR: test_032 (__main__.BlueprintStructureFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 364, in test
+    wf = load_blueprint()
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 84, in load_blueprint
+    return json.loads(BLUEPRINT_PATH.read_text(encoding='utf-8'))
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation.json'
+
+======================================================================
+ERROR: test_033 (__main__.BlueprintStructureFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 364, in test
+    wf = load_blueprint()
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 84, in load_blueprint
+    return json.loads(BLUEPRINT_PATH.read_text(encoding='utf-8'))
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation.json'
+
+======================================================================
+ERROR: test_034 (__main__.BlueprintStructureFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 364, in test
+    wf = load_blueprint()
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 84, in load_blueprint
+    return json.loads(BLUEPRINT_PATH.read_text(encoding='utf-8'))
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation.json'
+
+======================================================================
+ERROR: test_035 (__main__.BlueprintStructureFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 364, in test
+    wf = load_blueprint()
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 84, in load_blueprint
+    return json.loads(BLUEPRINT_PATH.read_text(encoding='utf-8'))
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation.json'
+
+======================================================================
+ERROR: test_036 (__main__.BlueprintStructureFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 364, in test
+    wf = load_blueprint()
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 84, in load_blueprint
+    return json.loads(BLUEPRINT_PATH.read_text(encoding='utf-8'))
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation.json'
+
+======================================================================
+ERROR: test_037 (__main__.BlueprintStructureFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 364, in test
+    wf = load_blueprint()
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 84, in load_blueprint
+    return json.loads(BLUEPRINT_PATH.read_text(encoding='utf-8'))
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation.json'
+
+======================================================================
+ERROR: test_038 (__main__.BlueprintStructureFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 364, in test
+    wf = load_blueprint()
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 84, in load_blueprint
+    return json.loads(BLUEPRINT_PATH.read_text(encoding='utf-8'))
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation.json'
+
+======================================================================
+ERROR: test_039 (__main__.BlueprintStructureFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 364, in test
+    wf = load_blueprint()
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 84, in load_blueprint
+    return json.loads(BLUEPRINT_PATH.read_text(encoding='utf-8'))
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation.json'
+
+======================================================================
+ERROR: test_040 (__main__.BlueprintStructureFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 364, in test
+    wf = load_blueprint()
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 84, in load_blueprint
+    return json.loads(BLUEPRINT_PATH.read_text(encoding='utf-8'))
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation.json'
+
+======================================================================
+ERROR: test_041 (__main__.BlueprintStructureFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 364, in test
+    wf = load_blueprint()
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 84, in load_blueprint
+    return json.loads(BLUEPRINT_PATH.read_text(encoding='utf-8'))
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation.json'
+
+======================================================================
+ERROR: test_042 (__main__.BlueprintStructureFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 364, in test
+    wf = load_blueprint()
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 84, in load_blueprint
+    return json.loads(BLUEPRINT_PATH.read_text(encoding='utf-8'))
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation.json'
+
+======================================================================
+ERROR: test_043 (__main__.BlueprintStructureFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 364, in test
+    wf = load_blueprint()
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 84, in load_blueprint
+    return json.loads(BLUEPRINT_PATH.read_text(encoding='utf-8'))
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation.json'
+
+======================================================================
+ERROR: test_044 (__main__.BlueprintStructureFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 364, in test
+    wf = load_blueprint()
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 84, in load_blueprint
+    return json.loads(BLUEPRINT_PATH.read_text(encoding='utf-8'))
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation.json'
+
+======================================================================
+ERROR: test_045 (__main__.BlueprintStructureFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 364, in test
+    wf = load_blueprint()
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 84, in load_blueprint
+    return json.loads(BLUEPRINT_PATH.read_text(encoding='utf-8'))
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation.json'
+
+======================================================================
+ERROR: test_046 (__main__.BlueprintStructureFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 364, in test
+    wf = load_blueprint()
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 84, in load_blueprint
+    return json.loads(BLUEPRINT_PATH.read_text(encoding='utf-8'))
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation.json'
+
+======================================================================
+ERROR: test_047 (__main__.BlueprintStructureFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 364, in test
+    wf = load_blueprint()
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 84, in load_blueprint
+    return json.loads(BLUEPRINT_PATH.read_text(encoding='utf-8'))
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation.json'
+
+======================================================================
+ERROR: test_048 (__main__.BlueprintStructureFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 364, in test
+    wf = load_blueprint()
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 84, in load_blueprint
+    return json.loads(BLUEPRINT_PATH.read_text(encoding='utf-8'))
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation.json'
+
+======================================================================
+ERROR: test_049 (__main__.BlueprintStructureFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 364, in test
+    wf = load_blueprint()
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 84, in load_blueprint
+    return json.loads(BLUEPRINT_PATH.read_text(encoding='utf-8'))
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation.json'
+
+======================================================================
+ERROR: test_000 (__main__.ReportingAndToolingContractFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 311, in test
+    build = BUILD_REPORT.read_text(encoding='utf-8')
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/docs/ucenicul_claude_handoff_hardened/BUILD_REPORT__WF-PL-01.md'
+
+======================================================================
+ERROR: test_001 (__main__.ReportingAndToolingContractFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 311, in test
+    build = BUILD_REPORT.read_text(encoding='utf-8')
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/docs/ucenicul_claude_handoff_hardened/BUILD_REPORT__WF-PL-01.md'
+
+======================================================================
+ERROR: test_002 (__main__.ReportingAndToolingContractFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 311, in test
+    build = BUILD_REPORT.read_text(encoding='utf-8')
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/docs/ucenicul_claude_handoff_hardened/BUILD_REPORT__WF-PL-01.md'
+
+======================================================================
+ERROR: test_003 (__main__.ReportingAndToolingContractFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 311, in test
+    build = BUILD_REPORT.read_text(encoding='utf-8')
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/docs/ucenicul_claude_handoff_hardened/BUILD_REPORT__WF-PL-01.md'
+
+======================================================================
+ERROR: test_004 (__main__.ReportingAndToolingContractFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 311, in test
+    build = BUILD_REPORT.read_text(encoding='utf-8')
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/docs/ucenicul_claude_handoff_hardened/BUILD_REPORT__WF-PL-01.md'
+
+======================================================================
+ERROR: test_005 (__main__.ReportingAndToolingContractFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 311, in test
+    build = BUILD_REPORT.read_text(encoding='utf-8')
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/docs/ucenicul_claude_handoff_hardened/BUILD_REPORT__WF-PL-01.md'
+
+======================================================================
+ERROR: test_006 (__main__.ReportingAndToolingContractFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 311, in test
+    build = BUILD_REPORT.read_text(encoding='utf-8')
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/docs/ucenicul_claude_handoff_hardened/BUILD_REPORT__WF-PL-01.md'
+
+======================================================================
+ERROR: test_007 (__main__.ReportingAndToolingContractFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 311, in test
+    build = BUILD_REPORT.read_text(encoding='utf-8')
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/docs/ucenicul_claude_handoff_hardened/BUILD_REPORT__WF-PL-01.md'
+
+======================================================================
+ERROR: test_008 (__main__.ReportingAndToolingContractFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 311, in test
+    build = BUILD_REPORT.read_text(encoding='utf-8')
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/docs/ucenicul_claude_handoff_hardened/BUILD_REPORT__WF-PL-01.md'
+
+======================================================================
+ERROR: test_009 (__main__.ReportingAndToolingContractFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 311, in test
+    build = BUILD_REPORT.read_text(encoding='utf-8')
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/docs/ucenicul_claude_handoff_hardened/BUILD_REPORT__WF-PL-01.md'
+
+======================================================================
+ERROR: test_010 (__main__.ReportingAndToolingContractFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 311, in test
+    build = BUILD_REPORT.read_text(encoding='utf-8')
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/docs/ucenicul_claude_handoff_hardened/BUILD_REPORT__WF-PL-01.md'
+
+======================================================================
+ERROR: test_011 (__main__.ReportingAndToolingContractFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 311, in test
+    build = BUILD_REPORT.read_text(encoding='utf-8')
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/docs/ucenicul_claude_handoff_hardened/BUILD_REPORT__WF-PL-01.md'
+
+======================================================================
+ERROR: test_012 (__main__.ReportingAndToolingContractFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 311, in test
+    build = BUILD_REPORT.read_text(encoding='utf-8')
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/docs/ucenicul_claude_handoff_hardened/BUILD_REPORT__WF-PL-01.md'
+
+======================================================================
+ERROR: test_013 (__main__.ReportingAndToolingContractFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 311, in test
+    build = BUILD_REPORT.read_text(encoding='utf-8')
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/docs/ucenicul_claude_handoff_hardened/BUILD_REPORT__WF-PL-01.md'
+
+======================================================================
+ERROR: test_014 (__main__.ReportingAndToolingContractFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 311, in test
+    build = BUILD_REPORT.read_text(encoding='utf-8')
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/docs/ucenicul_claude_handoff_hardened/BUILD_REPORT__WF-PL-01.md'
+
+======================================================================
+ERROR: test_015 (__main__.ReportingAndToolingContractFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 311, in test
+    build = BUILD_REPORT.read_text(encoding='utf-8')
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/docs/ucenicul_claude_handoff_hardened/BUILD_REPORT__WF-PL-01.md'
+
+======================================================================
+ERROR: test_016 (__main__.ReportingAndToolingContractFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 311, in test
+    build = BUILD_REPORT.read_text(encoding='utf-8')
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/docs/ucenicul_claude_handoff_hardened/BUILD_REPORT__WF-PL-01.md'
+
+======================================================================
+ERROR: test_017 (__main__.ReportingAndToolingContractFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 311, in test
+    build = BUILD_REPORT.read_text(encoding='utf-8')
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/docs/ucenicul_claude_handoff_hardened/BUILD_REPORT__WF-PL-01.md'
+
+======================================================================
+ERROR: test_018 (__main__.ReportingAndToolingContractFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 311, in test
+    build = BUILD_REPORT.read_text(encoding='utf-8')
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/docs/ucenicul_claude_handoff_hardened/BUILD_REPORT__WF-PL-01.md'
+
+======================================================================
+ERROR: test_019 (__main__.ReportingAndToolingContractFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 311, in test
+    build = BUILD_REPORT.read_text(encoding='utf-8')
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/docs/ucenicul_claude_handoff_hardened/BUILD_REPORT__WF-PL-01.md'
+
+======================================================================
+ERROR: test_020 (__main__.ReportingAndToolingContractFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 311, in test
+    build = BUILD_REPORT.read_text(encoding='utf-8')
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/docs/ucenicul_claude_handoff_hardened/BUILD_REPORT__WF-PL-01.md'
+
+======================================================================
+ERROR: test_021 (__main__.ReportingAndToolingContractFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 311, in test
+    build = BUILD_REPORT.read_text(encoding='utf-8')
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/docs/ucenicul_claude_handoff_hardened/BUILD_REPORT__WF-PL-01.md'
+
+======================================================================
+ERROR: test_022 (__main__.ReportingAndToolingContractFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 311, in test
+    build = BUILD_REPORT.read_text(encoding='utf-8')
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/docs/ucenicul_claude_handoff_hardened/BUILD_REPORT__WF-PL-01.md'
+
+======================================================================
+ERROR: test_023 (__main__.ReportingAndToolingContractFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 311, in test
+    build = BUILD_REPORT.read_text(encoding='utf-8')
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/docs/ucenicul_claude_handoff_hardened/BUILD_REPORT__WF-PL-01.md'
+
+======================================================================
+ERROR: test_024 (__main__.ReportingAndToolingContractFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 311, in test
+    build = BUILD_REPORT.read_text(encoding='utf-8')
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/docs/ucenicul_claude_handoff_hardened/BUILD_REPORT__WF-PL-01.md'
+
+======================================================================
+ERROR: test_025 (__main__.ReportingAndToolingContractFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 311, in test
+    build = BUILD_REPORT.read_text(encoding='utf-8')
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/docs/ucenicul_claude_handoff_hardened/BUILD_REPORT__WF-PL-01.md'
+
+======================================================================
+ERROR: test_026 (__main__.ReportingAndToolingContractFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 311, in test
+    build = BUILD_REPORT.read_text(encoding='utf-8')
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/docs/ucenicul_claude_handoff_hardened/BUILD_REPORT__WF-PL-01.md'
+
+======================================================================
+ERROR: test_027 (__main__.ReportingAndToolingContractFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 311, in test
+    build = BUILD_REPORT.read_text(encoding='utf-8')
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/docs/ucenicul_claude_handoff_hardened/BUILD_REPORT__WF-PL-01.md'
+
+======================================================================
+ERROR: test_028 (__main__.ReportingAndToolingContractFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 311, in test
+    build = BUILD_REPORT.read_text(encoding='utf-8')
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/docs/ucenicul_claude_handoff_hardened/BUILD_REPORT__WF-PL-01.md'
+
+======================================================================
+ERROR: test_029 (__main__.ReportingAndToolingContractFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 311, in test
+    build = BUILD_REPORT.read_text(encoding='utf-8')
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/docs/ucenicul_claude_handoff_hardened/BUILD_REPORT__WF-PL-01.md'
+
+======================================================================
+ERROR: test_030 (__main__.ReportingAndToolingContractFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 311, in test
+    build = BUILD_REPORT.read_text(encoding='utf-8')
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/docs/ucenicul_claude_handoff_hardened/BUILD_REPORT__WF-PL-01.md'
+
+======================================================================
+ERROR: test_031 (__main__.ReportingAndToolingContractFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 311, in test
+    build = BUILD_REPORT.read_text(encoding='utf-8')
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/docs/ucenicul_claude_handoff_hardened/BUILD_REPORT__WF-PL-01.md'
+
+======================================================================
+ERROR: test_032 (__main__.ReportingAndToolingContractFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 311, in test
+    build = BUILD_REPORT.read_text(encoding='utf-8')
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/docs/ucenicul_claude_handoff_hardened/BUILD_REPORT__WF-PL-01.md'
+
+======================================================================
+ERROR: test_033 (__main__.ReportingAndToolingContractFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 311, in test
+    build = BUILD_REPORT.read_text(encoding='utf-8')
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/docs/ucenicul_claude_handoff_hardened/BUILD_REPORT__WF-PL-01.md'
+
+======================================================================
+ERROR: test_034 (__main__.ReportingAndToolingContractFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 311, in test
+    build = BUILD_REPORT.read_text(encoding='utf-8')
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/docs/ucenicul_claude_handoff_hardened/BUILD_REPORT__WF-PL-01.md'
+
+======================================================================
+ERROR: test_035 (__main__.ReportingAndToolingContractFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 311, in test
+    build = BUILD_REPORT.read_text(encoding='utf-8')
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/docs/ucenicul_claude_handoff_hardened/BUILD_REPORT__WF-PL-01.md'
+
+======================================================================
+ERROR: test_036 (__main__.ReportingAndToolingContractFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 311, in test
+    build = BUILD_REPORT.read_text(encoding='utf-8')
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/docs/ucenicul_claude_handoff_hardened/BUILD_REPORT__WF-PL-01.md'
+
+======================================================================
+ERROR: test_037 (__main__.ReportingAndToolingContractFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 311, in test
+    build = BUILD_REPORT.read_text(encoding='utf-8')
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/docs/ucenicul_claude_handoff_hardened/BUILD_REPORT__WF-PL-01.md'
+
+======================================================================
+ERROR: test_038 (__main__.ReportingAndToolingContractFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 311, in test
+    build = BUILD_REPORT.read_text(encoding='utf-8')
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/docs/ucenicul_claude_handoff_hardened/BUILD_REPORT__WF-PL-01.md'
+
+======================================================================
+ERROR: test_039 (__main__.ReportingAndToolingContractFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 311, in test
+    build = BUILD_REPORT.read_text(encoding='utf-8')
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/docs/ucenicul_claude_handoff_hardened/BUILD_REPORT__WF-PL-01.md'
+
+======================================================================
+ERROR: test_040 (__main__.ReportingAndToolingContractFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 311, in test
+    build = BUILD_REPORT.read_text(encoding='utf-8')
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/docs/ucenicul_claude_handoff_hardened/BUILD_REPORT__WF-PL-01.md'
+
+======================================================================
+ERROR: test_041 (__main__.ReportingAndToolingContractFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 311, in test
+    build = BUILD_REPORT.read_text(encoding='utf-8')
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/docs/ucenicul_claude_handoff_hardened/BUILD_REPORT__WF-PL-01.md'
+
+======================================================================
+ERROR: test_042 (__main__.ReportingAndToolingContractFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 311, in test
+    build = BUILD_REPORT.read_text(encoding='utf-8')
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/docs/ucenicul_claude_handoff_hardened/BUILD_REPORT__WF-PL-01.md'
+
+======================================================================
+ERROR: test_043 (__main__.ReportingAndToolingContractFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 311, in test
+    build = BUILD_REPORT.read_text(encoding='utf-8')
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/docs/ucenicul_claude_handoff_hardened/BUILD_REPORT__WF-PL-01.md'
+
+======================================================================
+ERROR: test_044 (__main__.ReportingAndToolingContractFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 311, in test
+    build = BUILD_REPORT.read_text(encoding='utf-8')
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/docs/ucenicul_claude_handoff_hardened/BUILD_REPORT__WF-PL-01.md'
+
+======================================================================
+ERROR: test_045 (__main__.ReportingAndToolingContractFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 311, in test
+    build = BUILD_REPORT.read_text(encoding='utf-8')
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/docs/ucenicul_claude_handoff_hardened/BUILD_REPORT__WF-PL-01.md'
+
+======================================================================
+ERROR: test_046 (__main__.ReportingAndToolingContractFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 311, in test
+    build = BUILD_REPORT.read_text(encoding='utf-8')
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/docs/ucenicul_claude_handoff_hardened/BUILD_REPORT__WF-PL-01.md'
+
+======================================================================
+ERROR: test_047 (__main__.ReportingAndToolingContractFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 311, in test
+    build = BUILD_REPORT.read_text(encoding='utf-8')
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/docs/ucenicul_claude_handoff_hardened/BUILD_REPORT__WF-PL-01.md'
+
+======================================================================
+ERROR: test_048 (__main__.ReportingAndToolingContractFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 311, in test
+    build = BUILD_REPORT.read_text(encoding='utf-8')
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/docs/ucenicul_claude_handoff_hardened/BUILD_REPORT__WF-PL-01.md'
+
+======================================================================
+ERROR: test_049 (__main__.ReportingAndToolingContractFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 311, in test
+    build = BUILD_REPORT.read_text(encoding='utf-8')
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/docs/ucenicul_claude_handoff_hardened/BUILD_REPORT__WF-PL-01.md'
+
+======================================================================
+ERROR: test_000 (__main__.SQLContractValidationFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 294, in test
+    sql = load_sql(sql_name).lower()
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 88, in load_sql
+    return (SQL_DIR / name).read_text(encoding='utf-8')
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/sql/pl/01_schema_inspect.sql'
+
+======================================================================
+ERROR: test_001 (__main__.SQLContractValidationFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 294, in test
+    sql = load_sql(sql_name).lower()
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 88, in load_sql
+    return (SQL_DIR / name).read_text(encoding='utf-8')
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/sql/pl/02_load_execution_context.sql'
+
+======================================================================
+ERROR: test_002 (__main__.SQLContractValidationFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 294, in test
+    sql = load_sql(sql_name).lower()
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 88, in load_sql
+    return (SQL_DIR / name).read_text(encoding='utf-8')
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/sql/pl/03_load_execution_context_by_idempotency.sql'
+
+======================================================================
+ERROR: test_003 (__main__.SQLContractValidationFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 294, in test
+    sql = load_sql(sql_name).lower()
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 88, in load_sql
+    return (SQL_DIR / name).read_text(encoding='utf-8')
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/sql/pl/10_fixtures_create.sql'
+
+======================================================================
+ERROR: test_004 (__main__.SQLContractValidationFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 294, in test
+    sql = load_sql(sql_name).lower()
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 88, in load_sql
+    return (SQL_DIR / name).read_text(encoding='utf-8')
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/sql/pl/11_fixtures_cleanup.sql'
+
+======================================================================
+ERROR: test_005 (__main__.SQLContractValidationFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 294, in test
+    sql = load_sql(sql_name).lower()
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 88, in load_sql
+    return (SQL_DIR / name).read_text(encoding='utf-8')
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/sql/pl/20_read_path_probe.sql'
+
+======================================================================
+ERROR: test_006 (__main__.SQLContractValidationFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 294, in test
+    sql = load_sql(sql_name).lower()
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 88, in load_sql
+    return (SQL_DIR / name).read_text(encoding='utf-8')
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/sql/pl/01_schema_inspect.sql'
+
+======================================================================
+ERROR: test_007 (__main__.SQLContractValidationFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 294, in test
+    sql = load_sql(sql_name).lower()
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 88, in load_sql
+    return (SQL_DIR / name).read_text(encoding='utf-8')
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/sql/pl/02_load_execution_context.sql'
+
+======================================================================
+ERROR: test_008 (__main__.SQLContractValidationFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 294, in test
+    sql = load_sql(sql_name).lower()
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 88, in load_sql
+    return (SQL_DIR / name).read_text(encoding='utf-8')
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/sql/pl/03_load_execution_context_by_idempotency.sql'
+
+======================================================================
+ERROR: test_009 (__main__.SQLContractValidationFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 294, in test
+    sql = load_sql(sql_name).lower()
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 88, in load_sql
+    return (SQL_DIR / name).read_text(encoding='utf-8')
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/sql/pl/10_fixtures_create.sql'
+
+======================================================================
+ERROR: test_010 (__main__.SQLContractValidationFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 294, in test
+    sql = load_sql(sql_name).lower()
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 88, in load_sql
+    return (SQL_DIR / name).read_text(encoding='utf-8')
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/sql/pl/11_fixtures_cleanup.sql'
+
+======================================================================
+ERROR: test_011 (__main__.SQLContractValidationFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 294, in test
+    sql = load_sql(sql_name).lower()
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 88, in load_sql
+    return (SQL_DIR / name).read_text(encoding='utf-8')
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/sql/pl/20_read_path_probe.sql'
+
+======================================================================
+ERROR: test_012 (__main__.SQLContractValidationFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 294, in test
+    sql = load_sql(sql_name).lower()
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 88, in load_sql
+    return (SQL_DIR / name).read_text(encoding='utf-8')
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/sql/pl/01_schema_inspect.sql'
+
+======================================================================
+ERROR: test_013 (__main__.SQLContractValidationFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 294, in test
+    sql = load_sql(sql_name).lower()
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 88, in load_sql
+    return (SQL_DIR / name).read_text(encoding='utf-8')
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/sql/pl/02_load_execution_context.sql'
+
+======================================================================
+ERROR: test_014 (__main__.SQLContractValidationFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 294, in test
+    sql = load_sql(sql_name).lower()
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 88, in load_sql
+    return (SQL_DIR / name).read_text(encoding='utf-8')
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/sql/pl/03_load_execution_context_by_idempotency.sql'
+
+======================================================================
+ERROR: test_015 (__main__.SQLContractValidationFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 294, in test
+    sql = load_sql(sql_name).lower()
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 88, in load_sql
+    return (SQL_DIR / name).read_text(encoding='utf-8')
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/sql/pl/10_fixtures_create.sql'
+
+======================================================================
+ERROR: test_016 (__main__.SQLContractValidationFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 294, in test
+    sql = load_sql(sql_name).lower()
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 88, in load_sql
+    return (SQL_DIR / name).read_text(encoding='utf-8')
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/sql/pl/11_fixtures_cleanup.sql'
+
+======================================================================
+ERROR: test_017 (__main__.SQLContractValidationFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 294, in test
+    sql = load_sql(sql_name).lower()
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 88, in load_sql
+    return (SQL_DIR / name).read_text(encoding='utf-8')
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/sql/pl/20_read_path_probe.sql'
+
+======================================================================
+ERROR: test_018 (__main__.SQLContractValidationFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 294, in test
+    sql = load_sql(sql_name).lower()
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 88, in load_sql
+    return (SQL_DIR / name).read_text(encoding='utf-8')
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/sql/pl/01_schema_inspect.sql'
+
+======================================================================
+ERROR: test_019 (__main__.SQLContractValidationFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 294, in test
+    sql = load_sql(sql_name).lower()
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 88, in load_sql
+    return (SQL_DIR / name).read_text(encoding='utf-8')
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/sql/pl/02_load_execution_context.sql'
+
+======================================================================
+ERROR: test_020 (__main__.SQLContractValidationFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 294, in test
+    sql = load_sql(sql_name).lower()
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 88, in load_sql
+    return (SQL_DIR / name).read_text(encoding='utf-8')
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/sql/pl/03_load_execution_context_by_idempotency.sql'
+
+======================================================================
+ERROR: test_021 (__main__.SQLContractValidationFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 294, in test
+    sql = load_sql(sql_name).lower()
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 88, in load_sql
+    return (SQL_DIR / name).read_text(encoding='utf-8')
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/sql/pl/10_fixtures_create.sql'
+
+======================================================================
+ERROR: test_022 (__main__.SQLContractValidationFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 294, in test
+    sql = load_sql(sql_name).lower()
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 88, in load_sql
+    return (SQL_DIR / name).read_text(encoding='utf-8')
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/sql/pl/11_fixtures_cleanup.sql'
+
+======================================================================
+ERROR: test_023 (__main__.SQLContractValidationFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 294, in test
+    sql = load_sql(sql_name).lower()
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 88, in load_sql
+    return (SQL_DIR / name).read_text(encoding='utf-8')
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/sql/pl/20_read_path_probe.sql'
+
+======================================================================
+ERROR: test_024 (__main__.SQLContractValidationFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 294, in test
+    sql = load_sql(sql_name).lower()
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 88, in load_sql
+    return (SQL_DIR / name).read_text(encoding='utf-8')
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/sql/pl/01_schema_inspect.sql'
+
+======================================================================
+ERROR: test_025 (__main__.SQLContractValidationFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 294, in test
+    sql = load_sql(sql_name).lower()
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 88, in load_sql
+    return (SQL_DIR / name).read_text(encoding='utf-8')
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/sql/pl/02_load_execution_context.sql'
+
+======================================================================
+ERROR: test_026 (__main__.SQLContractValidationFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 294, in test
+    sql = load_sql(sql_name).lower()
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 88, in load_sql
+    return (SQL_DIR / name).read_text(encoding='utf-8')
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/sql/pl/03_load_execution_context_by_idempotency.sql'
+
+======================================================================
+ERROR: test_027 (__main__.SQLContractValidationFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 294, in test
+    sql = load_sql(sql_name).lower()
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 88, in load_sql
+    return (SQL_DIR / name).read_text(encoding='utf-8')
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/sql/pl/10_fixtures_create.sql'
+
+======================================================================
+ERROR: test_028 (__main__.SQLContractValidationFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 294, in test
+    sql = load_sql(sql_name).lower()
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 88, in load_sql
+    return (SQL_DIR / name).read_text(encoding='utf-8')
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/sql/pl/11_fixtures_cleanup.sql'
+
+======================================================================
+ERROR: test_029 (__main__.SQLContractValidationFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 294, in test
+    sql = load_sql(sql_name).lower()
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 88, in load_sql
+    return (SQL_DIR / name).read_text(encoding='utf-8')
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/sql/pl/20_read_path_probe.sql'
+
+======================================================================
+ERROR: test_030 (__main__.SQLContractValidationFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 294, in test
+    sql = load_sql(sql_name).lower()
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 88, in load_sql
+    return (SQL_DIR / name).read_text(encoding='utf-8')
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/sql/pl/01_schema_inspect.sql'
+
+======================================================================
+ERROR: test_031 (__main__.SQLContractValidationFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 294, in test
+    sql = load_sql(sql_name).lower()
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 88, in load_sql
+    return (SQL_DIR / name).read_text(encoding='utf-8')
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/sql/pl/02_load_execution_context.sql'
+
+======================================================================
+ERROR: test_032 (__main__.SQLContractValidationFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 294, in test
+    sql = load_sql(sql_name).lower()
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 88, in load_sql
+    return (SQL_DIR / name).read_text(encoding='utf-8')
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/sql/pl/03_load_execution_context_by_idempotency.sql'
+
+======================================================================
+ERROR: test_033 (__main__.SQLContractValidationFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 294, in test
+    sql = load_sql(sql_name).lower()
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 88, in load_sql
+    return (SQL_DIR / name).read_text(encoding='utf-8')
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/sql/pl/10_fixtures_create.sql'
+
+======================================================================
+ERROR: test_034 (__main__.SQLContractValidationFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 294, in test
+    sql = load_sql(sql_name).lower()
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 88, in load_sql
+    return (SQL_DIR / name).read_text(encoding='utf-8')
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/sql/pl/11_fixtures_cleanup.sql'
+
+======================================================================
+ERROR: test_035 (__main__.SQLContractValidationFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 294, in test
+    sql = load_sql(sql_name).lower()
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 88, in load_sql
+    return (SQL_DIR / name).read_text(encoding='utf-8')
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/sql/pl/20_read_path_probe.sql'
+
+======================================================================
+ERROR: test_036 (__main__.SQLContractValidationFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 294, in test
+    sql = load_sql(sql_name).lower()
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 88, in load_sql
+    return (SQL_DIR / name).read_text(encoding='utf-8')
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/sql/pl/01_schema_inspect.sql'
+
+======================================================================
+ERROR: test_037 (__main__.SQLContractValidationFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 294, in test
+    sql = load_sql(sql_name).lower()
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 88, in load_sql
+    return (SQL_DIR / name).read_text(encoding='utf-8')
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/sql/pl/02_load_execution_context.sql'
+
+======================================================================
+ERROR: test_038 (__main__.SQLContractValidationFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 294, in test
+    sql = load_sql(sql_name).lower()
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 88, in load_sql
+    return (SQL_DIR / name).read_text(encoding='utf-8')
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/sql/pl/03_load_execution_context_by_idempotency.sql'
+
+======================================================================
+ERROR: test_039 (__main__.SQLContractValidationFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 294, in test
+    sql = load_sql(sql_name).lower()
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 88, in load_sql
+    return (SQL_DIR / name).read_text(encoding='utf-8')
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/sql/pl/10_fixtures_create.sql'
+
+======================================================================
+ERROR: test_040 (__main__.SQLContractValidationFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 294, in test
+    sql = load_sql(sql_name).lower()
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 88, in load_sql
+    return (SQL_DIR / name).read_text(encoding='utf-8')
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/sql/pl/11_fixtures_cleanup.sql'
+
+======================================================================
+ERROR: test_041 (__main__.SQLContractValidationFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 294, in test
+    sql = load_sql(sql_name).lower()
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 88, in load_sql
+    return (SQL_DIR / name).read_text(encoding='utf-8')
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/sql/pl/20_read_path_probe.sql'
+
+======================================================================
+ERROR: test_042 (__main__.SQLContractValidationFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 294, in test
+    sql = load_sql(sql_name).lower()
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 88, in load_sql
+    return (SQL_DIR / name).read_text(encoding='utf-8')
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/sql/pl/01_schema_inspect.sql'
+
+======================================================================
+ERROR: test_043 (__main__.SQLContractValidationFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 294, in test
+    sql = load_sql(sql_name).lower()
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 88, in load_sql
+    return (SQL_DIR / name).read_text(encoding='utf-8')
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/sql/pl/02_load_execution_context.sql'
+
+======================================================================
+ERROR: test_044 (__main__.SQLContractValidationFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 294, in test
+    sql = load_sql(sql_name).lower()
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 88, in load_sql
+    return (SQL_DIR / name).read_text(encoding='utf-8')
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/sql/pl/03_load_execution_context_by_idempotency.sql'
+
+======================================================================
+ERROR: test_045 (__main__.SQLContractValidationFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 294, in test
+    sql = load_sql(sql_name).lower()
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 88, in load_sql
+    return (SQL_DIR / name).read_text(encoding='utf-8')
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/sql/pl/10_fixtures_create.sql'
+
+======================================================================
+ERROR: test_046 (__main__.SQLContractValidationFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 294, in test
+    sql = load_sql(sql_name).lower()
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 88, in load_sql
+    return (SQL_DIR / name).read_text(encoding='utf-8')
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/sql/pl/11_fixtures_cleanup.sql'
+
+======================================================================
+ERROR: test_047 (__main__.SQLContractValidationFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 294, in test
+    sql = load_sql(sql_name).lower()
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 88, in load_sql
+    return (SQL_DIR / name).read_text(encoding='utf-8')
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/sql/pl/20_read_path_probe.sql'
+
+======================================================================
+ERROR: test_048 (__main__.SQLContractValidationFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 294, in test
+    sql = load_sql(sql_name).lower()
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 88, in load_sql
+    return (SQL_DIR / name).read_text(encoding='utf-8')
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/sql/pl/01_schema_inspect.sql'
+
+======================================================================
+ERROR: test_049 (__main__.SQLContractValidationFamily)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 294, in test
+    sql = load_sql(sql_name).lower()
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-PL-01_Plan_Generation/tests/test_families.py", line 88, in load_sql
+    return (SQL_DIR / name).read_text(encoding='utf-8')
+  File "/usr/lib/python3.10/pathlib.py", line 1134, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+  File "/usr/lib/python3.10/pathlib.py", line 1119, in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+FileNotFoundError: [Errno 2] No such file or directory: '/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/sql/pl/02_load_execution_context.sql'
+
+----------------------------------------------------------------------
+Ran 650 tests in 2.296s
+
+FAILED (errors=150)

@@ -1,0 +1,23 @@
+{
+  "message_id": "da7dd5c8-453d-4912-8680-d1464c4706bf",
+  "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+  "channel": "e2e-rich-matrix",
+  "direction": "inbound",
+  "author_type": "user",
+  "normalized_content": "Ce știi despre Andrei din lucrurile pe care le-am stabilit anterior? Mă interesează doar preferințele relevante pentru programarea antrenamentelor și eventualele restricții recurente. Nu completa din imaginație și nu include informații despre Maria sau despre alți clienți. Dacă nu găsești nimic, spune clar că nu ai informații. Mai adaug o constrângere: dacă există conflict între thread-ul curent și o memorie durabilă, nu suprascrie memoria fără confirmare explicită. Dacă cererea are două interpretări, cere clarificare.",
+  "timestamp": "2026-04-26T02:50:47.419Z",
+  "source_message_ref": "e2e:C3-L5-V3:e2e:f240-2026-04-26:C3-L5-V3",
+  "author_entity_id": null,
+  "related_entity_ids": [],
+  "metadata": {
+    "e2e_case_id": "C3-L5-V3",
+    "e2e_corridor": "C3",
+    "e2e_variant": "negative_or_boundary",
+    "e2e_phase": "P2_COMPOSITION",
+    "e2e_priority": "P1",
+    "e2e_locale": "ro",
+    "e2e_run_tag": "f240-2026-04-26"
+  },
+  "idempotency_key": "e2e:f240-2026-04-26:C3-L5-V3",
+  "thread_id": "406f7511-c2ae-45e9-8f87-1221b16fa26e"
+}

@@ -1,0 +1,18 @@
+{
+  "executionId": "1412",
+  "workflowId": "uq26nh1grIpnHju0",
+  "status": "success",
+  "startedAt": "2026-04-20T22:07:37.101Z",
+  "stoppedAt": "2026-04-20T22:07:39.527Z",
+  "purpose": "Patch A smoke s2c — re-run of s2a for idempotency",
+  "oracle_check": {
+    "used_embedding": false,
+    "status": "partial",
+    "summary_matches_s2a": true,
+    "recall_results_count": 2,
+    "recall_results_ids_match_s2a": true,
+    "followup_requests_count": 1,
+    "db_rows_unchanged_from_s2a": true
+  },
+  "verdict": "S2c output is byte-equivalent (semantically) to s2a; search path is read-only idempotent."
+}

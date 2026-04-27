@@ -1,0 +1,15 @@
+{
+  "case_id": "RT-048",
+  "group": "user_ready_complex_composition",
+  "priority": "P0",
+  "user_input": "Creează task să îl sun pe Andrei mâine, dar nu salva asta ca memorie permanentă.",
+  "expected": {
+    "task_write": true,
+    "no_memory_write_required": true
+  },
+  "expected_intent": "create_task",
+  "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+  "message_id": "bc08b445-af9e-4434-8421-077515abf9c7",
+  "thread_id": "f5dce429-eb4b-4cd1-8876-f7cc9f5fcd7b",
+  "idempotency_key": "tmr:tmr-20260425-smoke:RT-048"
+}

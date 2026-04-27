@@ -1,0 +1,4116 @@
+{
+  "source_root": "PRODUCT_ROOT",
+  "file_count": 587,
+  "total_bytes": 4229830,
+  "entries": [
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "CLAUDE.md",
+      "size_bytes": 4201,
+      "sha256": "de0ad435a7bcf3696539791b943f05aa0f5f32ba424a958398b22d8ac184eb1a",
+      "mtime_iso": "2026-04-15T17:32:58.346121+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "README.md",
+      "size_bytes": 3182,
+      "sha256": "764e76aa0358b97a98dfed00fd14a0b5300f525fa1b97ddd8348bc50806e55b3",
+      "mtime_iso": "2026-04-15T17:32:32.966018+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "db/README.md",
+      "size_bytes": 9743,
+      "sha256": "a4597b478caa976a56eb651c2ebd06e060c08f7630cb67589969235867e1a14a",
+      "mtime_iso": "2026-04-15T17:33:53.386170+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "db/schema/README.md",
+      "size_bytes": 2252,
+      "sha256": "dc0c22c17526fc4d358607e332ea55a9dbefdc376ff8684003f3dac8df458780",
+      "mtime_iso": "2026-04-15T17:34:10.069916+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "docs/Architecture_Spec_v3_Ucenicul.md",
+      "size_bytes": 36189,
+      "sha256": "142b0466f6c175c4b4c5188d8aec5837b7b68b3ae8e07fd7e4fe0325baca0a77",
+      "mtime_iso": "2026-04-15T17:26:02.748355+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "docs/Documentation_Verification_Checklist_Ucenicul.md",
+      "size_bytes": 10378,
+      "sha256": "89b33082fb3ccfb23a22c7a6091e287c80c23a03298298b66fd411c55517fbb3",
+      "mtime_iso": "2026-04-15T17:35:12.660567+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "docs/Memory_Model_Spec.md",
+      "size_bytes": 5029,
+      "sha256": "be5ae788a43fe01374b17d2ad3a5f80f7198b88890b088c43b5fb3e85f205f02",
+      "mtime_iso": "2026-04-15T17:30:57.973899+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "docs/Migration_Plan_Ucenicul.md",
+      "size_bytes": 12536,
+      "sha256": "7595829edbfa2fccc193fa60e6f0798bee583d683de731af168f85cdc165492a",
+      "mtime_iso": "2026-04-15T17:27:29.515997+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "docs/Module_Registry_Ucenicul.md",
+      "size_bytes": 7433,
+      "sha256": "650339ad8b9c6359f0656ae4da266c532b5836c66503592e4665603d0321f3ed",
+      "mtime_iso": "2026-04-15T17:28:13.538415+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "docs/Module_Spec_Memory.md",
+      "size_bytes": 3451,
+      "sha256": "f673fdb396314fa736d957e71aeaf786dcf28e2d823dfbdfbbc12964d15dfd36",
+      "mtime_iso": "2026-04-15T17:29:08.375900+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "docs/Module_Spec_Reminder.md",
+      "size_bytes": 2287,
+      "sha256": "efaea295e820152bf61d1da0533cd512d387ec65615b464013c440b6f5fccaef",
+      "mtime_iso": "2026-04-15T17:28:49.020939+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "docs/Module_Spec_Response.md",
+      "size_bytes": 2860,
+      "sha256": "ca5e3607a0f3bbb5f328b3ae345f224c6c24c2a6fbd5aeb6f1cb05ba0dd11a0d",
+      "mtime_iso": "2026-04-15T17:29:25.957062+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "docs/Module_Spec_Task.md",
+      "size_bytes": 3562,
+      "sha256": "40245af8ec4b277b0ccf93480fe29496c349a63d33b1f0bc662549d4a1420525",
+      "mtime_iso": "2026-04-15T17:28:37.424636+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "docs/Module_Spec_Watcher.md",
+      "size_bytes": 3158,
+      "sha256": "1125d129cb4715773e4638f723327c5f621cbd2b3815b703046a22195f7f60b2",
+      "mtime_iso": "2026-04-15T17:29:45.522674+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "docs/Thread_Resolution_Spec.md",
+      "size_bytes": 13305,
+      "sha256": "212e96fafba3f0c7405e724ced223dd760f097173a5f26548ecf81718c2b11b5",
+      "mtime_iso": "2026-04-15T20:04:34.281757+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "docs/n8n_Workflow_Mapping.md",
+      "size_bytes": 9849,
+      "sha256": "33226450dd28564a24834332439b6261512021f40f06a8b74204e1e9e752c329",
+      "mtime_iso": "2026-04-15T17:32:05.896795+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "docs/ucenicul_claude_handoff_hardened/00_ROUTE_MAP.md",
+      "size_bytes": 3266,
+      "sha256": "6b67c4c016b34f3d81a16496eeec81a7bbc4524acb841b21402b4cbf63a11532",
+      "mtime_iso": "2026-04-17T21:16:20.573086+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "docs/ucenicul_claude_handoff_hardened/00_ROUTE_MAP__WF-DI-01_ACTIVATED.md",
+      "size_bytes": 783,
+      "sha256": "b0b6d7e720a21fdcc414f2f117cd111bc6d695e3233304079ac22d308b099826",
+      "mtime_iso": "2026-04-17T19:42:08.981614+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "docs/ucenicul_claude_handoff_hardened/00_ROUTE_MAP__WF-DI-01_CLOSED.md",
+      "size_bytes": 1239,
+      "sha256": "f6f7f01c1e908f5ecdbb1e9dd9de6e7de76d837c32147978ffa1f450ecb9bb4a",
+      "mtime_iso": "2026-04-17T19:57:37.003402+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "docs/ucenicul_claude_handoff_hardened/00_ROUTE_MAP__WF-ME-01_ACTIVATED.md",
+      "size_bytes": 719,
+      "sha256": "eea54a2883f81ca359f80caedd322a809bb865baa0034a99e98f2765c27faca7",
+      "mtime_iso": "2026-04-17T20:16:42.294399+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "docs/ucenicul_claude_handoff_hardened/00_ROUTE_MAP__WF-OR-01_ACTIVATED.md",
+      "size_bytes": 358,
+      "sha256": "f1a2f48291fadb79b1b4d99bd72474103675fbe1ee87e2d3511c1eeff2b33384",
+      "mtime_iso": "2026-04-17T14:17:19.846684+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "docs/ucenicul_claude_handoff_hardened/00_ROUTE_MAP__WF-PL-01_ACTIVATED.md",
+      "size_bytes": 2141,
+      "sha256": "49f7fc11a5d304df19938f5c93d10694f5154d536295daf756a15d1090926b8a",
+      "mtime_iso": "2026-04-17T19:02:51.781023+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "docs/ucenicul_claude_handoff_hardened/01_MASTER_OPERATING_CONTRACT.md",
+      "size_bytes": 3645,
+      "sha256": "b3a9dd2ea410de6ad2fd8226f22b930adcf57e54e33f6d792123feb99627cd4f",
+      "mtime_iso": "2026-04-17T00:07:55.404806+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "docs/ucenicul_claude_handoff_hardened/02_AGENT_REGISTRY.md",
+      "size_bytes": 4450,
+      "sha256": "7a9b4e62eb5987fee7f6cb1e52599e52550fb977d95ce3c6382237890502760d",
+      "mtime_iso": "2026-04-17T00:07:55.420808+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "docs/ucenicul_claude_handoff_hardened/03_EXECUTION_LOOP.md",
+      "size_bytes": 3289,
+      "sha256": "9cc45efd222b3ecd82cc0a3f8428fbe7c0ecc922fa2514bf761e0854d942e2c1",
+      "mtime_iso": "2026-04-17T00:07:55.436822+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "docs/ucenicul_claude_handoff_hardened/04_N8N_MCP_PLAYBOOK.md",
+      "size_bytes": 3971,
+      "sha256": "14111056d9d624a3e9520b446251d381183f0087b90a2fbdeb672302fcaaee57",
+      "mtime_iso": "2026-04-17T00:07:55.451807+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "docs/ucenicul_claude_handoff_hardened/05_DB_AUTONOMY_PLAYBOOK.md",
+      "size_bytes": 3121,
+      "sha256": "47faa8e9e8c2fd751d550bcabbf1fd24ef1a930212a1709b854a369f2c11f8ab",
+      "mtime_iso": "2026-04-17T00:07:55.466808+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "docs/ucenicul_claude_handoff_hardened/06_STAGE_WF-EC-01.md",
+      "size_bytes": 4430,
+      "sha256": "a45e61aa1cfa749d837be0e4a66404b269e72aa4ff3f24272657f87d5099da55",
+      "mtime_iso": "2026-04-17T00:07:55.483390+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "docs/ucenicul_claude_handoff_hardened/06_STAGE_WF-OR-01.md",
+      "size_bytes": 8295,
+      "sha256": "2b16412f6d94685f69d8ebd77f5b32c15a6d669cfef8a5679d2a2a9c94d275cc",
+      "mtime_iso": "2026-04-17T14:16:59.048654+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "docs/ucenicul_claude_handoff_hardened/07_IMPEDIMENTS_AND_GUARDRAILS.md",
+      "size_bytes": 4597,
+      "sha256": "3ea6d8a15445df61e5f11dfca6cfa79b7e765969b51cd31d85fce18d12eccb79",
+      "mtime_iso": "2026-04-17T00:07:55.497901+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "docs/ucenicul_claude_handoff_hardened/07_STAGE_WF-PL-01.md",
+      "size_bytes": 8385,
+      "sha256": "ac97d7358d44c1fc125ddc27f9a82055b805a09995534f3b1045439a2f9a8f90",
+      "mtime_iso": "2026-04-17T19:02:51.733944+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "docs/ucenicul_claude_handoff_hardened/08_SCORECARD_AND_GATES.md",
+      "size_bytes": 2439,
+      "sha256": "62dbd7322a48aa8a60b58c1727940652c769fe17b81a886025fdf9cb5ec57718",
+      "mtime_iso": "2026-04-17T00:07:55.513903+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "docs/ucenicul_claude_handoff_hardened/08_STAGE_WF-DI-01.md",
+      "size_bytes": 5809,
+      "sha256": "23e0f909b9c30ab2942bf2a93ce61cb3039ae58b02b425c416f42c0f8bc10aae",
+      "mtime_iso": "2026-04-17T19:42:08.933385+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "docs/ucenicul_claude_handoff_hardened/09_REPORT_TEMPLATES.md",
+      "size_bytes": 3033,
+      "sha256": "0089f02457a2cfe9c718e6d06e4c9b68dd6d1d5ddc5c7b44c0f5e633b6f7af28",
+      "mtime_iso": "2026-04-17T00:07:55.529902+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "docs/ucenicul_claude_handoff_hardened/09_STAGE_WF-ME-01.md",
+      "size_bytes": 3136,
+      "sha256": "5e2102582f3dd0cb5128183bb4872d3105d88fa5ff07bc8e10b24328931e3ba5",
+      "mtime_iso": "2026-04-17T20:16:42.256269+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "docs/ucenicul_claude_handoff_hardened/10_FILE_SCORECARD.md",
+      "size_bytes": 3926,
+      "sha256": "cca877c706c696d03d20030fd1c7b050c5bbcef2d9cebb767444a73d609b946c",
+      "mtime_iso": "2026-04-17T00:07:55.545903+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "docs/ucenicul_claude_handoff_hardened/11_DECISION_PRESETS.md",
+      "size_bytes": 4866,
+      "sha256": "0630dad362f90fe9205439dd207074550c2b0516ac79f1866f1a96e21d1a01b5",
+      "mtime_iso": "2026-04-17T00:07:55.561902+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "docs/ucenicul_claude_handoff_hardened/12_TOOL_FAILURE_MATRIX.md",
+      "size_bytes": 4989,
+      "sha256": "09066485d7677ffa1d3a4e56fc9315f6ae5624db72b5311b9e33820b22d88576",
+      "mtime_iso": "2026-04-17T00:07:55.576908+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "docs/ucenicul_claude_handoff_hardened/13_WORKFLOW_SNAPSHOT_AND_ROLLBACK.md",
+      "size_bytes": 3519,
+      "sha256": "2112741788783cf57a767e165b5de4ee37b1f9dc1bff286f68d88268c3436e55",
+      "mtime_iso": "2026-04-17T00:07:55.592416+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "docs/ucenicul_claude_handoff_hardened/14_TEST_FIXTURE_REGISTRY.md",
+      "size_bytes": 3257,
+      "sha256": "9f5fb03455b91e5328dfb34123ab1ff4cc9bf60924b188a21dfbe22f3930d5e6",
+      "mtime_iso": "2026-04-17T00:07:55.608416+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "docs/ucenicul_claude_handoff_hardened/15_STAGE_TEMPLATE.md",
+      "size_bytes": 3826,
+      "sha256": "986eccb4a39d542ab86266190c41f89b8cf3355b45d8401fc84b8c0757581d13",
+      "mtime_iso": "2026-04-17T00:07:55.627416+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "docs/ucenicul_claude_handoff_hardened/16_AUTONOMOUS_STOP_AND_RECOVERY.md",
+      "size_bytes": 3977,
+      "sha256": "6c025c9ee42e0708a477a0fd7601731687f3ec43144cc8d15bcd61f36a07673b",
+      "mtime_iso": "2026-04-17T00:07:55.655926+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "docs/ucenicul_claude_handoff_hardened/17_ACTIVE_STAGE_LOCK.md",
+      "size_bytes": 2268,
+      "sha256": "5829848c57353731ffb9e28eb01d87a4b1af68879f18c503c68fee382b53edcf",
+      "mtime_iso": "2026-04-17T21:16:51.408639+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "docs/ucenicul_claude_handoff_hardened/17_ACTIVE_STAGE_LOCK__WF-DI-01.md",
+      "size_bytes": 718,
+      "sha256": "47ebbdba98145f7cea0c328dff353dc3bc693198bfc9589d9317bdd974c758d9",
+      "mtime_iso": "2026-04-17T19:42:08.951071+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "docs/ucenicul_claude_handoff_hardened/17_ACTIVE_STAGE_LOCK__WF-DI-01_CLOSED.md",
+      "size_bytes": 1760,
+      "sha256": "bc6123e73fda6c89cd5140d8d4dd176b2b1d79467edd606201dbd44e8f90574f",
+      "mtime_iso": "2026-04-17T19:57:37.010403+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "docs/ucenicul_claude_handoff_hardened/17_ACTIVE_STAGE_LOCK__WF-ME-01.md",
+      "size_bytes": 521,
+      "sha256": "d508bb0c67ba81f9ca71ea8e0a1bb06d54d2f69e1f778a3b6c6612a525201395",
+      "mtime_iso": "2026-04-17T20:16:42.298397+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "docs/ucenicul_claude_handoff_hardened/17_ACTIVE_STAGE_LOCK__WF-OR-01.md",
+      "size_bytes": 278,
+      "sha256": "36f8327af47e57c8c7a20533bed61f2edddc5e074ad14230601f2a622bed6406",
+      "mtime_iso": "2026-04-17T14:17:26.718733+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "docs/ucenicul_claude_handoff_hardened/17_ACTIVE_STAGE_LOCK__WF-PL-01.md",
+      "size_bytes": 3909,
+      "sha256": "1e859ed3326f8e7bba3561dde50dceabb796a16cd23fb335356ae964fc50b091",
+      "mtime_iso": "2026-04-17T19:02:51.739954+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "docs/ucenicul_claude_handoff_hardened/18_RUNTIME_CANONICAL_TARGET.md",
+      "size_bytes": 4100,
+      "sha256": "2d66018e62ae6f8d8a1190d4156b3f1a9450235ca11ec41f7d976e88bda334bc",
+      "mtime_iso": "2026-04-17T00:07:55.688002+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "docs/ucenicul_claude_handoff_hardened/19_MODULE_CONTRACTS.md",
+      "size_bytes": 4993,
+      "sha256": "771d25300605d3a61158bf546cacca4eeca61d9eecf136c3d15e03727abb56ff",
+      "mtime_iso": "2026-04-17T00:07:55.703002+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "docs/ucenicul_claude_handoff_hardened/20_EXECUTION_CONTEXT_EVOLUTION.md",
+      "size_bytes": 3582,
+      "sha256": "0d6a37fcd67d91978a37ca55635bd7b6e48292d26ccde035bc726c53456872e1",
+      "mtime_iso": "2026-04-17T00:07:55.718003+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "docs/ucenicul_claude_handoff_hardened/21_RESPONSE_COMPOSER_CONTRACT.md",
+      "size_bytes": 2867,
+      "sha256": "76ee728469210d40d1d72591155324737f6112e81e2ede00763ea8920b1700c0",
+      "mtime_iso": "2026-04-17T00:07:55.733003+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "docs/ucenicul_claude_handoff_hardened/AUDIT_REPORT.md",
+      "size_bytes": 4765,
+      "sha256": "3ce8f0bf346d9f6f23f710fefd2005f988f33f20bcb306f8a1774ce4ce12380a",
+      "mtime_iso": "2026-04-17T21:18:40.457475+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "docs/ucenicul_claude_handoff_hardened/AUDIT_REPORT__WF-DI-01.md",
+      "size_bytes": 2996,
+      "sha256": "68d88355edc7459e977ad77702c0d114196ea99f95fc3649479a78083792c9d5",
+      "mtime_iso": "2026-04-17T19:57:36.986403+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "docs/ucenicul_claude_handoff_hardened/AUDIT_REPORT__WF-ME-01.md",
+      "size_bytes": 698,
+      "sha256": "301a7ba8ca6e1ec22b64887fbbf7cc435fc4a07afd878d929f7541ee1b56ea97",
+      "mtime_iso": "2026-04-17T20:16:42.261267+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "docs/ucenicul_claude_handoff_hardened/AUDIT_REPORT__WF-OR-01.md",
+      "size_bytes": 259,
+      "sha256": "0332443d3ad59c64db44dd4646aafa8aa9f4bdb78493d197e1017c6c8a69f756",
+      "mtime_iso": "2026-04-17T14:17:54.546286+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "docs/ucenicul_claude_handoff_hardened/AUDIT_REPORT__WF-PL-01.md",
+      "size_bytes": 4960,
+      "sha256": "a22c5bad37e8bf05ab1aac63956075049ebf8ce23d3114c915aa1c72e58983e7",
+      "mtime_iso": "2026-04-17T19:41:54.270722+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "docs/ucenicul_claude_handoff_hardened/BUILD_REPORT.md",
+      "size_bytes": 3559,
+      "sha256": "6c595f16716abea2c64357747ef4e21a79f3462412b5f503e861f810431ee195",
+      "mtime_iso": "2026-04-17T19:42:28.257096+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "docs/ucenicul_claude_handoff_hardened/BUILD_REPORT__WF-DI-01.md",
+      "size_bytes": 3559,
+      "sha256": "6c595f16716abea2c64357747ef4e21a79f3462412b5f503e861f810431ee195",
+      "mtime_iso": "2026-04-17T19:42:08.960586+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "docs/ucenicul_claude_handoff_hardened/BUILD_REPORT__WF-ME-01.md",
+      "size_bytes": 977,
+      "sha256": "c2e1b850df73074ab80d1daae3596a2adbea87413601395b7497f997526c2ed3",
+      "mtime_iso": "2026-04-17T20:16:42.265778+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "docs/ucenicul_claude_handoff_hardened/BUILD_REPORT__WF-OR-01.md",
+      "size_bytes": 259,
+      "sha256": "83c3d8cece50129903629895ef2759b99e8dd1fe4ee89b8e7101c55bae199d80",
+      "mtime_iso": "2026-04-17T14:17:48.477417+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "docs/ucenicul_claude_handoff_hardened/BUILD_REPORT__WF-PL-01.md",
+      "size_bytes": 4825,
+      "sha256": "0b9b2fbf7d184810a981ca3fa54aeae5ba980e18c7ee59b013cb548e3f61dd28",
+      "mtime_iso": "2026-04-17T19:02:51.759069+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "docs/ucenicul_claude_handoff_hardened/CLOSURE_REPORT.md",
+      "size_bytes": 4703,
+      "sha256": "54b99300d2cedfed45278f9ac8d0514a21fc8d0e0d210b6a4deb7e0e8fd1acf7",
+      "mtime_iso": "2026-04-17T21:14:07.572597+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "docs/ucenicul_claude_handoff_hardened/CLOSURE_REPORT__WF-DI-01.md",
+      "size_bytes": 2114,
+      "sha256": "0f37656ffdfdab62789f337fbfe76723a7644609510c268b173a79770c39fe0a",
+      "mtime_iso": "2026-04-17T19:57:36.980403+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "docs/ucenicul_claude_handoff_hardened/CLOSURE_REPORT__WF-ME-01.md",
+      "size_bytes": 6055,
+      "sha256": "182ebd9702709e518c4982ce9b7d06f2ffb9610c4a2bd6f16af84d45b5a90f25",
+      "mtime_iso": "2026-04-17T21:15:29.254656+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "docs/ucenicul_claude_handoff_hardened/CLOSURE_REPORT__WF-OR-01.md",
+      "size_bytes": 265,
+      "sha256": "faf7c2f944f87d305ec6bd9174d64bf845cc38a233c871185cec7bfeeb56b1ef",
+      "mtime_iso": "2026-04-17T14:18:06.945353+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "docs/ucenicul_claude_handoff_hardened/CLOSURE_REPORT__WF-PL-01.md",
+      "size_bytes": 4853,
+      "sha256": "5d44b76d1520e13d82026ae5754a94b559f296704885f18f29d5203b6ae1c30d",
+      "mtime_iso": "2026-04-17T19:41:54.264442+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "docs/ucenicul_claude_handoff_hardened/CURRENT_STAGE.md",
+      "size_bytes": 3624,
+      "sha256": "ef7a20be769846505b373ecaf54976eaad360304e700454a5330f19e2d1e396a",
+      "mtime_iso": "2026-04-17T21:17:57.889127+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "docs/ucenicul_claude_handoff_hardened/CURRENT_STAGE__WF-DI-01.md",
+      "size_bytes": 2151,
+      "sha256": "5f70ae93539ad86177c630a38ee7d650ebf41219e0b7da84c034325a2b3fbe03",
+      "mtime_iso": "2026-04-17T19:57:36.991402+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "docs/ucenicul_claude_handoff_hardened/CURRENT_STAGE__WF-ME-01.md",
+      "size_bytes": 761,
+      "sha256": "b62cecc8a5d87c69fd4970369ea3beefe874f00bd0d84d513c7d36d4dfd67f34",
+      "mtime_iso": "2026-04-17T20:16:42.278298+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "docs/ucenicul_claude_handoff_hardened/CURRENT_STAGE__WF-OR-01.md",
+      "size_bytes": 264,
+      "sha256": "c41c3c812eeaa511a61273065771e83dde2f519b29d8bebe2bcbb88b243463e0",
+      "mtime_iso": "2026-04-17T14:17:34.247627+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "docs/ucenicul_claude_handoff_hardened/CURRENT_STAGE__WF-PL-01.md",
+      "size_bytes": 3667,
+      "sha256": "279d5dc9a1e629e67d2b8a5b859db6bbc178100f07dd9f65d71748aa9abeca19",
+      "mtime_iso": "2026-04-17T19:41:54.276225+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "docs/ucenicul_claude_handoff_hardened/FIX_LOG.md",
+      "size_bytes": 9717,
+      "sha256": "413de955cc87bfaef30fb6c487da7c9dade6cebc02011b5d1c1dad892b066f88",
+      "mtime_iso": "2026-04-17T21:19:15.601420+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "docs/ucenicul_claude_handoff_hardened/FIX_LOG__WF-DI-01.md",
+      "size_bytes": 4857,
+      "sha256": "c191065cec48ea580220e6fac8d710325ec0eea6cdc99499c9ed8e3fcb743cff",
+      "mtime_iso": "2026-04-17T19:57:36.996402+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "docs/ucenicul_claude_handoff_hardened/FIX_LOG__WF-ME-01.md",
+      "size_bytes": 14358,
+      "sha256": "82da62342f377316e11c7d967e87ca6e789505ea44aa65e2484cbd3301add7db",
+      "mtime_iso": "2026-04-17T21:00:47.260179+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "docs/ucenicul_claude_handoff_hardened/FIX_LOG__WF-OR-01.md",
+      "size_bytes": 244,
+      "sha256": "c380a7e489ffef9ca05abd8bb0bdd8719ff3c7c974fef389bdffeb960de6cb5e",
+      "mtime_iso": "2026-04-17T14:18:00.571841+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "docs/ucenicul_claude_handoff_hardened/FIX_LOG__WF-PL-01.md",
+      "size_bytes": 10794,
+      "sha256": "26128065758b24c487daabd53307e84ad87fc524a47f8b279238ce55d4d778b3",
+      "mtime_iso": "2026-04-17T19:41:54.282230+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "docs/ucenicul_claude_handoff_hardened/README.md",
+      "size_bytes": 3868,
+      "sha256": "0f739d6aa6b8ecfe61f84d4ffb615865f46eed8baa2521d5a36f58e930b2b34d",
+      "mtime_iso": "2026-04-17T00:07:55.375295+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "docs/ucenicul_claude_handoff_hardened/STATE.json",
+      "size_bytes": 12583,
+      "sha256": "7bffcda8851d05103696a09f816c4f1a8f5f55089f8fa9aaa04382e49402f5eb",
+      "mtime_iso": "2026-04-17T21:12:48.859609+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "docs/ucenicul_claude_handoff_hardened/STATE__WF-DI-01.json",
+      "size_bytes": 4882,
+      "sha256": "c74a439686388246e4bb57d9343c5cf792d01c432152fd2fe4e50648e994ce0f",
+      "mtime_iso": "2026-04-17T19:57:36.975025+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "docs/ucenicul_claude_handoff_hardened/STATE__WF-ME-01.json",
+      "size_bytes": 1102,
+      "sha256": "4b029210ff92ce3caee2ab9a0bcb816478a02c7feeb199290f849c46afed97eb",
+      "mtime_iso": "2026-04-17T20:16:42.287890+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "docs/ucenicul_claude_handoff_hardened/STATE__WF-OR-01.json",
+      "size_bytes": 224,
+      "sha256": "07e94d62cb2bb12764a5d822e8fd3e275f4348080f208ddc93da097779b9c009",
+      "mtime_iso": "2026-04-17T14:17:41.181136+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "docs/ucenicul_claude_handoff_hardened/STATE__WF-PL-01.json",
+      "size_bytes": 8988,
+      "sha256": "3c534ea9cec99bf272e55e5bec1a549a9894ea2b8e1e777a6c4a0c6a0f289b3b",
+      "mtime_iso": "2026-04-17T19:41:54.256851+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "docs/ucenicul_claude_handoff_hardened/archive/WF-EC-01_closure_snapshot/00_ROUTE_MAP.md",
+      "size_bytes": 2143,
+      "sha256": "9b0a765f6bf7cbeaae98a3d3e342410cbbbdf2c1bf0d139ea3e4f629b36f686c",
+      "mtime_iso": "2026-04-17T14:14:55.045298+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "docs/ucenicul_claude_handoff_hardened/archive/WF-EC-01_closure_snapshot/06_STAGE_WF-EC-01.md",
+      "size_bytes": 4430,
+      "sha256": "a45e61aa1cfa749d837be0e4a66404b269e72aa4ff3f24272657f87d5099da55",
+      "mtime_iso": "2026-04-17T14:14:55.052111+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "docs/ucenicul_claude_handoff_hardened/archive/WF-EC-01_closure_snapshot/17_ACTIVE_STAGE_LOCK.md",
+      "size_bytes": 3712,
+      "sha256": "6fe76c120106f82107291e46e1ac252b3904dc02aa7a764d95353105ef621888",
+      "mtime_iso": "2026-04-17T14:14:55.056660+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "docs/ucenicul_claude_handoff_hardened/archive/WF-EC-01_closure_snapshot/AUDIT_REPORT.md",
+      "size_bytes": 8518,
+      "sha256": "873c7dfa82146c325ebe4d2c6aa9b03d3bc06da9e95eda72b805377fff9881ca",
+      "mtime_iso": "2026-04-17T14:14:55.007389+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "docs/ucenicul_claude_handoff_hardened/archive/WF-EC-01_closure_snapshot/BUILD_REPORT.md",
+      "size_bytes": 7168,
+      "sha256": "e07ffdab85cdbdda25cc3ec9e5ecf1aabedeb7edf0ee641bf73bd9169715e2a3",
+      "mtime_iso": "2026-04-17T14:14:54.999186+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "docs/ucenicul_claude_handoff_hardened/archive/WF-EC-01_closure_snapshot/CLOSURE_REPORT.md",
+      "size_bytes": 4665,
+      "sha256": "e24388e076dfa9bc15e11427c475203b7f704070a2ec5e7c3ec2607148a07569",
+      "mtime_iso": "2026-04-17T14:14:55.039297+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "docs/ucenicul_claude_handoff_hardened/archive/WF-EC-01_closure_snapshot/CURRENT_STAGE.md",
+      "size_bytes": 5143,
+      "sha256": "ddc6beec23347b25ff7109e4b05fc7d27a10658e4c9114dd36b6e29c1ee30c7c",
+      "mtime_iso": "2026-04-17T14:14:55.024576+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "docs/ucenicul_claude_handoff_hardened/archive/WF-EC-01_closure_snapshot/FIX_LOG.md",
+      "size_bytes": 12942,
+      "sha256": "0688efff0295ccfab190b32d4eaf5ad0a1ec150fb1c8b88abb091361b3082ce2",
+      "mtime_iso": "2026-04-17T14:14:55.017799+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "docs/ucenicul_claude_handoff_hardened/archive/WF-EC-01_closure_snapshot/STATE.json",
+      "size_bytes": 7782,
+      "sha256": "a7f644e0532dd98635a33b77e08a97e3a95bfeedd9876dcfe29a1c9f92c5520e",
+      "mtime_iso": "2026-04-17T14:14:55.030297+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "docs/ucenicul_claude_handoff_hardened/archive/WF-OR-01_closure_snapshot/00_ROUTE_MAP.md",
+      "size_bytes": 2149,
+      "sha256": "52aa87de2d182f3cceba55bbf3405964eae10f958cca3b918258c84e799a2d35",
+      "mtime_iso": "2026-04-17T18:06:23.972104+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "docs/ucenicul_claude_handoff_hardened/archive/WF-OR-01_closure_snapshot/06_STAGE_WF-OR-01.md",
+      "size_bytes": 8295,
+      "sha256": "2b16412f6d94685f69d8ebd77f5b32c15a6d669cfef8a5679d2a2a9c94d275cc",
+      "mtime_iso": "2026-04-17T18:06:23.979104+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "docs/ucenicul_claude_handoff_hardened/archive/WF-OR-01_closure_snapshot/17_ACTIVE_STAGE_LOCK.md",
+      "size_bytes": 3769,
+      "sha256": "c461da98d2a9f645561c48b01403eb57c8b7f0b8b6ca10c3f3bc8d9d9cbb23b9",
+      "mtime_iso": "2026-04-17T18:06:23.985103+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "docs/ucenicul_claude_handoff_hardened/archive/WF-OR-01_closure_snapshot/AUDIT_REPORT.md",
+      "size_bytes": 7076,
+      "sha256": "1abb7f4e19c81285b804dc2a29b0397984603b2e0aa65cd60d9aeee69fbe163e",
+      "mtime_iso": "2026-04-17T18:06:23.991612+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "docs/ucenicul_claude_handoff_hardened/archive/WF-OR-01_closure_snapshot/BUILD_REPORT.md",
+      "size_bytes": 7686,
+      "sha256": "41645faf2acfa47d276ca64d437ad9870ead4ce44a58f77bc367c45f3fec60d7",
+      "mtime_iso": "2026-04-17T18:06:23.996612+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "docs/ucenicul_claude_handoff_hardened/archive/WF-OR-01_closure_snapshot/CLOSURE_REPORT.md",
+      "size_bytes": 4186,
+      "sha256": "4b58b679a94a65d02b011cb856729d90f6825bd0b404a89632e8258f06ecde76",
+      "mtime_iso": "2026-04-17T18:06:24.001613+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "docs/ucenicul_claude_handoff_hardened/archive/WF-OR-01_closure_snapshot/CURRENT_STAGE.md",
+      "size_bytes": 5187,
+      "sha256": "e705dfa5d9dba888dcacba359f320be4c1ddd668564c511fdf722ac84b273790",
+      "mtime_iso": "2026-04-17T18:06:24.006611+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "docs/ucenicul_claude_handoff_hardened/archive/WF-OR-01_closure_snapshot/FIX_LOG.md",
+      "size_bytes": 9996,
+      "sha256": "85f0a1a03040911d611965a93e312e2e5f81f529595bf8deabd4bc0fb56a7c62",
+      "mtime_iso": "2026-04-17T18:06:24.011615+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "docs/ucenicul_claude_handoff_hardened/archive/WF-OR-01_closure_snapshot/STATE.json",
+      "size_bytes": 8859,
+      "sha256": "418d4dba29520461a04cb86a588eb844aadf96fe70903b1aea53c325761ec450",
+      "mtime_iso": "2026-04-17T18:06:24.017612+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "docs/ucenicul_claude_handoff_hardened/ucenicul_claude_handoff_hardened/00_ROUTE_MAP.md",
+      "size_bytes": 2149,
+      "sha256": "52aa87de2d182f3cceba55bbf3405964eae10f958cca3b918258c84e799a2d35",
+      "mtime_iso": "2026-04-17T14:04:11.758604+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "docs/ucenicul_claude_handoff_hardened/ucenicul_claude_handoff_hardened/02_load_execution_context.sql",
+      "size_bytes": 825,
+      "sha256": "5bda19b39c540a5ad02123dcdec98bfe8ae94426e9300211251cbbf07e5415ec",
+      "mtime_iso": "2026-04-17T14:05:11.482140+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "docs/ucenicul_claude_handoff_hardened/ucenicul_claude_handoff_hardened/03_load_execution_context_by_idempotency.sql",
+      "size_bytes": 699,
+      "sha256": "086124fb72e4bee79860477a0516a30c5348f50f717d9ef843e048ea00e3ec75",
+      "mtime_iso": "2026-04-17T14:05:12.869052+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "docs/ucenicul_claude_handoff_hardened/ucenicul_claude_handoff_hardened/06_STAGE_WF-OR-01.md",
+      "size_bytes": 8295,
+      "sha256": "2b16412f6d94685f69d8ebd77f5b32c15a6d669cfef8a5679d2a2a9c94d275cc",
+      "mtime_iso": "2026-04-17T14:04:56.249628+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "docs/ucenicul_claude_handoff_hardened/ucenicul_claude_handoff_hardened/10_fixtures_create.sql",
+      "size_bytes": 1411,
+      "sha256": "a1773c9b42a9f231c2b117b75ddbf8ad0182ca431089c9422c94e33ec070cac5",
+      "mtime_iso": "2026-04-17T14:05:14.400367+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "docs/ucenicul_claude_handoff_hardened/ucenicul_claude_handoff_hardened/11_fixtures_cleanup.sql",
+      "size_bytes": 236,
+      "sha256": "f658edd4a176f96edd13e2ab52d8a586143f992b305d6e029d0888f258ba8b2e",
+      "mtime_iso": "2026-04-17T14:05:18.648441+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "docs/ucenicul_claude_handoff_hardened/ucenicul_claude_handoff_hardened/17_ACTIVE_STAGE_LOCK.md",
+      "size_bytes": 3769,
+      "sha256": "c461da98d2a9f645561c48b01403eb57c8b7f0b8b6ca10c3f3bc8d9d9cbb23b9",
+      "mtime_iso": "2026-04-17T14:04:11.830330+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "docs/ucenicul_claude_handoff_hardened/ucenicul_claude_handoff_hardened/20_read_path_probe.sql",
+      "size_bytes": 864,
+      "sha256": "c6c22bd5c39b32bedf8fa4c49efeeb2dfad7c6757aa0110e527f2dfb25e60c18",
+      "mtime_iso": "2026-04-17T14:05:17.475134+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "docs/ucenicul_claude_handoff_hardened/ucenicul_claude_handoff_hardened/AUDIT_REPORT.md",
+      "size_bytes": 3717,
+      "sha256": "e9c91e65c1736e2984504eab02317ba64a0e9a61e9d02655770cfe492d132300",
+      "mtime_iso": "2026-04-17T14:04:11.993425+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "docs/ucenicul_claude_handoff_hardened/ucenicul_claude_handoff_hardened/BUILD_REPORT.md",
+      "size_bytes": 4922,
+      "sha256": "4598ec8617fa361bb595b10635e91f37ab2be427269627e77528b876205ceda1",
+      "mtime_iso": "2026-04-17T14:04:11.949743+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "docs/ucenicul_claude_handoff_hardened/ucenicul_claude_handoff_hardened/CLOSURE_REPORT.md",
+      "size_bytes": 1582,
+      "sha256": "f603acb63c9fd9f6cf672ded5bf5a1b5eee50c0f4736e7c76fb806c8515362e3",
+      "mtime_iso": "2026-04-17T14:04:12.054505+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "docs/ucenicul_claude_handoff_hardened/ucenicul_claude_handoff_hardened/CURRENT_STAGE.md",
+      "size_bytes": 3254,
+      "sha256": "4e5a82107f3f635e05a5f7c33b41ee92cfe99fb25421c7970a887ddd0ac904dd",
+      "mtime_iso": "2026-04-17T14:04:11.868272+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "docs/ucenicul_claude_handoff_hardened/ucenicul_claude_handoff_hardened/FIX_LOG.md",
+      "size_bytes": 1469,
+      "sha256": "9a4b7eabe9d17010c3fd0270d9c5388623cab954e2baa9b8416e041c87a0dc57",
+      "mtime_iso": "2026-04-17T14:04:12.009470+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "docs/ucenicul_claude_handoff_hardened/ucenicul_claude_handoff_hardened/README_APPLY_FIRST.md",
+      "size_bytes": 1529,
+      "sha256": "434fd578db54dda073142af5559f3c58aede4ff7025a5b629d420e812643dce0",
+      "mtime_iso": "2026-04-17T14:03:01.115014+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "docs/ucenicul_claude_handoff_hardened/ucenicul_claude_handoff_hardened/STATE.json",
+      "size_bytes": 4255,
+      "sha256": "1f3bdc44546e6c893c34c713f01403bbfb67b4319c31330bf9fa3be53ac39752",
+      "mtime_iso": "2026-04-17T14:04:57.558223+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "docs/ucenicul_claude_handoff_hardened/ucenicul_claude_handoff_hardened/WF-OR-01_CONNECTION_MAP.md",
+      "size_bytes": 1076,
+      "sha256": "4e40c2003f05858f61898b0a08b79b5714aa5cb84f2d74cf73d843b5999027e6",
+      "mtime_iso": "2026-04-17T14:05:00.912468+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "docs/ucenicul_claude_handoff_hardened/ucenicul_claude_handoff_hardened/WF-OR-01_IMPORT_PATCH_PLAN.md",
+      "size_bytes": 1671,
+      "sha256": "93f4a53a5d78d4df3094a402388e67a7ad05bc3c561e68d61e62d95a3d8b58e1",
+      "mtime_iso": "2026-04-17T14:05:02.177758+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "docs/ucenicul_claude_handoff_hardened/ucenicul_claude_handoff_hardened/WF-OR-01_NODE_MAP.md",
+      "size_bytes": 1956,
+      "sha256": "6b3b4c32df2b4539bb4a76178523f2917f19e836c9acc7d3239ff6d07774ec75",
+      "mtime_iso": "2026-04-17T14:04:59.812457+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "docs/ucenicul_claude_handoff_hardened/ucenicul_claude_handoff_hardened/WF-OR-01_Orchestrator_Input_Handoff.json",
+      "size_bytes": 12017,
+      "sha256": "f42a35335f2de20ad79cf511cb4684072889d6bd46c1d085853378f902b542e4",
+      "mtime_iso": "2026-04-17T14:04:58.668044+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "docs/ucenicul_claude_handoff_hardened/ucenicul_claude_handoff_hardened/or_logic.py",
+      "size_bytes": 7272,
+      "sha256": "f2a87cd78ef014c65265dc978a78104a9fd63b79fe7d01e6c2ec61995c22e3ae",
+      "mtime_iso": "2026-04-17T14:05:03.948973+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "docs/ucenicul_claude_handoff_hardened/ucenicul_claude_handoff_hardened/results.json",
+      "size_bytes": 475,
+      "sha256": "eb39912ac6156e944eb477a58e7e3627f6bf2f7b78e4e76fe500e9ff6cc47128",
+      "mtime_iso": "2026-04-17T14:05:07.029913+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "docs/ucenicul_claude_handoff_hardened/ucenicul_claude_handoff_hardened/results.md",
+      "size_bytes": 688,
+      "sha256": "1829d68ab32132b54ec6bfaffa57418eaf19825bbe3b65bbde80431e36fb6692",
+      "mtime_iso": "2026-04-17T14:05:05.827350+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "docs/ucenicul_claude_handoff_hardened/ucenicul_claude_handoff_hardened/test_families.py",
+      "size_bytes": 10966,
+      "sha256": "6b2969f81eba414f300660062d2c3917721db1240c3890cbc3facc5cdd5dd78f",
+      "mtime_iso": "2026-04-17T14:05:04.543788+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/.tmp_inventory_build.log",
+      "size_bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "mtime_iso": "2026-04-17T22:30:30.733472+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/README.md",
+      "size_bytes": 4308,
+      "sha256": "f8f33816328f2954bc2260aa03607bcb732ae293e22c341155bd60eb8ffff124",
+      "mtime_iso": "2026-04-17T22:31:06.672607+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/RESTRUCTURE_COPY_LOG.md",
+      "size_bytes": 5558,
+      "sha256": "7c519205f808e27faf7d428ffd03c2a4dc98f9b8d0669ca327364749ab078dcc",
+      "mtime_iso": "2026-04-17T22:33:30.606419+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/RESTRUCTURE_DECISIONS.md",
+      "size_bytes": 11007,
+      "sha256": "1dd16d4225ad2f18c17274091d7c3e6de364a3ded203041ab6ac2d1e305e6788",
+      "mtime_iso": "2026-04-17T22:33:00.317650+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/RESTRUCTURE_INVENTORY.md",
+      "size_bytes": 53523,
+      "sha256": "e40029f280b44170d2d037fa5a56c6b539746435f7b31bec6e1a4e91e35c3981",
+      "mtime_iso": "2026-04-17T22:30:25.667317+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/RESTRUCTURE_MANIFEST.md",
+      "size_bytes": 7706,
+      "sha256": "92130a8d24b5cc9b580f972d8785066e39aaf023048a338a0bfb16181205d870",
+      "mtime_iso": "2026-04-17T22:31:58.010802+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/archive/README.md",
+      "size_bytes": 1185,
+      "sha256": "5d094385b08bf973f3e91e668e3e21576c7d0834855e04875df075afd37d764b",
+      "mtime_iso": "2026-04-17T22:29:29.760228+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/archive/deprecated_docs/README.md",
+      "size_bytes": 142,
+      "sha256": "531ec1b60f766c105a01aead15e685f4cf7aa40da6bad7edd6388b52769ef6be",
+      "mtime_iso": "2026-04-17T22:29:29.776226+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/archive/historical_snapshots/README.md",
+      "size_bytes": 924,
+      "sha256": "d957f76724f098d8a72bead84f6e05f201c46f37ea9d7c41a62de4d4d0ce9d84",
+      "mtime_iso": "2026-04-17T22:29:29.765232+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/archive/historical_snapshots/WF-EC-01_closure_snapshot/00_ROUTE_MAP.md",
+      "size_bytes": 2143,
+      "sha256": "9b0a765f6bf7cbeaae98a3d3e342410cbbbdf2c1bf0d139ea3e4f629b36f686c",
+      "mtime_iso": "2026-04-17T14:14:55+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/archive/historical_snapshots/WF-EC-01_closure_snapshot/06_STAGE_WF-EC-01.md",
+      "size_bytes": 4430,
+      "sha256": "a45e61aa1cfa749d837be0e4a66404b269e72aa4ff3f24272657f87d5099da55",
+      "mtime_iso": "2026-04-17T14:14:55+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/archive/historical_snapshots/WF-EC-01_closure_snapshot/17_ACTIVE_STAGE_LOCK.md",
+      "size_bytes": 3712,
+      "sha256": "6fe76c120106f82107291e46e1ac252b3904dc02aa7a764d95353105ef621888",
+      "mtime_iso": "2026-04-17T14:14:55+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/archive/historical_snapshots/WF-EC-01_closure_snapshot/AUDIT_REPORT.md",
+      "size_bytes": 8518,
+      "sha256": "873c7dfa82146c325ebe4d2c6aa9b03d3bc06da9e95eda72b805377fff9881ca",
+      "mtime_iso": "2026-04-17T14:14:55+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/archive/historical_snapshots/WF-EC-01_closure_snapshot/BUILD_REPORT.md",
+      "size_bytes": 7168,
+      "sha256": "e07ffdab85cdbdda25cc3ec9e5ecf1aabedeb7edf0ee641bf73bd9169715e2a3",
+      "mtime_iso": "2026-04-17T14:14:54+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/archive/historical_snapshots/WF-EC-01_closure_snapshot/CLOSURE_REPORT.md",
+      "size_bytes": 4665,
+      "sha256": "e24388e076dfa9bc15e11427c475203b7f704070a2ec5e7c3ec2607148a07569",
+      "mtime_iso": "2026-04-17T14:14:55+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/archive/historical_snapshots/WF-EC-01_closure_snapshot/CURRENT_STAGE.md",
+      "size_bytes": 5143,
+      "sha256": "ddc6beec23347b25ff7109e4b05fc7d27a10658e4c9114dd36b6e29c1ee30c7c",
+      "mtime_iso": "2026-04-17T14:14:55+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/archive/historical_snapshots/WF-EC-01_closure_snapshot/FIX_LOG.md",
+      "size_bytes": 12942,
+      "sha256": "0688efff0295ccfab190b32d4eaf5ad0a1ec150fb1c8b88abb091361b3082ce2",
+      "mtime_iso": "2026-04-17T14:14:55+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/archive/historical_snapshots/WF-EC-01_closure_snapshot/STATE.json",
+      "size_bytes": 7782,
+      "sha256": "a7f644e0532dd98635a33b77e08a97e3a95bfeedd9876dcfe29a1c9f92c5520e",
+      "mtime_iso": "2026-04-17T14:14:55+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/archive/historical_snapshots/WF-OR-01_closure_snapshot/00_ROUTE_MAP.md",
+      "size_bytes": 2149,
+      "sha256": "52aa87de2d182f3cceba55bbf3405964eae10f958cca3b918258c84e799a2d35",
+      "mtime_iso": "2026-04-17T18:06:23+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/archive/historical_snapshots/WF-OR-01_closure_snapshot/06_STAGE_WF-OR-01.md",
+      "size_bytes": 8295,
+      "sha256": "2b16412f6d94685f69d8ebd77f5b32c15a6d669cfef8a5679d2a2a9c94d275cc",
+      "mtime_iso": "2026-04-17T18:06:23+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/archive/historical_snapshots/WF-OR-01_closure_snapshot/17_ACTIVE_STAGE_LOCK.md",
+      "size_bytes": 3769,
+      "sha256": "c461da98d2a9f645561c48b01403eb57c8b7f0b8b6ca10c3f3bc8d9d9cbb23b9",
+      "mtime_iso": "2026-04-17T18:06:23+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/archive/historical_snapshots/WF-OR-01_closure_snapshot/AUDIT_REPORT.md",
+      "size_bytes": 7076,
+      "sha256": "1abb7f4e19c81285b804dc2a29b0397984603b2e0aa65cd60d9aeee69fbe163e",
+      "mtime_iso": "2026-04-17T18:06:23+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/archive/historical_snapshots/WF-OR-01_closure_snapshot/BUILD_REPORT.md",
+      "size_bytes": 7686,
+      "sha256": "41645faf2acfa47d276ca64d437ad9870ead4ce44a58f77bc367c45f3fec60d7",
+      "mtime_iso": "2026-04-17T18:06:23+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/archive/historical_snapshots/WF-OR-01_closure_snapshot/CLOSURE_REPORT.md",
+      "size_bytes": 4186,
+      "sha256": "4b58b679a94a65d02b011cb856729d90f6825bd0b404a89632e8258f06ecde76",
+      "mtime_iso": "2026-04-17T18:06:23+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/archive/historical_snapshots/WF-OR-01_closure_snapshot/CURRENT_STAGE.md",
+      "size_bytes": 5187,
+      "sha256": "e705dfa5d9dba888dcacba359f320be4c1ddd668564c511fdf722ac84b273790",
+      "mtime_iso": "2026-04-17T18:06:24+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/archive/historical_snapshots/WF-OR-01_closure_snapshot/FIX_LOG.md",
+      "size_bytes": 9996,
+      "sha256": "85f0a1a03040911d611965a93e312e2e5f81f529595bf8deabd4bc0fb56a7c62",
+      "mtime_iso": "2026-04-17T18:06:24+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/archive/historical_snapshots/WF-OR-01_closure_snapshot/STATE.json",
+      "size_bytes": 8859,
+      "sha256": "418d4dba29520461a04cb86a588eb844aadf96fe70903b1aea53c325761ec450",
+      "mtime_iso": "2026-04-17T18:06:24+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/archive/historical_snapshots/root_generic_active_stage_pointers/AUDIT_REPORT.md",
+      "size_bytes": 4765,
+      "sha256": "3ce8f0bf346d9f6f23f710fefd2005f988f33f20bcb306f8a1774ce4ce12380a",
+      "mtime_iso": "2026-04-17T21:18:40+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/archive/historical_snapshots/root_generic_active_stage_pointers/BUILD_REPORT.md",
+      "size_bytes": 3559,
+      "sha256": "6c595f16716abea2c64357747ef4e21a79f3462412b5f503e861f810431ee195",
+      "mtime_iso": "2026-04-17T19:42:28+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/archive/historical_snapshots/root_generic_active_stage_pointers/CLOSURE_REPORT.md",
+      "size_bytes": 4703,
+      "sha256": "54b99300d2cedfed45278f9ac8d0514a21fc8d0e0d210b6a4deb7e0e8fd1acf7",
+      "mtime_iso": "2026-04-17T21:14:07+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/archive/historical_snapshots/root_generic_active_stage_pointers/CURRENT_STAGE.md",
+      "size_bytes": 3624,
+      "sha256": "ef7a20be769846505b373ecaf54976eaad360304e700454a5330f19e2d1e396a",
+      "mtime_iso": "2026-04-17T21:17:57+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/archive/historical_snapshots/root_generic_active_stage_pointers/FIX_LOG.md",
+      "size_bytes": 9717,
+      "sha256": "413de955cc87bfaef30fb6c487da7c9dade6cebc02011b5d1c1dad892b066f88",
+      "mtime_iso": "2026-04-17T21:19:15+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/archive/historical_snapshots/root_generic_active_stage_pointers/STATE.json",
+      "size_bytes": 12583,
+      "sha256": "7bffcda8851d05103696a09f816c4f1a8f5f55089f8fa9aaa04382e49402f5eb",
+      "mtime_iso": "2026-04-17T21:12:48+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/archive/legacy_root/README.md",
+      "size_bytes": 133,
+      "sha256": "c7e26aa0b650537aee3f2806796df67570361ae33890ab08ffc305fd850abd39",
+      "mtime_iso": "2026-04-17T22:29:29.781227+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/archive/superseded_packs/README.md",
+      "size_bytes": 517,
+      "sha256": "0bb5781ac8ecbba59f3ad67e4f0e7237bf8738f271298aaa295138ce2aaf507a",
+      "mtime_iso": "2026-04-17T22:29:29.770227+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/archive/superseded_packs/wf-or-01_handoff_nested_source_pack/00_ROUTE_MAP.md",
+      "size_bytes": 2149,
+      "sha256": "52aa87de2d182f3cceba55bbf3405964eae10f958cca3b918258c84e799a2d35",
+      "mtime_iso": "2026-04-17T14:04:11+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/archive/superseded_packs/wf-or-01_handoff_nested_source_pack/02_load_execution_context.sql",
+      "size_bytes": 825,
+      "sha256": "5bda19b39c540a5ad02123dcdec98bfe8ae94426e9300211251cbbf07e5415ec",
+      "mtime_iso": "2026-04-17T14:05:11+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/archive/superseded_packs/wf-or-01_handoff_nested_source_pack/03_load_execution_context_by_idempotency.sql",
+      "size_bytes": 699,
+      "sha256": "086124fb72e4bee79860477a0516a30c5348f50f717d9ef843e048ea00e3ec75",
+      "mtime_iso": "2026-04-17T14:05:12+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/archive/superseded_packs/wf-or-01_handoff_nested_source_pack/06_STAGE_WF-OR-01.md",
+      "size_bytes": 8295,
+      "sha256": "2b16412f6d94685f69d8ebd77f5b32c15a6d669cfef8a5679d2a2a9c94d275cc",
+      "mtime_iso": "2026-04-17T14:04:56+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/archive/superseded_packs/wf-or-01_handoff_nested_source_pack/10_fixtures_create.sql",
+      "size_bytes": 1411,
+      "sha256": "a1773c9b42a9f231c2b117b75ddbf8ad0182ca431089c9422c94e33ec070cac5",
+      "mtime_iso": "2026-04-17T14:05:14+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/archive/superseded_packs/wf-or-01_handoff_nested_source_pack/11_fixtures_cleanup.sql",
+      "size_bytes": 236,
+      "sha256": "f658edd4a176f96edd13e2ab52d8a586143f992b305d6e029d0888f258ba8b2e",
+      "mtime_iso": "2026-04-17T14:05:18+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/archive/superseded_packs/wf-or-01_handoff_nested_source_pack/17_ACTIVE_STAGE_LOCK.md",
+      "size_bytes": 3769,
+      "sha256": "c461da98d2a9f645561c48b01403eb57c8b7f0b8b6ca10c3f3bc8d9d9cbb23b9",
+      "mtime_iso": "2026-04-17T14:04:11+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/archive/superseded_packs/wf-or-01_handoff_nested_source_pack/20_read_path_probe.sql",
+      "size_bytes": 864,
+      "sha256": "c6c22bd5c39b32bedf8fa4c49efeeb2dfad7c6757aa0110e527f2dfb25e60c18",
+      "mtime_iso": "2026-04-17T14:05:17+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/archive/superseded_packs/wf-or-01_handoff_nested_source_pack/AUDIT_REPORT.md",
+      "size_bytes": 3717,
+      "sha256": "e9c91e65c1736e2984504eab02317ba64a0e9a61e9d02655770cfe492d132300",
+      "mtime_iso": "2026-04-17T14:04:11+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/archive/superseded_packs/wf-or-01_handoff_nested_source_pack/BUILD_REPORT.md",
+      "size_bytes": 4922,
+      "sha256": "4598ec8617fa361bb595b10635e91f37ab2be427269627e77528b876205ceda1",
+      "mtime_iso": "2026-04-17T14:04:11+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/archive/superseded_packs/wf-or-01_handoff_nested_source_pack/CLOSURE_REPORT.md",
+      "size_bytes": 1582,
+      "sha256": "f603acb63c9fd9f6cf672ded5bf5a1b5eee50c0f4736e7c76fb806c8515362e3",
+      "mtime_iso": "2026-04-17T14:04:12+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/archive/superseded_packs/wf-or-01_handoff_nested_source_pack/CURRENT_STAGE.md",
+      "size_bytes": 3254,
+      "sha256": "4e5a82107f3f635e05a5f7c33b41ee92cfe99fb25421c7970a887ddd0ac904dd",
+      "mtime_iso": "2026-04-17T14:04:11+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/archive/superseded_packs/wf-or-01_handoff_nested_source_pack/FIX_LOG.md",
+      "size_bytes": 1469,
+      "sha256": "9a4b7eabe9d17010c3fd0270d9c5388623cab954e2baa9b8416e041c87a0dc57",
+      "mtime_iso": "2026-04-17T14:04:12+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/archive/superseded_packs/wf-or-01_handoff_nested_source_pack/README_APPLY_FIRST.md",
+      "size_bytes": 1529,
+      "sha256": "434fd578db54dda073142af5559f3c58aede4ff7025a5b629d420e812643dce0",
+      "mtime_iso": "2026-04-17T14:03:01+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/archive/superseded_packs/wf-or-01_handoff_nested_source_pack/STATE.json",
+      "size_bytes": 4255,
+      "sha256": "1f3bdc44546e6c893c34c713f01403bbfb67b4319c31330bf9fa3be53ac39752",
+      "mtime_iso": "2026-04-17T14:04:57+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/archive/superseded_packs/wf-or-01_handoff_nested_source_pack/WF-OR-01_CONNECTION_MAP.md",
+      "size_bytes": 1076,
+      "sha256": "4e40c2003f05858f61898b0a08b79b5714aa5cb84f2d74cf73d843b5999027e6",
+      "mtime_iso": "2026-04-17T14:05:00+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/archive/superseded_packs/wf-or-01_handoff_nested_source_pack/WF-OR-01_IMPORT_PATCH_PLAN.md",
+      "size_bytes": 1671,
+      "sha256": "93f4a53a5d78d4df3094a402388e67a7ad05bc3c561e68d61e62d95a3d8b58e1",
+      "mtime_iso": "2026-04-17T14:05:02+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/archive/superseded_packs/wf-or-01_handoff_nested_source_pack/WF-OR-01_NODE_MAP.md",
+      "size_bytes": 1956,
+      "sha256": "6b3b4c32df2b4539bb4a76178523f2917f19e836c9acc7d3239ff6d07774ec75",
+      "mtime_iso": "2026-04-17T14:04:59+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/archive/superseded_packs/wf-or-01_handoff_nested_source_pack/WF-OR-01_Orchestrator_Input_Handoff.json",
+      "size_bytes": 12017,
+      "sha256": "f42a35335f2de20ad79cf511cb4684072889d6bd46c1d085853378f902b542e4",
+      "mtime_iso": "2026-04-17T14:04:58+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/archive/superseded_packs/wf-or-01_handoff_nested_source_pack/or_logic.py",
+      "size_bytes": 7272,
+      "sha256": "f2a87cd78ef014c65265dc978a78104a9fd63b79fe7d01e6c2ec61995c22e3ae",
+      "mtime_iso": "2026-04-17T14:05:03+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/archive/superseded_packs/wf-or-01_handoff_nested_source_pack/results.json",
+      "size_bytes": 475,
+      "sha256": "eb39912ac6156e944eb477a58e7e3627f6bf2f7b78e4e76fe500e9ff6cc47128",
+      "mtime_iso": "2026-04-17T14:05:07+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/archive/superseded_packs/wf-or-01_handoff_nested_source_pack/results.md",
+      "size_bytes": 688,
+      "sha256": "1829d68ab32132b54ec6bfaffa57418eaf19825bbe3b65bbde80431e36fb6692",
+      "mtime_iso": "2026-04-17T14:05:05+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/archive/superseded_packs/wf-or-01_handoff_nested_source_pack/test_families.py",
+      "size_bytes": 10966,
+      "sha256": "6b2969f81eba414f300660062d2c3917721db1240c3890cbc3facc5cdd5dd78f",
+      "mtime_iso": "2026-04-17T14:05:04+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/archive/superseded_packs/wf-pl-01_full_source_pack/README_APPLY_FIRST.md",
+      "size_bytes": 898,
+      "sha256": "0c0d46b92190524189fecaaaab7af01ae51dc085db6b78c9199b3669b1e58acb",
+      "mtime_iso": "2026-04-17T20:39:19+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/archive/superseded_packs/wf-pl-01_full_source_pack/docs/ucenicul_claude_handoff_hardened/00_ROUTE_MAP__WF-PL-01_ACTIVATED.md",
+      "size_bytes": 2141,
+      "sha256": "49f7fc11a5d304df19938f5c93d10694f5154d536295daf756a15d1090926b8a",
+      "mtime_iso": "2026-04-17T20:39:19+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/archive/superseded_packs/wf-pl-01_full_source_pack/docs/ucenicul_claude_handoff_hardened/07_STAGE_WF-PL-01.md",
+      "size_bytes": 8385,
+      "sha256": "ac97d7358d44c1fc125ddc27f9a82055b805a09995534f3b1045439a2f9a8f90",
+      "mtime_iso": "2026-04-17T20:39:19+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/archive/superseded_packs/wf-pl-01_full_source_pack/docs/ucenicul_claude_handoff_hardened/17_ACTIVE_STAGE_LOCK__WF-PL-01.md",
+      "size_bytes": 3909,
+      "sha256": "1e859ed3326f8e7bba3561dde50dceabb796a16cd23fb335356ae964fc50b091",
+      "mtime_iso": "2026-04-17T20:39:19+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/archive/superseded_packs/wf-pl-01_full_source_pack/docs/ucenicul_claude_handoff_hardened/AUDIT_REPORT__WF-PL-01.md",
+      "size_bytes": 3355,
+      "sha256": "9b7e5eed0afacd77275466ab930388f4a64648ceec4bad5cf68679ea81be17f4",
+      "mtime_iso": "2026-04-17T20:39:19+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/archive/superseded_packs/wf-pl-01_full_source_pack/docs/ucenicul_claude_handoff_hardened/BUILD_REPORT__WF-PL-01.md",
+      "size_bytes": 4825,
+      "sha256": "0b9b2fbf7d184810a981ca3fa54aeae5ba980e18c7ee59b013cb548e3f61dd28",
+      "mtime_iso": "2026-04-17T20:39:19+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/archive/superseded_packs/wf-pl-01_full_source_pack/docs/ucenicul_claude_handoff_hardened/CLOSURE_REPORT__WF-PL-01.md",
+      "size_bytes": 1362,
+      "sha256": "6ccf0f7034184632d671fbe171b6d0c2e18ead873d9743740ac72efed04490ae",
+      "mtime_iso": "2026-04-17T20:39:19+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/archive/superseded_packs/wf-pl-01_full_source_pack/docs/ucenicul_claude_handoff_hardened/CURRENT_STAGE__WF-PL-01.md",
+      "size_bytes": 2743,
+      "sha256": "a306fe5a1c6158c72dedda0b1c41dd05a311c507c6b7a967dc7ec081ed501b7f",
+      "mtime_iso": "2026-04-17T20:39:19+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/archive/superseded_packs/wf-pl-01_full_source_pack/docs/ucenicul_claude_handoff_hardened/FIX_LOG__WF-PL-01.md",
+      "size_bytes": 1328,
+      "sha256": "7cb214de98f00ebbebd7d3ec3040fa86381b076bf661e833fc1bf5888130d3f2",
+      "mtime_iso": "2026-04-17T20:39:19+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/archive/superseded_packs/wf-pl-01_full_source_pack/docs/ucenicul_claude_handoff_hardened/STATE__WF-PL-01.json",
+      "size_bytes": 4059,
+      "sha256": "c98905f283d00601d9525b31d67da7184f38ed2bb1a4235117a313a5ff6424e8",
+      "mtime_iso": "2026-04-17T20:39:19+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/archive/superseded_packs/wf-pl-01_full_source_pack/workflows/WF-PL-01_CONNECTION_MAP.md",
+      "size_bytes": 824,
+      "sha256": "d0b967273c3854832fda8b367ae3402338e28653bb61a8d6d20078d55c0663bf",
+      "mtime_iso": "2026-04-17T20:39:19+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/archive/superseded_packs/wf-pl-01_full_source_pack/workflows/WF-PL-01_IMPORT_PATCH_PLAN.md",
+      "size_bytes": 1504,
+      "sha256": "c5699f13f7a9bf4374ae6417091ebeb0a1b2fa2cc83f200f88717f9f0a3acaf2",
+      "mtime_iso": "2026-04-17T20:39:19+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/archive/superseded_packs/wf-pl-01_full_source_pack/workflows/WF-PL-01_NODE_MAP.md",
+      "size_bytes": 2471,
+      "sha256": "9b5aacebfb50f1dbb43bec8b5014d2b76e905d72152ed248abe06cfd7ab4e25f",
+      "mtime_iso": "2026-04-17T20:39:19+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/archive/superseded_packs/wf-pl-01_full_source_pack/workflows/WF-PL-01_Plan_Generation.json",
+      "size_bytes": 20563,
+      "sha256": "c8b03ee3a9797bf25fde1be49831edafc89f00493220dc9a4eb07b3682657053",
+      "mtime_iso": "2026-04-17T20:39:19+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/archive/superseded_packs/wf-pl-01_full_source_pack/workflows/WF-PL-01_blueprint.json",
+      "size_bytes": 20563,
+      "sha256": "c8b03ee3a9797bf25fde1be49831edafc89f00493220dc9a4eb07b3682657053",
+      "mtime_iso": "2026-04-17T20:39:19+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/archive/superseded_packs/wf-pl-01_full_source_pack/workflows/scripts/pl/pl_logic.py",
+      "size_bytes": 13989,
+      "sha256": "201bc606af48742850ba05508b4b20fec02adbf1bb3afa50eb33391f9ad42dad",
+      "mtime_iso": "2026-04-17T20:39:19+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/archive/superseded_packs/wf-pl-01_full_source_pack/workflows/scripts/pl/__pycache__/pl_logic.cpython-313.pyc",
+      "size_bytes": 14072,
+      "sha256": "eeff89de420b04f47e6b0808b06e08bc749a3e6bb914e5cdb12de022cdc594c8",
+      "mtime_iso": "2026-04-17T20:39:19+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/archive/superseded_packs/wf-pl-01_full_source_pack/workflows/sql/pl/01_schema_inspect.sql",
+      "size_bytes": 286,
+      "sha256": "1adc041e379c9bad42aa607c42268530b249d5c57cb3d8c62ba970de66a4e116",
+      "mtime_iso": "2026-04-17T20:39:19+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/archive/superseded_packs/wf-pl-01_full_source_pack/workflows/sql/pl/02_load_execution_context.sql",
+      "size_bytes": 552,
+      "sha256": "6060e66e97f09710ee5afd64126ef06a745ddec004222365bd780c7dcb09f951",
+      "mtime_iso": "2026-04-17T20:39:20+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/archive/superseded_packs/wf-pl-01_full_source_pack/workflows/sql/pl/03_load_execution_context_by_idempotency.sql",
+      "size_bytes": 428,
+      "sha256": "6d47ce5564b5612bb0cdb692027a16f6610abc0b111dd22dd3b196efa0852438",
+      "mtime_iso": "2026-04-17T20:39:20+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/archive/superseded_packs/wf-pl-01_full_source_pack/workflows/sql/pl/10_fixtures_create.sql",
+      "size_bytes": 302,
+      "sha256": "7099ed64768b1f9bdd9fd43fe5751d00e9fd088f58f9555ed5d9828d261998ed",
+      "mtime_iso": "2026-04-17T20:39:20+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/archive/superseded_packs/wf-pl-01_full_source_pack/workflows/sql/pl/11_fixtures_cleanup.sql",
+      "size_bytes": 229,
+      "sha256": "44338ad36d47762d96b621657b762688c2cdf3c768680795644ff54cc2e896e3",
+      "mtime_iso": "2026-04-17T20:39:20+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/archive/superseded_packs/wf-pl-01_full_source_pack/workflows/sql/pl/20_read_path_probe.sql",
+      "size_bytes": 240,
+      "sha256": "e3f5fc3f9b2c2c482a4b663a3153180526d2b302703f520e6ddabf2889346084",
+      "mtime_iso": "2026-04-17T20:39:20+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/archive/superseded_packs/wf-pl-01_full_source_pack/workflows/tests/pl/test_families.py",
+      "size_bytes": 13752,
+      "sha256": "df23f3629a6886cde635a8e401fdada83f05ed63abc0db134c2f0a47c14002cb",
+      "mtime_iso": "2026-04-17T20:39:20+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/archive/superseded_packs/wf-pl-01_full_source_pack/workflows/tests/pl/results/results.json",
+      "size_bytes": 717,
+      "sha256": "5772f91637044381d5706854c0f8ef4ad50bbe3edfb22c10edee98e4cf23c0f7",
+      "mtime_iso": "2026-04-17T20:39:20+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/archive/superseded_packs/wf-pl-01_full_source_pack/workflows/tests/pl/results/results.md",
+      "size_bytes": 834,
+      "sha256": "336e07470a91d0d7b57d250e9410958d8aa0e5f1419da00d735a1772679363ff",
+      "mtime_iso": "2026-04-17T20:39:20+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/common/README.md",
+      "size_bytes": 1365,
+      "sha256": "492c362684c90dc8122987150a4a27fb0df7a45cf3abedafabc9bfd8ee99554d",
+      "mtime_iso": "2026-04-17T22:28:26.055454+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/common/architecture/Architecture_Spec_v3_Ucenicul.md",
+      "size_bytes": 36189,
+      "sha256": "142b0466f6c175c4b4c5188d8aec5837b7b68b3ae8e07fd7e4fe0325baca0a77",
+      "mtime_iso": "2026-04-15T17:26:02+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/common/architecture/Memory_Model_Spec.md",
+      "size_bytes": 5029,
+      "sha256": "be5ae788a43fe01374b17d2ad3a5f80f7198b88890b088c43b5fb3e85f205f02",
+      "mtime_iso": "2026-04-15T17:30:57+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/common/architecture/Migration_Plan_Ucenicul.md",
+      "size_bytes": 12536,
+      "sha256": "7595829edbfa2fccc193fa60e6f0798bee583d683de731af168f85cdc165492a",
+      "mtime_iso": "2026-04-15T17:27:29+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/common/architecture/Module_Registry_Ucenicul.md",
+      "size_bytes": 7433,
+      "sha256": "650339ad8b9c6359f0656ae4da266c532b5836c66503592e4665603d0321f3ed",
+      "mtime_iso": "2026-04-15T17:28:13+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/common/architecture/README.md",
+      "size_bytes": 758,
+      "sha256": "30af47f88301d3b6c1a57168aaa122db2b936dd422c6e592c5bbfe8ca57325cb",
+      "mtime_iso": "2026-04-17T22:28:26.063375+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/common/architecture/Thread_Resolution_Spec.md",
+      "size_bytes": 13305,
+      "sha256": "212e96fafba3f0c7405e724ced223dd760f097173a5f26548ecf81718c2b11b5",
+      "mtime_iso": "2026-04-15T20:04:34+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/common/architecture/db_README.md",
+      "size_bytes": 9743,
+      "sha256": "a4597b478caa976a56eb651c2ebd06e060c08f7630cb67589969235867e1a14a",
+      "mtime_iso": "2026-04-15T17:33:53+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/common/architecture/db_schema_README.md",
+      "size_bytes": 2252,
+      "sha256": "dc0c22c17526fc4d358607e332ea55a9dbefdc376ff8684003f3dac8df458780",
+      "mtime_iso": "2026-04-15T17:34:10+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/common/architecture/n8n_Workflow_Mapping.md",
+      "size_bytes": 9849,
+      "sha256": "33226450dd28564a24834332439b6261512021f40f06a8b74204e1e9e752c329",
+      "mtime_iso": "2026-04-15T17:32:05+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/common/contracts/01_MASTER_OPERATING_CONTRACT.md",
+      "size_bytes": 3645,
+      "sha256": "b3a9dd2ea410de6ad2fd8226f22b930adcf57e54e33f6d792123feb99627cd4f",
+      "mtime_iso": "2026-04-17T00:07:55+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/common/contracts/02_AGENT_REGISTRY.md",
+      "size_bytes": 4450,
+      "sha256": "7a9b4e62eb5987fee7f6cb1e52599e52550fb977d95ce3c6382237890502760d",
+      "mtime_iso": "2026-04-17T00:07:55+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/common/contracts/03_EXECUTION_LOOP.md",
+      "size_bytes": 3289,
+      "sha256": "9cc45efd222b3ecd82cc0a3f8428fbe7c0ecc922fa2514bf761e0854d942e2c1",
+      "mtime_iso": "2026-04-17T00:07:55+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/common/contracts/04_N8N_MCP_PLAYBOOK.md",
+      "size_bytes": 3971,
+      "sha256": "14111056d9d624a3e9520b446251d381183f0087b90a2fbdeb672302fcaaee57",
+      "mtime_iso": "2026-04-17T00:07:55+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/common/contracts/05_DB_AUTONOMY_PLAYBOOK.md",
+      "size_bytes": 3121,
+      "sha256": "47faa8e9e8c2fd751d550bcabbf1fd24ef1a930212a1709b854a369f2c11f8ab",
+      "mtime_iso": "2026-04-17T00:07:55+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/common/contracts/07_IMPEDIMENTS_AND_GUARDRAILS.md",
+      "size_bytes": 4597,
+      "sha256": "3ea6d8a15445df61e5f11dfca6cfa79b7e765969b51cd31d85fce18d12eccb79",
+      "mtime_iso": "2026-04-17T00:07:55+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/common/contracts/08_SCORECARD_AND_GATES.md",
+      "size_bytes": 2439,
+      "sha256": "62dbd7322a48aa8a60b58c1727940652c769fe17b81a886025fdf9cb5ec57718",
+      "mtime_iso": "2026-04-17T00:07:55+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/common/contracts/11_DECISION_PRESETS.md",
+      "size_bytes": 4866,
+      "sha256": "0630dad362f90fe9205439dd207074550c2b0516ac79f1866f1a96e21d1a01b5",
+      "mtime_iso": "2026-04-17T00:07:55+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/common/contracts/12_TOOL_FAILURE_MATRIX.md",
+      "size_bytes": 4989,
+      "sha256": "09066485d7677ffa1d3a4e56fc9315f6ae5624db72b5311b9e33820b22d88576",
+      "mtime_iso": "2026-04-17T00:07:55+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/common/contracts/13_WORKFLOW_SNAPSHOT_AND_ROLLBACK.md",
+      "size_bytes": 3519,
+      "sha256": "2112741788783cf57a767e165b5de4ee37b1f9dc1bff286f68d88268c3436e55",
+      "mtime_iso": "2026-04-17T00:07:55+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/common/contracts/16_AUTONOMOUS_STOP_AND_RECOVERY.md",
+      "size_bytes": 3977,
+      "sha256": "6c025c9ee42e0708a477a0fd7601731687f3ec43144cc8d15bcd61f36a07673b",
+      "mtime_iso": "2026-04-17T00:07:55+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/common/contracts/17_ACTIVE_STAGE_LOCK.md",
+      "size_bytes": 2268,
+      "sha256": "5829848c57353731ffb9e28eb01d87a4b1af68879f18c503c68fee382b53edcf",
+      "mtime_iso": "2026-04-17T21:16:51+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/common/contracts/CLAUDE.md",
+      "size_bytes": 4201,
+      "sha256": "de0ad435a7bcf3696539791b943f05aa0f5f32ba424a958398b22d8ac184eb1a",
+      "mtime_iso": "2026-04-15T17:32:58+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/common/contracts/Module_Spec_Memory.md",
+      "size_bytes": 3451,
+      "sha256": "f673fdb396314fa736d957e71aeaf786dcf28e2d823dfbdfbbc12964d15dfd36",
+      "mtime_iso": "2026-04-15T17:29:08+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/common/contracts/Module_Spec_Reminder.md",
+      "size_bytes": 2287,
+      "sha256": "efaea295e820152bf61d1da0533cd512d387ec65615b464013c440b6f5fccaef",
+      "mtime_iso": "2026-04-15T17:28:49+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/common/contracts/Module_Spec_Response.md",
+      "size_bytes": 2860,
+      "sha256": "ca5e3607a0f3bbb5f328b3ae345f224c6c24c2a6fbd5aeb6f1cb05ba0dd11a0d",
+      "mtime_iso": "2026-04-15T17:29:25+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/common/contracts/Module_Spec_Task.md",
+      "size_bytes": 3562,
+      "sha256": "40245af8ec4b277b0ccf93480fe29496c349a63d33b1f0bc662549d4a1420525",
+      "mtime_iso": "2026-04-15T17:28:37+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/common/contracts/Module_Spec_Watcher.md",
+      "size_bytes": 3158,
+      "sha256": "1125d129cb4715773e4638f723327c5f621cbd2b3815b703046a22195f7f60b2",
+      "mtime_iso": "2026-04-15T17:29:45+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/common/contracts/README.md",
+      "size_bytes": 1012,
+      "sha256": "88bf9a7cd8fcb99b22e491f2b1eba26e2d29e6618ca797686466d5b22974827f",
+      "mtime_iso": "2026-04-17T22:28:26.070216+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/common/contracts/ThreadResolutionContracts.md",
+      "size_bytes": 16373,
+      "sha256": "d2c4bfacbfbd24d3612d984844153a67f30eeec2bfa9e1bd53cbe42e513b0565",
+      "mtime_iso": "2026-04-15T20:03:59+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/common/historical_reference/00_ROUTE_MAP__generic_root.md",
+      "size_bytes": 3266,
+      "sha256": "6b67c4c016b34f3d81a16496eeec81a7bbc4524acb841b21402b4cbf63a11532",
+      "mtime_iso": "2026-04-17T21:16:20+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/common/historical_reference/10_FILE_SCORECARD.md",
+      "size_bytes": 3926,
+      "sha256": "cca877c706c696d03d20030fd1c7b050c5bbcef2d9cebb767444a73d609b946c",
+      "mtime_iso": "2026-04-17T00:07:55+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/common/historical_reference/README.md",
+      "size_bytes": 535,
+      "sha256": "79aa91231a966c3497c6637bd702a51e3635f4ef3b3d9692799c80abb233f653",
+      "mtime_iso": "2026-04-17T22:28:26.089336+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/common/historical_reference/handoff_hardened_README.md",
+      "size_bytes": 3868,
+      "sha256": "0f739d6aa6b8ecfe61f84d4ffb615865f46eed8baa2521d5a36f58e930b2b34d",
+      "mtime_iso": "2026-04-17T00:07:55+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/common/historical_reference/repo_root_README.md",
+      "size_bytes": 3182,
+      "sha256": "764e76aa0358b97a98dfed00fd14a0b5300f525fa1b97ddd8348bc50806e55b3",
+      "mtime_iso": "2026-04-15T17:32:32+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/common/runtime/18_RUNTIME_CANONICAL_TARGET.md",
+      "size_bytes": 4100,
+      "sha256": "2d66018e62ae6f8d8a1190d4156b3f1a9450235ca11ec41f7d976e88bda334bc",
+      "mtime_iso": "2026-04-17T00:07:55+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/common/runtime/19_MODULE_CONTRACTS.md",
+      "size_bytes": 4993,
+      "sha256": "771d25300605d3a61158bf546cacca4eeca61d9eecf136c3d15e03727abb56ff",
+      "mtime_iso": "2026-04-17T00:07:55+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/common/runtime/20_EXECUTION_CONTEXT_EVOLUTION.md",
+      "size_bytes": 3582,
+      "sha256": "0d6a37fcd67d91978a37ca55635bd7b6e48292d26ccde035bc726c53456872e1",
+      "mtime_iso": "2026-04-17T00:07:55+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/common/runtime/21_RESPONSE_COMPOSER_CONTRACT.md",
+      "size_bytes": 2867,
+      "sha256": "76ee728469210d40d1d72591155324737f6112e81e2ede00763ea8920b1700c0",
+      "mtime_iso": "2026-04-17T00:07:55+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/common/runtime/README.md",
+      "size_bytes": 352,
+      "sha256": "59fbe3325f94b89af3ace0cb16e6e2073f1e2a07171f2c2a1605ddb147b23282",
+      "mtime_iso": "2026-04-17T22:28:26.074832+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/common/shared_reports/09_REPORT_TEMPLATES.md",
+      "size_bytes": 3033,
+      "sha256": "0089f02457a2cfe9c718e6d06e4c9b68dd6d1d5ddc5c7b44c0f5e633b6f7af28",
+      "mtime_iso": "2026-04-17T00:07:55+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/common/shared_reports/15_STAGE_TEMPLATE.md",
+      "size_bytes": 3826,
+      "sha256": "986eccb4a39d542ab86266190c41f89b8cf3355b45d8401fc84b8c0757581d13",
+      "mtime_iso": "2026-04-17T00:07:55+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/common/shared_reports/Documentation_Verification_Checklist_Ucenicul.md",
+      "size_bytes": 10378,
+      "sha256": "89b33082fb3ccfb23a22c7a6091e287c80c23a03298298b66fd411c55517fbb3",
+      "mtime_iso": "2026-04-15T17:35:12+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/common/shared_reports/README.md",
+      "size_bytes": 396,
+      "sha256": "2e85401f00365e0c08364380ba82ed0ab34f8eb83b5a4db45b0377c250597276",
+      "mtime_iso": "2026-04-17T22:28:26.079833+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/common/shared_test_utils/14_TEST_FIXTURE_REGISTRY.md",
+      "size_bytes": 3257,
+      "sha256": "9f5fb03455b91e5328dfb34123ab1ff4cc9bf60924b188a21dfbe22f3930d5e6",
+      "mtime_iso": "2026-04-17T00:07:55+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/common/shared_test_utils/README.md",
+      "size_bytes": 608,
+      "sha256": "64096307ba90b8fd6979f59a5724a34313f5799abab1e366663ae662968d1b1f",
+      "mtime_iso": "2026-04-17T22:28:26.084834+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/common/shared_test_utils/generate_fixtures.js",
+      "size_bytes": 20492,
+      "sha256": "6d8eb93cdbc5b7992bdbc42276d86f7833ad1fdc01c0b0f71b08e519d970d8b8",
+      "mtime_iso": "2026-04-15T20:04:39+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/common/shared_test_utils/lint_workflow.js",
+      "size_bytes": 11982,
+      "sha256": "49259dbe3347315cb276a9dd3cb4e1e534d392bc39001cad2995b3fad393613e",
+      "mtime_iso": "2026-04-15T20:11:34+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/common/shared_test_utils/setup_test_data.sql",
+      "size_bytes": 5720,
+      "sha256": "25592b54435ef4004a0407a29b34eb5a45314b194d924854e366e256c69ca1d9",
+      "mtime_iso": "2026-04-16T15:07:01+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/common/shared_test_utils/test_all.sh",
+      "size_bytes": 1175,
+      "sha256": "dd554131652483c3b2757913e6aca2b00830ead86414820d8483336b0e0f2965",
+      "mtime_iso": "2026-04-15T20:06:51+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/common/shared_test_utils/validate_contract.js",
+      "size_bytes": 16985,
+      "sha256": "b31ab6b0f0b17f0b401a976577faafb31c44e6002e8d467b99cea3fc0b2b5298",
+      "mtime_iso": "2026-04-15T20:06:18+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/common/shared_test_utils/validate_scoring.js",
+      "size_bytes": 23258,
+      "sha256": "4cf7c0f77d56fd478116f796f5592322d9e9cd45df8d9c961bbfb4a0dcf71df5",
+      "mtime_iso": "2026-04-15T20:01:03+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/common/shared_test_utils/verify_replay.js",
+      "size_bytes": 9529,
+      "sha256": "dd500759ed983fc726b87f1a1b23f685e1817a89975806a0afe917c089ca2d63",
+      "mtime_iso": "2026-04-15T20:05:56+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/unresolved/README.md",
+      "size_bytes": 636,
+      "sha256": "a8fb3bacb435a459a85e28e2eca388da49539b7cca3a35a6b8a226d61e9422c8",
+      "mtime_iso": "2026-04-17T22:29:29.786225+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/unresolved/ambiguous_files/README.md",
+      "size_bytes": 85,
+      "sha256": "5b16a0c19a894d9d6c2ea3a866d6d2bc71f94ecbdcaefc8f4e2257dd81a53300",
+      "mtime_iso": "2026-04-17T22:29:29.795228+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/unresolved/manual_review_needed/README.md",
+      "size_bytes": 90,
+      "sha256": "b0f89bb9e3a2aa980042189f10e839d4daeaa6e11380ba4363da05aa05b16aa0",
+      "mtime_iso": "2026-04-17T22:29:29.801229+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/unresolved/unknown_placement/README.md",
+      "size_bytes": 87,
+      "sha256": "db3c43eb6c4b69c04ef023056dac4492dc3cf2398c8a45501ab66741e800404d",
+      "mtime_iso": "2026-04-17T22:29:29.790226+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-DI-01/README.md",
+      "size_bytes": 613,
+      "sha256": "f167316b2f5992f514d3a13cbebc0ea0f24b7e284ea872dadfcfe2ec38566682",
+      "mtime_iso": "2026-04-17T22:29:05.090837+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-DI-01/docs/00_ROUTE_MAP__WF-DI-01_ACTIVATED.md",
+      "size_bytes": 783,
+      "sha256": "b0b6d7e720a21fdcc414f2f117cd111bc6d695e3233304079ac22d308b099826",
+      "mtime_iso": "2026-04-17T19:42:08+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-DI-01/docs/00_ROUTE_MAP__WF-DI-01_CLOSED.md",
+      "size_bytes": 1239,
+      "sha256": "f6f7f01c1e908f5ecdbb1e9dd9de6e7de76d837c32147978ffa1f450ecb9bb4a",
+      "mtime_iso": "2026-04-17T19:57:37+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-DI-01/docs/08_STAGE_WF-DI-01.md",
+      "size_bytes": 5809,
+      "sha256": "23e0f909b9c30ab2942bf2a93ce61cb3039ae58b02b425c416f42c0f8bc10aae",
+      "mtime_iso": "2026-04-17T19:42:08+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-DI-01/docs/17_ACTIVE_STAGE_LOCK__WF-DI-01.md",
+      "size_bytes": 718,
+      "sha256": "47ebbdba98145f7cea0c328dff353dc3bc693198bfc9589d9317bdd974c758d9",
+      "mtime_iso": "2026-04-17T19:42:08+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-DI-01/docs/17_ACTIVE_STAGE_LOCK__WF-DI-01_CLOSED.md",
+      "size_bytes": 1760,
+      "sha256": "bc6123e73fda6c89cd5140d8d4dd176b2b1d79467edd606201dbd44e8f90574f",
+      "mtime_iso": "2026-04-17T19:57:37+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-DI-01/docs/WF-DI-01_CONNECTION_MAP.md",
+      "size_bytes": 790,
+      "sha256": "d0a484c640ea82a9ae6edce3ed8f5f990dcb562a4e0787c74605a099374d879f",
+      "mtime_iso": "2026-04-17T19:42:08+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-DI-01/docs/WF-DI-01_IMPORT_PATCH_PLAN.md",
+      "size_bytes": 1321,
+      "sha256": "b4a0e14e42918a8b668e007f9295680902ef0125a9c7e91b504929119149ae15",
+      "mtime_iso": "2026-04-17T19:42:08+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-DI-01/docs/WF-DI-01_NODE_MAP.md",
+      "size_bytes": 1367,
+      "sha256": "83c4d1f5317f38acf773931df1374c4f61c1c4de40063973927e5e4897f3dbed",
+      "mtime_iso": "2026-04-17T19:42:08+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-DI-01/reports/AUDIT_REPORT__WF-DI-01.md",
+      "size_bytes": 2996,
+      "sha256": "68d88355edc7459e977ad77702c0d114196ea99f95fc3649479a78083792c9d5",
+      "mtime_iso": "2026-04-17T19:57:36+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-DI-01/reports/BUILD_REPORT__WF-DI-01.md",
+      "size_bytes": 3559,
+      "sha256": "6c595f16716abea2c64357747ef4e21a79f3462412b5f503e861f810431ee195",
+      "mtime_iso": "2026-04-17T19:42:08+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-DI-01/reports/CLOSURE_REPORT__WF-DI-01.md",
+      "size_bytes": 2114,
+      "sha256": "0f37656ffdfdab62789f337fbfe76723a7644609510c268b173a79770c39fe0a",
+      "mtime_iso": "2026-04-17T19:57:36+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-DI-01/reports/CURRENT_STAGE__WF-DI-01.md",
+      "size_bytes": 2151,
+      "sha256": "5f70ae93539ad86177c630a38ee7d650ebf41219e0b7da84c034325a2b3fbe03",
+      "mtime_iso": "2026-04-17T19:57:36+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-DI-01/reports/FIX_LOG__WF-DI-01.md",
+      "size_bytes": 4857,
+      "sha256": "c191065cec48ea580220e6fac8d710325ec0eea6cdc99499c9ed8e3fcb743cff",
+      "mtime_iso": "2026-04-17T19:57:36+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-DI-01/reports/STATE__WF-DI-01.json",
+      "size_bytes": 4882,
+      "sha256": "c74a439686388246e4bb57d9343c5cf792d01c432152fd2fe4e50648e994ce0f",
+      "mtime_iso": "2026-04-17T19:57:36+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-DI-01/scripts/di_logic.py",
+      "size_bytes": 14064,
+      "sha256": "612acd9db7a5d8ff66daa7afddc31bb47c459d13f05239d2b79ab0540528e5aa",
+      "mtime_iso": "2026-04-17T19:42:08+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-DI-01/scripts/__pycache__/di_logic.cpython-310.pyc",
+      "size_bytes": 9978,
+      "sha256": "2461fb25761cd5ab30cf396764086dfe4dbc6c3f24697d2372908a3a32db1414",
+      "mtime_iso": "2026-04-17T19:42:13+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-DI-01/sql/01_schema_inspect.sql",
+      "size_bytes": 317,
+      "sha256": "98654ca7e7f4763534b0a43c14879acb0f8c1c561ca1ca73700dc479103bc2ae",
+      "mtime_iso": "2026-04-17T19:42:08+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-DI-01/sql/02_load_execution_context.sql",
+      "size_bytes": 365,
+      "sha256": "1b7cdb695380392e484cc0191870374394122b29ac6aae38c64f0ac4dbb77670",
+      "mtime_iso": "2026-04-17T19:42:08+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-DI-01/sql/03_load_plan_by_execution_context.sql",
+      "size_bytes": 360,
+      "sha256": "e3a450dc0c536774989380fcd39b5db3c75a68592ac9966b895a83170659b18c",
+      "mtime_iso": "2026-04-17T19:42:08+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-DI-01/sql/04_load_module_registry.sql",
+      "size_bytes": 398,
+      "sha256": "7db391204ed5c0bf001d80741b5cbcf1459f0a8a134ab71b638e9408e69b6d67",
+      "mtime_iso": "2026-04-17T19:42:08+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-DI-01/sql/10_fixtures_create.sql",
+      "size_bytes": 296,
+      "sha256": "1505653c0134678f2d86f8b10e3b4a0cc374e80553f5c60f0907e88880782b7d",
+      "mtime_iso": "2026-04-17T19:42:08+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-DI-01/sql/11_fixtures_cleanup.sql",
+      "size_bytes": 187,
+      "sha256": "6a13378da49574c1bbeb20155cc7e2e698ae26881280b6fecdcdca63d18d8c13",
+      "mtime_iso": "2026-04-17T19:42:08+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-DI-01/sql/20_read_path_probe.sql",
+      "size_bytes": 258,
+      "sha256": "154f6214e6a3f1d724d4007ef0cf100802b8c799ba400a5874cbc111484f2c80",
+      "mtime_iso": "2026-04-17T19:42:08+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-DI-01/tests/test_families.py",
+      "size_bytes": 12496,
+      "sha256": "59c74063b205e19c8b3bc94334c80591f057c76107123eb241efba55ed334fc7",
+      "mtime_iso": "2026-04-17T19:42:08+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-DI-01/tests/results/results.json",
+      "size_bytes": 1318,
+      "sha256": "1d38fa8435f98ea43b8ca531abd72b16ea416dde10937c2e3281291621ea214a",
+      "mtime_iso": "2026-04-17T19:42:08+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-DI-01/tests/results/results.md",
+      "size_bytes": 670,
+      "sha256": "97e6db4cf367749ba6e43076c3db938955938d835d6171ca2263a95de424ee72",
+      "mtime_iso": "2026-04-17T19:42:08+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-DI-01/workflow/WF-DI-01_Dispatcher.json",
+      "size_bytes": 19109,
+      "sha256": "3f21a5c6953a6ca782604ee305ac86089af65d2131bee5a328946327984c6b8a",
+      "mtime_iso": "2026-04-17T19:49:04+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-DI-01/workflow/WF-DI-01_blueprint.json",
+      "size_bytes": 18889,
+      "sha256": "c23d02f5efa9829c88e04aadf9d6b109f98b48743f5a4ae064dc08433d886d2b",
+      "mtime_iso": "2026-04-17T19:42:08+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-EC-01/README.md",
+      "size_bytes": 696,
+      "sha256": "eef75d0247036d0944dbc1dfc24abd3e37035600dee30bf8f3a7efaff1f2dab8",
+      "mtime_iso": "2026-04-17T22:29:05.072311+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-EC-01/docs/06_STAGE_WF-EC-01.md",
+      "size_bytes": 4430,
+      "sha256": "a45e61aa1cfa749d837be0e4a66404b269e72aa4ff3f24272657f87d5099da55",
+      "mtime_iso": "2026-04-17T00:07:55+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-EC-01/docs/HANDOFF_WF-TR-02_EC_Init_Kickoff_2026-04-16__cross_copy.md",
+      "size_bytes": 10850,
+      "sha256": "c4825e80cde70c0c638a4458d12d5e5b84208baf24f89578b3b7f39cc9afe683",
+      "mtime_iso": "2026-04-16T20:18:11+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-EC-01/docs/WF-EC-01_CONNECTION_MAP.md",
+      "size_bytes": 2302,
+      "sha256": "f44197de3b7fe9ead50a4c03399f6220931d7419d84de056546d9b17dc23af95",
+      "mtime_iso": "2026-04-17T00:28:33+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-EC-01/docs/WF-EC-01_IMPORT_PATCH_PLAN.md",
+      "size_bytes": 5116,
+      "sha256": "614543fcbe16ffbf1db48999b02acf86134a81d277399af85a27eef46853da43",
+      "mtime_iso": "2026-04-17T00:29:10+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-EC-01/docs/WF-EC-01_NODE_MAP.md",
+      "size_bytes": 8415,
+      "sha256": "885ef7bd2062757a64b1c558ccf93e96485e3002ea48cdc510d6830d3b0d536f",
+      "mtime_iso": "2026-04-17T00:28:02+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-EC-01/reports/POST_IMPORT_AUDIT_WF-EC-01.md",
+      "size_bytes": 11764,
+      "sha256": "2c104514faa58c3ff9979efa6ce17da0ca71a0440443ca2d582ab96b9364e4c1",
+      "mtime_iso": "2026-04-17T12:14:10+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-EC-01/scripts/ec_logic.py",
+      "size_bytes": 6422,
+      "sha256": "07d13af6b1c718e21943408f2bb26b74b0802f88d2dab098f33e377c8ac0f582",
+      "mtime_iso": "2026-04-17T00:29:41+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-EC-01/scripts/__pycache__/ec_logic.cpython-310.pyc",
+      "size_bytes": 4558,
+      "sha256": "dc63dee68b383ba0643371259de4a53fbcd4cebf5b32dff91e3efee028681466",
+      "mtime_iso": "2026-04-17T00:35:04+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-EC-01/sql/01_schema_inspect.sql",
+      "size_bytes": 1654,
+      "sha256": "fd36e21d41fa05f3bf594928937643ecaa3c8c9d32cb3316ecd6147dd68621c6",
+      "mtime_iso": "2026-04-17T00:30:16+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-EC-01/sql/02_upsert.sql",
+      "size_bytes": 835,
+      "sha256": "787a3092cbf436bb8131f33d54eae30a2ae30bb6ed19a42885620134953959fd",
+      "mtime_iso": "2026-04-17T00:30:22+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-EC-01/sql/03_load_existing.sql",
+      "size_bytes": 404,
+      "sha256": "27d563524e17362ba48e8ec0faf2d6819ac41b4d3c554ec94c9a1b6116bdea04",
+      "mtime_iso": "2026-04-17T00:30:26+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-EC-01/sql/10_fixtures_create.sql",
+      "size_bytes": 2551,
+      "sha256": "1a619f1572fd02ab52db3a0dda6a703549283354fad0fe974caf126f5b9a8d9f",
+      "mtime_iso": "2026-04-17T11:46:48+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-EC-01/sql/11_fixtures_cleanup.sql",
+      "size_bytes": 902,
+      "sha256": "a027632592fbf330355135821dcaa69666ba0c658e282a6e073882e976457fbd",
+      "mtime_iso": "2026-04-17T00:30:48+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-EC-01/sql/20_behavior_probe.sql",
+      "size_bytes": 1731,
+      "sha256": "158c82336cee3e08ad8059d3bd559b51832eb74bac94c619636210df810b279a",
+      "mtime_iso": "2026-04-17T00:30:58+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-EC-01/tests/test_families.py",
+      "size_bytes": 39497,
+      "sha256": "41f764d9aac13037021c2afe7c95a540ac02eec7e5849b93972037ee41c978bd",
+      "mtime_iso": "2026-04-17T00:33:23+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-EC-01/tests/results/results.json",
+      "size_bytes": 358397,
+      "sha256": "5a638ad25be71cc6bb8d3df784c93aa818821d74f733b0e8ca17f7ef8cb65479",
+      "mtime_iso": "2026-04-17T00:38:38+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-EC-01/tests/results/results.md",
+      "size_bytes": 563,
+      "sha256": "2e03cc7193ec4c9c12e28ef6176945ef43ddf1384059beac89c952ccf160c60d",
+      "mtime_iso": "2026-04-17T00:38:38+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-EC-01/workflow/WF-EC-01_Execution_Context.json",
+      "size_bytes": 14498,
+      "sha256": "081ea84716a728d31dbe05a1e05a3b262c9657dd9465e058f7efdae96dec5d7c",
+      "mtime_iso": "2026-04-17T11:54:54+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-EC-01/workflow/WF-EC-01_blueprint.json",
+      "size_bytes": 14498,
+      "sha256": "081ea84716a728d31dbe05a1e05a3b262c9657dd9465e058f7efdae96dec5d7c",
+      "mtime_iso": "2026-04-17T11:54:58+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-ME-01/README.md",
+      "size_bytes": 790,
+      "sha256": "dfa77a8507e6ded69fb5bdc8429181ca4a9336f8ab0551864418992e23857e44",
+      "mtime_iso": "2026-04-17T22:29:05.095350+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-ME-01/docs/00_ROUTE_MAP__WF-ME-01_ACTIVATED.md",
+      "size_bytes": 719,
+      "sha256": "eea54a2883f81ca359f80caedd322a809bb865baa0034a99e98f2765c27faca7",
+      "mtime_iso": "2026-04-17T20:16:42+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-ME-01/docs/09_STAGE_WF-ME-01.md",
+      "size_bytes": 3136,
+      "sha256": "5e2102582f3dd0cb5128183bb4872d3105d88fa5ff07bc8e10b24328931e3ba5",
+      "mtime_iso": "2026-04-17T20:16:42+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-ME-01/docs/17_ACTIVE_STAGE_LOCK__WF-ME-01.md",
+      "size_bytes": 521,
+      "sha256": "d508bb0c67ba81f9ca71ea8e0a1bb06d54d2f69e1f778a3b6c6612a525201395",
+      "mtime_iso": "2026-04-17T20:16:42+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-ME-01/docs/WF-ME-01_CONNECTION_MAP.md",
+      "size_bytes": 969,
+      "sha256": "8db2409a62a6371a5ceb21bedc62c01c995a69f3f5e5a06a47395387f9e18c60",
+      "mtime_iso": "2026-04-17T20:16:42+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-ME-01/docs/WF-ME-01_IMPORT_PATCH_PLAN.md",
+      "size_bytes": 751,
+      "sha256": "02b0f1c825bb38549b3d85ec9774c103f01365c9dc7418e4c14448ecd909befd",
+      "mtime_iso": "2026-04-17T20:16:42+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-ME-01/docs/WF-ME-01_NODE_MAP.md",
+      "size_bytes": 1179,
+      "sha256": "a996a4f1827cfaa4e5617db3853bc24dad226b5b2b0f5332c7e7f2817a632813",
+      "mtime_iso": "2026-04-17T20:16:42+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-ME-01/docs/WF-ME-01_TEST_MATRIX.md",
+      "size_bytes": 320,
+      "sha256": "266cd155e13b1663adbde9806134e7d3870e065539f75e4781c1e98734fb02d1",
+      "mtime_iso": "2026-04-17T20:16:42+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-ME-01/reports/AUDIT_REPORT__WF-ME-01.md",
+      "size_bytes": 698,
+      "sha256": "301a7ba8ca6e1ec22b64887fbbf7cc435fc4a07afd878d929f7541ee1b56ea97",
+      "mtime_iso": "2026-04-17T20:16:42+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-ME-01/reports/BUILD_REPORT__WF-ME-01.md",
+      "size_bytes": 977,
+      "sha256": "c2e1b850df73074ab80d1daae3596a2adbea87413601395b7497f997526c2ed3",
+      "mtime_iso": "2026-04-17T20:16:42+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-ME-01/reports/CLOSURE_REPORT__WF-ME-01.md",
+      "size_bytes": 6055,
+      "sha256": "182ebd9702709e518c4982ce9b7d06f2ffb9610c4a2bd6f16af84d45b5a90f25",
+      "mtime_iso": "2026-04-17T21:15:29+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-ME-01/reports/CURRENT_STAGE__WF-ME-01.md",
+      "size_bytes": 761,
+      "sha256": "b62cecc8a5d87c69fd4970369ea3beefe874f00bd0d84d513c7d36d4dfd67f34",
+      "mtime_iso": "2026-04-17T20:16:42+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-ME-01/reports/FIX_LOG__WF-ME-01.md",
+      "size_bytes": 14358,
+      "sha256": "82da62342f377316e11c7d967e87ca6e789505ea44aa65e2484cbd3301add7db",
+      "mtime_iso": "2026-04-17T21:00:47+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-ME-01/reports/STATE__WF-ME-01.json",
+      "size_bytes": 1102,
+      "sha256": "4b029210ff92ce3caee2ab9a0bcb816478a02c7feeb199290f849c46afed97eb",
+      "mtime_iso": "2026-04-17T20:16:42+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-ME-01/scripts/me_logic.py",
+      "size_bytes": 12425,
+      "sha256": "7322919ba17710fa0b292000f01b66f66c8f0a4021ed39da7aad34cab8fba2f1",
+      "mtime_iso": "2026-04-17T20:16:42+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-ME-01/scripts/__pycache__/me_logic.cpython-310.pyc",
+      "size_bytes": 7601,
+      "sha256": "39fb4c6a63551070f4af800abc83814aef4e5b8e6e9fa0cb9e99c78362f87a93",
+      "mtime_iso": "2026-04-17T20:19:33+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-ME-01/sql/01_schema_inspect.sql",
+      "size_bytes": 237,
+      "sha256": "22d083f48406e5bcca8f14986ec1508578341c021dcc463abbd75d7ab0173239",
+      "mtime_iso": "2026-04-17T20:16:42+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-ME-01/sql/02_load_execution_context.sql",
+      "size_bytes": 367,
+      "sha256": "b47da2f8b1b7cfa0f58cdda065480ca909057360957661ea7a2ae101739a2df0",
+      "mtime_iso": "2026-04-17T20:16:42+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-ME-01/sql/03_load_dispatch_request.sql",
+      "size_bytes": 391,
+      "sha256": "4298532cd9d738a2b61667b7dc19324dd687d17b78a7a53dda632fdee8167ac0",
+      "mtime_iso": "2026-04-17T20:16:42+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-ME-01/sql/04_load_task_candidates.sql",
+      "size_bytes": 417,
+      "sha256": "a509bf7e4235fe8fbf1f457301b6770c765f4e063fde11fb6c9aa0e1685b020b",
+      "mtime_iso": "2026-04-17T20:16:42+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-ME-01/sql/05_insert_task.sql",
+      "size_bytes": 424,
+      "sha256": "eed4e3eb3211340ece43cbf1430f9d7e58ad347a46e8a69d1c0918940ff78de3",
+      "mtime_iso": "2026-04-17T20:16:42+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-ME-01/sql/06_update_task.sql",
+      "size_bytes": 435,
+      "sha256": "a9121a38edeed0ea6d20c59937f75d2cfb375f0bc3a797ee95c704e1b33a9b85",
+      "mtime_iso": "2026-04-17T20:16:42+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-ME-01/sql/07_complete_task.sql",
+      "size_bytes": 269,
+      "sha256": "2741a3cfaeb393ea95046bc325f74b3691813bb47b8bcf5024c7f8612862c926",
+      "mtime_iso": "2026-04-17T20:16:42+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-ME-01/sql/08_delete_task.sql",
+      "size_bytes": 236,
+      "sha256": "1decab334cf44bba334c76b7b81cee6e52bd00253f8813e4df0dda862d7f3ec2",
+      "mtime_iso": "2026-04-17T20:16:42+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-ME-01/sql/10_fixtures_create.sql",
+      "size_bytes": 502,
+      "sha256": "612aea1220b0596019a850b07c92deb5405d03af07e8f5c40ab1aa2d544df8f0",
+      "mtime_iso": "2026-04-17T20:16:42+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-ME-01/sql/11_fixtures_cleanup.sql",
+      "size_bytes": 171,
+      "sha256": "e1847f5b099187ef96fb0bded5f7b1d612d537ca58dd6ba30d60e2784345a72d",
+      "mtime_iso": "2026-04-17T20:16:42+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-ME-01/sql/20_read_path_probe.sql",
+      "size_bytes": 209,
+      "sha256": "704fb6845591c9f9329e1b3786d8352f9e7dd6ebbbc23e008ba57076cc9d02de",
+      "mtime_iso": "2026-04-17T20:16:42+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-ME-01/sql/21_write_path_probe.sql",
+      "size_bytes": 268,
+      "sha256": "171aae9aeeadf365d2c3acc2cf2039cfde5886b491c2938682a9b384a9291cc9",
+      "mtime_iso": "2026-04-17T20:16:42+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-ME-01/tests/test_families.py",
+      "size_bytes": 15850,
+      "sha256": "b3aabc1041135a3836d295e20c51b489626892ced661bd875a86870c9152f20c",
+      "mtime_iso": "2026-04-17T20:16:42+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-ME-01/tests/results/results.json",
+      "size_bytes": 61371,
+      "sha256": "e2aa800371aa9ae96e96b1eef2edc76b307498a53305c5e3199dc5f373949bd4",
+      "mtime_iso": "2026-04-17T20:48:16+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-ME-01/tests/results/results.md",
+      "size_bytes": 713,
+      "sha256": "37efb12de50e990d5363312a2bd0fcd33e7476fba86a868c84f1af157f945691",
+      "mtime_iso": "2026-04-17T20:48:16+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-ME-01/workflow/WF-ME-01_Module_Execution.json",
+      "size_bytes": 30066,
+      "sha256": "0a7b95fdc020cd1aa9f978f39a2448ac13e79e74794cb75907bfd9f95abfee44",
+      "mtime_iso": "2026-04-17T21:00:09+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-ME-01/workflow/WF-ME-01_blueprint.json",
+      "size_bytes": 10134,
+      "sha256": "58941e6e04bf93d8a89bdd020b41d80a9ff6aa608af8186f0cd3324ff13e94c9",
+      "mtime_iso": "2026-04-17T20:16:42+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-OR-01/README.md",
+      "size_bytes": 777,
+      "sha256": "647046fd5a81ab4c959a9d05fb73fa2a7e668c9515326881428d64398b93e5bb",
+      "mtime_iso": "2026-04-17T22:29:05.079315+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-OR-01/docs/00_ROUTE_MAP__WF-OR-01_ACTIVATED.md",
+      "size_bytes": 358,
+      "sha256": "f1a2f48291fadb79b1b4d99bd72474103675fbe1ee87e2d3511c1eeff2b33384",
+      "mtime_iso": "2026-04-17T14:17:19+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-OR-01/docs/06_STAGE_WF-OR-01.md",
+      "size_bytes": 8295,
+      "sha256": "2b16412f6d94685f69d8ebd77f5b32c15a6d669cfef8a5679d2a2a9c94d275cc",
+      "mtime_iso": "2026-04-17T14:16:59+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-OR-01/docs/17_ACTIVE_STAGE_LOCK__WF-OR-01.md",
+      "size_bytes": 278,
+      "sha256": "36f8327af47e57c8c7a20533bed61f2edddc5e074ad14230601f2a622bed6406",
+      "mtime_iso": "2026-04-17T14:17:26+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-OR-01/docs/WF-OR-01_CONNECTION_MAP.md",
+      "size_bytes": 1076,
+      "sha256": "4e40c2003f05858f61898b0a08b79b5714aa5cb84f2d74cf73d843b5999027e6",
+      "mtime_iso": "2026-04-17T14:18:22+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-OR-01/docs/WF-OR-01_IMPORT_PATCH_PLAN.md",
+      "size_bytes": 2505,
+      "sha256": "a47bac2265cffe7a7336e78dfeb433cae8c7ef8b9dc221d4ef9ab2d35cdc0830",
+      "mtime_iso": "2026-04-17T14:32:38+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-OR-01/docs/WF-OR-01_NODE_MAP.md",
+      "size_bytes": 1956,
+      "sha256": "6b3b4c32df2b4539bb4a76178523f2917f19e836c9acc7d3239ff6d07774ec75",
+      "mtime_iso": "2026-04-17T14:18:22+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-OR-01/reports/AUDIT_REPORT__WF-OR-01.md",
+      "size_bytes": 259,
+      "sha256": "0332443d3ad59c64db44dd4646aafa8aa9f4bdb78493d197e1017c6c8a69f756",
+      "mtime_iso": "2026-04-17T14:17:54+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-OR-01/reports/BUILD_REPORT__WF-OR-01.md",
+      "size_bytes": 259,
+      "sha256": "83c3d8cece50129903629895ef2759b99e8dd1fe4ee89b8e7101c55bae199d80",
+      "mtime_iso": "2026-04-17T14:17:48+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-OR-01/reports/CLOSURE_REPORT__WF-OR-01.md",
+      "size_bytes": 265,
+      "sha256": "faf7c2f944f87d305ec6bd9174d64bf845cc38a233c871185cec7bfeeb56b1ef",
+      "mtime_iso": "2026-04-17T14:18:06+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-OR-01/reports/CURRENT_STAGE__WF-OR-01.md",
+      "size_bytes": 264,
+      "sha256": "c41c3c812eeaa511a61273065771e83dde2f519b29d8bebe2bcbb88b243463e0",
+      "mtime_iso": "2026-04-17T14:17:34+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-OR-01/reports/FIX_LOG__WF-OR-01.md",
+      "size_bytes": 244,
+      "sha256": "c380a7e489ffef9ca05abd8bb0bdd8719ff3c7c974fef389bdffeb960de6cb5e",
+      "mtime_iso": "2026-04-17T14:18:00+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-OR-01/reports/STATE__WF-OR-01.json",
+      "size_bytes": 224,
+      "sha256": "07e94d62cb2bb12764a5d822e8fd3e275f4348080f208ddc93da097779b9c009",
+      "mtime_iso": "2026-04-17T14:17:41+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-OR-01/scripts/or_logic.py",
+      "size_bytes": 18739,
+      "sha256": "66e7f908bb36ac511e9b406f9ac441aa589c76090f90ff9e9e4b96c7bb265f19",
+      "mtime_iso": "2026-04-17T14:21:29+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-OR-01/scripts/__pycache__/or_logic.cpython-310.pyc",
+      "size_bytes": 11788,
+      "sha256": "23c8d85333ead1ac7f1d4b1602551996a9dbae1ee87d80b1dcdb1ec9ea23045a",
+      "mtime_iso": "2026-04-17T14:30:04+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-OR-01/sql/01_schema_inspect.sql",
+      "size_bytes": 2148,
+      "sha256": "8bc2e58c5df9e316f2f33ece31f6f4cbdf6f75f2b8b34409de1ef94e2e12663c",
+      "mtime_iso": "2026-04-17T14:18:53+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-OR-01/sql/02_load_execution_context.sql",
+      "size_bytes": 825,
+      "sha256": "5bda19b39c540a5ad02123dcdec98bfe8ae94426e9300211251cbbf07e5415ec",
+      "mtime_iso": "2026-04-17T14:18:22+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-OR-01/sql/03_load_execution_context_by_idempotency.sql",
+      "size_bytes": 699,
+      "sha256": "086124fb72e4bee79860477a0516a30c5348f50f717d9ef843e048ea00e3ec75",
+      "mtime_iso": "2026-04-17T14:18:22+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-OR-01/sql/10_fixtures_create.sql",
+      "size_bytes": 1411,
+      "sha256": "a1773c9b42a9f231c2b117b75ddbf8ad0182ca431089c9422c94e33ec070cac5",
+      "mtime_iso": "2026-04-17T14:18:22+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-OR-01/sql/11_fixtures_cleanup.sql",
+      "size_bytes": 236,
+      "sha256": "f658edd4a176f96edd13e2ab52d8a586143f992b305d6e029d0888f258ba8b2e",
+      "mtime_iso": "2026-04-17T14:18:22+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-OR-01/sql/20_read_path_probe.sql",
+      "size_bytes": 864,
+      "sha256": "c6c22bd5c39b32bedf8fa4c49efeeb2dfad7c6757aa0110e527f2dfb25e60c18",
+      "mtime_iso": "2026-04-17T14:18:22+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-OR-01/tests/test_families.py",
+      "size_bytes": 22887,
+      "sha256": "d173338097797c8c9384280156e0ebec0ad636419a3a7176615fd9bbfea84ff0",
+      "mtime_iso": "2026-04-17T14:29:57+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-OR-01/tests/__pycache__/test_families.cpython-310.pyc",
+      "size_bytes": 17003,
+      "sha256": "31c5a621c1f649f55523a9602151cc5d6ff4682272b25decf871ca4b0abeee7b",
+      "mtime_iso": "2026-04-17T14:30:04+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-OR-01/tests/results/results.json",
+      "size_bytes": 747,
+      "sha256": "32cafffb43b07cd299901f37ef3ed7de791e2a15b07ee5bb1a4bc1ed527b71ab",
+      "mtime_iso": "2026-04-17T14:30:13+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-OR-01/tests/results/results.md",
+      "size_bytes": 1499,
+      "sha256": "6140f22d351a160cc950712505eea6d896e84e13906b923bbf94a9ff605a6b60",
+      "mtime_iso": "2026-04-17T14:30:26+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-OR-01/workflow/WF-OR-01_Orchestrator_Input_Handoff.json",
+      "size_bytes": 14741,
+      "sha256": "124001e4363db9fac2e1c01256f03a31afd95c40c2a085d0b6a0f53044c6aa89",
+      "mtime_iso": "2026-04-17T17:54:19+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-OR-01/workflow/WF-OR-01_blueprint.json",
+      "size_bytes": 14216,
+      "sha256": "dc9cd1fec153290cf14b4bee6d8b13e2da67d4ba690a715c09f21e419996b51d",
+      "mtime_iso": "2026-04-17T14:22:09+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-PL-01/README.md",
+      "size_bytes": 733,
+      "sha256": "19e9e2239a8d9c09d50c74a4279909613f058e6e4812478f7411ae947275b157",
+      "mtime_iso": "2026-04-17T22:29:05.085339+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-PL-01/docs/00_ROUTE_MAP__WF-PL-01_ACTIVATED.md",
+      "size_bytes": 2141,
+      "sha256": "49f7fc11a5d304df19938f5c93d10694f5154d536295daf756a15d1090926b8a",
+      "mtime_iso": "2026-04-17T19:02:51+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-PL-01/docs/07_STAGE_WF-PL-01.md",
+      "size_bytes": 8385,
+      "sha256": "ac97d7358d44c1fc125ddc27f9a82055b805a09995534f3b1045439a2f9a8f90",
+      "mtime_iso": "2026-04-17T19:02:51+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-PL-01/docs/17_ACTIVE_STAGE_LOCK__WF-PL-01.md",
+      "size_bytes": 3909,
+      "sha256": "1e859ed3326f8e7bba3561dde50dceabb796a16cd23fb335356ae964fc50b091",
+      "mtime_iso": "2026-04-17T19:02:51+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-PL-01/docs/WF-PL-01_CONNECTION_MAP.md",
+      "size_bytes": 824,
+      "sha256": "d0b967273c3854832fda8b367ae3402338e28653bb61a8d6d20078d55c0663bf",
+      "mtime_iso": "2026-04-17T19:02:19+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-PL-01/docs/WF-PL-01_IMPORT_PATCH_PLAN.md",
+      "size_bytes": 1504,
+      "sha256": "c5699f13f7a9bf4374ae6417091ebeb0a1b2fa2cc83f200f88717f9f0a3acaf2",
+      "mtime_iso": "2026-04-17T19:02:19+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-PL-01/docs/WF-PL-01_NODE_MAP.md",
+      "size_bytes": 2471,
+      "sha256": "9b5aacebfb50f1dbb43bec8b5014d2b76e905d72152ed248abe06cfd7ab4e25f",
+      "mtime_iso": "2026-04-17T19:02:19+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-PL-01/reports/AUDIT_REPORT__WF-PL-01.md",
+      "size_bytes": 4960,
+      "sha256": "a22c5bad37e8bf05ab1aac63956075049ebf8ce23d3114c915aa1c72e58983e7",
+      "mtime_iso": "2026-04-17T19:41:54+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-PL-01/reports/BUILD_REPORT__WF-PL-01.md",
+      "size_bytes": 4825,
+      "sha256": "0b9b2fbf7d184810a981ca3fa54aeae5ba980e18c7ee59b013cb548e3f61dd28",
+      "mtime_iso": "2026-04-17T19:02:51+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-PL-01/reports/CLOSURE_REPORT__WF-PL-01.md",
+      "size_bytes": 4853,
+      "sha256": "5d44b76d1520e13d82026ae5754a94b559f296704885f18f29d5203b6ae1c30d",
+      "mtime_iso": "2026-04-17T19:41:54+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-PL-01/reports/CURRENT_STAGE__WF-PL-01.md",
+      "size_bytes": 3667,
+      "sha256": "279d5dc9a1e629e67d2b8a5b859db6bbc178100f07dd9f65d71748aa9abeca19",
+      "mtime_iso": "2026-04-17T19:41:54+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-PL-01/reports/FIX_LOG__WF-PL-01.md",
+      "size_bytes": 10794,
+      "sha256": "26128065758b24c487daabd53307e84ad87fc524a47f8b279238ce55d4d778b3",
+      "mtime_iso": "2026-04-17T19:41:54+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-PL-01/reports/STATE__WF-PL-01.json",
+      "size_bytes": 8988,
+      "sha256": "3c534ea9cec99bf272e55e5bec1a549a9894ea2b8e1e777a6c4a0c6a0f289b3b",
+      "mtime_iso": "2026-04-17T19:41:54+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-PL-01/scripts/pl_logic.py",
+      "size_bytes": 13989,
+      "sha256": "201bc606af48742850ba05508b4b20fec02adbf1bb3afa50eb33391f9ad42dad",
+      "mtime_iso": "2026-04-17T19:02:19+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-PL-01/scripts/__pycache__/pl_logic.cpython-310.pyc",
+      "size_bytes": 8748,
+      "sha256": "c623604cbec06ca33c5a050c91904802c502ecbe78a1800e72d25a892e5bf854",
+      "mtime_iso": "2026-04-17T19:02:25+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-PL-01/sql/01_schema_inspect.sql",
+      "size_bytes": 286,
+      "sha256": "1adc041e379c9bad42aa607c42268530b249d5c57cb3d8c62ba970de66a4e116",
+      "mtime_iso": "2026-04-17T19:02:19+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-PL-01/sql/02_load_execution_context.sql",
+      "size_bytes": 552,
+      "sha256": "6060e66e97f09710ee5afd64126ef06a745ddec004222365bd780c7dcb09f951",
+      "mtime_iso": "2026-04-17T19:02:19+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-PL-01/sql/03_load_execution_context_by_idempotency.sql",
+      "size_bytes": 428,
+      "sha256": "6d47ce5564b5612bb0cdb692027a16f6610abc0b111dd22dd3b196efa0852438",
+      "mtime_iso": "2026-04-17T19:02:19+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-PL-01/sql/10_fixtures_create.sql",
+      "size_bytes": 302,
+      "sha256": "7099ed64768b1f9bdd9fd43fe5751d00e9fd088f58f9555ed5d9828d261998ed",
+      "mtime_iso": "2026-04-17T19:02:19+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-PL-01/sql/11_fixtures_cleanup.sql",
+      "size_bytes": 229,
+      "sha256": "44338ad36d47762d96b621657b762688c2cdf3c768680795644ff54cc2e896e3",
+      "mtime_iso": "2026-04-17T19:02:19+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-PL-01/sql/20_read_path_probe.sql",
+      "size_bytes": 240,
+      "sha256": "e3f5fc3f9b2c2c482a4b663a3153180526d2b302703f520e6ddabf2889346084",
+      "mtime_iso": "2026-04-17T19:02:19+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-PL-01/tests/test_families.py",
+      "size_bytes": 13752,
+      "sha256": "df23f3629a6886cde635a8e401fdada83f05ed63abc0db134c2f0a47c14002cb",
+      "mtime_iso": "2026-04-17T19:02:19+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-PL-01/tests/__pycache__/test_families.cpython-310.pyc",
+      "size_bytes": 12887,
+      "sha256": "d0ac0e70bc38419e4c98ca17aefe88483ce78114c9e12454b672d976d0b8a758",
+      "mtime_iso": "2026-04-17T19:02:25+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-PL-01/tests/results/results.json",
+      "size_bytes": 717,
+      "sha256": "5772f91637044381d5706854c0f8ef4ad50bbe3edfb22c10edee98e4cf23c0f7",
+      "mtime_iso": "2026-04-17T19:02:19+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-PL-01/tests/results/results.md",
+      "size_bytes": 834,
+      "sha256": "336e07470a91d0d7b57d250e9410958d8aa0e5f1419da00d735a1772679363ff",
+      "mtime_iso": "2026-04-17T19:02:19+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-PL-01/workflow/WF-PL-01_Plan_Generation.json",
+      "size_bytes": 21035,
+      "sha256": "b124dbc665cf0e37aaf595640f0f2b63cb3320e885b0a81b9d2ce6fba64f5b16",
+      "mtime_iso": "2026-04-17T19:12:11+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-PL-01/workflow/WF-PL-01_blueprint.json",
+      "size_bytes": 20563,
+      "sha256": "c8b03ee3a9797bf25fde1be49831edafc89f00493220dc9a4eb07b3682657053",
+      "mtime_iso": "2026-04-17T19:02:19+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-RA-01/README.md",
+      "size_bytes": 467,
+      "sha256": "e77eefd3360186516d20b30d6fb673b467a09b5cdd68acc5b1a908b921c373b8",
+      "mtime_iso": "2026-04-17T22:29:05.100349+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-RC-01/README.md",
+      "size_bytes": 424,
+      "sha256": "6398612046ba7ec8be2cd282a512e499d0217d414b18121e958d6f1233d0d6d0",
+      "mtime_iso": "2026-04-17T22:29:05.106945+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-TR-01/README.md",
+      "size_bytes": 973,
+      "sha256": "293d5f203cca953613676630c54529a1a91baa2e1379b710746428f74711879e",
+      "mtime_iso": "2026-04-17T22:29:05.064312+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-TR-01/docs/HANDOFF_WF-TR-01_2026-04-16.md",
+      "size_bytes": 19769,
+      "sha256": "8e1276849c1cae8bd39b93845422acbf1b00623eabd1cc624fa2ae94d75e0ee3",
+      "mtime_iso": "2026-04-16T16:35:05+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-TR-01/docs/HANDOFF_WF-TR-02_EC_Init_Kickoff_2026-04-16.md",
+      "size_bytes": 10850,
+      "sha256": "c4825e80cde70c0c638a4458d12d5e5b84208baf24f89578b3b7f39cc9afe683",
+      "mtime_iso": "2026-04-16T20:18:11+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-TR-01/docs/IMPORT_WF-TR-01.md",
+      "size_bytes": 10739,
+      "sha256": "6e5bdb19dc7e6ec172ea28f1ae063261f9d63de12ce589a09e5cbba7e3748d66",
+      "mtime_iso": "2026-04-15T20:05:04+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-TR-01/docs/WF-TR-01_MCP_Technical_Sheet.md",
+      "size_bytes": 75114,
+      "sha256": "70752f706340c5c57c65b8dccbe83a1e12c48c6981ca4a653eada3ee49e91e0a",
+      "mtime_iso": "2026-04-16T16:33:50+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-TR-01/reports/AUDIT_ADDENDUM_WF-TR-01_Domain_Fixtures.md",
+      "size_bytes": 16462,
+      "sha256": "952c3dbc716b107142e5dfcadb65eebf40b9af7c4e88e174003b9b7f22581349",
+      "mtime_iso": "2026-04-15T19:33:08+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-TR-01/reports/AUDIT_REPORT_WF-TR-01.md",
+      "size_bytes": 51085,
+      "sha256": "52946b78174247b29f564d15e8cd3282dc057c1feb31abfa3f6f32c9284abbef",
+      "mtime_iso": "2026-04-15T18:12:58+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-TR-01/reports/REMEDIATION_REPORT_WF-TR-01.md",
+      "size_bytes": 16366,
+      "sha256": "060e81a119d1a595daac9d98f84c35898b2137d009d433b889597b1f60e124d7",
+      "mtime_iso": "2026-04-15T20:13:55+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-TR-01/reports/TEST_AFTER_IMPORT_WF-TR-01.md",
+      "size_bytes": 23456,
+      "sha256": "aa0da70d1ac29083209f4a6cd5d9d505917dad28aa7187c96c5a86ed000604af",
+      "mtime_iso": "2026-04-15T20:05:57+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-TR-01/reports/TEST_REPORT_WF-TR-01.md",
+      "size_bytes": 19768,
+      "sha256": "dac5b3d0ca6e14520dc2f59548826baccc5955d6c1c3813676fbf34d867b502c",
+      "mtime_iso": "2026-04-15T20:06:53+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-TR-01/sql/MIGRATION_messages_for_WF-TR-01.sql",
+      "size_bytes": 3056,
+      "sha256": "7b7b086f6547d765e762ea57dcff8e4b48251b58d2a9d3b8a7afcba2c04a8896",
+      "mtime_iso": "2026-04-16T15:07:14+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-TR-01/tests/TC-01_Explicit_thread_reference.json",
+      "size_bytes": 769,
+      "sha256": "15414df4201e21c385176f0e77dcde82291fda0ef708a8ae3dc1912936e472b3",
+      "mtime_iso": "2026-04-15T20:11:48+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-TR-01/tests/TC-02_Direct_reply_linkage.json",
+      "size_bytes": 788,
+      "sha256": "4d1c660c630fe01410620794de88f378c60570aaed724e9e9144cfcd411fddae",
+      "mtime_iso": "2026-04-15T20:11:48+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-TR-01/tests/TC-03_Attach_by_entity___semantic_match.json",
+      "size_bytes": 1187,
+      "sha256": "f2dbc41c2583cb83bb35e9f7ced7aa74f862d9b6a5de1594c03f20d3de224b2e",
+      "mtime_iso": "2026-04-15T20:11:48+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-TR-01/tests/TC-04_Reopen_latent_thread.json",
+      "size_bytes": 1179,
+      "sha256": "43b1d0afdd4c1fa47997326fb719d80da10740b5997c991a1eeaa787bc6ece39",
+      "mtime_iso": "2026-04-15T20:11:48+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-TR-01/tests/TC-05_Create_new_thread.json",
+      "size_bytes": 714,
+      "sha256": "de543719dc1b83826c40ee181ccaf323327abdc813b088e637f6bf7a21436bf7",
+      "mtime_iso": "2026-04-15T20:11:48+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-TR-01/tests/TC-06_Ambiguous_candidate_set.json",
+      "size_bytes": 1304,
+      "sha256": "31eb2d87975e2ef97d881a0203aee5d4f0057341ed46945fa8b2ceb0cbaabab8",
+      "mtime_iso": "2026-04-15T20:11:48+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-TR-01/tests/TC-07_Invalid_input.json",
+      "size_bytes": 393,
+      "sha256": "0f2c45fab972034061c7173481caab7a52ad05c9c6ddb95770752c4bc7f56619",
+      "mtime_iso": "2026-04-15T20:11:48+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-TR-01/tests/TC-08_Deterministic_replay.json",
+      "size_bytes": 789,
+      "sha256": "d2f7bf439aecc75b9f1e13c5893c677a3e07ad3456ccbdea98e704144b3423b7",
+      "mtime_iso": "2026-04-15T17:52:56+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-TR-01/tests/TC-08_Deterministic_replay__scoring_path_.json",
+      "size_bytes": 954,
+      "sha256": "ca664034713d9c90d032d066aff50c625ca75d9c3f6f3d273d2adae0289cb251",
+      "mtime_iso": "2026-04-15T20:11:48+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-TR-01/tests/TC-09_Cross_tenant_isolation.json",
+      "size_bytes": 750,
+      "sha256": "648934bf60e98c3359f0c5a835dde10bfee3d18419b0c3bebb435753fe4390e9",
+      "mtime_iso": "2026-04-15T20:11:48+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-TR-01/tests/TC-10_Content_class_behavior.json",
+      "size_bytes": 591,
+      "sha256": "ccf3ec29ba8302f7b850026bbfcc3ed92f4bb970d1cedce3422a627644cc9cbb",
+      "mtime_iso": "2026-04-15T20:11:48+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-TR-01/tests/TC-11_Whitespace_only_content.json",
+      "size_bytes": 668,
+      "sha256": "78c08be11dddd1ee4cd9673c0ed07c769495a041b02db9ce7ef62f6a38c2dc32",
+      "mtime_iso": "2026-04-15T20:11:48+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-TR-01/tests/TC-12_Reply_to_thread_id_explicit_reference.json",
+      "size_bytes": 905,
+      "sha256": "7e1bd541bb4e5c43aba5b277adba393a536d07ba8ea1d22d33a2e08ead0e886c",
+      "mtime_iso": "2026-04-15T20:11:48+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-TR-01/tests/TC-13_Latent_thread_above_strict_attach_threshold.json",
+      "size_bytes": 1267,
+      "sha256": "e87cd3f24b922c7c5cce94e25023bbc9bb05ec88444b6478f3df28e7d6af6f02",
+      "mtime_iso": "2026-04-15T20:11:48+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-TR-01/tests/TC-14_Active_thread_at_exact_boundary__score___0_75_.json",
+      "size_bytes": 1149,
+      "sha256": "4418506b4a32b21b46e631aa51e8aedcd56748fcff83ae671a76f9a686066fa5",
+      "mtime_iso": "2026-04-15T20:11:48+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-TR-01/tests/TC-15_Reply_to_message_with_no_thread_id.json",
+      "size_bytes": 889,
+      "sha256": "806d4cc92ebb93486b5d1cb6d2dda2c55682710e1a37470600e1fb8ae23a2d2a",
+      "mtime_iso": "2026-04-15T20:11:48+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-TR-01/tests/TC-16_Audit_write_error_path_verification.json",
+      "size_bytes": 740,
+      "sha256": "a2e0e09a5ea7305aafd7156d5c3eb2355d2e6139ced7621a798540f3d82aef91",
+      "mtime_iso": "2026-04-15T20:11:48+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-TR-01/workflow/WF-TR-01_PATCHED_switch_fix.json",
+      "size_bytes": 44192,
+      "sha256": "c214e096f5231f1c340c4aece539c5f23d1057d6edddd7d265305a97f30edcaa",
+      "mtime_iso": "2026-04-16T15:45:41+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "ucenicul_restructured_candidate/workflows/WF-TR-01/workflow/WF-TR-01_Thread_Resolver.json",
+      "size_bytes": 45645,
+      "sha256": "96511f0e6f62e8b6ed4596022c03af5a2890dc401f743e625e76c2c87ecbf4a9",
+      "mtime_iso": "2026-04-16T04:27:32+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/AUDIT_ADDENDUM_WF-TR-01_Domain_Fixtures.md",
+      "size_bytes": 16462,
+      "sha256": "952c3dbc716b107142e5dfcadb65eebf40b9af7c4e88e174003b9b7f22581349",
+      "mtime_iso": "2026-04-15T19:33:08.942194+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/AUDIT_REPORT_WF-TR-01.md",
+      "size_bytes": 51085,
+      "sha256": "52946b78174247b29f564d15e8cd3282dc057c1feb31abfa3f6f32c9284abbef",
+      "mtime_iso": "2026-04-15T18:12:58.982830+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/HANDOFF_WF-TR-01_2026-04-16.md",
+      "size_bytes": 19769,
+      "sha256": "8e1276849c1cae8bd39b93845422acbf1b00623eabd1cc624fa2ae94d75e0ee3",
+      "mtime_iso": "2026-04-16T16:35:05.015523+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/HANDOFF_WF-TR-02_EC_Init_Kickoff_2026-04-16.md",
+      "size_bytes": 10850,
+      "sha256": "c4825e80cde70c0c638a4458d12d5e5b84208baf24f89578b3b7f39cc9afe683",
+      "mtime_iso": "2026-04-16T20:18:11.707014+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/IMPORT_WF-TR-01.md",
+      "size_bytes": 10739,
+      "sha256": "6e5bdb19dc7e6ec172ea28f1ae063261f9d63de12ce589a09e5cbba7e3748d66",
+      "mtime_iso": "2026-04-15T20:05:04.773996+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/MIGRATION_messages_for_WF-TR-01.sql",
+      "size_bytes": 3056,
+      "sha256": "7b7b086f6547d765e762ea57dcff8e4b48251b58d2a9d3b8a7afcba2c04a8896",
+      "mtime_iso": "2026-04-16T15:07:14.921419+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/POST_IMPORT_AUDIT_WF-EC-01.md",
+      "size_bytes": 11764,
+      "sha256": "2c104514faa58c3ff9979efa6ce17da0ca71a0440443ca2d582ab96b9364e4c1",
+      "mtime_iso": "2026-04-17T12:14:10.524706+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/REMEDIATION_REPORT_WF-TR-01.md",
+      "size_bytes": 16366,
+      "sha256": "060e81a119d1a595daac9d98f84c35898b2137d009d433b889597b1f60e124d7",
+      "mtime_iso": "2026-04-15T20:13:55.819856+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/TEST_AFTER_IMPORT_WF-TR-01.md",
+      "size_bytes": 23456,
+      "sha256": "aa0da70d1ac29083209f4a6cd5d9d505917dad28aa7187c96c5a86ed000604af",
+      "mtime_iso": "2026-04-15T20:05:57.130352+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/TEST_REPORT_WF-TR-01.md",
+      "size_bytes": 19768,
+      "sha256": "dac5b3d0ca6e14520dc2f59548826baccc5955d6c1c3813676fbf34d867b502c",
+      "mtime_iso": "2026-04-15T20:06:53.876977+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/WF-DI-01_CONNECTION_MAP.md",
+      "size_bytes": 790,
+      "sha256": "d0a484c640ea82a9ae6edce3ed8f5f990dcb562a4e0787c74605a099374d879f",
+      "mtime_iso": "2026-04-17T19:42:08.856514+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/WF-DI-01_Dispatcher.json",
+      "size_bytes": 19109,
+      "sha256": "3f21a5c6953a6ca782604ee305ac86089af65d2131bee5a328946327984c6b8a",
+      "mtime_iso": "2026-04-17T19:49:04.432567+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/WF-DI-01_IMPORT_PATCH_PLAN.md",
+      "size_bytes": 1321,
+      "sha256": "b4a0e14e42918a8b668e007f9295680902ef0125a9c7e91b504929119149ae15",
+      "mtime_iso": "2026-04-17T19:42:08.863561+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/WF-DI-01_NODE_MAP.md",
+      "size_bytes": 1367,
+      "sha256": "83c4d1f5317f38acf773931df1374c4f61c1c4de40063973927e5e4897f3dbed",
+      "mtime_iso": "2026-04-17T19:42:08.850514+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/WF-DI-01_blueprint.json",
+      "size_bytes": 18889,
+      "sha256": "c23d02f5efa9829c88e04aadf9d6b109f98b48743f5a4ae064dc08433d886d2b",
+      "mtime_iso": "2026-04-17T19:42:08.842625+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/WF-EC-01_CONNECTION_MAP.md",
+      "size_bytes": 2302,
+      "sha256": "f44197de3b7fe9ead50a4c03399f6220931d7419d84de056546d9b17dc23af95",
+      "mtime_iso": "2026-04-17T00:28:33.158046+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/WF-EC-01_Execution_Context.json",
+      "size_bytes": 14498,
+      "sha256": "081ea84716a728d31dbe05a1e05a3b262c9657dd9465e058f7efdae96dec5d7c",
+      "mtime_iso": "2026-04-17T11:54:54.475973+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/WF-EC-01_IMPORT_PATCH_PLAN.md",
+      "size_bytes": 5116,
+      "sha256": "614543fcbe16ffbf1db48999b02acf86134a81d277399af85a27eef46853da43",
+      "mtime_iso": "2026-04-17T00:29:10.445453+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/WF-EC-01_NODE_MAP.md",
+      "size_bytes": 8415,
+      "sha256": "885ef7bd2062757a64b1c558ccf93e96485e3002ea48cdc510d6830d3b0d536f",
+      "mtime_iso": "2026-04-17T00:28:02.885840+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/WF-EC-01_blueprint.json",
+      "size_bytes": 14498,
+      "sha256": "081ea84716a728d31dbe05a1e05a3b262c9657dd9465e058f7efdae96dec5d7c",
+      "mtime_iso": "2026-04-17T11:54:58.334558+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/WF-ME-01_CONNECTION_MAP.md",
+      "size_bytes": 969,
+      "sha256": "8db2409a62a6371a5ceb21bedc62c01c995a69f3f5e5a06a47395387f9e18c60",
+      "mtime_iso": "2026-04-17T20:16:42.159744+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/WF-ME-01_IMPORT_PATCH_PLAN.md",
+      "size_bytes": 751,
+      "sha256": "02b0f1c825bb38549b3d85ec9774c103f01365c9dc7418e4c14448ecd909befd",
+      "mtime_iso": "2026-04-17T20:16:42.164744+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/WF-ME-01_Module_Execution.json",
+      "size_bytes": 30066,
+      "sha256": "0a7b95fdc020cd1aa9f978f39a2448ac13e79e74794cb75907bfd9f95abfee44",
+      "mtime_iso": "2026-04-17T21:00:09.413723+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/WF-ME-01_NODE_MAP.md",
+      "size_bytes": 1179,
+      "sha256": "a996a4f1827cfaa4e5617db3853bc24dad226b5b2b0f5332c7e7f2817a632813",
+      "mtime_iso": "2026-04-17T20:16:42.153744+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/WF-ME-01_TEST_MATRIX.md",
+      "size_bytes": 320,
+      "sha256": "266cd155e13b1663adbde9806134e7d3870e065539f75e4781c1e98734fb02d1",
+      "mtime_iso": "2026-04-17T20:16:42.169744+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/WF-ME-01_blueprint.json",
+      "size_bytes": 10134,
+      "sha256": "58941e6e04bf93d8a89bdd020b41d80a9ff6aa608af8186f0cd3324ff13e94c9",
+      "mtime_iso": "2026-04-17T20:16:42.148746+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/WF-OR-01_CONNECTION_MAP.md",
+      "size_bytes": 1076,
+      "sha256": "4e40c2003f05858f61898b0a08b79b5714aa5cb84f2d74cf73d843b5999027e6",
+      "mtime_iso": "2026-04-17T14:18:22.701949+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/WF-OR-01_IMPORT_PATCH_PLAN.md",
+      "size_bytes": 2505,
+      "sha256": "a47bac2265cffe7a7336e78dfeb433cae8c7ef8b9dc221d4ef9ab2d35cdc0830",
+      "mtime_iso": "2026-04-17T14:32:38.560459+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/WF-OR-01_NODE_MAP.md",
+      "size_bytes": 1956,
+      "sha256": "6b3b4c32df2b4539bb4a76178523f2917f19e836c9acc7d3239ff6d07774ec75",
+      "mtime_iso": "2026-04-17T14:18:22.694672+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/WF-OR-01_Orchestrator_Input_Handoff.json",
+      "size_bytes": 14741,
+      "sha256": "124001e4363db9fac2e1c01256f03a31afd95c40c2a085d0b6a0f53044c6aa89",
+      "mtime_iso": "2026-04-17T17:54:19.497582+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/WF-OR-01_blueprint.json",
+      "size_bytes": 14216,
+      "sha256": "dc9cd1fec153290cf14b4bee6d8b13e2da67d4ba690a715c09f21e419996b51d",
+      "mtime_iso": "2026-04-17T14:22:09.235773+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/WF-PL-01_CONNECTION_MAP.md",
+      "size_bytes": 824,
+      "sha256": "d0b967273c3854832fda8b367ae3402338e28653bb61a8d6d20078d55c0663bf",
+      "mtime_iso": "2026-04-17T19:02:19.581156+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/WF-PL-01_IMPORT_PATCH_PLAN.md",
+      "size_bytes": 1504,
+      "sha256": "c5699f13f7a9bf4374ae6417091ebeb0a1b2fa2cc83f200f88717f9f0a3acaf2",
+      "mtime_iso": "2026-04-17T19:02:19.587156+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/WF-PL-01_NODE_MAP.md",
+      "size_bytes": 2471,
+      "sha256": "9b5aacebfb50f1dbb43bec8b5014d2b76e905d72152ed248abe06cfd7ab4e25f",
+      "mtime_iso": "2026-04-17T19:02:19.575155+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/WF-PL-01_Plan_Generation.json",
+      "size_bytes": 21035,
+      "sha256": "b124dbc665cf0e37aaf595640f0f2b63cb3320e885b0a81b9d2ce6fba64f5b16",
+      "mtime_iso": "2026-04-17T19:12:11.303003+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/WF-PL-01_blueprint.json",
+      "size_bytes": 20563,
+      "sha256": "c8b03ee3a9797bf25fde1be49831edafc89f00493220dc9a4eb07b3682657053",
+      "mtime_iso": "2026-04-17T19:02:19.569156+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/WF-TR-01_MCP_Technical_Sheet.md",
+      "size_bytes": 75114,
+      "sha256": "70752f706340c5c57c65b8dccbe83a1e12c48c6981ca4a653eada3ee49e91e0a",
+      "mtime_iso": "2026-04-16T16:33:50.882686+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/WF-TR-01_PATCHED_switch_fix.json",
+      "size_bytes": 44192,
+      "sha256": "c214e096f5231f1c340c4aece539c5f23d1057d6edddd7d265305a97f30edcaa",
+      "mtime_iso": "2026-04-16T15:45:41.310892+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/WF-TR-01_Thread_Resolver.json",
+      "size_bytes": 45645,
+      "sha256": "96511f0e6f62e8b6ed4596022c03af5a2890dc401f743e625e76c2c87ecbf4a9",
+      "mtime_iso": "2026-04-16T04:27:32.240052+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/contracts/ThreadResolutionContracts.md",
+      "size_bytes": 16373,
+      "sha256": "d2c4bfacbfbd24d3612d984844153a67f30eeec2bfa9e1bd53cbe42e513b0565",
+      "mtime_iso": "2026-04-15T20:03:59.714149+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/fixtures/TC-01_Explicit_thread_reference.json",
+      "size_bytes": 769,
+      "sha256": "15414df4201e21c385176f0e77dcde82291fda0ef708a8ae3dc1912936e472b3",
+      "mtime_iso": "2026-04-15T20:11:48.196512+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/fixtures/TC-02_Direct_reply_linkage.json",
+      "size_bytes": 788,
+      "sha256": "4d1c660c630fe01410620794de88f378c60570aaed724e9e9144cfcd411fddae",
+      "mtime_iso": "2026-04-15T20:11:48.201681+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/fixtures/TC-03_Attach_by_entity___semantic_match.json",
+      "size_bytes": 1187,
+      "sha256": "f2dbc41c2583cb83bb35e9f7ced7aa74f862d9b6a5de1594c03f20d3de224b2e",
+      "mtime_iso": "2026-04-15T20:11:48.205366+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/fixtures/TC-04_Reopen_latent_thread.json",
+      "size_bytes": 1179,
+      "sha256": "43b1d0afdd4c1fa47997326fb719d80da10740b5997c991a1eeaa787bc6ece39",
+      "mtime_iso": "2026-04-15T20:11:48.209775+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/fixtures/TC-05_Create_new_thread.json",
+      "size_bytes": 714,
+      "sha256": "de543719dc1b83826c40ee181ccaf323327abdc813b088e637f6bf7a21436bf7",
+      "mtime_iso": "2026-04-15T20:11:48.212847+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/fixtures/TC-06_Ambiguous_candidate_set.json",
+      "size_bytes": 1304,
+      "sha256": "31eb2d87975e2ef97d881a0203aee5d4f0057341ed46945fa8b2ceb0cbaabab8",
+      "mtime_iso": "2026-04-15T20:11:48.215847+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/fixtures/TC-07_Invalid_input.json",
+      "size_bytes": 393,
+      "sha256": "0f2c45fab972034061c7173481caab7a52ad05c9c6ddb95770752c4bc7f56619",
+      "mtime_iso": "2026-04-15T20:11:48.219848+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/fixtures/TC-08_Deterministic_replay.json",
+      "size_bytes": 789,
+      "sha256": "d2f7bf439aecc75b9f1e13c5893c677a3e07ad3456ccbdea98e704144b3423b7",
+      "mtime_iso": "2026-04-15T17:52:56.770724+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/fixtures/TC-08_Deterministic_replay__scoring_path_.json",
+      "size_bytes": 954,
+      "sha256": "ca664034713d9c90d032d066aff50c625ca75d9c3f6f3d273d2adae0289cb251",
+      "mtime_iso": "2026-04-15T20:11:48.223855+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/fixtures/TC-09_Cross_tenant_isolation.json",
+      "size_bytes": 750,
+      "sha256": "648934bf60e98c3359f0c5a835dde10bfee3d18419b0c3bebb435753fe4390e9",
+      "mtime_iso": "2026-04-15T20:11:48.227856+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/fixtures/TC-10_Content_class_behavior.json",
+      "size_bytes": 591,
+      "sha256": "ccf3ec29ba8302f7b850026bbfcc3ed92f4bb970d1cedce3422a627644cc9cbb",
+      "mtime_iso": "2026-04-15T20:11:48.231855+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/fixtures/TC-11_Whitespace_only_content.json",
+      "size_bytes": 668,
+      "sha256": "78c08be11dddd1ee4cd9673c0ed07c769495a041b02db9ce7ef62f6a38c2dc32",
+      "mtime_iso": "2026-04-15T20:11:48.234854+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/fixtures/TC-12_Reply_to_thread_id_explicit_reference.json",
+      "size_bytes": 905,
+      "sha256": "7e1bd541bb4e5c43aba5b277adba393a536d07ba8ea1d22d33a2e08ead0e886c",
+      "mtime_iso": "2026-04-15T20:11:48.238360+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/fixtures/TC-13_Latent_thread_above_strict_attach_threshold.json",
+      "size_bytes": 1267,
+      "sha256": "e87cd3f24b922c7c5cce94e25023bbc9bb05ec88444b6478f3df28e7d6af6f02",
+      "mtime_iso": "2026-04-15T20:11:48.241365+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/fixtures/TC-14_Active_thread_at_exact_boundary__score___0_75_.json",
+      "size_bytes": 1149,
+      "sha256": "4418506b4a32b21b46e631aa51e8aedcd56748fcff83ae671a76f9a686066fa5",
+      "mtime_iso": "2026-04-15T20:11:48.245365+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/fixtures/TC-15_Reply_to_message_with_no_thread_id.json",
+      "size_bytes": 889,
+      "sha256": "806d4cc92ebb93486b5d1cb6d2dda2c55682710e1a37470600e1fb8ae23a2d2a",
+      "mtime_iso": "2026-04-15T20:11:48.248367+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/fixtures/TC-16_Audit_write_error_path_verification.json",
+      "size_bytes": 740,
+      "sha256": "a2e0e09a5ea7305aafd7156d5c3eb2355d2e6139ced7621a798540f3d82aef91",
+      "mtime_iso": "2026-04-15T20:11:48.251364+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/fixtures/setup_test_data.sql",
+      "size_bytes": 5720,
+      "sha256": "25592b54435ef4004a0407a29b34eb5a45314b194d924854e366e256c69ca1d9",
+      "mtime_iso": "2026-04-16T15:07:01.828715+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/scripts/generate_fixtures.js",
+      "size_bytes": 20492,
+      "sha256": "6d8eb93cdbc5b7992bdbc42276d86f7833ad1fdc01c0b0f71b08e519d970d8b8",
+      "mtime_iso": "2026-04-15T20:04:39.979483+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/scripts/lint_workflow.js",
+      "size_bytes": 11982,
+      "sha256": "49259dbe3347315cb276a9dd3cb4e1e534d392bc39001cad2995b3fad393613e",
+      "mtime_iso": "2026-04-15T20:11:34.553668+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/scripts/test_all.sh",
+      "size_bytes": 1175,
+      "sha256": "dd554131652483c3b2757913e6aca2b00830ead86414820d8483336b0e0f2965",
+      "mtime_iso": "2026-04-15T20:06:51.454811+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/scripts/validate_contract.js",
+      "size_bytes": 16985,
+      "sha256": "b31ab6b0f0b17f0b401a976577faafb31c44e6002e8d467b99cea3fc0b2b5298",
+      "mtime_iso": "2026-04-15T20:06:18.629418+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/scripts/validate_scoring.js",
+      "size_bytes": 23258,
+      "sha256": "4cf7c0f77d56fd478116f796f5592322d9e9cd45df8d9c961bbfb4a0dcf71df5",
+      "mtime_iso": "2026-04-15T20:01:03.613115+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/scripts/verify_replay.js",
+      "size_bytes": 9529,
+      "sha256": "dd500759ed983fc726b87f1a1b23f685e1817a89975806a0afe917c089ca2d63",
+      "mtime_iso": "2026-04-15T20:05:56.265827+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/scripts/di/di_logic.py",
+      "size_bytes": 14064,
+      "sha256": "612acd9db7a5d8ff66daa7afddc31bb47c459d13f05239d2b79ab0540528e5aa",
+      "mtime_iso": "2026-04-17T19:42:08.909842+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/scripts/di/__pycache__/di_logic.cpython-310.pyc",
+      "size_bytes": 9978,
+      "sha256": "2461fb25761cd5ab30cf396764086dfe4dbc6c3f24697d2372908a3a32db1414",
+      "mtime_iso": "2026-04-17T19:42:13.792291+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/scripts/ec/ec_logic.py",
+      "size_bytes": 6422,
+      "sha256": "07d13af6b1c718e21943408f2bb26b74b0802f88d2dab098f33e377c8ac0f582",
+      "mtime_iso": "2026-04-17T00:29:41.333182+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/scripts/ec/__pycache__/ec_logic.cpython-310.pyc",
+      "size_bytes": 4558,
+      "sha256": "dc63dee68b383ba0643371259de4a53fbcd4cebf5b32dff91e3efee028681466",
+      "mtime_iso": "2026-04-17T00:35:04.155600+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/scripts/me/me_logic.py",
+      "size_bytes": 12425,
+      "sha256": "7322919ba17710fa0b292000f01b66f66c8f0a4021ed39da7aad34cab8fba2f1",
+      "mtime_iso": "2026-04-17T20:16:42.226260+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/scripts/me/__pycache__/me_logic.cpython-310.pyc",
+      "size_bytes": 7601,
+      "sha256": "39fb4c6a63551070f4af800abc83814aef4e5b8e6e9fa0cb9e99c78362f87a93",
+      "mtime_iso": "2026-04-17T20:19:33.211229+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/scripts/or/or_logic.py",
+      "size_bytes": 18739,
+      "sha256": "66e7f908bb36ac511e9b406f9ac441aa589c76090f90ff9e9e4b96c7bb265f19",
+      "mtime_iso": "2026-04-17T14:21:29.572532+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/scripts/or/__pycache__/or_logic.cpython-310.pyc",
+      "size_bytes": 11788,
+      "sha256": "23c8d85333ead1ac7f1d4b1602551996a9dbae1ee87d80b1dcdb1ec9ea23045a",
+      "mtime_iso": "2026-04-17T14:30:04.657427+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/scripts/pl/pl_logic.py",
+      "size_bytes": 13989,
+      "sha256": "201bc606af48742850ba05508b4b20fec02adbf1bb3afa50eb33391f9ad42dad",
+      "mtime_iso": "2026-04-17T19:02:19.629160+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/scripts/pl/__pycache__/pl_logic.cpython-310.pyc",
+      "size_bytes": 8748,
+      "sha256": "c623604cbec06ca33c5a050c91904802c502ecbe78a1800e72d25a892e5bf854",
+      "mtime_iso": "2026-04-17T19:02:25.241945+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/sql/di/01_schema_inspect.sql",
+      "size_bytes": 317,
+      "sha256": "98654ca7e7f4763534b0a43c14879acb0f8c1c561ca1ca73700dc479103bc2ae",
+      "mtime_iso": "2026-04-17T19:42:08.869069+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/sql/di/02_load_execution_context.sql",
+      "size_bytes": 365,
+      "sha256": "1b7cdb695380392e484cc0191870374394122b29ac6aae38c64f0ac4dbb77670",
+      "mtime_iso": "2026-04-17T19:42:08.874697+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/sql/di/03_load_plan_by_execution_context.sql",
+      "size_bytes": 360,
+      "sha256": "e3a450dc0c536774989380fcd39b5db3c75a68592ac9966b895a83170659b18c",
+      "mtime_iso": "2026-04-17T19:42:08.880200+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/sql/di/04_load_module_registry.sql",
+      "size_bytes": 398,
+      "sha256": "7db391204ed5c0bf001d80741b5cbcf1459f0a8a134ab71b638e9408e69b6d67",
+      "mtime_iso": "2026-04-17T19:42:08.885200+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/sql/di/10_fixtures_create.sql",
+      "size_bytes": 296,
+      "sha256": "1505653c0134678f2d86f8b10e3b4a0cc374e80553f5c60f0907e88880782b7d",
+      "mtime_iso": "2026-04-17T19:42:08.890717+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/sql/di/11_fixtures_cleanup.sql",
+      "size_bytes": 187,
+      "sha256": "6a13378da49574c1bbeb20155cc7e2e698ae26881280b6fecdcdca63d18d8c13",
+      "mtime_iso": "2026-04-17T19:42:08.896225+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/sql/di/20_read_path_probe.sql",
+      "size_bytes": 258,
+      "sha256": "154f6214e6a3f1d724d4007ef0cf100802b8c799ba400a5874cbc111484f2c80",
+      "mtime_iso": "2026-04-17T19:42:08.901236+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/sql/ec/01_schema_inspect.sql",
+      "size_bytes": 1654,
+      "sha256": "fd36e21d41fa05f3bf594928937643ecaa3c8c9d32cb3316ecd6147dd68621c6",
+      "mtime_iso": "2026-04-17T00:30:16.378293+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/sql/ec/02_upsert.sql",
+      "size_bytes": 835,
+      "sha256": "787a3092cbf436bb8131f33d54eae30a2ae30bb6ed19a42885620134953959fd",
+      "mtime_iso": "2026-04-17T00:30:22.926354+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/sql/ec/03_load_existing.sql",
+      "size_bytes": 404,
+      "sha256": "27d563524e17362ba48e8ec0faf2d6819ac41b4d3c554ec94c9a1b6116bdea04",
+      "mtime_iso": "2026-04-17T00:30:26.942382+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/sql/ec/10_fixtures_create.sql",
+      "size_bytes": 2551,
+      "sha256": "1a619f1572fd02ab52db3a0dda6a703549283354fad0fe974caf126f5b9a8d9f",
+      "mtime_iso": "2026-04-17T11:46:48.327930+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/sql/ec/11_fixtures_cleanup.sql",
+      "size_bytes": 902,
+      "sha256": "a027632592fbf330355135821dcaa69666ba0c658e282a6e073882e976457fbd",
+      "mtime_iso": "2026-04-17T00:30:48.360023+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/sql/ec/20_behavior_probe.sql",
+      "size_bytes": 1731,
+      "sha256": "158c82336cee3e08ad8059d3bd559b51832eb74bac94c619636210df810b279a",
+      "mtime_iso": "2026-04-17T00:30:58.264717+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/sql/me/01_schema_inspect.sql",
+      "size_bytes": 237,
+      "sha256": "22d083f48406e5bcca8f14986ec1508578341c021dcc463abbd75d7ab0173239",
+      "mtime_iso": "2026-04-17T20:16:42.174745+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/sql/me/02_load_execution_context.sql",
+      "size_bytes": 367,
+      "sha256": "b47da2f8b1b7cfa0f58cdda065480ca909057360957661ea7a2ae101739a2df0",
+      "mtime_iso": "2026-04-17T20:16:42.179752+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/sql/me/03_load_dispatch_request.sql",
+      "size_bytes": 391,
+      "sha256": "4298532cd9d738a2b61667b7dc19324dd687d17b78a7a53dda632fdee8167ac0",
+      "mtime_iso": "2026-04-17T20:16:42.183750+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/sql/me/04_load_task_candidates.sql",
+      "size_bytes": 417,
+      "sha256": "a509bf7e4235fe8fbf1f457301b6770c765f4e063fde11fb6c9aa0e1685b020b",
+      "mtime_iso": "2026-04-17T20:16:42.187751+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/sql/me/05_insert_task.sql",
+      "size_bytes": 424,
+      "sha256": "eed4e3eb3211340ece43cbf1430f9d7e58ad347a46e8a69d1c0918940ff78de3",
+      "mtime_iso": "2026-04-17T20:16:42.191752+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/sql/me/06_update_task.sql",
+      "size_bytes": 435,
+      "sha256": "a9121a38edeed0ea6d20c59937f75d2cfb375f0bc3a797ee95c704e1b33a9b85",
+      "mtime_iso": "2026-04-17T20:16:42.196261+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/sql/me/07_complete_task.sql",
+      "size_bytes": 269,
+      "sha256": "2741a3cfaeb393ea95046bc325f74b3691813bb47b8bcf5024c7f8612862c926",
+      "mtime_iso": "2026-04-17T20:16:42.199262+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/sql/me/08_delete_task.sql",
+      "size_bytes": 236,
+      "sha256": "1decab334cf44bba334c76b7b81cee6e52bd00253f8813e4df0dda862d7f3ec2",
+      "mtime_iso": "2026-04-17T20:16:42.203261+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/sql/me/10_fixtures_create.sql",
+      "size_bytes": 502,
+      "sha256": "612aea1220b0596019a850b07c92deb5405d03af07e8f5c40ab1aa2d544df8f0",
+      "mtime_iso": "2026-04-17T20:16:42.207262+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/sql/me/11_fixtures_cleanup.sql",
+      "size_bytes": 171,
+      "sha256": "e1847f5b099187ef96fb0bded5f7b1d612d537ca58dd6ba30d60e2784345a72d",
+      "mtime_iso": "2026-04-17T20:16:42.212261+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/sql/me/20_read_path_probe.sql",
+      "size_bytes": 209,
+      "sha256": "704fb6845591c9f9329e1b3786d8352f9e7dd6ebbbc23e008ba57076cc9d02de",
+      "mtime_iso": "2026-04-17T20:16:42.216261+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/sql/me/21_write_path_probe.sql",
+      "size_bytes": 268,
+      "sha256": "171aae9aeeadf365d2c3acc2cf2039cfde5886b491c2938682a9b384a9291cc9",
+      "mtime_iso": "2026-04-17T20:16:42.220262+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/sql/or/01_schema_inspect.sql",
+      "size_bytes": 2148,
+      "sha256": "8bc2e58c5df9e316f2f33ece31f6f4cbdf6f75f2b8b34409de1ef94e2e12663c",
+      "mtime_iso": "2026-04-17T14:18:53.671731+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/sql/or/02_load_execution_context.sql",
+      "size_bytes": 825,
+      "sha256": "5bda19b39c540a5ad02123dcdec98bfe8ae94426e9300211251cbbf07e5415ec",
+      "mtime_iso": "2026-04-17T14:18:22.714976+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/sql/or/03_load_execution_context_by_idempotency.sql",
+      "size_bytes": 699,
+      "sha256": "086124fb72e4bee79860477a0516a30c5348f50f717d9ef843e048ea00e3ec75",
+      "mtime_iso": "2026-04-17T14:18:22.722975+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/sql/or/10_fixtures_create.sql",
+      "size_bytes": 1411,
+      "sha256": "a1773c9b42a9f231c2b117b75ddbf8ad0182ca431089c9422c94e33ec070cac5",
+      "mtime_iso": "2026-04-17T14:18:22.728986+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/sql/or/11_fixtures_cleanup.sql",
+      "size_bytes": 236,
+      "sha256": "f658edd4a176f96edd13e2ab52d8a586143f992b305d6e029d0888f258ba8b2e",
+      "mtime_iso": "2026-04-17T14:18:22.735368+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/sql/or/20_read_path_probe.sql",
+      "size_bytes": 864,
+      "sha256": "c6c22bd5c39b32bedf8fa4c49efeeb2dfad7c6757aa0110e527f2dfb25e60c18",
+      "mtime_iso": "2026-04-17T14:18:22.739879+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/sql/pl/01_schema_inspect.sql",
+      "size_bytes": 286,
+      "sha256": "1adc041e379c9bad42aa607c42268530b249d5c57cb3d8c62ba970de66a4e116",
+      "mtime_iso": "2026-04-17T19:02:19.596157+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/sql/pl/02_load_execution_context.sql",
+      "size_bytes": 552,
+      "sha256": "6060e66e97f09710ee5afd64126ef06a745ddec004222365bd780c7dcb09f951",
+      "mtime_iso": "2026-04-17T19:02:19.601156+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/sql/pl/03_load_execution_context_by_idempotency.sql",
+      "size_bytes": 428,
+      "sha256": "6d47ce5564b5612bb0cdb692027a16f6610abc0b111dd22dd3b196efa0852438",
+      "mtime_iso": "2026-04-17T19:02:19.607157+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/sql/pl/10_fixtures_create.sql",
+      "size_bytes": 302,
+      "sha256": "7099ed64768b1f9bdd9fd43fe5751d00e9fd088f58f9555ed5d9828d261998ed",
+      "mtime_iso": "2026-04-17T19:02:19.613155+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/sql/pl/11_fixtures_cleanup.sql",
+      "size_bytes": 229,
+      "sha256": "44338ad36d47762d96b621657b762688c2cdf3c768680795644ff54cc2e896e3",
+      "mtime_iso": "2026-04-17T19:02:19.617156+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/sql/pl/20_read_path_probe.sql",
+      "size_bytes": 240,
+      "sha256": "e3f5fc3f9b2c2c482a4b663a3153180526d2b302703f520e6ddabf2889346084",
+      "mtime_iso": "2026-04-17T19:02:19.621156+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/tests/di/test_families.py",
+      "size_bytes": 12496,
+      "sha256": "59c74063b205e19c8b3bc94334c80591f057c76107123eb241efba55ed334fc7",
+      "mtime_iso": "2026-04-17T19:42:08.916349+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/tests/di/results/results.json",
+      "size_bytes": 1318,
+      "sha256": "1d38fa8435f98ea43b8ca531abd72b16ea416dde10937c2e3281291621ea214a",
+      "mtime_iso": "2026-04-17T19:42:08.922354+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/tests/di/results/results.md",
+      "size_bytes": 670,
+      "sha256": "97e6db4cf367749ba6e43076c3db938955938d835d6171ca2263a95de424ee72",
+      "mtime_iso": "2026-04-17T19:42:08.927384+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/tests/ec/test_families.py",
+      "size_bytes": 39497,
+      "sha256": "41f764d9aac13037021c2afe7c95a540ac02eec7e5849b93972037ee41c978bd",
+      "mtime_iso": "2026-04-17T00:33:23.524818+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/tests/ec/results/results.json",
+      "size_bytes": 358397,
+      "sha256": "5a638ad25be71cc6bb8d3df784c93aa818821d74f733b0e8ca17f7ef8cb65479",
+      "mtime_iso": "2026-04-17T00:38:38.656296+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/tests/ec/results/results.md",
+      "size_bytes": 563,
+      "sha256": "2e03cc7193ec4c9c12e28ef6176945ef43ddf1384059beac89c952ccf160c60d",
+      "mtime_iso": "2026-04-17T00:38:38.659296+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/tests/me/test_families.py",
+      "size_bytes": 15850,
+      "sha256": "b3aabc1041135a3836d295e20c51b489626892ced661bd875a86870c9152f20c",
+      "mtime_iso": "2026-04-17T20:16:42.234264+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/tests/me/results/results.json",
+      "size_bytes": 61371,
+      "sha256": "e2aa800371aa9ae96e96b1eef2edc76b307498a53305c5e3199dc5f373949bd4",
+      "mtime_iso": "2026-04-17T20:48:16.028247+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/tests/me/results/results.md",
+      "size_bytes": 713,
+      "sha256": "37efb12de50e990d5363312a2bd0fcd33e7476fba86a868c84f1af157f945691",
+      "mtime_iso": "2026-04-17T20:48:16.032246+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/tests/or/test_families.py",
+      "size_bytes": 22887,
+      "sha256": "d173338097797c8c9384280156e0ebec0ad636419a3a7176615fd9bbfea84ff0",
+      "mtime_iso": "2026-04-17T14:29:57.567479+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/tests/or/__pycache__/test_families.cpython-310.pyc",
+      "size_bytes": 17003,
+      "sha256": "31c5a621c1f649f55523a9602151cc5d6ff4682272b25decf871ca4b0abeee7b",
+      "mtime_iso": "2026-04-17T14:30:04.638737+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/tests/or/results/results.json",
+      "size_bytes": 747,
+      "sha256": "32cafffb43b07cd299901f37ef3ed7de791e2a15b07ee5bb1a4bc1ed527b71ab",
+      "mtime_iso": "2026-04-17T14:30:13.198883+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/tests/or/results/results.md",
+      "size_bytes": 1499,
+      "sha256": "6140f22d351a160cc950712505eea6d896e84e13906b923bbf94a9ff605a6b60",
+      "mtime_iso": "2026-04-17T14:30:26.624714+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/tests/pl/test_families.py",
+      "size_bytes": 13752,
+      "sha256": "df23f3629a6886cde635a8e401fdada83f05ed63abc0db134c2f0a47c14002cb",
+      "mtime_iso": "2026-04-17T19:02:19.635160+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/tests/pl/__pycache__/test_families.cpython-310.pyc",
+      "size_bytes": 12887,
+      "sha256": "d0ac0e70bc38419e4c98ca17aefe88483ce78114c9e12454b672d976d0b8a758",
+      "mtime_iso": "2026-04-17T19:02:25.222266+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/tests/pl/results/results.json",
+      "size_bytes": 717,
+      "sha256": "5772f91637044381d5706854c0f8ef4ad50bbe3edfb22c10edee98e4cf23c0f7",
+      "mtime_iso": "2026-04-17T19:02:19.640666+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/tests/pl/results/results.md",
+      "size_bytes": 834,
+      "sha256": "336e07470a91d0d7b57d250e9410958d8aa0e5f1419da00d735a1772679363ff",
+      "mtime_iso": "2026-04-17T19:02:19.644671+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/wf-pl-01_full_source_pack/README_APPLY_FIRST.md",
+      "size_bytes": 898,
+      "sha256": "0c0d46b92190524189fecaaaab7af01ae51dc085db6b78c9199b3669b1e58acb",
+      "mtime_iso": "2026-04-17T20:39:19.672052+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/wf-pl-01_full_source_pack/docs/ucenicul_claude_handoff_hardened/00_ROUTE_MAP__WF-PL-01_ACTIVATED.md",
+      "size_bytes": 2141,
+      "sha256": "49f7fc11a5d304df19938f5c93d10694f5154d536295daf756a15d1090926b8a",
+      "mtime_iso": "2026-04-17T20:39:19.855470+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/wf-pl-01_full_source_pack/docs/ucenicul_claude_handoff_hardened/07_STAGE_WF-PL-01.md",
+      "size_bytes": 8385,
+      "sha256": "ac97d7358d44c1fc125ddc27f9a82055b805a09995534f3b1045439a2f9a8f90",
+      "mtime_iso": "2026-04-17T20:39:19.709186+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/wf-pl-01_full_source_pack/docs/ucenicul_claude_handoff_hardened/17_ACTIVE_STAGE_LOCK__WF-PL-01.md",
+      "size_bytes": 3909,
+      "sha256": "1e859ed3326f8e7bba3561dde50dceabb796a16cd23fb335356ae964fc50b091",
+      "mtime_iso": "2026-04-17T20:39:19.737964+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/wf-pl-01_full_source_pack/docs/ucenicul_claude_handoff_hardened/AUDIT_REPORT__WF-PL-01.md",
+      "size_bytes": 3355,
+      "sha256": "9b7e5eed0afacd77275466ab930388f4a64648ceec4bad5cf68679ea81be17f4",
+      "mtime_iso": "2026-04-17T20:39:19.807117+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/wf-pl-01_full_source_pack/docs/ucenicul_claude_handoff_hardened/BUILD_REPORT__WF-PL-01.md",
+      "size_bytes": 4825,
+      "sha256": "0b9b2fbf7d184810a981ca3fa54aeae5ba980e18c7ee59b013cb548e3f61dd28",
+      "mtime_iso": "2026-04-17T20:39:19.787602+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/wf-pl-01_full_source_pack/docs/ucenicul_claude_handoff_hardened/CLOSURE_REPORT__WF-PL-01.md",
+      "size_bytes": 1362,
+      "sha256": "6ccf0f7034184632d671fbe171b6d0c2e18ead873d9743740ac72efed04490ae",
+      "mtime_iso": "2026-04-17T20:39:19.838226+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/wf-pl-01_full_source_pack/docs/ucenicul_claude_handoff_hardened/CURRENT_STAGE__WF-PL-01.md",
+      "size_bytes": 2743,
+      "sha256": "a306fe5a1c6158c72dedda0b1c41dd05a311c507c6b7a967dc7ec081ed501b7f",
+      "mtime_iso": "2026-04-17T20:39:19.761602+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/wf-pl-01_full_source_pack/docs/ucenicul_claude_handoff_hardened/FIX_LOG__WF-PL-01.md",
+      "size_bytes": 1328,
+      "sha256": "7cb214de98f00ebbebd7d3ec3040fa86381b076bf661e833fc1bf5888130d3f2",
+      "mtime_iso": "2026-04-17T20:39:19.829225+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/wf-pl-01_full_source_pack/docs/ucenicul_claude_handoff_hardened/STATE__WF-PL-01.json",
+      "size_bytes": 4059,
+      "sha256": "c98905f283d00601d9525b31d67da7184f38ed2bb1a4235117a313a5ff6424e8",
+      "mtime_iso": "2026-04-17T20:39:19.779601+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/wf-pl-01_full_source_pack/workflows/WF-PL-01_CONNECTION_MAP.md",
+      "size_bytes": 824,
+      "sha256": "d0b967273c3854832fda8b367ae3402338e28653bb61a8d6d20078d55c0663bf",
+      "mtime_iso": "2026-04-17T20:39:19.887500+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/wf-pl-01_full_source_pack/workflows/WF-PL-01_IMPORT_PATCH_PLAN.md",
+      "size_bytes": 1504,
+      "sha256": "c5699f13f7a9bf4374ae6417091ebeb0a1b2fa2cc83f200f88717f9f0a3acaf2",
+      "mtime_iso": "2026-04-17T20:39:19.903501+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/wf-pl-01_full_source_pack/workflows/WF-PL-01_NODE_MAP.md",
+      "size_bytes": 2471,
+      "sha256": "9b5aacebfb50f1dbb43bec8b5014d2b76e905d72152ed248abe06cfd7ab4e25f",
+      "mtime_iso": "2026-04-17T20:39:19.876501+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/wf-pl-01_full_source_pack/workflows/WF-PL-01_Plan_Generation.json",
+      "size_bytes": 20563,
+      "sha256": "c8b03ee3a9797bf25fde1be49831edafc89f00493220dc9a4eb07b3682657053",
+      "mtime_iso": "2026-04-17T20:39:19.915502+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/wf-pl-01_full_source_pack/workflows/WF-PL-01_blueprint.json",
+      "size_bytes": 20563,
+      "sha256": "c8b03ee3a9797bf25fde1be49831edafc89f00493220dc9a4eb07b3682657053",
+      "mtime_iso": "2026-04-17T20:39:19.926502+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/wf-pl-01_full_source_pack/workflows/scripts/pl/pl_logic.py",
+      "size_bytes": 13989,
+      "sha256": "201bc606af48742850ba05508b4b20fec02adbf1bb3afa50eb33391f9ad42dad",
+      "mtime_iso": "2026-04-17T20:39:19.951505+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/wf-pl-01_full_source_pack/workflows/scripts/pl/__pycache__/pl_logic.cpython-313.pyc",
+      "size_bytes": 14072,
+      "sha256": "eeff89de420b04f47e6b0808b06e08bc749a3e6bb914e5cdb12de022cdc594c8",
+      "mtime_iso": "2026-04-17T20:39:19.970014+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/wf-pl-01_full_source_pack/workflows/sql/pl/01_schema_inspect.sql",
+      "size_bytes": 286,
+      "sha256": "1adc041e379c9bad42aa607c42268530b249d5c57cb3d8c62ba970de66a4e116",
+      "mtime_iso": "2026-04-17T20:39:19.986014+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/wf-pl-01_full_source_pack/workflows/sql/pl/02_load_execution_context.sql",
+      "size_bytes": 552,
+      "sha256": "6060e66e97f09710ee5afd64126ef06a745ddec004222365bd780c7dcb09f951",
+      "mtime_iso": "2026-04-17T20:39:20.013014+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/wf-pl-01_full_source_pack/workflows/sql/pl/03_load_execution_context_by_idempotency.sql",
+      "size_bytes": 428,
+      "sha256": "6d47ce5564b5612bb0cdb692027a16f6610abc0b111dd22dd3b196efa0852438",
+      "mtime_iso": "2026-04-17T20:39:20.036018+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/wf-pl-01_full_source_pack/workflows/sql/pl/10_fixtures_create.sql",
+      "size_bytes": 302,
+      "sha256": "7099ed64768b1f9bdd9fd43fe5751d00e9fd088f58f9555ed5d9828d261998ed",
+      "mtime_iso": "2026-04-17T20:39:20.045530+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/wf-pl-01_full_source_pack/workflows/sql/pl/11_fixtures_cleanup.sql",
+      "size_bytes": 229,
+      "sha256": "44338ad36d47762d96b621657b762688c2cdf3c768680795644ff54cc2e896e3",
+      "mtime_iso": "2026-04-17T20:39:20.061744+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/wf-pl-01_full_source_pack/workflows/sql/pl/20_read_path_probe.sql",
+      "size_bytes": 240,
+      "sha256": "e3f5fc3f9b2c2c482a4b663a3153180526d2b302703f520e6ddabf2889346084",
+      "mtime_iso": "2026-04-17T20:39:20.080751+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/wf-pl-01_full_source_pack/workflows/tests/pl/test_families.py",
+      "size_bytes": 13752,
+      "sha256": "df23f3629a6886cde635a8e401fdada83f05ed63abc0db134c2f0a47c14002cb",
+      "mtime_iso": "2026-04-17T20:39:20.097261+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/wf-pl-01_full_source_pack/workflows/tests/pl/results/results.json",
+      "size_bytes": 717,
+      "sha256": "5772f91637044381d5706854c0f8ef4ad50bbe3edfb22c10edee98e4cf23c0f7",
+      "mtime_iso": "2026-04-17T20:39:20.127858+00:00"
+    },
+    {
+      "source_root": "PRODUCT_ROOT",
+      "original_path": "workflows/wf-pl-01_full_source_pack/workflows/tests/pl/results/results.md",
+      "size_bytes": 834,
+      "sha256": "336e07470a91d0d7b57d250e9410958d8aa0e5f1419da00d735a1772679363ff",
+      "mtime_iso": "2026-04-17T20:39:20.144860+00:00"
+    }
+  ]
+}

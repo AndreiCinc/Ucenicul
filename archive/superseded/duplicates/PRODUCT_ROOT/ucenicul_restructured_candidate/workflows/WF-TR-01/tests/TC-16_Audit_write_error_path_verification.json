@@ -1,0 +1,24 @@
+{
+  "id": "TC-16",
+  "name": "Audit write error path verification",
+  "description": "Error path (fail_invalid_input) writes to audit trail. Verifies error auditability.",
+  "request": {
+    "message_id": "test-msg-016",
+    "tenant_id": null,
+    "channel": "telegram",
+    "direction": "inbound",
+    "author_type": "user",
+    "normalized_content": "Any content",
+    "timestamp": "2026-04-15T12:00:00Z",
+    "source_message_ref": "tg_test_016"
+  },
+  "expected": {
+    "decision": "fail_invalid_input",
+    "resolved_thread_id": null,
+    "ambiguity_detected": false,
+    "content_class_used": "none",
+    "error_code": "INVALID_INPUT",
+    "audit_written": true
+  },
+  "note": "Error path must write audit record. Verifies D-07 fix."
+}

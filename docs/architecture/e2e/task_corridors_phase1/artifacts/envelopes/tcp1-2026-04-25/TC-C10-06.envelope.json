@@ -1,0 +1,20 @@
+{
+  "message_id": "f9943dcd-68d2-461f-8916-eea5f9b95398",
+  "tenant_id": "eee0e2e0-0000-0000-0000-00000000000a",
+  "channel": "tcp1-task-corridors",
+  "direction": "inbound",
+  "author_type": "user",
+  "normalized_content": "Creează task: marker tenant-A oferta_isolation_A6 mâine la 11.",
+  "timestamp": "2026-04-25T13:18:25.281Z",
+  "source_message_ref": "tcp1:TC-C10-06:tmr:tcp1-2026-04-25:TC-C10-06",
+  "author_entity_id": null,
+  "related_entity_ids": [],
+  "metadata": {
+    "tcp1_case_id": "TC-C10-06",
+    "tcp1_run_tag": "tcp1-2026-04-25",
+    "tcp1_priority": "P0"
+  },
+  "idempotency_key": "tmr:tcp1-2026-04-25:TC-C10-06",
+  "thread_id": "478f2490-fcc2-4be7-83f8-eb2a96492005",
+  "reply_to_thread_id": null
+}

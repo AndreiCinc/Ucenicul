@@ -1,0 +1,463 @@
+{
+  "name": "WF-ME-01 Module Execution",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "1",
+      "name": "ME_Input",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1,
+      "position": [
+        240,
+        300
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "2",
+      "name": "ME_Manual_Test_Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        240,
+        520
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Validate canonical dispatcher envelope and flatten fields.\nreturn items;"
+      },
+      "id": "3",
+      "name": "ME_Validate_Dispatcher_Result",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        520,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json._valid }}",
+              "operation": "equal",
+              "value2": "true"
+            }
+          ]
+        }
+      },
+      "id": "4",
+      "name": "ME_Route_Valid",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3,
+      "position": [
+        760,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT * FROM public.execution_contexts WHERE id = $1::uuid AND tenant_id = $2::uuid LIMIT 1;",
+        "options": {
+          "queryReplacement": "={{ [$json.execution_context_id, $json.tenant_id] }}"
+        }
+      },
+      "id": "5",
+      "name": "ME_Load_Execution_Context",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.4,
+      "alwaysOutputData": true,
+      "position": [
+        1000,
+        240
+      ],
+      "credentials": {
+        "postgres": {
+          "id": "CREDENTIAL_PLACEHOLDER",
+          "name": "Postgres account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT * FROM public.tasks WHERE tenant_id = $1::uuid AND (($2::uuid IS NOT NULL AND id = $2::uuid) OR ($3::text IS NOT NULL AND title ILIKE $3::text)) LIMIT 50;",
+        "options": {
+          "queryReplacement": "={{ [$json.tenant_id, $json.step.inputs.task_id || null, $json.step.inputs.title_match || null] }}"
+        }
+      },
+      "id": "6",
+      "name": "ME_Load_Task_Candidates",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.4,
+      "alwaysOutputData": true,
+      "position": [
+        1240,
+        240
+      ],
+      "credentials": {
+        "postgres": {
+          "id": "CREDENTIAL_PLACEHOLDER",
+          "name": "Postgres account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json.step.module_name }}",
+              "operation": "equal",
+              "value2": "task_module"
+            }
+          ]
+        }
+      },
+      "id": "7",
+      "name": "ME_Route_Module_Name",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3,
+      "position": [
+        1480,
+        240
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json.step.inputs.action || 'create_task' }}",
+              "operation": "equal",
+              "value2": "create_task"
+            },
+            {
+              "value1": "={{ $json.step.inputs.action }}",
+              "operation": "equal",
+              "value2": "list_tasks"
+            },
+            {
+              "value1": "={{ $json.step.inputs.action }}",
+              "operation": "equal",
+              "value2": "update_task"
+            },
+            {
+              "value1": "={{ $json.step.inputs.action }}",
+              "operation": "equal",
+              "value2": "complete_task"
+            },
+            {
+              "value1": "={{ $json.step.inputs.action }}",
+              "operation": "equal",
+              "value2": "delete_task"
+            }
+          ]
+        }
+      },
+      "id": "8",
+      "name": "ME_Route_Task_Action",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3,
+      "position": [
+        1720,
+        240
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Build canonical module_result envelope for create_task.\nreturn items;"
+      },
+      "id": "9",
+      "name": "ME_Task_Create_Result",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1960,
+        80
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Build canonical module_result envelope for list_tasks.\nreturn items;"
+      },
+      "id": "10",
+      "name": "ME_Task_List_Result",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1960,
+        160
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Build canonical module_result envelope for update_task.\nreturn items;"
+      },
+      "id": "11",
+      "name": "ME_Task_Update_Result",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1960,
+        240
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Build canonical module_result envelope for complete_task.\nreturn items;"
+      },
+      "id": "12",
+      "name": "ME_Task_Complete_Result",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1960,
+        320
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Build canonical module_result envelope for delete_task.\nreturn items;"
+      },
+      "id": "13",
+      "name": "ME_Task_Delete_Result",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1960,
+        400
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Unsupported module / unsupported action / invalid context.\nreturn items;"
+      },
+      "id": "14",
+      "name": "ME_Return_Error",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1960,
+        560
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Return canonical success module_result payload.\nreturn items;"
+      },
+      "id": "15",
+      "name": "ME_Return_Result",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2200,
+        240
+      ]
+    }
+  ],
+  "connections": {
+    "ME_Input": {
+      "main": [
+        [
+          {
+            "node": "ME_Validate_Dispatcher_Result",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ME_Manual_Test_Trigger": {
+      "main": [
+        [
+          {
+            "node": "ME_Validate_Dispatcher_Result",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ME_Validate_Dispatcher_Result": {
+      "main": [
+        [
+          {
+            "node": "ME_Route_Valid",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ME_Route_Valid": {
+      "main": [
+        [
+          {
+            "node": "ME_Load_Execution_Context",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "ME_Return_Error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ME_Load_Execution_Context": {
+      "main": [
+        [
+          {
+            "node": "ME_Load_Task_Candidates",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ME_Load_Task_Candidates": {
+      "main": [
+        [
+          {
+            "node": "ME_Route_Module_Name",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ME_Route_Module_Name": {
+      "main": [
+        [
+          {
+            "node": "ME_Route_Task_Action",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "ME_Return_Error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ME_Route_Task_Action": {
+      "main": [
+        [
+          {
+            "node": "ME_Task_Create_Result",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "ME_Task_List_Result",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "ME_Task_Update_Result",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "ME_Task_Complete_Result",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "ME_Task_Delete_Result",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "ME_Return_Error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ME_Task_Create_Result": {
+      "main": [
+        [
+          {
+            "node": "ME_Return_Result",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ME_Task_List_Result": {
+      "main": [
+        [
+          {
+            "node": "ME_Return_Result",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ME_Task_Update_Result": {
+      "main": [
+        [
+          {
+            "node": "ME_Return_Result",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ME_Task_Complete_Result": {
+      "main": [
+        [
+          {
+            "node": "ME_Return_Result",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ME_Task_Delete_Result": {
+      "main": [
+        [
+          {
+            "node": "ME_Return_Result",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {},
+  "staticData": {},
+  "pinData": {},
+  "versionId": "CANDIDATE-WF-ME-01-v0",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  }
+}

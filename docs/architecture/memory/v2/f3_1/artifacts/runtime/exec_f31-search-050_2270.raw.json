@@ -1,0 +1,93 @@
+{
+  "case_id": "f31-search-050",
+  "execution_id": "2270",
+  "execution_status": "success",
+  "execution_mcp_response": {
+    "executionId": "2270",
+    "status": "success"
+  },
+  "response_envelope": {
+    "status": "success",
+    "query": "Phase7 anchor",
+    "used_embedding": false,
+    "embedding_attempted": true,
+    "embedding_error": null,
+    "semantic_match_count": 0,
+    "lexical_match_count": 5,
+    "recall_results": [
+      {
+        "memory_id": "75a617be-c5a9-4f70-9bcf-35f0db6bcd26",
+        "content": "Phase7 anchor A6 new row",
+        "memory_type": "fact",
+        "tier": "recent",
+        "status": "active",
+        "category": "supersede_test",
+        "similarity": null,
+        "created_at": "2026-04-20T20:39:39.520Z"
+      },
+      {
+        "memory_id": "7b03cd9c-0e3e-45ea-bad6-6fc4adc774f5",
+        "content": "Phase7 anchor A5 promote denied",
+        "memory_type": "fact",
+        "tier": "long_term",
+        "status": "active",
+        "category": "promote_test",
+        "similarity": null,
+        "created_at": "2026-04-20T20:39:17.249Z"
+      },
+      {
+        "memory_id": "578c7d1d-fa33-40d9-bda0-a76192c1e0c4",
+        "content": "Phase7 anchor A4 promote happy",
+        "memory_type": "fact",
+        "tier": "long_term",
+        "status": "active",
+        "category": "promote_test",
+        "similarity": null,
+        "created_at": "2026-04-20T20:39:09.176Z"
+      },
+      {
+        "memory_id": "da53c396-09af-4ba1-8fba-07c4295fa412",
+        "content": "Phase7 anchor A3 recall row",
+        "memory_type": "fact",
+        "tier": "recent",
+        "status": "active",
+        "category": "recall_test",
+        "similarity": null,
+        "created_at": "2026-04-20T20:38:58.028Z"
+      },
+      {
+        "memory_id": "c7f148d9-5742-46fa-a41c-a72ee94a2011",
+        "content": "Phase7 anchor A1 store happy",
+        "memory_type": "fact",
+        "tier": "recent",
+        "status": "active",
+        "category": "anchor_test",
+        "similarity": null,
+        "created_at": "2026-04-20T20:38:19.705Z"
+      }
+    ]
+  },
+  "module_result_outer": {
+    "status_kind": "success",
+    "result_type": "module_result",
+    "module_name": "memory_module",
+    "step_id": "mem-f31-f31-search-050",
+    "summary": "Memory search completed.",
+    "artifacts": [],
+    "domain_writes_performed": false,
+    "response_generation_allowed": false
+  },
+  "db_pre": [
+    {
+      "pre_max": "2026-04-21T12:54:40.918Z"
+    }
+  ],
+  "db_post": [
+    {
+      "post_max": "2026-04-21T12:54:40.918Z"
+    }
+  ],
+  "error": null,
+  "captured_at": "2026-04-22T05:01:40.226Z",
+  "notes": "Stage C search lane re-run q5 (was BAD_HARNESS; prior subagent sent query memorie antica)"
+}

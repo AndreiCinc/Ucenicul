@@ -1,0 +1,20 @@
+{
+  "rules": {
+    "values": [
+      {
+        "conditions": {
+          "options": { "caseSensitive": true, "typeValidation": "strict" },
+          "combinator": "and",
+          "conditions": [
+            {
+              "leftValue": "={{ $json._valid }}",
+              "rightValue": true,
+              "operator": { "type": "boolean", "operation": "true", "singleValue": true }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "options": { "fallbackOutput": "extra" }
+}

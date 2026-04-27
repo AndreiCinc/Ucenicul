@@ -1,0 +1,20 @@
+{
+  "message_id": "ca0be91b-ed40-4443-8072-0cc42a875941",
+  "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+  "channel": "task-module-user-ready",
+  "direction": "inbound",
+  "author_type": "user",
+  "normalized_content": "Anulează taskul cu oferta veche.",
+  "timestamp": "2026-04-25T12:47:21.268Z",
+  "source_message_ref": "tmr:RT-027:tmr:tmr-20260425-smoke:RT-027",
+  "author_entity_id": null,
+  "related_entity_ids": [],
+  "metadata": {
+    "tmr_case_id": "RT-027",
+    "tmr_group": "delete_task",
+    "tmr_run_tag": "tmr-20260425-smoke"
+  },
+  "idempotency_key": "tmr:tmr-20260425-smoke:RT-027",
+  "thread_id": "3dd0391e-3033-4265-82b0-7048fe15322f",
+  "reply_to_thread_id": null
+}

@@ -1,0 +1,22 @@
+{
+  "id": "TC-08",
+  "name": "Deterministic replay (scoring path)",
+  "description": "Replay TC-03 twice. Scoring path must produce identical decision and resolved_thread_id. NOT shortcircuit path.",
+  "request": {
+    "message_id": "test-msg-008a",
+    "tenant_id": "aaaaaaaa-0000-0000-0000-000000000001",
+    "channel": "telegram",
+    "direction": "inbound",
+    "author_type": "user",
+    "normalized_content": "Vreau sa vorbesc cu Ion despre apartamentul din centru, sa vedem pretul",
+    "timestamp": "2026-04-15T12:00:00Z",
+    "source_message_ref": "tg_test_008a",
+    "author_entity_id": "eeeeeeee-0000-0000-0000-000000000001"
+  },
+  "expected": {
+    "decision": "attach_existing_thread",
+    "resolved_thread_id": "tttttttt-0000-0000-0000-000000000001",
+    "deterministic": true
+  },
+  "note": "Run this fixture twice with same DB state. Both runs must produce the same decision and resolved_thread_id. This tests scoring-path determinism."
+}

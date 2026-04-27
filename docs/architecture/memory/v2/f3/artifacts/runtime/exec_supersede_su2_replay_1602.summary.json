@@ -1,0 +1,18 @@
+{
+  "exec_id": "1602",
+  "case_id": "F3-supersede-su2-replay",
+  "step_id": "mem-batch-v2c-su1-super (same as SU1 — replay)",
+  "action": "supersede_memory",
+  "purpose": "Replay same step_id → expect idempotent, no new insert",
+  "inputs": {
+    "supersedes_memory_id": "1c2168f0-19ab-4a71-b923-d15860ba088c"
+  },
+  "result_status_kind": "success",
+  "module_result_status": "success",
+  "old_memory_id": "1c2168f0-19ab-4a71-b923-d15860ba088c",
+  "new_memory_id": "3a3de63d-3287-4828-a91f-cd8677a15601",
+  "idempotency_reused": true,
+  "new_insert": false,
+  "oracle": "Replay returns SAME new_memory_id as SU1; DB unchanged; idempotency_reused=true — pass",
+  "db_verification_post_su4": "SELECT WHERE category='smoke_f3_supersede' returns exactly 2 rows (seed superseded, replacement active)"
+}

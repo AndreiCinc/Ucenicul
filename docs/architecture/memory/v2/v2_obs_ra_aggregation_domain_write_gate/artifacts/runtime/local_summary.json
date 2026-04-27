@@ -1,0 +1,58 @@
+{
+  "total": 50,
+  "pass": 50,
+  "fail": 0,
+  "by_family": {
+    "L1": {
+      "pass": 5,
+      "fail": 0,
+      "total": 5
+    },
+    "L2": {
+      "pass": 5,
+      "fail": 0,
+      "total": 5
+    },
+    "L3": {
+      "pass": 5,
+      "fail": 0,
+      "total": 5
+    },
+    "L4": {
+      "pass": 5,
+      "fail": 0,
+      "total": 5
+    },
+    "L5": {
+      "pass": 5,
+      "fail": 0,
+      "total": 5
+    },
+    "L6": {
+      "pass": 5,
+      "fail": 0,
+      "total": 5
+    },
+    "L7": {
+      "pass": 5,
+      "fail": 0,
+      "total": 5
+    },
+    "L8": {
+      "pass": 5,
+      "fail": 0,
+      "total": 5
+    },
+    "L9": {
+      "pass": 5,
+      "fail": 0,
+      "total": 5
+    },
+    "L10": {
+      "pass": 5,
+      "fail": 0,
+      "total": 5
+    }
+  },
+  "failures": []
+}

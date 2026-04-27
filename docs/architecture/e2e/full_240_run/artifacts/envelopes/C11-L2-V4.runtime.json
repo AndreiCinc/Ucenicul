@@ -1,0 +1,11 @@
+{
+  "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+  "message_id": "2527d2ff-7c5f-4661-813b-f13f28989a09",
+  "thread_id": "fe25fe1a-6795-4887-801d-211a6b0ac687",
+  "reply_to_thread_id": null,
+  "idempotency_key": "e2e:f240-2026-04-26:C11-L2-replay",
+  "thread_label": "C11:replay-L2",
+  "ts_iso": "2026-04-26T02:50:48.670Z",
+  "run_tag": "f240-2026-04-26",
+  "thread_context_kind": "replay"
+}

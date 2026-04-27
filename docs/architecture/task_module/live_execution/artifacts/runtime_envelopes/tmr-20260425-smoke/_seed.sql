@@ -1,0 +1,35 @@
+BEGIN;
+-- TENANTS
+INSERT INTO public.tenants (id, organization_id, name, slug, vertical, display_name, is_active, timezone, currency_code, metadata)
+VALUES
+  ('eee0e2e0-0000-0000-0000-000000000001'::uuid, '38fde66e-3920-4bf3-9d70-ddbca9faf58a'::uuid, 'e2e-default', 'e2e-default', 'e2e', 'E2E Default', true, 'Europe/Bucharest', 'EUR', '{"tmr":true}'::jsonb),
+  ('eee0e2e0-0000-0000-0000-00000000000a'::uuid, '38fde66e-3920-4bf3-9d70-ddbca9faf58a'::uuid, 'e2e-tenant-a', 'e2e-tenant-a', 'e2e', 'E2E Tenant A', true, 'Europe/Bucharest', 'EUR', '{"tmr":true}'::jsonb),
+  ('eee0e2e0-0000-0000-0000-00000000000b'::uuid, '38fde66e-3920-4bf3-9d70-ddbca9faf58a'::uuid, 'e2e-tenant-b', 'e2e-tenant-b', 'e2e', 'E2E Tenant B', true, 'Europe/Bucharest', 'EUR', '{"tmr":true}'::jsonb)
+ON CONFLICT (id) DO NOTHING;
+-- THREADS
+INSERT INTO public.threads (id, tenant_id, title, thread_type, status, source_channels) VALUES
+  ('3f8f81b8-42ea-4184-8902-42c21143caba'::uuid, 'eee0e2e0-0000-0000-0000-000000000001'::uuid, 'tmr:RT-001', 'operational', 'new', ARRAY['task-module-user-ready']::varchar[]),
+  ('508b0766-3569-4c98-8575-e7b9bfb4891c'::uuid, 'eee0e2e0-0000-0000-0000-000000000001'::uuid, 'tmr:RT-008', 'operational', 'new', ARRAY['task-module-user-ready']::varchar[]),
+  ('5aff0729-1062-43d2-8d26-dd3a3468ebc7'::uuid, 'eee0e2e0-0000-0000-0000-000000000001'::uuid, 'tmr:RT-013', 'operational', 'new', ARRAY['task-module-user-ready']::varchar[]),
+  ('c96869fa-b762-4f7e-8c2c-214f060caa16'::uuid, 'eee0e2e0-0000-0000-0000-000000000001'::uuid, 'tmr:RT-018', 'operational', 'new', ARRAY['task-module-user-ready']::varchar[]),
+  ('c2105570-0897-4938-8d6d-a00d73d7ed0e'::uuid, 'eee0e2e0-0000-0000-0000-000000000001'::uuid, 'tmr:RT-023', 'operational', 'new', ARRAY['task-module-user-ready']::varchar[]),
+  ('3dd0391e-3033-4265-82b0-7048fe15322f'::uuid, 'eee0e2e0-0000-0000-0000-000000000001'::uuid, 'tmr:RT-027', 'operational', 'new', ARRAY['task-module-user-ready']::varchar[]),
+  ('7615bcbb-f9ae-4086-87f4-81ef0b155ade'::uuid, 'eee0e2e0-0000-0000-0000-000000000001'::uuid, 'tmr:RT-032', 'operational', 'new', ARRAY['task-module-user-ready']::varchar[]),
+  ('5fe0ecb4-ede9-4318-8602-dc668c0d2dc3'::uuid, 'eee0e2e0-0000-0000-0000-00000000000a'::uuid, 'tmr:RT-037', 'operational', 'new', ARRAY['task-module-user-ready']::varchar[]),
+  ('95062583-5eee-45ff-8f21-b00681413ea3'::uuid, 'eee0e2e0-0000-0000-0000-000000000001'::uuid, 'tmr:RT-042', 'operational', 'new', ARRAY['task-module-user-ready']::varchar[]),
+  ('f5dce429-eb4b-4cd1-8876-f7cc9f5fcd7b'::uuid, 'eee0e2e0-0000-0000-0000-000000000001'::uuid, 'tmr:RT-048', 'operational', 'new', ARRAY['task-module-user-ready']::varchar[])
+ON CONFLICT (id) DO NOTHING;
+-- MESSAGES
+INSERT INTO public.messages (id, organization_id, tenant_id, thread_id, direction, author_type, channel, normalized_content, source_message_ref, content, intent, created_at, updated_at) VALUES
+  ('cde4fa3f-8f4a-4be8-89ea-82815c250565'::uuid, '38fde66e-3920-4bf3-9d70-ddbca9faf58a'::uuid, 'eee0e2e0-0000-0000-0000-000000000001'::uuid, '3f8f81b8-42ea-4184-8902-42c21143caba'::uuid, 'inbound', 'user', 'task-module-user-ready', 'Creează task: sună-l pe Andrei.', 'tmr:RT-001:tmr:tmr-20260425-smoke:RT-001', 'Creează task: sună-l pe Andrei.', 'create_task', NOW(), NOW()),
+  ('2f56b788-c028-4b92-875f-3638dabdcf33'::uuid, '38fde66e-3920-4bf3-9d70-ddbca9faf58a'::uuid, 'eee0e2e0-0000-0000-0000-000000000001'::uuid, '508b0766-3569-4c98-8575-e7b9bfb4891c'::uuid, 'inbound', 'user', 'task-module-user-ready', 'Amintește-mi mâine la 9 să verific plata.', 'tmr:RT-008:tmr:tmr-20260425-smoke:RT-008', 'Amintește-mi mâine la 9 să verific plata.', 'create_reminder', NOW(), NOW()),
+  ('30158084-2865-4642-89c8-8d7db6eb62bb'::uuid, '38fde66e-3920-4bf3-9d70-ddbca9faf58a'::uuid, 'eee0e2e0-0000-0000-0000-000000000001'::uuid, '5aff0729-1062-43d2-8d26-dd3a3468ebc7'::uuid, 'inbound', 'user', 'task-module-user-ready', 'Ce taskuri am deschise?', 'tmr:RT-013:tmr:tmr-20260425-smoke:RT-013', 'Ce taskuri am deschise?', 'list_tasks', NOW(), NOW()),
+  ('5c684c8f-578c-46de-8d2c-501a9f362612'::uuid, '38fde66e-3920-4bf3-9d70-ddbca9faf58a'::uuid, 'eee0e2e0-0000-0000-0000-000000000001'::uuid, 'c96869fa-b762-4f7e-8c2c-214f060caa16'::uuid, 'inbound', 'user', 'task-module-user-ready', 'Mută taskul cu Andrei pe mâine la 10.', 'tmr:RT-018:tmr:tmr-20260425-smoke:RT-018', 'Mută taskul cu Andrei pe mâine la 10.', 'update_task', NOW(), NOW()),
+  ('fda5a9ad-5bdc-4aba-895e-28f46209034a'::uuid, '38fde66e-3920-4bf3-9d70-ddbca9faf58a'::uuid, 'eee0e2e0-0000-0000-0000-000000000001'::uuid, 'c2105570-0897-4938-8d6d-a00d73d7ed0e'::uuid, 'inbound', 'user', 'task-module-user-ready', 'Marchează taskul cu Andrei ca făcut.', 'tmr:RT-023:tmr:tmr-20260425-smoke:RT-023', 'Marchează taskul cu Andrei ca făcut.', 'complete_task', NOW(), NOW()),
+  ('ca0be91b-ed40-4443-8072-0cc42a875941'::uuid, '38fde66e-3920-4bf3-9d70-ddbca9faf58a'::uuid, 'eee0e2e0-0000-0000-0000-000000000001'::uuid, '3dd0391e-3033-4265-82b0-7048fe15322f'::uuid, 'inbound', 'user', 'task-module-user-ready', 'Anulează taskul cu oferta veche.', 'tmr:RT-027:tmr:tmr-20260425-smoke:RT-027', 'Anulează taskul cu oferta veche.', 'delete_task', NOW(), NOW()),
+  ('71f9a220-4919-46c8-8bf3-0859afdb1e5a'::uuid, '38fde66e-3920-4bf3-9d70-ddbca9faf58a'::uuid, 'eee0e2e0-0000-0000-0000-000000000001'::uuid, '7615bcbb-f9ae-4086-87f4-81ef0b155ade'::uuid, 'inbound', 'user', 'task-module-user-ready', 'Creează task: verifică plata E2E retry.', 'tmr:RT-032:tmr:tmr-20260425-smoke:RT-032', 'Creează task: verifică plata E2E retry.', 'create_task', NOW(), NOW()),
+  ('5bc37150-1f64-4d06-85b2-1c3eac520375'::uuid, '38fde66e-3920-4bf3-9d70-ddbca9faf58a'::uuid, 'eee0e2e0-0000-0000-0000-00000000000a'::uuid, '5fe0ecb4-ede9-4318-8602-dc668c0d2dc3'::uuid, 'inbound', 'user', 'task-module-user-ready', 'Creează task tenant A marker isolation.', 'tmr:RT-037:tmr:tmr-20260425-smoke:RT-037', 'Creează task tenant A marker isolation.', 'create_task', NOW(), NOW()),
+  ('97e63b42-f5ce-49f1-8c2e-89b21a37404f'::uuid, '38fde66e-3920-4bf3-9d70-ddbca9faf58a'::uuid, 'eee0e2e0-0000-0000-0000-000000000001'::uuid, '95062583-5eee-45ff-8f21-b00681413ea3'::uuid, 'inbound', 'user', 'task-module-user-ready', 'Actualizează task id bad-uuid.', 'tmr:RT-042:tmr:tmr-20260425-smoke:RT-042', 'Actualizează task id bad-uuid.', 'update_task', NOW(), NOW()),
+  ('bc08b445-af9e-4434-8421-077515abf9c7'::uuid, '38fde66e-3920-4bf3-9d70-ddbca9faf58a'::uuid, 'eee0e2e0-0000-0000-0000-000000000001'::uuid, 'f5dce429-eb4b-4cd1-8876-f7cc9f5fcd7b'::uuid, 'inbound', 'user', 'task-module-user-ready', 'Creează task să îl sun pe Andrei mâine, dar nu salva asta ca memorie permanentă.', 'tmr:RT-048:tmr:tmr-20260425-smoke:RT-048', 'Creează task să îl sun pe Andrei mâine, dar nu salva asta ca memorie permanentă.', 'create_task', NOW(), NOW())
+ON CONFLICT (id) DO NOTHING;
+COMMIT;

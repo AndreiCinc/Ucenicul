@@ -1,0 +1,23 @@
+{
+  "message_id": "efb9de5e-069e-45f2-8fc3-f56b4d4eddc0",
+  "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+  "channel": "e2e-rich-matrix",
+  "direction": "inbound",
+  "author_type": "user",
+  "normalized_content": "Please handle this as an English equivalent: Vreau să rezolvi chestia aceea pentru clientul despre care vorbeam, dar nu mai știu exact dacă era Andrei sau Maria și nu vreau să greșim. Într-un alt fir cred că am menționat o preferință de program, dar nu o folosi automat ca să iei o decizie aici. Dacă nu ai context clar în thread-ul curent, pune-mi o întrebare de clarificare în loc să inventezi.",
+  "timestamp": "2026-04-26T02:50:48.004Z",
+  "source_message_ref": "e2e:C7-L4-V2:e2e:f240-2026-04-26:C7-L4-V2",
+  "author_entity_id": null,
+  "related_entity_ids": [],
+  "metadata": {
+    "e2e_case_id": "C7-L4-V2",
+    "e2e_corridor": "C7",
+    "e2e_variant": "locale_en",
+    "e2e_phase": "P3_HARD_CASES",
+    "e2e_priority": "P2",
+    "e2e_locale": "en",
+    "e2e_run_tag": "f240-2026-04-26"
+  },
+  "idempotency_key": "e2e:f240-2026-04-26:C7-L4-V2",
+  "thread_id": "682f5911-3993-4ed0-8290-da7976608020"
+}

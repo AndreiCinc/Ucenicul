@@ -1,0 +1,105 @@
+{
+  "mission_id": "F6A-FOLLOWUP-SUPERSEDE-EMBED",
+  "namespace_prefix": "mem-smoke-f6a-followup-supersede-embed",
+  "workflow_id": "uq26nh1grIpnHju0",
+  "baseline_before_apply": {
+    "versionId": "c07fe923-76eb-4901-b53b-14039536df55",
+    "nodeCount": 47,
+    "connectionCount": 65,
+    "active": true
+  },
+  "expected_after_apply": {
+    "nodeCount": 49,
+    "connectionCount": 67,
+    "active": true
+  },
+  "rules": [
+    "All setup writes must go through live workflow actions only.",
+    "PostgreSQL is SELECT-only for verification.",
+    "MCP n8n is read/verify/smoke only.",
+    "Do not use Path 5 or mcp__n8n__patch_workflow_nodes."
+  ],
+  "cases": [
+    {
+      "id": "E1",
+      "title": "happy supersede writes replacement embedding",
+      "steps": [
+        "store seed memory via store_memory using step_id namespace E1-seed",
+        "supersede that seed via supersede_memory using step_id namespace E1-supersede and distinctive replacement content",
+        "verify old row status=superseded",
+        "verify replacement row active and has supersedes_memory_id backlink to old row according to existing schema contract",
+        "verify replacement row embedding IS NOT NULL and dimension=1536"
+      ],
+      "oracle": {
+        "old_status": "superseded",
+        "replacement_status": "active",
+        "replacement_embedding": "non_null_vector_1536",
+        "no_unrelated_rows": true
+      }
+    },
+    {
+      "id": "E2",
+      "title": "idempotent replay does not duplicate replacement row",
+      "steps": [
+        "replay the exact E1 supersede request with same step_id/idempotency key",
+        "verify replacement row count remains 1 for that idempotency key",
+        "verify old row remains superseded once"
+      ],
+      "oracle": {
+        "replacement_rows_for_key": 1,
+        "old_status": "superseded"
+      }
+    },
+    {
+      "id": "E3",
+      "title": "semantic retrieval sees replacement row",
+      "steps": [
+        "run search_memory with axis-aligned query matching E1 replacement content",
+        "verify replacement row appears in semantic result set",
+        "prefer top-1 when distinctive; if rank inversion occurs, classify only if row participates and query is short/rare-token"
+      ],
+      "oracle": {
+        "replacement_row_in_results": true,
+        "semantic_participation": true,
+        "embedding_not_filtered_by_null": true
+      }
+    },
+    {
+      "id": "E4",
+      "title": "invalid target regression",
+      "steps": [
+        "attempt supersede against missing or non-active target using namespace E4-invalid",
+        "verify existing error code/shape is preserved",
+        "verify no replacement row inserted"
+      ],
+      "oracle": {
+        "no_replacement_row": true,
+        "error_shape_preserved": true
+      }
+    },
+    {
+      "id": "E5",
+      "title": "store lane regression smoke",
+      "steps": [
+        "run a normal store_memory call after patch using namespace E5-store",
+        "verify F6A store lane still writes embedding vector(1536)",
+        "verify result envelope shape unchanged"
+      ],
+      "oracle": {
+        "store_embedding": "non_null_vector_1536",
+        "result_shape_unchanged": true
+      }
+    },
+    {
+      "id": "E6",
+      "title": "recall/promote non-target smoke",
+      "steps": [
+        "run one recall_memory and/or promote_memory smoke that does not depend on the changed supersede lane",
+        "verify existing behavior preserved"
+      ],
+      "oracle": {
+        "non_target_regression": false
+      }
+    }
+  ]
+}

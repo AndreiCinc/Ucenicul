@@ -1,0 +1,45 @@
+{
+  "case_id": "C4-L1-V1",
+  "run_tag": "f240r-2026-04-26",
+  "runtime": {
+    "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+    "message_id": "3dccbc17-61dd-4ee6-896c-d211db2c87b4",
+    "thread_id": "15279bf5-149c-419d-8cd2-0be143631a32",
+    "reply_to_thread_id": null,
+    "idempotency_key": "e2e:f240-2026-04-26:C4-L1-V1",
+    "thread_label": "C4:C4-L1-V1",
+    "ts_iso": "2026-04-26T02:50:47.436Z",
+    "run_tag": "f240-2026-04-26",
+    "thread_context_kind": "seeded-fresh",
+    "fire_iso": "2026-04-26T09:28:41.901Z"
+  },
+  "invariants": [
+    {
+      "name": "assert_supersede_backlink",
+      "sql": "SELECT id, supersedes_memory_id, status FROM memory_items\n          WHERE tenant_id = $1 AND idempotency_key LIKE $2\n          ORDER BY created_at NULLS LAST LIMIT 5",
+      "params": [
+        "eee0e2e0-0000-0000-0000-000000000001",
+        "e2e:f240-2026-04-26:C4-L1-V1%"
+      ],
+      "unknown": false
+    },
+    {
+      "name": "assert_supersede_backlink",
+      "sql": "SELECT id, supersedes_memory_id, status FROM memory_items\n          WHERE tenant_id = $1 AND idempotency_key LIKE $2\n          ORDER BY created_at NULLS LAST LIMIT 5",
+      "params": [
+        "eee0e2e0-0000-0000-0000-000000000001",
+        "e2e:f240-2026-04-26:C4-L1-V1%"
+      ],
+      "unknown": false
+    },
+    {
+      "name": "assert_new_row_active",
+      "sql": "SELECT count(*)::int AS c FROM memory_items WHERE tenant_id = $1 AND idempotency_key LIKE $2 AND status = 'active'",
+      "params": [
+        "eee0e2e0-0000-0000-0000-000000000001",
+        "e2e:f240-2026-04-26:C4-L1-V1%"
+      ],
+      "unknown": false
+    }
+  ]
+}

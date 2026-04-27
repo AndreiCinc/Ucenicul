@@ -1,0 +1,23 @@
+{
+  "message_id": "f354f3ee-b4d2-43cd-8194-3097550818d5",
+  "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+  "channel": "e2e-rich-matrix",
+  "direction": "inbound",
+  "author_type": "user",
+  "normalized_content": "Schimbă memoria despre Andrei: preferința principală rămâne dimineața, dar marțea nu poate.",
+  "timestamp": "2026-04-26T02:50:47.524Z",
+  "source_message_ref": "e2e:C4-L3-V4:e2e:f240-2026-04-26:C4-L3-V4",
+  "author_entity_id": null,
+  "related_entity_ids": [],
+  "metadata": {
+    "e2e_case_id": "C4-L3-V4",
+    "e2e_corridor": "C4",
+    "e2e_variant": "retry_or_isolation",
+    "e2e_phase": "P2_COMPOSITION",
+    "e2e_priority": "P1",
+    "e2e_locale": "ro",
+    "e2e_run_tag": "f240-2026-04-26"
+  },
+  "idempotency_key": "e2e:f240-2026-04-26:C4-L3-V4",
+  "thread_id": "ab836ca8-ac27-4fba-812b-d2d87878fbd8"
+}

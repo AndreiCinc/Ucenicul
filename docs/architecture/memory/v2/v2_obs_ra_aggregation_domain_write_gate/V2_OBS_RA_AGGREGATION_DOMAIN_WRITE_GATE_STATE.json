@@ -1,0 +1,49 @@
+{
+  "mission_id": "V2-OBS-RA-AGGREGATION-DOMAIN-WRITE-GATE",
+  "verdict": "SUCCESS",
+  "closed_at": "2026-04-22",
+  "workflow": {
+    "id": "uq26nh1grIpnHju0",
+    "name": "WF-ME-01 Module Execution",
+    "pre_version_id": "279a8628-5df6-4b38-86b0-8cc51989629b",
+    "post_version_id": "96962424-a9b1-4b7d-aa58-33ccc9c2b6a6"
+  },
+  "patch": {
+    "node": "ME_Build_RA_Envelope",
+    "key": "parameters.jsCode",
+    "change": "success-branch: domain_writes_performed: !!src.domain_writes_performed, -> domain_writes_performed: false,",
+    "builder_sha256": "ed6eef40c887928adf3a7db179a53f2762736733809598bcbe9ac0ce0a246fbb",
+    "apply_channel": "operator-run CLI (V2-025)"
+  },
+  "tests": {
+    "local": {"total": 50, "pass": 50, "fail": 0, "families": {"L1":5,"L2":5,"L3":5,"L4":5,"L5":5,"L6":5,"L7":5,"L8":5,"L9":5,"L10":5}},
+    "e2e": {"total": 50, "pass": 50, "fail": 0, "execution_ids": {
+      "E1":  [3894,3903,3912,3921,3930],
+      "E2r": [3984,3993,4002,4011,4020],
+      "E3":  [4029,4038,4047,4056,4065],
+      "E4":  [4074,4083,4092,4101,4110],
+      "E5":  [4119,4128,4137,4146,4155],
+      "E6":  [4164,4165,4166,4175,4184],
+      "E7":  [4193,4202,4211,4220,4229],
+      "E8":  [4238,4247,4256,4265,4274],
+      "E9r": [4328,4337,4346,4355,4364],
+      "E10": [4373,4382,4391,4400,4409]
+    }}
+  },
+  "db_evidence": {
+    "promote_e1": "e1100001-0000-0000-0000-000000000001..5 all tier=long_term",
+    "supersede_e2r": "e2200002-0000-0000-0000-000000000001..5 all status=superseded; 5 new active rows with supersedes_memory_id backlink",
+    "store_e7": "5 rows with category=v2obs_store inserted (b1d72005..., d06d9760..., bba6fbcb..., 0bce82f8..., eccdfa44...)",
+    "promote_e9r": "e9900009-0000-0000-0000-000000000001..5 all tier=long_term"
+  },
+  "preservation": {
+    "F5": "CLOSED (unchanged)",
+    "F3_1_Stage_C": "CLOSED SUCCESS (unchanged)",
+    "V2_014": "CLOSED SUCCESS (unchanged)",
+    "Path_5": "retired (unchanged)",
+    "F6": "not opened (unchanged)",
+    "operator_run_CLI": "canonical (V2-025, used)"
+  },
+  "blockers": [],
+  "follow_up": []
+}

@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-MO-01_Message_Out_Output_Gateway/tests/test_families.py", line 10, in <module>
+    from workflows.scripts.mo.mo_logic import (
+ModuleNotFoundError: No module named 'workflows.scripts.mo'

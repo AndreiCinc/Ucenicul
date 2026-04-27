@@ -1,0 +1,125 @@
+{
+  "mission": "UCENICUL_AUTONOMOUS_TEST_AND_E2E",
+  "run_id": "run_2026-04-19_autonomous_test_e2e",
+  "started_at": "2026-04-19T23:30:00Z",
+  "scope": {
+    "in_scope_workflows": [
+      "WF-TR-01", "WF-EC-01", "WF-OR-01", "WF-PL-01", "WF-DI-01",
+      "WF-ME-01", "WF-RA-01", "WF-RC-01", "WF-MO-01", "WF-SU-01"
+    ],
+    "out_of_scope": ["WF-TR-02", "all other workflows"]
+  },
+  "live_workflow_ids": {
+    "WF-TR-01": "wI8hpSROxQI0zC9f",
+    "WF-EC-01": "v9jih4jqeXpOJOiH",
+    "WF-OR-01": "KhGmNpi0ZDmrnz8W",
+    "WF-PL-01": "RwToPLa1ErHl2tUi",
+    "WF-DI-01": "abqYINcXr3JAhGGk",
+    "WF-ME-01": "uq26nh1grIpnHju0",
+    "WF-RA-01": "5RcNLtxNjAHJsZPE",
+    "WF-RC-01": "TClXgmO8H8zsSwMb",
+    "WF-MO-01": "OooZdC0DgsDR6gm0",
+    "WF-SU-01": "ENiYNfL3ul8AmmCB"
+  },
+  "canonical_chain_order": [
+    "WF-TR-01", "WF-EC-01", "WF-OR-01", "WF-PL-01", "WF-DI-01",
+    "WF-ME-01", "WF-RA-01", "WF-SU-01", "WF-RC-01", "WF-MO-01"
+  ],
+  "canonical_edges": {
+    "WF-TR-01__TO__WF-EC-01": {
+      "type": "primary",
+      "status": "EDGE_CONFIRMED_AS_CANONICAL",
+      "evidence": "Architecture chain; TR emits thread resolution + origin, EC is required before OR. No live Execute Workflow in TR-01 (connector gap).",
+      "connector_present_in_live": false
+    },
+    "WF-EC-01__TO__WF-OR-01": {
+      "type": "primary",
+      "status": "EDGE_CONFIRMED_AS_CANONICAL",
+      "evidence": "EC writes execution_contexts (upsert via idempotency_key); OR reads execution_contexts as input. No live Execute Workflow in EC-01 (connector gap).",
+      "connector_present_in_live": false
+    },
+    "WF-OR-01__TO__WF-PL-01": {
+      "type": "primary",
+      "status": "EDGE_CONFIRMED_AS_CANONICAL",
+      "evidence": "OR_Return_Result emits allowed_next_stage='WF-PL-01', result_type='handoff'. No live Execute Workflow in OR-01 (connector gap).",
+      "connector_present_in_live": false
+    },
+    "WF-PL-01__TO__WF-DI-01": {
+      "type": "primary",
+      "status": "EDGE_CONFIRMED_AS_CANONICAL",
+      "evidence": "PL_Generate_Plan emits allowed_next_stage='WF-DI-01'. PL_Return_Result = return items. No live Execute Workflow in PL-01 (connector gap).",
+      "connector_present_in_live": false
+    },
+    "WF-DI-01__TO__WF-ME-01": {
+      "type": "primary",
+      "status": "EDGE_CONFIRMED_AS_CANONICAL",
+      "evidence": "DI_Build_Dispatch_Payload emits allowed_next_stage='WF-ME-01'. ME_Input is executeWorkflowTrigger (callable). No live Execute Workflow in DI-01 (connector gap).",
+      "connector_present_in_live": false
+    },
+    "WF-ME-01__TO__WF-RA-01": {
+      "type": "primary",
+      "status": "EDGE_CONFIRMED_AS_CANONICAL",
+      "evidence": "ME_Return_Result emits allowed_next_stage='WF-RA-01'. RA_Input is executeWorkflowTrigger (callable). No live Execute Workflow in ME-01 (connector gap).",
+      "connector_present_in_live": false
+    },
+    "WF-RA-01__TO__WF-SU-01": {
+      "type": "primary",
+      "status": "EDGE_CONFIRMED_AS_CANONICAL",
+      "evidence": "RA_Build_Downstream_Envelope emits allowed_next_stage='WF-SU-01'. SU_Input is executeWorkflowTrigger (callable). No live Execute Workflow in RA-01 (connector gap).",
+      "connector_present_in_live": false,
+      "supersedes_prior_classification": "Prior ledger listed this as 'side-effect'; live topology proves it is the primary handoff from RA."
+    },
+    "WF-SU-01__TO__WF-RC-01": {
+      "type": "primary",
+      "status": "EDGE_CONFIRMED_AS_CANONICAL",
+      "evidence": "SU_Build_Downstream_Envelope emits allowed_next_stage='WF-RC-01', response_generation_allowed=true. No live Execute Workflow in SU-01 (connector gap).",
+      "connector_present_in_live": false,
+      "supersedes_prior_classification": "Prior ledger did not list SU->RC; live topology confirms SU is the precursor to RC."
+    },
+    "WF-RC-01__TO__WF-MO-01": {
+      "type": "primary",
+      "status": "EDGE_CONFIRMED_AS_CANONICAL",
+      "evidence": "RC_Build_Output_Envelope emits allowed_next_stage='MESSAGE_OUT'. RC_Dispatch_To_MO_01_SUBCALL (executeWorkflow -> OooZdC0DgsDR6gm0) and RC_Prepare_MO_01_Handoff exist but are DISABLED. MO_Input is executeWorkflowTrigger (callable).",
+      "connector_present_in_live": "disabled_infrastructure_present"
+    },
+    "WF-RA-01__TO__WF-RC-01": {
+      "type": "rejected",
+      "status": "EDGE_NON_CANONICAL",
+      "evidence": "Prior ledger classified RA->RC as primary; live RA topology emits allowed_next_stage='WF-SU-01' (never 'WF-RC-01'). Canonical path is RA->SU->RC. Retained in folder inventory as rejected for audit trail.",
+      "connector_present_in_live": false
+    }
+  },
+  "connector_gap_summary": {
+    "total_canonical_primary_edges": 9,
+    "active_execute_workflow_connectors": 0,
+    "disabled_infrastructure_edges": ["WF-RC-01__TO__WF-MO-01"],
+    "no_infrastructure_edges": [
+      "WF-TR-01__TO__WF-EC-01",
+      "WF-EC-01__TO__WF-OR-01",
+      "WF-OR-01__TO__WF-PL-01",
+      "WF-PL-01__TO__WF-DI-01",
+      "WF-DI-01__TO__WF-ME-01",
+      "WF-ME-01__TO__WF-RA-01",
+      "WF-RA-01__TO__WF-SU-01",
+      "WF-SU-01__TO__WF-RC-01"
+    ],
+    "callable_subworkflow_ready": ["WF-EC-01?", "WF-ME-01", "WF-RA-01", "WF-SU-01", "WF-MO-01"],
+    "callable_subworkflow_unverified_or_absent": ["WF-TR-01", "WF-OR-01", "WF-PL-01", "WF-DI-01", "WF-RC-01"]
+  },
+  "per_workflow_status": {
+    "WF-TR-01": {"phase": "PENDING", "readiness": "TEST_READY_WITH_LIMITS", "done_gate": "NOT_REACHED"},
+    "WF-EC-01": {"phase": "PENDING", "readiness": "TEST_READY",             "done_gate": "NOT_REACHED"},
+    "WF-OR-01": {"phase": "PENDING", "readiness": "TEST_READY_WITH_LIMITS", "done_gate": "NOT_REACHED"},
+    "WF-PL-01": {"phase": "PENDING", "readiness": "TEST_READY",             "done_gate": "NOT_REACHED"},
+    "WF-DI-01": {"phase": "PENDING", "readiness": "TEST_READY",             "done_gate": "NOT_REACHED"},
+    "WF-ME-01": {"phase": "PENDING", "readiness": "TEST_READY",             "done_gate": "NOT_REACHED"},
+    "WF-RA-01": {"phase": "PENDING", "readiness": "TEST_READY",             "done_gate": "NOT_REACHED"},
+    "WF-RC-01": {"phase": "PENDING", "readiness": "TEST_READY_WITH_LIMITS", "done_gate": "NOT_REACHED"},
+    "WF-MO-01": {"phase": "PENDING", "readiness": "TEST_READY_WITH_LIMITS", "done_gate": "NOT_REACHED"},
+    "WF-SU-01": {"phase": "PENDING", "readiness": "TEST_READY",             "done_gate": "NOT_REACHED"}
+  },
+  "artifacts_root": "tests/generated/",
+  "db_namespace_marker": "origin = 'claude_test' OR test_run_id = 'run_2026-04-19_autonomous_test_e2e' OR prefixed 'syn_' / 'test_'",
+  "blockers": [],
+  "last_update": "2026-04-19T23:55:00Z"
+}

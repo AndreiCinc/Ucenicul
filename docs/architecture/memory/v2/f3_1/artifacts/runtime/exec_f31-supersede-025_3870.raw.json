@@ -1,0 +1,57 @@
+{
+  "case_id": "f31-supersede-025",
+  "execution_id": "3870",
+  "execution_status": "success",
+  "execution_mcp_response": {
+    "executionId": "3870",
+    "status": "success"
+  },
+  "response_envelope": {
+    "status": "success",
+    "error_code": null,
+    "idempotency_reused": true,
+    "new_insert": false,
+    "superseded_memory_id": "c8586af3-1d6d-4154-a04b-b33d5f34cc89",
+    "new_memory_id": "bdeb00b4-4f2f-4bea-851d-eea913693efd"
+  },
+  "module_result_outer": {
+    "status_kind": "success",
+    "result_type": "module_batch",
+    "module_name": "memory_module",
+    "step_id": "mem-f31-f31-supersede-025",
+    "summary": "Memory superseded successfully.",
+    "artifacts": [],
+    "domain_writes_performed": true,
+    "response_generation_allowed": false
+  },
+  "db_pre": [
+    {
+      "case_id": "f31-supersede-025",
+      "memory_id": "c8586af3-1d6d-4154-a04b-b33d5f34cc89",
+      "tenant_id": "aaaaaaaa-0000-0000-0000-000000000001",
+      "tier": "recent",
+      "status": "active"
+    }
+  ],
+  "db_post": [
+    {
+      "id": "c8586af3-1d6d-4154-a04b-b33d5f34cc89",
+      "tenant_id": "aaaaaaaa-0000-0000-0000-000000000001",
+      "tier": "recent",
+      "status": "superseded",
+      "supersedes_memory_id": null,
+      "idempotency_key": "store_memory:d4f82a41-01cd-4fb7-9d70-573557348e74:mem-f31-f31-supersede-025-seed"
+    },
+    {
+      "id": "bdeb00b4-4f2f-4bea-851d-eea913693efd",
+      "tenant_id": "aaaaaaaa-0000-0000-0000-000000000001",
+      "tier": "recent",
+      "status": "active",
+      "supersedes_memory_id": "c8586af3-1d6d-4154-a04b-b33d5f34cc89",
+      "idempotency_key": "supersede_memory:d4f82a41-01cd-4fb7-9d70-573557348e74:mem-f31-f31-supersede-025"
+    }
+  ],
+  "error": null,
+  "captured_at": "2026-04-22T14:20:40.466Z",
+  "notes": "Stage C lane 4 synthesized raw. Evidence: summary_success=true idem_true=true idem_false=false target_invalid=false. Downstream n8n-level 'failed' is aggregation_error (INVALID_AGGREGATION_INPUT) that fires after module resolution; module_result.status is authoritative for F3.1."
+}

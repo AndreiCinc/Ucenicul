@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/sessions/amazing-festive-maxwell/mnt/Ucenicul/workflows/WF-ME-01_Module_Execution/tests/test_families.py", line 13, in <module>
+    from me_logic import simulate_module_execution  # noqa: E402
+ModuleNotFoundError: No module named 'me_logic'

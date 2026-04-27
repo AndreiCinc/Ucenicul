@@ -1,0 +1,19 @@
+{
+  "message_id": "bea31ec0-c741-4d31-81ac-81319d382e0f",
+  "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+  "channel": "e2e-rich-matrix",
+  "direction": "inbound",
+  "author_type": "user",
+  "normalized_content": "What did I save about preferences?",
+  "timestamp": "2026-04-27T08:12:27.515Z",
+  "source_message_ref": "e2e:MR-002:e2e:mr-2026-04-27:MR-002",
+  "author_entity_id": null,
+  "related_entity_ids": [],
+  "metadata": {
+    "e2e_case_id": "MR-002",
+    "e2e_run_tag": "mr-2026-04-27",
+    "e2e_intent_test": "recall_memory"
+  },
+  "idempotency_key": "e2e:mr-2026-04-27:MR-002",
+  "thread_id": "cec3f33e-b189-43cd-855f-196af1f7ffb8"
+}

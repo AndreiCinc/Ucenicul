@@ -1,0 +1,33 @@
+{
+  "case_id": "C9-L2-V2",
+  "invariants": [
+    {
+      "name": "assert_new_thread_id",
+      "sql": "SELECT count(*)::int AS c FROM execution_contexts\n          WHERE tenant_id = $1 AND thread_id = $2 AND created_at >= $3",
+      "params": [
+        "eee0e2e0-0000-0000-0000-000000000001",
+        "b3d18a6f-83d5-4cd4-8245-c67007b49bdd",
+        "2026-04-26T02:50:48.295Z"
+      ],
+      "unknown": false
+    },
+    {
+      "name": "assert_tenant_filtered_results",
+      "sql": "SELECT tenant_id, count(*)::int AS c FROM memory_items\n          WHERE idempotency_key LIKE $1\n          GROUP BY tenant_id",
+      "params": [
+        "e2e:f240-2026-04-26:C9-L2-V2%"
+      ],
+      "unknown": false
+    },
+    {
+      "name": "assert_no_cross_thread_execution_state_resume",
+      "sql": "SELECT count(*)::int AS c FROM execution_contexts\n          WHERE tenant_id = $1 AND thread_id = $2 AND created_at >= $3",
+      "params": [
+        "eee0e2e0-0000-0000-0000-000000000001",
+        "b3d18a6f-83d5-4cd4-8245-c67007b49bdd",
+        "2026-04-26T02:50:48.295Z"
+      ],
+      "unknown": false
+    }
+  ]
+}

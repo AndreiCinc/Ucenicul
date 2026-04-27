@@ -1,0 +1,20 @@
+{
+  "message_id": "f7a174a8-d0a1-4015-8db4-57c701b5d37f",
+  "tenant_id": "eee0e2e0-0000-0000-0000-00000000000b",
+  "channel": "tcp1-task-corridors",
+  "direction": "inbound",
+  "author_type": "user",
+  "normalized_content": "Add task tenant-B: marker B3 isolation.",
+  "timestamp": "2026-04-25T13:18:25.281Z",
+  "source_message_ref": "tcp1:TC-C10-09:tmr:tcp1-2026-04-25:TC-C10-09",
+  "author_entity_id": null,
+  "related_entity_ids": [],
+  "metadata": {
+    "tcp1_case_id": "TC-C10-09",
+    "tcp1_run_tag": "tcp1-2026-04-25",
+    "tcp1_priority": "P0"
+  },
+  "idempotency_key": "tmr:tcp1-2026-04-25:TC-C10-09",
+  "thread_id": "09cc0326-fde2-4aa3-85f9-86c46c483f62",
+  "reply_to_thread_id": null
+}

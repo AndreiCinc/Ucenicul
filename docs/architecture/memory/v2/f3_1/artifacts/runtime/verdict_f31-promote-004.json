@@ -1,0 +1,15 @@
+{
+  "verdict": "PASS",
+  "bucket": null,
+  "reason": "promote oracle all checks pass",
+  "observed": {
+    "status": "partial",
+    "denial_reason": "not_in_recent_tier",
+    "acceptance_signals": [],
+    "tier_pre": "long_term",
+    "tier_post": "long_term",
+    "last_reconfirmed_at_post": null
+  },
+  "artifact": "exec_f31-promote-004_3271.raw.json",
+  "ts": "2026-04-22T13:43:17.736Z"
+}

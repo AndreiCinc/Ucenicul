@@ -1,0 +1,20 @@
+{
+  "message_id": "397a577a-3fd8-4078-86e5-f248b782d73b",
+  "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+  "channel": "rcp1-rich-matrix",
+  "direction": "inbound",
+  "author_type": "user",
+  "normalized_content": "Salvează că biroul meu preferat pentru clienți VIP este sala 3.",
+  "timestamp": "2026-04-25T19:17:11.983Z",
+  "source_message_ref": "rcp1:RC-C2-04",
+  "author_entity_id": null,
+  "related_entity_ids": [],
+  "metadata": {
+    "rcp1_case_id": "RC-C2-04",
+    "rcp1_corridor": "C2",
+    "rcp1_run_tag": "rcp1-2026-04-25"
+  },
+  "idempotency_key": "rcp1:rcp1-2026-04-25:RC-C2-04",
+  "thread_id": "f21424b3-8736-4989-821d-d4a2afc1f4aa",
+  "reply_to_thread_id": null
+}

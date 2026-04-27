@@ -1,0 +1,71 @@
+{
+  "ts": "2026-04-20T15:13:18.070Z",
+  "phase": "phase11",
+  "suite": "me_negatives",
+  "passed": 5,
+  "total": 5,
+  "results": [
+    {
+      "case": "p11-neg-reminder-missing-desc",
+      "exec": "1102",
+      "pass": true,
+      "code": "MISSING_REQUIRED_FIELDS",
+      "missing_fields": [
+        "description"
+      ],
+      "expected": {
+        "code": "MISSING_REQUIRED_FIELDS",
+        "missing": "description"
+      }
+    },
+    {
+      "case": "p11-neg-memory-missing-type",
+      "exec": "1104",
+      "pass": true,
+      "code": "MISSING_REQUIRED_FIELDS",
+      "missing_fields": [
+        "memory_type"
+      ],
+      "expected": {
+        "code": "MISSING_REQUIRED_FIELDS",
+        "missing": "memory_type"
+      }
+    },
+    {
+      "case": "p11-neg-reminder-update-no-ident",
+      "exec": "1106",
+      "pass": true,
+      "code": "MISSING_REQUIRED_FIELDS",
+      "missing_fields": [
+        "reminder_id_or_title_match",
+        "patch"
+      ],
+      "expected": {
+        "code": "MISSING_REQUIRED_FIELDS",
+        "missing": "reminder_id_or_title_match"
+      }
+    },
+    {
+      "case": "p11-neg-unknown-module",
+      "exec": "1108",
+      "pass": true,
+      "code": "UNSUPPORTED_MODULE",
+      "missing_fields": [],
+      "expected": {
+        "code": "UNSUPPORTED_MODULE",
+        "missing": null
+      }
+    },
+    {
+      "case": "p11-neg-unknown-reminder-action",
+      "exec": "1109",
+      "pass": true,
+      "code": "UNSUPPORTED_ACTION",
+      "missing_fields": [],
+      "expected": {
+        "code": "UNSUPPORTED_ACTION",
+        "missing": null
+      }
+    }
+  ]
+}

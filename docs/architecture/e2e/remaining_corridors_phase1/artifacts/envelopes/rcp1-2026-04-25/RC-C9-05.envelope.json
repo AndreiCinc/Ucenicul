@@ -1,0 +1,20 @@
+{
+  "message_id": "55321c9f-bce4-4f93-8a12-535965c0355c",
+  "tenant_id": "eee0e2e0-0000-0000-0000-00000000000a",
+  "channel": "rcp1-rich-matrix",
+  "direction": "inbound",
+  "author_type": "user",
+  "normalized_content": "When is our annual planning session?",
+  "timestamp": "2026-04-25T19:17:11.984Z",
+  "source_message_ref": "rcp1:RC-C9-05",
+  "author_entity_id": null,
+  "related_entity_ids": [],
+  "metadata": {
+    "rcp1_case_id": "RC-C9-05",
+    "rcp1_corridor": "C9",
+    "rcp1_run_tag": "rcp1-2026-04-25"
+  },
+  "idempotency_key": "rcp1:rcp1-2026-04-25:RC-C9-05",
+  "thread_id": "e9b63c03-83bc-4f07-8407-94e8cd000187",
+  "reply_to_thread_id": null
+}

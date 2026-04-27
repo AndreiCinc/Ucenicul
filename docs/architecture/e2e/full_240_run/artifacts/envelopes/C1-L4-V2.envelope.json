@@ -1,0 +1,23 @@
+{
+  "message_id": "8cba1eaf-adf1-41d3-8b9c-c9c1a5e4a9c2",
+  "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+  "channel": "e2e-rich-matrix",
+  "direction": "inbound",
+  "author_type": "user",
+  "normalized_content": "Please handle this as an English equivalent: Am o întrebare simplă care nu are legătură cu datele mele sau cu memoria proiectului: explică-mi pe scurt diferența dintre un obiectiv și o sarcină. Nu salva nimic din această întrebare, nu presupune context anterior și răspunde direct, într-un stil clar.",
+  "timestamp": "2026-04-26T02:50:47.070Z",
+  "source_message_ref": "e2e:C1-L4-V2:e2e:f240-2026-04-26:C1-L4-V2",
+  "author_entity_id": null,
+  "related_entity_ids": [],
+  "metadata": {
+    "e2e_case_id": "C1-L4-V2",
+    "e2e_corridor": "C1",
+    "e2e_variant": "locale_en",
+    "e2e_phase": "P1_FOUNDATION",
+    "e2e_priority": "P1",
+    "e2e_locale": "en",
+    "e2e_run_tag": "f240-2026-04-26"
+  },
+  "idempotency_key": "e2e:f240-2026-04-26:C1-L4-V2",
+  "thread_id": "4b38c71d-03d4-44b1-83f4-fbac2490165b"
+}

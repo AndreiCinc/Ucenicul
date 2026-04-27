@@ -1,0 +1,41 @@
+{
+  "stage_code": "WF-ME-01",
+  "stage_name": "Module Execution",
+  "status": "candidate_active",
+  "score": 8.5,
+  "score_cap": 8.5,
+  "closed": false,
+  "advance_allowed": false,
+  "evidence_classification": {
+    "source_pack_complete": true,
+    "script_verified": true,
+    "db_verified": false,
+    "live_workflow_verified": false,
+    "runtime_execution_verified": false,
+    "post_test_db_drift_verified": false
+  },
+  "upstream_stage": "WF-DI-01",
+  "downstream_stage": "WF-RA-01",
+  "supported_live_capabilities": [
+    "task_module.create_task",
+    "task_module.list_tasks",
+    "task_module.update_task",
+    "task_module.complete_task",
+    "task_module.delete_task"
+  ],
+  "unsupported_in_this_version": [
+    "reminder_module",
+    "memory_module",
+    "improvement_module",
+    "watcher_module_basic",
+    "response_module"
+  ],
+  "next_action": "Import WF-ME-01_Module_Execution.json and run live V1\u2013V6 plus DB write-scope verification.",
+  "script_test_summary": {
+    "families": 13,
+    "tests_per_family": 50,
+    "total_tests": 650,
+    "passed": 650,
+    "failed": 0
+  }
+}

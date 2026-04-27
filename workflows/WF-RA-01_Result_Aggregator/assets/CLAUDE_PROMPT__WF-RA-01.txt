@@ -1,0 +1,5 @@
+Use the ZIP contents as canonical.
+Verify filename-to-content integrity first.
+Prepare WF-RA-01 to pre-live-ready state only.
+Do not claim closure before live import, runtime proof, and post-test DB drift verification.
+WF-RA-01 must remain read-only and must not compose the final user response.

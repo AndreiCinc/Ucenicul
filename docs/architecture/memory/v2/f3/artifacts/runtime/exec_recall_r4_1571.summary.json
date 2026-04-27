@@ -1,0 +1,18 @@
+{
+  "exec_id": "1571",
+  "case_id": "F3-recall-r4",
+  "step_id": "mem-batch-v2c-recall-r4",
+  "action": "recall_memory",
+  "inputs": {
+    "category": "smoke_store",
+    "limit": 25
+  },
+  "applied_filters": ["category"],
+  "result_status_kind": "success",
+  "module_result_status": "success",
+  "row_count": 1,
+  "row_ids_in_order": ["a0909481-a0a8-4682-8689-fbe50a6fa919"],
+  "oracle": "1 active row with category=smoke_store. Pre-DB shows only a0909481 carries this exact category — pass",
+  "domain_writes_performed": false,
+  "ra_dispatch_status": "success"
+}

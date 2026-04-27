@@ -1,0 +1,16 @@
+{
+  "id": "TC-07",
+  "name": "Invalid input",
+  "description": "Missing required field (tenant_id). Validator rejects.",
+  "request": {
+    "message_id": "test-msg-007",
+    "channel": "telegram"
+  },
+  "expected": {
+    "decision": "fail_invalid_input",
+    "resolved_thread_id": null,
+    "ambiguity_detected": false,
+    "content_class_used": "none",
+    "error_code": "INVALID_INPUT"
+  }
+}

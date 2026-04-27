@@ -1,0 +1,51 @@
+{
+  "workflow_code": "WF-RA-01",
+  "workflow_name": "WF-RA-01 Result Aggregator",
+  "tier": "standard",
+  "status": "closed",
+  "posture": "live",
+  "score": 10,
+  "closed": true,
+  "advance_allowed": true,
+  "phase": "closed_final_stage_posture_10_of_10",
+  "closed_at": null,
+  "last_sync": null,
+  "last_verified": "2026-04-19",
+  "live_runs": null,
+  "owner": "TBD",
+  "canonical": {
+    "implementation": "workflow/WF-RA-01_Result_Aggregator_LIVE.json",
+    "contracts": null,
+    "status": "state/STATE__WF-RA-01.json",
+    "test_matrix": "docs/WF-RA-01_TEST_MATRIX.md"
+  },
+  "evidence_on_disk": {
+    "implementation_present": true,
+    "draft_present": true,
+    "draft_path": "workflow/drafts/WF-RA-01_Result_Aggregator_draft.json",
+    "contracts_present": false,
+    "test_matrix_present": true,
+    "sql_present": true,
+    "scripts_present": true,
+    "tests_present": true,
+    "test_results_present": true,
+    "audit_report_present": true,
+    "build_report_present": true,
+    "closure_report_present": true,
+    "current_stage_present": true,
+    "fix_log_present": true,
+    "final_stage_posture_present": true,
+    "stage_lock_present": true,
+    "assets_present": true
+  },
+  "missing": [
+    "docs/WF-RA-01_CONTRACTS.md",
+    "reports/LIVE_EXECUTIONS__WF-RA-01.md"
+  ],
+  "foreign": [
+    "docs/desktop.ini"
+  ],
+  "notes": "WF-RA-01 is closed at 10/10 per reports/FINAL_STAGE_POSTURE__WF-RA-01.md (advance_allowed=true). Implementation filename '_LIVE.json' is non-standard for this repo but deterministic; treated as the canonical implementation with filename noted as a mild canonicality-naming drift. draft/ subdirectory is an accepted second-file pattern (draft != canonical). STATE authored during autonomous run run_2026-04-19_autonomous.",
+  "last_updated": "2026-04-19",
+  "run_id": "run_2026-04-19_autonomous"
+}

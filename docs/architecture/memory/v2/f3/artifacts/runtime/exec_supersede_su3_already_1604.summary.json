@@ -1,0 +1,17 @@
+{
+  "exec_id": "1604",
+  "case_id": "F3-supersede-su3-already-superseded",
+  "step_id": "mem-batch-v2c-su3",
+  "action": "supersede_memory",
+  "purpose": "Attempt to supersede already-superseded row → expect failed",
+  "inputs": {
+    "supersedes_memory_id": "1c2168f0-19ab-4a71-b923-d15860ba088c (already superseded by SU1)"
+  },
+  "result_status_kind": "error",
+  "error_code": "SUPERSEDE_TARGET_INVALID",
+  "error_message": "Old memory not found or already superseded.",
+  "db_nodes_observed": "ME_Memory_Supersede_DB returned {success:true} placeholder (no row matched UPDATE WHERE status='active'); Result node correctly mapped to SUPERSEDE_TARGET_INVALID",
+  "domain_writes_performed": false,
+  "no_new_row_created": true,
+  "oracle": "Contract §5: already-superseded → failed with SUPERSEDE_TARGET_INVALID — pass"
+}

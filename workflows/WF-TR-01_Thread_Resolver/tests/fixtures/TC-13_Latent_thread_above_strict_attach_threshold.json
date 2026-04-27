@@ -1,0 +1,35 @@
+{
+  "id": "TC-13",
+  "name": "Latent thread above strict attach threshold",
+  "description": "Latent thread scores 0.85 (above STRICT_ATTACH_THRESHOLD 0.75). Should reopen (not attach).",
+  "request": {
+    "message_id": "test-msg-013",
+    "tenant_id": "aaaaaaaa-0000-0000-0000-000000000001",
+    "channel": "telegram",
+    "direction": "inbound",
+    "author_type": "user",
+    "normalized_content": "factura veche discutie reanoi contact cu Maria despre trimis",
+    "timestamp": "2026-04-15T12:00:00Z",
+    "source_message_ref": "tg_test_013",
+    "author_entity_id": "eeeeeeee-0000-0000-0000-000000000002"
+  },
+  "expected": {
+    "decision": "reopen_latent_thread",
+    "resolved_thread_id": "tttttttt-0000-0000-0000-000000000007",
+    "ambiguity_detected": false,
+    "content_class_used": "normalized_content"
+  },
+  "candidate_threads_fixture": [
+    {
+      "thread_id": "tttttttt-0000-0000-0000-000000000007",
+      "thread_status": "latent",
+      "thread_title": "Factura Maria veche",
+      "score": 0.85,
+      "entity_match": 0.3,
+      "semantic_match": 0.35,
+      "temporal_proximity": 0.15,
+      "channel_relevance": 0.05
+    }
+  ],
+  "note": "Spec deviation verification (D-16): latent thread above attach threshold should reopen, not attach."
+}

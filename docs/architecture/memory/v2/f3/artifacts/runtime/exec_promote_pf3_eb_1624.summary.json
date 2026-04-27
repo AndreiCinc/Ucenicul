@@ -1,0 +1,28 @@
+{
+  "exec_id": "1624",
+  "case_id": "F3-promote-pf3-eb (accept-via-evidence_validated)",
+  "step_id": "mem-batch-v2c-pf3-eb",
+  "action": "promote_memory",
+  "inputs": {
+    "memory_id": "5a0b1317-8723-41be-8166-b027f98c1104",
+    "promotion_target": "long_term",
+    "user_confirmed": false,
+    "evidence_validated": true
+  },
+  "result_status_kind": "success",
+  "module_result_status": "success",
+  "details": {
+    "denial_reason": "accepted",
+    "acceptance_signals": ["evidence_validated"],
+    "tier": "long_term",
+    "last_reconfirmed_at": "2026-04-21T08:04:20.852Z"
+  },
+  "artifacts": [
+    {"type": "memory_id", "value": "5a0b1317-8723-41be-8166-b027f98c1104"},
+    {"type": "denial_reason", "value": "accepted", "promoted": true},
+    {"type": "acceptance_signals", "value": ["evidence_validated"]}
+  ],
+  "domain_writes_performed": true,
+  "db_oracle": "Row 5a0b1317 updated: tier recent→long_term, evidence_validated false→true, last_reconfirmed_at set, updated_at advanced to 08:04:20.852Z. No other rows mutated.",
+  "oracle": "F4 vocabulary covered: accept-via-evidence_validated emits acceptance_signals=['evidence_validated'] (complement to F4-t3 user_confirmed). All 3 artifact entries present (memory_id, denial_reason, acceptance_signals). — pass"
+}

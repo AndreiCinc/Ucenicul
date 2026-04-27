@@ -1,0 +1,23 @@
+{
+  "message_id": "446c8926-3155-4387-8e99-abecc09f58d0",
+  "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+  "channel": "e2e-rich-matrix",
+  "direction": "inbound",
+  "author_type": "user",
+  "normalized_content": "EN case: Remember this once only even if the webhook retries.",
+  "timestamp": "2026-04-26T02:50:48.691Z",
+  "source_message_ref": "e2e:C11-L3-V2:e2e:f240-2026-04-26:C11-L3-replay",
+  "author_entity_id": null,
+  "related_entity_ids": [],
+  "metadata": {
+    "e2e_case_id": "C11-L3-V2",
+    "e2e_corridor": "C11",
+    "e2e_variant": "duplicate_delivery_1",
+    "e2e_phase": "P1_FOUNDATION_CRITICAL",
+    "e2e_priority": "P0",
+    "e2e_locale": "en",
+    "e2e_run_tag": "f240-2026-04-26"
+  },
+  "idempotency_key": "e2e:f240-2026-04-26:C11-L3-replay",
+  "thread_id": "9099e905-af3b-4d30-898d-1ce5fe8b63be"
+}

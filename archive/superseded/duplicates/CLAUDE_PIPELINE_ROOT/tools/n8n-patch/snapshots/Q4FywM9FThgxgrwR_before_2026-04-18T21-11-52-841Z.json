@@ -1,0 +1,112 @@
+{
+  "updatedAt": "2026-04-18T21:11:09.575Z",
+  "createdAt": "2026-04-18T21:10:01.873Z",
+  "id": "Q4FywM9FThgxgrwR",
+  "name": "EC-01 Closure Cycle Caller (ephemeral)",
+  "description": null,
+  "active": false,
+  "isArchived": false,
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "ec-caller-manual-trigger",
+      "name": "Manual",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// V5 cross-tenant payload for EC-01 closure\nreturn [{\n  json: {\n    tenant_id: 'ec01aaaa-0000-0000-0000-000000000002',\n    thread_id: 'ec01bbbb-0000-0000-0000-000000000001',\n    trigger_message_id: 'ec01cccc-0000-0000-0000-000000000001',\n    resolution_method: 'attach_existing_thread',\n    resolved_at: '2026-04-19T00:00:00.000Z',\n    idempotency_key: 'wf_ec_01_fixture_v5_cross_tenant_20260419T0000Z'\n  }\n}];"
+      },
+      "id": "ec-caller-build-payload",
+      "name": "Build_Payload",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        200,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "v9jih4jqeXpOJOiH",
+          "mode": "list",
+          "cachedResultName": "WF-EC-01"
+        },
+        "mode": "once",
+        "options": {}
+      },
+      "id": "ec-caller-call-ec-01",
+      "name": "Call_EC_01",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        400,
+        0
+      ]
+    }
+  ],
+  "connections": {
+    "Manual": {
+      "main": [
+        [
+          {
+            "node": "Build_Payload",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Build_Payload": {
+      "main": [
+        [
+          {
+            "node": "Call_EC_01",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "callerPolicy": "workflowsFromSameOwner",
+    "availableInMCP": true
+  },
+  "staticData": null,
+  "meta": null,
+  "pinData": null,
+  "versionId": "27c9dc9b-0441-46b5-9a82-3f7347eaa178",
+  "activeVersionId": null,
+  "versionCounter": 3,
+  "triggerCount": 0,
+  "shared": [
+    {
+      "updatedAt": "2026-04-18T21:10:01.873Z",
+      "createdAt": "2026-04-18T21:10:01.873Z",
+      "role": "workflow:owner",
+      "workflowId": "Q4FywM9FThgxgrwR",
+      "projectId": "WIRLhU6IcCuQzkzY",
+      "project": {
+        "updatedAt": "2026-03-27T16:42:52.879Z",
+        "createdAt": "2026-03-26T19:16:39.847Z",
+        "id": "WIRLhU6IcCuQzkzY",
+        "name": "Andrei Cinc <andrei.cinc9@gmail.com>",
+        "type": "personal",
+        "icon": null,
+        "description": null,
+        "creatorId": "68a414fd-cc03-4f02-87bc-9067f976e98a"
+      }
+    }
+  ],
+  "tags": [],
+  "activeVersion": null
+}

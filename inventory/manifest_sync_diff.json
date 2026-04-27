@@ -1,0 +1,108 @@
+{
+  "generated_at": "2026-04-19T12:40:47.212262+00:00",
+  "phase": "2_SYNC_REGENERATE_DERIVED",
+  "changes": [
+    {
+      "artifact": "unified_inventory.json",
+      "field": "counts_by_role",
+      "old": {
+        "ambiguous": 1,
+        "archive_candidate": 154,
+        "claude_pipeline_asset": 237,
+        "duplicate_candidate": 361,
+        "repo_root_owned": 14,
+        "shared_technical": 9,
+        "workflow_owned": 144
+      },
+      "new": {
+        "repo_root_owned": 14,
+        "shared_technical": 9,
+        "duplicate_candidate": 361,
+        "archive_candidate": 155,
+        "workflow_owned": 144,
+        "claude_pipeline_asset": 237
+      }
+    },
+    {
+      "artifact": "RECONCILIATION_STATE.json",
+      "field": "counts_by_role_final + priors_note",
+      "old": "missing",
+      "new": {
+        "source_a_file_count": 587,
+        "source_b_file_count": 333,
+        "total": 920,
+        "repo_root_owned": 14,
+        "shared_technical": 9,
+        "duplicate_candidate": 361,
+        "archive_candidate": 155,
+        "workflow_owned": 144,
+        "claude_pipeline_asset": 237
+      }
+    },
+    {
+      "artifact": "relocation_log.json",
+      "field": "collisions / by_status / historical_collision_resolutions",
+      "old": {
+        "collisions_len": 1,
+        "by_status.copied_with_collision_suffix": 1
+      },
+      "new": {
+        "collisions_len": 0,
+        "by_status.copied_with_collision_suffix": 0,
+        "historical_collision_resolutions_len": 1
+      }
+    },
+    {
+      "artifact": "relocation_log.json#entries",
+      "field": "target_path/final_target (5 adjusted items)",
+      "refreshed_count": 5,
+      "details": [
+        {
+          "key": [
+            "PRODUCT_ROOT",
+            "workflows/WF-TR-01_PATCHED_switch_fix.json"
+          ],
+          "old_target_path": "workflows/WF-TR-01_Thread_Resolver/workflow/WF-TR-01_PATCHED_switch_fix.json",
+          "new_target_path": "workflows/WF-TR-01_Thread_Resolver/workflow/patches/WF-TR-01_PATCHED_switch_fix.json"
+        },
+        {
+          "key": [
+            "CLAUDE_PIPELINE_ROOT",
+            "README.md"
+          ],
+          "old_target_path": ".claude/pipelines/ucenicul-pipeline/prompts/README.md",
+          "new_target_path": ".claude/pipelines/ucenicul-pipeline/README.md"
+        },
+        {
+          "key": [
+            "CLAUDE_PIPELINE_ROOT",
+            "ziOCmWkZ"
+          ],
+          "old_target_path": "inventory/ambiguous_holding/CLAUDE_PIPELINE_ROOT/ziOCmWkZ",
+          "new_target_path": "archive/snapshots/wf-ra-01_full_source_pack_2026-04-17.zip"
+        },
+        {
+          "key": [
+            "CLAUDE_PIPELINE_ROOT",
+            "wf-ra-01_full_source_pack/workflows/WF-RA-01_Result_Aggregator.json"
+          ],
+          "old_target_path": "workflows/WF-RA-01_Result_Aggregator/workflow/WF-RA-01_Result_Aggregator.json",
+          "new_target_path": "workflows/WF-RA-01_Result_Aggregator/workflow/drafts/WF-RA-01_Result_Aggregator_draft.json"
+        },
+        {
+          "key": [
+            "CLAUDE_PIPELINE_ROOT",
+            "wf-ra-01_full_source_pack/workflows/WF-RA-01_blueprint.json"
+          ],
+          "old_target_path": "workflows/WF-RA-01_Result_Aggregator/workflow/WF-RA-01_blueprint.json",
+          "new_target_path": "workflows/WF-RA-01_Result_Aggregator/docs/WF-RA-01_blueprint.json"
+        }
+      ]
+    },
+    {
+      "artifact": "move_plan.json",
+      "field": "no-op — already aligned with unified_inventory canonical",
+      "verified": true
+    }
+  ]
+}

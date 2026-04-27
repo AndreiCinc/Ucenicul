@@ -1,0 +1,23 @@
+{
+  "message_id": "ddde288d-2464-4115-8e1b-d3c49fb24698",
+  "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+  "channel": "e2e-rich-matrix",
+  "direction": "inbound",
+  "author_type": "user",
+  "normalized_content": "Ține minte că Andrei vine mai constant dimineața. Seara lipsește des.",
+  "timestamp": "2026-04-26T02:50:47.181Z",
+  "source_message_ref": "e2e:C2-L2-V4:e2e:f240-2026-04-26:C2-L2-V4",
+  "author_entity_id": null,
+  "related_entity_ids": [],
+  "metadata": {
+    "e2e_case_id": "C2-L2-V4",
+    "e2e_corridor": "C2",
+    "e2e_variant": "retry_or_isolation",
+    "e2e_phase": "P1_FOUNDATION",
+    "e2e_priority": "P1",
+    "e2e_locale": "ro",
+    "e2e_run_tag": "f240-2026-04-26"
+  },
+  "idempotency_key": "e2e:f240-2026-04-26:C2-L2-V4",
+  "thread_id": "fc1b8f48-5c49-4145-84e3-8dc2e864b752"
+}

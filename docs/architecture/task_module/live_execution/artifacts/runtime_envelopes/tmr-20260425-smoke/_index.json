@@ -1,0 +1,160 @@
+{
+  "run_tag": "tmr-20260425-smoke",
+  "count": 10,
+  "cases": [
+    {
+      "case_id": "RT-001",
+      "group": "create_task",
+      "priority": "P0",
+      "user_input": "Creează task: sună-l pe Andrei.",
+      "expected": {
+        "tasks_delta": 1,
+        "status": "open",
+        "natural_confirmation": true
+      },
+      "expected_intent": "create_task",
+      "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+      "message_id": "cde4fa3f-8f4a-4be8-89ea-82815c250565",
+      "thread_id": "3f8f81b8-42ea-4184-8902-42c21143caba",
+      "idempotency_key": "tmr:tmr-20260425-smoke:RT-001"
+    },
+    {
+      "case_id": "RT-008",
+      "group": "reminder_like_as_task",
+      "priority": "P0",
+      "user_input": "Amintește-mi mâine la 9 să verific plata.",
+      "expected": {
+        "tasks_delta": 1,
+        "reminders_delta": 0,
+        "due_at_or_due_date_set": true
+      },
+      "expected_intent": "create_reminder",
+      "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+      "message_id": "2f56b788-c028-4b92-875f-3638dabdcf33",
+      "thread_id": "508b0766-3569-4c98-8575-e7b9bfb4891c",
+      "idempotency_key": "tmr:tmr-20260425-smoke:RT-008"
+    },
+    {
+      "case_id": "RT-013",
+      "group": "list_tasks",
+      "priority": "P0",
+      "user_input": "Ce taskuri am deschise?",
+      "expected": {
+        "read_only": true,
+        "tasks_delta": 0,
+        "natural_list": true
+      },
+      "expected_intent": "list_tasks",
+      "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+      "message_id": "30158084-2865-4642-89c8-8d7db6eb62bb",
+      "thread_id": "5aff0729-1062-43d2-8d26-dd3a3468ebc7",
+      "idempotency_key": "tmr:tmr-20260425-smoke:RT-013"
+    },
+    {
+      "case_id": "RT-018",
+      "group": "update_task",
+      "priority": "P0",
+      "user_input": "Mută taskul cu Andrei pe mâine la 10.",
+      "expected": {
+        "updated": true,
+        "tasks_delta": 0
+      },
+      "expected_intent": "update_task",
+      "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+      "message_id": "5c684c8f-578c-46de-8d2c-501a9f362612",
+      "thread_id": "c96869fa-b762-4f7e-8c2c-214f060caa16",
+      "idempotency_key": "tmr:tmr-20260425-smoke:RT-018"
+    },
+    {
+      "case_id": "RT-023",
+      "group": "complete_task",
+      "priority": "P0",
+      "user_input": "Marchează taskul cu Andrei ca făcut.",
+      "expected": {
+        "status_after": "completed_or_done",
+        "completed_at_set_if_exists": true
+      },
+      "expected_intent": "complete_task",
+      "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+      "message_id": "fda5a9ad-5bdc-4aba-895e-28f46209034a",
+      "thread_id": "c2105570-0897-4938-8d6d-a00d73d7ed0e",
+      "idempotency_key": "tmr:tmr-20260425-smoke:RT-023"
+    },
+    {
+      "case_id": "RT-027",
+      "group": "delete_task",
+      "priority": "P0",
+      "user_input": "Anulează taskul cu oferta veche.",
+      "expected": {
+        "soft_cancelled_or_deleted": true,
+        "auditable": true
+      },
+      "expected_intent": "delete_task",
+      "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+      "message_id": "ca0be91b-ed40-4443-8072-0cc42a875941",
+      "thread_id": "3dd0391e-3033-4265-82b0-7048fe15322f",
+      "idempotency_key": "tmr:tmr-20260425-smoke:RT-027"
+    },
+    {
+      "case_id": "RT-032",
+      "group": "idempotency_retry",
+      "priority": "P0",
+      "user_input": "Creează task: verifică plata E2E retry.",
+      "expected": {
+        "first_run_success": true,
+        "replay_no_duplicate_or_extra_side_effect": true
+      },
+      "expected_intent": "create_task",
+      "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+      "message_id": "71f9a220-4919-46c8-8bf3-0859afdb1e5a",
+      "thread_id": "7615bcbb-f9ae-4086-87f4-81ef0b155ade",
+      "idempotency_key": "tmr:tmr-20260425-smoke:RT-032"
+    },
+    {
+      "case_id": "RT-037",
+      "group": "tenant_isolation",
+      "priority": "P0",
+      "user_input": "Creează task tenant A marker isolation.",
+      "expected": {
+        "tenant_A_only": true,
+        "tenant_B_unchanged": true,
+        "no_cross_tenant_leak": true
+      },
+      "expected_intent": "create_task",
+      "tenant_id": "eee0e2e0-0000-0000-0000-00000000000a",
+      "message_id": "5bc37150-1f64-4d06-85b2-1c3eac520375",
+      "thread_id": "5fe0ecb4-ede9-4318-8602-dc668c0d2dc3",
+      "idempotency_key": "tmr:tmr-20260425-smoke:RT-037"
+    },
+    {
+      "case_id": "RT-042",
+      "group": "negative_security_resilience",
+      "priority": "P0",
+      "user_input": "Actualizează task id bad-uuid.",
+      "expected": {
+        "no_db_write": true,
+        "validation_error": true
+      },
+      "expected_intent": "update_task",
+      "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+      "message_id": "97e63b42-f5ce-49f1-8c2e-89b21a37404f",
+      "thread_id": "95062583-5eee-45ff-8f21-b00681413ea3",
+      "idempotency_key": "tmr:tmr-20260425-smoke:RT-042"
+    },
+    {
+      "case_id": "RT-048",
+      "group": "user_ready_complex_composition",
+      "priority": "P0",
+      "user_input": "Creează task să îl sun pe Andrei mâine, dar nu salva asta ca memorie permanentă.",
+      "expected": {
+        "task_write": true,
+        "no_memory_write_required": true
+      },
+      "expected_intent": "create_task",
+      "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+      "message_id": "bc08b445-af9e-4434-8421-077515abf9c7",
+      "thread_id": "f5dce429-eb4b-4cd1-8876-f7cc9f5fcd7b",
+      "idempotency_key": "tmr:tmr-20260425-smoke:RT-048"
+    }
+  ]
+}

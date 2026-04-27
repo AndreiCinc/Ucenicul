@@ -1,0 +1,23 @@
+{
+  "message_id": "22b460b5-661b-42db-8121-2111e499d957",
+  "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+  "channel": "e2e-rich-matrix",
+  "direction": "inbound",
+  "author_type": "user",
+  "normalized_content": "Am o întrebare simplă care nu are legătură cu datele mele sau cu memoria proiectului: explică-mi pe scurt diferența dintre un obiectiv și o sarcină. Nu salva nimic din această întrebare, nu presupune context anterior și răspunde direct, într-un stil clar. Mai adaug o constrângere: dacă există conflict între thread-ul curent și o memorie durabilă, nu suprascrie memoria fără confirmare explicită. Dacă cererea are două interpretări, cere clarificare.",
+  "timestamp": "2026-04-26T02:50:47.111Z",
+  "source_message_ref": "e2e:C1-L5-V3:e2e:f240-2026-04-26:C1-L5-V3",
+  "author_entity_id": null,
+  "related_entity_ids": [],
+  "metadata": {
+    "e2e_case_id": "C1-L5-V3",
+    "e2e_corridor": "C1",
+    "e2e_variant": "negative_or_boundary",
+    "e2e_phase": "P1_FOUNDATION",
+    "e2e_priority": "P1",
+    "e2e_locale": "ro",
+    "e2e_run_tag": "f240-2026-04-26"
+  },
+  "idempotency_key": "e2e:f240-2026-04-26:C1-L5-V3",
+  "thread_id": "488e34d8-91e7-4980-849e-fdf4a473c027"
+}

@@ -1,0 +1,32 @@
+{
+  "exec_id": "1544",
+  "case_id": "F3-recall-r1",
+  "step_id": "mem-batch-v2c-recall-r1",
+  "action": "recall_memory",
+  "inputs": {
+    "source_thread_id": "33333333-0000-0000-0000-000000000003",
+    "limit": 25
+  },
+  "applied_filters": ["source_thread_id"],
+  "default_filters_resolved": {
+    "include_statuses": ["active"],
+    "entity_id": null,
+    "category": null,
+    "memory_type": null,
+    "tier": null
+  },
+  "result_status_kind": "success",
+  "module_result_status": "success",
+  "row_count": 5,
+  "row_ids_in_order": [
+    "75a617be-c5a9-4f70-9bcf-35f0db6bcd26",
+    "7b03cd9c-0e3e-45ea-bad6-6fc4adc774f5",
+    "578c7d1d-fa33-40d9-bda0-a76192c1e0c4",
+    "da53c396-09af-4ba1-8fba-07c4295fa412",
+    "c7f148d9-5742-46fa-a41c-a72ee94a2011"
+  ],
+  "rows_excluded_for_status": ["adbad490-121d-4f17-81cd-622fdf507d45 (status=superseded)", "28c3a392-8946-4f00-9d6c-6254b908703a (status=superseded)"],
+  "ordering_oracle": "created_at DESC — A6-new (20:39:39) > A5 (20:39:17) > A4 (20:39:09) > A3 (20:38:58) > A1 (20:38:19) — pass",
+  "domain_writes_performed": false,
+  "ra_dispatch_status": "success (module_results_count=1, returned_step_ids=[mem-batch-v2c-recall-r1])"
+}

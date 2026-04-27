@@ -1,0 +1,19 @@
+{
+  "message_id": "2f0583b3-6c1d-4de6-8524-a92c699fd4bc",
+  "tenant_id": "eee0e2e0-0000-0000-0000-00000000000b",
+  "channel": "e2e-rich-matrix",
+  "direction": "inbound",
+  "author_type": "user",
+  "normalized_content": "What memories do I have?",
+  "timestamp": "2026-04-27T08:12:27.515Z",
+  "source_message_ref": "e2e:MR-004:e2e:mr-2026-04-27:MR-004",
+  "author_entity_id": null,
+  "related_entity_ids": [],
+  "metadata": {
+    "e2e_case_id": "MR-004",
+    "e2e_run_tag": "mr-2026-04-27",
+    "e2e_intent_test": "recall_memory"
+  },
+  "idempotency_key": "e2e:mr-2026-04-27:MR-004",
+  "thread_id": "48596462-3ba9-4d44-8ce9-7912436b2093"
+}

@@ -1,0 +1,70 @@
+{
+  "case_id": "f31-promote-011",
+  "execution_id": "3334",
+  "execution_status": "success",
+  "execution_mcp_response": {
+    "executionId": "3334",
+    "status": "success"
+  },
+  "response_envelope": {
+    "status": "success",
+    "denial_reason": "accepted",
+    "acceptance_signals": [
+      "user_confirmed"
+    ],
+    "promoted": null,
+    "memory_id": "a309f118-a792-4bd6-b755-a9d0a726f09c",
+    "tier_before": null,
+    "tier_after": null
+  },
+  "module_result_outer": {
+    "status_kind": "success",
+    "result_type": "module_result",
+    "module_name": "memory_module",
+    "step_id": "mem-f31-f31-promote-011",
+    "summary": "Memory promoted to long_term.",
+    "artifacts": [
+      {
+        "type": "memory_id",
+        "value": "a309f118-a792-4bd6-b755-a9d0a726f09c"
+      },
+      {
+        "type": "denial_reason",
+        "value": "accepted",
+        "promoted": true
+      },
+      {
+        "type": "acceptance_signals",
+        "value": [
+          "user_confirmed"
+        ]
+      }
+    ],
+    "domain_writes_performed": true,
+    "response_generation_allowed": false
+  },
+  "db_pre": [
+    {
+      "id": "a309f118-a792-4bd6-b755-a9d0a726f09c",
+      "tier": "recent",
+      "status": "active",
+      "user_confirmed": false,
+      "evidence_validated": false,
+      "corroboration_count": 1,
+      "last_reconfirmed_at": null
+    }
+  ],
+  "db_post": [
+    {
+      "id": "a309f118-a792-4bd6-b755-a9d0a726f09c",
+      "tier": "long_term",
+      "status": "active",
+      "user_confirmed": true,
+      "evidence_validated": false,
+      "corroboration_count": 1,
+      "last_reconfirmed_at": "2026-04-22T06:05:18.811Z"
+    }
+  ],
+  "error": null,
+  "captured_at": "2026-04-22T13:43:18.161Z"
+}

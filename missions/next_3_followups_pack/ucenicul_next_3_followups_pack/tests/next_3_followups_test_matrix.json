@@ -1,0 +1,89 @@
+{
+  "metadata": {
+    "pack": "ucenicul_next_3_followups_pack",
+    "missions": [
+      "C11_REPLAY_GROUPING_TARGETED_RERUN",
+      "MEMORY_RECALL_PL_INTENTMAP_FOLLOWUP",
+      "IMPROVEMENT_MODULE_LIST_FOLLOWUP"
+    ],
+    "stage": "post FULL_240_VARIANT_SWEEP_GREEN_WITH_KNOWN_DEFERRED_FOLLOWUPS"
+  },
+  "c11_replay_grouping_cases": [
+    {
+      "case_id": "C11-RG-001",
+      "intent": "store_memory",
+      "expected": "first delivery writes exactly one memory_items row"
+    },
+    {
+      "case_id": "C11-RG-002",
+      "intent": "store_memory",
+      "expected": "same canonical replay group; no second row"
+    },
+    {
+      "case_id": "C11-RG-003",
+      "intent": "store_memory",
+      "expected": "same canonical replay group; total remains 1"
+    },
+    {
+      "case_id": "C11-RG-004",
+      "intent": "store_memory",
+      "expected": "late retry same group; total remains 1"
+    },
+    {
+      "case_id": "C11-RG-005",
+      "intent": "store_memory",
+      "expected": "fresh control writes one legitimate additional row"
+    }
+  ],
+  "memory_recall_mapping_cases": [
+    {
+      "case_id": "MR-001",
+      "intent": "recall_memory",
+      "expected": "same-tenant recall/search; no writes"
+    },
+    {
+      "case_id": "MR-002",
+      "intent": "recall_memory",
+      "expected": "English recall; no writes"
+    },
+    {
+      "case_id": "MR-003",
+      "intent": "search_memory",
+      "expected": "search regression read-only"
+    },
+    {
+      "case_id": "MR-004",
+      "intent": "recall_memory",
+      "tenant": "tenant_B",
+      "expected": "cross-tenant blocked"
+    }
+  ],
+  "improvement_list_cases": [
+    {
+      "case_id": "IL-001",
+      "intent": "list_improvements",
+      "expected": "read-only tenant-scoped list"
+    },
+    {
+      "case_id": "IL-002",
+      "intent": "list_improvements",
+      "expected": "English read-only list"
+    },
+    {
+      "case_id": "IL-003",
+      "intent": "list_improvements",
+      "expected": "category filter if schema supports"
+    },
+    {
+      "case_id": "IL-004",
+      "intent": "list_improvements",
+      "tenant": "tenant_B",
+      "expected": "cross-tenant blocked"
+    },
+    {
+      "case_id": "IL-005",
+      "intent": "capture_feedback",
+      "expected": "capture_feedback regression writes one improvement row"
+    }
+  ]
+}

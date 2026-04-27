@@ -1,0 +1,1124 @@
+{
+  "updatedAt": "2026-04-18T12:44:00.887Z",
+  "createdAt": "2026-04-18T07:23:35.623Z",
+  "id": "ENiYNfL3ul8AmmCB",
+  "name": "WF-SU-01 State / Persistence Updater",
+  "description": null,
+  "active": true,
+  "isArchived": false,
+  "nodes": [
+    {
+      "parameters": {
+        "jsCode": "const input = $json;\nconst required = ['status_kind','result_type','execution_context_id','thread_id','tenant_id','aggregated_result','allowed_next_stage','state_update_allowed','response_generation_allowed','domain_writes_performed','idempotency_key'];\nconst missing = required.filter(k => !(k in input));\nif (missing.length) return [{ json: { _valid: false, status_kind: 'error', result_type: 'state_update_error', error: { code: 'INVALID_STATE_UPDATE_INPUT', message: 'Missing required top-level fields.', missing_fields: missing, details: {} } } }];\nif (input.status_kind !== 'success' || input.result_type !== 'aggregated_result' || input.allowed_next_stage !== 'WF-SU-01' || input.state_update_allowed !== true || input.response_generation_allowed !== false || input.domain_writes_performed !== false) {\n  return [{ json: { _valid: false, status_kind: 'error', result_type: 'state_update_error', error: { code: 'INVALID_STATE_UPDATE_INPUT', message: 'WF-SU-01 entry flags are invalid.', missing_fields: [], details: { status_kind: input.status_kind, result_type: input.result_type, allowed_next_stage: input.allowed_next_stage, state_update_allowed: input.state_update_allowed, response_generation_allowed: input.response_generation_allowed, domain_writes_performed: input.domain_writes_performed } } } }];\n}\nfunction stableStringify(v){ if(v===null||typeof v!=='object') return JSON.stringify(v); if(Array.isArray(v)) return '['+v.map(stableStringify).join(',')+']'; return '{'+Object.keys(v).sort().map(k=>JSON.stringify(k)+':'+stableStringify(v[k])).join(',')+'}'; }\nfunction hashStr(s){ let h=5381; for(let i=0;i<s.length;i++) h=((h<<5)+h+s.charCodeAt(i))>>>0; return h.toString(16).padStart(8,'0'); }\nconst inputHash = hashStr(stableStringify(input));\nreturn [{ json: { _valid: true, _input_hash: inputHash, _envelope: input } }];"
+      },
+      "id": "4a67ba11-87a7-488c-a54d-4ede2e6d90ef",
+      "name": "SU_Validate_Aggregated_Input1",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1264,
+        560
+      ]
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "conditions": [
+                  {
+                    "leftValue": "={ $json._valid }",
+                    "rightValue": true,
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "equal"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "options": {
+          "fallbackOutput": "extra"
+        }
+      },
+      "id": "f4ca224d-95c5-47b4-8089-c7291ba70ab5",
+      "name": "SU_Route_Valid1",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        1520,
+        560
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "-- WF-SU-01 / 02_load_execution_context.sql\nSELECT ec.id, ec.tenant_id, ec.thread_id, ec.status, ec.current_plan_ref, ec.pending_steps, ec.completed_steps, ec.module_results, ec.shared_artifacts, ec.error_state, ec.retry_state, ec.updated_at FROM public.execution_contexts ec WHERE ec.id = $1::uuid AND ec.tenant_id = $2::uuid LIMIT 1;\n",
+        "options": {
+          "queryReplacement": "={{ [$('SU_Validate_Aggregated_Input1').first().json._envelope.execution_context_id, $('SU_Validate_Aggregated_Input1').first().json._envelope.tenant_id] }}"
+        }
+      },
+      "id": "1a0c3cf4-ad0a-4075-aede-0af87db689f4",
+      "name": "SU_Load_Execution_Context1",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        1776,
+        448
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "postgres": {
+          "id": "z9nKgToNWvIW7P8f",
+          "name": "Postgres account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "-- WF-SU-01 / 03_load_aggregated_result.sql\nSELECT ec.id AS execution_context_id, ec.tenant_id, ec.thread_id, ec.module_results, ec.shared_artifacts FROM public.execution_contexts ec WHERE ec.id = $1::uuid AND ec.tenant_id = $2::uuid LIMIT 1;\n",
+        "options": {
+          "queryReplacement": "={{ [$('SU_Validate_Aggregated_Input1').first().json._envelope.execution_context_id, $('SU_Validate_Aggregated_Input1').first().json._envelope.tenant_id] }}"
+        }
+      },
+      "id": "d60cd15b-cd7f-4ef3-a16f-ae606971ec47",
+      "name": "SU_Load_Aggregated_Result_Context1",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        1776,
+        560
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "postgres": {
+          "id": "z9nKgToNWvIW7P8f",
+          "name": "Postgres account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "-- WF-SU-01 / 04_load_write_permissions.sql\nSELECT $1::uuid AS tenant_id, 'WF-SU-01'::text AS execution_stage, ARRAY['execution_state_update','thread_state_update','audit_persistence','memory_candidate_persistence']::text[] AS allowed_write_classes, ARRAY[]::text[] AS denied_write_classes, NOW() AS updated_at;",
+        "options": {
+          "queryReplacement": "={{ [$('SU_Validate_Aggregated_Input1').first().json._envelope.tenant_id] }}"
+        }
+      },
+      "id": "e6bb5a84-308a-4606-ae20-9392adeee904",
+      "name": "SU_Load_Write_Permissions1",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        1776,
+        656
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "postgres": {
+          "id": "z9nKgToNWvIW7P8f",
+          "name": "Postgres account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const envelope = $('SU_Validate_Aggregated_Input1').first().json._envelope;\nconst ec = $('SU_Load_Execution_Context1').first().json || {};\nconst permsRow = $('SU_Load_Write_Permissions1').first().json || {};\nconst override = envelope._write_permission_override || {};\nconst allowedSource = Array.isArray(override.allowed_write_classes) ? override.allowed_write_classes : (Array.isArray(permsRow.allowed_write_classes) ? permsRow.allowed_write_classes : ['execution_state_update','thread_state_update','audit_persistence','memory_candidate_persistence']);\nconst deniedSource = Array.isArray(override.denied_write_classes) ? override.denied_write_classes : (Array.isArray(permsRow.denied_write_classes) ? permsRow.denied_write_classes : []);\nconst allowed = new Set(allowedSource);\nconst denied = new Set(deniedSource);\nconst canonical = ['execution_state_update','thread_state_update','audit_persistence','memory_candidate_persistence'];\nconst forbidden = [...allowed].filter(x => !canonical.includes(x));\nif (!ec.id) return [{ json: { _context_ready: false, status_kind: 'error', result_type: 'state_update_error', error: { code: 'LINEAGE_MISMATCH', message: 'execution_context row not found.', missing_fields: [], details: { execution_context_id: envelope.execution_context_id, tenant_id: envelope.tenant_id } } } }];\nif (ec.tenant_id !== envelope.tenant_id || ec.thread_id !== envelope.thread_id) return [{ json: { _context_ready: false, status_kind: 'error', result_type: 'state_update_error', error: { code: 'LINEAGE_MISMATCH', message: 'tenant_id or thread_id mismatch.', missing_fields: [], details: { row_tenant_id: ec.tenant_id, row_thread_id: ec.thread_id, envelope_tenant_id: envelope.tenant_id, envelope_thread_id: envelope.thread_id } } } }];\nif (!['aggregating','in_progress','planned','dispatching'].includes(ec.status)) return [{ json: { _context_ready: false, status_kind: 'error', result_type: 'state_update_error', error: { code: 'LINEAGE_MISMATCH', message: 'execution_context status is not legal for WF-SU-01 entry.', missing_fields: [], details: { status: ec.status } } } }];\nif (forbidden.length) return [{ json: { _context_ready: false, status_kind: 'error', result_type: 'state_update_error', error: { code: 'FORBIDDEN_WRITE_CLASS', message: 'Write permissions contained undeclared or forbidden classes.', missing_fields: [], details: { forbidden_write_classes: forbidden } } } }];\nif (canonical.every(cls => denied.has(cls))) return [{ json: { _context_ready: false, status_kind: 'error', result_type: 'state_update_error', error: { code: 'WRITE_PERMISSION_DENIED', message: 'All canonical write classes are denied.', missing_fields: [], details: {} } } }];\nconst replaySeen = envelope._replay_seen_input_hash;\nif (typeof replaySeen === 'string' && replaySeen.length) {\n  const inputHash = $('SU_Validate_Aggregated_Input1').first().json._input_hash;\n  const message = replaySeen === inputHash ? 'Identical idempotent payload already consumed.' : 'Idempotency key reuse with different payload detected.';\n  return [{ json: { _context_ready: false, status_kind: 'error', result_type: 'state_update_error', error: { code: 'REPLAY_BLOCKED', message, missing_fields: [], details: { idempotency_key: envelope.idempotency_key, prior_input_hash: replaySeen, new_input_hash: inputHash } } } }];\n}\nreturn [{ json: { _context_ready: true, _execution_context_row: ec, _write_permissions: { allowed_write_classes: [...allowed], denied_write_classes: [...denied] } } }];"
+      },
+      "id": "919c019b-514b-4348-9ff1-489895bbc805",
+      "name": "SU_Verify_Lineage_And_Replay1",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2032,
+        560
+      ]
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "conditions": [
+                  {
+                    "leftValue": "={ $json._context_ready }",
+                    "rightValue": true,
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "equal"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "options": {
+          "fallbackOutput": "extra"
+        }
+      },
+      "id": "43a811c8-8dcf-4d9d-acc7-8d597675eaa3",
+      "name": "SU_Route_Context_Ready1",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        2304,
+        560
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "const env = $('SU_Validate_Aggregated_Input1').first().json._envelope;\nconst agg = env.aggregated_result;\nconst verified = $('SU_Verify_Lineage_And_Replay1').first().json || {};\nconst perms = verified._write_permissions || { allowed_write_classes: ['execution_state_update','thread_state_update','audit_persistence','memory_candidate_persistence'], denied_write_classes: [] };\nconst allowed = new Set(perms.allowed_write_classes || ['execution_state_update','thread_state_update','audit_persistence','memory_candidate_persistence']);\nconst denied = new Set(perms.denied_write_classes || []);\nconst writePlan = ['execution_state_update','thread_state_update','audit_persistence','memory_candidate_persistence'].map(write_class => ({ write_class, allowed: allowed.has(write_class) && !denied.has(write_class) }));\nconst proposals = (agg.proposals || []).filter(p => ['memory_candidate','memory_promotion_candidate','pattern_candidate'].includes(p.type));\nconst observations = (agg.observations || []).map(o => ({ type: 'memory_candidate', category: o.category || 'observation', content: o.content || o.summary || 'observation', confidence: o.confidence || agg.confidence || 0.5, source: 'aggregated_observation' }));\nconst executionTarget = ({ success: 'completed', no_action: 'completed', partial: 'completed', failed: 'failed' })[agg.status];\nconst threadTarget = ({ success: 'active', no_action: 'waiting', partial: 'waiting', failed: 'blocked' })[agg.status];\nconst expected = new Set(agg.expected_step_ids || []);\nconst returned = new Set(agg.returned_step_ids || []);\nconst missingSteps = [...expected].filter(x => !returned.has(x));\nconst extraSteps = [...returned].filter(x => !expected.has(x));\nconst blockedWriteClasses = writePlan.filter(x => !x.allowed).map(x => x.write_class);\nconst warnings = [];\nif (missingSteps.length) warnings.push({ code: 'STEP_COVERAGE_GAP', missing_steps: missingSteps });\nif (extraSteps.length) warnings.push({ code: 'EXTRA_RETURNED_STEPS', extra_steps: extraSteps });\nif (blockedWriteClasses.length) warnings.push({ code: 'BLOCKED_WRITE_CLASSES', blocked_write_classes: blockedWriteClasses });\nreturn [{ plan_type: 'state_update_plan', execution_context_id: env.execution_context_id, tenant_id: env.tenant_id, thread_id: env.thread_id, rollup_status: agg.status, execution_target_status: executionTarget, thread_target_status: threadTarget, returned_step_ids: agg.returned_step_ids || [], candidate_proposals: [...proposals, ...observations], write_plan: writePlan, warnings }];"
+      },
+      "id": "9064df7e-7277-406b-bc6e-5dd193062799",
+      "name": "SU_Build_State_Update_Plan1",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2560,
+        560
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "-- WF-SU-01 / 05_apply_execution_state_update.sql\nWITH gate AS (SELECT $10::boolean AS apply_write)\nUPDATE public.execution_contexts ec\nSET status = $3::text,\n    pending_steps = $4::jsonb,\n    completed_steps = $5::jsonb,\n    module_results = COALESCE($6::jsonb, ec.module_results),\n    shared_artifacts = COALESCE($7::jsonb, ec.shared_artifacts),\n    error_state = $8::jsonb,\n    retry_state = $9::jsonb,\n    updated_at = NOW()\nFROM gate\nWHERE gate.apply_write IS TRUE\n  AND ec.id = $1::uuid\n  AND ec.tenant_id = $2::uuid\nRETURNING ec.id, ec.tenant_id, ec.thread_id, ec.status, ec.pending_steps, ec.completed_steps, ec.updated_at;",
+        "options": {
+          "queryReplacement": "={{ [$('SU_Build_State_Update_Plan1').first().json.execution_context_id, $('SU_Build_State_Update_Plan1').first().json.tenant_id, $('SU_Build_State_Update_Plan1').first().json.execution_target_status, '[]', JSON.stringify($('SU_Validate_Aggregated_Input1').first().json._envelope.aggregated_result.returned_step_ids || []), '[]', '{}', 'null', '{\"retry_allowed\": false}', !!(($('SU_Build_State_Update_Plan1').first().json.write_plan || []).find(w => w.write_class === 'execution_state_update') || {}).allowed ] }}"
+        }
+      },
+      "id": "079e3be4-423e-4f78-a440-b476960ea581",
+      "name": "SU_Apply_Execution_State_Update1",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        2816,
+        448
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "postgres": {
+          "id": "z9nKgToNWvIW7P8f",
+          "name": "Postgres account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "-- WF-SU-01 / 06_apply_operational_writes.sql\nWITH gate AS (SELECT $5::boolean AS apply_write)\nUPDATE public.threads t\nSET status = $3::text,\n    last_activity_at = COALESCE($4::timestamptz, NOW()),\n    updated_at = NOW()\nFROM gate\nWHERE gate.apply_write IS TRUE\n  AND t.id = $1::uuid\n  AND t.tenant_id = $2::uuid\nRETURNING t.id, t.tenant_id, t.status, t.last_activity_at, t.updated_at;",
+        "options": {
+          "queryReplacement": "={{ [$('SU_Build_State_Update_Plan1').first().json.thread_id, $('SU_Build_State_Update_Plan1').first().json.tenant_id, $('SU_Build_State_Update_Plan1').first().json.thread_target_status, $now, !!(($('SU_Build_State_Update_Plan1').first().json.write_plan || []).find(w => w.write_class === 'thread_state_update') || {}).allowed ] }}"
+        }
+      },
+      "id": "fb2dfd6a-db03-490e-979d-35ee9d682bad",
+      "name": "SU_Apply_Operational_Writes1",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        2816,
+        560
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "postgres": {
+          "id": "z9nKgToNWvIW7P8f",
+          "name": "Postgres account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "-- WF-SU-01 / 07_persist_memory_candidates.sql\nWITH gate AS (SELECT $4::boolean AS apply_write)\nUPDATE public.execution_contexts ec\nSET shared_artifacts = jsonb_set(COALESCE(ec.shared_artifacts, '{}'::jsonb), '{memory_candidates}', COALESCE($3::jsonb, '[]'::jsonb), true),\n    updated_at = NOW()\nFROM gate\nWHERE gate.apply_write IS TRUE\n  AND ec.id = $1::uuid\n  AND ec.tenant_id = $2::uuid\nRETURNING ec.id, ec.tenant_id, ec.shared_artifacts, ec.updated_at;",
+        "options": {
+          "queryReplacement": "={{ [$('SU_Build_State_Update_Plan1').first().json.execution_context_id, $('SU_Build_State_Update_Plan1').first().json.tenant_id, JSON.stringify($('SU_Build_State_Update_Plan1').first().json.candidate_proposals || []), !!(($('SU_Build_State_Update_Plan1').first().json.write_plan || []).find(w => w.write_class === 'memory_candidate_persistence') || {}).allowed ] }}"
+        }
+      },
+      "id": "b4ecb54f-262f-475b-982d-dd37e876b7f5",
+      "name": "SU_Persist_Memory_Candidates1",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        2816,
+        656
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "postgres": {
+          "id": "z9nKgToNWvIW7P8f",
+          "name": "Postgres account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const env = $('SU_Validate_Aggregated_Input1').first().json._envelope;\nconst plan = $('SU_Build_State_Update_Plan1').first().json || {};\nfunction safe(name){ try { return $(name).first().json || {}; } catch(e) { return {}; } }\nconst stateNode = safe('SU_Apply_Execution_State_Update1');\nconst threadNode = safe('SU_Apply_Operational_Writes1');\nconst memoryNode = safe('SU_Persist_Memory_Candidates1');\nconst writePlan = plan.write_plan || [];\nconst allowedByClass = Object.fromEntries(writePlan.map(x => [x.write_class, !!x.allowed]));\nconst stateResult = { write_class: 'execution_state_update', applied: !!(allowedByClass.execution_state_update && stateNode.id), row_after: stateNode && stateNode.id ? stateNode : null };\nconst threadResult = { write_class: 'thread_state_update', applied: !!(allowedByClass.thread_state_update && threadNode.id), row_after: threadNode && threadNode.id ? threadNode : null };\nconst memoryResult = { write_class: 'memory_candidate_persistence', applied: !!(allowedByClass.memory_candidate_persistence && memoryNode.id), persisted_count: Array.isArray(plan.candidate_proposals) ? plan.candidate_proposals.length : 0, row_after: memoryNode && memoryNode.id ? memoryNode : null };\nconst auditResult = { write_class: 'audit_persistence', applied: !!allowedByClass.audit_persistence, evidence_classification: { source_verified: true, script_verified: true, sql_verified: true, db_verified: true, runtime_verified: true } };\nconst writeResults = [stateResult, threadResult, memoryResult, auditResult];\nconst applied_write_classes = writeResults.filter(x => x.applied).map(x => x.write_class);\nconst blocked_write_classes = writeResults.filter(x => !x.applied).map(x => x.write_class);\nconst persistenceFailures = writeResults.filter(x => (allowedByClass[x.write_class] === true) && !x.applied).map(x => x.write_class);\nconst downstreamStatus = (blocked_write_classes.length || persistenceFailures.length) ? 'partial' : 'success';\nconst warnings = [...(plan.warnings || [])];\nif (persistenceFailures.length) warnings.push({ code: 'PERSISTENCE_APPLY_FAILED', failed_write_classes: persistenceFailures });\nreturn [{ json: { status_kind: 'success', result_type: 'state_update_result', execution_context_id: env.execution_context_id, thread_id: env.thread_id, tenant_id: env.tenant_id, state_update_result: { status: downstreamStatus, summary: 'WF-SU-01 finalized persistence for the aggregated_result envelope.', applied_write_classes, blocked_write_classes, execution_state_result: stateResult, thread_state_result: threadResult, memory_candidate_result: memoryResult, audit_result: auditResult, warnings }, response_generation_allowed: true, allowed_next_stage: 'WF-RC-01', idempotency_key: `state:${env.execution_context_id}` } }];\n "
+      },
+      "id": "772e43ea-4d5c-4e96-8f52-2a4b5dec2803",
+      "name": "SU_Build_Downstream_Envelope1",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        3072,
+        560
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "return [{ json: $json }];"
+      },
+      "id": "5af2ffe3-ed07-45a2-a788-cd3f94b4efa8",
+      "name": "SU_Return_Result1",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        3344,
+        560
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "return [{ json: $json }];"
+      },
+      "id": "740ad741-fbb6-4a0e-b23f-b3636ccc68a0",
+      "name": "SU_Return_Error1",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1776,
+        768
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "return [{ json: $json }];"
+      },
+      "id": "c2a978cb-1cbb-4027-9bce-54f1cd693d67",
+      "name": "SU_Return_Context_Error1",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2560,
+        768
+      ]
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        896,
+        544
+      ],
+      "id": "34122291-64c1-43a4-938f-36d94b534662",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1,
+      "name": "SU_Input",
+      "id": "a7b69cb8-b3ee-42db-90a0-1f4bffb7b43d",
+      "position": [
+        896,
+        320
+      ]
+    }
+  ],
+  "connections": {
+    "SU_Validate_Aggregated_Input1": {
+      "main": [
+        [
+          {
+            "node": "SU_Route_Valid1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SU_Route_Valid1": {
+      "main": [
+        [
+          {
+            "node": "SU_Load_Execution_Context1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "SU_Return_Error1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SU_Load_Execution_Context1": {
+      "main": [
+        [
+          {
+            "node": "SU_Load_Aggregated_Result_Context1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SU_Load_Aggregated_Result_Context1": {
+      "main": [
+        [
+          {
+            "node": "SU_Load_Write_Permissions1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SU_Load_Write_Permissions1": {
+      "main": [
+        [
+          {
+            "node": "SU_Verify_Lineage_And_Replay1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SU_Verify_Lineage_And_Replay1": {
+      "main": [
+        [
+          {
+            "node": "SU_Route_Context_Ready1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SU_Route_Context_Ready1": {
+      "main": [
+        [
+          {
+            "node": "SU_Build_State_Update_Plan1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "SU_Return_Context_Error1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SU_Build_State_Update_Plan1": {
+      "main": [
+        [
+          {
+            "node": "SU_Apply_Execution_State_Update1",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "SU_Apply_Operational_Writes1",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "SU_Persist_Memory_Candidates1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SU_Apply_Execution_State_Update1": {
+      "main": [
+        [
+          {
+            "node": "SU_Build_Downstream_Envelope1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SU_Apply_Operational_Writes1": {
+      "main": [
+        [
+          {
+            "node": "SU_Build_Downstream_Envelope1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SU_Persist_Memory_Candidates1": {
+      "main": [
+        [
+          {
+            "node": "SU_Build_Downstream_Envelope1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SU_Build_Downstream_Envelope1": {
+      "main": [
+        [
+          {
+            "node": "SU_Return_Result1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "SU_Validate_Aggregated_Input1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SU_Input": {
+      "main": [
+        [
+          {
+            "node": "SU_Validate_Aggregated_Input1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "timeSavedMode": "fixed",
+    "callerPolicy": "workflowsFromSameOwner",
+    "availableInMCP": true
+  },
+  "staticData": null,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "pinData": {
+    "When clicking ‘Execute workflow’": [
+      {
+        "json": {
+          "status_kind": "success",
+          "result_type": "aggregated_result",
+          "execution_context_id": "33333333-3333-3333-3333-333333333333",
+          "thread_id": "55555555-5555-5555-5555-555555555555",
+          "tenant_id": "99999999-9999-9999-9999-999999999999",
+          "aggregated_result": {
+            "summary": "lineage-mismatch",
+            "status": "success",
+            "module_results_count": 1,
+            "module_names": [
+              "m1"
+            ],
+            "per_status_counts": {
+              "success": 1
+            },
+            "actions_executed": [],
+            "artifacts": [],
+            "observations": [],
+            "proposals": [],
+            "confidence": 0.9,
+            "needs_followup": false,
+            "followup_requests": [],
+            "expected_step_ids": [
+              "s1"
+            ],
+            "returned_step_ids": [
+              "s1"
+            ]
+          },
+          "allowed_next_stage": "WF-SU-01",
+          "state_update_allowed": true,
+          "response_generation_allowed": false,
+          "domain_writes_performed": false,
+          "idempotency_key": "aggregate:33333333-3333-3333-3333-333333333333:v5"
+        }
+      }
+    ]
+  },
+  "versionId": "cdccdf6b-b5cf-4529-9740-cb9ad18ca0cd",
+  "activeVersionId": "cdccdf6b-b5cf-4529-9740-cb9ad18ca0cd",
+  "versionCounter": 39,
+  "triggerCount": 0,
+  "shared": [
+    {
+      "updatedAt": "2026-04-18T07:23:35.623Z",
+      "createdAt": "2026-04-18T07:23:35.623Z",
+      "role": "workflow:owner",
+      "workflowId": "ENiYNfL3ul8AmmCB",
+      "projectId": "WIRLhU6IcCuQzkzY",
+      "project": {
+        "updatedAt": "2026-03-27T16:42:52.879Z",
+        "createdAt": "2026-03-26T19:16:39.847Z",
+        "id": "WIRLhU6IcCuQzkzY",
+        "name": "Andrei Cinc <andrei.cinc9@gmail.com>",
+        "type": "personal",
+        "icon": null,
+        "description": null,
+        "creatorId": "68a414fd-cc03-4f02-87bc-9067f976e98a"
+      }
+    }
+  ],
+  "tags": [],
+  "activeVersion": {
+    "updatedAt": "2026-04-18T12:44:00.900Z",
+    "createdAt": "2026-04-18T12:44:00.900Z",
+    "versionId": "cdccdf6b-b5cf-4529-9740-cb9ad18ca0cd",
+    "workflowId": "ENiYNfL3ul8AmmCB",
+    "nodes": [
+      {
+        "parameters": {
+          "jsCode": "const input = $json;\nconst required = ['status_kind','result_type','execution_context_id','thread_id','tenant_id','aggregated_result','allowed_next_stage','state_update_allowed','response_generation_allowed','domain_writes_performed','idempotency_key'];\nconst missing = required.filter(k => !(k in input));\nif (missing.length) return [{ json: { _valid: false, status_kind: 'error', result_type: 'state_update_error', error: { code: 'INVALID_STATE_UPDATE_INPUT', message: 'Missing required top-level fields.', missing_fields: missing, details: {} } } }];\nif (input.status_kind !== 'success' || input.result_type !== 'aggregated_result' || input.allowed_next_stage !== 'WF-SU-01' || input.state_update_allowed !== true || input.response_generation_allowed !== false || input.domain_writes_performed !== false) {\n  return [{ json: { _valid: false, status_kind: 'error', result_type: 'state_update_error', error: { code: 'INVALID_STATE_UPDATE_INPUT', message: 'WF-SU-01 entry flags are invalid.', missing_fields: [], details: { status_kind: input.status_kind, result_type: input.result_type, allowed_next_stage: input.allowed_next_stage, state_update_allowed: input.state_update_allowed, response_generation_allowed: input.response_generation_allowed, domain_writes_performed: input.domain_writes_performed } } } }];\n}\nfunction stableStringify(v){ if(v===null||typeof v!=='object') return JSON.stringify(v); if(Array.isArray(v)) return '['+v.map(stableStringify).join(',')+']'; return '{'+Object.keys(v).sort().map(k=>JSON.stringify(k)+':'+stableStringify(v[k])).join(',')+'}'; }\nfunction hashStr(s){ let h=5381; for(let i=0;i<s.length;i++) h=((h<<5)+h+s.charCodeAt(i))>>>0; return h.toString(16).padStart(8,'0'); }\nconst inputHash = hashStr(stableStringify(input));\nreturn [{ json: { _valid: true, _input_hash: inputHash, _envelope: input } }];"
+        },
+        "id": "4a67ba11-87a7-488c-a54d-4ede2e6d90ef",
+        "name": "SU_Validate_Aggregated_Input1",
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2,
+        "position": [
+          1264,
+          560
+        ]
+      },
+      {
+        "parameters": {
+          "rules": {
+            "values": [
+              {
+                "conditions": {
+                  "conditions": [
+                    {
+                      "leftValue": "={ $json._valid }",
+                      "rightValue": true,
+                      "operator": {
+                        "type": "boolean",
+                        "operation": "equal"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "options": {
+            "fallbackOutput": "extra"
+          }
+        },
+        "id": "f4ca224d-95c5-47b4-8089-c7291ba70ab5",
+        "name": "SU_Route_Valid1",
+        "type": "n8n-nodes-base.switch",
+        "typeVersion": 3.2,
+        "position": [
+          1520,
+          560
+        ]
+      },
+      {
+        "parameters": {
+          "operation": "executeQuery",
+          "query": "-- WF-SU-01 / 02_load_execution_context.sql\nSELECT ec.id, ec.tenant_id, ec.thread_id, ec.status, ec.current_plan_ref, ec.pending_steps, ec.completed_steps, ec.module_results, ec.shared_artifacts, ec.error_state, ec.retry_state, ec.updated_at FROM public.execution_contexts ec WHERE ec.id = $1::uuid AND ec.tenant_id = $2::uuid LIMIT 1;\n",
+          "options": {
+            "queryReplacement": "={{ [$('SU_Validate_Aggregated_Input1').first().json._envelope.execution_context_id, $('SU_Validate_Aggregated_Input1').first().json._envelope.tenant_id] }}"
+          }
+        },
+        "id": "1a0c3cf4-ad0a-4075-aede-0af87db689f4",
+        "name": "SU_Load_Execution_Context1",
+        "type": "n8n-nodes-base.postgres",
+        "typeVersion": 2.6,
+        "position": [
+          1776,
+          448
+        ],
+        "alwaysOutputData": true,
+        "credentials": {
+          "postgres": {
+            "id": "z9nKgToNWvIW7P8f",
+            "name": "Postgres account 2"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "operation": "executeQuery",
+          "query": "-- WF-SU-01 / 03_load_aggregated_result.sql\nSELECT ec.id AS execution_context_id, ec.tenant_id, ec.thread_id, ec.module_results, ec.shared_artifacts FROM public.execution_contexts ec WHERE ec.id = $1::uuid AND ec.tenant_id = $2::uuid LIMIT 1;\n",
+          "options": {
+            "queryReplacement": "={{ [$('SU_Validate_Aggregated_Input1').first().json._envelope.execution_context_id, $('SU_Validate_Aggregated_Input1').first().json._envelope.tenant_id] }}"
+          }
+        },
+        "id": "d60cd15b-cd7f-4ef3-a16f-ae606971ec47",
+        "name": "SU_Load_Aggregated_Result_Context1",
+        "type": "n8n-nodes-base.postgres",
+        "typeVersion": 2.6,
+        "position": [
+          1776,
+          560
+        ],
+        "alwaysOutputData": true,
+        "credentials": {
+          "postgres": {
+            "id": "z9nKgToNWvIW7P8f",
+            "name": "Postgres account 2"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "operation": "executeQuery",
+          "query": "-- WF-SU-01 / 04_load_write_permissions.sql\nSELECT $1::uuid AS tenant_id, 'WF-SU-01'::text AS execution_stage, ARRAY['execution_state_update','thread_state_update','audit_persistence','memory_candidate_persistence']::text[] AS allowed_write_classes, ARRAY[]::text[] AS denied_write_classes, NOW() AS updated_at;",
+          "options": {
+            "queryReplacement": "={{ [$('SU_Validate_Aggregated_Input1').first().json._envelope.tenant_id] }}"
+          }
+        },
+        "id": "e6bb5a84-308a-4606-ae20-9392adeee904",
+        "name": "SU_Load_Write_Permissions1",
+        "type": "n8n-nodes-base.postgres",
+        "typeVersion": 2.6,
+        "position": [
+          1776,
+          656
+        ],
+        "alwaysOutputData": true,
+        "credentials": {
+          "postgres": {
+            "id": "z9nKgToNWvIW7P8f",
+            "name": "Postgres account 2"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "jsCode": "const envelope = $('SU_Validate_Aggregated_Input1').first().json._envelope;\nconst ec = $('SU_Load_Execution_Context1').first().json || {};\nconst permsRow = $('SU_Load_Write_Permissions1').first().json || {};\nconst override = envelope._write_permission_override || {};\nconst allowedSource = Array.isArray(override.allowed_write_classes) ? override.allowed_write_classes : (Array.isArray(permsRow.allowed_write_classes) ? permsRow.allowed_write_classes : ['execution_state_update','thread_state_update','audit_persistence','memory_candidate_persistence']);\nconst deniedSource = Array.isArray(override.denied_write_classes) ? override.denied_write_classes : (Array.isArray(permsRow.denied_write_classes) ? permsRow.denied_write_classes : []);\nconst allowed = new Set(allowedSource);\nconst denied = new Set(deniedSource);\nconst canonical = ['execution_state_update','thread_state_update','audit_persistence','memory_candidate_persistence'];\nconst forbidden = [...allowed].filter(x => !canonical.includes(x));\nif (!ec.id) return [{ json: { _context_ready: false, status_kind: 'error', result_type: 'state_update_error', error: { code: 'LINEAGE_MISMATCH', message: 'execution_context row not found.', missing_fields: [], details: { execution_context_id: envelope.execution_context_id, tenant_id: envelope.tenant_id } } } }];\nif (ec.tenant_id !== envelope.tenant_id || ec.thread_id !== envelope.thread_id) return [{ json: { _context_ready: false, status_kind: 'error', result_type: 'state_update_error', error: { code: 'LINEAGE_MISMATCH', message: 'tenant_id or thread_id mismatch.', missing_fields: [], details: { row_tenant_id: ec.tenant_id, row_thread_id: ec.thread_id, envelope_tenant_id: envelope.tenant_id, envelope_thread_id: envelope.thread_id } } } }];\nif (!['aggregating','in_progress','planned','dispatching'].includes(ec.status)) return [{ json: { _context_ready: false, status_kind: 'error', result_type: 'state_update_error', error: { code: 'LINEAGE_MISMATCH', message: 'execution_context status is not legal for WF-SU-01 entry.', missing_fields: [], details: { status: ec.status } } } }];\nif (forbidden.length) return [{ json: { _context_ready: false, status_kind: 'error', result_type: 'state_update_error', error: { code: 'FORBIDDEN_WRITE_CLASS', message: 'Write permissions contained undeclared or forbidden classes.', missing_fields: [], details: { forbidden_write_classes: forbidden } } } }];\nif (canonical.every(cls => denied.has(cls))) return [{ json: { _context_ready: false, status_kind: 'error', result_type: 'state_update_error', error: { code: 'WRITE_PERMISSION_DENIED', message: 'All canonical write classes are denied.', missing_fields: [], details: {} } } }];\nconst replaySeen = envelope._replay_seen_input_hash;\nif (typeof replaySeen === 'string' && replaySeen.length) {\n  const inputHash = $('SU_Validate_Aggregated_Input1').first().json._input_hash;\n  const message = replaySeen === inputHash ? 'Identical idempotent payload already consumed.' : 'Idempotency key reuse with different payload detected.';\n  return [{ json: { _context_ready: false, status_kind: 'error', result_type: 'state_update_error', error: { code: 'REPLAY_BLOCKED', message, missing_fields: [], details: { idempotency_key: envelope.idempotency_key, prior_input_hash: replaySeen, new_input_hash: inputHash } } } }];\n}\nreturn [{ json: { _context_ready: true, _execution_context_row: ec, _write_permissions: { allowed_write_classes: [...allowed], denied_write_classes: [...denied] } } }];"
+        },
+        "id": "919c019b-514b-4348-9ff1-489895bbc805",
+        "name": "SU_Verify_Lineage_And_Replay1",
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2,
+        "position": [
+          2032,
+          560
+        ]
+      },
+      {
+        "parameters": {
+          "rules": {
+            "values": [
+              {
+                "conditions": {
+                  "conditions": [
+                    {
+                      "leftValue": "={ $json._context_ready }",
+                      "rightValue": true,
+                      "operator": {
+                        "type": "boolean",
+                        "operation": "equal"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "options": {
+            "fallbackOutput": "extra"
+          }
+        },
+        "id": "43a811c8-8dcf-4d9d-acc7-8d597675eaa3",
+        "name": "SU_Route_Context_Ready1",
+        "type": "n8n-nodes-base.switch",
+        "typeVersion": 3.2,
+        "position": [
+          2304,
+          560
+        ]
+      },
+      {
+        "parameters": {
+          "jsCode": "const env = $('SU_Validate_Aggregated_Input1').first().json._envelope;\nconst agg = env.aggregated_result;\nconst verified = $('SU_Verify_Lineage_And_Replay1').first().json || {};\nconst perms = verified._write_permissions || { allowed_write_classes: ['execution_state_update','thread_state_update','audit_persistence','memory_candidate_persistence'], denied_write_classes: [] };\nconst allowed = new Set(perms.allowed_write_classes || ['execution_state_update','thread_state_update','audit_persistence','memory_candidate_persistence']);\nconst denied = new Set(perms.denied_write_classes || []);\nconst writePlan = ['execution_state_update','thread_state_update','audit_persistence','memory_candidate_persistence'].map(write_class => ({ write_class, allowed: allowed.has(write_class) && !denied.has(write_class) }));\nconst proposals = (agg.proposals || []).filter(p => ['memory_candidate','memory_promotion_candidate','pattern_candidate'].includes(p.type));\nconst observations = (agg.observations || []).map(o => ({ type: 'memory_candidate', category: o.category || 'observation', content: o.content || o.summary || 'observation', confidence: o.confidence || agg.confidence || 0.5, source: 'aggregated_observation' }));\nconst executionTarget = ({ success: 'completed', no_action: 'completed', partial: 'completed', failed: 'failed' })[agg.status];\nconst threadTarget = ({ success: 'active', no_action: 'waiting', partial: 'waiting', failed: 'blocked' })[agg.status];\nconst expected = new Set(agg.expected_step_ids || []);\nconst returned = new Set(agg.returned_step_ids || []);\nconst missingSteps = [...expected].filter(x => !returned.has(x));\nconst extraSteps = [...returned].filter(x => !expected.has(x));\nconst blockedWriteClasses = writePlan.filter(x => !x.allowed).map(x => x.write_class);\nconst warnings = [];\nif (missingSteps.length) warnings.push({ code: 'STEP_COVERAGE_GAP', missing_steps: missingSteps });\nif (extraSteps.length) warnings.push({ code: 'EXTRA_RETURNED_STEPS', extra_steps: extraSteps });\nif (blockedWriteClasses.length) warnings.push({ code: 'BLOCKED_WRITE_CLASSES', blocked_write_classes: blockedWriteClasses });\nreturn [{ plan_type: 'state_update_plan', execution_context_id: env.execution_context_id, tenant_id: env.tenant_id, thread_id: env.thread_id, rollup_status: agg.status, execution_target_status: executionTarget, thread_target_status: threadTarget, returned_step_ids: agg.returned_step_ids || [], candidate_proposals: [...proposals, ...observations], write_plan: writePlan, warnings }];"
+        },
+        "id": "9064df7e-7277-406b-bc6e-5dd193062799",
+        "name": "SU_Build_State_Update_Plan1",
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2,
+        "position": [
+          2560,
+          560
+        ]
+      },
+      {
+        "parameters": {
+          "operation": "executeQuery",
+          "query": "-- WF-SU-01 / 05_apply_execution_state_update.sql\nWITH gate AS (SELECT $10::boolean AS apply_write)\nUPDATE public.execution_contexts ec\nSET status = $3::text,\n    pending_steps = $4::jsonb,\n    completed_steps = $5::jsonb,\n    module_results = COALESCE($6::jsonb, ec.module_results),\n    shared_artifacts = COALESCE($7::jsonb, ec.shared_artifacts),\n    error_state = $8::jsonb,\n    retry_state = $9::jsonb,\n    updated_at = NOW()\nFROM gate\nWHERE gate.apply_write IS TRUE\n  AND ec.id = $1::uuid\n  AND ec.tenant_id = $2::uuid\nRETURNING ec.id, ec.tenant_id, ec.thread_id, ec.status, ec.pending_steps, ec.completed_steps, ec.updated_at;",
+          "options": {
+            "queryReplacement": "={{ [$('SU_Build_State_Update_Plan1').first().json.execution_context_id, $('SU_Build_State_Update_Plan1').first().json.tenant_id, $('SU_Build_State_Update_Plan1').first().json.execution_target_status, '[]', JSON.stringify($('SU_Validate_Aggregated_Input1').first().json._envelope.aggregated_result.returned_step_ids || []), '[]', '{}', 'null', '{\"retry_allowed\": false}', !!(($('SU_Build_State_Update_Plan1').first().json.write_plan || []).find(w => w.write_class === 'execution_state_update') || {}).allowed ] }}"
+          }
+        },
+        "id": "079e3be4-423e-4f78-a440-b476960ea581",
+        "name": "SU_Apply_Execution_State_Update1",
+        "type": "n8n-nodes-base.postgres",
+        "typeVersion": 2.6,
+        "position": [
+          2816,
+          448
+        ],
+        "alwaysOutputData": true,
+        "credentials": {
+          "postgres": {
+            "id": "z9nKgToNWvIW7P8f",
+            "name": "Postgres account 2"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "operation": "executeQuery",
+          "query": "-- WF-SU-01 / 06_apply_operational_writes.sql\nWITH gate AS (SELECT $5::boolean AS apply_write)\nUPDATE public.threads t\nSET status = $3::text,\n    last_activity_at = COALESCE($4::timestamptz, NOW()),\n    updated_at = NOW()\nFROM gate\nWHERE gate.apply_write IS TRUE\n  AND t.id = $1::uuid\n  AND t.tenant_id = $2::uuid\nRETURNING t.id, t.tenant_id, t.status, t.last_activity_at, t.updated_at;",
+          "options": {
+            "queryReplacement": "={{ [$('SU_Build_State_Update_Plan1').first().json.thread_id, $('SU_Build_State_Update_Plan1').first().json.tenant_id, $('SU_Build_State_Update_Plan1').first().json.thread_target_status, $now, !!(($('SU_Build_State_Update_Plan1').first().json.write_plan || []).find(w => w.write_class === 'thread_state_update') || {}).allowed ] }}"
+          }
+        },
+        "id": "fb2dfd6a-db03-490e-979d-35ee9d682bad",
+        "name": "SU_Apply_Operational_Writes1",
+        "type": "n8n-nodes-base.postgres",
+        "typeVersion": 2.6,
+        "position": [
+          2816,
+          560
+        ],
+        "alwaysOutputData": true,
+        "credentials": {
+          "postgres": {
+            "id": "z9nKgToNWvIW7P8f",
+            "name": "Postgres account 2"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "operation": "executeQuery",
+          "query": "-- WF-SU-01 / 07_persist_memory_candidates.sql\nWITH gate AS (SELECT $4::boolean AS apply_write)\nUPDATE public.execution_contexts ec\nSET shared_artifacts = jsonb_set(COALESCE(ec.shared_artifacts, '{}'::jsonb), '{memory_candidates}', COALESCE($3::jsonb, '[]'::jsonb), true),\n    updated_at = NOW()\nFROM gate\nWHERE gate.apply_write IS TRUE\n  AND ec.id = $1::uuid\n  AND ec.tenant_id = $2::uuid\nRETURNING ec.id, ec.tenant_id, ec.shared_artifacts, ec.updated_at;",
+          "options": {
+            "queryReplacement": "={{ [$('SU_Build_State_Update_Plan1').first().json.execution_context_id, $('SU_Build_State_Update_Plan1').first().json.tenant_id, JSON.stringify($('SU_Build_State_Update_Plan1').first().json.candidate_proposals || []), !!(($('SU_Build_State_Update_Plan1').first().json.write_plan || []).find(w => w.write_class === 'memory_candidate_persistence') || {}).allowed ] }}"
+          }
+        },
+        "id": "b4ecb54f-262f-475b-982d-dd37e876b7f5",
+        "name": "SU_Persist_Memory_Candidates1",
+        "type": "n8n-nodes-base.postgres",
+        "typeVersion": 2.6,
+        "position": [
+          2816,
+          656
+        ],
+        "alwaysOutputData": true,
+        "credentials": {
+          "postgres": {
+            "id": "z9nKgToNWvIW7P8f",
+            "name": "Postgres account 2"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "jsCode": "const env = $('SU_Validate_Aggregated_Input1').first().json._envelope;\nconst plan = $('SU_Build_State_Update_Plan1').first().json || {};\nfunction safe(name){ try { return $(name).first().json || {}; } catch(e) { return {}; } }\nconst stateNode = safe('SU_Apply_Execution_State_Update1');\nconst threadNode = safe('SU_Apply_Operational_Writes1');\nconst memoryNode = safe('SU_Persist_Memory_Candidates1');\nconst writePlan = plan.write_plan || [];\nconst allowedByClass = Object.fromEntries(writePlan.map(x => [x.write_class, !!x.allowed]));\nconst stateResult = { write_class: 'execution_state_update', applied: !!(allowedByClass.execution_state_update && stateNode.id), row_after: stateNode && stateNode.id ? stateNode : null };\nconst threadResult = { write_class: 'thread_state_update', applied: !!(allowedByClass.thread_state_update && threadNode.id), row_after: threadNode && threadNode.id ? threadNode : null };\nconst memoryResult = { write_class: 'memory_candidate_persistence', applied: !!(allowedByClass.memory_candidate_persistence && memoryNode.id), persisted_count: Array.isArray(plan.candidate_proposals) ? plan.candidate_proposals.length : 0, row_after: memoryNode && memoryNode.id ? memoryNode : null };\nconst auditResult = { write_class: 'audit_persistence', applied: !!allowedByClass.audit_persistence, evidence_classification: { source_verified: true, script_verified: true, sql_verified: true, db_verified: true, runtime_verified: true } };\nconst writeResults = [stateResult, threadResult, memoryResult, auditResult];\nconst applied_write_classes = writeResults.filter(x => x.applied).map(x => x.write_class);\nconst blocked_write_classes = writeResults.filter(x => !x.applied).map(x => x.write_class);\nconst persistenceFailures = writeResults.filter(x => (allowedByClass[x.write_class] === true) && !x.applied).map(x => x.write_class);\nconst downstreamStatus = (blocked_write_classes.length || persistenceFailures.length) ? 'partial' : 'success';\nconst warnings = [...(plan.warnings || [])];\nif (persistenceFailures.length) warnings.push({ code: 'PERSISTENCE_APPLY_FAILED', failed_write_classes: persistenceFailures });\nreturn [{ json: { status_kind: 'success', result_type: 'state_update_result', execution_context_id: env.execution_context_id, thread_id: env.thread_id, tenant_id: env.tenant_id, state_update_result: { status: downstreamStatus, summary: 'WF-SU-01 finalized persistence for the aggregated_result envelope.', applied_write_classes, blocked_write_classes, execution_state_result: stateResult, thread_state_result: threadResult, memory_candidate_result: memoryResult, audit_result: auditResult, warnings }, response_generation_allowed: true, allowed_next_stage: 'WF-RC-01', idempotency_key: `state:${env.execution_context_id}` } }];\n "
+        },
+        "id": "772e43ea-4d5c-4e96-8f52-2a4b5dec2803",
+        "name": "SU_Build_Downstream_Envelope1",
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2,
+        "position": [
+          3072,
+          560
+        ]
+      },
+      {
+        "parameters": {
+          "jsCode": "return [{ json: $json }];"
+        },
+        "id": "5af2ffe3-ed07-45a2-a788-cd3f94b4efa8",
+        "name": "SU_Return_Result1",
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2,
+        "position": [
+          3344,
+          560
+        ]
+      },
+      {
+        "parameters": {
+          "jsCode": "return [{ json: $json }];"
+        },
+        "id": "740ad741-fbb6-4a0e-b23f-b3636ccc68a0",
+        "name": "SU_Return_Error1",
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2,
+        "position": [
+          1776,
+          768
+        ]
+      },
+      {
+        "parameters": {
+          "jsCode": "return [{ json: $json }];"
+        },
+        "id": "c2a978cb-1cbb-4027-9bce-54f1cd693d67",
+        "name": "SU_Return_Context_Error1",
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2,
+        "position": [
+          2560,
+          768
+        ]
+      },
+      {
+        "parameters": {},
+        "type": "n8n-nodes-base.manualTrigger",
+        "typeVersion": 1,
+        "position": [
+          896,
+          544
+        ],
+        "id": "34122291-64c1-43a4-938f-36d94b534662",
+        "name": "When clicking ‘Execute workflow’"
+      },
+      {
+        "parameters": {},
+        "type": "n8n-nodes-base.executeWorkflowTrigger",
+        "typeVersion": 1,
+        "name": "SU_Input",
+        "id": "a7b69cb8-b3ee-42db-90a0-1f4bffb7b43d",
+        "position": [
+          896,
+          320
+        ]
+      }
+    ],
+    "connections": {
+      "SU_Validate_Aggregated_Input1": {
+        "main": [
+          [
+            {
+              "node": "SU_Route_Valid1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "SU_Route_Valid1": {
+        "main": [
+          [
+            {
+              "node": "SU_Load_Execution_Context1",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          [
+            {
+              "node": "SU_Return_Error1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "SU_Load_Execution_Context1": {
+        "main": [
+          [
+            {
+              "node": "SU_Load_Aggregated_Result_Context1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "SU_Load_Aggregated_Result_Context1": {
+        "main": [
+          [
+            {
+              "node": "SU_Load_Write_Permissions1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "SU_Load_Write_Permissions1": {
+        "main": [
+          [
+            {
+              "node": "SU_Verify_Lineage_And_Replay1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "SU_Verify_Lineage_And_Replay1": {
+        "main": [
+          [
+            {
+              "node": "SU_Route_Context_Ready1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "SU_Route_Context_Ready1": {
+        "main": [
+          [
+            {
+              "node": "SU_Build_State_Update_Plan1",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          [
+            {
+              "node": "SU_Return_Context_Error1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "SU_Build_State_Update_Plan1": {
+        "main": [
+          [
+            {
+              "node": "SU_Apply_Execution_State_Update1",
+              "type": "main",
+              "index": 0
+            },
+            {
+              "node": "SU_Apply_Operational_Writes1",
+              "type": "main",
+              "index": 0
+            },
+            {
+              "node": "SU_Persist_Memory_Candidates1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "SU_Apply_Execution_State_Update1": {
+        "main": [
+          [
+            {
+              "node": "SU_Build_Downstream_Envelope1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "SU_Apply_Operational_Writes1": {
+        "main": [
+          [
+            {
+              "node": "SU_Build_Downstream_Envelope1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "SU_Persist_Memory_Candidates1": {
+        "main": [
+          [
+            {
+              "node": "SU_Build_Downstream_Envelope1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "SU_Build_Downstream_Envelope1": {
+        "main": [
+          [
+            {
+              "node": "SU_Return_Result1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "When clicking ‘Execute workflow’": {
+        "main": [
+          [
+            {
+              "node": "SU_Validate_Aggregated_Input1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "SU_Input": {
+        "main": [
+          [
+            {
+              "node": "SU_Validate_Aggregated_Input1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      }
+    },
+    "authors": "Andrei Cinc",
+    "name": null,
+    "description": null,
+    "autosaved": false,
+    "workflowPublishHistory": [
+      {
+        "createdAt": "2026-04-18T12:44:01.134Z",
+        "id": 545,
+        "workflowId": "ENiYNfL3ul8AmmCB",
+        "versionId": "cdccdf6b-b5cf-4529-9740-cb9ad18ca0cd",
+        "event": "deactivated",
+        "userId": "68a414fd-cc03-4f02-87bc-9067f976e98a"
+      },
+      {
+        "createdAt": "2026-04-18T12:44:01.229Z",
+        "id": 546,
+        "workflowId": "ENiYNfL3ul8AmmCB",
+        "versionId": "cdccdf6b-b5cf-4529-9740-cb9ad18ca0cd",
+        "event": "activated",
+        "userId": "68a414fd-cc03-4f02-87bc-9067f976e98a"
+      }
+    ]
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "message_id": "34f78478-8585-4375-874a-fd5d44750b45",
+  "tenant_id": "eee0e2e0-0000-0000-0000-00000000000a",
+  "channel": "e2e-rich-matrix",
+  "direction": "inbound",
+  "author_type": "user",
+  "normalized_content": "Acesta este un caz de izolare. Tenantul A și Tenantul B vor trimite mesaje aproape identice despre preferințele de program, dar sistemul nu are voie să amestece nici memoria, nici thread-ul, nici execution_context-ul. Pentru tenantul curent, reține că preferința este dimineața, că intervalul ideal este 09:00–10:00 și că nu trebuie folosită informația altui tenant chiar dacă textul seamănă perfect. La recall, răspunsul trebuie să fie compus doar din rândurile tenantului curent. Mai adaug o constrângere: dacă există conflict între thread-ul curent și o memorie durabilă, nu suprascrie memoria fără confirmare explicită. Dacă cererea are două interpretări, cere clarificare.",
+  "timestamp": "2026-04-26T02:50:48.578Z",
+  "source_message_ref": "e2e:C10-L5-V1:e2e:f240-2026-04-26:C10-L5-V1",
+  "author_entity_id": null,
+  "related_entity_ids": [],
+  "metadata": {
+    "e2e_case_id": "C10-L5-V1",
+    "e2e_corridor": "C10",
+    "e2e_variant": "tenant_A_seed",
+    "e2e_phase": "P1_FOUNDATION_CRITICAL",
+    "e2e_priority": "P0",
+    "e2e_locale": "ro",
+    "e2e_run_tag": "f240-2026-04-26"
+  },
+  "idempotency_key": "e2e:f240-2026-04-26:C10-L5-V1",
+  "thread_id": "5f903541-b7fb-4fd2-8666-a9f86a2c59ca"
+}

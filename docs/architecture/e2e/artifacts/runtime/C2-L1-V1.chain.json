@@ -1,0 +1,190 @@
+{
+  "case_id": "C2-L1-V1",
+  "run_tag": "p0_v3",
+  "runtime": {
+    "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+    "message_id": "68be2228-6332-4ec5-8c14-5cb623184f5e",
+    "thread_id": "fca09760-407c-488d-8dc5-c1cf6376291e",
+    "reply_to_thread_id": null,
+    "idempotency_key": "e2e:p0_v3:C2-L1-V1",
+    "thread_label": "C2:C2-L1-V1",
+    "ts_iso": "2026-04-25T11:20:05.392Z",
+    "run_tag": "p0_v3",
+    "thread_context_kind": "seeded-fresh",
+    "fire_iso": "2026-04-25T11:20:05.461Z"
+  },
+  "tr_exec_id": "7424",
+  "chain": {
+    "tr_exec_id": "7424",
+    "hops_str": "TR:7424 → EC:7425 → OR:7426",
+    "digest": {
+      "TR": {
+        "exec_id": "7424",
+        "status": "success",
+        "finished": true,
+        "started_at": "2026-04-25T11:19:49.753Z",
+        "last_node": "TR_Dispatch_To_EC_01_SUBCALL",
+        "last_node_json": {
+          "status_kind": "failed",
+          "result_type": "error",
+          "module_name": "orchestrator_input_handoff",
+          "error": {
+            "code": "NOT_READY_FOR_PLANNING",
+            "message": "Execution context is not initialized.",
+            "missing_fields": [
+              "status"
+            ]
+          }
+        },
+        "sub_calls": [
+          {
+            "via_node": "TR_Dispatch_To_EC_01_SUBCALL",
+            "exec_id": "7425",
+            "target_wf": "EC"
+          }
+        ],
+        "selected_nodes": {
+          "TR_Validate_Input": [
+            {
+              "executed": true,
+              "json": {
+                "_valid": "true",
+                "message_id": "a55e0b5d-daa5-41f0-85c1-81dbe1144a49",
+                "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+                "channel": "e2e-rich-matrix",
+                "direction": "inbound",
+                "author_type": "user",
+                "normalized_content": "Tine minte ca Andrei prefera antrenamente dimineata.",
+                "timestamp": "2026-04-25T00:00:00.000Z",
+                "source_message_ref": "e2e:C2-L1-V1",
+                "author_entity_id": null,
+                "explicit_thread_id": "29efc751-3fb9-4191-8c73-1ebd273d5e79",
+                "reply_to_message_id": null,
+                "reply_to_thread_id": null,
+                "related_entity_ids": [],
+                "metadata": {
+                  "e2e_case_id": "C2-L1-V1",
+                  "e2e_run_tag": "p0_v3"
+                },
+                "_attach_threshold": null,
+                "_reopen_threshold": null,
+                "_max_candidate_threads": null,
+                "_allow_latent_reopen": true,
+                "_allow_entity_assisted_match": true,
+                "_ambiguity_margin": null,
+                "_idempotency_key": "e2e:p0_v3:C2-L1-V1"
+              },
+              "error": null
+            }
+          ],
+          "TR_Build_EC_Envelope": [
+            {
+              "executed": true,
+              "json": {
+                "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+                "thread_id": "29efc751-3fb9-4191-8c73-1ebd273d5e79",
+                "trigger_message_id": "a55e0b5d-daa5-41f0-85c1-81dbe1144a49",
+                "resolution_method": "explicit_thread_reference",
+                "resolved_at": "2026-04-25T11:19:49.805Z",
+                "idempotency_key": "tr-to-ec:eee0e2e0-0000-0000-0000-000000000001:a55e0b5d-daa5-41f0-85c1-81dbe1144a49:v1"
+              },
+              "error": null
+            }
+          ],
+          "TR_Dispatch_To_EC_01_SUBCALL": [
+            {
+              "executed": true,
+              "json": {
+                "status_kind": "failed",
+                "result_type": "error",
+                "module_name": "orchestrator_input_handoff",
+                "error": {
+                  "code": "NOT_READY_FOR_PLANNING",
+                  "message": "Execution context is not initialized.",
+                  "missing_fields": [
+                    "status"
+                  ]
+                }
+              },
+              "error": null
+            }
+          ]
+        }
+      },
+      "EC": {
+        "exec_id": "7425",
+        "status": "success",
+        "finished": true,
+        "started_at": "2026-04-25T11:19:50.092Z",
+        "last_node": "EC_Dispatch_To_OR_01_SUBCALL",
+        "last_node_json": {
+          "status_kind": "failed",
+          "result_type": "error",
+          "module_name": "orchestrator_input_handoff",
+          "error": {
+            "code": "NOT_READY_FOR_PLANNING",
+            "message": "Execution context is not initialized.",
+            "missing_fields": [
+              "status"
+            ]
+          }
+        },
+        "sub_calls": [
+          {
+            "via_node": "EC_Dispatch_To_OR_01_SUBCALL",
+            "exec_id": "7426",
+            "target_wf": "OR"
+          }
+        ],
+        "selected_nodes": {
+          "EC_Dispatch_To_OR_01_SUBCALL": [
+            {
+              "executed": true,
+              "json": {
+                "status_kind": "failed",
+                "result_type": "error",
+                "module_name": "orchestrator_input_handoff",
+                "error": {
+                  "code": "NOT_READY_FOR_PLANNING",
+                  "message": "Execution context is not initialized.",
+                  "missing_fields": [
+                    "status"
+                  ]
+                }
+              },
+              "error": null
+            }
+          ]
+        }
+      },
+      "OR": {
+        "exec_id": "7426",
+        "status": "success",
+        "finished": true,
+        "started_at": "2026-04-25T11:19:50.235Z",
+        "last_node": "OR_Return_Error",
+        "last_node_json": {
+          "status_kind": "failed",
+          "result_type": "error",
+          "module_name": "orchestrator_input_handoff",
+          "error": {
+            "code": "NOT_READY_FOR_PLANNING",
+            "message": "Execution context is not initialized.",
+            "missing_fields": [
+              "status"
+            ]
+          }
+        },
+        "sub_calls": [],
+        "selected_nodes": {}
+      },
+      "PL": null,
+      "DI": null,
+      "ME": null,
+      "RA": null,
+      "SU": null,
+      "RC": null,
+      "MO": null
+    }
+  }
+}

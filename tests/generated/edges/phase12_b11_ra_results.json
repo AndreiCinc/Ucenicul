@@ -1,0 +1,355 @@
+{
+  "ts": "2026-04-20T16:02:16.450Z",
+  "phase": "phase12",
+  "suite": "b11_ra_envelope",
+  "total": 3,
+  "passed": 0,
+  "results": [
+    {
+      "case": "b11-ra-reminder-missing-desc",
+      "me_exec_id": "1102",
+      "ra_exec_id": "1103",
+      "build_env_out": {
+        "status_kind": "error",
+        "result_type": "module_error",
+        "module_name": "module_execution",
+        "error": {
+          "code": "MISSING_REQUIRED_FIELDS",
+          "message": "Reminder create inputs are incomplete.",
+          "missing_fields": [
+            "description"
+          ],
+          "details": {}
+        }
+      },
+      "subcall_out": {
+        "status_kind": "error",
+        "result_type": "aggregation_error",
+        "error": {
+          "code": "INVALID_AGGREGATION_INPUT",
+          "message": "Aggregation envelope missing required top-level fields.",
+          "missing_fields": [
+            "execution_context_id",
+            "thread_id",
+            "tenant_id",
+            "aggregation_input"
+          ],
+          "details": {}
+        }
+      },
+      "ra_env_out": null,
+      "pass": false,
+      "assertions": [
+        {
+          "name": "me_build_ra_envelope_ran",
+          "pass": true,
+          "got": "(ran)"
+        },
+        {
+          "name": "me_emits_module_batch",
+          "pass": false,
+          "got": "module_error"
+        },
+        {
+          "name": "me_subcall_ran",
+          "pass": true,
+          "got": "(ran)"
+        },
+        {
+          "name": "not_invalid_aggregation_input",
+          "pass": false,
+          "got": "INVALID_AGGREGATION_INPUT"
+        },
+        {
+          "name": "ra_subexec_located",
+          "pass": true,
+          "got": {
+            "id": "1103",
+            "delta_ms": 381
+          }
+        },
+        {
+          "name": "ra_emits_aggregated_result",
+          "pass": false
+        },
+        {
+          "name": "aggregated_status_is_failed",
+          "pass": false,
+          "got": "(no aggregated_result)"
+        },
+        {
+          "name": "one_module_result",
+          "pass": false,
+          "got": "(no aggregated_result)"
+        },
+        {
+          "name": "error_code_preserved",
+          "pass": false,
+          "got": "(no aggregated_result)"
+        }
+      ],
+      "failed": [
+        {
+          "name": "me_emits_module_batch",
+          "pass": false,
+          "got": "module_error"
+        },
+        {
+          "name": "not_invalid_aggregation_input",
+          "pass": false,
+          "got": "INVALID_AGGREGATION_INPUT"
+        },
+        {
+          "name": "ra_emits_aggregated_result",
+          "pass": false
+        },
+        {
+          "name": "aggregated_status_is_failed",
+          "pass": false,
+          "got": "(no aggregated_result)"
+        },
+        {
+          "name": "one_module_result",
+          "pass": false,
+          "got": "(no aggregated_result)"
+        },
+        {
+          "name": "error_code_preserved",
+          "pass": false,
+          "got": "(no aggregated_result)"
+        }
+      ]
+    },
+    {
+      "case": "b11-ra-memory-missing-type",
+      "me_exec_id": "1104",
+      "ra_exec_id": "1105",
+      "build_env_out": {
+        "status_kind": "error",
+        "result_type": "module_error",
+        "module_name": "module_execution",
+        "error": {
+          "code": "MISSING_REQUIRED_FIELDS",
+          "message": "Memory store inputs are incomplete.",
+          "missing_fields": [
+            "memory_type"
+          ],
+          "details": {}
+        }
+      },
+      "subcall_out": {
+        "status_kind": "error",
+        "result_type": "aggregation_error",
+        "error": {
+          "code": "INVALID_AGGREGATION_INPUT",
+          "message": "Aggregation envelope missing required top-level fields.",
+          "missing_fields": [
+            "execution_context_id",
+            "thread_id",
+            "tenant_id",
+            "aggregation_input"
+          ],
+          "details": {}
+        }
+      },
+      "ra_env_out": null,
+      "pass": false,
+      "assertions": [
+        {
+          "name": "me_build_ra_envelope_ran",
+          "pass": true,
+          "got": "(ran)"
+        },
+        {
+          "name": "me_emits_module_batch",
+          "pass": false,
+          "got": "module_error"
+        },
+        {
+          "name": "me_subcall_ran",
+          "pass": true,
+          "got": "(ran)"
+        },
+        {
+          "name": "not_invalid_aggregation_input",
+          "pass": false,
+          "got": "INVALID_AGGREGATION_INPUT"
+        },
+        {
+          "name": "ra_subexec_located",
+          "pass": true,
+          "got": {
+            "id": "1105",
+            "delta_ms": 166
+          }
+        },
+        {
+          "name": "ra_emits_aggregated_result",
+          "pass": false
+        },
+        {
+          "name": "aggregated_status_is_failed",
+          "pass": false,
+          "got": "(no aggregated_result)"
+        },
+        {
+          "name": "one_module_result",
+          "pass": false,
+          "got": "(no aggregated_result)"
+        },
+        {
+          "name": "error_code_preserved",
+          "pass": false,
+          "got": "(no aggregated_result)"
+        }
+      ],
+      "failed": [
+        {
+          "name": "me_emits_module_batch",
+          "pass": false,
+          "got": "module_error"
+        },
+        {
+          "name": "not_invalid_aggregation_input",
+          "pass": false,
+          "got": "INVALID_AGGREGATION_INPUT"
+        },
+        {
+          "name": "ra_emits_aggregated_result",
+          "pass": false
+        },
+        {
+          "name": "aggregated_status_is_failed",
+          "pass": false,
+          "got": "(no aggregated_result)"
+        },
+        {
+          "name": "one_module_result",
+          "pass": false,
+          "got": "(no aggregated_result)"
+        },
+        {
+          "name": "error_code_preserved",
+          "pass": false,
+          "got": "(no aggregated_result)"
+        }
+      ]
+    },
+    {
+      "case": "b11-ra-reminder-update-no-ident",
+      "me_exec_id": "1106",
+      "ra_exec_id": "1107",
+      "build_env_out": {
+        "status_kind": "error",
+        "result_type": "module_error",
+        "module_name": "module_execution",
+        "error": {
+          "code": "MISSING_REQUIRED_FIELDS",
+          "message": "Reminder update inputs are incomplete.",
+          "missing_fields": [
+            "reminder_id_or_title_match",
+            "patch"
+          ],
+          "details": {}
+        }
+      },
+      "subcall_out": {
+        "status_kind": "error",
+        "result_type": "aggregation_error",
+        "error": {
+          "code": "INVALID_AGGREGATION_INPUT",
+          "message": "Aggregation envelope missing required top-level fields.",
+          "missing_fields": [
+            "execution_context_id",
+            "thread_id",
+            "tenant_id",
+            "aggregation_input"
+          ],
+          "details": {}
+        }
+      },
+      "ra_env_out": null,
+      "pass": false,
+      "assertions": [
+        {
+          "name": "me_build_ra_envelope_ran",
+          "pass": true,
+          "got": "(ran)"
+        },
+        {
+          "name": "me_emits_module_batch",
+          "pass": false,
+          "got": "module_error"
+        },
+        {
+          "name": "me_subcall_ran",
+          "pass": true,
+          "got": "(ran)"
+        },
+        {
+          "name": "not_invalid_aggregation_input",
+          "pass": false,
+          "got": "INVALID_AGGREGATION_INPUT"
+        },
+        {
+          "name": "ra_subexec_located",
+          "pass": true,
+          "got": {
+            "id": "1107",
+            "delta_ms": 164
+          }
+        },
+        {
+          "name": "ra_emits_aggregated_result",
+          "pass": false
+        },
+        {
+          "name": "aggregated_status_is_failed",
+          "pass": false,
+          "got": "(no aggregated_result)"
+        },
+        {
+          "name": "one_module_result",
+          "pass": false,
+          "got": "(no aggregated_result)"
+        },
+        {
+          "name": "error_code_preserved",
+          "pass": false,
+          "got": "(no aggregated_result)"
+        }
+      ],
+      "failed": [
+        {
+          "name": "me_emits_module_batch",
+          "pass": false,
+          "got": "module_error"
+        },
+        {
+          "name": "not_invalid_aggregation_input",
+          "pass": false,
+          "got": "INVALID_AGGREGATION_INPUT"
+        },
+        {
+          "name": "ra_emits_aggregated_result",
+          "pass": false
+        },
+        {
+          "name": "aggregated_status_is_failed",
+          "pass": false,
+          "got": "(no aggregated_result)"
+        },
+        {
+          "name": "one_module_result",
+          "pass": false,
+          "got": "(no aggregated_result)"
+        },
+        {
+          "name": "error_code_preserved",
+          "pass": false,
+          "got": "(no aggregated_result)"
+        }
+      ]
+    }
+  ]
+}

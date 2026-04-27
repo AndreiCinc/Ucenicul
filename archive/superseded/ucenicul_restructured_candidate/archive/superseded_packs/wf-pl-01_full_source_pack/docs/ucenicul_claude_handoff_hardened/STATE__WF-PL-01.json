@@ -1,0 +1,106 @@
+{
+  "current_stage": "WF-PL-01",
+  "current_stage_file": "07_STAGE_WF-PL-01.md",
+  "status": "active",
+  "phase": "source_pack_prepared_script_verified_pre_live",
+  "score": 8.5,
+  "score_previous": 10,
+  "score_cap_reason": "Source pack, SQL pack, script pack, and heavy test suite are complete and aligned, but live workflow verification, live DB verification, runtime proof, and post-test DB drift checks are still pending.",
+  "fallback_mode_active": false,
+  "failed_path_label": null,
+  "current_path_label": "source_pack_ready_awaiting_user_import",
+  "next_path_label": "user_import_then_live_v1_v6",
+  "retry_count": 0,
+  "banned_strategy_labels": [
+    "sdk_update_workflow_code",
+    "mcp__n8n__patch_workflow_nodes"
+  ],
+  "hard_blockers": [],
+  "soft_blockers": [
+    "Live shell import not yet performed for WF-PL-01.",
+    "Live workflow read, runtime proofs, and post-test DB verification remain pending."
+  ],
+  "carry_forward_tool_limitations": [
+    "mcp__n8n__patch_workflow_nodes: PUT-schema mismatch; unsafe for in-place mutation of existing shells until disproven by new live evidence.",
+    "Manual-mode workflow execution may prefer the webhook-registered trigger; dual-trigger pinData remains the safe pattern when manual-trigger intent must be exercised programmatically.",
+    "Shell-preserving workflow mutation for JS-body patches may still require user re-import: Claude patches source JSON, user imports, Claude verifies live."
+  ],
+  "latest_evidence_level": "source_pack_complete_plus_script_level_tests_passed_plus_sql_contracts_defined",
+  "upstream_stage": {
+    "stage": "WF-OR-01",
+    "status": "closed",
+    "score": 10,
+    "carry_forward_evidence_available": true
+  },
+  "pl_stage_scope_decision": {
+    "label": "or_handoff_to_plan_only",
+    "includes": [
+      "validated OR handoff input",
+      "planner-context validation",
+      "module registry loading",
+      "bounded plan generation"
+    ],
+    "excludes": [
+      "dispatcher execution",
+      "module execution",
+      "result aggregation",
+      "response composition"
+    ]
+  },
+  "script_level_tests": {
+    "suite": "workflows/tests/pl/test_families.py",
+    "families": 13,
+    "required_family_minimum": 10,
+    "tests_total": 650,
+    "required_tests_minimum": 500,
+    "minimum_satisfied": true,
+    "tests_passed": 650,
+    "tests_failed": 0,
+    "results_json": "workflows/tests/pl/results/results.json",
+    "results_md": "workflows/tests/pl/results/results.md",
+    "family_breakdown": {
+      "input_validation": 50,
+      "happy_path": 50,
+      "invalid_input": 50,
+      "replay_idempotency": 50,
+      "cross_tenant_isolation": 50,
+      "or_to_pl_handoff": 50,
+      "node_payload_builder": 50,
+      "node_result_formatter": 50,
+      "sql_contract_validation": 50,
+      "reporting_and_tooling_contract": 50,
+      "extract_planning_input": 50,
+      "error_payload_builder": 50,
+      "blueprint_structure": 50
+    }
+  },
+  "artifacts_on_disk": {
+    "blueprint_json": [
+      "workflows/WF-PL-01_Plan_Generation.json",
+      "workflows/WF-PL-01_blueprint.json"
+    ],
+    "planning_docs": [
+      "workflows/WF-PL-01_NODE_MAP.md",
+      "workflows/WF-PL-01_CONNECTION_MAP.md",
+      "workflows/WF-PL-01_IMPORT_PATCH_PLAN.md"
+    ],
+    "sql": [
+      "workflows/sql/pl/01_schema_inspect.sql",
+      "workflows/sql/pl/02_load_execution_context.sql",
+      "workflows/sql/pl/03_load_execution_context_by_idempotency.sql",
+      "workflows/sql/pl/10_fixtures_create.sql",
+      "workflows/sql/pl/11_fixtures_cleanup.sql",
+      "workflows/sql/pl/20_read_path_probe.sql"
+    ],
+    "scripts": [
+      "workflows/scripts/pl/pl_logic.py"
+    ],
+    "tests": [
+      "workflows/tests/pl/test_families.py"
+    ]
+  },
+  "advance_allowed": false,
+  "advance_gate": "Not yet open \u2014 live import and runtime proof still required before WF-DI-01 may begin.",
+  "next_action": "User imports WF-PL-01_Plan_Generation.json into the live shell, then Claude runs V1\u2013V6 and post-test DB drift verification.",
+  "last_updated": "2026-04-17"
+}

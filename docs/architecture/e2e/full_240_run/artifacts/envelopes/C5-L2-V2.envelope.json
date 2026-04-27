@@ -1,0 +1,23 @@
+{
+  "message_id": "cffc6828-c2f1-4079-8c53-161eba5ae75c",
+  "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+  "channel": "e2e-rich-matrix",
+  "direction": "inbound",
+  "author_type": "user",
+  "normalized_content": "EN case: Thanks, that helped. Do not remember anything from this.",
+  "timestamp": "2026-04-26T02:50:47.635Z",
+  "source_message_ref": "e2e:C5-L2-V2:e2e:f240-2026-04-26:C5-L2-V2",
+  "author_entity_id": null,
+  "related_entity_ids": [],
+  "metadata": {
+    "e2e_case_id": "C5-L2-V2",
+    "e2e_corridor": "C5",
+    "e2e_variant": "locale_en",
+    "e2e_phase": "P2_COMPOSITION",
+    "e2e_priority": "P2",
+    "e2e_locale": "en",
+    "e2e_run_tag": "f240-2026-04-26"
+  },
+  "idempotency_key": "e2e:f240-2026-04-26:C5-L2-V2",
+  "thread_id": "c4c9f498-0e03-4bad-820f-d6c8a457ac85"
+}

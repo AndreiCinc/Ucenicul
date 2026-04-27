@@ -1,0 +1,20 @@
+{
+  "message_id": "3ae3ed64-778e-4956-8632-b37034b82724",
+  "tenant_id": "eee0e2e0-0000-0000-0000-00000000000a",
+  "channel": "acg-runtime",
+  "direction": "inbound",
+  "author_type": "user",
+  "normalized_content": "Ce știi despre ACG smoke?",
+  "timestamp": "2026-04-25T23:35:41.607Z",
+  "source_message_ref": "acg:ACG-12:acg:acg-2026-04-25:ACG-12",
+  "author_entity_id": null,
+  "related_entity_ids": [],
+  "metadata": {
+    "acg_case_id": "ACG-12",
+    "acg_lane": "cross_tenant_a",
+    "acg_run_tag": "acg-2026-04-25"
+  },
+  "idempotency_key": "acg:acg-2026-04-25:ACG-12",
+  "thread_id": "2ef9b5c8-05d7-4edf-82bd-0c8768e6aec0",
+  "reply_to_thread_id": null
+}

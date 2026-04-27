@@ -1,0 +1,36 @@
+=== Diff Surface Verification — V2-OBS-RA-AGGREGATION-DOMAIN-WRITE-GATE ===
+pre versionId: 279a8628-5df6-4b38-86b0-8cc51989629b
+post versionId: 96962424-a9b1-4b7d-aa58-33ccc9c2b6a6
+pre nodeCount: 45, post nodeCount: 45
+
+--- parameters diff per node ---
+Nodes with parameters-level diff: ["ME_Build_RA_Envelope"]
+
+--- target node: ME_Build_RA_Envelope ---
+type pre/post: n8n-nodes-base.code / n8n-nodes-base.code
+typeVersion pre/post: 2 / 2
+id pre/post: me-build-ra-envelope / me-build-ra-envelope
+jsCode pre bytes: 2713 post bytes: 3084
+
+--- domain_writes_performed sites ---
+pre:
+  L22: domain_writes_performed: !!src.domain_writes_performed,
+  L71: domain_writes_performed: false,
+post:
+  L2: // normalize aggregation_input.domain_writes_performed=false on the success
+  L28: domain_writes_performed: false,
+  L77: domain_writes_performed: false,
+
+--- FUNCTIONAL DIFF SUMMARY ---
+pre-pattern !!src.domain_writes_performed present?: pre=true post=false
+success branch pre had propagation pattern: true
+success branch post has domain_writes_performed: false before module_results: [mr]: true
+module_error branch post still has domain_writes_performed: false: true
+
+--- non-node surface ---
+connections changed?: false
+settings changed?: false
+staticData changed?: false
+active pre/post: true / true
+
+=== VERDICT: CLEAN (single-node single-field change as designed) ===

@@ -1,0 +1,106 @@
+{
+  "current_stage": "WF-OR-01",
+  "current_stage_file": "06_STAGE_WF-OR-01.md",
+  "status": "active",
+  "phase": "source_pack_ready_waiting_for_live_proof",
+  "score": 7.5,
+  "score_previous": 10,
+  "score_cap_reason": "Source artifacts and script-level proof are complete, but live workflow read, live DB read-path verification, and runtime proof for WF-OR-01 are still pending.",
+  "fallback_mode_active": false,
+  "failed_path_label": null,
+  "current_path_label": "source_pack_ready_waiting_for_live_reality_check",
+  "next_path_label": "read_live_wf_or_01_then_import_minimum_handoff_delta",
+  "retry_count": 0,
+  "banned_strategy_labels": [
+    "sdk_update_workflow_code"
+  ],
+  "hard_blockers": [],
+  "soft_blockers": [
+    "WF-OR-01 shell has not yet been live-read.",
+    "WF-OR-01 runtime proof has not yet been executed.",
+    "WF-OR-01 DB read-path has not yet been verified against live schema."
+  ],
+  "carry_forward_tool_limitations": [
+    "mcp__n8n__patch_workflow_nodes: PUT-schema mismatch; unsafe for in-place mutation of existing shells until disproven by new live evidence.",
+    "mcp__f2e8be41-…__execute_workflow in manual mode selects the webhook-registered trigger as start node; dual-trigger pinData remains the known working pattern when manual-trigger intent must be exercised programmatically.",
+    "Chat trigger emits {sessionId, action, chatInput}; any chat-driven entry requires an adapter before it can safely drive structured stages."
+  ],
+  "latest_evidence_level": "documentation_and_source_artifacts_prepared_plus_500_script_tests_passed",
+  "upstream_stage": {
+    "stage": "WF-EC-01",
+    "status": "closed",
+    "score": 10,
+    "closure_gate": "passed",
+    "carry_forward_evidence_available": true
+  },
+  "or_stage_scope_decision": {
+    "label": "ec_to_or_adapter_only",
+    "includes": [
+      "validated EC success input",
+      "execution-envelope normalization",
+      "orchestrator-ready handoff payload"
+    ],
+    "excludes": [
+      "plan generation",
+      "module dispatch",
+      "module execution",
+      "final response composition"
+    ]
+  },
+  "first_live_surface_action": "Read live WF-OR-01 shell and capture before-snapshot before any mutation.",
+  "advance_allowed": false,
+  "advance_gate": "LOCKED — WF-PL-01 may not begin until WF-OR-01 reaches 10/10 closure.",
+  "next_action": "Run the stage-start reality check for WF-OR-01: live workflow read, DB read-path verification, then minimum-delta build.",
+  "last_updated": "2026-04-17",
+  "notes": [
+    "This state activates WF-OR-01 documentarily but does not claim any live implementation yet.",
+    "WF-EC-01 remains the last closed stage with full runtime proof.",
+    "The OR stage is intentionally bounded to handoff-only behavior so that planning remains downstream in WF-PL-01."
+  ],
+  "script_level_tests": {
+    "suite": "workflows/tests/or/test_families.py",
+    "families": 10,
+    "tests_total": 500,
+    "tests_passed": 500,
+    "tests_failed": 0,
+    "results_json": "workflows/tests/or/results/results.json",
+    "results_md": "workflows/tests/or/results/results.md",
+    "family_breakdown": {
+      "input_validation": 50,
+      "malformed_shape": 50,
+      "extract_handoff_input": 50,
+      "context_match": 50,
+      "handoff_payload_builder": 50,
+      "error_payload_builder": 50,
+      "sql_contracts": 50,
+      "blueprint_structure": 50,
+      "replay_stability": 50,
+      "tooling_reporting": 50
+    }
+  },
+  "artifacts_on_disk": {
+    "blueprint_json": [
+      "workflows/WF-OR-01_Orchestrator_Input_Handoff.json",
+      "workflows/WF-OR-01_blueprint.json"
+    ],
+    "planning_docs": [
+      "workflows/WF-OR-01_NODE_MAP.md",
+      "workflows/WF-OR-01_CONNECTION_MAP.md",
+      "workflows/WF-OR-01_IMPORT_PATCH_PLAN.md"
+    ],
+    "sql": [
+      "workflows/sql/or/01_schema_inspect.sql",
+      "workflows/sql/or/02_load_execution_context.sql",
+      "workflows/sql/or/03_load_execution_context_by_idempotency.sql",
+      "workflows/sql/or/10_fixtures_create.sql",
+      "workflows/sql/or/11_fixtures_cleanup.sql",
+      "workflows/sql/or/20_read_path_probe.sql"
+    ],
+    "scripts": [
+      "workflows/scripts/or/or_logic.py"
+    ],
+    "tests": [
+      "workflows/tests/or/test_families.py"
+    ]
+  }
+}

@@ -1,0 +1,65 @@
+[
+  {
+    "case_id": "IL-001",
+    "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+    "intent": "list_improvements",
+    "user_input": "Listează sugestiile.",
+    "message_id": "003ba241-a790-4790-8870-8308b749326f",
+    "thread_id": "83ce3154-737b-4a96-88e6-5e349875d94a",
+    "idempotency_key": "e2e:il-2026-04-27:IL-001"
+  },
+  {
+    "case_id": "IL-002",
+    "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+    "intent": "list_improvements",
+    "user_input": "Show all suggestions.",
+    "message_id": "88b80f79-84e0-4dfa-8610-eb434674f385",
+    "thread_id": "e2f4da87-9910-4c8b-8956-fd52a67da968",
+    "idempotency_key": "e2e:il-2026-04-27:IL-002"
+  },
+  {
+    "case_id": "IL-003",
+    "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+    "intent": "list_improvements",
+    "user_input": "Listează sugestiile cu status pending.",
+    "message_id": "bf69bd06-674c-4277-8a69-1896783587cd",
+    "thread_id": "609e6ba6-72f3-4e84-8faa-82c9ef483d93",
+    "idempotency_key": "e2e:il-2026-04-27:IL-003"
+  },
+  {
+    "case_id": "IL-004",
+    "tenant_id": "eee0e2e0-0000-0000-0000-00000000000b",
+    "intent": "list_improvements",
+    "user_input": "List my suggestions.",
+    "message_id": "12a35b70-ac40-4ec9-835e-4ae0d467a01e",
+    "thread_id": "af2e535e-5db4-476c-8c3f-7830939113be",
+    "idempotency_key": "e2e:il-2026-04-27:IL-004"
+  },
+  {
+    "case_id": "IL-005",
+    "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+    "intent": "save_suggestion",
+    "user_input": "Sugestie: adaugă filtre avansate.",
+    "message_id": "0b5c9e95-e407-4192-8cc0-576184c8f17f",
+    "thread_id": "1648ad9c-d407-4959-8cf5-68009cf146c7",
+    "idempotency_key": "e2e:il-2026-04-27:IL-005"
+  },
+  {
+    "case_id": "IL-R-task",
+    "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+    "intent": "create_task",
+    "user_input": "Creează task: scrie raportul",
+    "message_id": "75f2e862-7458-4cc7-8ebd-8b41db44a0a1",
+    "thread_id": "9ee8a9d2-f66d-4cd7-8446-db90e3686a71",
+    "idempotency_key": "e2e:il-2026-04-27:IL-R-task"
+  },
+  {
+    "case_id": "IL-R-store",
+    "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+    "intent": "store_memory",
+    "user_input": "Ține minte că folosesc Node 22.",
+    "message_id": "694b4b7a-b212-483d-8ff1-5dd11f24a836",
+    "thread_id": "83485a49-3358-4b69-8805-d96f94e65fb0",
+    "idempotency_key": "e2e:il-2026-04-27:IL-R-store"
+  }
+]

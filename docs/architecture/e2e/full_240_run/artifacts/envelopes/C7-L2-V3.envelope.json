@@ -1,0 +1,23 @@
+{
+  "message_id": "a648b67f-949c-4898-85d2-52c1f77a5129",
+  "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+  "channel": "e2e-rich-matrix",
+  "direction": "inbound",
+  "author_type": "user",
+  "normalized_content": "Trimite-i lui mesajul de care vorbeam.",
+  "timestamp": "2026-04-26T02:50:47.947Z",
+  "source_message_ref": "e2e:C7-L2-V3:e2e:f240-2026-04-26:C7-L2-V3",
+  "author_entity_id": null,
+  "related_entity_ids": [],
+  "metadata": {
+    "e2e_case_id": "C7-L2-V3",
+    "e2e_corridor": "C7",
+    "e2e_variant": "negative_or_boundary",
+    "e2e_phase": "P3_HARD_CASES",
+    "e2e_priority": "P2",
+    "e2e_locale": "ro",
+    "e2e_run_tag": "f240-2026-04-26"
+  },
+  "idempotency_key": "e2e:f240-2026-04-26:C7-L2-V3",
+  "thread_id": "61479671-17f4-4296-8792-68df49dea01c"
+}

@@ -1,0 +1,23 @@
+{
+  "message_id": "b4cbce78-9b6a-4606-86fe-95862c0c8c85",
+  "tenant_id": "eee0e2e0-0000-0000-0000-000000000001",
+  "channel": "e2e-rich-matrix",
+  "direction": "inbound",
+  "author_type": "user",
+  "normalized_content": "Vreau să rezolvi chestia aceea pentru clientul despre care vorbeam, dar nu mai știu exact dacă era Andrei sau Maria și nu vreau să greșim. Într-un alt fir cred că am menționat o preferință de program, dar nu o folosi automat ca să iei o decizie aici. Dacă nu ai context clar în thread-ul curent, pune-mi o întrebare de clarificare în loc să inventezi. Mai adaug o constrângere: dacă există conflict între thread-ul curent și o memorie durabilă, nu suprascrie memoria fără confirmare explicită. Dacă cererea are două interpretări, cere clarificare.",
+  "timestamp": "2026-04-26T02:50:48.058Z",
+  "source_message_ref": "e2e:C7-L5-V4:e2e:f240-2026-04-26:C7-L5-V4",
+  "author_entity_id": null,
+  "related_entity_ids": [],
+  "metadata": {
+    "e2e_case_id": "C7-L5-V4",
+    "e2e_corridor": "C7",
+    "e2e_variant": "retry_or_isolation",
+    "e2e_phase": "P3_HARD_CASES",
+    "e2e_priority": "P2",
+    "e2e_locale": "ro",
+    "e2e_run_tag": "f240-2026-04-26"
+  },
+  "idempotency_key": "e2e:f240-2026-04-26:C7-L5-V4",
+  "thread_id": "a9aa2cc1-c16b-4aa9-84b9-8b6072491adb"
+}

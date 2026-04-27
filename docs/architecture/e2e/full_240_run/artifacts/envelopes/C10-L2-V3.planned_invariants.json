@@ -1,0 +1,21 @@
+{
+  "case_id": "C10-L2-V3",
+  "invariants": [
+    {
+      "name": "assert_tenant_filtered_results",
+      "sql": "SELECT tenant_id, count(*)::int AS c FROM memory_items\n          WHERE idempotency_key LIKE $1\n          GROUP BY tenant_id",
+      "params": [
+        "e2e:f240-2026-04-26:C10-L2-V3%"
+      ],
+      "unknown": false
+    },
+    {
+      "name": "assert_tenant_filtered_results",
+      "sql": "SELECT tenant_id, count(*)::int AS c FROM memory_items\n          WHERE idempotency_key LIKE $1\n          GROUP BY tenant_id",
+      "params": [
+        "e2e:f240-2026-04-26:C10-L2-V3%"
+      ],
+      "unknown": false
+    }
+  ]
+}

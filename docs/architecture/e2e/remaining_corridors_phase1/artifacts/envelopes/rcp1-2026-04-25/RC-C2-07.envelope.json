@@ -1,0 +1,20 @@
+{
+  "message_id": "21ef0352-48c2-4b14-8bd0-713ae3465dbe",
+  "tenant_id": "eee0e2e0-0000-0000-0000-00000000000b",
+  "channel": "rcp1-rich-matrix",
+  "direction": "inbound",
+  "author_type": "user",
+  "normalized_content": "Ține minte că tenant-B funcționează în EUR și are sediul în Cluj.",
+  "timestamp": "2026-04-25T19:17:11.983Z",
+  "source_message_ref": "rcp1:RC-C2-07",
+  "author_entity_id": null,
+  "related_entity_ids": [],
+  "metadata": {
+    "rcp1_case_id": "RC-C2-07",
+    "rcp1_corridor": "C2",
+    "rcp1_run_tag": "rcp1-2026-04-25"
+  },
+  "idempotency_key": "rcp1:rcp1-2026-04-25:RC-C2-07",
+  "thread_id": "6c45109b-b2a4-49fc-88d7-81c6febef7f3",
+  "reply_to_thread_id": null
+}

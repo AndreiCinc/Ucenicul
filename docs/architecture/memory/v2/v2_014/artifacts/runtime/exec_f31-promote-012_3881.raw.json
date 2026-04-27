@@ -1,0 +1,44 @@
+{
+  "case_id": "f31-promote-012",
+  "attempt": 2,
+  "execution_id": "3881",
+  "execution_status": "success",
+  "memory_id": "8fb20b75-b0fc-4c65-a65b-3eaa940b5b09",
+  "idempotency_key": "mem-v2014-primary-f31-promote-012-r2",
+  "input_envelope": {
+    "action": "promote_memory",
+    "memory_id": "8fb20b75-b0fc-4c65-a65b-3eaa940b5b09",
+    "promotion_target": "long_term",
+    "user_confirmed": false,
+    "evidence_validated": false
+  },
+  "db_pre": {
+    "tier": "recent",
+    "user_confirmed": true,
+    "evidence_validated": false,
+    "corroboration_count": 1,
+    "last_reconfirmed_at": null
+  },
+  "db_post": {
+    "tier": "long_term",
+    "user_confirmed": true,
+    "evidence_validated": false,
+    "corroboration_count": 1,
+    "last_reconfirmed_at": "2026-04-22T15:27:26.590Z"
+  },
+  "module_result": {
+    "status": "success",
+    "summary": "Memory promoted to long_term.",
+    "denial_reason": "accepted",
+    "acceptance_signals": ["user_confirmed"],
+    "promoted": true,
+    "domain_writes_performed": true
+  },
+  "downstream_aggregation": {
+    "ra_call_subexec": "3882",
+    "ra_status": "INVALID_AGGREGATION_INPUT",
+    "in_scope": false,
+    "note": "Pre-existing V2-OBS-RA-AGGREGATION-DOMAIN-WRITE-GATE deferred follow-up; same behavior as F3.1 Stage C; not a V2-014 regression."
+  },
+  "captured_at": "2026-04-22T15:27:30.000Z"
+}

@@ -1,0 +1,23 @@
+{
+  "message_id": "acd8fcad-c72e-4da9-808a-7ae479d63ea7",
+  "tenant_id": "eee0e2e0-0000-0000-0000-00000000000b",
+  "channel": "e2e-rich-matrix",
+  "direction": "inbound",
+  "author_type": "user",
+  "normalized_content": "EN case: Remember that I prefer mornings; do not mix this with another tenant.",
+  "timestamp": "2026-04-26T02:50:48.441Z",
+  "source_message_ref": "e2e:C10-L1-V2:e2e:f240-2026-04-26:C10-L1-V2",
+  "author_entity_id": null,
+  "related_entity_ids": [],
+  "metadata": {
+    "e2e_case_id": "C10-L1-V2",
+    "e2e_corridor": "C10",
+    "e2e_variant": "tenant_B_seed",
+    "e2e_phase": "P1_FOUNDATION_CRITICAL",
+    "e2e_priority": "P0",
+    "e2e_locale": "en",
+    "e2e_run_tag": "f240-2026-04-26"
+  },
+  "idempotency_key": "e2e:f240-2026-04-26:C10-L1-V2",
+  "thread_id": "0065e508-0ac6-4723-8566-a6b4a3e6887c"
+}

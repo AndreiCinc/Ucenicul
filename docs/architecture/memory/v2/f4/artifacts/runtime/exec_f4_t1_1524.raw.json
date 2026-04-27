@@ -1,0 +1,28 @@
+{
+  "executionId": "1524",
+  "step_id": "f4-t1",
+  "status": "success",
+  "db_row": {
+    "id": "7b03cd9c-0e3e-45ea-bad6-6fc4adc774f5",
+    "tier": "long_term", "status": "active",
+    "corroboration_count": 1, "user_confirmed": true, "evidence_validated": false,
+    "promoted": false, "denial_reason": "not_in_recent_tier"
+  },
+  "prep_db": { "user_confirmed": false, "evidence_validated": false, "corroboration_threshold": 2 },
+  "module_result": {
+    "status": "partial",
+    "summary": "Promotion denied: not_in_recent_tier",
+    "actions_executed": [{"action":"promote_memory","details":{
+      "memory_id":"7b03cd9c-0e3e-45ea-bad6-6fc4adc774f5","tier":"long_term","status":"active",
+      "last_reconfirmed_at":"2026-04-20T21:51:21.238Z",
+      "denial_reason":"not_in_recent_tier","acceptance_signals":[]
+    }}],
+    "artifacts": [
+      {"type":"memory_id","value":"7b03cd9c-0e3e-45ea-bad6-6fc4adc774f5"},
+      {"type":"denial_reason","value":"not_in_recent_tier","promoted":false}
+    ],
+    "needs_followup": true,
+    "followup_requests":[{"type":"provide_promotion_evidence","memory_id":"7b03cd9c-0e3e-45ea-bad6-6fc4adc774f5","reason":"not_in_recent_tier"}],
+    "domain_writes_performed": false
+  }
+}
