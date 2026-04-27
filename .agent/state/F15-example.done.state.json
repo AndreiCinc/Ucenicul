@@ -1,0 +1,9 @@
+{
+  "mission_id": "F15-example",
+  "kind": "done",
+  "fingerprint": "82e8bc63e9ba0eeb43bca3a0fcb312f216a8ddca9133552299c1d2a9096a918e",
+  "processed": true,
+  "marker": ".agent/missions/F15-example/EXECUTOR_DONE.json",
+  "committed": true,
+  "pushed": false
+}
